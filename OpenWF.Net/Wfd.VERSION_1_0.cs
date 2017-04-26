@@ -767,7 +767,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetStrings != null, "pwfdGetStrings not implemented");
 					retValue = Delegates.pwfdGetStrings(device, name, p_strings, stringsCount);
-					LogFunction("wfdGetStrings({0}, {1}, {2}, {3}) = {4}", device, name, LogValue(strings), stringsCount, retValue);
+					LogCommand("wfdGetStrings", retValue, device, name, strings, stringsCount					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -793,7 +793,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdIsExtensionSupported != null, "pwfdIsExtensionSupported not implemented");
 					retValue = Delegates.pwfdIsExtensionSupported(device, p_string);
-					LogFunction("wfdIsExtensionSupported({0}, {1}) = {2}", device, LogValue(@string), retValue);
+					LogCommand("wfdIsExtensionSupported", retValue, device, @string					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -813,7 +813,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetError != null, "pwfdGetError not implemented");
 			retValue = Delegates.pwfdGetError(device);
-			LogFunction("wfdGetError({0}) = {1}", device, retValue);
+			LogCommand("wfdGetError", retValue, device			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -841,7 +841,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdEnumerateDevices != null, "pwfdEnumerateDevices not implemented");
 					retValue = Delegates.pwfdEnumerateDevices(p_deviceIds, deviceIdsCount, p_filterList);
-					LogFunction("wfdEnumerateDevices({0}, {1}, {2}) = {3}", LogValue(deviceIds), deviceIdsCount, LogValue(filterList), retValue);
+					LogCommand("wfdEnumerateDevices", retValue, deviceIds, deviceIdsCount, filterList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -867,7 +867,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdCreateDevice != null, "pwfdCreateDevice not implemented");
 					retValue = Delegates.pwfdCreateDevice(deviceId, p_attribList);
-					LogFunction("wfdCreateDevice({0}, {1}) = {2}", deviceId, LogValue(attribList), retValue);
+					LogCommand("wfdCreateDevice", retValue, deviceId, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -887,7 +887,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdDestroyDevice != null, "pwfdDestroyDevice not implemented");
 			retValue = Delegates.pwfdDestroyDevice(device);
-			LogFunction("wfdDestroyDevice({0}) = {1}", device, retValue);
+			LogCommand("wfdDestroyDevice", retValue, device			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -909,7 +909,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdDeviceCommit != null, "pwfdDeviceCommit not implemented");
 			Delegates.pwfdDeviceCommit(device, type, handle);
-			LogFunction("wfdDeviceCommit({0}, {1}, {2})", device, type, handle);
+			LogCommand("wfdDeviceCommit", null, device, type, handle			);
 			DebugCheckErrors(null);
 		}
 
@@ -928,7 +928,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetDeviceAttribi != null, "pwfdGetDeviceAttribi not implemented");
 			retValue = Delegates.pwfdGetDeviceAttribi(device, attrib);
-			LogFunction("wfdGetDeviceAttribi({0}, {1}) = {2}", device, attrib, retValue);
+			LogCommand("wfdGetDeviceAttribi", retValue, device, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -950,7 +950,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdSetDeviceAttribi != null, "pwfdSetDeviceAttribi not implemented");
 			Delegates.pwfdSetDeviceAttribi(device, attrib, value);
-			LogFunction("wfdSetDeviceAttribi({0}, {1}, {2})", device, attrib, value);
+			LogCommand("wfdSetDeviceAttribi", null, device, attrib, value			);
 			DebugCheckErrors(null);
 		}
 
@@ -972,7 +972,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdCreateEvent != null, "pwfdCreateEvent not implemented");
 					retValue = Delegates.pwfdCreateEvent(device, p_attribList);
-					LogFunction("wfdCreateEvent({0}, {1}) = {2}", device, LogValue(attribList), retValue);
+					LogCommand("wfdCreateEvent", retValue, device, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -993,7 +993,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdDestroyEvent != null, "pwfdDestroyEvent not implemented");
 			Delegates.pwfdDestroyEvent(device, @event);
-			LogFunction("wfdDestroyEvent({0}, {1})", device, @event);
+			LogCommand("wfdDestroyEvent", null, device, @event			);
 			DebugCheckErrors(null);
 		}
 
@@ -1015,7 +1015,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetEventAttribi != null, "pwfdGetEventAttribi not implemented");
 			retValue = Delegates.pwfdGetEventAttribi(device, @event, attrib);
-			LogFunction("wfdGetEventAttribi({0}, {1}, {2}) = {3}", device, @event, attrib, retValue);
+			LogCommand("wfdGetEventAttribi", retValue, device, @event, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1040,7 +1040,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdDeviceEventAsync != null, "pwfdDeviceEventAsync not implemented");
 			Delegates.pwfdDeviceEventAsync(device, @event, display, sync);
-			LogFunction("wfdDeviceEventAsync({0}, {1}, 0x{2}, 0x{3})", device, @event, display.ToString("X8"), sync.ToString("X8"));
+			LogCommand("wfdDeviceEventAsync", null, device, @event, display, sync			);
 			DebugCheckErrors(null);
 		}
 
@@ -1062,7 +1062,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdDeviceEventWait != null, "pwfdDeviceEventWait not implemented");
 			retValue = Delegates.pwfdDeviceEventWait(device, @event, timeout);
-			LogFunction("wfdDeviceEventWait({0}, {1}, {2}) = {3}", device, @event, timeout, retValue);
+			LogCommand("wfdDeviceEventWait", retValue, device, @event, timeout			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1087,7 +1087,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdDeviceEventFilter != null, "pwfdDeviceEventFilter not implemented");
 					Delegates.pwfdDeviceEventFilter(device, @event, p_filter);
-					LogFunction("wfdDeviceEventFilter({0}, {1}, {2})", device, @event, LogValue(filter));
+					LogCommand("wfdDeviceEventFilter", null, device, @event, filter					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1118,7 +1118,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdEnumeratePorts != null, "pwfdEnumeratePorts not implemented");
 					retValue = Delegates.pwfdEnumeratePorts(device, p_portIds, portIdsCount, p_filterList);
-					LogFunction("wfdEnumeratePorts({0}, {1}, {2}, {3}) = {4}", device, LogValue(portIds), portIdsCount, LogValue(filterList), retValue);
+					LogCommand("wfdEnumeratePorts", retValue, device, portIds, portIdsCount, filterList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1147,7 +1147,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdCreatePort != null, "pwfdCreatePort not implemented");
 					retValue = Delegates.pwfdCreatePort(device, portId, p_attribList);
-					LogFunction("wfdCreatePort({0}, {1}, {2}) = {3}", device, portId, LogValue(attribList), retValue);
+					LogCommand("wfdCreatePort", retValue, device, portId, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1168,7 +1168,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdDestroyPort != null, "pwfdDestroyPort not implemented");
 			Delegates.pwfdDestroyPort(device, port);
-			LogFunction("wfdDestroyPort({0}, {1})", device, port);
+			LogCommand("wfdDestroyPort", null, device, port			);
 			DebugCheckErrors(null);
 		}
 
@@ -1196,7 +1196,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetPortModes != null, "pwfdGetPortModes not implemented");
 					retValue = Delegates.pwfdGetPortModes(device, port, p_modes, modesCount);
-					LogFunction("wfdGetPortModes({0}, {1}, {2}, {3}) = {4}", device, port, LogValue(modes), modesCount, retValue);
+					LogCommand("wfdGetPortModes", retValue, device, port, modes, modesCount					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1225,7 +1225,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetPortModeAttribi != null, "pwfdGetPortModeAttribi not implemented");
 			retValue = Delegates.pwfdGetPortModeAttribi(device, port, mode, attrib);
-			LogFunction("wfdGetPortModeAttribi({0}, {1}, {2}, {3}) = {4}", device, port, mode, attrib, retValue);
+			LogCommand("wfdGetPortModeAttribi", retValue, device, port, mode, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1252,7 +1252,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetPortModeAttribf != null, "pwfdGetPortModeAttribf not implemented");
 			retValue = Delegates.pwfdGetPortModeAttribf(device, port, mode, attrib);
-			LogFunction("wfdGetPortModeAttribf({0}, {1}, {2}, {3}) = {4}", device, port, mode, attrib, retValue);
+			LogCommand("wfdGetPortModeAttribf", retValue, device, port, mode, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1274,7 +1274,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdSetPortMode != null, "pwfdSetPortMode not implemented");
 			Delegates.pwfdSetPortMode(device, port, mode);
-			LogFunction("wfdSetPortMode({0}, {1}, {2})", device, port, mode);
+			LogCommand("wfdSetPortMode", null, device, port, mode			);
 			DebugCheckErrors(null);
 		}
 
@@ -1293,7 +1293,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetCurrentPortMode != null, "pwfdGetCurrentPortMode not implemented");
 			retValue = Delegates.pwfdGetCurrentPortMode(device, port);
-			LogFunction("wfdGetCurrentPortMode({0}, {1}) = {2}", device, port, retValue);
+			LogCommand("wfdGetCurrentPortMode", retValue, device, port			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1317,7 +1317,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetPortAttribi != null, "pwfdGetPortAttribi not implemented");
 			retValue = Delegates.pwfdGetPortAttribi(device, port, attrib);
-			LogFunction("wfdGetPortAttribi({0}, {1}, {2}) = {3}", device, port, attrib, retValue);
+			LogCommand("wfdGetPortAttribi", retValue, device, port, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1341,7 +1341,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetPortAttribf != null, "pwfdGetPortAttribf not implemented");
 			retValue = Delegates.pwfdGetPortAttribf(device, port, attrib);
-			LogFunction("wfdGetPortAttribf({0}, {1}, {2}) = {3}", device, port, attrib, retValue);
+			LogCommand("wfdGetPortAttribf", retValue, device, port, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1372,7 +1372,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetPortAttribiv != null, "pwfdGetPortAttribiv not implemented");
 					Delegates.pwfdGetPortAttribiv(device, port, attrib, count, p_value);
-					LogFunction("wfdGetPortAttribiv({0}, {1}, {2}, {3}, {4})", device, port, attrib, count, LogValue(value));
+					LogCommand("wfdGetPortAttribiv", null, device, port, attrib, count, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1403,7 +1403,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetPortAttribfv != null, "pwfdGetPortAttribfv not implemented");
 					Delegates.pwfdGetPortAttribfv(device, port, attrib, count, p_value);
-					LogFunction("wfdGetPortAttribfv({0}, {1}, {2}, {3}, {4})", device, port, attrib, count, LogValue(value));
+					LogCommand("wfdGetPortAttribfv", null, device, port, attrib, count, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1428,7 +1428,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdSetPortAttribi != null, "pwfdSetPortAttribi not implemented");
 			Delegates.pwfdSetPortAttribi(device, port, attrib, value);
-			LogFunction("wfdSetPortAttribi({0}, {1}, {2}, {3})", device, port, attrib, value);
+			LogCommand("wfdSetPortAttribi", null, device, port, attrib, value			);
 			DebugCheckErrors(null);
 		}
 
@@ -1451,7 +1451,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdSetPortAttribf != null, "pwfdSetPortAttribf not implemented");
 			Delegates.pwfdSetPortAttribf(device, port, attrib, value);
-			LogFunction("wfdSetPortAttribf({0}, {1}, {2}, {3})", device, port, attrib, value);
+			LogCommand("wfdSetPortAttribf", null, device, port, attrib, value			);
 			DebugCheckErrors(null);
 		}
 
@@ -1480,7 +1480,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdSetPortAttribiv != null, "pwfdSetPortAttribiv not implemented");
 					Delegates.pwfdSetPortAttribiv(device, port, attrib, count, p_value);
-					LogFunction("wfdSetPortAttribiv({0}, {1}, {2}, {3}, {4})", device, port, attrib, count, LogValue(value));
+					LogCommand("wfdSetPortAttribiv", null, device, port, attrib, count, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1511,7 +1511,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdSetPortAttribfv != null, "pwfdSetPortAttribfv not implemented");
 					Delegates.pwfdSetPortAttribfv(device, port, attrib, count, p_value);
-					LogFunction("wfdSetPortAttribfv({0}, {1}, {2}, {3}, {4})", device, port, attrib, count, LogValue(value));
+					LogCommand("wfdSetPortAttribfv", null, device, port, attrib, count, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1533,7 +1533,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdBindPipelineToPort != null, "pwfdBindPipelineToPort not implemented");
 			Delegates.pwfdBindPipelineToPort(device, port, pipeline);
-			LogFunction("wfdBindPipelineToPort({0}, {1}, {2})", device, port, pipeline);
+			LogCommand("wfdBindPipelineToPort", null, device, port, pipeline			);
 			DebugCheckErrors(null);
 		}
 
@@ -1561,7 +1561,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetDisplayDataFormats != null, "pwfdGetDisplayDataFormats not implemented");
 					retValue = Delegates.pwfdGetDisplayDataFormats(device, port, p_format, formatCount);
-					LogFunction("wfdGetDisplayDataFormats({0}, {1}, {2}, {3}) = {4}", device, port, LogValue(format), formatCount, retValue);
+					LogCommand("wfdGetDisplayDataFormats", retValue, device, port, format, formatCount					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1596,7 +1596,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetDisplayData != null, "pwfdGetDisplayData not implemented");
 					retValue = Delegates.pwfdGetDisplayData(device, port, format, p_data, dataCount);
-					LogFunction("wfdGetDisplayData({0}, {1}, {2}, {3}, {4}) = {5}", device, port, format, LogValue(data), dataCount, retValue);
+					LogCommand("wfdGetDisplayData", retValue, device, port, format, data, dataCount					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1629,7 +1629,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdEnumeratePipelines != null, "pwfdEnumeratePipelines not implemented");
 					retValue = Delegates.pwfdEnumeratePipelines(device, p_pipelineIds, pipelineIdsCount, p_filterList);
-					LogFunction("wfdEnumeratePipelines({0}, {1}, {2}, {3}) = {4}", device, LogValue(pipelineIds), pipelineIdsCount, LogValue(filterList), retValue);
+					LogCommand("wfdEnumeratePipelines", retValue, device, pipelineIds, pipelineIdsCount, filterList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1658,7 +1658,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdCreatePipeline != null, "pwfdCreatePipeline not implemented");
 					retValue = Delegates.pwfdCreatePipeline(device, pipelineId, p_attribList);
-					LogFunction("wfdCreatePipeline({0}, {1}, {2}) = {3}", device, pipelineId, LogValue(attribList), retValue);
+					LogCommand("wfdCreatePipeline", retValue, device, pipelineId, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1679,7 +1679,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdDestroyPipeline != null, "pwfdDestroyPipeline not implemented");
 			Delegates.pwfdDestroyPipeline(device, pipeline);
-			LogFunction("wfdDestroyPipeline({0}, {1})", device, pipeline);
+			LogCommand("wfdDestroyPipeline", null, device, pipeline			);
 			DebugCheckErrors(null);
 		}
 
@@ -1707,7 +1707,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdCreateSourceFromImage != null, "pwfdCreateSourceFromImage not implemented");
 					retValue = Delegates.pwfdCreateSourceFromImage(device, pipeline, image, p_attribList);
-					LogFunction("wfdCreateSourceFromImage({0}, {1}, 0x{2}, {3}) = {4}", device, pipeline, image.ToString("X8"), LogValue(attribList), retValue);
+					LogCommand("wfdCreateSourceFromImage", retValue, device, pipeline, image, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1739,7 +1739,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdCreateSourceFromStream != null, "pwfdCreateSourceFromStream not implemented");
 					retValue = Delegates.pwfdCreateSourceFromStream(device, pipeline, stream, p_attribList);
-					LogFunction("wfdCreateSourceFromStream({0}, {1}, {2}, {3}) = {4}", device, pipeline, stream, LogValue(attribList), retValue);
+					LogCommand("wfdCreateSourceFromStream", retValue, device, pipeline, stream, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1760,7 +1760,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdDestroySource != null, "pwfdDestroySource not implemented");
 			Delegates.pwfdDestroySource(device, source);
-			LogFunction("wfdDestroySource({0}, {1})", device, source);
+			LogCommand("wfdDestroySource", null, device, source			);
 			DebugCheckErrors(null);
 		}
 
@@ -1788,7 +1788,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdCreateMaskFromImage != null, "pwfdCreateMaskFromImage not implemented");
 					retValue = Delegates.pwfdCreateMaskFromImage(device, pipeline, image, p_attribList);
-					LogFunction("wfdCreateMaskFromImage({0}, {1}, 0x{2}, {3}) = {4}", device, pipeline, image.ToString("X8"), LogValue(attribList), retValue);
+					LogCommand("wfdCreateMaskFromImage", retValue, device, pipeline, image, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1820,7 +1820,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdCreateMaskFromStream != null, "pwfdCreateMaskFromStream not implemented");
 					retValue = Delegates.pwfdCreateMaskFromStream(device, pipeline, stream, p_attribList);
-					LogFunction("wfdCreateMaskFromStream({0}, {1}, {2}, {3}) = {4}", device, pipeline, stream, LogValue(attribList), retValue);
+					LogCommand("wfdCreateMaskFromStream", retValue, device, pipeline, stream, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1841,7 +1841,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdDestroyMask != null, "pwfdDestroyMask not implemented");
 			Delegates.pwfdDestroyMask(device, mask);
-			LogFunction("wfdDestroyMask({0}, {1})", device, mask);
+			LogCommand("wfdDestroyMask", null, device, mask			);
 			DebugCheckErrors(null);
 		}
 
@@ -1870,7 +1870,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdBindSourceToPipeline != null, "pwfdBindSourceToPipeline not implemented");
 					Delegates.pwfdBindSourceToPipeline(device, pipeline, source, transition, p_region);
-					LogFunction("wfdBindSourceToPipeline({0}, {1}, {2}, {3}, {4})", device, pipeline, source, transition, LogValue(region));
+					LogCommand("wfdBindSourceToPipeline", null, device, pipeline, source, transition, region					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1895,7 +1895,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdBindMaskToPipeline != null, "pwfdBindMaskToPipeline not implemented");
 			Delegates.pwfdBindMaskToPipeline(device, pipeline, mask, transition);
-			LogFunction("wfdBindMaskToPipeline({0}, {1}, {2}, {3})", device, pipeline, mask, transition);
+			LogCommand("wfdBindMaskToPipeline", null, device, pipeline, mask, transition			);
 			DebugCheckErrors(null);
 		}
 
@@ -1917,7 +1917,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetPipelineAttribi != null, "pwfdGetPipelineAttribi not implemented");
 			retValue = Delegates.pwfdGetPipelineAttribi(device, pipeline, attrib);
-			LogFunction("wfdGetPipelineAttribi({0}, {1}, {2}) = {3}", device, pipeline, attrib, retValue);
+			LogCommand("wfdGetPipelineAttribi", retValue, device, pipeline, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1941,7 +1941,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetPipelineAttribf != null, "pwfdGetPipelineAttribf not implemented");
 			retValue = Delegates.pwfdGetPipelineAttribf(device, pipeline, attrib);
-			LogFunction("wfdGetPipelineAttribf({0}, {1}, {2}) = {3}", device, pipeline, attrib, retValue);
+			LogCommand("wfdGetPipelineAttribf", retValue, device, pipeline, attrib			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1972,7 +1972,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetPipelineAttribiv != null, "pwfdGetPipelineAttribiv not implemented");
 					Delegates.pwfdGetPipelineAttribiv(device, pipeline, attrib, count, p_value);
-					LogFunction("wfdGetPipelineAttribiv({0}, {1}, {2}, {3}, {4})", device, pipeline, attrib, count, LogValue(value));
+					LogCommand("wfdGetPipelineAttribiv", null, device, pipeline, attrib, count, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2003,7 +2003,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetPipelineAttribfv != null, "pwfdGetPipelineAttribfv not implemented");
 					Delegates.pwfdGetPipelineAttribfv(device, pipeline, attrib, count, p_value);
-					LogFunction("wfdGetPipelineAttribfv({0}, {1}, {2}, {3}, {4})", device, pipeline, attrib, count, LogValue(value));
+					LogCommand("wfdGetPipelineAttribfv", null, device, pipeline, attrib, count, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2028,7 +2028,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdSetPipelineAttribi != null, "pwfdSetPipelineAttribi not implemented");
 			Delegates.pwfdSetPipelineAttribi(device, pipeline, attrib, value);
-			LogFunction("wfdSetPipelineAttribi({0}, {1}, {2}, {3})", device, pipeline, attrib, value);
+			LogCommand("wfdSetPipelineAttribi", null, device, pipeline, attrib, value			);
 			DebugCheckErrors(null);
 		}
 
@@ -2051,7 +2051,7 @@ namespace OpenWF
 		{
 			Debug.Assert(Delegates.pwfdSetPipelineAttribf != null, "pwfdSetPipelineAttribf not implemented");
 			Delegates.pwfdSetPipelineAttribf(device, pipeline, attrib, value);
-			LogFunction("wfdSetPipelineAttribf({0}, {1}, {2}, {3})", device, pipeline, attrib, value);
+			LogCommand("wfdSetPipelineAttribf", null, device, pipeline, attrib, value			);
 			DebugCheckErrors(null);
 		}
 
@@ -2080,7 +2080,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdSetPipelineAttribiv != null, "pwfdSetPipelineAttribiv not implemented");
 					Delegates.pwfdSetPipelineAttribiv(device, pipeline, attrib, count, p_value);
-					LogFunction("wfdSetPipelineAttribiv({0}, {1}, {2}, {3}, {4})", device, pipeline, attrib, count, LogValue(value));
+					LogCommand("wfdSetPipelineAttribiv", null, device, pipeline, attrib, count, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2111,7 +2111,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdSetPipelineAttribfv != null, "pwfdSetPipelineAttribfv not implemented");
 					Delegates.pwfdSetPipelineAttribfv(device, pipeline, attrib, count, p_value);
-					LogFunction("wfdSetPipelineAttribfv({0}, {1}, {2}, {3}, {4})", device, pipeline, attrib, count, LogValue(value));
+					LogCommand("wfdSetPipelineAttribfv", null, device, pipeline, attrib, count, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2141,7 +2141,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdGetPipelineTransparency != null, "pwfdGetPipelineTransparency not implemented");
 					retValue = Delegates.pwfdGetPipelineTransparency(device, pipeline, p_trans, transCount);
-					LogFunction("wfdGetPipelineTransparency({0}, {1}, {2}, {3}) = {4}", device, pipeline, LogValue(trans), transCount, retValue);
+					LogCommand("wfdGetPipelineTransparency", retValue, device, pipeline, trans, transCount					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -2173,7 +2173,7 @@ namespace OpenWF
 				{
 					Debug.Assert(Delegates.pwfdSetPipelineTSColor != null, "pwfdSetPipelineTSColor not implemented");
 					Delegates.pwfdSetPipelineTSColor(device, pipeline, colorFormat, count, color.ToPointer());
-					LogFunction("wfdSetPipelineTSColor({0}, {1}, {2}, {3}, 0x{4})", device, pipeline, colorFormat, count, color.ToString("X8"));
+					LogCommand("wfdSetPipelineTSColor", null, device, pipeline, colorFormat, count, color					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2197,7 +2197,7 @@ namespace OpenWF
 
 			Debug.Assert(Delegates.pwfdGetPipelineLayerOrder != null, "pwfdGetPipelineLayerOrder not implemented");
 			retValue = Delegates.pwfdGetPipelineLayerOrder(device, port, pipeline);
-			LogFunction("wfdGetPipelineLayerOrder({0}, {1}, {2}) = {3}", device, port, pipeline, retValue);
+			LogCommand("wfdGetPipelineLayerOrder", retValue, device, port, pipeline			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);

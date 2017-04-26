@@ -30,12 +30,12 @@ namespace OpenGL
 	{
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired alpha mask buffer size, in bits. 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired alpha mask buffer size, in bits. 
 		/// The smallest alpha mask buffers of at least the specified size are preferred. The default value is zero. The alpha mask 
 		/// buffer is used only by OpenGL and OpenGL ES client APIs.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of bits in the alpha mask buffer.
+		/// Egl.GetConfigAttrib: Returns the number of bits in the alpha mask buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int BUFFER_DESTROYED = 0x3095;
 
 		/// <summary>
-		/// Egl.QueryString: returns a string describing which client rendering APIs are supported. The string contains a 
+		/// Egl.QueryString: Returns a string describing which client rendering APIs are supported. The string contains a 
 		/// space-separate list of API names. The list must include at least one of OpenGL, OpenGL_ES, or OpenVG. These strings 
 		/// correspond respectively to values Egl.OPENGL_API, Egl.OPENGL_ES_API, and Egl.OPENVG_API of the Egl.BindAPI, api 
 		/// argument.
@@ -76,21 +76,21 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by one of Egl.RGB_BUFFER or Egl.LUMINANCE_BUFFER. Egl.RGB_BUFFER indicates an RGB 
+		/// Egl.ChooseConfig: Must be followed by one of Egl.RGB_BUFFER or Egl.LUMINANCE_BUFFER. Egl.RGB_BUFFER indicates an RGB 
 		/// color buffer; in this case, attributes Egl.RED_SIZE, Egl.GREEN_SIZE and Egl.BLUE_SIZE must be non-zero, and 
 		/// Egl.LUMINANCE_SIZE must be zero. Egl.LUMINANCE_BUFFER indicates a luminance color buffer. In this case Egl.RED_SIZE, 
 		/// Egl.GREEN_SIZE, Egl.BLUE_SIZE must be zero, and Egl.LUMINANCE_SIZE must be non-zero. For both RGB and luminance color 
 		/// buffers, Egl.ALPHA_SIZE may be zero or non-zero.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the color buffer type. Possible types are Egl.RGB_BUFFER and Egl.LUMINANCE_BUFFER.
+		/// Egl.GetConfigAttrib: Returns the color buffer type. Possible types are Egl.RGB_BUFFER and Egl.LUMINANCE_BUFFER.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public const int COLOR_BUFFER_TYPE = 0x303F;
 
 		/// <summary>
-		/// Egl.QueryContext: returns the type of client API which the context supports (one of Egl.OPENGL_API, Egl.OPENGL_ES_API, 
+		/// Egl.QueryContext: Returns the type of client API which the context supports (one of Egl.OPENGL_API, Egl.OPENGL_ES_API, 
 		/// or Egl.OPENVG_API).
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
@@ -103,7 +103,7 @@ namespace OpenGL
 		public const int DISPLAY_SCALING = 10000;
 
 		/// <summary>
-		/// Egl.QuerySurface: returns the horizontal dot pitch of the display on which a window surface is visible. The value 
+		/// Egl.QuerySurface: Returns the horizontal dot pitch of the display on which a window surface is visible. The value 
 		/// returned is equal to the actual dot pitch, in pixels/meter, multiplied by the constant value Egl.DISPLAY_SCALING.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
@@ -117,13 +117,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the luminance component 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired size of the luminance component 
 		/// of the color buffer, in bits. If this value is zero, color buffers with the smallest luminance component size are 
 		/// preferred. Otherwise, color buffers with the largest luminance component of at least the specified size are preferred. 
 		/// The default value is zero.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of bits of luminance stored in the luminance buffer.
+		/// Egl.GetConfigAttrib: Returns the number of bits of luminance stored in the luminance buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
@@ -162,7 +162,7 @@ namespace OpenGL
 		public const int OPENVG_IMAGE = 0x3096;
 
 		/// <summary>
-		/// Egl.QuerySurface: returns the aspect ratio of an individual pixel (the ratio of a pixel's width to its height). The 
+		/// Egl.QuerySurface: Returns the aspect ratio of an individual pixel (the ratio of a pixel's width to its height). The 
 		/// value returned is equal to the actual aspect ratio multiplied by the constant value Egl.DISPLAY_SCALING.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
@@ -170,12 +170,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a bitmask indicating which types of client API contexts the frame buffer 
+		/// Egl.ChooseConfig: Must be followed by a bitmask indicating which types of client API contexts the frame buffer 
 		/// configuration must support creating with Egl.CreateContext). Mask bits are the same as for attribute Egl.CONFORMANT. The 
 		/// default value is Egl.OPENGL_ES_BIT.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns a bitmask indicating the types of supported client API contexts.
+		/// Egl.GetConfigAttrib: Returns a bitmask indicating the types of supported client API contexts.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
@@ -183,14 +183,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreateWindowSurface: specifies which buffer should be used for client API rendering to the window. If its value is 
+		/// Egl.CreateWindowSurface: Specifies which buffer should be used for client API rendering to the window. If its value is 
 		/// Egl.SINGLE_BUFFER, then client APIs should render directly into the visible window. If its value is Egl.BACK_BUFFER, 
 		/// then client APIs should render into the back buffer. The default value of Egl.RENDER_BUFFER is Egl.BACK_BUFFER. Client 
 		/// APIs may not be able to respect the requested rendering buffer. To determine the actual buffer being rendered to by a 
 		/// context, call Egl.QueryContext.
 		/// </para>
 		/// <para>
-		/// Egl.QueryContext: returns the buffer which client API rendering via the context will use. The value returned depends on 
+		/// Egl.QueryContext: Returns the buffer which client API rendering via the context will use. The value returned depends on 
 		/// properties of both the context, and the surface to which the context is bound: If the context is bound to a pixmap 
 		/// surface, then Egl.SINGLE_BUFFER will be returned. If the context is bound to a pbuffer surface, then Egl.BACK_BUFFER 
 		/// will be returned. If the context is bound to a window surface, then either Egl.BACK_BUFFER or Egl.SINGLE_BUFFER may be 
@@ -200,7 +200,7 @@ namespace OpenGL
 		/// bound to a framebuffer object, then Egl.NONE will be returned.
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: returns the buffer which client API rendering is requested to use. For a window surface, this is the 
+		/// Egl.QuerySurface: Returns the buffer which client API rendering is requested to use. For a window surface, this is the 
 		/// same attribute value specified when the surface was created. For a pbuffer surface, it is always Egl.BACK_BUFFER. For a 
 		/// pixmap surface, it is always Egl.SINGLE_BUFFER. To determine the actual buffer being rendered to by a context, call 
 		/// Egl.QueryContext.
@@ -223,11 +223,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.QuerySurface: returns the effect on the color buffer when posting a surface with Egl.SwapBuffers. Swap behavior may 
+		/// Egl.QuerySurface: Returns the effect on the color buffer when posting a surface with Egl.SwapBuffers. Swap behavior may 
 		/// be either Egl.BUFFER_PRESERVED or Egl.BUFFER_DESTROYED, as described for Egl.SurfaceAttrib.
 		/// </para>
 		/// <para>
-		/// Egl.SurfaceAttrib: specifies the effect on the color buffer of posting a surface with Egl.SwapBuffers. A value of 
+		/// Egl.SurfaceAttrib: Specifies the effect on the color buffer of posting a surface with Egl.SwapBuffers. A value of 
 		/// Egl.BUFFER_PRESERVED indicates that color buffer contents are unaffected, while Egl.BUFFER_DESTROYED indicates that 
 		/// color buffer contents may be destroyed or changed by the operation. The initial value of Egl.SWAP_BEHAVIOR is chosen by 
 		/// the implementation.
@@ -243,7 +243,7 @@ namespace OpenGL
 		public const int UNKNOWN = -1;
 
 		/// <summary>
-		/// Egl.QuerySurface: returns the vertical dot pitch of the display on which a window surface is visible. The value returned 
+		/// Egl.QuerySurface: Returns the vertical dot pitch of the display on which a window surface is visible. The value returned 
 		/// is equal to the actual dot pitch, in pixels/meter, multiplied by the constant value Egl.DISPLAY_SCALING.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_2")]
@@ -255,6 +255,21 @@ namespace OpenGL
 		/// <param name="api">
 		/// Specifies the client API to bind, one of Egl.OPENGL_API, Egl.OPENGL_ES_API, or Egl.OPENVG_API.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_PARAMETER is generated if <paramref name="api"/> is not one of the accepted tokens, or if the specified client 
+		/// API is not supported by the EGL implementation.
+		/// </exception>
+		/// <seealso cref="Egl.CreateContext"/>
+		/// <seealso cref="Egl.GetCurrentContext"/>
+		/// <seealso cref="Egl.GetCurrentDisplay"/>
+		/// <seealso cref="Egl.GetCurrentSurface"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
+		/// <seealso cref="Egl.QueryAPI"/>
+		/// <seealso cref="Egl.WaitClient"/>
+		/// <seealso cref="Egl.WaitNative"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static bool BindAPI(uint api)
 		{
@@ -271,6 +286,17 @@ namespace OpenGL
 		/// <summary>
 		/// Query the current rendering API
 		/// </summary>
+		/// <exception cref="KhronosException">
+		/// None.
+		/// </exception>
+		/// <seealso cref="Egl.BindAPI"/>
+		/// <seealso cref="Egl.CreateContext"/>
+		/// <seealso cref="Egl.GetCurrentContext"/>
+		/// <seealso cref="Egl.GetCurrentDisplay"/>
+		/// <seealso cref="Egl.GetCurrentSurface"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
+		/// <seealso cref="Egl.WaitClient"/>
+		/// <seealso cref="Egl.WaitNative"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static uint QueryAPI()
 		{
@@ -303,6 +329,69 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixel buffer surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.NO_SURFACE is returned if creation of the context fails.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_PARAMETER is generated if <paramref name="buftype"/> is not Egl.OPENVG_IMAGE, or if <paramref name="buffer"/> is 
+		/// not a valid handle to a VGImage object in the currently bound OpenVG context.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ACCESS is generated if there is no current OpenVG context, or if <paramref name="buffer"/> is already bound to 
+		/// another pixel buffer or in use by OpenVG as discussed in the Notes section above.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid pixel buffer attribute or if an 
+		/// attribute value is not recognized or out of range.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains any of the attributes Egl.MIPMAP_TEXTURE, 
+		/// Egl.TEXTURE_FORMAT, or Egl.TEXTURE_TARGET, and <paramref name="config"/> does not support OpenGL ES rendering (e.g. the 
+		/// EGL version is 1.2 or later, and the Egl.RENDERABLE_TYPE attribute of <paramref name="config"/> does not include at 
+		/// least one of Egl.OPENGL_ES_BIT or Egl.OPENGL_ES2_BIT).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support rendering to pixel buffers (the 
+		/// Egl.SURFACE_TYPE attribute does not contain Egl.PBUFFER_BIT).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the buffers contained in <paramref name="buffer"/> do not match the bit depths for those 
+		/// buffers specified by <paramref name="config"/>.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the Egl.TEXTURE_FORMAT attribute is not Egl.NO_TEXTURE, and Egl.WIDTH and/or Egl.HEIGHT 
+		/// specify an invalid size (e.g., the texture size is not a power of 2, and the underlying OpenGL ES implementation does 
+		/// not support non-power-of-two textures).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the Egl.TEXTURE_FORMAT attribute is Egl.NO_TEXTURE, and Egl.TEXTURE_TARGET is something 
+		/// other than Egl.NO_TEXTURE; or, Egl.TEXTURE_FORMAT is something other than Egl.NO_TEXTURE, and Egl.TEXTURE_TARGET is 
+		/// Egl.NO_TEXTURE.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the implementation has additional constraints on which types of client API buffers may be 
+		/// bound to pixel buffer surfaces. For example, it is possible that the OpenVG implementation might not support a VGImage 
+		/// being bound to a pixel buffer which will be used as a mipmapped OpenGL ES texture (e.g. whose Egl.MIPMAP_TEXTURE 
+		/// attribute is Egl.). Any such constraints should be documented by the implementation release notes.
+		/// </exception>
+		/// <seealso cref="Egl.DestroySurface"/>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.GetConfigs"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
+		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static IntPtr CreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int[] attrib_list)
 		{
@@ -324,6 +413,18 @@ namespace OpenGL
 		/// <summary>
 		/// Release EGL per-thread state
 		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. There are no defined conditions under which failure will occur. 
+		/// Even if EGL is not initialized on any EGLDisplay, Egl.ReleaseThread should succeed.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// However, platform-dependent failures may be signaled through the value returned from Egl.GetError. Unless the 
+		/// platform-dependent behavior is known, a failed call to Egl.ReleaseThread should be assumed to leave the current 
+		/// rendering API, and the currently bound contexts for each supported client API, in an unknown state.
+		/// </exception>
+		/// <seealso cref="Egl.BindAPI"/>
+		/// <seealso cref="Egl.GetError"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static bool ReleaseThread()
 		{
@@ -340,6 +441,21 @@ namespace OpenGL
 		/// <summary>
 		/// Complete client API execution prior to subsequent native rendering calls
 		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned if Egl.WaitClient fails, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// If there is no current context for the current rendering API, the function has no effect but still returns Egl.TRUE.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CURRENT_SURFACE is generated if the surface associated with the current context has a native window or pixmap, 
+		/// and that window or pixmap is no longer valid.
+		/// </exception>
+		/// <seealso cref="Egl.glFinish"/>
+		/// <seealso cref="Egl.glFlush"/>
+		/// <seealso cref="Egl.WaitGL"/>
+		/// <seealso cref="Egl.WaitNative"/>
+		/// <seealso cref="Egl.vgFinish"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static bool WaitClient()
 		{

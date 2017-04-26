@@ -557,7 +557,7 @@ namespace BindingsGen
 		#endregion
 	}
 
-	class RegistryDocumentationHandler_GL2 : RegistryDocumentationHandler
+	class RegistryDocumentationHandler_GL2 : RegistryDocumentationHandler_Default
 	{
 		#region Constructors
 
@@ -693,7 +693,7 @@ namespace BindingsGen
 		public override void Load(string xmlPath)
 		{
 			if (_Xml != null)
-				throw new InvalidOperationException("already loaded");
+				return;
 
 			XmlDocument xml = new XmlDocument();
 			XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());
@@ -782,9 +782,37 @@ namespace BindingsGen
 				throw new ArgumentNullException("enumerant");
 
 			if (_Xml != null) {
-				return (String.Empty);
+				XmlDocument xml = _Xml;
+				XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());
+				nsmgr.AddNamespace("mml", "http://www.w3.org/2001/XMLSchema-instance");
+
+				XmlNodeList enumerants = xml.SelectNodes("/refentry/refsect1[@id='description']/variablelist/varlistentry", nsmgr);
+				foreach (XmlNode xmlNode in enumerants) {
+					XmlNode enumerantId = xmlNode.SelectSingleNode("term/constant", nsmgr);
+					if (enumerantId == null || enumerantId.InnerText != enumerant.Name)
+						continue;
+					XmlNode enumerantDoc = xmlNode.SelectSingleNode("listitem", nsmgr);
+					if (enumerantDoc == null)
+						continue;
+
+					if (!Regex.IsMatch(enumerantId.InnerText, "^(GL_|WGL_|GLX_).*"))
+						continue;
+
+					XmlNodeList xmlIdentifiers = _Xml.DocumentElement.SelectNodes("/refentry/refsynopsisdiv/funcsynopsis/funcprototype/funcdef/function", nsmgr);
+					string functionName = String.Empty;
+
+					if (xmlIdentifiers.Count > 0) {
+						Command commandRef = ctx.Registry.GetCommand(xmlIdentifiers[0].InnerXml);
+
+						functionName = String.Format("{0}.{1}: ", ctx.Class, commandRef.GetImplementationName(ctx));
+					}
+
+					return (functionName + GetDocumentationLine(enumerantDoc.InnerXml, _TranformEnumerantMan, ctx));
+				}
+
+				return (base.QueryEnumSummary(ctx, enumerant));
 			} else
-				return (String.Empty);
+				return (base.QueryEnumSummary(ctx, enumerant));
 		}
 
 		/// <summary>
@@ -982,7 +1010,7 @@ namespace BindingsGen
 		public override void Dispose()
 		{
 			// Dispose XML document
-			_Xml = null;
+			// _Xml = null;		Keep in memory
 		}
 
 		/// <summary>
@@ -1129,7 +1157,7 @@ namespace BindingsGen
 		public override void Load(string xmlPath)
 		{
 			if (_Xml != null)
-				throw new InvalidOperationException("already loaded");
+				return;
 
 			XmlDocument xml = new XmlDocument();
 			XmlNamespaceManager nsmgr = new XmlNamespaceManager(new NameTable());

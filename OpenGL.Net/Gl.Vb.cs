@@ -40,9 +40,7 @@ namespace OpenGL
 			/// Bitwise OR of masks that indicate the buffers to be cleared. The three masks are Gl.COLOR_BUFFER_BIT, 
 			/// Gl.DEPTH_BUFFER_BIT, and Gl.STENCIL_BUFFER_BIT.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
-			/// <exception cref="InvalidOperationException">
+			/// <exception cref="KhronosException">
 			/// Gl.INVALID_VALUE is generated if any bit other than the three defined bits is set in <paramref name="mask"/>.
 			/// </exception>
 			/// <seealso cref="Gl.ColorMask"/>
@@ -78,8 +76,6 @@ namespace OpenGL
 			/// Specify the width and height of the viewport. When a GL context is first attached to a window, <paramref name="width"/> 
 			/// and <paramref name="height"/> are set to the dimensions of that window.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
 			/// </exception>
@@ -125,8 +121,6 @@ namespace OpenGL
 			/// <param name="bitmap">
 			/// Specifies the address of the bitmap image.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_VALUE is generated if <paramref name="width"/> or <paramref name="height"/> is negative.
 			/// </exception>
@@ -333,8 +327,6 @@ namespace OpenGL
 			/// <param name="param">
 			/// Specifies the value that <paramref name="pname"/> will be set to.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
 			/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
@@ -368,8 +360,6 @@ namespace OpenGL
 			/// <param name="params">
 			/// A <see cref="T:float[]"/>.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
 			/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
@@ -408,8 +398,6 @@ namespace OpenGL
 			/// <param name="param">
 			/// Specifies the value that <paramref name="pname"/> will be set to.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
 			/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
@@ -442,8 +430,6 @@ namespace OpenGL
 			/// <param name="params">
 			/// A <see cref="T:Int32[]"/>.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
 			/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
@@ -482,8 +468,6 @@ namespace OpenGL
 			/// Specifies a floating-point value used in the accumulation buffer operation. <paramref name="op"/> determines how 
 			/// <paramref name="value"/> is used.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_ENUM is generated if <paramref name="op"/> is not an accepted value.
 			/// </exception>
@@ -614,8 +598,6 @@ namespace OpenGL
 			/// If Gl.TRUE, pixels will be consumed by the histogramming process and no drawing or texture loading will take place. If 
 			/// Gl.FALSE, pixels will proceed to the minmax process after histogramming.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 			/// </exception>
@@ -663,8 +645,6 @@ namespace OpenGL
 			/// If Gl.TRUE, pixels will be consumed by the minmax process and no drawing or texture loading will take place. If 
 			/// Gl.FALSE, pixels will proceed to the final conversion process after minmax.
 			/// </param>
-			/// <remarks>
-			/// </remarks>
 			/// <exception cref="KhronosException">
 			/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 			/// </exception>
@@ -700,7 +680,7 @@ namespace OpenGL
 			public const int CLEAR = 0x1500;
 
 			/// <summary>
-			/// Gl.Get: when used with non-indexed variants of glGet (such as glGetIntegerv), data returns four values: the x and y 
+			/// Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns four values: the x and y 
 			/// window coordinates of the viewport, followed by its width and height. Initially the x and y window coordinates are both 
 			/// set to 0, and the width and height are set to the width and height of the window into which the GL will do its 
 			/// rendering. See Gl.Viewport. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns four 
@@ -732,11 +712,11 @@ namespace OpenGL
 
 			/// <summary>
 			/// <para>
-			/// Gl.Get: params returns a single boolean value indicating whether fogging is enabled. The initial value is Gl.FALSE. See 
-			/// Gl.Fog.
+			/// Gl.Enable: If enabled and no fragment shader is active, blend a fog color into the post-texturing color. See Gl.Fog.
 			/// </para>
 			/// <para>
-			/// Gl.Enable: if enabled and no fragment shader is active, blend a fog color into the post-texturing color. See Gl.Fog.
+			/// Gl.Get: params returns a single boolean value indicating whether fogging is enabled. The initial value is Gl.FALSE. See 
+			/// Gl.Fog.
 			/// </para>
 			/// </summary>
 			[RequiredByFeature("GL_VERSION_1_0")]
@@ -746,7 +726,7 @@ namespace OpenGL
 			public const int FOG = 0x0B60;
 
 			/// <summary>
-			/// Gl.Accum: obtains R, G, B, and A values from the buffer currently selected for reading (see Gl.ReadBuffer). Each 
+			/// Gl.Accum: Obtains R, G, B, and A values from the buffer currently selected for reading (see Gl.ReadBuffer). Each 
 			/// component value is divided by 2n-1, where n is the number of bits allocated to each color component in the currently 
 			/// selected buffer. The result is a floating-point value in the range 01, which is multiplied by value and added to the 
 			/// corresponding pixel component in the accumulation buffer, thereby updating the accumulation buffer.
@@ -757,11 +737,11 @@ namespace OpenGL
 
 			/// <summary>
 			/// <para>
-			/// Gl.Get: params returns a single boolean value indicating whether histogram is enabled. The initial value is Gl.FALSE. 
-			/// See Gl.Histogram.
+			/// Gl.Enable: If enabled, histogram incoming RGBA color values. See Gl.Histogram.
 			/// </para>
 			/// <para>
-			/// Gl.Enable: if enabled, histogram incoming RGBA color values. See Gl.Histogram.
+			/// Gl.Get: params returns a single boolean value indicating whether histogram is enabled. The initial value is Gl.FALSE. 
+			/// See Gl.Histogram.
 			/// </para>
 			/// </summary>
 			[AliasOf("GL_HISTOGRAM_EXT")]
@@ -771,11 +751,11 @@ namespace OpenGL
 
 			/// <summary>
 			/// <para>
-			/// Gl.Get: params returns a single boolean value indicating whether pixel minmax values are computed. The initial value is 
-			/// Gl.FALSE. See Gl.Minmax.
+			/// Gl.Enable: If enabled, compute the minimum and maximum values of incoming RGBA color values. See Gl.Minmax.
 			/// </para>
 			/// <para>
-			/// Gl.Enable: if enabled, compute the minimum and maximum values of incoming RGBA color values. See Gl.Minmax.
+			/// Gl.Get: params returns a single boolean value indicating whether pixel minmax values are computed. The initial value is 
+			/// Gl.FALSE. See Gl.Minmax.
 			/// </para>
 			/// </summary>
 			[AliasOf("GL_MINMAX_EXT")]

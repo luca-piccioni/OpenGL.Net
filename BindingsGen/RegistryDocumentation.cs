@@ -27,9 +27,18 @@ namespace BindingsGen
 	public interface IRegistryDocumentation
 	{
 		/// <summary>
+		/// The API described by this documentation handler.
+		/// </summary>
+		string Api { get; }
+
+		/// <summary>
 		/// Index all documented OpenGL commands the the EGL manual.
 		/// </summary>
 		void ScanDocumentation(string path);
+
+		bool HasDocumentation(Command enumerant);
+
+		bool HasDocumentation(Enumerant enumerant);
 
 		/// <summary>
 		/// Generate a <see cref="Command"/> documentation using the Khronos reference pages.
@@ -51,86 +60,31 @@ namespace BindingsGen
 
 	class RegistryDocumentation
 	{
-		#region Text Processing Utilities
+		#region Generation Methods
 
-		public static List<string> SplitDocumentationLines(string documentation)
+		internal static bool GenerateDocumentation(SourceStreamWriter sw, RegistryContext ctx, Enumerant enumerant, IList<RegistryDocumentationHandler> docHandlers)
 		{
-			const int MAX_LINE_LENGTH = 120;
+			// Loads documentation information
+			foreach (RegistryDocumentationHandler docHandler in docHandlers)
+				docHandler.Load();
 
-			List<string> documentationLines = new List<string>();
-			string[] documentationTokens = Regex.Split(documentation, " ");
-			StringBuilder documentationLine = new StringBuilder();
-
-			for (int i = 0; i < documentationTokens.Length; i++) {
-				if (documentationLine.Length + documentationTokens[i].Length > MAX_LINE_LENGTH) {
-					documentationLines.Add(documentationLine.ToString());
-					documentationLine = new StringBuilder();
-					documentationLine.Append(documentationTokens[i]);
-				} else {
-					documentationLine.Append(documentationTokens[i]);
+			sw.WriteLine("/// <summary>");
+			if (docHandlers.Count > 1) {
+				foreach (RegistryDocumentationHandler docHandler in docHandlers) {
+					sw.WriteLine("/// <para>");
+					sw.WriteLine("/// {0}", SplitDocumentationLines(docHandler.QueryEnumSummary(ctx, enumerant)));
+					sw.WriteLine("/// </para>");
 				}
-				if (i < documentationTokens.Length - 1)
-					documentationLine.Append(" ");
+			} else {
+				sw.WriteLine("/// {0}", SplitDocumentationLines(docHandlers[0].QueryEnumSummary(ctx, enumerant)));
 			}
-			if (documentationLine.Length > 0)
-				documentationLines.Add(documentationLine.ToString());
+			sw.WriteLine("/// </summary>");
 
-			return (documentationLines);
-		}
+			// Dispose documentation information
+			foreach (RegistryDocumentationHandler docHandler in docHandlers)
+				docHandler.Dispose();
 
-		public static List<string> SplitDocumentationPeriods(string documentation)
-		{
-			string[] periods = Regex.Split(documentation, @"(\.|\,)( |\n|\t|$)");
-
-			return (new List<string>(periods));
-		}
-
-		#endregion
-	}
-
-	class RegistryDocumentation<T> : RegistryDocumentation, IRegistryDocumentation where T : RegistryDocumentationHandler, new()
-	{
-		#region Scan & Generation
-
-		/// <summary>
-		/// Index all documented OpenGL commands the the EGL manual.
-		/// </summary>
-		public void ScanDocumentation(string path)
-		{
-			Console.WriteLine("Scanning registry documentation (EGL)...");
-
-			foreach (string documentationFile in Directory.GetFiles(path)) {
-				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
-					continue;
-
-				try {
-					T docHandler = new T();
-
-					docHandler.Load(documentationFile);
-					docHandler.Query();
-
-					foreach (string command in docHandler.Commands) {
-						List<T> docHandlers;
-
-						if (_DocMapCommands.TryGetValue(command, out docHandlers) == false)
-							_DocMapCommands[command] = docHandlers = new List<T>();
-						docHandlers.Add(docHandler);
-					}
-
-					foreach (string enumValue in docHandler.Enums) {
-						List<T> docHandlers;
-
-						if (_DocMapEnums.TryGetValue(enumValue, out docHandlers) == false)
-							_DocMapEnums[enumValue] = docHandlers = new List<T>();
-						docHandlers.Add(docHandler);
-					}
-
-					// Release memory
-					docHandler.Dispose();
-				} catch (Exception e) {
-					continue;
-				}
-			}
+			return (true);
 		}
 
 		/// <summary>
@@ -146,13 +100,8 @@ namespace BindingsGen
 		/// The <see cref="Command"/> to be documented.
 		/// </param>
 		/// <param name="fail"></param>
-		public bool GenerateDocumentation(SourceStreamWriter sw, RegistryContext ctx, Command command, bool fail, List<CommandParameter> commandParams)
+		internal static bool GenerateDocumentation(SourceStreamWriter sw, RegistryContext ctx, Command command, bool fail, List<CommandParameter> commandParams, IList<RegistryDocumentationHandler> docHandlers)
 		{
-			List<T> docHandlers;
-
-			if (_DocMapCommands.TryGetValue(command.Prototype.Name, out docHandlers) == false)
-				return (false);
-
 			// Loads documentation information
 			foreach (RegistryDocumentationHandler docHandler in docHandlers)
 				docHandler.Load();
@@ -199,6 +148,50 @@ namespace BindingsGen
 
 			#endregion
 
+			#region Remarks
+
+			IEnumerable<string> remarksDoc = docHandlers[0].QueryCommandRemarks(ctx, command);
+			List<string> remarksLines = new List<string>(remarksDoc);
+
+			if (remarksLines.Count > 0 && false) {
+				sw.WriteLine("/// <remarks>");
+				foreach (string remarksLine in remarksLines) {
+					sw.WriteLine("/// <para>");
+					sw.WriteLine("/// {0}", SplitDocumentationLines(remarksLine));
+					sw.WriteLine("/// </para>");
+				}
+				sw.WriteLine("/// </remarks>");
+			}
+
+			#endregion
+
+			#region Errors
+
+			IEnumerable<string> errorsDoc = docHandlers[0].QueryCommandErrors(ctx, command);
+			List<string> errorsLines = new List<string>(errorsDoc);
+
+			if (remarksLines.Count > 0) {
+				foreach (string errorLine in errorsLines) {
+					sw.WriteLine("/// <exception cref=\"KhronosException\">");
+					sw.WriteLine("/// {0}", SplitDocumentationLines(errorLine));
+					sw.WriteLine("/// </exception>");
+				}
+			}
+
+			#endregion
+
+			#region See Also
+
+			IEnumerable<string> seealsoDoc = docHandlers[0].QueryCommandSeeAlso(ctx, command);
+			List<string> seealsoLines = new List<string>(seealsoDoc);
+
+			if (seealsoLines.Count > 0) {
+				foreach (string seealsoLine in seealsoLines)
+					sw.WriteLine("/// {0}", seealsoLine);
+			}
+
+			#endregion
+
 			// Dispose documentation information
 			foreach (RegistryDocumentationHandler docHandler in docHandlers)
 				docHandler.Dispose();
@@ -206,37 +199,136 @@ namespace BindingsGen
 			return (true);
 		}
 
+		#endregion
+
+		#region Text Processing Utilities
+
+		public static List<string> SplitDocumentationLines(string documentation)
+		{
+			const int MAX_LINE_LENGTH = 120;
+
+			List<string> documentationLines = new List<string>();
+			string[] documentationTokens = Regex.Split(documentation, " ");
+			StringBuilder documentationLine = new StringBuilder();
+
+			for (int i = 0; i < documentationTokens.Length; i++) {
+				if (documentationLine.Length + documentationTokens[i].Length > MAX_LINE_LENGTH) {
+					documentationLines.Add(documentationLine.ToString());
+					documentationLine = new StringBuilder();
+					documentationLine.Append(documentationTokens[i]);
+				} else {
+					documentationLine.Append(documentationTokens[i]);
+				}
+				if (i < documentationTokens.Length - 1)
+					documentationLine.Append(" ");
+			}
+			if (documentationLine.Length > 0)
+				documentationLines.Add(documentationLine.ToString());
+
+			return (documentationLines);
+		}
+
+		public static List<string> SplitDocumentationPeriods(string documentation)
+		{
+			string[] periods = Regex.Split(documentation, @"(\.|\,)( |\n|\t|$)");
+
+			return (new List<string>(periods));
+		}
+
+		#endregion
+	}
+
+	class RegistryDocumentation<T> : RegistryDocumentation, IRegistryDocumentation where T : RegistryDocumentationHandler, new()
+	{
+		#region Scan & Generation
+
+		/// <summary>
+		/// The API described by this documentation handler.
+		/// </summary>
+		public string Api { get; set; }
+
+		/// <summary>
+		/// Index all documented OpenGL commands the the EGL manual.
+		/// </summary>
+		public void ScanDocumentation(string path)
+		{
+			Console.WriteLine("Scanning registry documentation (EGL)...");
+
+			foreach (string documentationFile in Directory.GetFiles(path)) {
+				if (documentationFile.ToLowerInvariant().EndsWith(".xml") == false)
+					continue;
+
+				try {
+					T docHandler = new T();
+
+					docHandler.Load(documentationFile);
+					docHandler.Query();
+
+					foreach (string command in docHandler.Commands) {
+						List<T> docHandlers;
+
+						if (_DocMapCommands.TryGetValue(command, out docHandlers) == false)
+							_DocMapCommands[command] = docHandlers = new List<T>();
+						docHandlers.Add(docHandler);
+					}
+
+					foreach (string enumValue in docHandler.Enums) {
+						List<T> docHandlers;
+
+						if (_DocMapEnums.TryGetValue(enumValue, out docHandlers) == false)
+							_DocMapEnums[enumValue] = docHandlers = new List<T>();
+						docHandlers.Add(docHandler);
+					}
+
+					// Release memory
+					docHandler.Dispose();
+				} catch (Exception e) {
+					continue;
+				}
+			}
+		}
+
+		public bool HasDocumentation(Command command)
+		{
+			return (_DocMapCommands.ContainsKey(command.Prototype.Name));
+		}
+
+		public bool HasDocumentation(Enumerant enumerant)
+		{
+			return (_DocMapEnums.ContainsKey(enumerant.Name));
+		}
+
+		/// <summary>
+		/// Generate a <see cref="Command"/> documentation using the Khronos reference pages.
+		/// </summary>
+		/// <param name="sw">
+		/// A <see cref="SourceStreamWriter"/> used to write the documentation of <paramref name="command"/>.
+		/// </param>
+		/// <param name="ctx">
+		/// A <see cref="RegistryContext"/> that defines the OpenGL specification.
+		/// </param>
+		/// <param name="command">
+		/// The <see cref="Command"/> to be documented.
+		/// </param>
+		/// <param name="fail"></param>
+		public bool GenerateDocumentation(SourceStreamWriter sw, RegistryContext ctx, Command command, bool fail, List<CommandParameter> commandParams)
+		{
+			List<T> docHandlers;
+
+			if (_DocMapCommands.TryGetValue(command.Prototype.Name, out docHandlers) == false)
+				return (false);
+
+			return (GenerateDocumentation(sw, ctx, command, true, commandParams, docHandlers.ConvertAll(delegate(T item) { return ((RegistryDocumentationHandler)item); })));
+		}
+
 		public bool GenerateDocumentation(SourceStreamWriter sw, RegistryContext ctx, Enumerant enumerant)
 		{
 			List<T> docHandlers;
 
-			if (_DocMapEnums.TryGetValue(enumerant.Name, out docHandlers) == false) {
-				RegistryDocumentationHandler_Default defaultDoc = new RegistryDocumentationHandler_Default();
-				docHandlers = new List<T>();
-				docHandlers.Add(new T());
-			}
+			if (_DocMapEnums.TryGetValue(enumerant.Name, out docHandlers) == false)
+				return (false);
 
-			// Loads documentation information
-			foreach (RegistryDocumentationHandler docHandler in docHandlers)
-				docHandler.Load();
-
-			sw.WriteLine("/// <summary>");
-			if (docHandlers.Count > 1) {
-				foreach (RegistryDocumentationHandler docHandler in docHandlers) {
-					sw.WriteLine("/// <para>");
-					sw.WriteLine("/// {0}", SplitDocumentationLines(docHandler.QueryEnumSummary(ctx, enumerant)));
-					sw.WriteLine("/// </para>");
-				}
-			} else {
-				sw.WriteLine("/// {0}", SplitDocumentationLines(docHandlers[0].QueryEnumSummary(ctx, enumerant)));
-			}
-			sw.WriteLine("/// </summary>");
-
-			// Dispose documentation information
-			foreach (RegistryDocumentationHandler docHandler in docHandlers)
-				docHandler.Dispose();
-
-			return (true);
+			return (GenerateDocumentation(sw, ctx, enumerant, docHandlers.ConvertAll(delegate(T item) { return ((RegistryDocumentationHandler)item); })));
 		}
 
 		/// <summary>
@@ -249,7 +341,66 @@ namespace BindingsGen
 		/// </summary>
 		private readonly Dictionary<string, List<T>> _DocMapEnums = new Dictionary<string, List<T>>();
 
-
 		#endregion
+	}
+
+	static class CollectionExtensions
+	{
+		public static void GenerateDocumentation(this ICollection<IRegistryDocumentation> docs, SourceStreamWriter sw, RegistryContext ctx, Enumerant enumerant)
+		{
+			if (docs == null || docs.Count == 0)
+				return;
+
+			List<IRegistryDocumentation> validDocs = new List<IRegistryDocumentation>();
+
+			foreach (IRegistryDocumentation doc in docs) {
+				if (doc.HasDocumentation(enumerant) == false)
+					continue;
+				validDocs.Add(doc);
+			}
+
+			if (validDocs.Count > 0)
+				validDocs[0].GenerateDocumentation(sw, ctx, enumerant);
+			else {
+				RegistryDocumentation.GenerateDocumentation(sw, ctx, enumerant, new List<RegistryDocumentationHandler>(new RegistryDocumentationHandler[] {
+					new RegistryDocumentationHandler_Default()
+				}));
+			}
+		}
+
+		/// <summary>
+		/// Generate a <see cref="Command"/> documentation using the Khronos reference pages.
+		/// </summary>
+		/// <param name="sw">
+		/// A <see cref="SourceStreamWriter"/> used to write the documentation of <paramref name="command"/>.
+		/// </param>
+		/// <param name="ctx">
+		/// A <see cref="RegistryContext"/> that defines the OpenGL specification.
+		/// </param>
+		/// <param name="command">
+		/// The <see cref="Command"/> to be documented.
+		/// </param>
+		/// <param name="fail"></param>
+		public static void GenerateDocumentation(this ICollection<IRegistryDocumentation> docs, SourceStreamWriter sw, RegistryContext ctx, Command command, bool fail, List<CommandParameter> commandParams)
+		{
+			if (docs == null || docs.Count == 0)
+				return;
+
+			List<IRegistryDocumentation> validDocs = new List<IRegistryDocumentation>();
+
+			foreach (IRegistryDocumentation doc in docs) {
+				if (doc.HasDocumentation(command) == false)
+					continue;
+				validDocs.Add(doc);
+			}
+
+			if (validDocs.Count > 0)
+				validDocs[0].GenerateDocumentation(sw, ctx, command, fail, commandParams);
+			else {
+				RegistryDocumentation.GenerateDocumentation(sw, ctx, command, fail, commandParams, new List<RegistryDocumentationHandler>(new RegistryDocumentationHandler[] {
+					new RegistryDocumentationHandler_Default()
+				}));
+			}
+		}
 	}
 }

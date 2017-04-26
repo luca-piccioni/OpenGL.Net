@@ -362,7 +362,7 @@ namespace OpenGL
 		public const int ACTIVE_TEXTURE = 0x84E0;
 
 		/// <summary>
-		/// Gl.Enable: if enabled, use multiple fragment samples in computing the final color of a pixel. See Gl.SampleCoverage.
+		/// Gl.Enable: If enabled, use multiple fragment samples in computing the final color of a pixel. See Gl.SampleCoverage.
 		/// </summary>
 		[AliasOf("GL_MULTISAMPLE_ARB")]
 		[AliasOf("GL_MULTISAMPLE_EXT")]
@@ -376,7 +376,7 @@ namespace OpenGL
 		public const int MULTISAMPLE = 0x809D;
 
 		/// <summary>
-		/// Gl.Enable: if enabled, compute a temporary coverage value where each bit is determined by the alpha value at the 
+		/// Gl.Enable: If enabled, compute a temporary coverage value where each bit is determined by the alpha value at the 
 		/// corresponding sample location. The temporary coverage value is then ANDed with the fragment coverage value.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_ALPHA_TO_COVERAGE_ARB")]
@@ -387,7 +387,7 @@ namespace OpenGL
 		public const int SAMPLE_ALPHA_TO_COVERAGE = 0x809E;
 
 		/// <summary>
-		/// Gl.Enable: if enabled, each sample alpha value is replaced by the maximum representable alpha value.
+		/// Gl.Enable: If enabled, each sample alpha value is replaced by the maximum representable alpha value.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_ARB")]
 		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_EXT")]
@@ -401,7 +401,7 @@ namespace OpenGL
 		public const int SAMPLE_ALPHA_TO_ONE = 0x809F;
 
 		/// <summary>
-		/// Gl.Enable: if enabled, the fragment's coverage is ANDed with the temporary coverage value. If Gl.SAMPLE_COVERAGE_INVERT 
+		/// Gl.Enable: If enabled, the fragment's coverage is ANDed with the temporary coverage value. If Gl.SAMPLE_COVERAGE_INVERT 
 		/// is set to Gl.TRUE, invert the coverage value. See Gl.SampleCoverage.
 		/// </summary>
 		[AliasOf("GL_SAMPLE_COVERAGE_ARB")]
@@ -478,11 +478,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether cube-mapped texture mapping is enabled. The initial 
-		/// value is Gl.FALSE. See Gl.TexImage2D.
+		/// Gl.Enable: If enabled and no fragment shader is active, cube-mapped texturing is performed. See Gl.TexImage2D.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no fragment shader is active, cube-mapped texturing is performed. See Gl.TexImage2D.
+		/// Gl.Get: params returns a single boolean value indicating whether cube-mapped texture mapping is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.TexImage2D.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_CUBE_MAP_ARB")]
@@ -638,7 +638,7 @@ namespace OpenGL
 		/// Gl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Gl.Hint: indicates the quality and performance of the compressing texture images. Hinting Gl.FASTEST indicates that 
+		/// Gl.Hint: Indicates the quality and performance of the compressing texture images. Hinting Gl.FASTEST indicates that 
 		/// texture images should be compressed as quickly as possible, while Gl.NICEST indicates that texture images should be 
 		/// compressed with as little image quality loss as possible. Gl.NICEST should be selected if the texture is to be retrieved 
 		/// by Gl.GetCompressedTexImage for reuse.
@@ -1146,9 +1146,7 @@ namespace OpenGL
 		/// least 80. <paramref name="texture"/> must be one of Gl.TEXTUREi, where i ranges from zero to the value of 
 		/// Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS minus one. The initial value is Gl.TEXTURE0.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="texture"/> is not one of Gl.TEXTUREi, where i ranges from zero to the 
 		/// value of Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS minus one.
 		/// </exception>
@@ -1250,8 +1248,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
@@ -1356,8 +1352,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
@@ -1461,8 +1455,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
@@ -1563,8 +1555,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
@@ -1660,8 +1650,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
@@ -1754,8 +1742,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_ALPHA, Gl.COMPRESSED_LUMINANCE, Gl.COMPRESSED_LUMINANCE_ALPHA, Gl.COMPRESSED_INTENSITY, Gl.COMPRESSED_RGB, 
@@ -1861,38 +1847,36 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage3D if <paramref name="target"/> is not Gl.TEXTURE_2D_ARRAY, 
 		/// Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP_ARRAY.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage3D if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
@@ -1965,38 +1949,36 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage3D if <paramref name="target"/> is not Gl.TEXTURE_2D_ARRAY, 
 		/// Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP_ARRAY.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage3D if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
@@ -2066,41 +2048,39 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage2D if <paramref name="target"/> is Gl.TEXTURE_RECTANGLE or 
 		/// Gl.PROXY_TEXTURE_RECTANGLE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if the effective target is Gl.TEXTURE_RECTANGLE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
@@ -2167,41 +2147,39 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.CompressedTexSubImage2D if <paramref name="target"/> is Gl.TEXTURE_RECTANGLE or 
 		/// Gl.PROXY_TEXTURE_RECTANGLE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CompressedTextureSubImage2D if the effective target is Gl.TEXTURE_RECTANGLE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
@@ -2262,34 +2240,32 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// GL_INVALID_OPERATION is generated by Gl.CompressedTextureSubImage1D function if texture is not the name of an existing 
 		/// texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
@@ -2346,34 +2322,32 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the generic compressed internal formats: 
 		/// Gl.COMPRESSED_RED, Gl.COMPRESSED_RG, Gl.COMPRESSED_RGB, Gl.COMPRESSED_RGBA. Gl.COMPRESSED_SRGB, or 
 		/// Gl.COMPRESSED_SRGB_ALPHA.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="imageSize"/> is not consistent with the format, dimensions, and 
 		/// contents of the specified compressed image data.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if parameter combinations are not supported by the specific compressed internal format 
 		/// as specified in the specific texture compression extension.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// GL_INVALID_OPERATION is generated by Gl.CompressedTextureSubImage1D function if texture is not the name of an existing 
 		/// texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Undefined results, including abnormal program termination, are generated if <paramref name="data"/> is not encoded in a 
 		/// manner consistent with the extension specification defining the internal compression format.
 		/// </exception>
@@ -2425,26 +2399,24 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetCompressedTextureImage if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than zero or greater than the maximum number of LODs 
 		/// permitted by the implementation.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.GetCompressedTexImage, Gl.GetnCompressedTexImage, and 
 		/// Gl.GetCompressedTextureImage is used to retrieve a texture that is in an uncompressed internal format.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target, the 
 		/// buffer storage was not initialized with Gl.BufferStorage using Gl.MAP_PERSISTENT_BIT flag, and the buffer object's data 
 		/// store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
 		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
 		/// </exception>
@@ -2491,26 +2463,24 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetCompressedTextureImage if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than zero or greater than the maximum number of LODs 
 		/// permitted by the implementation.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.GetCompressedTexImage, Gl.GetnCompressedTexImage, and 
 		/// Gl.GetCompressedTextureImage is used to retrieve a texture that is in an uncompressed internal format.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target, the 
 		/// buffer storage was not initialized with Gl.BufferStorage using Gl.MAP_PERSISTENT_BIT flag, and the buffer object's data 
 		/// store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
 		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
 		/// </exception>
@@ -2550,8 +2520,6 @@ namespace OpenGL
 		/// least two. <paramref name="texture"/> must be one of Gl.TEXTUREi, where i ranges from 0 to the value of 
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value. The initial value is Gl.TEXTURE0.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="texture"/> is not one of Gl.TEXTUREi, where i ranges from 0 to the value 
 		/// of Gl.MAX_TEXTURE_COORDS - 1.
@@ -3653,8 +3621,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadTransposeMatrix is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
@@ -3688,8 +3654,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadTransposeMatrix is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
@@ -3723,8 +3687,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.MultTransposeMatrix is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
@@ -3757,8 +3719,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.MultTransposeMatrix is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.

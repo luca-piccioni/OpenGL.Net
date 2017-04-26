@@ -153,7 +153,7 @@ namespace BindingsGen
 		/// <summary>
 		/// The Khronos reference pages.
 		/// </summary>
-		public IRegistryDocumentation RefPages;
+		public readonly List<IRegistryDocumentation> RefPages = new List<IRegistryDocumentation>();
 
 		/// <summary>
 		/// The extension names dictionary.

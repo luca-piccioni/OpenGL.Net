@@ -30,87 +30,87 @@ namespace OpenGL
 	{
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the alpha component of 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired size of the alpha component of 
 		/// the color buffer, in bits. If this value is zero, color buffers with the smallest alpha component size are preferred. 
 		/// Otherwise, color buffers with the largest alpha component of at least the specified size are preferred. The default 
 		/// value is zero.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of bits of alpha stored in the color buffer.
+		/// Egl.GetConfigAttrib: Returns the number of bits of alpha stored in the color buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int ALPHA_SIZE = 0x3021;
 
 		/// <summary>
-		/// Egl.GetError: eGL cannot access a requested resource (for example a context is bound in another thread).
+		/// Egl.GetError: EGL cannot access a requested resource (for example a context is bound in another thread).
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_ACCESS = 0x3002;
 
 		/// <summary>
-		/// Egl.GetError: eGL failed to allocate resources for the requested operation.
+		/// Egl.GetError: EGL failed to allocate resources for the requested operation.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_ALLOC = 0x3003;
 
 		/// <summary>
-		/// Egl.GetError: an unrecognized attribute or attribute value was passed in the attribute list.
+		/// Egl.GetError: An unrecognized attribute or attribute value was passed in the attribute list.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_ATTRIBUTE = 0x3004;
 
 		/// <summary>
-		/// Egl.GetError: an EGLConfig argument does not name a valid EGL frame buffer configuration.
+		/// Egl.GetError: An EGLConfig argument does not name a valid EGL frame buffer configuration.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_CONFIG = 0x3005;
 
 		/// <summary>
-		/// Egl.GetError: an EGLContext argument does not name a valid EGL rendering context.
+		/// Egl.GetError: An EGLContext argument does not name a valid EGL rendering context.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_CONTEXT = 0x3006;
 
 		/// <summary>
-		/// Egl.GetError: the current surface of the calling thread is a window, pixel buffer or pixmap that is no longer valid.
+		/// Egl.GetError: The current surface of the calling thread is a window, pixel buffer or pixmap that is no longer valid.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_CURRENT_SURFACE = 0x3007;
 
 		/// <summary>
-		/// Egl.GetError: an EGLDisplay argument does not name a valid EGL display connection.
+		/// Egl.GetError: An EGLDisplay argument does not name a valid EGL display connection.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_DISPLAY = 0x3008;
 
 		/// <summary>
-		/// Egl.GetError: arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid 
+		/// Egl.GetError: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid 
 		/// surface).
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_MATCH = 0x3009;
 
 		/// <summary>
-		/// Egl.GetError: a NativePixmapType argument does not refer to a valid native pixmap.
+		/// Egl.GetError: A NativePixmapType argument does not refer to a valid native pixmap.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_NATIVE_PIXMAP = 0x300A;
 
 		/// <summary>
-		/// Egl.GetError: a NativeWindowType argument does not refer to a valid native window.
+		/// Egl.GetError: A NativeWindowType argument does not refer to a valid native window.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_NATIVE_WINDOW = 0x300B;
 
 		/// <summary>
-		/// Egl.GetError: one or more argument values are invalid.
+		/// Egl.GetError: One or more argument values are invalid.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int BAD_PARAMETER = 0x300C;
 
 		/// <summary>
-		/// Egl.GetError: an EGLSurface argument does not name a valid surface (window, pixel buffer or pixmap) configured for GL 
+		/// Egl.GetError: An EGLSurface argument does not name a valid surface (window, pixel buffer or pixmap) configured for GL 
 		/// rendering.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -118,13 +118,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the blue component of the 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired size of the blue component of the 
 		/// color buffer, in bits. If this value is zero, color buffers with the smallest blue component size are preferred. 
 		/// Otherwise, color buffers with the largest blue component of at least the specified size are preferred. The default value 
 		/// is zero.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of bits of blue stored in the color buffer.
+		/// Egl.GetConfigAttrib: Returns the number of bits of blue stored in the color buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -132,14 +132,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired color buffer size, in bits. The 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired color buffer size, in bits. The 
 		/// smallest color buffers of at least the specified size are preferred. The default value is zero. The color buffer size is 
 		/// the sum of Egl.RED_SIZE, Egl.GREEN_SIZE, Egl.BLUE_SIZE, and Egl.ALPHA_SIZE, and does not include any padding bits which 
 		/// may be present in the pixel format. It is usually preferable to specify desired sizes for these color components 
 		/// individually.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the depth of the color buffer. It is the sum of Egl.RED_SIZE, Egl.GREEN_SIZE, 
+		/// Egl.GetConfigAttrib: Returns the depth of the color buffer. It is the sum of Egl.RED_SIZE, Egl.GREEN_SIZE, 
 		/// Egl.BLUE_SIZE, and Egl.ALPHA_SIZE.
 		/// </para>
 		/// </summary>
@@ -148,7 +148,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by Egl.DONT_CARE, Egl.NONE, Egl.SLOW_CONFIG, or Egl.NON_CONFORMANT_CONFIG. If 
+		/// Egl.ChooseConfig: Must be followed by Egl.DONT_CARE, Egl.NONE, Egl.SLOW_CONFIG, or Egl.NON_CONFORMANT_CONFIG. If 
 		/// Egl.DONT_CARE is specified, then configs are not matched for this attribute. The default value is Egl.DONT_CARE. If 
 		/// Egl.NONE is specified, then configs are matched for this attribute, but only configs with no caveats (neither 
 		/// Egl.SLOW_CONFIG or Egl.NON_CONFORMANT_CONFIG) will be considered. If Egl.SLOW_CONFIG is specified, then only slow 
@@ -159,7 +159,7 @@ namespace OpenGL
 		/// per-client-API basis, not just for OpenGL ES.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the caveats for the frame buffer configuration. Possible caveat values are Egl.NONE, 
+		/// Egl.GetConfigAttrib: Returns the caveats for the frame buffer configuration. Possible caveat values are Egl.NONE, 
 		/// Egl.SLOW_CONFIG, and Egl.NON_CONFORMANT.
 		/// </para>
 		/// </summary>
@@ -168,18 +168,18 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a valid integer ID that indicates the desired EGL frame buffer configuration. When 
+		/// Egl.ChooseConfig: Must be followed by a valid integer ID that indicates the desired EGL frame buffer configuration. When 
 		/// a Egl.CONFIG_ID is specified, all other attributes are ignored. The default value is Egl.DONT_CARE. The meaning of 
 		/// config IDs is implementation-dependent. They are used only to uniquely identify different frame buffer configurations.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the ID of the frame buffer configuration.
+		/// Egl.GetConfigAttrib: Returns the ID of the frame buffer configuration.
 		/// </para>
 		/// <para>
-		/// Egl.QueryContext: returns the ID of the EGL frame buffer configuration with respect to which the context was created.
+		/// Egl.QueryContext: Returns the ID of the EGL frame buffer configuration with respect to which the context was created.
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: returns the ID of the EGL frame buffer configuration with respect to which the surface was created.
+		/// Egl.QuerySurface: Returns the ID of the EGL frame buffer configuration with respect to which the surface was created.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -193,13 +193,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired depth buffer size, in bits. The 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired depth buffer size, in bits. The 
 		/// smallest depth buffers of at least the specified size is preferred. If the desired size is zero, frame buffer 
 		/// configurations with no depth buffer are preferred. The default value is zero. The depth buffer is used only by OpenGL 
 		/// and OpenGL ES client APIs.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of bits in the depth buffer.
+		/// Egl.GetConfigAttrib: Returns the number of bits in the depth buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -218,7 +218,7 @@ namespace OpenGL
 		public const int DRAW = 0x3059;
 
 		/// <summary>
-		/// Egl.QueryString: returns a space separated list of supported extensions to EGL.
+		/// Egl.QueryString: Returns a space separated list of supported extensions to EGL.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int EXTENSIONS = 0x3055;
@@ -231,13 +231,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the green component of 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired size of the green component of 
 		/// the color buffer, in bits. If this value is zero, color buffers with the smallest green component size are preferred. 
 		/// Otherwise, color buffers with the largest green component of at least the specified size are preferred. The default 
 		/// value is zero.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of bits of green stored in the color buffer.
+		/// Egl.GetConfigAttrib: Returns the number of bits of green stored in the color buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -245,10 +245,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferSurface: specifies the required height of the pixel buffer surface. The default value is Egl..
+		/// Egl.CreatePbufferSurface: Specifies the required height of the pixel buffer surface. The default value is Egl..
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: returns the height of the surface in pixels.
+		/// Egl.QuerySurface: Returns the height of the surface in pixels.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -256,11 +256,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferSurface: requests the largest available pixel buffer surface when the allocation would otherwise fail. 
+		/// Egl.CreatePbufferSurface: Requests the largest available pixel buffer surface when the allocation would otherwise fail. 
 		/// Use Egl.QuerySurface to retrieve the dimensions of the allocated pixel buffer. The default value is Egl.FALSE.
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: returns the same attribute value specified when the surface was created with Egl.CreatePbufferSurface. 
+		/// Egl.QuerySurface: Returns the same attribute value specified when the surface was created with Egl.CreatePbufferSurface. 
 		/// For a window or pixmap surface, value is not modified.
 		/// </para>
 		/// </summary>
@@ -269,14 +269,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by an integer buffer level specification. This specification is honored exactly. 
+		/// Egl.ChooseConfig: Must be followed by an integer buffer level specification. This specification is honored exactly. 
 		/// Buffer level zero corresponds to the default frame buffer of the display. Buffer level one is the first overlay frame 
 		/// buffer, level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame 
 		/// buffers. The default value is zero. Most imlementations do not support overlay or underlay planes (buffer levels other 
 		/// than zero).
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the frame buffer level. Level zero is the default frame buffer. Positive levels correspond 
+		/// Egl.GetConfigAttrib: Returns the frame buffer level. Level zero is the default frame buffer. Positive levels correspond 
 		/// to frame buffers that overlay the default buffer and negative levels correspond to frame buffers that underlay the 
 		/// default buffer.
 		/// </para>
@@ -285,44 +285,44 @@ namespace OpenGL
 		public const int LEVEL = 0x3029;
 
 		/// <summary>
-		/// Egl.GetConfigAttrib: returns the maximum height of a pixel buffer surface in pixels.
+		/// Egl.GetConfigAttrib: Returns the maximum height of a pixel buffer surface in pixels.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int MAX_PBUFFER_HEIGHT = 0x302A;
 
 		/// <summary>
-		/// Egl.GetConfigAttrib: returns the maximum size of a pixel buffer surface in pixels.
+		/// Egl.GetConfigAttrib: Returns the maximum size of a pixel buffer surface in pixels.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int MAX_PBUFFER_PIXELS = 0x302B;
 
 		/// <summary>
-		/// Egl.GetConfigAttrib: returns the maximum width of a pixel buffer surface in pixels.
+		/// Egl.GetConfigAttrib: Returns the maximum width of a pixel buffer surface in pixels.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int MAX_PBUFFER_WIDTH = 0x302C;
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only frame 
+		/// Egl.ChooseConfig: Must be followed by Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only frame 
 		/// buffer configurations that allow native rendering into the surface will be considered. The default value is 
 		/// Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns Egl.TRUE if native rendering APIs can render into the surface, Egl.FALSE otherwise.
+		/// Egl.GetConfigAttrib: Returns Egl.TRUE if native rendering APIs can render into the surface, Egl.FALSE otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int NATIVE_RENDERABLE = 0x302D;
 
 		/// <summary>
-		/// Egl.GetConfigAttrib: returns the ID of the associated native visual.
+		/// Egl.GetConfigAttrib: Returns the ID of the associated native visual.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int NATIVE_VISUAL_ID = 0x302E;
 
 		/// <summary>
-		/// Egl.GetConfigAttrib: returns the type of the associated native visual.
+		/// Egl.GetConfigAttrib: Returns the type of the associated native visual.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int NATIVE_VISUAL_TYPE = 0x302F;
@@ -340,7 +340,7 @@ namespace OpenGL
 		public const int NON_CONFORMANT_CONFIG = 0x3051;
 
 		/// <summary>
-		/// Egl.GetError: eGL is not initialized, or could not be initialized, for the specified EGL display connection.
+		/// Egl.GetError: EGL is not initialized, or could not be initialized, for the specified EGL display connection.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int NOT_INITIALIZED = 0x3001;
@@ -385,13 +385,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired size of the red component of the 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired size of the red component of the 
 		/// color buffer, in bits. If this value is zero, color buffers with the smallest red component size are preferred. 
 		/// Otherwise, color buffers with the largest red component of at least the specified size are preferred. The default value 
 		/// is zero.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of bits of red stored in the color buffer.
+		/// Egl.GetConfigAttrib: Returns the number of bits of red stored in the color buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -399,13 +399,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by the minimum number of samples required in multisample buffers. Configurations with 
+		/// Egl.ChooseConfig: Must be followed by the minimum number of samples required in multisample buffers. Configurations with 
 		/// the smallest number of samples that meet or exceed the specified minimum number are preferred. Note that it is possible 
 		/// for color samples in the multisample buffer to have fewer bits than colors in the main color buffers. However, 
 		/// multisampled colors maintain at least as much color resolution in aggregate as the main color buffers.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of samples per pixel.
+		/// Egl.GetConfigAttrib: Returns the number of samples per pixel.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -413,13 +413,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by the minimum acceptable number of multisample buffers. Configurations with the 
+		/// Egl.ChooseConfig: Must be followed by the minimum acceptable number of multisample buffers. Configurations with the 
 		/// smallest number of multisample buffers that meet or exceed this minimum number are preferred. Currently operation with 
 		/// more than one multisample buffer is undefined, so only values of zero or one will produce a match. The default value is 
 		/// zero.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of multisample buffers.
+		/// Egl.GetConfigAttrib: Returns the number of multisample buffers.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -433,27 +433,27 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a nonnegative integer that indicates the desired stencil buffer size, in bits. The 
+		/// Egl.ChooseConfig: Must be followed by a nonnegative integer that indicates the desired stencil buffer size, in bits. The 
 		/// smallest stencil buffers of at least the specified size are preferred. If the desired size is zero, frame buffer 
 		/// configurations with no stencil buffer are preferred. The default value is zero. The stencil buffer is used only by 
 		/// OpenGL and OpenGL ES client APIs.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the number of bits in the stencil buffer.
+		/// Egl.GetConfigAttrib: Returns the number of bits in the stencil buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int STENCIL_SIZE = 0x3026;
 
 		/// <summary>
-		/// Egl.GetError: the last function succeeded without error.
+		/// Egl.GetError: The last function succeeded without error.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int SUCCESS = 0x3000;
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a bitmask indicating which EGL surface types and capabilities the frame buffer 
+		/// Egl.ChooseConfig: Must be followed by a bitmask indicating which EGL surface types and capabilities the frame buffer 
 		/// configuration must support. Mask bits include: Egl.MULTISAMPLE_RESOLVE_BOX_BIT Config allows specifying box filtered 
 		/// multisample resolve behavior with Egl.SurfaceAttrib. Egl.PBUFFER_BIT Config supports creating pixel buffer surfaces. 
 		/// Egl.PIXMAP_BIT Config supports creating pixmap surfaces. Egl.SWAP_BEHAVIOR_PRESERVED_BIT Config allows setting swap 
@@ -466,7 +466,7 @@ namespace OpenGL
 		/// value is Egl.WINDOW_BIT.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns a bitmask indicating the types of supported EGL surfaces.
+		/// Egl.GetConfigAttrib: Returns a bitmask indicating the types of supported EGL surfaces.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -474,13 +474,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by an integer value indicating the transparent blue value. The value must be between 
+		/// Egl.ChooseConfig: Must be followed by an integer value indicating the transparent blue value. The value must be between 
 		/// zero and the maximum color buffer value for blue. Only frame buffer configurations that use the specified transparent 
 		/// blue value will be considered. The default value is Egl.DONT_CARE. This attribute is ignored unless Egl.TRANSPARENT_TYPE 
 		/// is included in attrib_list and specified as Egl.TRANSPARENT_RGB.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the transparent blue value.
+		/// Egl.GetConfigAttrib: Returns the transparent blue value.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -488,13 +488,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by an integer value indicating the transparent green value. The value must be between 
+		/// Egl.ChooseConfig: Must be followed by an integer value indicating the transparent green value. The value must be between 
 		/// zero and the maximum color buffer value for green. Only frame buffer configurations that use the specified transparent 
 		/// green value will be considered. The default value is Egl.DONT_CARE. This attribute is ignored unless 
 		/// Egl.TRANSPARENT_TYPE is included in attrib_list and specified as Egl.TRANSPARENT_RGB.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the transparent green value.
+		/// Egl.GetConfigAttrib: Returns the transparent green value.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -502,13 +502,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by an integer value indicating the transparent red value. The value must be between 
+		/// Egl.ChooseConfig: Must be followed by an integer value indicating the transparent red value. The value must be between 
 		/// zero and the maximum color buffer value for red. Only frame buffer configurations that use the specified transparent red 
 		/// value will be considered. The default value is Egl.DONT_CARE. This attribute is ignored unless Egl.TRANSPARENT_TYPE is 
 		/// included in attrib_list and specified as Egl.TRANSPARENT_RGB.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the transparent red value.
+		/// Egl.GetConfigAttrib: Returns the transparent red value.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -522,13 +522,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by one of Egl.NONE or Egl.TRANSPARENT_RGB. If Egl.NONE is specified, then only opaque 
+		/// Egl.ChooseConfig: Must be followed by one of Egl.NONE or Egl.TRANSPARENT_RGB. If Egl.NONE is specified, then only opaque 
 		/// frame buffer configurations will be considered. If Egl.TRANSPARENT_RGB is specified, then only transparent frame buffer 
 		/// configurations will be considered. The default value is Egl.NONE. Most implementations support only opaque frame buffer 
 		/// configurations.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the type of supported transparency. Possible transparency values are: Egl.NONE, and 
+		/// Egl.GetConfigAttrib: Returns the type of supported transparency. Possible transparency values are: Egl.NONE, and 
 		/// Egl.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
@@ -542,14 +542,14 @@ namespace OpenGL
 		public const int TRUE = 1;
 
 		/// <summary>
-		/// Egl.QueryString: returns the company responsible for this EGL implementation. This name does not change from release to 
+		/// Egl.QueryString: Returns the company responsible for this EGL implementation. This name does not change from release to 
 		/// release.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public const int VENDOR = 0x3053;
 
 		/// <summary>
-		/// Egl.QueryString: returns a version or release number. The Egl.VERSION string is laid out as 
+		/// Egl.QueryString: Returns a version or release number. The Egl.VERSION string is laid out as 
 		/// follows:major_version.minor_version space vendor_specific_info
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -557,10 +557,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferSurface: specifies the required width of the pixel buffer surface. The default value is Egl..
+		/// Egl.CreatePbufferSurface: Specifies the required width of the pixel buffer surface. The default value is Egl..
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: returns the width of the surface in pixels.
+		/// Egl.QuerySurface: Returns the width of the surface in pixels.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -591,6 +591,31 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of frame buffer configurations returned.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="configs"/> and <paramref name="num_config"/> are 
+		/// not modified when Egl.FALSE is returned.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute_list"/> contains an invalid frame buffer configuration 
+		/// attribute or an attribute value that is unrecognized or out of range.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_PARAMETER is generated if <paramref name="num_config"/> is Egl..
+		/// </exception>
+		/// <seealso cref="Egl.CreateContext"/>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.CreatePixmapSurface"/>
+		/// <seealso cref="Egl.CreateWindowSurface"/>
+		/// <seealso cref="Egl.GetConfigs"/>
+		/// <seealso cref="Egl.GetConfigAttrib"/>
+		/// <seealso cref="Egl.SurfaceAttrib"/>
+		/// <seealso cref="Egl.SwapInterval"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool ChooseConfig(IntPtr dpy, int[] attrib_list, IntPtr[] configs, int config_size, int[] num_config)
 		{
@@ -623,6 +648,34 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned if swapping of the surface buffers fails, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL drawing surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_NATIVE_PIXMAP is generated if the implementation does not support native pixmaps.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_NATIVE_PIXMAP may be generated if <paramref name="native_pixmap"/> is not a valid native pixmap.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the format of <paramref name="native_pixmap"/> is not compatible with the color buffer of 
+		/// <paramref name="surface"/>.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.CONTEXT_LOST is generated if a power management event has occurred. The application must destroy all contexts and 
+		/// reinitialise OpenGL ES state and objects to continue rendering.
+		/// </exception>
+		/// <seealso cref="Egl.glFlush"/>
+		/// <seealso cref="Egl.SwapBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool CopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target)
 		{
@@ -654,6 +707,46 @@ namespace OpenGL
 		/// Specifies attributes and attribute values for the context being created. Only the attribute Egl.CONTEXT_CLIENT_VERSION 
 		/// may be specified.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.NO_CONTEXT is returned if creation of the context fails.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the current rendering API is Egl.NONE (this can only arise in an EGL implementation which 
+		/// does not support OpenGL ES, prior to the first call to Egl.BindAPI).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the server context state for <paramref name="share_context"/> exists in an address space 
+		/// which cannot be shared with the newly created context, if <paramref name="share_context"/> was created on a different 
+		/// display than the one referenced by <paramref name="config"/>, or if the contexts are otherwise incompatible.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration, or does not support 
+		/// the current rendering API. This includes requesting creation of an OpenGL ES 1.x context when the Egl.RENDERABLE_TYPE 
+		/// attribute of <paramref name="config"/> does not contain Egl.OPENGL_ES_BIT, or creation of an OpenGL ES 2.x context when 
+		/// the attribute does not contain Egl.OPENGL_ES2_BIT.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONTEXT is generated if <paramref name="share_context"/> is not an EGL rendering context of the same client API 
+		/// type as the newly created context and is not Egl.NO_CONTEXT.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid context attribute or if an 
+		/// attribute is not recognized or out of range. Note that attribute Egl.CONTEXT_CLIENT_VERSION is only valid when the 
+		/// current rendering API is Egl.OPENGL_ES_API.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new context.
+		/// </exception>
+		/// <seealso cref="Egl.DestroyContext"/>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.GetConfigs"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int[] attrib_list)
 		{
@@ -684,6 +777,57 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixel buffer surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.NO_SURFACE is returned if creation of the context fails.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid pixel buffer attribute or if an 
+		/// attribute value is not recognized or out of range.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains any of the attributes Egl.MIPMAP_TEXTURE, 
+		/// Egl.TEXTURE_FORMAT, or Egl.TEXTURE_TARGET, and <paramref name="config"/> does not support OpenGL ES rendering (e.g. the 
+		/// EGL version is 1.2 or later, and the Egl.RENDERABLE_TYPE attribute of <paramref name="config"/> does not include at 
+		/// least one of Egl.OPENGL_ES_BIT or Egl.OPENGL_ES2_BIT).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support rendering to pixel buffers (the 
+		/// Egl.SURFACE_TYPE attribute does not contain Egl.PBUFFER_BIT).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the Egl.TEXTURE_FORMAT attribute is not Egl.NO_TEXTURE, and Egl.WIDTH and/or Egl.HEIGHT 
+		/// specify an invalid size (e.g., the texture size is not a power of 2, and the underlying OpenGL ES implementation does 
+		/// not support non-power-of-two textures).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the Egl.TEXTURE_FORMAT attribute is Egl.NO_TEXTURE, and Egl.TEXTURE_TARGET is something 
+		/// other than Egl.NO_TEXTURE; or, Egl.TEXTURE_FORMAT is something other than Egl.NO_TEXTURE, and Egl.TEXTURE_TARGET is 
+		/// Egl.NO_TEXTURE.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support the specified OpenVG alpha format attribute 
+		/// (the value of Egl.VG_ALPHA_FORMAT is Egl.VG_ALPHA_FORMAT_PRE and the Egl.VG_ALPHA_FORMAT_PRE_BIT is not set in the 
+		/// Egl.SURFACE_TYPE attribute of <paramref name="config"/>) or colorspace attribute (the value of Egl.VG_COLORSPACE is 
+		/// Egl.VG_COLORSPACE_LINEAR and the Egl.VG_COLORSPACE_LINEAR_IT is not set in the Egl.SURFACE_TYPE attribute of <paramref 
+		/// name="config"/>).
+		/// </exception>
+		/// <seealso cref="Egl.DestroySurface"/>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.GetConfigs"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
+		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreatePbufferSurface(IntPtr dpy, IntPtr config, int[] attrib_list)
 		{
@@ -717,6 +861,45 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixmap surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.NO_SURFACE is returned if creation of the context fails.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL config.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_NATIVE_PIXMAP may be generated if <paramref name="native_pixmap"/> is not a valid native pixmap.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid pixmap attribute or if an attribute 
+		/// value is not recognized or out of range.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the attributes of <paramref name="native_pixmap"/> do not correspond to <paramref 
+		/// name="config"/> or if <paramref name="config"/> does not support rendering to pixmaps (the Egl.SURFACE_TYPE attribute 
+		/// does not contain Egl.PIXMAP_BIT).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support the specified OpenVG alpha format attribute 
+		/// (the value of Egl.VG_ALPHA_FORMAT is Egl.VG_ALPHA_FORMAT_PRE and the Egl.VG_ALPHA_FORMAT_PRE_BIT is not set in the 
+		/// Egl.SURFACE_TYPE attribute of <paramref name="config"/>) or colorspace attribute (the value of Egl.VG_COLORSPACE is 
+		/// Egl.VG_COLORSPACE_LINEAR and the Egl.VG_COLORSPACE_LINEAR_IT is not set in the Egl.SURFACE_TYPE attribute of <paramref 
+		/// name="config"/>).
+		/// </exception>
+		/// <seealso cref="Egl.DestroySurface"/>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.GetConfigs"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
+		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int[] attrib_list)
 		{
@@ -750,6 +933,45 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies window surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.NO_SURFACE is returned if creation of the context fails.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_NATIVE_WINDOW may be generated if <paramref name="native_window"/> is not a valid native window.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid window attribute or if an attribute 
+		/// value is not recognized or is out of range.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the attributes of <paramref name="native_window"/> do not correspond to <paramref 
+		/// name="config"/> or if <paramref name="config"/> does not support rendering to windows (the Egl.SURFACE_TYPE attribute 
+		/// does not contain Egl.WINDOW_BIT).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support the specified OpenVG alpha format attribute 
+		/// (the value of Egl.VG_ALPHA_FORMAT is Egl.VG_ALPHA_FORMAT_PRE and the Egl.VG_ALPHA_FORMAT_PRE_BIT is not set in the 
+		/// Egl.SURFACE_TYPE attribute of <paramref name="config"/>) or colorspace attribute (the value of Egl.VG_COLORSPACE is 
+		/// Egl.VG_COLORSPACE_LINEAR and the Egl.VG_COLORSPACE_LINEAR_IT is not set in the Egl.SURFACE_TYPE attribute of <paramref 
+		/// name="config"/>).
+		/// </exception>
+		/// <seealso cref="Egl.DestroySurface"/>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.GetConfigs"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
+		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int[] attrib_list)
 		{
@@ -777,6 +999,20 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned if destruction of the context fails, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONTEXT is generated if <paramref name="context"/> is not an EGL rendering context.
+		/// </exception>
+		/// <seealso cref="Egl.CreateContext"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool DestroyContext(IntPtr dpy, IntPtr ctx)
 		{
@@ -799,6 +1035,22 @@ namespace OpenGL
 		/// <param name="surface">
 		/// Specifies the EGL surface to be destroyed.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned if destruction of the surface fails, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface.
+		/// </exception>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.CreatePixmapSurface"/>
+		/// <seealso cref="Egl.CreateWindowSurface"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool DestroySurface(IntPtr dpy, IntPtr surface)
 		{
@@ -827,6 +1079,24 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="value"/> is not modified when Egl.FALSE is 
+		/// returned.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid frame buffer configuration attribute.
+		/// </exception>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.GetConfigs"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, [Out] int[] value)
 		{
@@ -860,6 +1130,24 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="value"/> is not modified when Egl.FALSE is 
+		/// returned.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid frame buffer configuration attribute.
+		/// </exception>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.GetConfigs"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, out int value)
 		{
@@ -893,6 +1181,25 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of configs returned.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="configs"/> and <paramref name="num_config"/> are 
+		/// not modified when Egl.FALSE is returned.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_PARAMETER is generated if <paramref name="num_config"/> is Egl..
+		/// </exception>
+		/// <seealso cref="Egl.CreateContext"/>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.CreatePixmapSurface"/>
+		/// <seealso cref="Egl.CreateWindowSurface"/>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.GetConfigAttrib"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool GetConfigs(IntPtr dpy, [Out] IntPtr[] configs, int config_size, [Out] int[] num_config)
 		{
@@ -927,6 +1234,25 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of configs returned.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="configs"/> and <paramref name="num_config"/> are 
+		/// not modified when Egl.FALSE is returned.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_PARAMETER is generated if <paramref name="num_config"/> is Egl..
+		/// </exception>
+		/// <seealso cref="Egl.CreateContext"/>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.CreatePixmapSurface"/>
+		/// <seealso cref="Egl.CreateWindowSurface"/>
+		/// <seealso cref="Egl.ChooseConfig"/>
+		/// <seealso cref="Egl.GetConfigAttrib"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool GetConfigs(IntPtr dpy, [Out] IntPtr[] configs, int config_size, out int num_config)
 		{
@@ -949,6 +1275,9 @@ namespace OpenGL
 		/// <summary>
 		/// return the display for the current EGL rendering context
 		/// </summary>
+		/// <seealso cref="Egl.GetDisplay"/>
+		/// <seealso cref="Egl.Initialize"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetCurrentDisplay()
 		{
@@ -968,6 +1297,10 @@ namespace OpenGL
 		/// <param name="readdraw">
 		/// Specifies whether the EGL read or draw surface is to be returned.
 		/// </param>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.CreatePixmapSurface"/>
+		/// <seealso cref="Egl.CreateWindowSurface"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetCurrentSurface(int readdraw)
 		{
@@ -987,6 +1320,7 @@ namespace OpenGL
 		/// <param name="display_id">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <seealso cref="Egl.Initialize"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetDisplay(IntPtr display_id)
 		{
@@ -1002,6 +1336,9 @@ namespace OpenGL
 		/// <summary>
 		/// return error information
 		/// </summary>
+		/// <exception cref="KhronosException">
+		/// A call to Egl.GetError sets the error to Egl.SUCCESS.
+		/// </exception>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static int GetError()
 		{
@@ -1020,6 +1357,8 @@ namespace OpenGL
 		/// <param name="procname">
 		/// Specifies the name of the function to return.
 		/// </param>
+		/// <seealso cref="Egl.etString"/>
+		/// <seealso cref="Egl.QueryString"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetProcAddress(string procname)
 		{
@@ -1045,6 +1384,18 @@ namespace OpenGL
 		/// <param name="minor">
 		/// Returns the minor version number of the EGL implementation. May be Egl..
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned if Egl.Initialize fails, Egl.TRUE otherwise. <paramref name="major"/> and <paramref name="minor"/> 
+		/// are not modified when Egl.FALSE is returned.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> cannot be initialized.
+		/// </exception>
+		/// <seealso cref="Egl.GetDisplay"/>
+		/// <seealso cref="Egl.Terminate"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool Initialize(IntPtr dpy, int[] major, int[] minor)
 		{
@@ -1079,6 +1430,63 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. If Egl.FALSE is returned, the previously current rendering context 
+		/// and surfaces (if any) remain unchanged.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if <paramref name="draw"/> or <paramref name="read"/> is not an EGL surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONTEXT is generated if <paramref name="context"/> is not an EGL rendering context.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="draw"/> or <paramref name="read"/> are not compatible with <paramref 
+		/// name="context"/>, or if <paramref name="context"/> is set to Egl.NO_CONTEXT and <paramref name="draw"/> or <paramref 
+		/// name="read"/> are not set to Egl.NO_SURFACE, or if <paramref name="draw"/> or <paramref name="read"/> are set to 
+		/// Egl.NO_SURFACE and <paramref name="context"/> is not set to Egl.NO_CONTEXT.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ACCESS is generated if <paramref name="context"/> is current to some other thread.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_NATIVE_PIXMAP may be generated if a native pixmap underlying either <paramref name="draw"/> or <paramref 
+		/// name="read"/> is no longer valid.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_NATIVE_WINDOW may be generated if a native window underlying either <paramref name="draw"/> or <paramref 
+		/// name="read"/> is no longer valid.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CURRENT_SURFACE is generated if the previous context has unflushed commands and the previous surface is no 
+		/// longer valid.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ALLOC may be generated if allocation of ancillary buffers for <paramref name="draw"/> or <paramref name="read"/> 
+		/// were delayed until Egl.MakeCurrent is called, and there are not enough resources to allocate them.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.CONTEXT_LOST is generated if a power management event has occurred. The application must destroy all contexts and 
+		/// reinitialise OpenGL ES state and objects to continue rendering.
+		/// </exception>
+		/// <seealso cref="Egl.glReadPixels"/>
+		/// <seealso cref="Egl.opyTexImage2D"/>
+		/// <seealso cref="Egl.opyTexSubImage2D"/>
+		/// <seealso cref="Egl.CreateContext"/>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.CreatePixmapSurface"/>
+		/// <seealso cref="Egl.CreateWindowSurface"/>
+		/// <seealso cref="Egl.GetCurrentContext"/>
+		/// <seealso cref="Egl.GetCurrentDisplay"/>
+		/// <seealso cref="Egl.GetCurrentSurface"/>
+		/// <seealso cref="Egl.GetDisplay"/>
+		/// <seealso cref="Egl.Initialize"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool MakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx)
 		{
@@ -1107,6 +1515,23 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="value"/> is not modified when Egl.FALSE is 
+		/// returned.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONTEXT is generated if <paramref name="context"/> is not an EGL rendering context.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid context attribute.
+		/// </exception>
+		/// <seealso cref="Egl.CreateContext"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool QueryContext(IntPtr dpy, IntPtr ctx, int attribute, int[] value)
 		{
@@ -1134,6 +1559,21 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies a symbolic constant, one of Egl.CLIENT_APIS, Egl.VENDOR, Egl.VERSION, or Egl.EXTENSIONS.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl. is returned on failure.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_PARAMETER is generated if <paramref name="name"/> is not an accepted value.
+		/// </exception>
+		/// <seealso cref="Egl.BindAPI"/>
+		/// <seealso cref="Egl.GetDisplay"/>
+		/// <seealso cref="Egl.Initialize"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static string QueryString(IntPtr dpy, int name)
 		{
@@ -1162,6 +1602,27 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="value"/> is not modified when Egl.FALSE is 
+		/// returned.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid surface attribute.
+		/// </exception>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.CreatePixmapSurface"/>
+		/// <seealso cref="Egl.CreateWindowSurface"/>
+		/// <seealso cref="Egl.SurfaceAttrib"/>
+		/// <seealso cref="Egl.SwapBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool QuerySurface(IntPtr dpy, IntPtr surface, int attribute, int[] value)
 		{
@@ -1189,6 +1650,24 @@ namespace OpenGL
 		/// <param name="surface">
 		/// Specifies the EGL drawing surface whose buffers are to be swapped.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned if swapping of the surface buffers fails, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL drawing surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.CONTEXT_LOST is generated if a power management event has occurred. The application must destroy all contexts and 
+		/// reinitialise OpenGL ES state and objects to continue rendering.
+		/// </exception>
+		/// <seealso cref="Egl.glFlush"/>
+		/// <seealso cref="Egl.CopyBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool SwapBuffers(IntPtr dpy, IntPtr surface)
 		{
@@ -1208,6 +1687,14 @@ namespace OpenGL
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned if Egl.Terminate fails, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <seealso cref="Egl.Initialize"/>
+		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool Terminate(IntPtr dpy)
 		{
@@ -1224,6 +1711,16 @@ namespace OpenGL
 		/// <summary>
 		/// Complete GL execution prior to subsequent native rendering calls
 		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned if Egl.WaitGL fails, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CURRENT_SURFACE is generated if the surface associated with the current context has a native window or pixmap, 
+		/// and that window or pixmap is no longer valid.
+		/// </exception>
+		/// <seealso cref="Egl.glFinish"/>
+		/// <seealso cref="Egl.WaitClient"/>
+		/// <seealso cref="Egl.WaitNative"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool WaitGL()
 		{
@@ -1243,6 +1740,17 @@ namespace OpenGL
 		/// <param name="engine">
 		/// Specifies a particular marking engine to be waited on. Must be Egl.CORE_NATIVE_ENGINE.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_PARAMETER is generated if <paramref name="engine"/> is not a recognized marking engine.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CURRENT_SURFACE is generated if the surface associated with the current context has a native window or pixmap, 
+		/// and that window or pixmap is no longer valid.
+		/// </exception>
+		/// <seealso cref="Egl.glFinish"/>
+		/// <seealso cref="Egl.glFlush"/>
+		/// <seealso cref="Egl.WaitClient"/>
+		/// <seealso cref="Egl.WaitGL"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool WaitNative(int engine)
 		{

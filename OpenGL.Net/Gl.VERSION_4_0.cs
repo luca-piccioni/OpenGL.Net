@@ -847,9 +847,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the rate at which samples are shaded within each covered pixel.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// None.
 		/// </exception>
 		/// <seealso cref="Gl.removedTypes"/>
@@ -1001,20 +999,18 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
 		/// Gl.DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1043,20 +1039,18 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
 		/// Gl.DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1090,24 +1084,22 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if no buffer is bound to the Gl.ELEMENT_ARRAY_BUFFER binding, or if such a buffer's 
 		/// data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
 		/// Gl.DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1140,24 +1132,22 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if no buffer is bound to the Gl.ELEMENT_ARRAY_BUFFER binding, or if such a buffer's 
 		/// data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or to the 
 		/// Gl.DRAW_INDIRECT_BUFFER binding and the buffer object's data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1975,22 +1965,20 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not a value generated by OpenGL.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not a program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> has not been successfully linked.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> does not correspond to a valid uniform variable 
 		/// location for the specified program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetnUniform if the buffer size required to store the requested data is greater 
 		/// than <paramref name="bufSize"/>.
 		/// </exception>
@@ -2025,13 +2013,11 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the name of the subroutine uniform whose index to query.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
 		/// values.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
 		/// </exception>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -2065,13 +2051,11 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the name of the subroutine uniform whose index to query.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
 		/// values.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
 		/// </exception>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -2111,17 +2095,15 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of a into which the queried value or values will be placed.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
 		/// values.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
 		/// Gl.ACTIVE_SUBROUTINES.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
 		/// </exception>
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
@@ -2164,17 +2146,15 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the address of a buffer that will receive the name of the specified shader subroutine uniform.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
 		/// values.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
 		/// Gl.ACTIVE_SUBROUTINE_UNIFORMS.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
 		/// </exception>
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
@@ -2216,13 +2196,11 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the address of an array into which the name of the shader subroutine uniform will be written.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
 		/// Gl.ACTIVE_SUBROUTINES.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
 		/// </exception>
 		/// <seealso cref="Gl.GetSubroutineIndex"/>
@@ -2253,20 +2231,18 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies the address of an array holding the indices to load into the shader subroutine variables.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if no program object is current.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is not equal to the value of 
 		/// Gl.ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the shader stage <paramref name="shadertype"/> of the current program.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if any value in <paramref name="indices"/> is geater than or equal to the value of 
 		/// Gl.ACTIVE_SUBROUTINES for the shader stage <paramref name="shadertype"/> of the current program.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> is not one of the accepted values.
 		/// </exception>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -2301,16 +2277,14 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> is not one of the accepted values.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="location"/> is greater than or equal to the value of 
 		/// Gl.ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the shader currently in use at shader stage <paramref name="shadertype"/>.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if no program is active.
 		/// </exception>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -2350,13 +2324,11 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of a variable into which the queried value or values will be placed.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> or <paramref name="pname"/> is not one of the accepted 
 		/// values.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of an existing program object.
 		/// </exception>
 		/// <seealso cref="Gl.GetProgram"/>
@@ -2385,12 +2357,10 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the new value for the parameter given by <paramref name="pname"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.PATCH_VERTICES and <paramref name="value"/> is less than 
 		/// or equal to zero, or greater than the value of Gl.MAX_PATCH_VERTICES.
 		/// </exception>
@@ -2423,12 +2393,10 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of an array containing the new values for the parameter given by <paramref name="pname"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.PATCH_VERTICES and <paramref name="value"/> is less than 
 		/// or equal to zero, or greater than the value of Gl.MAX_PATCH_VERTICES.
 		/// </exception>
@@ -2461,16 +2429,14 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object reserved by glGenTransformFeedbacks.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TRANSFORM_FEEDBACK.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if the transform feedback operation is active on the currently bound transform 
 		/// feedback object, and that operation is not paused.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not zero or the name of a transform feedback object 
 		/// returned from a previous call to glGenTransformFeedbacks, or if such a name has been deleted by 
 		/// glDeleteTransformFeedbacks.
@@ -2602,9 +2568,7 @@ namespace OpenGL
 		/// <summary>
 		/// pause transform feedback operations
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is paused.
 		/// </exception>
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
@@ -2628,9 +2592,7 @@ namespace OpenGL
 		/// <summary>
 		/// resume transform feedback operations
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is not paused.
 		/// </exception>
 		/// <seealso cref="Gl.GenTransformFeedbacks"/>
@@ -2662,26 +2624,24 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a transform feedback object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
 		/// data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.EndTransformFeedback has never been called while the transform feedback object 
 		/// named by <paramref name="id"/> was bound.
 		/// </exception>
@@ -2718,30 +2678,28 @@ namespace OpenGL
 		/// <param name="stream">
 		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a transform feedback object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="stream"/> is greater than or equal to the value of 
 		/// Gl.MAX_VERTEX_STREAMS.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
 		/// data store is currently mapped.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> is Gl.PATCHES and no tessellation control shader is active.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.EndTransformFeedback has never been called while the transform feedback object 
 		/// named by <paramref name="id"/> was bound.
 		/// </exception>
@@ -2774,29 +2732,27 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a query object.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the accepted tokens.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than the query target-specific maximum.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.BeginQueryIndexed is executed while a query object of the same <paramref 
 		/// name="target"/> is already active.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.EndQueryIndexed is executed when a query object of the same <paramref 
 		/// name="target"/> is not active.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is 0.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of an already active query object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> refers to an existing query object whose type does not does 
 		/// not match <paramref name="target"/>.
 		/// </exception>
@@ -2827,29 +2783,27 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the query target upon which to begin the query.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the accepted tokens.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than the query target-specific maximum.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.BeginQueryIndexed is executed while a query object of the same <paramref 
 		/// name="target"/> is already active.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.EndQueryIndexed is executed when a query object of the same <paramref 
 		/// name="target"/> is not active.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is 0.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of an already active query object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> refers to an existing query object whose type does not does 
 		/// not match <paramref name="target"/>.
 		/// </exception>
@@ -2887,12 +2841,10 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the <paramref 
 		/// name="target"/>-specific maximum.
 		/// </exception>

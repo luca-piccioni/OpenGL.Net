@@ -31,14 +31,12 @@ namespace OpenWF
 		/// <summary>
 		/// Value of OPENWFC_VERSION_1_0 symbol.
 		/// </summary>
-		public const int OPENWFC_VERSION_1_0 = (1)
-;
+		public const int OPENWFC_VERSION_1_0 = (1);
 
 		/// <summary>
 		/// Value of WFC_NONE symbol.
 		/// </summary>
-		public const int NONE = (0)
-;
+		public const int NONE = (0);
 
 		/// <summary>
 		/// Value of WFC_INVALID_HANDLE symbol.
@@ -48,8 +46,7 @@ namespace OpenWF
 		/// <summary>
 		/// Value of WFC_DEFAULT_DEVICE_ID symbol.
 		/// </summary>
-		public const int DEFAULT_DEVICE_ID = (0)
-;
+		public const int DEFAULT_DEVICE_ID = (0);
 
 		/// <summary>
 		/// Value of WFC_ERROR_NONE symbol.

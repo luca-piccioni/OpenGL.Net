@@ -36,12 +36,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only frame 
+		/// Egl.ChooseConfig: Must be followed by Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only frame 
 		/// buffer configurations that support binding of color buffers to an OpenGL ES RGB texture will be considered. Currently 
 		/// only frame buffer configurations that support pbuffers allow this. The default value is Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns Egl.TRUE if color buffers can be bound to an RGB texture, Egl.FALSE otherwise.
+		/// Egl.GetConfigAttrib: Returns Egl.TRUE if color buffers can be bound to an RGB texture, Egl.FALSE otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -49,19 +49,19 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by one of Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only 
+		/// Egl.ChooseConfig: Must be followed by one of Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only 
 		/// frame buffer configurations that support binding of color buffers to an OpenGL ES RGBA texture will be considered. 
 		/// Currently only frame buffer configurations that support pbuffers allow this. The default value is Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns Egl.TRUE if color buffers can be bound to an RGBA texture, Egl.FALSE otherwise.
+		/// Egl.GetConfigAttrib: Returns Egl.TRUE if color buffers can be bound to an RGBA texture, Egl.FALSE otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int BIND_TO_TEXTURE_RGBA = 0x303A;
 
 		/// <summary>
-		/// Egl.GetError: a power management event has occurred. The application must destroy all contexts and reinitialise OpenGL 
+		/// Egl.GetError: A power management event has occurred. The application must destroy all contexts and reinitialise OpenGL 
 		/// ES state and objects to continue rendering.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -69,11 +69,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a integer that indicates the minimum value that can be passed to eglSwapInterval. 
+		/// Egl.ChooseConfig: Must be followed by a integer that indicates the minimum value that can be passed to eglSwapInterval. 
 		/// The default value is Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the minimum value that can be passed to eglSwapInterval.
+		/// Egl.GetConfigAttrib: Returns the minimum value that can be passed to eglSwapInterval.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -81,11 +81,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: must be followed by a integer that indicates the maximum value that can be passed to Egl.SwapInterval. 
+		/// Egl.ChooseConfig: Must be followed by a integer that indicates the maximum value that can be passed to Egl.SwapInterval. 
 		/// The default value is Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: returns the maximum value that can be passed to eglSwapInterval.
+		/// Egl.GetConfigAttrib: Returns the maximum value that can be passed to eglSwapInterval.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -93,16 +93,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferFromClientBuffer: specifies whether storage for mipmaps should be allocated. Space for mipmaps will be 
+		/// Egl.CreatePbufferFromClientBuffer: Specifies whether storage for mipmaps should be allocated. Space for mipmaps will be 
 		/// set aside if the attribute value is Egl.TRUE and Egl.TEXTURE_FORMAT is not Egl.NO_TEXTURE. The default value is 
 		/// Egl.FALSE.
 		/// </para>
 		/// <para>
-		/// Egl.CreatePbufferSurface: specifies whether storage for mipmaps should be allocated. Space for mipmaps will be set aside 
+		/// Egl.CreatePbufferSurface: Specifies whether storage for mipmaps should be allocated. Space for mipmaps will be set aside 
 		/// if the attribute value is Egl.TRUE and Egl.TEXTURE_FORMAT is not Egl.NO_TEXTURE. The default value is Egl.FALSE.
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: returns Egl.TRUE if texture has mipmaps, Egl.FALSE otherwise.
+		/// Egl.QuerySurface: Returns Egl.TRUE if texture has mipmaps, Egl.FALSE otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -110,10 +110,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.QuerySurface: returns which level of the mipmap to render to, if texture has mipmaps.
+		/// Egl.QuerySurface: Returns which level of the mipmap to render to, if texture has mipmaps.
 		/// </para>
 		/// <para>
-		/// Egl.SurfaceAttrib: for mipmap textures, the Egl.MIPMAP_LEVEL attribute indicates which level of the mipmap should be 
+		/// Egl.SurfaceAttrib: For mipmap textures, the Egl.MIPMAP_LEVEL attribute indicates which level of the mipmap should be 
 		/// rendered. If the value of this attribute is outside the range of supported mipmap levels, the closest valid mipmap level 
 		/// is selected for rendering. The default value is Egl..
 		/// </para>
@@ -135,16 +135,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferFromClientBuffer: specifies the format of the texture that will be created when a pbuffer is bound to a 
+		/// Egl.CreatePbufferFromClientBuffer: Specifies the format of the texture that will be created when a pbuffer is bound to a 
 		/// texture map. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and Egl.TEXTURE_RGBA. The default value is 
 		/// Egl.NO_TEXTURE.
 		/// </para>
 		/// <para>
-		/// Egl.CreatePbufferSurface: specifies the format of the texture that will be created when a pbuffer is bound to a texture 
+		/// Egl.CreatePbufferSurface: Specifies the format of the texture that will be created when a pbuffer is bound to a texture 
 		/// map. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and Egl.TEXTURE_RGBA. The default value is Egl.NO_TEXTURE.
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: returns format of texture. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and Egl.TEXTURE_RGBA.
+		/// Egl.QuerySurface: Returns format of texture. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and Egl.TEXTURE_RGBA.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -164,17 +164,17 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferFromClientBuffer: specifies the target for the texture that will be created when the pbuffer is created 
+		/// Egl.CreatePbufferFromClientBuffer: Specifies the target for the texture that will be created when the pbuffer is created 
 		/// with a texture format of Egl.TEXTURE_RGB or Egl.TEXTURE_RGBA. Possible values are Egl.NO_TEXTURE, or Egl.TEXTURE_2D. The 
 		/// default value is Egl.NO_TEXTURE.
 		/// </para>
 		/// <para>
-		/// Egl.CreatePbufferSurface: specifies the target for the texture that will be created when the pbuffer is created with a 
+		/// Egl.CreatePbufferSurface: Specifies the target for the texture that will be created when the pbuffer is created with a 
 		/// texture format of Egl.TEXTURE_RGB or Egl.TEXTURE_RGBA. Possible values are Egl.NO_TEXTURE, or Egl.TEXTURE_2D. The 
 		/// default value is Egl.NO_TEXTURE.
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: returns type of texture. Possible values are Egl.NO_TEXTURE, or Egl.TEXTURE_2D.
+		/// Egl.QuerySurface: Returns type of texture. Possible values are Egl.NO_TEXTURE, or Egl.TEXTURE_2D.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -192,6 +192,21 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the texture image data.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ACCESS is generated if <paramref name="buffer"/> is already bound to a texture.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the surface attribute Egl.TEXTURE_FORMAT is set to Egl.NO_TEXTURE.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="buffer"/> is not a valid buffer (currently only Egl.BACK_BUFFER may be 
+		/// specified).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface, or is not a pbuffer surface supporting 
+		/// texture binding.
+		/// </exception>
+		/// <seealso cref="Egl.ReleaseTexImage"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool BindTexImage(IntPtr dpy, IntPtr surface, int buffer)
 		{
@@ -217,6 +232,17 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the texture image data.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if the surface attribute Egl.TEXTURE_FORMAT is set to Egl.NO_TEXTURE.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="buffer"/> is not a valid buffer (currently only Egl.BACK_BUFFER may be 
+		/// specified).
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface, or is not a bound pbuffer surface.
+		/// </exception>
+		/// <seealso cref="Egl.BindTexImage"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool ReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer)
 		{
@@ -245,6 +271,35 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the attributes required value.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="attribute"/> is Egl.MULTISAMPLE_RESOLVE, <paramref name="value"/> is 
+		/// Egl.MULTISAMPLE_RESOLVE_BOX, and the Egl.SURFACE_TYPE attribute of the EGLConfig used to create <paramref 
+		/// name="surface"/> does not contain Egl.MULTISAMPLE_RESOLVE_BOX_BIT.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_MATCH is generated if <paramref name="attribute"/> is Egl.SWAP_BEHAVIOR, <paramref name="value"/> is 
+		/// Egl.BUFFER_PRESERVED, and the Egl.SURFACE_TYPE attribute of the EGLConfig used to create <paramref name="surface"/> does 
+		/// not contain Egl.SWAP_BEHAVIOR_PRESERVED_BIT.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid surface attribute.
+		/// </exception>
+		/// <seealso cref="Egl.CreatePbufferSurface"/>
+		/// <seealso cref="Egl.CreatePixmapSurface"/>
+		/// <seealso cref="Egl.CreateWindowSurface"/>
+		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool SurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value)
 		{
@@ -267,6 +322,16 @@ namespace OpenGL
 		/// <param name="interval">
 		/// Specifies the minimum number of video frames that are displayed before a buffer swap will occur.
 		/// </param>
+		/// <exception cref="KhronosException">
+		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_CONTEXT is generated if there is no current context on the calling thread.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Egl.BAD_SURFACE is generated if there is no surface bound to the current context.
+		/// </exception>
+		/// <seealso cref="Egl.SwapBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool SwapInterval(IntPtr dpy, int interval)
 		{

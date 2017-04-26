@@ -30,11 +30,11 @@ namespace OpenGL
 	{
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 1D convolution is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.ConvolutionFilter1D.
+		/// Gl.Enable: If enabled, perform a 1D convolution operation on incoming RGBA color values. See Gl.ConvolutionFilter1D.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, perform a 1D convolution operation on incoming RGBA color values. See Gl.ConvolutionFilter1D.
+		/// Gl.Get: params returns a single boolean value indicating whether 1D convolution is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.ConvolutionFilter1D.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_1D_EXT")]
@@ -44,11 +44,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 2D convolution is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.ConvolutionFilter2D.
+		/// Gl.Enable: If enabled, perform a 2D convolution operation on incoming RGBA color values. See Gl.ConvolutionFilter2D.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, perform a 2D convolution operation on incoming RGBA color values. See Gl.ConvolutionFilter2D.
+		/// Gl.Get: params returns a single boolean value indicating whether 2D convolution is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.ConvolutionFilter2D.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_2D_EXT")]
@@ -58,12 +58,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 2D separable convolution is enabled. The initial value 
-		/// is Gl.FALSE. See Gl.SeparableFilter2D.
+		/// Gl.Enable: If enabled, perform a two-dimensional convolution operation using a separable convolution filter on incoming 
+		/// RGBA color values. See Gl.SeparableFilter2D.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, perform a two-dimensional convolution operation using a separable convolution filter on incoming 
-		/// RGBA color values. See Gl.SeparableFilter2D.
+		/// Gl.Get: params returns a single boolean value indicating whether 2D separable convolution is enabled. The initial value 
+		/// is Gl.FALSE. See Gl.SeparableFilter2D.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_SEPARABLE_2D_EXT")]
@@ -72,7 +72,7 @@ namespace OpenGL
 		public const int SEPARABLE_2D = 0x8012;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the convolution border mode. See Gl.ConvolutionParameter for a list of border modes.
+		/// Gl.GetConvolutionParameter: The convolution border mode. See Gl.ConvolutionParameter for a list of border modes.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_BORDER_MODE_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -80,7 +80,7 @@ namespace OpenGL
 		public const int CONVOLUTION_BORDER_MODE = 0x8013;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the current filter scale factors. params must be a pointer to an array of four elements, 
+		/// Gl.GetConvolutionParameter: The current filter scale factors. params must be a pointer to an array of four elements, 
 		/// which will receive the red, green, blue, and alpha filter scale factors in that order.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FILTER_SCALE_EXT")]
@@ -89,7 +89,7 @@ namespace OpenGL
 		public const int CONVOLUTION_FILTER_SCALE = 0x8014;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the current filter bias factors. params must be a pointer to an array of four elements, 
+		/// Gl.GetConvolutionParameter: The current filter bias factors. params must be a pointer to an array of four elements, 
 		/// which will receive the red, green, blue, and alpha filter bias terms in that order.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FILTER_BIAS_EXT")]
@@ -98,7 +98,7 @@ namespace OpenGL
 		public const int CONVOLUTION_FILTER_BIAS = 0x8015;
 
 		/// <summary>
-		/// Gl.ConvolutionParameter: the image resulting from convolution is smaller than the source image. If the filter width is 
+		/// Gl.ConvolutionParameter: The image resulting from convolution is smaller than the source image. If the filter width is 
 		/// Wf and height is Hf, and the source image width is Ws and height is Hs, then the convolved image width will be Ws-Wf+1 
 		/// and height will be Hs-Hf+1. (If this reduction would generate an image with zero or negative width and/or height, the 
 		/// output is simply null, with no error generated.) The coordinates of the image resulting from convolution are zero 
@@ -110,7 +110,7 @@ namespace OpenGL
 		public const int REDUCE = 0x8016;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the current internal format. See Gl.ConvolutionFilter1D, Gl.ConvolutionFilter2D, and 
+		/// Gl.GetConvolutionParameter: The current internal format. See Gl.ConvolutionFilter1D, Gl.ConvolutionFilter2D, and 
 		/// Gl.SeparableFilter2D for lists of allowable formats.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_FORMAT_EXT")]
@@ -119,7 +119,7 @@ namespace OpenGL
 		public const int CONVOLUTION_FORMAT = 0x8017;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the current filter image width.
+		/// Gl.GetConvolutionParameter: The current filter image width.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_WIDTH_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -127,7 +127,7 @@ namespace OpenGL
 		public const int CONVOLUTION_WIDTH = 0x8018;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the current filter image height.
+		/// Gl.GetConvolutionParameter: The current filter image height.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_HEIGHT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -135,7 +135,7 @@ namespace OpenGL
 		public const int CONVOLUTION_HEIGHT = 0x8019;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the maximum acceptable filter image width.
+		/// Gl.GetConvolutionParameter: The maximum acceptable filter image width.
 		/// </summary>
 		[AliasOf("GL_MAX_CONVOLUTION_WIDTH_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -143,7 +143,7 @@ namespace OpenGL
 		public const int MAX_CONVOLUTION_WIDTH = 0x801A;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the maximum acceptable filter image height.
+		/// Gl.GetConvolutionParameter: The maximum acceptable filter image height.
 		/// </summary>
 		[AliasOf("GL_MAX_CONVOLUTION_HEIGHT_EXT")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -224,11 +224,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether histogram is enabled. The initial value is Gl.FALSE. 
-		/// See Gl.Histogram.
+		/// Gl.Enable: If enabled, histogram incoming RGBA color values. See Gl.Histogram.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, histogram incoming RGBA color values. See Gl.Histogram.
+		/// Gl.Get: params returns a single boolean value indicating whether histogram is enabled. The initial value is Gl.FALSE. 
+		/// See Gl.Histogram.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_HISTOGRAM_EXT")]
@@ -310,11 +310,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether pixel minmax values are computed. The initial value is 
-		/// Gl.FALSE. See Gl.Minmax.
+		/// Gl.Enable: If enabled, compute the minimum and maximum values of incoming RGBA color values. See Gl.Minmax.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, compute the minimum and maximum values of incoming RGBA color values. See Gl.Minmax.
+		/// Gl.Get: params returns a single boolean value indicating whether pixel minmax values are computed. The initial value is 
+		/// Gl.FALSE. See Gl.Minmax.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_MINMAX_EXT")]
@@ -339,7 +339,7 @@ namespace OpenGL
 		public const int MINMAX_SINK = 0x8030;
 
 		/// <summary>
-		/// Gl.GetError: the specified table exceeds the implementation's maximum supported table size. The offending command is 
+		/// Gl.GetError: The specified table exceeds the implementation's maximum supported table size. The offending command is 
 		/// ignored and has no other side effect than to set the error flag.
 		/// </summary>
 		[AliasOf("GL_TABLE_TOO_LARGE_EXT")]
@@ -448,10 +448,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether the color table lookup is enabled. See Gl.ColorTable.
+		/// Gl.Enable: If enabled, perform a color table lookup on the incoming RGBA color values. See Gl.ColorTable.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, perform a color table lookup on the incoming RGBA color values. See Gl.ColorTable.
+		/// Gl.Get: params returns a single boolean value indicating whether the color table lookup is enabled. See Gl.ColorTable.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_COLOR_TABLE_SGI")]
@@ -461,11 +461,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether post convolution lookup is enabled. The initial value 
-		/// is Gl.FALSE. See Gl.ColorTable.
+		/// Gl.Enable: If enabled, perform a color table lookup on RGBA color values after convolution. See Gl.ColorTable.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, perform a color table lookup on RGBA color values after convolution. See Gl.ColorTable.
+		/// Gl.Get: params returns a single boolean value indicating whether post convolution lookup is enabled. The initial value 
+		/// is Gl.FALSE. See Gl.ColorTable.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POST_CONVOLUTION_COLOR_TABLE_SGI")]
@@ -475,12 +475,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether post color matrix transformation lookup is enabled. The 
-		/// initial value is Gl.FALSE. See Gl.ColorTable.
+		/// Gl.Enable: If enabled, perform a color table lookup on RGBA color values after color matrix transformation. See 
+		/// Gl.ColorTable.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, perform a color table lookup on RGBA color values after color matrix transformation. See 
-		/// Gl.ColorTable.
+		/// Gl.Get: params returns a single boolean value indicating whether post color matrix transformation lookup is enabled. The 
+		/// initial value is Gl.FALSE. See Gl.ColorTable.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI")]
@@ -593,7 +593,7 @@ namespace OpenGL
 		public const int COLOR_TABLE_INTENSITY_SIZE = 0x80DF;
 
 		/// <summary>
-		/// Gl.ConvolutionParameter: the image resulting from convolution is the same size as the source image, and processed as if 
+		/// Gl.ConvolutionParameter: The image resulting from convolution is the same size as the source image, and processed as if 
 		/// the source image were surrounded by pixels with their color specified by the Gl.CONVOLUTION_BORDER_COLOR.
 		/// </summary>
 		[AliasOf("GL_CONSTANT_BORDER_HP")]
@@ -602,7 +602,7 @@ namespace OpenGL
 		public const int CONSTANT_BORDER = 0x8151;
 
 		/// <summary>
-		/// Gl.ConvolutionParameter: the image resulting from convolution is the same size as the source image, and processed as if 
+		/// Gl.ConvolutionParameter: The image resulting from convolution is the same size as the source image, and processed as if 
 		/// the outermost pixel on the border of the source image were replicated.
 		/// </summary>
 		[AliasOf("GL_REPLICATE_BORDER_HP")]
@@ -611,7 +611,7 @@ namespace OpenGL
 		public const int REPLICATE_BORDER = 0x8153;
 
 		/// <summary>
-		/// Gl.GetConvolutionParameter: the current convolution border color. params must be a pointer to an array of four elements, 
+		/// Gl.GetConvolutionParameter: The current convolution border color. params must be a pointer to an array of four elements, 
 		/// which will receive the red, green, blue, and alpha border colors.
 		/// </summary>
 		[AliasOf("GL_CONVOLUTION_BORDER_COLOR_HP")]
@@ -651,8 +651,6 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -738,8 +736,6 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -807,8 +803,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
 		/// </exception>
@@ -846,8 +840,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
 		/// </exception>
@@ -896,8 +888,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The width of the pixel rectangle.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -948,8 +938,6 @@ namespace OpenGL
 		/// <param name="table">
 		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -1020,8 +1008,6 @@ namespace OpenGL
 		/// <param name="table">
 		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -1089,8 +1075,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
 		/// </exception>
@@ -1132,8 +1116,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
 		/// </exception>
@@ -1186,8 +1168,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -1259,8 +1239,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -1326,8 +1304,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The number of table entries to replace.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is not a previously defined color table.
 		/// </exception>
@@ -1387,8 +1363,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
 		/// </exception>
@@ -1480,8 +1454,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
 		/// </exception>
@@ -1578,8 +1550,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
 		/// </exception>
@@ -1679,8 +1649,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
 		/// </exception>
@@ -1760,8 +1728,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -1803,8 +1769,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -1851,8 +1815,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -1894,8 +1856,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -1953,8 +1913,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The width of the pixel array to copy.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
 		/// </exception>
@@ -2010,8 +1968,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// The height of the pixel array to copy.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
 		/// </exception>
@@ -2066,8 +2022,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// Pointer to storage for the output image.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -2138,8 +2092,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// Pointer to storage for the output image.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -2207,8 +2159,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -2255,8 +2205,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -2314,8 +2262,6 @@ namespace OpenGL
 		/// <param name="span">
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
 		/// </exception>
@@ -2391,8 +2337,6 @@ namespace OpenGL
 		/// <param name="span">
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
 		/// </exception>
@@ -2487,8 +2431,6 @@ namespace OpenGL
 		/// <param name="column">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
 		/// </exception>
@@ -2593,8 +2535,6 @@ namespace OpenGL
 		/// <param name="column">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
 		/// </exception>
@@ -2688,8 +2628,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
 		/// </exception>
@@ -2762,8 +2700,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
 		/// </exception>
@@ -2828,8 +2764,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the returned values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -2870,8 +2804,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the returned values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -2918,8 +2850,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
 		/// </exception>
@@ -2988,8 +2918,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
 		/// </exception>
@@ -3052,8 +2980,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
 		/// </exception>
@@ -3092,8 +3018,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
 		/// </exception>
@@ -3140,8 +3064,6 @@ namespace OpenGL
 		/// If Gl.TRUE, pixels will be consumed by the histogramming process and no drawing or texture loading will take place. If 
 		/// Gl.FALSE, pixels will proceed to the minmax process after histogramming.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -3189,8 +3111,6 @@ namespace OpenGL
 		/// If Gl.TRUE, pixels will be consumed by the minmax process and no drawing or texture loading will take place. If 
 		/// Gl.FALSE, pixels will proceed to the final conversion process after minmax.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
 		/// </exception>
@@ -3220,8 +3140,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Must be Gl.HISTOGRAM.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
 		/// </exception>
@@ -3247,8 +3165,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Must be Gl.MINMAX.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
 		/// </exception>

@@ -45,10 +45,16 @@ namespace BindingsGen
 			// OpenGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
 				RegistryDocumentation<RegistryDocumentationHandler_GL4> gl4Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
+				gl4Documentation.Api = "GL4";
 				gl4Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl4"));
 
+				RegistryDocumentation<RegistryDocumentationHandler_GL2> gl2Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL2>();
+				gl2Documentation.Api = "GL2.1";
+				gl2Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl2.1"));
+
 				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
-				ctx.RefPages = gl4Documentation;
+				ctx.RefPages.Add(gl4Documentation);
+				ctx.RefPages.Add(gl2Documentation);
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
@@ -80,10 +86,11 @@ namespace BindingsGen
 			// EGL
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0)) {
 				RegistryDocumentation<RegistryDocumentationHandler_EGL> eglDocumentation = new RegistryDocumentation<RegistryDocumentationHandler_EGL>();
+				eglDocumentation.Api = "EGL";
 				eglDocumentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/EGL-Registry/sdk/docs/man"));
 
 				ctx = new RegistryContext("Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
-				ctx.RefPages = eglDocumentation;
+				ctx.RefPages.Add(eglDocumentation);
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);

@@ -277,7 +277,7 @@ namespace BindingsGen.GLSpecs
 			if (sw == null)
 				throw new ArgumentNullException("sw");
 
-			if (ctx.RefPages != null)
+			if (ctx.RefPages.Count > 0)
 				ctx.RefPages.GenerateDocumentation(sw, ctx, this);
 
 			string classDefaultApi = ctx.Class.ToLower();

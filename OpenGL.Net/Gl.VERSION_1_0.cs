@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Gl.Clear: indicates the depth buffer.
+		/// Gl.Clear: Indicates the depth buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -38,7 +38,7 @@ namespace OpenGL
 		public const uint DEPTH_BUFFER_BIT = 0x00000100;
 
 		/// <summary>
-		/// Gl.Clear: indicates the stencil buffer.
+		/// Gl.Clear: Indicates the stencil buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -47,7 +47,7 @@ namespace OpenGL
 		public const uint STENCIL_BUFFER_BIT = 0x00000400;
 
 		/// <summary>
-		/// Gl.Clear: indicates the buffers currently enabled for color writing.
+		/// Gl.Clear: Indicates the buffers currently enabled for color writing.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -72,7 +72,7 @@ namespace OpenGL
 		public const int TRUE = 1;
 
 		/// <summary>
-		/// Gl.Begin: treats each vertex as a single point. Vertex n defines point n. N points are drawn.
+		/// Gl.Begin: Treats each vertex as a single point. Vertex n defines point n. N points are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -80,7 +80,7 @@ namespace OpenGL
 		public const int POINTS = 0x0000;
 
 		/// <summary>
-		/// Gl.Begin: treats each pair of vertices as an independent line segment. Vertices 2⁢n-1 and 2⁢n define line n. N2 lines 
+		/// Gl.Begin: Treats each pair of vertices as an independent line segment. Vertices 2⁢n-1 and 2⁢n define line n. N2 lines 
 		/// are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -89,7 +89,7 @@ namespace OpenGL
 		public const int LINES = 0x0001;
 
 		/// <summary>
-		/// Gl.Begin: draws a connected group of line segments from the first vertex to the last, then back to the first. Vertices n 
+		/// Gl.Begin: Draws a connected group of line segments from the first vertex to the last, then back to the first. Vertices n 
 		/// and n+1 define line n. The last line, however, is defined by vertices N and 1. N lines are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -98,7 +98,7 @@ namespace OpenGL
 		public const int LINE_LOOP = 0x0002;
 
 		/// <summary>
-		/// Gl.Begin: draws a connected group of line segments from the first vertex to the last. Vertices n and n+1 define line n. 
+		/// Gl.Begin: Draws a connected group of line segments from the first vertex to the last. Vertices n and n+1 define line n. 
 		/// N-1 lines are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -107,7 +107,7 @@ namespace OpenGL
 		public const int LINE_STRIP = 0x0003;
 
 		/// <summary>
-		/// Gl.Begin: treats each triplet of vertices as an independent triangle. Vertices 3⁢n-2, 3⁢n-1, and 3⁢n define triangle n. 
+		/// Gl.Begin: Treats each triplet of vertices as an independent triangle. Vertices 3⁢n-2, 3⁢n-1, and 3⁢n define triangle n. 
 		/// N3 triangles are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -120,7 +120,7 @@ namespace OpenGL
 		public const int TRIANGLES = 0x0004;
 
 		/// <summary>
-		/// Gl.Begin: draws a connected group of triangles. One triangle is defined for each vertex presented after the first two 
+		/// Gl.Begin: Draws a connected group of triangles. One triangle is defined for each vertex presented after the first two 
 		/// vertices. For odd n, vertices n, n+1, and n+2 define triangle n. For even n, vertices n+1, n, and n+2 define triangle n. 
 		/// N-2 triangles are drawn.
 		/// </summary>
@@ -130,7 +130,7 @@ namespace OpenGL
 		public const int TRIANGLE_STRIP = 0x0005;
 
 		/// <summary>
-		/// Gl.Begin: draws a connected group of triangles. One triangle is defined for each vertex presented after the first two 
+		/// Gl.Begin: Draws a connected group of triangles. One triangle is defined for each vertex presented after the first two 
 		/// vertices. Vertices 1, n+1, and n+2 define triangle n. N-2 triangles are drawn.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -139,7 +139,7 @@ namespace OpenGL
 		public const int TRIANGLE_FAN = 0x0006;
 
 		/// <summary>
-		/// Gl.Begin: treats each group of four vertices as an independent quadrilateral. Vertices 4⁢n-3, 4⁢n-2, 4⁢n-1, and 4⁢n 
+		/// Gl.Begin: Treats each group of four vertices as an independent quadrilateral. Vertices 4⁢n-3, 4⁢n-2, 4⁢n-1, and 4⁢n 
 		/// define quadrilateral n. N4 quadrilaterals are drawn.
 		/// </summary>
 		[AliasOf("GL_QUADS_EXT")]
@@ -155,13 +155,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DepthFunc: never passes.
+		/// Gl.DepthFunc: Never passes.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFunc: always fails.
+		/// Gl.StencilFunc: Always fails.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFuncSeparate: always fails.
+		/// Gl.StencilFuncSeparate: Always fails.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -171,13 +171,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DepthFunc: passes if the incoming depth value is less than the stored depth value.
+		/// Gl.DepthFunc: Passes if the incoming depth value is less than the stored depth value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFunc: passes if ( ref &amp; mask ) &lt; ( stencil &amp; mask ).
+		/// Gl.StencilFunc: Passes if ( ref &amp; mask ) &lt; ( stencil &amp; mask ).
 		/// </para>
 		/// <para>
-		/// Gl.StencilFuncSeparate: passes if ( ref &amp; mask ) &lt; ( stencil &amp; mask ).
+		/// Gl.StencilFuncSeparate: Passes if ( ref &amp; mask ) &lt; ( stencil &amp; mask ).
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -187,13 +187,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DepthFunc: passes if the incoming depth value is equal to the stored depth value.
+		/// Gl.DepthFunc: Passes if the incoming depth value is equal to the stored depth value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFunc: passes if ( ref &amp; mask ) = ( stencil &amp; mask ).
+		/// Gl.StencilFunc: Passes if ( ref &amp; mask ) = ( stencil &amp; mask ).
 		/// </para>
 		/// <para>
-		/// Gl.StencilFuncSeparate: passes if ( ref &amp; mask ) = ( stencil &amp; mask ).
+		/// Gl.StencilFuncSeparate: Passes if ( ref &amp; mask ) = ( stencil &amp; mask ).
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -207,13 +207,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DepthFunc: passes if the incoming depth value is less than or equal to the stored depth value.
+		/// Gl.DepthFunc: Passes if the incoming depth value is less than or equal to the stored depth value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFunc: passes if ( ref &amp; mask ) &lt;= ( stencil &amp; mask ).
+		/// Gl.StencilFunc: Passes if ( ref &amp; mask ) &lt;= ( stencil &amp; mask ).
 		/// </para>
 		/// <para>
-		/// Gl.StencilFuncSeparate: passes if ( ref &amp; mask ) &lt;= ( stencil &amp; mask ).
+		/// Gl.StencilFuncSeparate: Passes if ( ref &amp; mask ) &lt;= ( stencil &amp; mask ).
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -223,13 +223,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DepthFunc: passes if the incoming depth value is greater than the stored depth value.
+		/// Gl.DepthFunc: Passes if the incoming depth value is greater than the stored depth value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFunc: passes if ( ref &amp; mask ) &gt; ( stencil &amp; mask ).
+		/// Gl.StencilFunc: Passes if ( ref &amp; mask ) &gt; ( stencil &amp; mask ).
 		/// </para>
 		/// <para>
-		/// Gl.StencilFuncSeparate: passes if ( ref &amp; mask ) &gt; ( stencil &amp; mask ).
+		/// Gl.StencilFuncSeparate: Passes if ( ref &amp; mask ) &gt; ( stencil &amp; mask ).
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -239,13 +239,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DepthFunc: passes if the incoming depth value is not equal to the stored depth value.
+		/// Gl.DepthFunc: Passes if the incoming depth value is not equal to the stored depth value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFunc: passes if ( ref &amp; mask ) != ( stencil &amp; mask ).
+		/// Gl.StencilFunc: Passes if ( ref &amp; mask ) != ( stencil &amp; mask ).
 		/// </para>
 		/// <para>
-		/// Gl.StencilFuncSeparate: passes if ( ref &amp; mask ) != ( stencil &amp; mask ).
+		/// Gl.StencilFuncSeparate: Passes if ( ref &amp; mask ) != ( stencil &amp; mask ).
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -255,13 +255,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DepthFunc: passes if the incoming depth value is greater than or equal to the stored depth value.
+		/// Gl.DepthFunc: Passes if the incoming depth value is greater than or equal to the stored depth value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFunc: passes if ( ref &amp; mask ) &gt;= ( stencil &amp; mask ).
+		/// Gl.StencilFunc: Passes if ( ref &amp; mask ) &gt;= ( stencil &amp; mask ).
 		/// </para>
 		/// <para>
-		/// Gl.StencilFuncSeparate: passes if ( ref &amp; mask ) &gt;= ( stencil &amp; mask ).
+		/// Gl.StencilFuncSeparate: Passes if ( ref &amp; mask ) &gt;= ( stencil &amp; mask ).
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -271,13 +271,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DepthFunc: always passes.
+		/// Gl.DepthFunc: Always passes.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFunc: always passes.
+		/// Gl.StencilFunc: Always passes.
 		/// </para>
 		/// <para>
-		/// Gl.StencilFuncSeparate: always passes.
+		/// Gl.StencilFuncSeparate: Always passes.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -287,10 +287,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.StencilOp: sets the stencil buffer value to 0.
+		/// Gl.StencilOp: Sets the stencil buffer value to 0.
 		/// </para>
 		/// <para>
-		/// Gl.StencilOpSeparate: sets the stencil buffer value to 0.
+		/// Gl.StencilOpSeparate: Sets the stencil buffer value to 0.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -406,10 +406,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DrawBuffer: no color buffers are written.
+		/// Gl.DrawBuffer: No color buffers are written.
 		/// </para>
 		/// <para>
-		/// Gl.DrawBuffers: the fragment shader output value is not written into any color buffer.
+		/// Gl.DrawBuffers: The fragment shader output value is not written into any color buffer.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_NONE_OES")]
@@ -423,10 +423,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DrawBuffer: only the front left color buffer is written.
+		/// Gl.DrawBuffer: Only the front left color buffer is written.
 		/// </para>
 		/// <para>
-		/// Gl.DrawBuffers: the fragment shader output value is written into the front left color buffer.
+		/// Gl.DrawBuffers: The fragment shader output value is written into the front left color buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -434,10 +434,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DrawBuffer: only the front right color buffer is written.
+		/// Gl.DrawBuffer: Only the front right color buffer is written.
 		/// </para>
 		/// <para>
-		/// Gl.DrawBuffers: the fragment shader output value is written into the front right color buffer.
+		/// Gl.DrawBuffers: The fragment shader output value is written into the front right color buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -445,10 +445,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DrawBuffer: only the back left color buffer is written.
+		/// Gl.DrawBuffer: Only the back left color buffer is written.
 		/// </para>
 		/// <para>
-		/// Gl.DrawBuffers: the fragment shader output value is written into the back left color buffer.
+		/// Gl.DrawBuffers: The fragment shader output value is written into the back left color buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -456,17 +456,17 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.DrawBuffer: only the back right color buffer is written.
+		/// Gl.DrawBuffer: Only the back right color buffer is written.
 		/// </para>
 		/// <para>
-		/// Gl.DrawBuffers: the fragment shader output value is written into the back right color buffer.
+		/// Gl.DrawBuffers: The fragment shader output value is written into the back right color buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public const int BACK_RIGHT = 0x0403;
 
 		/// <summary>
-		/// Gl.DrawBuffer: only the front left and front right color buffers are written. If there is no front right color buffer, 
+		/// Gl.DrawBuffer: Only the front left and front right color buffers are written. If there is no front right color buffer, 
 		/// only the front left color buffer is written.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -475,7 +475,7 @@ namespace OpenGL
 		public const int FRONT = 0x0404;
 
 		/// <summary>
-		/// Gl.DrawBuffer: only the back left and back right color buffers are written. If there is no back right color buffer, only 
+		/// Gl.DrawBuffer: Only the back left and back right color buffers are written. If there is no back right color buffer, only 
 		/// the back left color buffer is written.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -486,21 +486,21 @@ namespace OpenGL
 		public const int BACK = 0x0405;
 
 		/// <summary>
-		/// Gl.DrawBuffer: only the front left and back left color buffers are written. If there is no back left color buffer, only 
+		/// Gl.DrawBuffer: Only the front left and back left color buffers are written. If there is no back left color buffer, only 
 		/// the front left color buffer is written.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public const int LEFT = 0x0406;
 
 		/// <summary>
-		/// Gl.DrawBuffer: only the front right and back right color buffers are written. If there is no back right color buffer, 
+		/// Gl.DrawBuffer: Only the front right and back right color buffers are written. If there is no back right color buffer, 
 		/// only the front right color buffer is written.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public const int RIGHT = 0x0407;
 
 		/// <summary>
-		/// Gl.DrawBuffer: all the front and back color buffers (front left, front right, back left, back right) are written. If 
+		/// Gl.DrawBuffer: All the front and back color buffers (front left, front right, back left, back right) are written. If 
 		/// there are no back color buffers, only the front left and front right color buffers are written. If there are no right 
 		/// color buffers, only the front left and back left color buffers are written. If there are no right or back color buffers, 
 		/// only the front left color buffer is written.
@@ -512,10 +512,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetError: no error has been recorded. The value of this symbolic constant is guaranteed to be 0.
+		/// Gl.GetError: No error has been recorded. The value of this symbolic constant is guaranteed to be 0.
 		/// </para>
 		/// <para>
-		/// Gl.GetGraphicsResetStatus: indicates that the GL context has not been in a reset state since the last call.
+		/// Gl.GetGraphicsResetStatus: Indicates that the GL context has not been in a reset state since the last call.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -529,7 +529,7 @@ namespace OpenGL
 		public const int NO_ERROR = 0;
 
 		/// <summary>
-		/// Gl.GetError: an unacceptable value is specified for an enumerated argument. The offending command is ignored and has no 
+		/// Gl.GetError: An unacceptable value is specified for an enumerated argument. The offending command is ignored and has no 
 		/// other side effect than to set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -538,7 +538,7 @@ namespace OpenGL
 		public const int INVALID_ENUM = 0x0500;
 
 		/// <summary>
-		/// Gl.GetError: a numeric argument is out of range. The offending command is ignored and has no other side effect than to 
+		/// Gl.GetError: A numeric argument is out of range. The offending command is ignored and has no other side effect than to 
 		/// set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -547,7 +547,7 @@ namespace OpenGL
 		public const int INVALID_VALUE = 0x0501;
 
 		/// <summary>
-		/// Gl.GetError: the specified operation is not allowed in the current state. The offending command is ignored and has no 
+		/// Gl.GetError: The specified operation is not allowed in the current state. The offending command is ignored and has no 
 		/// other side effect than to set the error flag.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -556,7 +556,7 @@ namespace OpenGL
 		public const int INVALID_OPERATION = 0x0502;
 
 		/// <summary>
-		/// Gl.GetError: there is not enough memory left to execute the command. The state of the GL is undefined, except for the 
+		/// Gl.GetError: There is not enough memory left to execute the command. The state of the GL is undefined, except for the 
 		/// state of the error flags, after this error is recorded.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -822,7 +822,7 @@ namespace OpenGL
 		public const int STENCIL_WRITEMASK = 0x0B98;
 
 		/// <summary>
-		/// Gl.Get: when used with non-indexed variants of glGet (such as glGetIntegerv), data returns four values: the x and y 
+		/// Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns four values: the x and y 
 		/// window coordinates of the viewport, followed by its width and height. Initially the x and y window coordinates are both 
 		/// set to 0, and the width and height are set to the width and height of the window into which the GL will do its 
 		/// rendering. See Gl.Viewport. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns four 
@@ -881,15 +881,8 @@ namespace OpenGL
 		public const int LOGIC_OP_MODE = 0x0BF0;
 
 		/// <summary>
-		/// <para>
 		/// Gl.Get: data returns one value, a symbolic constant indicating which buffers are being drawn to. See Gl.DrawBuffer. The 
 		/// initial value is Gl.BACK if there are back buffers, otherwise it is Gl.FRONT.
-		/// </para>
-		/// <para>
-		/// Gl.Get: data returns one value, a symbolic constant indicating which buffers are being drawn to by the corresponding 
-		/// output color. See Gl.DrawBuffers. The initial value of Gl.DRAW_BUFFER0 is Gl.BACK if there are back buffers, otherwise 
-		/// it is Gl.FRONT. The initial values of draw buffers for all other output colors is Gl.NONE.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_DRAW_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -985,7 +978,7 @@ namespace OpenGL
 		/// is Gl.DONT_CARE. See Gl.Hint.
 		/// </para>
 		/// <para>
-		/// Gl.Hint: indicates the sampling quality of antialiased lines. If a larger filter function is applied, hinting Gl.NICEST 
+		/// Gl.Hint: Indicates the sampling quality of antialiased lines. If a larger filter function is applied, hinting Gl.NICEST 
 		/// can result in more pixel fragments being generated during rasterization.
 		/// </para>
 		/// </summary>
@@ -999,7 +992,7 @@ namespace OpenGL
 		/// value is Gl.DONT_CARE. See Gl.Hint.
 		/// </para>
 		/// <para>
-		/// Gl.Hint: indicates the sampling quality of antialiased polygons. Hinting Gl.NICEST can result in more pixel fragments 
+		/// Gl.Hint: Indicates the sampling quality of antialiased polygons. Hinting Gl.NICEST can result in more pixel fragments 
 		/// being generated during rasterization, if a larger filter function is applied.
 		/// </para>
 		/// </summary>
@@ -1136,12 +1129,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 1D texture mapping is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.TexImage1D.
+		/// Gl.Enable: If enabled and no fragment shader is active, one-dimensional texturing is performed (unless two- or 
+		/// three-dimensional or cube-mapped texturing is also enabled). See Gl.TexImage1D.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no fragment shader is active, one-dimensional texturing is performed (unless two- or 
-		/// three-dimensional or cube-mapped texturing is also enabled). See Gl.TexImage1D.
+		/// Gl.Get: params returns a single boolean value indicating whether 1D texture mapping is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.TexImage1D.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1150,12 +1143,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 2D texture mapping is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.TexImage2D.
+		/// Gl.Enable: If enabled and no fragment shader is active, two-dimensional texturing is performed (unless three-dimensional 
+		/// or cube-mapped texturing is also enabled). See Gl.TexImage2D.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no fragment shader is active, two-dimensional texturing is performed (unless three-dimensional 
-		/// or cube-mapped texturing is also enabled). See Gl.TexImage2D.
+		/// Gl.Get: params returns a single boolean value indicating whether 2D texture mapping is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.TexImage2D.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1181,13 +1174,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetSamplerParameter: returns four integer or floating-point numbers that comprise the RGBA color of the texture 
+		/// Gl.GetSamplerParameter: Returns four integer or floating-point numbers that comprise the RGBA color of the texture 
 		/// border. Floating-point values are returned in the range 01. Integer values are returned as a linear mapping of the 
 		/// internal floating-point representation such that 1.0 maps to the most positive representable integer and -1.0 maps to 
 		/// the most negative representable integer. The initial value is (0, 0, 0, 0).
 		/// </para>
 		/// <para>
-		/// Gl.GetTexParameter: returns four integer or floating-point numbers that comprise the RGBA color of the texture border. 
+		/// Gl.GetTexParameter: Returns four integer or floating-point numbers that comprise the RGBA color of the texture border. 
 		/// Floating-point values are returned in the range 01. Integer values are returned as a linear mapping of the internal 
 		/// floating-point representation such that 1.0 maps to the most positive representable integer and -1.0 maps to the most 
 		/// negative representable integer. The initial value is (0, 0, 0, 0).
@@ -1204,7 +1197,7 @@ namespace OpenGL
 		public const int TEXTURE_BORDER_COLOR = 0x1004;
 
 		/// <summary>
-		/// Gl.Hint: no preference.
+		/// Gl.Hint: No preference.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1212,7 +1205,7 @@ namespace OpenGL
 		public const int DONT_CARE = 0x1100;
 
 		/// <summary>
-		/// Gl.Hint: the most efficient option should be chosen.
+		/// Gl.Hint: The most efficient option should be chosen.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1220,7 +1213,7 @@ namespace OpenGL
 		public const int FASTEST = 0x1101;
 
 		/// <summary>
-		/// Gl.Hint: the most correct, or highest quality, option should be chosen.
+		/// Gl.Hint: The most correct, or highest quality, option should be chosen.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1292,7 +1285,7 @@ namespace OpenGL
 		public const int FLOAT = 0x1406;
 
 		/// <summary>
-		/// Gl.GetError: an attempt has been made to perform an operation that would cause an internal stack to overflow.
+		/// Gl.GetError: An attempt has been made to perform an operation that would cause an internal stack to overflow.
 		/// </summary>
 		[AliasOf("GL_STACK_OVERFLOW_KHR")]
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1305,7 +1298,7 @@ namespace OpenGL
 		public const int STACK_OVERFLOW = 0x0503;
 
 		/// <summary>
-		/// Gl.GetError: an attempt has been made to perform an operation that would cause an internal stack to underflow.
+		/// Gl.GetError: An attempt has been made to perform an operation that would cause an internal stack to underflow.
 		/// </summary>
 		[AliasOf("GL_STACK_UNDERFLOW_KHR")]
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1391,10 +1384,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.StencilOp: bitwise inverts the current stencil buffer value.
+		/// Gl.StencilOp: Bitwise inverts the current stencil buffer value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilOpSeparate: bitwise inverts the current stencil buffer value.
+		/// Gl.StencilOpSeparate: Bitwise inverts the current stencil buffer value.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1439,7 +1432,7 @@ namespace OpenGL
 		public const int SET = 0x150F;
 
 		/// <summary>
-		/// Gl.MatrixMode: applies subsequent matrix operations to the texture matrix stack.
+		/// Gl.MatrixMode: Applies subsequent matrix operations to the texture matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1448,7 +1441,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.CopyPixels: indices or RGBA colors are read from the buffer currently specified as the read source buffer (see 
+		/// Gl.CopyPixels: Indices or RGBA colors are read from the buffer currently specified as the read source buffer (see 
 		/// Gl.ReadBuffer). If the GL is in color index mode, each index that is read from this buffer is converted to a fixed-point 
 		/// format with an unspecified number of bits to the right of the binary point. Each index is then shifted left by 
 		/// Gl.INDEX_SHIFT bits, and added to Gl.INDEX_OFFSET. If Gl.INDEX_SHIFT is negative, the shift is to the right. In either 
@@ -1469,7 +1462,7 @@ namespace OpenGL
 		/// mapping, fog, and all the fragment operations are applied before the fragments are written to the frame buffer.
 		/// </para>
 		/// <para>
-		/// Gl.MatrixMode: applies subsequent matrix operations to the color matrix stack.
+		/// Gl.MatrixMode: Applies subsequent matrix operations to the color matrix stack.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_COLOR_EXT")]
@@ -1479,7 +1472,7 @@ namespace OpenGL
 		public const int COLOR = 0x1800;
 
 		/// <summary>
-		/// Gl.CopyPixels: depth values are read from the depth buffer and converted directly to an internal floating-point format 
+		/// Gl.CopyPixels: Depth values are read from the depth buffer and converted directly to an internal floating-point format 
 		/// with unspecified precision. The resulting floating-point depth value is then multiplied by Gl.DEPTH_SCALE and added to 
 		/// Gl.DEPTH_BIAS. The result is clamped to the range [0,1]. The GL then converts the resulting depth components to 
 		/// fragments by attaching the current raster position color or color index and texture coordinates to each pixel, then 
@@ -1495,7 +1488,7 @@ namespace OpenGL
 		public const int DEPTH = 0x1801;
 
 		/// <summary>
-		/// Gl.CopyPixels: stencil indices are read from the stencil buffer and converted to an internal fixed-point format with an 
+		/// Gl.CopyPixels: Stencil indices are read from the stencil buffer and converted to an internal fixed-point format with an 
 		/// unspecified number of bits to the right of the binary point. Each fixed-point index is then shifted left by 
 		/// Gl.INDEX_SHIFT bits, and added to Gl.INDEX_OFFSET. If Gl.INDEX_SHIFT is negative, the shift is to the right. In either 
 		/// case, zero bits fill otherwise unspecified bit locations in the result. If Gl.MAP_STENCIL is true, the index is replaced 
@@ -1513,12 +1506,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.ReadPixels: stencil values are read from the stencil buffer. Each index is converted to fixed point, shifted left or 
-		/// right depending on the value and sign of Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET. If Gl.MAP_STENCIL is Gl.TRUE, 
-		/// indices are replaced by their mappings in the table Gl.PIXEL_MAP_S_TO_S.
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single value, a stencil index. It is converted to fixed-point format, with an unspecified 
+		/// Gl.DrawPixels: Each pixel is a single value, a stencil index. It is converted to fixed-point format, with an unspecified 
 		/// number of bits to the right of the binary point, regardless of the memory data type. Floating-point values convert to 
 		/// true fixed-point values. Signed and unsigned integer data is converted with all fraction bits set to 0. Bitmap data 
 		/// convert to either 0 or 1. Each fixed-point index is then shifted left by Gl.INDEX_SHIFT bits, and added to 
@@ -1529,6 +1517,11 @@ namespace OpenGL
 		/// indices are then written to the stencil buffer such that the nth index is written to location xn=xr+n%widthyn=yr+nwidth 
 		/// where xryr is the current raster position. Only the pixel ownership test, the scissor test, and the stencil writemask 
 		/// affect these write operations.
+		/// </para>
+		/// <para>
+		/// Gl.ReadPixels: Stencil values are read from the stencil buffer. Each index is converted to fixed point, shifted left or 
+		/// right depending on the value and sign of Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET. If Gl.MAP_STENCIL is Gl.TRUE, 
+		/// indices are replaced by their mappings in the table Gl.PIXEL_MAP_S_TO_S.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_STENCIL_INDEX_OES")]
@@ -1542,20 +1535,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.ReadPixels: depth values are read from the depth buffer. Each component is converted to floating point such that the 
-		/// minimum depth value maps to 0 and the maximum value maps to 1. Each component is then multiplied by Gl.DEPTH_SCALE, 
-		/// added to Gl.DEPTH_BIAS, and finally clamped to the range 01.
-		/// </para>
-		/// <para>
-		/// Gl.TexImage1D: each element is a single depth value. The GL converts it to floating point, multiplies by the signed 
-		/// scale factor Gl.DEPTH_SCALE, adds the signed bias Gl.DEPTH_BIAS, and clamps to the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.TexImage2D: each element is a single depth value. The GL converts it to floating point, multiplies by the signed 
-		/// scale factor Gl.DEPTH_SCALE, adds the signed bias Gl.DEPTH_BIAS, and clamps to the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single-depth component. Floating-point data is converted directly to an internal 
+		/// Gl.DrawPixels: Each pixel is a single-depth component. Floating-point data is converted directly to an internal 
 		/// floating-point format with unspecified precision. Signed integer data is mapped linearly to the internal floating-point 
 		/// format such that the most positive representable integer value maps to 1.0, and the most negative representable value 
 		/// maps to -1.0. Unsigned integer data is mapped similarly: the largest integer value maps to 1.0, and 0 maps to 0.0. The 
@@ -1566,6 +1546,19 @@ namespace OpenGL
 		/// are then treated just like the fragments generated by rasterizing points, lines, or polygons. Texture mapping, fog, and 
 		/// all the fragment operations are applied before the fragments are written to the frame buffer.
 		/// </para>
+		/// <para>
+		/// Gl.ReadPixels: Depth values are read from the depth buffer. Each component is converted to floating point such that the 
+		/// minimum depth value maps to 0 and the maximum value maps to 1. Each component is then multiplied by Gl.DEPTH_SCALE, 
+		/// added to Gl.DEPTH_BIAS, and finally clamped to the range 01.
+		/// </para>
+		/// <para>
+		/// Gl.TexImage1D: Each element is a single depth value. The GL converts it to floating point, multiplies by the signed 
+		/// scale factor Gl.DEPTH_SCALE, adds the signed bias Gl.DEPTH_BIAS, and clamps to the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.TexImage2D: Each element is a single depth value. The GL converts it to floating point, multiplies by the signed 
+		/// scale factor Gl.DEPTH_SCALE, adds the signed bias Gl.DEPTH_BIAS, and clamps to the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1575,27 +1568,27 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.DrawPixels: Each pixel is a single red component. This component is converted to the internal floating-point format 
+		/// in the same way the red component of an RGBA pixel is. It is then converted to an RGBA pixel with green and blue set to 
+		/// 0, and alpha set to 1. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
+		/// </para>
+		/// <para>
 		/// Gl.ReadPixels: 
 		/// </para>
 		/// <para>
-		/// Gl.TexImage1D: each element is a single red component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage1D: Each element is a single red component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: each element is a single red component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage2D: Each element is a single red component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage3D: each element is a single red component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage3D: Each element is a single red component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for green and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single red component. This component is converted to the internal floating-point format 
-		/// in the same way the red component of an RGBA pixel is. It is then converted to an RGBA pixel with green and blue set to 
-		/// 0, and alpha set to 1. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_RED_EXT")]
@@ -1609,27 +1602,27 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.DrawPixels: Each pixel is a single green component. This component is converted to the internal floating-point format 
+		/// in the same way the green component of an RGBA pixel is. It is then converted to an RGBA pixel with red and blue set to 
+		/// 0, and alpha set to 1. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
+		/// </para>
+		/// <para>
 		/// Gl.ReadPixels: 
 		/// </para>
 		/// <para>
-		/// Gl.TexImage1D: each element is a single green component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage1D: Each element is a single green component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: each element is a single green component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage2D: Each element is a single green component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage3D: each element is a single green component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage3D: Each element is a single green component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red and blue, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single green component. This component is converted to the internal floating-point format 
-		/// in the same way the green component of an RGBA pixel is. It is then converted to an RGBA pixel with red and blue set to 
-		/// 0, and alpha set to 1. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_GREEN_NV")]
@@ -1641,27 +1634,27 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.DrawPixels: Each pixel is a single blue component. This component is converted to the internal floating-point format 
+		/// in the same way the blue component of an RGBA pixel is. It is then converted to an RGBA pixel with red and green set to 
+		/// 0, and alpha set to 1. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
+		/// </para>
+		/// <para>
 		/// Gl.ReadPixels: 
 		/// </para>
 		/// <para>
-		/// Gl.TexImage1D: each element is a single blue component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage1D: Each element is a single blue component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red and green, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: each element is a single blue component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage2D: Each element is a single blue component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red and green, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage3D: each element is a single blue component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage3D: Each element is a single blue component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red and green, and 1 for alpha. Each component is then multiplied by the signed scale 
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single blue component. This component is converted to the internal floating-point format 
-		/// in the same way the blue component of an RGBA pixel is. It is then converted to an RGBA pixel with red and green set to 
-		/// 0, and alpha set to 1. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_BLUE_NV")]
@@ -1673,27 +1666,27 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.DrawPixels: Each pixel is a single alpha component. This component is converted to the internal floating-point format 
+		/// in the same way the alpha component of an RGBA pixel is. It is then converted to an RGBA pixel with red, green, and blue 
+		/// set to 0. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
+		/// </para>
+		/// <para>
 		/// Gl.ReadPixels: 
 		/// </para>
 		/// <para>
-		/// Gl.TexImage1D: each element is a single alpha component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage1D: Each element is a single alpha component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red, green, and blue. Each component is then multiplied by the signed scale factor 
 		/// Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: each element is a single alpha component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage2D: Each element is a single alpha component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red, green, and blue. Each component is then multiplied by the signed scale factor 
 		/// Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage3D: each element is a single alpha component. The GL converts it to floating point and assembles it into an 
+		/// Gl.TexImage3D: Each element is a single alpha component. The GL converts it to floating point and assembles it into an 
 		/// RGBA element by attaching 0 for red, green, and blue. Each component is then multiplied by the signed scale factor 
 		/// Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single alpha component. This component is converted to the internal floating-point format 
-		/// in the same way the alpha component of an RGBA pixel is. It is then converted to an RGBA pixel with red, green, and blue 
-		/// set to 0. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1704,6 +1697,9 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.DrawPixels: 
+		/// </para>
+		/// <para>
 		/// Gl.ReadPixels: 
 		/// </para>
 		/// <para>
@@ -1714,9 +1710,6 @@ namespace OpenGL
 		/// </para>
 		/// <para>
 		/// Gl.TexImage3D: 
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: 
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1726,6 +1719,9 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.DrawPixels: 
+		/// </para>
+		/// <para>
 		/// Gl.ReadPixels: 
 		/// </para>
 		/// <para>
@@ -1737,9 +1733,6 @@ namespace OpenGL
 		/// <para>
 		/// Gl.TexImage3D: 
 		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: 
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1747,7 +1740,7 @@ namespace OpenGL
 		public const int RGBA = 0x1908;
 
 		/// <summary>
-		/// Gl.PolygonMode: polygon vertices that are marked as the start of a boundary edge are drawn as points. Point attributes 
+		/// Gl.PolygonMode: Polygon vertices that are marked as the start of a boundary edge are drawn as points. Point attributes 
 		/// such as Gl.POINT_SIZE and Gl.POINT_SMOOTH control the rasterization of the points. Polygon rasterization attributes 
 		/// other than Gl.POLYGON_MODE have no effect.
 		/// </summary>
@@ -1757,7 +1750,7 @@ namespace OpenGL
 		public const int POINT = 0x1B00;
 
 		/// <summary>
-		/// Gl.PolygonMode: boundary edges of the polygon are drawn as line segments. Line attributes such as Gl.LINE_WIDTH and 
+		/// Gl.PolygonMode: Boundary edges of the polygon are drawn as line segments. Line attributes such as Gl.LINE_WIDTH and 
 		/// Gl.LINE_SMOOTH control the rasterization of the lines. Polygon rasterization attributes other than Gl.POLYGON_MODE have 
 		/// no effect.
 		/// </summary>
@@ -1767,7 +1760,7 @@ namespace OpenGL
 		public const int LINE = 0x1B01;
 
 		/// <summary>
-		/// Gl.PolygonMode: the interior of the polygon is filled. Polygon attributes such as Gl.POLYGON_SMOOTH control the 
+		/// Gl.PolygonMode: The interior of the polygon is filled. Polygon attributes such as Gl.POLYGON_SMOOTH control the 
 		/// rasterization of the polygon.
 		/// </summary>
 		[AliasOf("GL_FILL_NV")]
@@ -1777,10 +1770,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.StencilOp: keeps the current value.
+		/// Gl.StencilOp: Keeps the current value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilOpSeparate: keeps the current value.
+		/// Gl.StencilOpSeparate: Keeps the current value.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1790,10 +1783,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.StencilOp: sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
+		/// Gl.StencilOp: Sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
 		/// </para>
 		/// <para>
-		/// Gl.StencilOpSeparate: sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
+		/// Gl.StencilOpSeparate: Sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1803,10 +1796,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.StencilOp: increments the current stencil buffer value. Clamps to the maximum representable unsigned value.
+		/// Gl.StencilOp: Increments the current stencil buffer value. Clamps to the maximum representable unsigned value.
 		/// </para>
 		/// <para>
-		/// Gl.StencilOpSeparate: increments the current stencil buffer value. Clamps to the maximum representable unsigned value.
+		/// Gl.StencilOpSeparate: Increments the current stencil buffer value. Clamps to the maximum representable unsigned value.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1816,10 +1809,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.StencilOp: decrements the current stencil buffer value. Clamps to 0.
+		/// Gl.StencilOp: Decrements the current stencil buffer value. Clamps to 0.
 		/// </para>
 		/// <para>
-		/// Gl.StencilOpSeparate: decrements the current stencil buffer value. Clamps to 0.
+		/// Gl.StencilOpSeparate: Decrements the current stencil buffer value. Clamps to 0.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1828,7 +1821,7 @@ namespace OpenGL
 		public const int DECR = 0x1E03;
 
 		/// <summary>
-		/// Gl.GetString: returns the company responsible for this GL implementation. This name does not change from release to 
+		/// Gl.GetString: Returns the company responsible for this GL implementation. This name does not change from release to 
 		/// release.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1837,7 +1830,7 @@ namespace OpenGL
 		public const int VENDOR = 0x1F00;
 
 		/// <summary>
-		/// Gl.GetString: returns the name of the renderer. This name is typically specific to a particular configuration of a 
+		/// Gl.GetString: Returns the name of the renderer. This name is typically specific to a particular configuration of a 
 		/// hardware platform. It does not change from release to release.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1846,7 +1839,7 @@ namespace OpenGL
 		public const int RENDERER = 0x1F01;
 
 		/// <summary>
-		/// Gl.GetString: returns a version or release number.
+		/// Gl.GetString: Returns a version or release number.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1854,7 +1847,7 @@ namespace OpenGL
 		public const int VERSION = 0x1F02;
 
 		/// <summary>
-		/// Gl.GetString: for glGetStringi only, returns the extension string supported by the implementation at index.
+		/// Gl.GetString: For glGetStringi only, returns the extension string supported by the implementation at index.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1911,11 +1904,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetSamplerParameter: returns the single-valued texture magnification filter, a symbolic constant. The initial value 
+		/// Gl.GetSamplerParameter: Returns the single-valued texture magnification filter, a symbolic constant. The initial value 
 		/// is Gl.LINEAR.
 		/// </para>
 		/// <para>
-		/// Gl.GetTexParameter: returns the single-valued texture magnification filter, a symbolic constant. The initial value is 
+		/// Gl.GetTexParameter: Returns the single-valued texture magnification filter, a symbolic constant. The initial value is 
 		/// Gl.LINEAR.
 		/// </para>
 		/// </summary>
@@ -1926,11 +1919,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetSamplerParameter: returns the single-valued texture minification filter, a symbolic constant. The initial value is 
+		/// Gl.GetSamplerParameter: Returns the single-valued texture minification filter, a symbolic constant. The initial value is 
 		/// Gl.NEAREST_MIPMAP_LINEAR.
 		/// </para>
 		/// <para>
-		/// Gl.GetTexParameter: returns the single-valued texture minification filter, a symbolic constant. The initial value is 
+		/// Gl.GetTexParameter: Returns the single-valued texture minification filter, a symbolic constant. The initial value is 
 		/// Gl.NEAREST_MIPMAP_LINEAR.
 		/// </para>
 		/// </summary>
@@ -1941,11 +1934,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetSamplerParameter: returns the single-valued wrapping function for texture coordinate s, a symbolic constant. The 
+		/// Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate s, a symbolic constant. The 
 		/// initial value is Gl.REPEAT.
 		/// </para>
 		/// <para>
-		/// Gl.GetTexParameter: returns the single-valued wrapping function for texture coordinate s, a symbolic constant. The 
+		/// Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate s, a symbolic constant. The 
 		/// initial value is Gl.REPEAT.
 		/// </para>
 		/// </summary>
@@ -1956,11 +1949,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.GetSamplerParameter: returns the single-valued wrapping function for texture coordinate t, a symbolic constant. The 
+		/// Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate t, a symbolic constant. The 
 		/// initial value is Gl.REPEAT.
 		/// </para>
 		/// <para>
-		/// Gl.GetTexParameter: returns the single-valued wrapping function for texture coordinate t, a symbolic constant. The 
+		/// Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate t, a symbolic constant. The 
 		/// initial value is Gl.REPEAT.
 		/// </para>
 		/// </summary>
@@ -2042,7 +2035,7 @@ namespace OpenGL
 		public const uint FOG_BIT = 0x00000080;
 
 		/// <summary>
-		/// Gl.Clear: indicates the accumulation buffer.
+		/// Gl.Clear: Indicates the accumulation buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -2122,7 +2115,7 @@ namespace OpenGL
 		public const uint ALL_ATTRIB_BITS = 0xFFFFFFFF;
 
 		/// <summary>
-		/// Gl.Begin: draws a connected group of quadrilaterals. One quadrilateral is defined for each pair of vertices presented 
+		/// Gl.Begin: Draws a connected group of quadrilaterals. One quadrilateral is defined for each pair of vertices presented 
 		/// after the first pair. Vertices 2⁢n-1, 2⁢n, 2⁢n+2, and 2⁢n+1 define quadrilateral n. N2-1 quadrilaterals are drawn. Note 
 		/// that the order in which vertices are used to construct a quadrilateral from strip data is different from that used with 
 		/// independent data.
@@ -2132,14 +2125,14 @@ namespace OpenGL
 		public const int QUAD_STRIP = 0x0008;
 
 		/// <summary>
-		/// Gl.Begin: draws a single, convex polygon. Vertices 1 through N define this polygon.
+		/// Gl.Begin: Draws a single, convex polygon. Vertices 1 through N define this polygon.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int POLYGON = 0x0009;
 
 		/// <summary>
-		/// Gl.Accum: obtains R, G, B, and A values from the buffer currently selected for reading (see Gl.ReadBuffer). Each 
+		/// Gl.Accum: Obtains R, G, B, and A values from the buffer currently selected for reading (see Gl.ReadBuffer). Each 
 		/// component value is divided by 2n-1, where n is the number of bits allocated to each color component in the currently 
 		/// selected buffer. The result is a floating-point value in the range 01, which is multiplied by value and added to the 
 		/// corresponding pixel component in the accumulation buffer, thereby updating the accumulation buffer.
@@ -2149,7 +2142,7 @@ namespace OpenGL
 		public const int ACCUM = 0x0100;
 
 		/// <summary>
-		/// Gl.Accum: similar to Gl.ACCUM, except that the current value in the accumulation buffer is not used in the calculation 
+		/// Gl.Accum: Similar to Gl.ACCUM, except that the current value in the accumulation buffer is not used in the calculation 
 		/// of the new value. That is, the R, G, B, and A values from the currently selected buffer are divided by 2n-1, multiplied 
 		/// by value, and then stored in the corresponding accumulation buffer cell, overwriting the current value.
 		/// </summary>
@@ -2158,7 +2151,7 @@ namespace OpenGL
 		public const int LOAD = 0x0101;
 
 		/// <summary>
-		/// Gl.Accum: transfers accumulation buffer values to the color buffer or buffers currently selected for writing. Each R, G, 
+		/// Gl.Accum: Transfers accumulation buffer values to the color buffer or buffers currently selected for writing. Each R, G, 
 		/// B, and A component is multiplied by value, then multiplied by 2n-1, clamped to the range 02n-1, and stored in the 
 		/// corresponding display buffer cell. The only fragment operations that are applied to this transfer are pixel ownership, 
 		/// scissor, dithering, and color writemasks.
@@ -2168,7 +2161,7 @@ namespace OpenGL
 		public const int RETURN = 0x0102;
 
 		/// <summary>
-		/// Gl.Accum: multiplies each R, G, B, and A in the accumulation buffer by value and returns the scaled component to its 
+		/// Gl.Accum: Multiplies each R, G, B, and A in the accumulation buffer by value and returns the scaled component to its 
 		/// corresponding accumulation buffer location.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2176,7 +2169,7 @@ namespace OpenGL
 		public const int MULT = 0x0103;
 
 		/// <summary>
-		/// Gl.Accum: adds value to each R, G, B, and A in the accumulation buffer.
+		/// Gl.Accum: Adds value to each R, G, B, and A in the accumulation buffer.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2349,70 +2342,70 @@ namespace OpenGL
 		public const int DOMAIN = 0x0A02;
 
 		/// <summary>
-		/// Gl.PixelMap: maps color indices to color indices.
+		/// Gl.PixelMap: Maps color indices to color indices.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_I_TO_I = 0x0C70;
 
 		/// <summary>
-		/// Gl.PixelMap: maps stencil indices to stencil indices.
+		/// Gl.PixelMap: Maps stencil indices to stencil indices.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_S_TO_S = 0x0C71;
 
 		/// <summary>
-		/// Gl.PixelMap: maps color indices to red components.
+		/// Gl.PixelMap: Maps color indices to red components.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_I_TO_R = 0x0C72;
 
 		/// <summary>
-		/// Gl.PixelMap: maps color indices to green components.
+		/// Gl.PixelMap: Maps color indices to green components.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_I_TO_G = 0x0C73;
 
 		/// <summary>
-		/// Gl.PixelMap: maps color indices to blue components.
+		/// Gl.PixelMap: Maps color indices to blue components.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_I_TO_B = 0x0C74;
 
 		/// <summary>
-		/// Gl.PixelMap: maps color indices to alpha components.
+		/// Gl.PixelMap: Maps color indices to alpha components.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_I_TO_A = 0x0C75;
 
 		/// <summary>
-		/// Gl.PixelMap: maps red components to red components.
+		/// Gl.PixelMap: Maps red components to red components.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_R_TO_R = 0x0C76;
 
 		/// <summary>
-		/// Gl.PixelMap: maps green components to green components.
+		/// Gl.PixelMap: Maps green components to green components.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_G_TO_G = 0x0C77;
 
 		/// <summary>
-		/// Gl.PixelMap: maps blue components to blue components.
+		/// Gl.PixelMap: Maps blue components to blue components.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int PIXEL_MAP_B_TO_B = 0x0C78;
 
 		/// <summary>
-		/// Gl.PixelMap: maps alpha components to alpha components.
+		/// Gl.PixelMap: Maps alpha components to alpha components.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -2508,11 +2501,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether antialiasing of points is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.PointSize.
+		/// Gl.Enable: If enabled, draw points with proper filtering. Otherwise, draw aliased points. See Gl.PointSize.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, draw points with proper filtering. Otherwise, draw aliased points. See Gl.PointSize.
+		/// Gl.Get: params returns a single boolean value indicating whether antialiasing of points is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.PointSize.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2522,11 +2515,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether stippling of lines is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.LineStipple.
+		/// Gl.Enable: If enabled, use the current line stipple pattern when drawing lines. See Gl.LineStipple.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, use the current line stipple pattern when drawing lines. See Gl.LineStipple.
+		/// Gl.Get: params returns a single boolean value indicating whether stippling of lines is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.LineStipple.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2581,11 +2574,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether polygon stippling is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.PolygonStipple.
+		/// Gl.Enable: If enabled, use the current polygon stipple pattern when rendering polygons. See Gl.PolygonStipple.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, use the current polygon stipple pattern when rendering polygons. See Gl.PolygonStipple.
+		/// Gl.Get: params returns a single boolean value indicating whether polygon stippling is enabled. The initial value is 
+		/// Gl.FALSE. See Gl.PolygonStipple.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2602,13 +2595,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether lighting is enabled. The initial value is Gl.FALSE. See 
-		/// Gl.LightModel.
-		/// </para>
-		/// <para>
-		/// Gl.Enable: if enabled and no vertex shader is active, use the current lighting parameters to compute the vertex color or 
+		/// Gl.Enable: If enabled and no vertex shader is active, use the current lighting parameters to compute the vertex color or 
 		/// index. Otherwise, simply associate the current color or index with each vertex. See Gl.Material, Gl.LightModel, and 
 		/// Gl.Light.
+		/// </para>
+		/// <para>
+		/// Gl.Get: params returns a single boolean value indicating whether lighting is enabled. The initial value is Gl.FALSE. See 
+		/// Gl.LightModel.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2698,11 +2691,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether one or more material parameters are tracking the 
-		/// current color. The initial value is Gl.FALSE. See Gl.ColorMaterial.
+		/// Gl.Enable: If enabled, have one or more material parameters track the current color. See Gl.ColorMaterial.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, have one or more material parameters track the current color. See Gl.ColorMaterial.
+		/// Gl.Get: params returns a single boolean value indicating whether one or more material parameters are tracking the 
+		/// current color. The initial value is Gl.FALSE. See Gl.ColorMaterial.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2712,11 +2705,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether fogging is enabled. The initial value is Gl.FALSE. See 
-		/// Gl.Fog.
+		/// Gl.Enable: If enabled and no fragment shader is active, blend a fog color into the post-texturing color. See Gl.Fog.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no fragment shader is active, blend a fog color into the post-texturing color. See Gl.Fog.
+		/// Gl.Get: params returns a single boolean value indicating whether fogging is enabled. The initial value is Gl.FALSE. See 
+		/// Gl.Fog.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2836,12 +2829,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether normals are automatically scaled to unit length after 
-		/// they have been transformed to eye coordinates. The initial value is Gl.FALSE. See Gl.Normal.
+		/// Gl.Enable: If enabled and no vertex shader is active, normal vectors are normalized to unit length after transformation 
+		/// and before lighting. This method is generally less efficient than Gl.RESCALE_NORMAL. See Gl.Normal and Gl.NormalPointer.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no vertex shader is active, normal vectors are normalized to unit length after transformation 
-		/// and before lighting. This method is generally less efficient than Gl.RESCALE_NORMAL. See Gl.Normal and Gl.NormalPointer.
+		/// Gl.Get: params returns a single boolean value indicating whether normals are automatically scaled to unit length after 
+		/// they have been transformed to eye coordinates. The initial value is Gl.FALSE. See Gl.Normal.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2913,11 +2906,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether alpha testing of fragments is enabled. The initial 
-		/// value is Gl.FALSE. See Gl.AlphaFunc.
+		/// Gl.Enable: If enabled, do alpha testing. See Gl.AlphaFunc.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, do alpha testing. See Gl.AlphaFunc.
+		/// Gl.Get: params returns a single boolean value indicating whether alpha testing of fragments is enabled. The initial 
+		/// value is Gl.FALSE. See Gl.AlphaFunc.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_ALPHA_TEST_QCOM")]
@@ -3009,7 +3002,7 @@ namespace OpenGL
 		/// initial value is Gl.DONT_CARE. See Gl.Hint.
 		/// </para>
 		/// <para>
-		/// Gl.Hint: indicates the quality of color, texture coordinate, and fog coordinate interpolation. If perspective-corrected 
+		/// Gl.Hint: Indicates the quality of color, texture coordinate, and fog coordinate interpolation. If perspective-corrected 
 		/// parameter interpolation is not efficiently supported by the GL implementation, hinting Gl.DONT_CARE or Gl.FASTEST can 
 		/// result in simple linear interpolation of colors and/or texture coordinates.
 		/// </para>
@@ -3025,7 +3018,7 @@ namespace OpenGL
 		/// value is Gl.DONT_CARE. See Gl.Hint.
 		/// </para>
 		/// <para>
-		/// Gl.Hint: indicates the sampling quality of antialiased points. If a larger filter function is applied, hinting Gl.NICEST 
+		/// Gl.Hint: Indicates the sampling quality of antialiased points. If a larger filter function is applied, hinting Gl.NICEST 
 		/// can result in more pixel fragments being generated during rasterization.
 		/// </para>
 		/// </summary>
@@ -3040,7 +3033,7 @@ namespace OpenGL
 		/// Gl.DONT_CARE. See Gl.Hint.
 		/// </para>
 		/// <para>
-		/// Gl.Hint: indicates the accuracy of fog calculation. If per-pixel fog calculation is not efficiently supported by the GL 
+		/// Gl.Hint: Indicates the accuracy of fog calculation. If per-pixel fog calculation is not efficiently supported by the GL 
 		/// implementation, hinting Gl.DONT_CARE or Gl.FASTEST can result in per-vertex calculation of fog effects.
 		/// </para>
 		/// </summary>
@@ -3051,12 +3044,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether automatic generation of the S texture coordinate is 
-		/// enabled. The initial value is Gl.FALSE. See Gl.TexGen.
+		/// Gl.Enable: If enabled and no vertex shader is active, the s texture coordinate is computed using the texture generation 
+		/// function defined with Gl.TexGen. Otherwise, the current s texture coordinate is used. See Gl.TexGen.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no vertex shader is active, the s texture coordinate is computed using the texture generation 
-		/// function defined with Gl.TexGen. Otherwise, the current s texture coordinate is used. See Gl.TexGen.
+		/// Gl.Get: params returns a single boolean value indicating whether automatic generation of the S texture coordinate is 
+		/// enabled. The initial value is Gl.FALSE. See Gl.TexGen.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -3065,12 +3058,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether automatic generation of the T texture coordinate is 
-		/// enabled. The initial value is Gl.FALSE. See Gl.TexGen.
+		/// Gl.Enable: If enabled and no vertex shader is active, the t texture coordinate is computed using the texture generation 
+		/// function defined with Gl.TexGen. Otherwise, the current t texture coordinate is used. See Gl.TexGen.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no vertex shader is active, the t texture coordinate is computed using the texture generation 
-		/// function defined with Gl.TexGen. Otherwise, the current t texture coordinate is used. See Gl.TexGen.
+		/// Gl.Get: params returns a single boolean value indicating whether automatic generation of the T texture coordinate is 
+		/// enabled. The initial value is Gl.FALSE. See Gl.TexGen.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -3079,12 +3072,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether automatic generation of the r texture coordinate is 
-		/// enabled. The initial value is Gl.FALSE. See Gl.TexGen.
+		/// Gl.Enable: If enabled and no vertex shader is active, the r texture coordinate is computed using the texture generation 
+		/// function defined with Gl.TexGen. Otherwise, the current r texture coordinate is used. See Gl.TexGen.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no vertex shader is active, the r texture coordinate is computed using the texture generation 
-		/// function defined with Gl.TexGen. Otherwise, the current r texture coordinate is used. See Gl.TexGen.
+		/// Gl.Get: params returns a single boolean value indicating whether automatic generation of the r texture coordinate is 
+		/// enabled. The initial value is Gl.FALSE. See Gl.TexGen.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -3093,12 +3086,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether automatic generation of the q texture coordinate is 
-		/// enabled. The initial value is Gl.FALSE. See Gl.TexGen.
+		/// Gl.Enable: If enabled and no vertex shader is active, the q texture coordinate is computed using the texture generation 
+		/// function defined with Gl.TexGen. Otherwise, the current q texture coordinate is used. See Gl.TexGen.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled and no vertex shader is active, the q texture coordinate is computed using the texture generation 
-		/// function defined with Gl.TexGen. Otherwise, the current q texture coordinate is used. See Gl.TexGen.
+		/// Gl.Get: params returns a single boolean value indicating whether automatic generation of the q texture coordinate is 
+		/// enabled. The initial value is Gl.FALSE. See Gl.TexGen.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -3493,12 +3486,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.Get: params returns a single boolean value indicating whether 2D map evaluation automatically generates surface 
-		/// normals. The initial value is Gl.FALSE. See Gl.Map2.
+		/// Gl.Enable: If enabled, generate normal vectors when either Gl.MAP2_VERTEX_3 or Gl.MAP2_VERTEX_4 is used to generate 
+		/// vertices. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, generate normal vectors when either Gl.MAP2_VERTEX_3 or Gl.MAP2_VERTEX_4 is used to generate 
-		/// vertices. See Gl.Map2.
+		/// Gl.Get: params returns a single boolean value indicating whether 2D map evaluation automatically generates surface 
+		/// normals. The initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -3507,14 +3500,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate RGBA values. See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates colors. The initial value is 
 		/// Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate RGBA values. See Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is four floating-point values representing red, green, blue, and alpha. Internal Gl.Color4 
+		/// Gl.Map1: Each control point is four floating-point values representing red, green, blue, and alpha. Internal Gl.Color4 
 		/// commands are generated when the map is evaluated but the current color is not updated with the value of these Gl.Color4 
 		/// commands.
 		/// </para>
@@ -3525,14 +3518,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate color indices. See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates color indices. The initial 
 		/// value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate color indices. See Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
+		/// Gl.Map1: Each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
 		/// generated when the map is evaluated but the current index is not updated with the value of these Gl.Index commands.
 		/// </para>
 		/// </summary>
@@ -3542,14 +3535,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate normals. See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates normals. The initial value is 
 		/// Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate normals. See Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is three floating-point values representing the x, y, and z components of a normal vector. 
+		/// Gl.Map1: Each control point is three floating-point values representing the x, y, and z components of a normal vector. 
 		/// Internal Gl.Normal commands are generated when the map is evaluated but the current normal is not updated with the value 
 		/// of these Gl.Normal commands.
 		/// </para>
@@ -3560,15 +3553,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s texture coordinates. See 
+		/// Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates 1D texture coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s texture coordinates. See 
-		/// Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is a single floating-point value representing the s texture coordinate. Internal 
+		/// Gl.Map1: Each control point is a single floating-point value representing the s texture coordinate. Internal 
 		/// Gl.TexCoord1 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
 		/// </para>
@@ -3579,15 +3572,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s and t texture coordinates. See 
+		/// Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates 2D texture coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s and t texture coordinates. See 
-		/// Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is two floating-point values representing the s and t texture coordinates. Internal 
+		/// Gl.Map1: Each control point is two floating-point values representing the s and t texture coordinates. Internal 
 		/// Gl.TexCoord2 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
 		/// </para>
@@ -3598,15 +3591,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, and r texture coordinates. 
+		/// See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates 3D texture coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, and r texture coordinates. 
-		/// See Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is three floating-point values representing the s, t, and r texture coordinates. Internal 
+		/// Gl.Map1: Each control point is three floating-point values representing the s, t, and r texture coordinates. Internal 
 		/// Gl.TexCoord3 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
 		/// </para>
@@ -3617,15 +3610,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, r, and q texture 
+		/// coordinates. See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates 4D texture coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate s, t, r, and q texture 
-		/// coordinates. See Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is four floating-point values representing the s, t, r, and q texture coordinates. Internal 
+		/// Gl.Map1: Each control point is four floating-point values representing the s, t, r, and q texture coordinates. Internal 
 		/// Gl.TexCoord4 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
 		/// </para>
@@ -3636,15 +3629,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate x, y, and z vertex coordinates. 
+		/// See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates 3D vertex coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate x, y, and z vertex coordinates. 
-		/// See Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
+		/// Gl.Map1: Each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
 		/// generated when the map is evaluated.
 		/// </para>
 		/// </summary>
@@ -3654,15 +3647,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate homogeneous x, y, z, and w 
+		/// vertex coordinates. See Gl.Map1.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 1D evaluation generates 4D vertex coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map1.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord1, Gl.EvalMesh1, and Gl.EvalPoint1 generate homogeneous x, y, z, and w 
-		/// vertex coordinates. See Gl.Map1.
-		/// </para>
-		/// <para>
-		/// Gl.Map1: each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
+		/// Gl.Map1: Each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
 		/// generated when the map is evaluated.
 		/// </para>
 		/// </summary>
@@ -3672,14 +3665,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate RGBA values. See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates colors. The initial value is 
 		/// Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate RGBA values. See Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is four floating-point values representing red, green, blue, and alpha. Internal Gl.Color4 
+		/// Gl.Map2: Each control point is four floating-point values representing red, green, blue, and alpha. Internal Gl.Color4 
 		/// commands are generated when the map is evaluated but the current color is not updated with the value of these Gl.Color4 
 		/// commands.
 		/// </para>
@@ -3690,14 +3683,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate color indices. See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates color indices. The initial 
 		/// value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate color indices. See Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
+		/// Gl.Map2: Each control point is a single floating-point value representing a color index. Internal Gl.Index commands are 
 		/// generated when the map is evaluated but the current index is not updated with the value of these Gl.Index commands.
 		/// </para>
 		/// </summary>
@@ -3707,14 +3700,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate normals. See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates normals. The initial value is 
 		/// Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate normals. See Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is three floating-point values representing the x, y, and z components of a normal vector. 
+		/// Gl.Map2: Each control point is three floating-point values representing the x, y, and z components of a normal vector. 
 		/// Internal Gl.Normal commands are generated when the map is evaluated but the current normal is not updated with the value 
 		/// of these Gl.Normal commands.
 		/// </para>
@@ -3725,15 +3718,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s texture coordinates. See 
+		/// Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates 1D texture coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s texture coordinates. See 
-		/// Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is a single floating-point value representing the s texture coordinate. Internal 
+		/// Gl.Map2: Each control point is a single floating-point value representing the s texture coordinate. Internal 
 		/// Gl.TexCoord1 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
 		/// </para>
@@ -3744,15 +3737,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s and t texture coordinates. See 
+		/// Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates 2D texture coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s and t texture coordinates. See 
-		/// Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is two floating-point values representing the s and t texture coordinates. Internal 
+		/// Gl.Map2: Each control point is two floating-point values representing the s and t texture coordinates. Internal 
 		/// Gl.TexCoord2 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
 		/// </para>
@@ -3763,15 +3756,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s, t, and r texture coordinates. 
+		/// See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates 3D texture coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s, t, and r texture coordinates. 
-		/// See Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is three floating-point values representing the s, t, and r texture coordinates. Internal 
+		/// Gl.Map2: Each control point is three floating-point values representing the s, t, and r texture coordinates. Internal 
 		/// Gl.TexCoord3 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
 		/// </para>
@@ -3782,15 +3775,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s, t, r, and q texture 
+		/// coordinates. See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates 4D texture coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate s, t, r, and q texture 
-		/// coordinates. See Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is four floating-point values representing the s, t, r, and q texture coordinates. Internal 
+		/// Gl.Map2: Each control point is four floating-point values representing the s, t, r, and q texture coordinates. Internal 
 		/// Gl.TexCoord4 commands are generated when the map is evaluated but the current texture coordinates are not updated with 
 		/// the value of these Gl.TexCoord commands.
 		/// </para>
@@ -3801,15 +3794,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate x, y, and z vertex coordinates. 
+		/// See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates 3D vertex coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate x, y, and z vertex coordinates. 
-		/// See Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
+		/// Gl.Map2: Each control point is three floating-point values representing x, y, and z. Internal Gl.Vertex3 commands are 
 		/// generated when the map is evaluated.
 		/// </para>
 		/// </summary>
@@ -3819,15 +3812,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// Gl.Enable: If enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate homogeneous x, y, z, and w 
+		/// vertex coordinates. See Gl.Map2.
+		/// </para>
+		/// <para>
 		/// Gl.Get: params returns a single boolean value indicating whether 2D evaluation generates 4D vertex coordinates. The 
 		/// initial value is Gl.FALSE. See Gl.Map2.
 		/// </para>
 		/// <para>
-		/// Gl.Enable: if enabled, calls to Gl.EvalCoord2, Gl.EvalMesh2, and Gl.EvalPoint2 generate homogeneous x, y, z, and w 
-		/// vertex coordinates. See Gl.Map2.
-		/// </para>
-		/// <para>
-		/// Gl.Map2: each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
+		/// Gl.Map2: Each control point is four floating-point values representing x, y, z, and w. Internal Gl.Vertex4 commands are 
 		/// generated when the map is evaluated.
 		/// </para>
 		/// </summary>
@@ -4115,14 +4108,14 @@ namespace OpenGL
 		public const int QUADRATIC_ATTENUATION = 0x1209;
 
 		/// <summary>
-		/// Gl.NewList: commands are merely compiled.
+		/// Gl.NewList: Commands are merely compiled.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int COMPILE = 0x1300;
 
 		/// <summary>
-		/// Gl.NewList: commands are executed as they are compiled into the display list.
+		/// Gl.NewList: Commands are executed as they are compiled into the display list.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -4200,7 +4193,7 @@ namespace OpenGL
 		public const int SHININESS = 0x1601;
 
 		/// <summary>
-		/// Gl.Material: equivalent to calling glMaterial twice with the same parameter values, once with Gl.AMBIENT and once with 
+		/// Gl.Material: Equivalent to calling glMaterial twice with the same parameter values, once with Gl.AMBIENT and once with 
 		/// Gl.DIFFUSE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -4226,7 +4219,7 @@ namespace OpenGL
 		public const int COLOR_INDEXES = 0x1603;
 
 		/// <summary>
-		/// Gl.MatrixMode: applies subsequent matrix operations to the modelview matrix stack.
+		/// Gl.MatrixMode: Applies subsequent matrix operations to the modelview matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -4234,7 +4227,7 @@ namespace OpenGL
 		public const int MODELVIEW = 0x1700;
 
 		/// <summary>
-		/// Gl.MatrixMode: applies subsequent matrix operations to the projection matrix stack.
+		/// Gl.MatrixMode: Applies subsequent matrix operations to the projection matrix stack.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -4243,33 +4236,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.ReadPixels: color indices are read from the color buffer selected by Gl.ReadBuffer. Each index is converted to fixed 
-		/// point, shifted left or right depending on the value and sign of Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET. If 
-		/// Gl.MAP_COLOR is Gl.TRUE, indices are replaced by their mappings in the table Gl.PIXEL_MAP_I_TO_I.
-		/// </para>
-		/// <para>
-		/// Gl.TexImage1D: each element is a single value, a color index. The GL converts it to fixed point (with an unspecified 
-		/// number of zero bits to the right of the binary point), shifted left or right depending on the value and sign of 
-		/// Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET (see Gl.PixelTransfer). The resulting index is converted to a set of color 
-		/// components using the Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, and Gl.PIXEL_MAP_I_TO_A tables, and 
-		/// clamped to the range [0,1].
-		/// </para>
-		/// <para>
-		/// Gl.TexImage2D: each element is a single value, a color index. The GL converts it to fixed point (with an unspecified 
-		/// number of zero bits to the right of the binary point), shifted left or right depending on the value and sign of 
-		/// Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET (see Gl.PixelTransfer). The resulting index is converted to a set of color 
-		/// components using the Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, and Gl.PIXEL_MAP_I_TO_A tables, and 
-		/// clamped to the range [0,1].
-		/// </para>
-		/// <para>
-		/// Gl.TexImage3D: each element is a single value, a color index. The GL converts it to fixed point (with an unspecified 
-		/// number of zero bits to the right of the binary point), shifted left or right depending on the value and sign of 
-		/// Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET (see Gl.PixelTransfer). The resulting index is converted to a set of color 
-		/// components using the Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, and Gl.PIXEL_MAP_I_TO_A tables, and 
-		/// clamped to the range [0,1].
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single value, a color index. It is converted to fixed-point format, with an unspecified 
+		/// Gl.DrawPixels: Each pixel is a single value, a color index. It is converted to fixed-point format, with an unspecified 
 		/// number of bits to the right of the binary point, regardless of the memory data type. Floating-point values convert to 
 		/// true fixed-point values. Signed and unsigned integer data is converted with all fraction bits set to 0. Bitmap data 
 		/// convert to either 0 or 1. Each fixed-point index is then shifted left by Gl.INDEX_SHIFT bits and added to 
@@ -4285,6 +4252,32 @@ namespace OpenGL
 		/// points, lines, or polygons. Texture mapping, fog, and all the fragment operations are applied before the fragments are 
 		/// written to the frame buffer.
 		/// </para>
+		/// <para>
+		/// Gl.ReadPixels: Color indices are read from the color buffer selected by Gl.ReadBuffer. Each index is converted to fixed 
+		/// point, shifted left or right depending on the value and sign of Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET. If 
+		/// Gl.MAP_COLOR is Gl.TRUE, indices are replaced by their mappings in the table Gl.PIXEL_MAP_I_TO_I.
+		/// </para>
+		/// <para>
+		/// Gl.TexImage1D: Each element is a single value, a color index. The GL converts it to fixed point (with an unspecified 
+		/// number of zero bits to the right of the binary point), shifted left or right depending on the value and sign of 
+		/// Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET (see Gl.PixelTransfer). The resulting index is converted to a set of color 
+		/// components using the Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, and Gl.PIXEL_MAP_I_TO_A tables, and 
+		/// clamped to the range [0,1].
+		/// </para>
+		/// <para>
+		/// Gl.TexImage2D: Each element is a single value, a color index. The GL converts it to fixed point (with an unspecified 
+		/// number of zero bits to the right of the binary point), shifted left or right depending on the value and sign of 
+		/// Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET (see Gl.PixelTransfer). The resulting index is converted to a set of color 
+		/// components using the Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, and Gl.PIXEL_MAP_I_TO_A tables, and 
+		/// clamped to the range [0,1].
+		/// </para>
+		/// <para>
+		/// Gl.TexImage3D: Each element is a single value, a color index. The GL converts it to fixed point (with an unspecified 
+		/// number of zero bits to the right of the binary point), shifted left or right depending on the value and sign of 
+		/// Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET (see Gl.PixelTransfer). The resulting index is converted to a set of color 
+		/// components using the Gl.PIXEL_MAP_I_TO_R, Gl.PIXEL_MAP_I_TO_G, Gl.PIXEL_MAP_I_TO_B, and Gl.PIXEL_MAP_I_TO_A tables, and 
+		/// clamped to the range [0,1].
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -4292,31 +4285,31 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.ReadPixels: 
-		/// </para>
-		/// <para>
-		/// Gl.TexImage1D: each element is a single luminance value. The GL converts it to floating point, then assembles it into an 
-		/// RGBA element by replicating the luminance value three times for red, green, and blue and attaching 1 for alpha. Each 
-		/// component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to 
-		/// the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.TexImage2D: each element is a single luminance value. The GL converts it to floating point, then assembles it into an 
-		/// RGBA element by replicating the luminance value three times for red, green, and blue and attaching 1 for alpha. Each 
-		/// component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to 
-		/// the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.TexImage3D: each element is a single luminance value. The GL converts it to floating point, then assembles it into an 
-		/// RGBA element by replicating the luminance value three times for red, green, and blue and attaching 1 for alpha. Each 
-		/// component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to 
-		/// the range [0,1] (see Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a single luminance component. This component is converted to the internal floating-point 
+		/// Gl.DrawPixels: Each pixel is a single luminance component. This component is converted to the internal floating-point 
 		/// format in the same way the red component of an RGBA pixel is. It is then converted to an RGBA pixel with red, green, and 
 		/// blue set to the converted luminance value, and alpha set to 1. After this conversion, the pixel is treated as if it had 
 		/// been read as an RGBA pixel.
+		/// </para>
+		/// <para>
+		/// Gl.ReadPixels: 
+		/// </para>
+		/// <para>
+		/// Gl.TexImage1D: Each element is a single luminance value. The GL converts it to floating point, then assembles it into an 
+		/// RGBA element by replicating the luminance value three times for red, green, and blue and attaching 1 for alpha. Each 
+		/// component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to 
+		/// the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.TexImage2D: Each element is a single luminance value. The GL converts it to floating point, then assembles it into an 
+		/// RGBA element by replicating the luminance value three times for red, green, and blue and attaching 1 for alpha. Each 
+		/// component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to 
+		/// the range [0,1] (see Gl.PixelTransfer).
+		/// </para>
+		/// <para>
+		/// Gl.TexImage3D: Each element is a single luminance value. The GL converts it to floating point, then assembles it into an 
+		/// RGBA element by replicating the luminance value three times for red, green, and blue and attaching 1 for alpha. Each 
+		/// component is then multiplied by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to 
+		/// the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -4327,7 +4320,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Gl.ReadPixels: processing differs depending on whether color buffers store color indices or RGBA color components. If 
+		/// Gl.DrawPixels: Each pixel is a two-component group: luminance first, followed by alpha. The two components are converted 
+		/// to the internal floating-point format in the same way the red component of an RGBA pixel is. They are then converted to 
+		/// an RGBA pixel with red, green, and blue set to the converted luminance value, and alpha set to the converted alpha 
+		/// value. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
+		/// </para>
+		/// <para>
+		/// Gl.ReadPixels: Processing differs depending on whether color buffers store color indices or RGBA color components. If 
 		/// color indices are stored, they are read from the color buffer selected by Gl.ReadBuffer. Each index is converted to 
 		/// fixed point, shifted left or right depending on the value and sign of Gl.INDEX_SHIFT, and added to Gl.INDEX_OFFSET. 
 		/// Indices are then replaced by the red, green, blue, and alpha values obtained by indexing the tables Gl.PIXEL_MAP_I_TO_R, 
@@ -4343,28 +4342,22 @@ namespace OpenGL
 		/// Gl.LUMINANCE_ALPHA does the same, while keeping alpha as a second value. The final values are clamped to the range 01.
 		/// </para>
 		/// <para>
-		/// Gl.TexImage1D: each element is a luminance/alpha pair. The GL converts it to floating point, then assembles it into an 
+		/// Gl.TexImage1D: Each element is a luminance/alpha pair. The GL converts it to floating point, then assembles it into an 
 		/// RGBA element by replicating the luminance value three times for red, green, and blue. Each component is then multiplied 
 		/// by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see 
 		/// Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage2D: each element is a luminance/alpha pair. The GL converts it to floating point, then assembles it into an 
+		/// Gl.TexImage2D: Each element is a luminance/alpha pair. The GL converts it to floating point, then assembles it into an 
 		/// RGBA element by replicating the luminance value three times for red, green, and blue. Each component is then multiplied 
 		/// by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see 
 		/// Gl.PixelTransfer).
 		/// </para>
 		/// <para>
-		/// Gl.TexImage3D: each element is a luminance/alpha pair. The GL converts it to floating point, then assembles it into an 
+		/// Gl.TexImage3D: Each element is a luminance/alpha pair. The GL converts it to floating point, then assembles it into an 
 		/// RGBA element by replicating the luminance value three times for red, green, and blue. Each component is then multiplied 
 		/// by the signed scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see 
 		/// Gl.PixelTransfer).
-		/// </para>
-		/// <para>
-		/// Gl.DrawPixels: each pixel is a two-component group: luminance first, followed by alpha. The two components are converted 
-		/// to the internal floating-point format in the same way the red component of an RGBA pixel is. They are then converted to 
-		/// an RGBA pixel with red, green, and blue set to the converted luminance value, and alpha set to the converted alpha 
-		/// value. After this conversion, the pixel is treated as if it had been read as an RGBA pixel.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -4381,41 +4374,26 @@ namespace OpenGL
 		public const int BITMAP = 0x1A00;
 
 		/// <summary>
-		/// <para>
-		/// Gl.RenderMode: render mode. Primitives are rasterized, producing pixel fragments, which are written into the frame 
+		/// Gl.RenderMode: Render mode. Primitives are rasterized, producing pixel fragments, which are written into the frame 
 		/// buffer. This is the normal mode and also the default mode.
-		/// </para>
-		/// <para>
-		/// Gl.RenderMode: 0.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int RENDER = 0x1C00;
 
 		/// <summary>
-		/// <para>
-		/// Gl.RenderMode: feedback mode. No pixel fragments are produced, and no change to the frame buffer contents is made. 
+		/// Gl.RenderMode: Feedback mode. No pixel fragments are produced, and no change to the frame buffer contents is made. 
 		/// Instead, the coordinates and attributes of vertices that would have been drawn if the render mode had been Gl.RENDER is 
 		/// returned in a feedback buffer, which must be created (see Gl.FeedbackBuffer) before feedback mode is entered.
-		/// </para>
-		/// <para>
-		/// Gl.RenderMode: the number of values (not vertices) transferred to the feedback buffer.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int FEEDBACK = 0x1C01;
 
 		/// <summary>
-		/// <para>
-		/// Gl.RenderMode: selection mode. No pixel fragments are produced, and no change to the frame buffer contents is made. 
+		/// Gl.RenderMode: Selection mode. No pixel fragments are produced, and no change to the frame buffer contents is made. 
 		/// Instead, a record of the names of primitives that would have been drawn if the render mode had been Gl.RENDER is 
 		/// returned in a select buffer, which must be created (see Gl.SelectBuffer) before selection mode is entered.
-		/// </para>
-		/// <para>
-		/// Gl.RenderMode: the number of hit records transferred to the select buffer.
-		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -4701,9 +4679,7 @@ namespace OpenGL
 		/// Specifies whether front- or back-facing facets are candidates for culling. Symbolic constants Gl.FRONT, Gl.BACK, and 
 		/// Gl.FRONT_AND_BACK are accepted. The initial value is Gl.BACK.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
@@ -4725,9 +4701,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// Specifies the orientation of front-facing polygons. Gl.CW and Gl.CCW are accepted. The initial value is Gl.CCW.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
 		/// <seealso cref="Gl.CullFace"/>
@@ -4752,9 +4726,7 @@ namespace OpenGL
 		/// <param name="mode">
 		/// Specifies a symbolic constant indicating the desired behavior. Gl.FASTEST, Gl.NICEST, and Gl.DONT_CARE are accepted.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="target"/> or <paramref name="mode"/> is not an accepted value.
 		/// </exception>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -4774,9 +4746,7 @@ namespace OpenGL
 		/// <param name="width">
 		/// Specifies the width of rasterized lines. The initial value is 1.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than or equal to 0.
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
@@ -4797,9 +4767,7 @@ namespace OpenGL
 		/// <param name="size">
 		/// Specifies the diameter of rasterized points. The initial value is 1.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is less than or equal to 0.
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
@@ -4825,9 +4793,7 @@ namespace OpenGL
 		/// Specifies how polygons will be rasterized. Accepted values are Gl.POINT, Gl.LINE, and Gl.FILL. The initial value is 
 		/// Gl.FILL for both front- and back-facing polygons.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="mode"/> is not an accepted value.
 		/// </exception>
 		/// <seealso cref="Gl.LineWidth"/>
@@ -4860,9 +4826,7 @@ namespace OpenGL
 		/// Specify the width and height of the scissor box. When a GL context is first attached to a window, <paramref 
 		/// name="width"/> and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
@@ -4893,8 +4857,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
 		/// values.
@@ -4953,8 +4915,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
 		/// values.
@@ -5018,8 +4978,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
 		/// values.
@@ -5078,8 +5036,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
 		/// values.
@@ -5162,8 +5118,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TEXTURE_1D or Gl.PROXY_TEXTURE_1D.
 		/// </exception>
@@ -5299,8 +5253,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TEXTURE_1D or Gl.PROXY_TEXTURE_1D.
 		/// </exception>
@@ -5445,8 +5397,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, 
 		/// Gl.PROXY_TEXTURE_CUBE_MAP, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
@@ -5604,8 +5554,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, 
 		/// Gl.PROXY_TEXTURE_CUBE_MAP, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
@@ -5734,20 +5682,18 @@ namespace OpenGL
 		/// framebuffer objects, Gl.COLOR_ATTACHMENT$m$ and Gl.NONE enums are accepted, where Gl. is a value between 0 and 
 		/// Gl.MAX_COLOR_ATTACHMENTS.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION error is generated by Gl.NamedFramebufferDrawBuffer if <paramref name="framebuffer"/> is not zero 
 		/// or the name of an existing framebuffer object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="buf"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if the default framebuffer is affected and none of the buffers indicated by <paramref 
 		/// name="buf"/> exists.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a framebuffer object is affected and <paramref name="buf"/> is not equal to Gl.NONE 
 		/// or Gl.COLOR_ATTACHMENT$m$, where Gl. is a value between 0 and Gl.MAX_COLOR_ATTACHMENTS.
 		/// </exception>
@@ -5772,9 +5718,7 @@ namespace OpenGL
 		/// Bitwise OR of masks that indicate the buffers to be cleared. The three masks are Gl.COLOR_BUFFER_BIT, 
 		/// Gl.DEPTH_BUFFER_BIT, and Gl.STENCIL_BUFFER_BIT.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if any bit other than the three defined bits is set in <paramref name="mask"/>.
 		/// </exception>
 		/// <seealso cref="Gl.ColorMask"/>
@@ -5948,8 +5892,6 @@ namespace OpenGL
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="cap"/> is not one of the values listed previously.
 		/// </exception>
@@ -6008,8 +5950,6 @@ namespace OpenGL
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="cap"/> is not one of the values listed previously.
 		/// </exception>
@@ -6107,8 +6047,6 @@ namespace OpenGL
 		/// Gl.SRC_ALPHA, Gl.ONE_MINUS_SRC_ALPHA, Gl.DST_ALPHA, Gl.ONE_MINUS_DST_ALPHA. Gl.CONSTANT_COLOR, 
 		/// Gl.ONE_MINUS_CONSTANT_COLOR, Gl.CONSTANT_ALPHA, and Gl.ONE_MINUS_CONSTANT_ALPHA. The initial value is Gl.ZERO.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="sfactor"/> or <paramref name="dfactor"/> is not an accepted 
 		/// value.
@@ -6145,9 +6083,7 @@ namespace OpenGL
 		/// Gl.COPY, Gl.COPY_INVERTED, Gl.NOOP, Gl.INVERT, Gl.AND, Gl.NAND, Gl.OR, Gl.NOR, Gl.XOR, Gl.EQUIV, Gl.AND_REVERSE, 
 		/// Gl.AND_INVERTED, Gl.OR_REVERSE, and Gl.OR_INVERTED. The initial value is Gl.COPY.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="opcode"/> is not an accepted value.
 		/// </exception>
 		/// <seealso cref="Gl.BlendFunc"/>
@@ -6179,9 +6115,7 @@ namespace OpenGL
 		/// Specifies a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The 
 		/// initial value is all 1's.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="func"/> is not one of the eight accepted values.
 		/// </exception>
 		/// <seealso cref="Gl.BlendFunc"/>
@@ -6220,9 +6154,7 @@ namespace OpenGL
 		/// either there is no depth buffer or depth testing is not enabled. <paramref name="dppass"/> accepts the same symbolic 
 		/// constants as <paramref name="sfail"/>. The initial value is Gl.KEEP.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="sfail"/>, <paramref name="dpfail"/>, or <paramref name="dppass"/> is any 
 		/// value other than the defined constant values.
 		/// </exception>
@@ -6253,9 +6185,7 @@ namespace OpenGL
 		/// Specifies the depth comparison function. Symbolic constants Gl.NEVER, Gl.LESS, Gl.EQUAL, Gl.LEQUAL, Gl.GREATER, 
 		/// Gl.NOTEQUAL, Gl.GEQUAL, and Gl.ALWAYS are accepted. The initial value is Gl.LESS.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="func"/> is not an accepted value.
 		/// </exception>
 		/// <seealso cref="Gl.DepthRange"/>
@@ -6285,8 +6215,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -6341,8 +6269,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -6393,15 +6319,13 @@ namespace OpenGL
 		/// Specifies a color buffer. Accepted values are Gl.FRONT_LEFT, Gl.FRONT_RIGHT, Gl.BACK_LEFT, Gl.BACK_RIGHT, Gl.FRONT, 
 		/// Gl.BACK, Gl.LEFT, Gl.RIGHT, and the constants Gl.COLOR_ATTACHMENTi.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of the twelve (or more) accepted values.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="mode"/> specifies a buffer that does not exist.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.NamedFramebufferReadBuffer if <paramref name="framebuffer"/> is not zero or the 
 		/// name of an existing framebuffer object.
 		/// </exception>
@@ -6453,11 +6377,9 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
-		/// <param name="pixels">
+		/// <param name="data">
 		/// Returns the pixel data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> or <paramref name="type"/> is not an accepted value.
 		/// </exception>
@@ -6539,12 +6461,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -6598,12 +6518,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -6657,12 +6575,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -6716,12 +6632,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -6775,12 +6689,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -6832,12 +6744,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -6889,12 +6799,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -6946,12 +6854,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7020,12 +6926,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7079,12 +6983,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7138,12 +7040,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7197,12 +7097,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7256,12 +7154,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7315,12 +7211,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7374,12 +7268,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7433,12 +7325,10 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
 		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
 		/// </exception>
@@ -7489,12 +7379,10 @@ namespace OpenGL
 		/// Specifies a symbolic constant, one of Gl.VENDOR, Gl.RENDERER, Gl.VERSION, or Gl.SHADING_LANGUAGE_VERSION. Additionally, 
 		/// Gl.GetStringi accepts the Gl.EXTENSIONS token.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="name"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated by Gl.GetStringi if <paramref name="index"/> is outside the valid range for indexed state 
 		/// <paramref name="name"/>.
 		/// </exception>
@@ -7539,8 +7427,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/>, <paramref name="format"/>, or <paramref name="type"/> is not 
 		/// an accepted value.
@@ -7627,8 +7513,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/>, <paramref name="format"/>, or <paramref name="type"/> is not 
 		/// an accepted value.
@@ -7712,16 +7596,14 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM error is generated by Gl.GetTexParameter if the effective <paramref name="target"/> is not one of the 
 		/// accepted texture targets.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetTextureParameter* if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
 		/// </exception>
@@ -7767,16 +7649,14 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM error is generated by Gl.GetTexParameter if the effective <paramref name="target"/> is not one of the 
 		/// accepted texture targets.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetTextureParameter* if <paramref name="texture"/> is not the name of an 
 		/// existing texture object.
 		/// </exception>
@@ -7827,28 +7707,26 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetTextureLevelParameterfv and Gl.GetTextureLevelParameteriv functions if 
 		/// <paramref name="texture"/> is not the name of an existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.GetTexLevelParameterfv and Gl.GetTexLevelParameteriv functions if <paramref 
 		/// name="target"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2max, where max is the returned value 
 		/// of Gl.MAX_TEXTURE_SIZE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is Gl.TEXTURE_BUFFER and <paramref name="level"/> is not 
 		/// zero.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.TEXTURE_COMPRESSED_IMAGE_SIZE is queried on texture images with an uncompressed 
 		/// internal format or on proxy targets.
 		/// </exception>
@@ -7907,28 +7785,26 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetTextureLevelParameterfv and Gl.GetTextureLevelParameteriv functions if 
 		/// <paramref name="texture"/> is not the name of an existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.GetTexLevelParameterfv and Gl.GetTexLevelParameteriv functions if <paramref 
 		/// name="target"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2max, where max is the returned value 
 		/// of Gl.MAX_TEXTURE_SIZE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is Gl.TEXTURE_BUFFER and <paramref name="level"/> is not 
 		/// zero.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.TEXTURE_COMPRESSED_IMAGE_SIZE is queried on texture images with an uncompressed 
 		/// internal format or on proxy targets.
 		/// </exception>
@@ -7987,28 +7863,26 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.GetTextureLevelParameterfv and Gl.GetTextureLevelParameteriv functions if 
 		/// <paramref name="texture"/> is not the name of an existing texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.GetTexLevelParameterfv and Gl.GetTexLevelParameteriv functions if <paramref 
 		/// name="target"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2max, where max is the returned value 
 		/// of Gl.MAX_TEXTURE_SIZE.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is Gl.TEXTURE_BUFFER and <paramref name="level"/> is not 
 		/// zero.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.TEXTURE_COMPRESSED_IMAGE_SIZE is queried on texture images with an uncompressed 
 		/// internal format or on proxy targets.
 		/// </exception>
@@ -8047,12 +7921,10 @@ namespace OpenGL
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="cap"/> is not an accepted value.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated by Gl.IsEnabledi if <paramref name="index"/> is outside the valid range for the indexed 
 		/// state <paramref name="cap"/>.
 		/// </exception>
@@ -8112,8 +7984,6 @@ namespace OpenGL
 		/// Specify the width and height of the viewport. When a GL context is first attached to a window, <paramref name="width"/> 
 		/// and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="width"/> or <paramref name="height"/> is negative.
 		/// </exception>
@@ -8142,8 +8012,6 @@ namespace OpenGL
 		/// <param name="mode">
 		/// Specifies the compilation mode, which can be Gl.COMPILE or Gl.COMPILE_AND_EXECUTE.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="list"/> is 0.
 		/// </exception>
@@ -8180,8 +8048,6 @@ namespace OpenGL
 		/// <summary>
 		/// create or replace a display list
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="list"/> is 0.
 		/// </exception>
@@ -8249,9 +8115,6 @@ namespace OpenGL
 		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
 		/// be bytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>.
 		/// </param>
-		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
 		/// </exception>
@@ -8289,9 +8152,6 @@ namespace OpenGL
 		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
 		/// be bytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>.
 		/// </param>
-		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
 		/// </exception>
@@ -8327,8 +8187,6 @@ namespace OpenGL
 		/// <param name="range">
 		/// Specifies the number of display lists to delete.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="range"/> is negative.
 		/// </exception>
@@ -8357,8 +8215,6 @@ namespace OpenGL
 		/// <param name="range">
 		/// Specifies the number of contiguous empty display lists to be generated.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="range"/> is negative.
 		/// </exception>
@@ -8391,8 +8247,6 @@ namespace OpenGL
 		/// Specifies an integer offset that will be added to Gl\.CallLists offsets to generate display-list names. The initial 
 		/// value is 0.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.ListBase is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -8416,9 +8270,6 @@ namespace OpenGL
 		/// Gl\.End. Ten symbolic constants are accepted: Gl.POINTS, Gl.LINES, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.TRIANGLES, 
 		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.QUADS, Gl.QUAD_STRIP, and Gl.POLYGON.
 		/// </param>
-		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is set to an unaccepted value.
 		/// </exception>
@@ -8491,8 +8342,6 @@ namespace OpenGL
 		/// <param name="bitmap">
 		/// Specifies the address of the bitmap image.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> or <paramref name="height"/> is negative.
 		/// </exception>
@@ -9334,8 +9183,6 @@ namespace OpenGL
 		/// <summary>
 		/// delimit the vertices of a primitive or a group of like primitives
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is set to an unaccepted value.
 		/// </exception>
@@ -9848,8 +9695,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -9881,8 +9726,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -9922,8 +9765,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -9955,8 +9796,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -9996,8 +9835,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10029,8 +9866,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10070,8 +9905,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10103,8 +9936,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10147,8 +9978,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10180,8 +10009,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10224,8 +10051,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10257,8 +10082,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10301,8 +10124,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10334,8 +10155,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10378,8 +10197,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10411,8 +10228,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10458,8 +10273,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10491,8 +10304,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10538,8 +10349,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10571,8 +10380,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10618,8 +10425,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10651,8 +10456,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10698,8 +10501,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10731,8 +10532,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.RasterPos is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10778,8 +10577,6 @@ namespace OpenGL
 		/// <param name="y2">
 		/// Specify the opposite vertex of the rectangle.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rect is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10805,8 +10602,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rect is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10844,8 +10639,6 @@ namespace OpenGL
 		/// <param name="y2">
 		/// Specify the opposite vertex of the rectangle.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rect is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10871,8 +10664,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rect is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10910,8 +10701,6 @@ namespace OpenGL
 		/// <param name="y2">
 		/// Specify the opposite vertex of the rectangle.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rect is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10937,8 +10726,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rect is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -10976,8 +10763,6 @@ namespace OpenGL
 		/// <param name="y2">
 		/// Specify the opposite vertex of the rectangle.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rect is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -11003,8 +10788,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rect is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -12566,8 +12349,6 @@ namespace OpenGL
 		/// Specifies the address of an array of four double-precision floating-point values. These values are interpreted as a 
 		/// plane equation.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
 		/// </exception>
@@ -12602,8 +12383,6 @@ namespace OpenGL
 		/// Specifies which of several material parameters track the current color. Accepted values are Gl.EMISSION, Gl.AMBIENT, 
 		/// Gl.DIFFUSE, Gl.SPECULAR, and Gl.AMBIENT_AND_DIFFUSE. The initial value is Gl.AMBIENT_AND_DIFFUSE.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="face"/> or <paramref name="mode"/> is not an accepted value.
 		/// </exception>
@@ -12640,8 +12419,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
 		/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
@@ -12675,8 +12452,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
 		/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
@@ -12715,8 +12490,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
 		/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
@@ -12749,8 +12522,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
 		/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
@@ -12792,8 +12563,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -12833,8 +12602,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -12879,8 +12646,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -12919,8 +12684,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -12960,8 +12723,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -12996,8 +12757,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -13037,8 +12796,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -13072,8 +12829,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -13114,8 +12869,6 @@ namespace OpenGL
 		/// Specifies a 16-bit integer whose bit pattern determines which fragments of a line will be drawn when the line is 
 		/// rasterized. Bit zero is used first; the default pattern is all 1's.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LineStipple is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -13144,9 +12897,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
-		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -13178,8 +12928,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -13217,9 +12965,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
-		/// <remarks>
-		/// <para>The exceptions below won't be thrown; caller must check result manually.</para>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -13250,8 +12995,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -13282,8 +13025,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
@@ -13322,8 +13063,6 @@ namespace OpenGL
 		/// Specifies a symbolic value representing a shading technique. Accepted values are Gl.FLAT and Gl.SMOOTH. The initial 
 		/// value is Gl.SMOOTH.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is any value other than Gl.FLAT or Gl.SMOOTH.
 		/// </exception>
@@ -13365,8 +13104,6 @@ namespace OpenGL
 		/// coordinate replacement, a single floating-point value for the texture level-of-detail bias, or 1.0, 2.0, or 4.0 when 
 		/// specifying the Gl.RGB_SCALE or Gl.ALPHA_SCALE.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted 
 		/// defined values, or when <paramref name="params"/> should have a defined constant value (based on the value of <paramref 
@@ -13420,8 +13157,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted 
 		/// defined values, or when <paramref name="params"/> should have a defined constant value (based on the value of <paramref 
@@ -13484,8 +13219,6 @@ namespace OpenGL
 		/// coordinate replacement, a single floating-point value for the texture level-of-detail bias, or 1.0, 2.0, or 4.0 when 
 		/// specifying the Gl.RGB_SCALE or Gl.ALPHA_SCALE.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted 
 		/// defined values, or when <paramref name="params"/> should have a defined constant value (based on the value of <paramref 
@@ -13539,8 +13272,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted 
 		/// defined values, or when <paramref name="params"/> should have a defined constant value (based on the value of <paramref 
@@ -13597,8 +13328,6 @@ namespace OpenGL
 		/// Specifies a single-valued texture generation parameter, one of Gl.OBJECT_LINEAR, Gl.EYE_LINEAR, Gl.SPHERE_MAP, 
 		/// Gl.NORMAL_MAP, or Gl.REFLECTION_MAP.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="coord"/> or <paramref name="pname"/> is not an accepted defined value, 
 		/// or when <paramref name="pname"/> is Gl.TEXTURE_GEN_MODE and <paramref name="params"/> is not an accepted defined value.
@@ -13647,8 +13376,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="coord"/> or <paramref name="pname"/> is not an accepted defined value, 
 		/// or when <paramref name="pname"/> is Gl.TEXTURE_GEN_MODE and <paramref name="params"/> is not an accepted defined value.
@@ -13703,8 +13430,6 @@ namespace OpenGL
 		/// Specifies a single-valued texture generation parameter, one of Gl.OBJECT_LINEAR, Gl.EYE_LINEAR, Gl.SPHERE_MAP, 
 		/// Gl.NORMAL_MAP, or Gl.REFLECTION_MAP.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="coord"/> or <paramref name="pname"/> is not an accepted defined value, 
 		/// or when <paramref name="pname"/> is Gl.TEXTURE_GEN_MODE and <paramref name="params"/> is not an accepted defined value.
@@ -13753,8 +13478,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="coord"/> or <paramref name="pname"/> is not an accepted defined value, 
 		/// or when <paramref name="pname"/> is Gl.TEXTURE_GEN_MODE and <paramref name="params"/> is not an accepted defined value.
@@ -13809,8 +13532,6 @@ namespace OpenGL
 		/// Specifies a single-valued texture generation parameter, one of Gl.OBJECT_LINEAR, Gl.EYE_LINEAR, Gl.SPHERE_MAP, 
 		/// Gl.NORMAL_MAP, or Gl.REFLECTION_MAP.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="coord"/> or <paramref name="pname"/> is not an accepted defined value, 
 		/// or when <paramref name="pname"/> is Gl.TEXTURE_GEN_MODE and <paramref name="params"/> is not an accepted defined value.
@@ -13859,8 +13580,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated when <paramref name="coord"/> or <paramref name="pname"/> is not an accepted defined value, 
 		/// or when <paramref name="pname"/> is Gl.TEXTURE_GEN_MODE and <paramref name="params"/> is not an accepted defined value.
@@ -13915,8 +13634,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Returns the feedback data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
@@ -13962,8 +13679,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Returns the feedback data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
@@ -14005,8 +13720,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Returns the selection data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is negative.
 		/// </exception>
@@ -14045,8 +13758,6 @@ namespace OpenGL
 		/// Specifies the rasterization mode. Three values are accepted: Gl.RENDER, Gl.SELECT, and Gl.FEEDBACK. The initial value is 
 		/// Gl.RENDER.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of the three accepted values.
 		/// </exception>
@@ -14085,8 +13796,6 @@ namespace OpenGL
 		/// <summary>
 		/// initialize the name stack
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.InitNames is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -14111,8 +13820,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies a name that will replace the top value on the name stack.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadName is called while the name stack is empty.
 		/// </exception>
@@ -14140,8 +13847,6 @@ namespace OpenGL
 		/// <param name="token">
 		/// Specifies a marker value to be placed in the feedback buffer following a Gl.PASS_THROUGH_TOKEN.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.PassThrough is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -14161,8 +13866,6 @@ namespace OpenGL
 		/// <summary>
 		/// push and pop the name stack
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushName is called while the name stack is full.
 		/// </exception>
@@ -14193,8 +13896,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies a name that will be pushed onto the name stack.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushName is called while the name stack is full.
 		/// </exception>
@@ -14238,8 +13939,6 @@ namespace OpenGL
 		/// Specify the red, green, blue, and alpha values used when the accumulation buffer is cleared. The initial values are all 
 		/// 0.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.ClearAccum is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -14262,8 +13961,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the index used when the color index buffers are cleared. The initial value is 0.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.ClearIndex is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -14286,8 +13983,6 @@ namespace OpenGL
 		/// Specifies a bit mask to enable and disable the writing of individual bits in the color index buffers. Initially, the 
 		/// mask is all 1's.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.IndexMask is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -14319,8 +14014,6 @@ namespace OpenGL
 		/// Specifies a floating-point value used in the accumulation buffer operation. <paramref name="op"/> determines how 
 		/// <paramref name="value"/> is used.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="op"/> is not an accepted value.
 		/// </exception>
@@ -14353,8 +14046,6 @@ namespace OpenGL
 		/// <summary>
 		/// push and pop the server attribute stack
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushAttrib is called while the attribute stack is full.
 		/// </exception>
@@ -14397,8 +14088,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushAttrib is called while the attribute stack is full.
 		/// </exception>
@@ -14463,8 +14152,6 @@ namespace OpenGL
 		/// <param name="points">
 		/// Specifies a pointer to the array of control points.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not an accepted value.
 		/// </exception>
@@ -14539,8 +14226,6 @@ namespace OpenGL
 		/// <param name="points">
 		/// Specifies a pointer to the array of control points.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not an accepted value.
 		/// </exception>
@@ -14632,8 +14317,6 @@ namespace OpenGL
 		/// <param name="points">
 		/// Specifies a pointer to the array of control points.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not an accepted value.
 		/// </exception>
@@ -14727,8 +14410,6 @@ namespace OpenGL
 		/// <param name="points">
 		/// Specifies a pointer to the array of control points.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not an accepted value.
 		/// </exception>
@@ -14790,8 +14471,6 @@ namespace OpenGL
 		/// <param name="u2">
 		/// Specify the mappings for integer grid domain values i=0 and i=un.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="un"/> or <paramref name="vn"/> is not positive.
 		/// </exception>
@@ -14827,8 +14506,6 @@ namespace OpenGL
 		/// <param name="u2">
 		/// Specify the mappings for integer grid domain values i=0 and i=un.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="un"/> or <paramref name="vn"/> is not positive.
 		/// </exception>
@@ -14874,8 +14551,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// Specify the mappings for integer grid domain values j=0 and j=vn (Gl.MapGrid2 only).
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="un"/> or <paramref name="vn"/> is not positive.
 		/// </exception>
@@ -14921,8 +14596,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// Specify the mappings for integer grid domain values j=0 and j=vn (Gl.MapGrid2 only).
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if either <paramref name="un"/> or <paramref name="vn"/> is not positive.
 		/// </exception>
@@ -15214,8 +14887,6 @@ namespace OpenGL
 		/// <param name="i2">
 		/// Specify the first and last integer values for grid domain variable i.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
@@ -15278,8 +14949,6 @@ namespace OpenGL
 		/// <param name="j2">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
@@ -15337,8 +15006,6 @@ namespace OpenGL
 		/// Specifies the reference value that incoming alpha values are compared to. This value is clamped to the range 01, where 0 
 		/// represents the lowest possible alpha value and 1 the highest possible value. The initial reference value is 0.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="func"/> is not an accepted value.
 		/// </exception>
@@ -15371,8 +15038,6 @@ namespace OpenGL
 		/// <param name="yfactor">
 		/// Specify the x and y zoom factors for pixel write operations.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.PixelZoom is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -15400,8 +15065,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -15453,8 +15116,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -15509,8 +15170,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -15597,8 +15256,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -15688,8 +15345,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -15776,8 +15431,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -15867,8 +15520,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -15955,8 +15606,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -16051,8 +15700,6 @@ namespace OpenGL
 		/// Specifies whether color values, depth values, or stencil values are to be copied. Symbolic constants Gl.COLOR, Gl.DEPTH, 
 		/// and Gl.STENCIL are accepted.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
 		/// </exception>
@@ -16118,8 +15765,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> or <paramref name="type"/> is not one of the accepted values.
 		/// </exception>
@@ -16212,8 +15857,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> or <paramref name="type"/> is not one of the accepted values.
 		/// </exception>
@@ -16297,8 +15940,6 @@ namespace OpenGL
 		/// Returns four double-precision values that are the coefficients of the plane equation of <paramref name="plane"/> in eye 
 		/// coordinates. The initial value is (0, 0, 0, 0).
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
 		/// </exception>
@@ -16338,8 +15979,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -16380,8 +16019,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -16420,8 +16057,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="target"/> or <paramref name="query"/> is not an accepted value.
 		/// </exception>
@@ -16462,8 +16097,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="target"/> or <paramref name="query"/> is not an accepted value.
 		/// </exception>
@@ -16504,8 +16137,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="target"/> or <paramref name="query"/> is not an accepted value.
 		/// </exception>
@@ -16545,8 +16176,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -16585,8 +16214,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -16621,8 +16248,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -16707,8 +16332,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -16793,8 +16416,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="map"/> is not an accepted value.
 		/// </exception>
@@ -16874,8 +16495,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
 		/// buffer object's data store is currently mapped.
@@ -16922,8 +16541,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -16964,8 +16581,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -17004,8 +16619,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -17043,8 +16656,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -17082,8 +16693,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="coord"/> or <paramref name="pname"/> is not an accepted value.
 		/// </exception>
@@ -17114,8 +16723,6 @@ namespace OpenGL
 		/// <param name="list">
 		/// Specifies a potential display list name.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.IsList is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17160,8 +16767,6 @@ namespace OpenGL
 		/// <param name="zFar">
 		/// A <see cref="T:double"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="nearVal"/> or <paramref name="farVal"/> is not positive, or if 
 		/// <paramref name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = <paramref name="top"/>, or <paramref 
@@ -17189,8 +16794,6 @@ namespace OpenGL
 		/// <summary>
 		/// replace the current matrix with the identity matrix
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadIdentity is executed between the execution of Gl\.Begin and the 
 		/// corresponding execution of Gl\.End.
@@ -17218,8 +16821,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadMatrix is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17251,8 +16852,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadMatrix is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17285,8 +16884,6 @@ namespace OpenGL
 		/// Gl.PROJECTION, and Gl.TEXTURE. The initial value is Gl.MODELVIEW. Additionally, if the ARB_imaging extension is 
 		/// supported, Gl.COLOR is also accepted.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
 		/// </exception>
@@ -17317,8 +16914,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.MultMatrix is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17351,8 +16946,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.MultMatrix is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17399,8 +16992,6 @@ namespace OpenGL
 		/// <param name="zFar">
 		/// A <see cref="T:double"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = 
 		/// <paramref name="top"/>, or <paramref name="near"/> = <paramref name="far"/>.
@@ -17427,8 +17018,6 @@ namespace OpenGL
 		/// <summary>
 		/// push and pop the current matrix stack
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushMatrix is called while the current matrix stack is full.
 		/// </exception>
@@ -17465,8 +17054,6 @@ namespace OpenGL
 		/// <summary>
 		/// push and pop the current matrix stack
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushMatrix is called while the current matrix stack is full.
 		/// </exception>
@@ -17515,8 +17102,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, and z coordinates of a vector, respectively.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rotate is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17551,8 +17136,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, and z coordinates of a vector, respectively.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Rotate is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17585,8 +17168,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify scale factors along the x, y, and z axes, respectively.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Scale is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17618,8 +17199,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify scale factors along the x, y, and z axes, respectively.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Scale is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17652,8 +17231,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, and z coordinates of a translation vector.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Translate is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.
@@ -17685,8 +17262,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, and z coordinates of a translation vector.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.Translate is executed between the execution of Gl\.Begin and the corresponding 
 		/// execution of Gl\.End.

@@ -127,14 +127,8 @@ namespace OpenGL
 		public const int MAX_TEXTURE_BUFFER_SIZE = 0x8C2B;
 
 		/// <summary>
-		/// <para>
 		/// Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_BUFFER. The 
 		/// initial value is 0. See Gl.BindTexture.
-		/// </para>
-		/// <para>
-		/// Gl.Get: data returns a single value, the name of the buffer object currently bound to the Gl.TEXTURE_BUFFER buffer 
-		/// binding point. The initial value is 0. See Gl.BindBuffer.
-		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BINDING_BUFFER_ARB")]
 		[AliasOf("GL_TEXTURE_BINDING_BUFFER_EXT")]
@@ -333,7 +327,7 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER = 0x8A11;
 
 		/// <summary>
-		/// Gl.Get: when used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the name of 
+		/// Gl.Get: When used with non-indexed variants of glGet (such as glGetIntegerv), data returns a single value, the name of 
 		/// the buffer object currently bound to the target Gl.UNIFORM_BUFFER. If no buffer object is bound to this target, 0 is 
 		/// returned. When used with indexed variants of glGet (such as glGetIntegeri_v), data returns a single value, the name of 
 		/// the buffer object bound to the indexed uniform buffer binding point. The initial value is 0 for all targets. See 
@@ -345,7 +339,7 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER_BINDING = 0x8A28;
 
 		/// <summary>
-		/// Gl.Get: when used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the start 
+		/// Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the start 
 		/// offset of the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
 		/// Gl.BindBufferRange.
 		/// </summary>
@@ -355,7 +349,7 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER_START = 0x8A29;
 
 		/// <summary>
-		/// Gl.Get: when used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the size of 
+		/// Gl.Get: When used with indexed variants of glGet (such as glGetInteger64i_v), data returns a single value, the size of 
 		/// the binding range for each indexed uniform buffer binding. The initial value is 0 for all bindings. See 
 		/// Gl.BindBufferRange.
 		/// </summary>
@@ -632,19 +626,17 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of the accepted values.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> are negative.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
 		/// data store is currently mapped.
 		/// </exception>
@@ -690,20 +682,18 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
 		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, or Gl.TRIANGLES.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> are negative.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
 		/// data store is currently mapped.
 		/// </exception>
@@ -749,20 +739,18 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
 		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, or Gl.TRIANGLES.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> or <paramref name="primcount"/> are negative.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
 		/// input primitive type of the geometry shader in the currently installed program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
 		/// data store is currently mapped.
 		/// </exception>
@@ -796,29 +784,27 @@ namespace OpenGL
 		/// Specifies the target to which the texture is bound for Gl.TexBuffer. Must be Gl.TEXTURE_BUFFER.
 		/// </param>
 		/// <param name="internalformat">
-		/// Specifies the internal format of the data in the store belonging to <paramref name="buffer"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.TexBuffer if <paramref name="target"/> is not Gl.TEXTURE_BUFFER.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.TextureBuffer if <paramref name="texture"/> is not the name of an existing 
 		/// texture object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.TextureBuffer if the effective target of <paramref name="texture"/> is not 
 		/// Gl.TEXTURE_BUFFER.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the sized internal formats described 
 		/// above.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="buffer"/> is not zero and is not the name of an existing buffer 
 		/// object.
 		/// </exception>
@@ -886,30 +872,28 @@ namespace OpenGL
 		/// Specifies the size, in basic machine units, of the data to be copied from the source buffer object to the destination 
 		/// buffer object.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated by Gl.CopyBufferSubData if <paramref name="readTarget"/> or <paramref name="writeTarget"/> 
 		/// is not one of the buffer binding targets listed above.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CopyBufferSubData if zero is bound to <paramref name="readTarget"/> or <paramref 
 		/// name="writeTarget"/>.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated by Gl.CopyNamedBufferSubData if <paramref name="readBuffer"/> or <paramref 
 		/// name="writeBuffer"/> is not the name of an existing buffer object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if any of <paramref name="readOffset"/>, <paramref name="writeOffset"/> or <paramref 
 		/// name="size"/> is negative, if $readOffset + size$ is greater than the size of the source buffer object (its value of 
 		/// Gl.BUFFER_SIZE), or if $writeOffset + size$ is greater than the size of the destination buffer object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if the source and destination are the same buffer object, and the ranges 
 		/// $[readOffset,readOffset+size)$ and $[writeOffset,writeOffset+size)$ overlap.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if either the source or destination buffer object is mapped with glMapBufferRange or 
 		/// glMapBuffer, unless they were mapped with the Gl.MAP_PERSISTENT bit set in the Gl.MapBufferRange<paramref 
 		/// name="access"/> flags.
@@ -949,9 +933,7 @@ namespace OpenGL
 		/// <param name="uniformIndices">
 		/// Specifies the address of an array that will receive the indices of the uniforms.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of a program object for which 
 		/// glLinkProgram has been called in the past.
 		/// </exception>
@@ -992,19 +974,17 @@ namespace OpenGL
 		/// Specifies the address of an array of <paramref name="uniformCount"/> integers which are to receive the value of 
 		/// <paramref name="pname"/> for each uniform in <paramref name="uniformIndices"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not a value generated by OpenGL.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not a program object.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="uniformCount"/> is greater than or equal to the value of 
 		/// Gl.ACTIVE_UNIFORMS for <paramref name="program"/>.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted token.
 		/// </exception>
 		/// <seealso cref="Gl.GetUniform"/>
@@ -1051,16 +1031,14 @@ namespace OpenGL
 		/// Specifies the address of a buffer into which the GL will place the name of the active uniform at <paramref 
 		/// name="uniformIndex"/> within <paramref name="program"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="uniformIndex"/> is greater than or equal to the value of 
 		/// Gl.ACTIVE_UNIFORMS.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="bufSize"/> is negative.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of a program object for which glLinkProgram 
 		/// has been issued.
 		/// </exception>
@@ -1092,9 +1070,7 @@ namespace OpenGL
 		/// <param name="uniformBlockName">
 		/// Specifies the address an array of characters to containing the name of the uniform block whose index to retrieve.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of a program object for which 
 		/// glLinkProgram has been called in the past.
 		/// </exception>
@@ -1131,16 +1107,14 @@ namespace OpenGL
 		/// <param name="params">
 		/// Specifies the address of a variable to receive the result of the query.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="uniformBlockIndex"/> is greater than or equal to the value of 
 		/// Gl.ACTIVE_UNIFORM_BLOCKS or is not the index of an active uniform block in <paramref name="program"/>.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted tokens.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of a program object for which 
 		/// glLinkProgram has been called in the past.
 		/// </exception>
@@ -1183,13 +1157,11 @@ namespace OpenGL
 		/// Specifies the address an array of characters to receive the name of the uniform block at <paramref 
 		/// name="uniformBlockIndex"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of a program object for which 
 		/// glLinkProgram has been called in the past.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="uniformBlockIndex"/> is greater than or equal to the value of 
 		/// Gl.ACTIVE_UNIFORM_BLOCKS or is not the index of an active uniform block in <paramref name="program"/>.
 		/// </exception>
@@ -1224,17 +1196,15 @@ namespace OpenGL
 		/// Specifies the binding point to which to bind the uniform block with index <paramref name="uniformBlockIndex"/> within 
 		/// <paramref name="program"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="uniformBlockIndex"/> is not an active uniform block index of <paramref 
 		/// name="program"/>.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="uniformBlockBinding"/> is greater than or equal to the value of 
 		/// Gl.MAX_UNIFORM_BUFFER_BINDINGS.
 		/// </exception>
-		/// <exception cref="InvalidOperationException">
+		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of a program object generated by the GL.
 		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
