@@ -105,7 +105,7 @@ namespace BindingsGen
 
 			foreach (FieldDefinition field in type.Fields) {
 				if (IsCompatibleField(cfg, field) == false) {
-					Console.WriteLine("    - Remove {0}", field.Name);
+					// Console.WriteLine("    - Remove {0}", field.Name);
 					removedFields.Add(field);
 				}
 					
@@ -123,7 +123,7 @@ namespace BindingsGen
 
 			foreach (MethodDefinition method in type.Methods) {
 				if (IsCompatibleMethod(cfg, method) == false) {
-					Console.WriteLine("    - Remove {0}", method.ToString());
+					// Console.WriteLine("    - Remove {0}", method.ToString());
 					removedMethods.Add(method);
 				}
 			}

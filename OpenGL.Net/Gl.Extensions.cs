@@ -2705,7 +2705,7 @@ namespace OpenGL
 			/// <summary>
 			/// Support for extension GL_EXT_direct_state_access.
 			/// </summary>
-			[Extension("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[Extension("GL_EXT_direct_state_access")]
 			public bool DirectStateAccess_EXT;
 
 			/// <summary>

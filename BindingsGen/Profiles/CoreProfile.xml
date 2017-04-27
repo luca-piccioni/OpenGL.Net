@@ -143,7 +143,6 @@
 		<Extension>GL_ARB_viewport_array</Extension>
 		<Extension>GL_EXT_debug_label</Extension>
 		<Extension>GL_EXT_debug_marker</Extension>
-		<Extension>GL_EXT_direct_state_access</Extension>
 		<Extension>GL_EXT_draw_instanced</Extension>
 		<Extension>GL_EXT_polygon_offset_clamp</Extension>
 		<Extension>GL_EXT_post_depth_coverage</Extension>

@@ -652,7 +652,7 @@ namespace OpenGL
 		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void NamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglNamedBufferStorage != null, "pglNamedBufferStorage not implemented");
@@ -718,7 +718,7 @@ namespace OpenGL
 		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void NamedBufferStorage(UInt32 buffer, UInt32 size, Object data, UInt32 flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -885,7 +885,7 @@ namespace OpenGL
 		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void NamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglNamedBufferSubData != null, "pglNamedBufferSubData not implemented");
@@ -940,7 +940,7 @@ namespace OpenGL
 		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		public static void NamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -8214,7 +8214,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags);
 
@@ -8233,7 +8233,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 

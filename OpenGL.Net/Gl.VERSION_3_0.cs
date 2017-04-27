@@ -2547,7 +2547,7 @@ namespace OpenGL
 		[AliasOf("glGetBooleanIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, [Out] bool[] data)
 		{
@@ -2609,7 +2609,7 @@ namespace OpenGL
 		[AliasOf("glGetBooleanIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, out bool data)
 		{
@@ -2673,7 +2673,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, [Out] Int32[] data)
 		{
@@ -2737,7 +2737,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, out Int32 data)
 		{
@@ -2767,7 +2767,7 @@ namespace OpenGL
 		[AliasOf("glEnableiOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
@@ -2796,7 +2796,7 @@ namespace OpenGL
 		[AliasOf("glDisableiOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
@@ -2834,7 +2834,7 @@ namespace OpenGL
 		[AliasOf("glIsEnablediOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
@@ -7203,7 +7203,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[RequiredByFeature("GL_EXT_draw_buffers2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetBooleani_v(Int32 target, UInt32 index, bool* data);
@@ -7217,7 +7217,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[RequiredByFeature("GL_EXT_draw_buffers2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetIntegeri_v(Int32 target, UInt32 index, Int32* data);
@@ -7229,7 +7229,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[RequiredByFeature("GL_EXT_draw_buffers2")]
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
@@ -7248,7 +7248,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[RequiredByFeature("GL_EXT_draw_buffers2")]
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
@@ -7267,7 +7267,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access")]
 			[RequiredByFeature("GL_EXT_draw_buffers2")]
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
