@@ -174,20 +174,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate r, a symbolic constant. 
-		/// The initial value is Gl.REPEAT.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate r, a symbolic constant. The 
-		/// initial value is Gl.REPEAT.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate r, a symbolic 
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate r, a symbolic 
 		/// constant. The initial value is Gl.REPEAT.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate r, a symbolic constant. 
-		/// The initial value is Gl.REPEAT.
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate r, a symbolic 
+		/// constant. The initial value is Gl.REPEAT.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_WRAP_R_EXT")]
@@ -379,18 +371,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns the single-valued texture minimum level-of-detail value. The initial value is 
-		/// -1000.
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns the single-valued texture minimum level-of-detail value. The initial value 
+		/// is -1000.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued texture minimum level-of-detail value. The initial value is -1000.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns the single-valued texture minimum level-of-detail value. The initial value is 
-		/// -1000.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued texture minimum level-of-detail value. The initial value is 
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued texture minimum level-of-detail value. The initial value is 
 		/// -1000.
 		/// </para>
 		/// </summary>
@@ -402,18 +387,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns the single-valued texture maximum level-of-detail value. The initial value is 
-		/// 1000.
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns the single-valued texture maximum level-of-detail value. The initial value 
+		/// is 1000.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued texture maximum level-of-detail value. The initial value is 1000.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns the single-valued texture maximum level-of-detail value. The initial value is 
-		/// 1000.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued texture maximum level-of-detail value. The initial value is 
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued texture maximum level-of-detail value. The initial value is 
 		/// 1000.
 		/// </para>
 		/// </summary>

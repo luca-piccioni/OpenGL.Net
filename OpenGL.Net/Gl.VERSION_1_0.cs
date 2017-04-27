@@ -359,16 +359,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.StencilOp: Sets the stencil buffer value to 0.
+		/// [GL4|GLES3.2] Gl.StencilOp: Sets the stencil buffer value to 0.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.StencilOpSeparate: Sets the stencil buffer value to 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOp: Sets the stencil buffer value to 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOpSeparate: Sets the stencil buffer value to 0.
+		/// [GL4|GLES3.2] Gl.StencilOpSeparate: Sets the stencil buffer value to 0.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -598,16 +592,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetError: No error has been recorded. The value of this symbolic constant is guaranteed to be 0.
+		/// [GL4|GLES3.2] Gl.GetError: No error has been recorded. The value of this symbolic constant is guaranteed to be 0.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.GetGraphicsResetStatus: Indicates that the GL context has not been in a reset state since the last call.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetError: No error has been recorded. The value of this symbolic constant is guaranteed to be 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetGraphicsResetStatus: Indicates that the GL context has not been in a reset state since the last call.
+		/// [GL4|GLES3.2] Gl.GetGraphicsResetStatus: Indicates that the GL context has not been in a reset state since the last 
+		/// call.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -1411,28 +1400,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns four integer or floating-point numbers that comprise the RGBA color of the texture 
-		/// border. Floating-point values are returned in the range 01. Integer values are returned as a linear mapping of the 
-		/// internal floating-point representation such that 1.0 maps to the most positive representable integer and -1.0 maps to 
-		/// the most negative representable integer. The initial value is (0, 0, 0, 0).
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns four integer or floating-point numbers that comprise the RGBA color of the texture 
-		/// border. Floating-point values are returned in the range 01. Integer values are returned as a linear mapping of the 
-		/// internal floating-point representation such that 1.0 maps to the most positive representable integer and -1.0 maps to 
-		/// the most negative representable integer. The initial value is (0, 0, 0, 0).
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns four integer or floating-point numbers that comprise the RGBA color of the 
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns four integer or floating-point numbers that comprise the RGBA color of the 
 		/// texture border. Floating-point values are returned in the range 01. Integer values are returned as a linear mapping of 
 		/// the internal floating-point representation such that 1.0 maps to the most positive representable integer and -1.0 maps 
 		/// to the most negative representable integer. The initial value is (0, 0, 0, 0).
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns four integer or floating-point numbers that comprise the RGBA color of the texture 
-		/// border. Floating-point values are returned in the range 01. Integer values are returned as a linear mapping of the 
-		/// internal floating-point representation such that 1.0 maps to the most positive representable integer and -1.0 maps to 
-		/// the most negative representable integer. The initial value is (0, 0, 0, 0).
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns four integer or floating-point numbers that comprise the RGBA color of the 
+		/// texture border. Floating-point values are returned in the range 01. Integer values are returned as a linear mapping of 
+		/// the internal floating-point representation such that 1.0 maps to the most positive representable integer and -1.0 maps 
+		/// to the most negative representable integer. The initial value is (0, 0, 0, 0).
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_BORDER_COLOR_EXT")]
@@ -1645,16 +1622,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.StencilOp: Bitwise inverts the current stencil buffer value.
+		/// [GL4|GLES3.2] Gl.StencilOp: Bitwise inverts the current stencil buffer value.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.StencilOpSeparate: Bitwise inverts the current stencil buffer value.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOp: Bitwise inverts the current stencil buffer value.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOpSeparate: Bitwise inverts the current stencil buffer value.
+		/// [GL4|GLES3.2] Gl.StencilOpSeparate: Bitwise inverts the current stencil buffer value.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2060,16 +2031,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.StencilOp: Keeps the current value.
+		/// [GL4|GLES3.2] Gl.StencilOp: Keeps the current value.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.StencilOpSeparate: Keeps the current value.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOp: Keeps the current value.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOpSeparate: Keeps the current value.
+		/// [GL4|GLES3.2] Gl.StencilOpSeparate: Keeps the current value.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2079,16 +2044,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.StencilOp: Sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
+		/// [GL4|GLES3.2] Gl.StencilOp: Sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.StencilOpSeparate: Sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOp: Sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOpSeparate: Sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
+		/// [GL4|GLES3.2] Gl.StencilOpSeparate: Sets the stencil buffer value to ref, as specified by Gl.StencilFunc.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2098,17 +2057,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.StencilOp: Increments the current stencil buffer value. Clamps to the maximum representable unsigned value.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.StencilOpSeparate: Increments the current stencil buffer value. Clamps to the maximum representable unsigned 
+		/// [GL4|GLES3.2] Gl.StencilOp: Increments the current stencil buffer value. Clamps to the maximum representable unsigned 
 		/// value.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.StencilOp: Increments the current stencil buffer value. Clamps to the maximum representable unsigned value.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOpSeparate: Increments the current stencil buffer value. Clamps to the maximum representable 
+		/// [GL4|GLES3.2] Gl.StencilOpSeparate: Increments the current stencil buffer value. Clamps to the maximum representable 
 		/// unsigned value.
 		/// </para>
 		/// </summary>
@@ -2119,16 +2072,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.StencilOp: Decrements the current stencil buffer value. Clamps to 0.
+		/// [GL4|GLES3.2] Gl.StencilOp: Decrements the current stencil buffer value. Clamps to 0.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.StencilOpSeparate: Decrements the current stencil buffer value. Clamps to 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOp: Decrements the current stencil buffer value. Clamps to 0.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOpSeparate: Decrements the current stencil buffer value. Clamps to 0.
+		/// [GL4|GLES3.2] Gl.StencilOpSeparate: Decrements the current stencil buffer value. Clamps to 0.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2225,20 +2172,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns the single-valued texture magnification filter, a symbolic constant. The initial 
-		/// value is Gl.LINEAR.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued texture magnification filter, a symbolic constant. The initial value 
-		/// is Gl.LINEAR.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns the single-valued texture magnification filter, a symbolic constant. The 
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns the single-valued texture magnification filter, a symbolic constant. The 
 		/// initial value is Gl.LINEAR.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued texture magnification filter, a symbolic constant. The initial 
-		/// value is Gl.LINEAR.
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued texture magnification filter, a symbolic constant. The 
+		/// initial value is Gl.LINEAR.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2248,20 +2187,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns the single-valued texture minification filter, a symbolic constant. The initial 
-		/// value is Gl.NEAREST_MIPMAP_LINEAR.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued texture minification filter, a symbolic constant. The initial value 
-		/// is Gl.NEAREST_MIPMAP_LINEAR.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns the single-valued texture minification filter, a symbolic constant. The 
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns the single-valued texture minification filter, a symbolic constant. The 
 		/// initial value is Gl.NEAREST_MIPMAP_LINEAR.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued texture minification filter, a symbolic constant. The initial 
-		/// value is Gl.NEAREST_MIPMAP_LINEAR.
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued texture minification filter, a symbolic constant. The 
+		/// initial value is Gl.NEAREST_MIPMAP_LINEAR.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2271,20 +2202,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate s, a symbolic constant. 
-		/// The initial value is Gl.REPEAT.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate s, a symbolic constant. The 
-		/// initial value is Gl.REPEAT.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate s, a symbolic 
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate s, a symbolic 
 		/// constant. The initial value is Gl.REPEAT.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate s, a symbolic constant. 
-		/// The initial value is Gl.REPEAT.
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate s, a symbolic 
+		/// constant. The initial value is Gl.REPEAT.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -2294,20 +2217,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate t, a symbolic constant. 
-		/// The initial value is Gl.REPEAT.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate t, a symbolic constant. The 
-		/// initial value is Gl.REPEAT.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate t, a symbolic 
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns the single-valued wrapping function for texture coordinate t, a symbolic 
 		/// constant. The initial value is Gl.REPEAT.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate t, a symbolic constant. 
-		/// The initial value is Gl.REPEAT.
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued wrapping function for texture coordinate t, a symbolic 
+		/// constant. The initial value is Gl.REPEAT.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -3405,18 +3320,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, do alpha testing. See Gl.AlphaFunc.
+		/// [GL2.1|GLES1.1] Gl.Enable: If enabled, do alpha testing. See Gl.AlphaFunc.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether alpha testing of fragments is enabled. The 
-		/// initial value is Gl.FALSE. See Gl.AlphaFunc.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Enable: If enabled, do alpha testing. See Gl.AlphaFunc.
-		/// </para>
-		/// <para>
-		/// [GLES1.1] Gl.Get: params returns a single boolean value indicating whether alpha testing of fragments is enabled. The 
-		/// initial value is Gl.FALSE. See Gl.AlphaFunc.
+		/// [GL2.1|GLES1.1] Gl.Get: params returns a single boolean value indicating whether alpha testing of fragments is enabled. 
+		/// The initial value is Gl.FALSE. See Gl.AlphaFunc.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_ALPHA_TEST_QCOM")]

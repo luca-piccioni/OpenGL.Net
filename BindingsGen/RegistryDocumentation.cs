@@ -84,6 +84,28 @@ namespace BindingsGen
 				docHandlersDoc.Add(String.Format("[{0}] {1}", api, docHandlers[0].QueryEnumSummary(ctx, enumerant)));
 			}
 
+			if (docHandlers.Count == 4) {
+				bool func1 = docHandlers[0].QueryEnumSummary(ctx, enumerant) == docHandlers[2].QueryEnumSummary(ctx, enumerant);
+				bool func2 = docHandlers[1].QueryEnumSummary(ctx, enumerant) == docHandlers[3].QueryEnumSummary(ctx, enumerant);
+
+				if (func1 && func2) {
+					docHandlersDoc.Clear();
+
+					string defaultApi = ctx.Class.ToUpperInvariant();
+
+					{
+						string api = (docHandlers[0].Api ?? defaultApi) + "|" + (docHandlers[2].Api ?? defaultApi);
+						docHandlersDoc.Add(String.Format("[{0}] {1}", api, docHandlers[0].QueryEnumSummary(ctx, enumerant)));
+					}
+
+					{
+						string api = (docHandlers[1].Api ?? defaultApi) + "|" + (docHandlers[3].Api ?? defaultApi);
+						docHandlersDoc.Add(String.Format("[{0}] {1}", api, docHandlers[1].QueryEnumSummary(ctx, enumerant)));
+					}
+				}
+				
+			}
+
 			sw.WriteLine("/// <summary>");
 			if (docHandlersDoc.Count > 1) {
 				foreach (string doc in docHandlersDoc) {

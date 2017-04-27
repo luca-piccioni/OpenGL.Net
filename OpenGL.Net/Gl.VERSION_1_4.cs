@@ -186,19 +186,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.StencilOp: Increments the current stencil buffer value. Wraps stencil buffer value to zero when incrementing 
-		/// the maximum representable unsigned value.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.StencilOpSeparate: Increments the current stencil buffer value. Wraps stencil buffer value to zero when 
+		/// [GL4|GLES3.2] Gl.StencilOp: Increments the current stencil buffer value. Wraps stencil buffer value to zero when 
 		/// incrementing the maximum representable unsigned value.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.StencilOp: Increments the current stencil buffer value. Wraps stencil buffer value to zero when 
-		/// incrementing the maximum representable unsigned value.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOpSeparate: Increments the current stencil buffer value. Wraps stencil buffer value to zero when 
+		/// [GL4|GLES3.2] Gl.StencilOpSeparate: Increments the current stencil buffer value. Wraps stencil buffer value to zero when 
 		/// incrementing the maximum representable unsigned value.
 		/// </para>
 		/// </summary>
@@ -212,20 +204,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.StencilOp: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum representable 
-		/// unsigned value when decrementing a stencil buffer value of zero.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.StencilOpSeparate: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum 
+		/// [GL4|GLES3.2] Gl.StencilOp: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum 
 		/// representable unsigned value when decrementing a stencil buffer value of zero.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.StencilOp: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum 
-		/// representable unsigned value when decrementing a stencil buffer value of zero.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.StencilOpSeparate: Decrements the current stencil buffer value. Wraps stencil buffer value to the maximum 
-		/// representable unsigned value when decrementing a stencil buffer value of zero.
+		/// [GL4|GLES3.2] Gl.StencilOpSeparate: Decrements the current stencil buffer value. Wraps stencil buffer value to the 
+		/// maximum representable unsigned value when decrementing a stencil buffer value of zero.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_DECR_WRAP_EXT")]
@@ -249,20 +233,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial value is 
-		/// Gl.NONE. See Gl.SamplerParameter.
-		/// </para>
-		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial value is 
-		/// Gl.NONE. See Gl.TexParameter.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial 
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial 
 		/// value is Gl.NONE. See Gl.SamplerParameter.
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial value is 
-		/// Gl.NONE. See Gl.TexParameter.
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns a single-valued texture comparison mode, a symbolic constant. The initial 
+		/// value is Gl.NONE. See Gl.TexParameter.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_TEXTURE_COMPARE_MODE_ARB")]
@@ -275,19 +251,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetSamplerParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial 
-		/// value is Gl.LEQUAL. See Gl.SamplerParameter.
+		/// [GL4|GLES3.2] Gl.GetSamplerParameter: Returns a single-valued texture comparison function, a symbolic constant. The 
+		/// initial value is Gl.LEQUAL. See Gl.SamplerParameter.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.GetTexParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial value is 
-		/// Gl.LEQUAL. See Gl.TexParameter.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetSamplerParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial 
-		/// value is Gl.LEQUAL. See Gl.SamplerParameter.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetTexParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial 
+		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns a single-valued texture comparison function, a symbolic constant. The initial 
 		/// value is Gl.LEQUAL. See Gl.TexParameter.
 		/// </para>
 		/// </summary>

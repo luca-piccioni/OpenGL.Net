@@ -785,16 +785,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetProgram: params returns Gl.TRUE if program is currently flagged for deletion, and Gl.FALSE otherwise.
+		/// [GL4|GLES3.2] Gl.GetProgram: params returns Gl.TRUE if program is currently flagged for deletion, and Gl.FALSE 
+		/// otherwise.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.GetShader: params returns Gl.TRUE if shader is currently flagged for deletion, and Gl.FALSE otherwise.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetProgram: params returns Gl.TRUE if program is currently flagged for deletion, and Gl.FALSE otherwise.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetShader: params returns Gl.TRUE if shader is currently flagged for deletion, and Gl.FALSE otherwise.
+		/// [GL4|GLES3.2] Gl.GetShader: params returns Gl.TRUE if shader is currently flagged for deletion, and Gl.FALSE otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
@@ -827,22 +822,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.GetProgram: params returns the number of characters in the information log for program including the null 
-		/// termination character (i.e., the size of the character buffer required to store the information log). If program has no 
-		/// information log, a value of 0 is returned.
+		/// [GL4|GLES3.2] Gl.GetProgram: params returns the number of characters in the information log for program including the 
+		/// null termination character (i.e., the size of the character buffer required to store the information log). If program 
+		/// has no information log, a value of 0 is returned.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.GetShader: params returns the number of characters in the information log for shader including the null 
-		/// termination character (i.e., the size of the character buffer required to store the information log). If shader has no 
-		/// information log, a value of 0 is returned.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetProgram: params returns the number of characters in the information log for program including the null 
-		/// termination character (i.e., the size of the character buffer required to store the information log). If program has no 
-		/// information log, a value of 0 is returned.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.GetShader: params returns the number of characters in the information log for shader including the null 
+		/// [GL4|GLES3.2] Gl.GetShader: params returns the number of characters in the information log for shader including the null 
 		/// termination character (i.e., the size of the character buffer required to store the information log). If shader has no 
 		/// information log, a value of 0 is returned.
 		/// </para>
@@ -901,20 +886,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] Gl.Get: data returns one value, a symbolic constant indicating the mode of the derivative accuracy hint for 
-		/// fragment shaders. The initial value is Gl.DONT_CARE. See Gl.Hint.
+		/// [GL4|GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating the mode of the derivative accuracy hint 
+		/// for fragment shaders. The initial value is Gl.DONT_CARE. See Gl.Hint.
 		/// </para>
 		/// <para>
-		/// [GL4] Gl.Hint: Indicates the accuracy of the derivative calculation for the GL shading language fragment processing 
-		/// built-in functions: Gl.x, Gl.y, and Gl.dth.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Get: data returns one value, a symbolic constant indicating the mode of the derivative accuracy hint for 
-		/// fragment shaders. The initial value is Gl.DONT_CARE. See Gl.Hint.
-		/// </para>
-		/// <para>
-		/// [GLES3.2] Gl.Hint: Indicates the accuracy of the derivative calculation for the GL shading language fragment processing 
-		/// built-in functions: Gl.x, Gl.y, and Gl.dth.
+		/// [GL4|GLES3.2] Gl.Hint: Indicates the accuracy of the derivative calculation for the GL shading language fragment 
+		/// processing built-in functions: Gl.x, Gl.y, and Gl.dth.
 		/// </para>
 		/// </summary>
 		[AliasOf("GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB")]
