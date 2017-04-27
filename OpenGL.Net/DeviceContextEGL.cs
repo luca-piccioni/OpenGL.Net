@@ -175,7 +175,7 @@ namespace OpenGL
 			/// A <see cref="IntPtr"/> that specifies the configuration ID.
 			/// </param>
 			/// <param name="attribs">
-			/// A <see cref="int[]"/> that lists the handle attributes.
+			/// A <see cref="T:int[]"/> that lists the handle attributes.
 			/// </param>
 			/// <exception cref="InvalidOperationException">
 			/// Exception thrown if the handle is already created.
@@ -301,7 +301,7 @@ namespace OpenGL
 			/// A <see cref="IntPtr"/> that specifies the configuration ID.
 			/// </param>
 			/// <param name="attribs">
-			/// A <see cref="int[]"/> that lists the handle attributes.
+			/// A <see cref="T:int[]"/> that lists the handle attributes.
 			/// </param>
 			/// <exception cref="InvalidOperationException">
 			/// Exception thrown if the handle is already created.
@@ -419,7 +419,7 @@ namespace OpenGL
 			/// A <see cref="IntPtr"/> that specifies the configuration ID.
 			/// </param>
 			/// <param name="attribs">
-			/// A <see cref="int[]"/> that lists the handle attributes.
+			/// A <see cref="T:int[]"/> that lists the handle attributes.
 			/// </param>
 			/// <exception cref="InvalidOperationException">
 			/// Exception thrown if the handle is already created.

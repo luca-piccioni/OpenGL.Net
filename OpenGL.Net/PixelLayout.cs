@@ -1013,77 +1013,11 @@ namespace OpenGL
 		/// <param name="type">
 		/// A <see cref="PixelLayout"/> to test for OpenGL support.
 		/// </param>
-		/// <param name="caps">
-		/// A <see cref="GraphicsCapabilities"/> that declares which extension are supported by a particoular OpenGL version.
-		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating whether the current OpenGL implementation supports for the pixel type <paramref name="type"/>. The
 		/// OpenGL support means that texture data could be specified in the pixel format <paramref name="type"/>, and it is stored internally with
 		/// the same pixel format.
 		/// </returns>
-		/// <remarks>
-		/// The OpenGL support is dependent on what extensions have been implemented by current driver/hardware. The following
-		/// capabilities are tested:
-		/// - <see cref="GraphicsContext.Capabilities.BgraFormat"/>
-		/// - <see cref="GraphicsContext.Capabilities.PackedFormats"/>
-		/// - <see cref="GraphicsContext.Capabilities.GlExtensions.TextureSwizzle_ARB"/>
-		/// - <see cref="GraphicsContext.Capabilities.GlExtensions.HalfFloatPixel_ARB"/>
-		/// - <see cref="GraphicsContext.Capabilities.TextureFloat"/>
-		/// The above extension are widely supported, even by old entry-level graphic chipset; but for having a robust
-		/// support, those extentions are always checked when dialing with pixel types, in order to avoid errors on
-		/// texture uploads.
-		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.BgraFormat"/> OpenGL
-		/// extension:
-		/// - <see cref="Type.BGR24"/>
-		/// - <see cref="Type.BGRF"/>
-		/// - <see cref="Type.BGRHF"/>
-		/// - <see cref="Type.BGRAF"/>
-		/// - <see cref="Type.BGRAHF"/>
-		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.PackedFormats"/> OpenGL
-		/// extension:
-		/// - <see cref="Type.RGB8"/>
-		/// - <see cref="Type.RGB15"/>
-		/// - <see cref="Type.RGB16"/>
-		/// - <see cref="Type.RGB30A2"/>
-		/// - <see cref="Type.BGR8"/>
-		/// - <see cref="Type.BGR15"/>
-		/// - <see cref="Type.BGR16"/>
-		/// - <see cref="Type.BGR30A2"/>
-		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.GlExtensions.TextureSwizzle_ARB"/> OpenGL
-		/// extension:
-		/// - <see cref="Type.RGB15"/>
-		/// - <see cref="Type.BGR15"/>
-		/// - <see cref="Type.GRAY8"/>
-		/// - <see cref="Type.GRAY16"/>
-		/// - <see cref="Type.GRAY32"/>
-		/// - <see cref="Type.GRAYF"/>
-		/// - <see cref="Type.GRAYAF"/>
-		/// - <see cref="Type.GRAYHF"/>
-		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.GlExtensions.HalfFloatPixel_ARB"/> and on
-		/// <see cref="GraphicsContext.Capabilities.TextureFloat"/> OpenGL extensions:
-		/// - <see cref="Type.RGBHF"/>
-		/// - <see cref="Type.RGBAHF"/>
-		/// - <see cref="Type.BGRHF"/>
-		/// - <see cref="Type.BGRAHF"/>
-		/// - <see cref="Type.GRAYHF"/>
-		/// - <see cref="Type.GRAYAF"/>
-		/// In the case only <see cref="GraphicsContext.Capabilities.TextureFloat"/> is supported, half floating-point formats are "hopefully"
-		/// converted in float as internal format.
-		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.GlExtensions.TextureRg_ARB"/> OpenGL
-		/// extension:
-		/// - <see cref="Type.GRAYAF"/>
-		/// 
-		/// The following pixel formats are dependent on the <see cref="GraphicsContext.Capabilities.GlExtensions.DepthTexture_ARB"/> OpenGL extension:
-		/// - <see cref="Type.Depth16"/>
-		/// - <see cref="Type.Depth24"/>
-		/// - <see cref="Type.Depth32"/>
-		/// - <see cref="Type.DepthF"/>
-		/// </remarks>
 		public static bool IsSupportedInternalFormat(this PixelLayout type)
 		{
 			switch (type) {
@@ -1364,10 +1298,10 @@ namespace OpenGL
 		/// <remarks>
 		/// The OpenGL support is dependent on what extensions have been implemented by current driver/hardware. The following
 		/// capabilities are tested:
-		/// - <see cref="GraphicsContext.Capabilities.BgraFormat"/>
-		/// - <see cref="GraphicsContext.Capabilities.PackedFormats"/>
-		/// - <see cref="GraphicsContext.Capabilities.GlExtensions.TextureSwizzle_ARB"/>
-		/// - <see cref="GraphicsContext.Capabilities.GlExtensions.HalfFloatPixel_ARB"/>
+		/// - <see cref="Gl.Extensions.Bgra_EXT"/>
+		/// - <see cref="Gl.Extensions.PackedPixels_EXT"/>
+		/// - <see cref="Gl.Extensions.TextureSwizzle_ARB"/>
+		/// - <see cref="Gl.Extensions.HalfFloatPixel_ARB"/>
 		/// 
 		/// The main difference from <see cref="IsSupportedInternalFormat"/> is that the texture data submission could be specified using a pixel
 		/// type <paramref name="type"/>, but OpenGL driver stores texture data internally using a different pixel format. This could lead to
