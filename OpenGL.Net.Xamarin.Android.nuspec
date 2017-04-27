@@ -29,5 +29,6 @@
 	<files>
 		<file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.dll" target="lib\MonoAndroid" />
 		<file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.xml" target="lib\MonoAndroid" />
+		<file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.pdb" target="lib\MonoAndroid" />
 	</files>
 </package>

@@ -41,7 +41,9 @@
 	<files>
 		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.dll" target="lib\net35" />
 		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.xml" target="lib\net35" />
+		<file src="OpenGL.Net.WinForms/bin/net35/Release/OpenGL.Net.WinForms.pdb" target="lib\net35" />
 		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.dll" target="lib\net461" />
 		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.xml" target="lib\net461" />
+		<file src="OpenGL.Net.WinForms/bin/net461/Release/OpenGL.Net.WinForms.pdb" target="lib\net461" />
 	</files>
 </package>

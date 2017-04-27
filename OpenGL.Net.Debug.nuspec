@@ -42,14 +42,14 @@
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.dll" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.xml" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.pdb" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net.dll" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net.xml" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net.pdb" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.dll" target="lib\MonoAndroid" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.xml" target="lib\MonoAndroid" />
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net.pdb" target="lib\MonoAndroid" />
+		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.dll" target="lib\net35" />
+		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.xml" target="lib\net35" />
+		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.pdb" target="lib\net35" />
+		<file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.dll" target="lib\net461" />
+		<file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.xml" target="lib\net461" />
+		<file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.pdb" target="lib\net461" />
+		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.dll" target="lib\MonoAndroid" />
+		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.xml" target="lib\MonoAndroid" />
+		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.pdb" target="lib\MonoAndroid" />
 	</files>
 </package>
