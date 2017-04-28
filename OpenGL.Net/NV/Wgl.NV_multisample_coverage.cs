@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_COVERAGE_SAMPLES_NV symbol.
+		/// [WGL] Value of WGL_COVERAGE_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_multisample_coverage")]
 		public const int COVERAGE_SAMPLES_NV = 0x2042;
 
 		/// <summary>
-		/// Value of WGL_COLOR_SAMPLES_NV symbol.
+		/// [WGL] Value of WGL_COLOR_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_multisample_coverage")]
 		public const int COLOR_SAMPLES_NV = 0x20B9;

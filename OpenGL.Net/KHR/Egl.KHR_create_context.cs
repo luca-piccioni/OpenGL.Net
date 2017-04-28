@@ -29,27 +29,27 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONTEXT_FLAGS_KHR symbol.
+		/// [EGL] Value of EGL_CONTEXT_FLAGS_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_create_context")]
 		public const int CONTEXT_FLAGS_KHR = 0x30FC;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_DEBUG_BIT_KHR symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_DEBUG_BIT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_create_context")]
 		[Log(BitmaskName = "EGLContextFlagMask")]
 		public const uint CONTEXT_OPENGL_DEBUG_BIT_KHR = 0x00000001;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE_BIT_KHR symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE_BIT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_create_context")]
 		[Log(BitmaskName = "EGLContextFlagMask")]
 		public const uint CONTEXT_OPENGL_FORWARD_COMPATIBLE_BIT_KHR = 0x00000002;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_ROBUST_ACCESS_BIT_KHR symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_ROBUST_ACCESS_BIT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_create_context")]
 		[Log(BitmaskName = "EGLContextFlagMask")]

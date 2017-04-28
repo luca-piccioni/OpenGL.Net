@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NO_CONFIG_KHR symbol.
+		/// [EGL] Value of EGL_NO_CONFIG_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_no_config_context")]
 		public const int NO_CONFIG_KHR = 0;

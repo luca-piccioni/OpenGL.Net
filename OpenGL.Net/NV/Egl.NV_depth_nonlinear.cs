@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_DEPTH_ENCODING_NV symbol.
+		/// [EGL] Value of EGL_DEPTH_ENCODING_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_depth_nonlinear")]
 		public const int DEPTH_ENCODING_NV = 0x30E2;
 
 		/// <summary>
-		/// Value of EGL_DEPTH_ENCODING_NONE_NV symbol.
+		/// [EGL] Value of EGL_DEPTH_ENCODING_NONE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_depth_nonlinear")]
 		public const int DEPTH_ENCODING_NONE_NV = 0;
 
 		/// <summary>
-		/// Value of EGL_DEPTH_ENCODING_NONLINEAR_NV symbol.
+		/// [EGL] Value of EGL_DEPTH_ENCODING_NONLINEAR_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_depth_nonlinear")]
 		public const int DEPTH_ENCODING_NONLINEAR_NV = 0x30E3;

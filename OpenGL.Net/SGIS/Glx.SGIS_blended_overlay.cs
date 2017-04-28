@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_BLENDED_RGBA_SGIS symbol.
+		/// [GLX] Value of GLX_BLENDED_RGBA_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIS_blended_overlay")]
 		public const int BLENDED_RGBA_SGIS = 0x8025;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_PLATFORM_GBM_KHR symbol.
+		/// [EGL] Value of EGL_PLATFORM_GBM_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_platform_gbm")]
 		public const int PLATFORM_GBM_KHR = 0x31D7;

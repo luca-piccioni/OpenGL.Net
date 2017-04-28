@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_GL_COLORSPACE_SCRGB_LINEAR_EXT symbol.
+		/// [EGL] Value of EGL_GL_COLORSPACE_SCRGB_LINEAR_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_gl_colorspace_scrgb_linear")]
 		public const int GL_COLORSPACE_SCRGB_LINEAR_EXT = 0x3350;

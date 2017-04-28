@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_STREAM_PROTOCOL_SOCKET_NV symbol.
+		/// [EGL] Value of EGL_STREAM_PROTOCOL_SOCKET_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_socket")]
 		public const int STREAM_PROTOCOL_SOCKET_NV = 0x324B;
 
 		/// <summary>
-		/// Value of EGL_SOCKET_HANDLE_NV symbol.
+		/// [EGL] Value of EGL_SOCKET_HANDLE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_socket")]
 		public const int SOCKET_HANDLE_NV = 0x324C;
 
 		/// <summary>
-		/// Value of EGL_SOCKET_TYPE_NV symbol.
+		/// [EGL] Value of EGL_SOCKET_TYPE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_socket")]
 		public const int SOCKET_TYPE_NV = 0x324D;

@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_3DFX_WINDOW_MODE_MESA symbol.
+		/// [GLX] Value of GLX_3DFX_WINDOW_MODE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_set_3dfx_mode")]
 		public const int _3DFX_WINDOW_MODE_MESA = 0x1;
 
 		/// <summary>
-		/// Value of GLX_3DFX_FULLSCREEN_MODE_MESA symbol.
+		/// [GLX] Value of GLX_3DFX_FULLSCREEN_MODE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_set_3dfx_mode")]
 		public const int _3DFX_FULLSCREEN_MODE_MESA = 0x2;

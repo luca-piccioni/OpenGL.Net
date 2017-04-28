@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_GAMMA_TABLE_SIZE_I3D symbol.
+		/// [WGL] Value of WGL_GAMMA_TABLE_SIZE_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_gamma")]
 		public const int GAMMA_TABLE_SIZE_I3D = 0x204E;
 
 		/// <summary>
-		/// Value of WGL_GAMMA_EXCLUDE_DESKTOP_I3D symbol.
+		/// [WGL] Value of WGL_GAMMA_EXCLUDE_DESKTOP_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_gamma")]
 		public const int GAMMA_EXCLUDE_DESKTOP_I3D = 0x204F;

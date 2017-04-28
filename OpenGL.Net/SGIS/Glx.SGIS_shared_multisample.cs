@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_MULTISAMPLE_SUB_RECT_WIDTH_SGIS symbol.
+		/// [GLX] Value of GLX_MULTISAMPLE_SUB_RECT_WIDTH_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIS_shared_multisample")]
 		public const int MULTISAMPLE_SUB_RECT_WIDTH_SGIS = 0x8026;
 
 		/// <summary>
-		/// Value of GLX_MULTISAMPLE_SUB_RECT_HEIGHT_SGIS symbol.
+		/// [GLX] Value of GLX_MULTISAMPLE_SUB_RECT_HEIGHT_SGIS symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIS_shared_multisample")]
 		public const int MULTISAMPLE_SUB_RECT_HEIGHT_SGIS = 0x8027;

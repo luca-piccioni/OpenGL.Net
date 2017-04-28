@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_PLATFORM_SURFACELESS_MESA symbol.
+		/// [EGL] Value of EGL_PLATFORM_SURFACELESS_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_platform_surfaceless")]
 		public const int PLATFORM_SURFACELESS_MESA = 0x31DD;

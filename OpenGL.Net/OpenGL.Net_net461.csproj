@@ -101,6 +101,8 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.3.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DFX\Gl.3DFX_multisample.cs" />
@@ -269,6 +271,7 @@
     </Compile>
     <Compile Include="ColorRGBARef.cs" />
     <Compile Include="ColorSRGB.cs" />
+    <Compile Include="KhronosLogMap.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
     <Compile Include="DMP\Gl.DMP_shader_binary.cs" />
     <Compile Include="EXT\Egl.EXT_gl_colorspace_bt2020_linear.cs" />
@@ -917,6 +920,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Vertex4.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+		<EmbeddedResource Include="KhronosLogMapGl.xml" />
+		<EmbeddedResource Include="KhronosLogMapEgl.xml" />
+		<EmbeddedResource Include="KhronosLogMapGlx.xml" />
+		<EmbeddedResource Include="KhronosLogMapWgl.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

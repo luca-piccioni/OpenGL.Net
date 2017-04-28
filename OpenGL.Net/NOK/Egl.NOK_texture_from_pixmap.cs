@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_Y_INVERTED_NOK symbol.
+		/// [EGL] Value of EGL_Y_INVERTED_NOK symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NOK_texture_from_pixmap")]
 		public const int Y_INVERTED_NOK = 0x307F;

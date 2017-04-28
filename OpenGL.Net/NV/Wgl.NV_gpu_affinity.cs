@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV symbol.
+		/// [WGL] Value of ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_gpu_affinity")]
 		public const int ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV = 0x20D0;
 
 		/// <summary>
-		/// Value of ERROR_MISSING_AFFINITY_MASK_NV symbol.
+		/// [WGL] Value of ERROR_MISSING_AFFINITY_MASK_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_gpu_affinity")]
 		public const int ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;

@@ -29,73 +29,73 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_RENDERER_VENDOR_ID_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_VENDOR_ID_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_VENDOR_ID_MESA = 0x8183;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_DEVICE_ID_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_DEVICE_ID_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_DEVICE_ID_MESA = 0x8184;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_VERSION_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_VERSION_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_VERSION_MESA = 0x8185;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_ACCELERATED_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_ACCELERATED_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_ACCELERATED_MESA = 0x8186;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_VIDEO_MEMORY_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_VIDEO_MEMORY_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_VIDEO_MEMORY_MESA = 0x8187;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_UNIFIED_MEMORY_ARCHITECTURE_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_UNIFIED_MEMORY_ARCHITECTURE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_UNIFIED_MEMORY_ARCHITECTURE_MESA = 0x8188;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_PREFERRED_PROFILE_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_PREFERRED_PROFILE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_PREFERRED_PROFILE_MESA = 0x8189;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_OPENGL_CORE_PROFILE_VERSION_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_OPENGL_CORE_PROFILE_VERSION_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_OPENGL_CORE_PROFILE_VERSION_MESA = 0x818A;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_OPENGL_COMPATIBILITY_PROFILE_VERSION_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_OPENGL_COMPATIBILITY_PROFILE_VERSION_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_OPENGL_COMPATIBILITY_PROFILE_VERSION_MESA = 0x818B;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_OPENGL_ES_PROFILE_VERSION_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_OPENGL_ES_PROFILE_VERSION_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_OPENGL_ES_PROFILE_VERSION_MESA = 0x818C;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_OPENGL_ES2_PROFILE_VERSION_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_OPENGL_ES2_PROFILE_VERSION_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_OPENGL_ES2_PROFILE_VERSION_MESA = 0x818D;
 
 		/// <summary>
-		/// Value of GLX_RENDERER_ID_MESA symbol.
+		/// [GLX] Value of GLX_RENDERER_ID_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
 		public const int RENDERER_ID_MESA = 0x818E;

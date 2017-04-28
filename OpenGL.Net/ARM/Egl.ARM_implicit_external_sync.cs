@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_SYNC_PRIOR_COMMANDS_IMPLICIT_EXTERNAL_ARM symbol.
+		/// [EGL] Value of EGL_SYNC_PRIOR_COMMANDS_IMPLICIT_EXTERNAL_ARM symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ARM_implicit_external_sync")]
 		public const int SYNC_PRIOR_COMMANDS_IMPLICIT_EXTERNAL_ARM = 0x328A;

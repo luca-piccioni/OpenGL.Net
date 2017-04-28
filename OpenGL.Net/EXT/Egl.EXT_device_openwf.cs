@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_OPENWF_DEVICE_ID_EXT symbol.
+		/// [EGL] Value of EGL_OPENWF_DEVICE_ID_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_device_openwf")]
 		public const int OPENWF_DEVICE_ID_EXT = 0x3237;

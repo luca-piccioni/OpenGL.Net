@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_STREAM_BIT_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_BIT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream_producer_eglsurface")]
 		[Log(BitmaskName = "EGLSurfaceTypeMask")]

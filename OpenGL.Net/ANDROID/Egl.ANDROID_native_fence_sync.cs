@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_SYNC_NATIVE_FENCE_ANDROID symbol.
+		/// [EGL] Value of EGL_SYNC_NATIVE_FENCE_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_native_fence_sync")]
 		public const int SYNC_NATIVE_FENCE_ANDROID = 0x3144;
 
 		/// <summary>
-		/// Value of EGL_SYNC_NATIVE_FENCE_FD_ANDROID symbol.
+		/// [EGL] Value of EGL_SYNC_NATIVE_FENCE_FD_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_native_fence_sync")]
 		public const int SYNC_NATIVE_FENCE_FD_ANDROID = 0x3145;
 
 		/// <summary>
-		/// Value of EGL_SYNC_NATIVE_FENCE_SIGNALED_ANDROID symbol.
+		/// [EGL] Value of EGL_SYNC_NATIVE_FENCE_SIGNALED_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_native_fence_sync")]
 		public const int SYNC_NATIVE_FENCE_SIGNALED_ANDROID = 0x3146;
 
 		/// <summary>
-		/// Value of EGL_NO_NATIVE_FENCE_FD_ANDROID symbol.
+		/// [EGL] Value of EGL_NO_NATIVE_FENCE_FD_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_native_fence_sync")]
 		public const int NO_NATIVE_FENCE_FD_ANDROID = -1;

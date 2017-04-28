@@ -29,61 +29,61 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_GPU_VENDOR_AMD symbol.
+		/// [GLX] Value of GLX_GPU_VENDOR_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_VENDOR_AMD = 0x1F00;
 
 		/// <summary>
-		/// Value of GLX_GPU_RENDERER_STRING_AMD symbol.
+		/// [GLX] Value of GLX_GPU_RENDERER_STRING_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_RENDERER_STRING_AMD = 0x1F01;
 
 		/// <summary>
-		/// Value of GLX_GPU_OPENGL_VERSION_STRING_AMD symbol.
+		/// [GLX] Value of GLX_GPU_OPENGL_VERSION_STRING_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_OPENGL_VERSION_STRING_AMD = 0x1F02;
 
 		/// <summary>
-		/// Value of GLX_GPU_FASTEST_TARGET_GPUS_AMD symbol.
+		/// [GLX] Value of GLX_GPU_FASTEST_TARGET_GPUS_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_FASTEST_TARGET_GPUS_AMD = 0x21A2;
 
 		/// <summary>
-		/// Value of GLX_GPU_RAM_AMD symbol.
+		/// [GLX] Value of GLX_GPU_RAM_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_RAM_AMD = 0x21A3;
 
 		/// <summary>
-		/// Value of GLX_GPU_CLOCK_AMD symbol.
+		/// [GLX] Value of GLX_GPU_CLOCK_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_CLOCK_AMD = 0x21A4;
 
 		/// <summary>
-		/// Value of GLX_GPU_NUM_PIPES_AMD symbol.
+		/// [GLX] Value of GLX_GPU_NUM_PIPES_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_NUM_PIPES_AMD = 0x21A5;
 
 		/// <summary>
-		/// Value of GLX_GPU_NUM_SIMD_AMD symbol.
+		/// [GLX] Value of GLX_GPU_NUM_SIMD_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_NUM_SIMD_AMD = 0x21A6;
 
 		/// <summary>
-		/// Value of GLX_GPU_NUM_RB_AMD symbol.
+		/// [GLX] Value of GLX_GPU_NUM_RB_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_NUM_RB_AMD = 0x21A7;
 
 		/// <summary>
-		/// Value of GLX_GPU_NUM_SPI_AMD symbol.
+		/// [GLX] Value of GLX_GPU_NUM_SPI_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public const int GPU_NUM_SPI_AMD = 0x21A8;

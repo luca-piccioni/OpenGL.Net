@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NATIVE_BUFFER_MULTIPLANE_SEPARATE_IMG symbol.
+		/// [EGL] Value of EGL_NATIVE_BUFFER_MULTIPLANE_SEPARATE_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_IMG_image_plane_attribs")]
 		public const int NATIVE_BUFFER_MULTIPLANE_SEPARATE_IMG = 0x3105;
 
 		/// <summary>
-		/// Value of EGL_NATIVE_BUFFER_PLANE_OFFSET_IMG symbol.
+		/// [EGL] Value of EGL_NATIVE_BUFFER_PLANE_OFFSET_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_IMG_image_plane_attribs")]
 		public const int NATIVE_BUFFER_PLANE_OFFSET_IMG = 0x3106;

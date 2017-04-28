@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_SYNC_NEW_FRAME_NV symbol.
+		/// [EGL] Value of EGL_SYNC_NEW_FRAME_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_sync")]
 		public const int SYNC_NEW_FRAME_NV = 0x321F;

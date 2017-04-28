@@ -29,33 +29,33 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_CONTEXT_DEBUG_BIT_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_DEBUG_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
 		[Log(BitmaskName = "GLXContextFlags")]
 		public const uint CONTEXT_DEBUG_BIT_ARB = 0x00000001;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
 		[Log(BitmaskName = "GLXContextFlags")]
 		public const uint CONTEXT_FORWARD_COMPATIBLE_BIT_ARB = 0x00000002;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_MAJOR_VERSION_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_MAJOR_VERSION_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
 		public const int CONTEXT_MAJOR_VERSION_ARB = 0x2091;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_MINOR_VERSION_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_MINOR_VERSION_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
 		public const int CONTEXT_MINOR_VERSION_ARB = 0x2092;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_FLAGS_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_FLAGS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context")]
 		public const int CONTEXT_FLAGS_ARB = 0x2094;

@@ -29,67 +29,67 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE3_FD_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE3_FD_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE3_FD_EXT = 0x3440;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE3_OFFSET_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE3_OFFSET_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE3_OFFSET_EXT = 0x3441;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE3_PITCH_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE3_PITCH_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE3_PITCH_EXT = 0x3442;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE0_MODIFIER_LO_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE0_MODIFIER_LO_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE0_MODIFIER_LO_EXT = 0x3443;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE0_MODIFIER_HI_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE0_MODIFIER_HI_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE0_MODIFIER_HI_EXT = 0x3444;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE1_MODIFIER_LO_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE1_MODIFIER_LO_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE1_MODIFIER_LO_EXT = 0x3445;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE1_MODIFIER_HI_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE1_MODIFIER_HI_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE1_MODIFIER_HI_EXT = 0x3446;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE2_MODIFIER_LO_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE2_MODIFIER_LO_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE2_MODIFIER_LO_EXT = 0x3447;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE2_MODIFIER_HI_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE2_MODIFIER_HI_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE2_MODIFIER_HI_EXT = 0x3448;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE3_MODIFIER_LO_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE3_MODIFIER_LO_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE3_MODIFIER_LO_EXT = 0x3449;
 
 		/// <summary>
-		/// Value of EGL_DMA_BUF_PLANE3_MODIFIER_HI_EXT symbol.
+		/// [EGL] Value of EGL_DMA_BUF_PLANE3_MODIFIER_HI_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 		public const int DMA_BUF_PLANE3_MODIFIER_HI_EXT = 0x344A;

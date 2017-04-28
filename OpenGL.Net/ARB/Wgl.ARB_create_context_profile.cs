@@ -29,27 +29,27 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_CONTEXT_PROFILE_MASK_ARB symbol.
+		/// [WGL] Value of WGL_CONTEXT_PROFILE_MASK_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
 		public const int CONTEXT_PROFILE_MASK_ARB = 0x9126;
 
 		/// <summary>
-		/// Value of WGL_CONTEXT_CORE_PROFILE_BIT_ARB symbol.
+		/// [WGL] Value of WGL_CONTEXT_CORE_PROFILE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
 		[Log(BitmaskName = "WGLContextProfileMask")]
 		public const uint CONTEXT_CORE_PROFILE_BIT_ARB = 0x00000001;
 
 		/// <summary>
-		/// Value of WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB symbol.
+		/// [WGL] Value of WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
 		[Log(BitmaskName = "WGLContextProfileMask")]
 		public const uint CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x00000002;
 
 		/// <summary>
-		/// Value of ERROR_INVALID_PROFILE_ARB symbol.
+		/// [WGL] Value of ERROR_INVALID_PROFILE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_create_context_profile")]
 		public const int ERROR_INVALID_PROFILE_ARB = 0x2096;

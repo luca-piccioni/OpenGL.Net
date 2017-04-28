@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV symbol.
+		/// [GLX] Value of GLX_GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_robustness_video_memory_purge")]
 		public const int GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV = 0x20F7;

@@ -29,67 +29,67 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX symbol.
+		/// [GLX] Value of GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		public const int HYPERPIPE_PIPE_NAME_LENGTH_SGIX = 80;
 
 		/// <summary>
-		/// Value of GLX_BAD_HYPERPIPE_CONFIG_SGIX symbol.
+		/// [GLX] Value of GLX_BAD_HYPERPIPE_CONFIG_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		public const int BAD_HYPERPIPE_CONFIG_SGIX = 91;
 
 		/// <summary>
-		/// Value of GLX_BAD_HYPERPIPE_SGIX symbol.
+		/// [GLX] Value of GLX_BAD_HYPERPIPE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		public const int BAD_HYPERPIPE_SGIX = 92;
 
 		/// <summary>
-		/// Value of GLX_HYPERPIPE_DISPLAY_PIPE_SGIX symbol.
+		/// [GLX] Value of GLX_HYPERPIPE_DISPLAY_PIPE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		[Log(BitmaskName = "GLXHyperpipeTypeMask")]
 		public const int HYPERPIPE_DISPLAY_PIPE_SGIX = 0x00000001;
 
 		/// <summary>
-		/// Value of GLX_HYPERPIPE_RENDER_PIPE_SGIX symbol.
+		/// [GLX] Value of GLX_HYPERPIPE_RENDER_PIPE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		[Log(BitmaskName = "GLXHyperpipeTypeMask")]
 		public const int HYPERPIPE_RENDER_PIPE_SGIX = 0x00000002;
 
 		/// <summary>
-		/// Value of GLX_PIPE_RECT_SGIX symbol.
+		/// [GLX] Value of GLX_PIPE_RECT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		[Log(BitmaskName = "GLXHyperpipeAttribSGIX")]
 		public const int PIPE_RECT_SGIX = 0x00000001;
 
 		/// <summary>
-		/// Value of GLX_PIPE_RECT_LIMITS_SGIX symbol.
+		/// [GLX] Value of GLX_PIPE_RECT_LIMITS_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		[Log(BitmaskName = "GLXHyperpipeAttribSGIX")]
 		public const int PIPE_RECT_LIMITS_SGIX = 0x00000002;
 
 		/// <summary>
-		/// Value of GLX_HYPERPIPE_STEREO_SGIX symbol.
+		/// [GLX] Value of GLX_HYPERPIPE_STEREO_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		[Log(BitmaskName = "GLXHyperpipeAttribSGIX")]
 		public const int HYPERPIPE_STEREO_SGIX = 0x00000003;
 
 		/// <summary>
-		/// Value of GLX_HYPERPIPE_PIXEL_AVERAGE_SGIX symbol.
+		/// [GLX] Value of GLX_HYPERPIPE_PIXEL_AVERAGE_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		[Log(BitmaskName = "GLXHyperpipeAttribSGIX")]
 		public const int HYPERPIPE_PIXEL_AVERAGE_SGIX = 0x00000004;
 
 		/// <summary>
-		/// Value of GLX_HYPERPIPE_ID_SGIX symbol.
+		/// [GLX] Value of GLX_HYPERPIPE_ID_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_hyperpipe")]
 		public const int HYPERPIPE_ID_SGIX = 0x8030;

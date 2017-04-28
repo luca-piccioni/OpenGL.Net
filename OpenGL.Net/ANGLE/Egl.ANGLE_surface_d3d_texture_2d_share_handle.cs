@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE symbol.
+		/// [EGL] Value of EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANGLE_d3d_share_handle_client_buffer")]
 		[RequiredByFeature("EGL_ANGLE_surface_d3d_texture_2d_share_handle")]

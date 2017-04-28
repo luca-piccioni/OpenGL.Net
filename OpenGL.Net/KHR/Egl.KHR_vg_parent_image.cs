@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_VG_PARENT_IMAGE_KHR symbol.
+		/// [EGL] Value of EGL_VG_PARENT_IMAGE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_vg_parent_image")]
 		public const int VG_PARENT_IMAGE_KHR = 0x30BA;

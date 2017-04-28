@@ -29,73 +29,73 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_OBJECT_THREAD_KHR symbol.
+		/// [EGL] Value of EGL_OBJECT_THREAD_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int OBJECT_THREAD_KHR = 0x33B0;
 
 		/// <summary>
-		/// Value of EGL_OBJECT_DISPLAY_KHR symbol.
+		/// [EGL] Value of EGL_OBJECT_DISPLAY_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int OBJECT_DISPLAY_KHR = 0x33B1;
 
 		/// <summary>
-		/// Value of EGL_OBJECT_CONTEXT_KHR symbol.
+		/// [EGL] Value of EGL_OBJECT_CONTEXT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int OBJECT_CONTEXT_KHR = 0x33B2;
 
 		/// <summary>
-		/// Value of EGL_OBJECT_SURFACE_KHR symbol.
+		/// [EGL] Value of EGL_OBJECT_SURFACE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int OBJECT_SURFACE_KHR = 0x33B3;
 
 		/// <summary>
-		/// Value of EGL_OBJECT_IMAGE_KHR symbol.
+		/// [EGL] Value of EGL_OBJECT_IMAGE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int OBJECT_IMAGE_KHR = 0x33B4;
 
 		/// <summary>
-		/// Value of EGL_OBJECT_SYNC_KHR symbol.
+		/// [EGL] Value of EGL_OBJECT_SYNC_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int OBJECT_SYNC_KHR = 0x33B5;
 
 		/// <summary>
-		/// Value of EGL_OBJECT_STREAM_KHR symbol.
+		/// [EGL] Value of EGL_OBJECT_STREAM_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int OBJECT_STREAM_KHR = 0x33B6;
 
 		/// <summary>
-		/// Value of EGL_DEBUG_MSG_CRITICAL_KHR symbol.
+		/// [EGL] Value of EGL_DEBUG_MSG_CRITICAL_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int DEBUG_MSG_CRITICAL_KHR = 0x33B9;
 
 		/// <summary>
-		/// Value of EGL_DEBUG_MSG_ERROR_KHR symbol.
+		/// [EGL] Value of EGL_DEBUG_MSG_ERROR_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int DEBUG_MSG_ERROR_KHR = 0x33BA;
 
 		/// <summary>
-		/// Value of EGL_DEBUG_MSG_WARN_KHR symbol.
+		/// [EGL] Value of EGL_DEBUG_MSG_WARN_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int DEBUG_MSG_WARN_KHR = 0x33BB;
 
 		/// <summary>
-		/// Value of EGL_DEBUG_MSG_INFO_KHR symbol.
+		/// [EGL] Value of EGL_DEBUG_MSG_INFO_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int DEBUG_MSG_INFO_KHR = 0x33BC;
 
 		/// <summary>
-		/// Value of EGL_DEBUG_CALLBACK_KHR symbol.
+		/// [EGL] Value of EGL_DEBUG_CALLBACK_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_debug")]
 		public const int DEBUG_CALLBACK_KHR = 0x33B8;

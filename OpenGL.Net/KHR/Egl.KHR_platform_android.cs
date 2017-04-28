@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_PLATFORM_ANDROID_KHR symbol.
+		/// [EGL] Value of EGL_PLATFORM_ANDROID_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_platform_android")]
 		public const int PLATFORM_ANDROID_KHR = 0x3141;

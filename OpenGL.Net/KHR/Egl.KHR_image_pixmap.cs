@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NATIVE_PIXMAP_KHR symbol.
+		/// [EGL] Value of EGL_NATIVE_PIXMAP_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_image")]
 		[RequiredByFeature("EGL_KHR_image_pixmap")]

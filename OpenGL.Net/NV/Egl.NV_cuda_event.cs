@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CUDA_EVENT_HANDLE_NV symbol.
+		/// [EGL] Value of EGL_CUDA_EVENT_HANDLE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_cuda_event")]
 		public const int CUDA_EVENT_HANDLE_NV = 0x323B;
 
 		/// <summary>
-		/// Value of EGL_SYNC_CUDA_EVENT_NV symbol.
+		/// [EGL] Value of EGL_SYNC_CUDA_EVENT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_cuda_event")]
 		public const int SYNC_CUDA_EVENT_NV = 0x323C;
 
 		/// <summary>
-		/// Value of EGL_SYNC_CUDA_EVENT_COMPLETE_NV symbol.
+		/// [EGL] Value of EGL_SYNC_CUDA_EVENT_COMPLETE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_cuda_event")]
 		public const int SYNC_CUDA_EVENT_COMPLETE_NV = 0x323D;

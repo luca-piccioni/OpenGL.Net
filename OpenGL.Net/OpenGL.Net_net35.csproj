@@ -88,6 +88,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DFX\Gl.3DFX_multisample.cs" />
@@ -317,6 +318,7 @@
     <Compile Include="IVertex4.cs" />
     <Compile Include="KhronosLogContext.cs" />
     <Compile Include="KhronosLogEventArgs.cs" />
+    <Compile Include="KhronosLogMap.cs" />
     <Compile Include="KHR\Egl.KHR_context_flush_control.cs" />
     <Compile Include="KHR\Egl.KHR_mutable_render_buffer.cs" />
     <Compile Include="KHR\Egl.KHR_no_config_context.cs" />
@@ -904,6 +906,12 @@
       <LastGenOutput>Vertex4.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+	<ItemGroup Condition="'$(Configuration)' == 'Debug'">
+		<EmbeddedResource Include="KhronosLogMapGl.xml" />
+		<EmbeddedResource Include="KhronosLogMapEgl.xml" />
+		<EmbeddedResource Include="KhronosLogMapGlx.xml" />
+		<EmbeddedResource Include="KhronosLogMapWgl.xml" />
+	</ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

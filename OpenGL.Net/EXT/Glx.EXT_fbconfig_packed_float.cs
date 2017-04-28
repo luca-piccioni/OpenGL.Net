@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_RGBA_UNSIGNED_FLOAT_TYPE_EXT symbol.
+		/// [GLX] Value of GLX_RGBA_UNSIGNED_FLOAT_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_fbconfig_packed_float")]
 		public const int RGBA_UNSIGNED_FLOAT_TYPE_EXT = 0x20B1;
 
 		/// <summary>
-		/// Value of GLX_RGBA_UNSIGNED_FLOAT_BIT_EXT symbol.
+		/// [GLX] Value of GLX_RGBA_UNSIGNED_FLOAT_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_fbconfig_packed_float")]
 		[Log(BitmaskName = "GLXRenderTypeMask")]

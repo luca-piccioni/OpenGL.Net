@@ -29,27 +29,27 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NATIVE_BUFFER_USAGE_ANDROID symbol.
+		/// [EGL] Value of EGL_NATIVE_BUFFER_USAGE_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]
 		public const int NATIVE_BUFFER_USAGE_ANDROID = 0x3143;
 
 		/// <summary>
-		/// Value of EGL_NATIVE_BUFFER_USAGE_PROTECTED_BIT_ANDROID symbol.
+		/// [EGL] Value of EGL_NATIVE_BUFFER_USAGE_PROTECTED_BIT_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]
 		[Log(BitmaskName = "EGLNativeBufferUsageFlags")]
 		public const uint NATIVE_BUFFER_USAGE_PROTECTED_BIT_ANDROID = 0x00000001;
 
 		/// <summary>
-		/// Value of EGL_NATIVE_BUFFER_USAGE_RENDERBUFFER_BIT_ANDROID symbol.
+		/// [EGL] Value of EGL_NATIVE_BUFFER_USAGE_RENDERBUFFER_BIT_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]
 		[Log(BitmaskName = "EGLNativeBufferUsageFlags")]
 		public const uint NATIVE_BUFFER_USAGE_RENDERBUFFER_BIT_ANDROID = 0x00000002;
 
 		/// <summary>
-		/// Value of EGL_NATIVE_BUFFER_USAGE_TEXTURE_BIT_ANDROID symbol.
+		/// [EGL] Value of EGL_NATIVE_BUFFER_USAGE_TEXTURE_BIT_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]
 		[Log(BitmaskName = "EGLNativeBufferUsageFlags")]

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV symbol.
+		/// [EGL] Value of EGL_GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_robustness_video_memory_purge")]
 		public const int GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV = 0x334C;

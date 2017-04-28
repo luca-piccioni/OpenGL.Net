@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NO_IMAGE_KHR symbol.
+		/// [EGL] Value of EGL_NO_IMAGE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_image")]
 		[RequiredByFeature("EGL_KHR_image_base")]

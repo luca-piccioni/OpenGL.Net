@@ -29,21 +29,21 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NO_DEVICE_EXT symbol.
+		/// [EGL] Value of EGL_NO_DEVICE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_device_base")]
 		[RequiredByFeature("EGL_EXT_device_query")]
 		public const int NO_DEVICE_EXT = 0;
 
 		/// <summary>
-		/// Value of EGL_BAD_DEVICE_EXT symbol.
+		/// [EGL] Value of EGL_BAD_DEVICE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_device_base")]
 		[RequiredByFeature("EGL_EXT_device_query")]
 		public const int BAD_DEVICE_EXT = 0x322B;
 
 		/// <summary>
-		/// Value of EGL_DEVICE_EXT symbol.
+		/// [EGL] Value of EGL_DEVICE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_device_base")]
 		[RequiredByFeature("EGL_EXT_device_query")]

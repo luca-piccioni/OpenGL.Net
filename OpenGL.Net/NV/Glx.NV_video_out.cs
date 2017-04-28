@@ -29,61 +29,61 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_COLOR_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_COLOR_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_COLOR_NV = 0x20C3;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_ALPHA_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_ALPHA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_ALPHA_NV = 0x20C4;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_DEPTH_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_DEPTH_NV = 0x20C5;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_COLOR_AND_ALPHA_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_COLOR_AND_ALPHA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_COLOR_AND_ALPHA_NV = 0x20C6;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_COLOR_AND_DEPTH_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_COLOR_AND_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_COLOR_AND_DEPTH_NV = 0x20C7;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_FRAME_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_FRAME_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_FRAME_NV = 0x20C8;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_FIELD_1_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_FIELD_1_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_FIELD_1_NV = 0x20C9;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_FIELD_2_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_FIELD_2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_FIELD_2_NV = 0x20CA;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_STACKED_FIELDS_1_2_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_STACKED_FIELDS_1_2_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_STACKED_FIELDS_1_2_NV = 0x20CB;
 
 		/// <summary>
-		/// Value of GLX_VIDEO_OUT_STACKED_FIELDS_2_1_NV symbol.
+		/// [GLX] Value of GLX_VIDEO_OUT_STACKED_FIELDS_2_1_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_out")]
 		public const int VIDEO_OUT_STACKED_FIELDS_2_1_NV = 0x20CC;

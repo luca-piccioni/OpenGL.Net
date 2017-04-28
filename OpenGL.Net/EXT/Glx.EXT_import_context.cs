@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_SHARE_CONTEXT_EXT symbol.
+		/// [GLX] Value of GLX_SHARE_CONTEXT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public const int SHARE_CONTEXT_EXT = 0x800A;
@@ -66,8 +66,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
 		/// </exception>
@@ -104,8 +102,6 @@ namespace OpenGL
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx. is returned if <paramref name="ctx"/> is Glx.. Otherwise, if <paramref name="ctx"/> does not refer to a valid 
 		/// context, undefined behavior results.
@@ -135,8 +131,6 @@ namespace OpenGL
 		/// <param name="contextID">
 		/// Specifies a GLX rendering context.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="contextID"/> does not refer to a valid context.
 		/// </exception>
@@ -167,8 +161,6 @@ namespace OpenGL
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
 		/// </exception>

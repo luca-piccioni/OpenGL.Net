@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_FLOAT_COMPONENTS_NV symbol.
+		/// [GLX] Value of GLX_FLOAT_COMPONENTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_float_buffer")]
 		public const int FLOAT_COMPONENTS_NV = 0x20B0;

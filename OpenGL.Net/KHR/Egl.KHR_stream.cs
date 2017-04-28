@@ -29,55 +29,55 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NO_STREAM_KHR symbol.
+		/// [EGL] Value of EGL_NO_STREAM_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int NO_STREAM_KHR = 0;
 
 		/// <summary>
-		/// Value of EGL_PRODUCER_FRAME_KHR symbol.
+		/// [EGL] Value of EGL_PRODUCER_FRAME_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int PRODUCER_FRAME_KHR = 0x3212;
 
 		/// <summary>
-		/// Value of EGL_CONSUMER_FRAME_KHR symbol.
+		/// [EGL] Value of EGL_CONSUMER_FRAME_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int CONSUMER_FRAME_KHR = 0x3213;
 
 		/// <summary>
-		/// Value of EGL_STREAM_STATE_EMPTY_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_STATE_EMPTY_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int STREAM_STATE_EMPTY_KHR = 0x3217;
 
 		/// <summary>
-		/// Value of EGL_STREAM_STATE_NEW_FRAME_AVAILABLE_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_STATE_NEW_FRAME_AVAILABLE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int STREAM_STATE_NEW_FRAME_AVAILABLE_KHR = 0x3218;
 
 		/// <summary>
-		/// Value of EGL_STREAM_STATE_OLD_FRAME_AVAILABLE_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_STATE_OLD_FRAME_AVAILABLE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int STREAM_STATE_OLD_FRAME_AVAILABLE_KHR = 0x3219;
 
 		/// <summary>
-		/// Value of EGL_STREAM_STATE_DISCONNECTED_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_STATE_DISCONNECTED_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int STREAM_STATE_DISCONNECTED_KHR = 0x321A;
 
 		/// <summary>
-		/// Value of EGL_BAD_STREAM_KHR symbol.
+		/// [EGL] Value of EGL_BAD_STREAM_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int BAD_STREAM_KHR = 0x321B;
 
 		/// <summary>
-		/// Value of EGL_BAD_STATE_KHR symbol.
+		/// [EGL] Value of EGL_BAD_STATE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		public const int BAD_STATE_KHR = 0x321C;

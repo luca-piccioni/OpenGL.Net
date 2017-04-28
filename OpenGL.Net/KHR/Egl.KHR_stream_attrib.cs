@@ -29,28 +29,28 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONSUMER_LATENCY_USEC_KHR symbol.
+		/// [EGL] Value of EGL_CONSUMER_LATENCY_USEC_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		[RequiredByFeature("EGL_KHR_stream_attrib")]
 		public const int CONSUMER_LATENCY_USEC_KHR = 0x3210;
 
 		/// <summary>
-		/// Value of EGL_STREAM_STATE_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_STATE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		[RequiredByFeature("EGL_KHR_stream_attrib")]
 		public const int STREAM_STATE_KHR = 0x3214;
 
 		/// <summary>
-		/// Value of EGL_STREAM_STATE_CREATED_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_STATE_CREATED_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		[RequiredByFeature("EGL_KHR_stream_attrib")]
 		public const int STREAM_STATE_CREATED_KHR = 0x3215;
 
 		/// <summary>
-		/// Value of EGL_STREAM_STATE_CONNECTING_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_STATE_CONNECTING_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream")]
 		[RequiredByFeature("EGL_KHR_stream_attrib")]

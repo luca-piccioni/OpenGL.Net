@@ -29,44 +29,44 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_DRM_BUFFER_FORMAT_MESA symbol.
+		/// [EGL] Value of EGL_DRM_BUFFER_FORMAT_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		public const int DRM_BUFFER_FORMAT_MESA = 0x31D0;
 
 		/// <summary>
-		/// Value of EGL_DRM_BUFFER_USE_MESA symbol.
+		/// [EGL] Value of EGL_DRM_BUFFER_USE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		public const int DRM_BUFFER_USE_MESA = 0x31D1;
 
 		/// <summary>
-		/// Value of EGL_DRM_BUFFER_FORMAT_ARGB32_MESA symbol.
+		/// [EGL] Value of EGL_DRM_BUFFER_FORMAT_ARGB32_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		public const int DRM_BUFFER_FORMAT_ARGB32_MESA = 0x31D2;
 
 		/// <summary>
-		/// Value of EGL_DRM_BUFFER_MESA symbol.
+		/// [EGL] Value of EGL_DRM_BUFFER_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		public const int DRM_BUFFER_MESA = 0x31D3;
 
 		/// <summary>
-		/// Value of EGL_DRM_BUFFER_STRIDE_MESA symbol.
+		/// [EGL] Value of EGL_DRM_BUFFER_STRIDE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		public const int DRM_BUFFER_STRIDE_MESA = 0x31D4;
 
 		/// <summary>
-		/// Value of EGL_DRM_BUFFER_USE_SCANOUT_MESA symbol.
+		/// [EGL] Value of EGL_DRM_BUFFER_USE_SCANOUT_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		[Log(BitmaskName = "EGLDRMBufferUseMESAMask")]
 		public const int DRM_BUFFER_USE_SCANOUT_MESA = 0x00000001;
 
 		/// <summary>
-		/// Value of EGL_DRM_BUFFER_USE_SHARE_MESA symbol.
+		/// [EGL] Value of EGL_DRM_BUFFER_USE_SHARE_MESA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_MESA_drm_image")]
 		[Log(BitmaskName = "EGLDRMBufferUseMESAMask")]

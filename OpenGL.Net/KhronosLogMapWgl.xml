@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<KhronosLogMap xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <command name="wglBlitContextFramebufferAMD">
+    <param name="dstCtx" />
+    <param name="srcX0" />
+    <param name="srcY0" />
+    <param name="srcX1" />
+    <param name="srcY1" />
+    <param name="dstX0" />
+    <param name="dstY0" />
+    <param name="dstX1" />
+    <param name="dstY1" />
+    <param name="mask" />
+    <param name="filter" flags="enum" />
+  </command>
+  <command name="wglCopyImageSubDataNV">
+    <param name="hSrcRC" />
+    <param name="srcName" />
+    <param name="srcTarget" flags="enum" />
+    <param name="srcLevel" />
+    <param name="srcX" />
+    <param name="srcY" />
+    <param name="srcZ" />
+    <param name="hDstRC" />
+    <param name="dstName" />
+    <param name="dstTarget" flags="enum" />
+    <param name="dstLevel" />
+    <param name="dstX" />
+    <param name="dstY" />
+    <param name="dstZ" />
+    <param name="width" />
+    <param name="height" />
+    <param name="depth" />
+  </command>
+  <command name="wglDXObjectAccessNV">
+    <param name="hObject" />
+    <param name="access" flags="enum" />
+  </command>
+  <command name="wglDXRegisterObjectNV">
+    <param name="hDevice" />
+    <param name="dxObject" />
+    <param name="name" />
+    <param name="type" flags="enum" />
+    <param name="access" flags="enum" />
+  </command>
+  <command name="wglGetGPUInfoAMD">
+    <param name="id" />
+    <param name="property" />
+    <param name="dataType" flags="enum" />
+    <param name="size" />
+    <param name="data" />
+  </command>
+</KhronosLogMap>

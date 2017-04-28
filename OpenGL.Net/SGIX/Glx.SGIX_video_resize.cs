@@ -29,14 +29,14 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_SYNC_FRAME_SGIX symbol.
+		/// [GLX] Value of GLX_SYNC_FRAME_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_video_resize")]
 		[Log(BitmaskName = "GLXSyncType")]
 		public const int SYNC_FRAME_SGIX = 0x00000000;
 
 		/// <summary>
-		/// Value of GLX_SYNC_SWAP_SGIX symbol.
+		/// [GLX] Value of GLX_SYNC_SWAP_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_video_resize")]
 		[Log(BitmaskName = "GLXSyncType")]

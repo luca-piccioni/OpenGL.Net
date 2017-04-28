@@ -28,328 +28,130 @@ namespace OpenWF
 {
 	public partial class Wfc
 	{
-		/// <summary>
-		/// Value of OPENWFC_VERSION_1_0 symbol.
-		/// </summary>
 		public const int OPENWFC_VERSION_1_0 = (1);
 
-		/// <summary>
-		/// Value of WFC_NONE symbol.
-		/// </summary>
 		public const int NONE = (0);
 
-		/// <summary>
-		/// Value of WFC_INVALID_HANDLE symbol.
-		/// </summary>
 		public const int INVALID_HANDLE = 0;
 
-		/// <summary>
-		/// Value of WFC_DEFAULT_DEVICE_ID symbol.
-		/// </summary>
 		public const int DEFAULT_DEVICE_ID = (0);
 
-		/// <summary>
-		/// Value of WFC_ERROR_NONE symbol.
-		/// </summary>
 		public const int ERROR_NONE = 0;
 
-		/// <summary>
-		/// Value of WFC_ERROR_OUT_OF_MEMORY symbol.
-		/// </summary>
 		public const int ERROR_OUT_OF_MEMORY = 0x7001;
 
-		/// <summary>
-		/// Value of WFC_ERROR_ILLEGAL_ARGUMENT symbol.
-		/// </summary>
 		public const int ERROR_ILLEGAL_ARGUMENT = 0x7002;
 
-		/// <summary>
-		/// Value of WFC_ERROR_UNSUPPORTED symbol.
-		/// </summary>
 		public const int ERROR_UNSUPPORTED = 0x7003;
 
-		/// <summary>
-		/// Value of WFC_ERROR_BAD_ATTRIBUTE symbol.
-		/// </summary>
 		public const int ERROR_BAD_ATTRIBUTE = 0x7004;
 
-		/// <summary>
-		/// Value of WFC_ERROR_IN_USE symbol.
-		/// </summary>
 		public const int ERROR_IN_USE = 0x7005;
 
-		/// <summary>
-		/// Value of WFC_ERROR_BUSY symbol.
-		/// </summary>
 		public const int ERROR_BUSY = 0x7006;
 
-		/// <summary>
-		/// Value of WFC_ERROR_BAD_DEVICE symbol.
-		/// </summary>
 		public const int ERROR_BAD_DEVICE = 0x7007;
 
-		/// <summary>
-		/// Value of WFC_ERROR_BAD_HANDLE symbol.
-		/// </summary>
 		public const int ERROR_BAD_HANDLE = 0x7008;
 
-		/// <summary>
-		/// Value of WFC_ERROR_INCONSISTENCY symbol.
-		/// </summary>
 		public const int ERROR_INCONSISTENCY = 0x7009;
 
-		/// <summary>
-		/// Value of WFC_ERROR_FORCE_32BIT symbol.
-		/// </summary>
 		public const int ERROR_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_DEVICE_FILTER_SCREEN_NUMBER symbol.
-		/// </summary>
 		public const int DEVICE_FILTER_SCREEN_NUMBER = 0x7020;
 
-		/// <summary>
-		/// Value of WFC_DEVICE_FILTER_FORCE_32BIT symbol.
-		/// </summary>
 		public const int DEVICE_FILTER_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_DEVICE_CLASS symbol.
-		/// </summary>
 		public const int DEVICE_CLASS = 0x7030;
 
-		/// <summary>
-		/// Value of WFC_DEVICE_ID symbol.
-		/// </summary>
 		public const int DEVICE_ID = 0x7031;
 
-		/// <summary>
-		/// Value of WFC_DEVICE_FORCE_32BIT symbol.
-		/// </summary>
 		public const int DEVICE_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_DEVICE_CLASS_FULLY_CAPABLE symbol.
-		/// </summary>
 		public const int DEVICE_CLASS_FULLY_CAPABLE = 0x7040;
 
-		/// <summary>
-		/// Value of WFC_DEVICE_CLASS_OFF_SCREEN_ONLY symbol.
-		/// </summary>
 		public const int DEVICE_CLASS_OFF_SCREEN_ONLY = 0x7041;
 
-		/// <summary>
-		/// Value of WFC_DEVICE_CLASS_FORCE_32BIT symbol.
-		/// </summary>
 		public const int DEVICE_CLASS_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_TYPE symbol.
-		/// </summary>
 		public const int CONTEXT_TYPE = 0x7051;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_TARGET_HEIGHT symbol.
-		/// </summary>
 		public const int CONTEXT_TARGET_HEIGHT = 0x7052;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_TARGET_WIDTH symbol.
-		/// </summary>
 		public const int CONTEXT_TARGET_WIDTH = 0x7053;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_LOWEST_ELEMENT symbol.
-		/// </summary>
 		public const int CONTEXT_LOWEST_ELEMENT = 0x7054;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_ROTATION symbol.
-		/// </summary>
 		public const int CONTEXT_ROTATION = 0x7061;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_BG_COLOR symbol.
-		/// </summary>
 		public const int CONTEXT_BG_COLOR = 0x7062;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_FORCE_32BIT symbol.
-		/// </summary>
 		public const int CONTEXT_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_TYPE_ON_SCREEN symbol.
-		/// </summary>
 		public const int CONTEXT_TYPE_ON_SCREEN = 0x7071;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_TYPE_OFF_SCREEN symbol.
-		/// </summary>
 		public const int CONTEXT_TYPE_OFF_SCREEN = 0x7072;
 
-		/// <summary>
-		/// Value of WFC_CONTEXT_TYPE_FORCE_32BIT symbol.
-		/// </summary>
 		public const int CONTEXT_TYPE_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_ROTATION_0 symbol.
-		/// </summary>
 		public const int ROTATION_0 = 0x7081;
 
-		/// <summary>
-		/// Value of WFC_ROTATION_90 symbol.
-		/// </summary>
 		public const int ROTATION_90 = 0x7082;
 
-		/// <summary>
-		/// Value of WFC_ROTATION_180 symbol.
-		/// </summary>
 		public const int ROTATION_180 = 0x7083;
 
-		/// <summary>
-		/// Value of WFC_ROTATION_270 symbol.
-		/// </summary>
 		public const int ROTATION_270 = 0x7084;
 
-		/// <summary>
-		/// Value of WFC_ROTATION_FORCE_32BIT symbol.
-		/// </summary>
 		public const int ROTATION_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_DESTINATION_RECTANGLE symbol.
-		/// </summary>
 		public const int ELEMENT_DESTINATION_RECTANGLE = 0x7101;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_SOURCE symbol.
-		/// </summary>
 		public const int ELEMENT_SOURCE = 0x7102;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_SOURCE_RECTANGLE symbol.
-		/// </summary>
 		public const int ELEMENT_SOURCE_RECTANGLE = 0x7103;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_SOURCE_FLIP symbol.
-		/// </summary>
 		public const int ELEMENT_SOURCE_FLIP = 0x7104;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_SOURCE_ROTATION symbol.
-		/// </summary>
 		public const int ELEMENT_SOURCE_ROTATION = 0x7105;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_SOURCE_SCALE_FILTER symbol.
-		/// </summary>
 		public const int ELEMENT_SOURCE_SCALE_FILTER = 0x7106;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_TRANSPARENCY_TYPES symbol.
-		/// </summary>
 		public const int ELEMENT_TRANSPARENCY_TYPES = 0x7107;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_GLOBAL_ALPHA symbol.
-		/// </summary>
 		public const int ELEMENT_GLOBAL_ALPHA = 0x7108;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_MASK symbol.
-		/// </summary>
 		public const int ELEMENT_MASK = 0x7109;
 
-		/// <summary>
-		/// Value of WFC_ELEMENT_FORCE_32BIT symbol.
-		/// </summary>
 		public const int ELEMENT_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_SCALE_FILTER_NONE symbol.
-		/// </summary>
 		public const int SCALE_FILTER_NONE = 0x7151;
 
-		/// <summary>
-		/// Value of WFC_SCALE_FILTER_FASTER symbol.
-		/// </summary>
 		public const int SCALE_FILTER_FASTER = 0x7152;
 
-		/// <summary>
-		/// Value of WFC_SCALE_FILTER_BETTER symbol.
-		/// </summary>
 		public const int SCALE_FILTER_BETTER = 0x7153;
 
-		/// <summary>
-		/// Value of WFC_SCALE_FILTER_FORCE_32BIT symbol.
-		/// </summary>
 		public const int SCALE_FILTER_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_TRANSPARENCY_NONE symbol.
-		/// </summary>
 		public const int TRANSPARENCY_NONE = 0;
 
-		/// <summary>
-		/// Value of WFC_TRANSPARENCY_ELEMENT_GLOBAL_ALPHA symbol.
-		/// </summary>
 		public const int TRANSPARENCY_ELEMENT_GLOBAL_ALPHA = (1 << 0);
 
-		/// <summary>
-		/// Value of WFC_TRANSPARENCY_SOURCE symbol.
-		/// </summary>
 		public const int TRANSPARENCY_SOURCE = (1 << 1);
 
-		/// <summary>
-		/// Value of WFC_TRANSPARENCY_MASK symbol.
-		/// </summary>
 		public const int TRANSPARENCY_MASK = (1 << 2);
 
-		/// <summary>
-		/// Value of WFC_TRANSPARENCY_FORCE_32BIT symbol.
-		/// </summary>
 		public const int TRANSPARENCY_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFC_VENDOR symbol.
-		/// </summary>
 		public const int VENDOR = 0x7200;
 
-		/// <summary>
-		/// Value of WFC_RENDERER symbol.
-		/// </summary>
 		public const int RENDERER = 0x7201;
 
-		/// <summary>
-		/// Value of WFC_VERSION symbol.
-		/// </summary>
 		public const int VERSION = 0x7202;
 
-		/// <summary>
-		/// Value of WFC_EXTENSIONS symbol.
-		/// </summary>
 		public const int EXTENSIONS = 0x7203;
 
-		/// <summary>
-		/// Value of WFC_STRINGID_FORCE_32BIT symbol.
-		/// </summary>
 		public const int STRINGID_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Binding for wfcEnumerateDevices.
-		/// </summary>
-		/// <param name="deviceIds">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="deviceIdsCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="filterList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static int EnumerateDevices(int[] deviceIds, int deviceIdsCount, int[] filterList)
 		{
 			int retValue;
@@ -368,15 +170,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcCreateDevice.
-		/// </summary>
-		/// <param name="deviceId">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateDevice(int deviceId, int[] attribList)
 		{
 			UInt32 retValue;
@@ -394,12 +187,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetError.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static WFCErrorCode GetError(UInt32 dev)
 		{
 			WFCErrorCode retValue;
@@ -412,15 +199,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetDeviceAttribi.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCDeviceAttrib"/>.
-		/// </param>
 		public static int GetDeviceAttribi(UInt32 dev, WFCDeviceAttrib attrib)
 		{
 			int retValue;
@@ -433,12 +211,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcDestroyDevice.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static WFCErrorCode DestroyDevice(UInt32 dev)
 		{
 			WFCErrorCode retValue;
@@ -451,18 +223,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcCreateOnScreenContext.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="screenNumber">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 Create(UInt32 dev, int screenNumber, int[] attribList)
 		{
 			UInt32 retValue;
@@ -480,18 +240,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcCreateOffScreenContext.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="stream">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 Create(UInt32 dev, UInt32 stream, int[] attribList)
 		{
 			UInt32 retValue;
@@ -509,18 +257,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcCommit.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="wait">
-		/// A <see cref="T:bool"/>.
-		/// </param>
 		public static void Commit(UInt32 dev, UInt32 ctx, bool wait)
 		{
 			Debug.Assert(Delegates.pwfcCommit != null, "pwfcCommit not implemented");
@@ -529,18 +265,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetContextAttribi.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCContextAttrib"/>.
-		/// </param>
 		public static int GetContextAttribi(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib)
 		{
 			int retValue;
@@ -553,24 +277,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetContextAttribfv.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCContextAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
 		public static void GetContextAttribfv(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int count, [Out] float[] values)
 		{
 			unsafe {
@@ -584,21 +290,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcSetContextAttribi.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCContextAttrib"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static void SetContextAttribi(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int value)
 		{
 			Debug.Assert(Delegates.pwfcSetContextAttribi != null, "pwfcSetContextAttribi not implemented");
@@ -607,24 +298,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcSetContextAttribfv.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCContextAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
 		public static void SetContextAttribfv(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int count, float[] values)
 		{
 			unsafe {
@@ -638,15 +311,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcDestroyContext.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void Destroy(UInt32 dev, UInt32 ctx)
 		{
 			Debug.Assert(Delegates.pwfcDestroyContext != null, "pwfcDestroyContext not implemented");
@@ -655,21 +319,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcCreateSourceFromStream.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="stream">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateSourceFromStream(UInt32 dev, UInt32 ctx, UInt32 stream, int[] attribList)
 		{
 			UInt32 retValue;
@@ -687,15 +336,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcDestroySource.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="src">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DestroySource(UInt32 dev, UInt32 src)
 		{
 			Debug.Assert(Delegates.pwfcDestroySource != null, "pwfcDestroySource not implemented");
@@ -704,21 +344,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcCreateMaskFromStream.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="stream">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateMaskFromStream(UInt32 dev, UInt32 ctx, UInt32 stream, int[] attribList)
 		{
 			UInt32 retValue;
@@ -736,15 +361,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcDestroyMask.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DestroyMask(UInt32 dev, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pwfcDestroyMask != null, "pwfcDestroyMask not implemented");
@@ -753,18 +369,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcCreateElement.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateElement(UInt32 dev, UInt32 ctx, int[] attribList)
 		{
 			UInt32 retValue;
@@ -782,18 +386,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetElementAttribi.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCElementAttrib"/>.
-		/// </param>
 		public static int GetElementAttribi(UInt32 dev, UInt32 element, WFCElementAttrib attrib)
 		{
 			int retValue;
@@ -806,18 +398,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetElementAttribf.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCElementAttrib"/>.
-		/// </param>
 		public static float GetElementAttribf(UInt32 dev, UInt32 element, WFCElementAttrib attrib)
 		{
 			float retValue;
@@ -830,24 +410,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetElementAttribiv.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCElementAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static void GetElementAttribi(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, [Out] int[] values)
 		{
 			unsafe {
@@ -861,24 +423,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetElementAttribfv.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCElementAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
 		public static void GetElementAttribf(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, [Out] float[] values)
 		{
 			unsafe {
@@ -892,21 +436,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcSetElementAttribi.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCElementAttrib"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static void SetElementAttribi(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int value)
 		{
 			Debug.Assert(Delegates.pwfcSetElementAttribi != null, "pwfcSetElementAttribi not implemented");
@@ -915,21 +444,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcSetElementAttribf.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCElementAttrib"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:float"/>.
-		/// </param>
 		public static void SetElementAttribf(UInt32 dev, UInt32 element, WFCElementAttrib attrib, float value)
 		{
 			Debug.Assert(Delegates.pwfcSetElementAttribf != null, "pwfcSetElementAttribf not implemented");
@@ -938,24 +452,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcSetElementAttribiv.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCElementAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static void SetElementAttribi(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, int[] values)
 		{
 			unsafe {
@@ -969,24 +465,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcSetElementAttribfv.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFCElementAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="values">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
 		public static void SetElementAttribf(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, float[] values)
 		{
 			unsafe {
@@ -1000,18 +478,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcInsertElement.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="subordinate">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void InsertElement(UInt32 dev, UInt32 element, UInt32 subordinate)
 		{
 			Debug.Assert(Delegates.pwfcInsertElement != null, "pwfcInsertElement not implemented");
@@ -1020,15 +486,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcRemoveElement.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void RemoveElement(UInt32 dev, UInt32 element)
 		{
 			Debug.Assert(Delegates.pwfcRemoveElement != null, "pwfcRemoveElement not implemented");
@@ -1037,15 +494,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetElementAbove.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static UInt32 GetElementAbove(UInt32 dev, UInt32 element)
 		{
 			UInt32 retValue;
@@ -1058,15 +506,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetElementBelow.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static UInt32 GetElementBelow(UInt32 dev, UInt32 element)
 		{
 			UInt32 retValue;
@@ -1079,15 +518,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcDestroyElement.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="element">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DestroyElement(UInt32 dev, UInt32 element)
 		{
 			Debug.Assert(Delegates.pwfcDestroyElement != null, "pwfcDestroyElement not implemented");
@@ -1096,15 +526,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcActivate.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void Activate(UInt32 dev, UInt32 ctx)
 		{
 			Debug.Assert(Delegates.pwfcActivate != null, "pwfcActivate not implemented");
@@ -1113,15 +534,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcDeactivate.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void Deactivate(UInt32 dev, UInt32 ctx)
 		{
 			Debug.Assert(Delegates.pwfcDeactivate != null, "pwfcDeactivate not implemented");
@@ -1130,18 +542,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcCompose.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="wait">
-		/// A <see cref="T:bool"/>.
-		/// </param>
 		public static void Compose(UInt32 dev, UInt32 ctx, bool wait)
 		{
 			Debug.Assert(Delegates.pwfcCompose != null, "pwfcCompose not implemented");
@@ -1150,21 +550,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcFence.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="ctx">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="dpy">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="sync">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
 		public static void Fence(UInt32 dev, UInt32 ctx, IntPtr dpy, IntPtr sync)
 		{
 			Debug.Assert(Delegates.pwfcFence != null, "pwfcFence not implemented");
@@ -1173,21 +558,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfcGetStrings.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="name">
-		/// A <see cref="T:WFCStringID"/>.
-		/// </param>
-		/// <param name="strings">
-		/// A <see cref="T:IntPtr[]"/>.
-		/// </param>
-		/// <param name="stringsCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static int GetStrings(UInt32 dev, WFCStringID name, [Out] IntPtr[] strings, int stringsCount)
 		{
 			int retValue;
@@ -1205,15 +575,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfcIsExtensionSupported.
-		/// </summary>
-		/// <param name="dev">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="string">
-		/// A <see cref="T:char[]"/>.
-		/// </param>
 		public static bool IsExtensionSupported(UInt32 dev, [Out] char[] @string)
 		{
 			bool retValue;

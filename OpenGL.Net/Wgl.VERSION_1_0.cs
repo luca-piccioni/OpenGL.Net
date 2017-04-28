@@ -29,229 +29,229 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_FONT_LINES symbol.
+		/// [WGL] Value of WGL_FONT_LINES symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int FONT_LINES = 0;
 
 		/// <summary>
-		/// Value of WGL_FONT_POLYGONS symbol.
+		/// [WGL] Value of WGL_FONT_POLYGONS symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int FONT_POLYGONS = 1;
 
 		/// <summary>
-		/// Value of WGL_SWAP_MAIN_PLANE symbol.
+		/// [WGL] Value of WGL_SWAP_MAIN_PLANE symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_MAIN_PLANE = 0x00000001;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY1 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY1 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY1 = 0x00000002;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY2 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY2 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY2 = 0x00000004;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY3 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY3 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY3 = 0x00000008;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY4 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY4 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY4 = 0x00000010;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY5 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY5 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY5 = 0x00000020;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY6 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY6 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY6 = 0x00000040;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY7 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY7 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY7 = 0x00000080;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY8 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY8 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY8 = 0x00000100;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY9 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY9 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY9 = 0x00000200;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY10 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY10 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY10 = 0x00000400;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY11 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY11 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY11 = 0x00000800;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY12 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY12 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY12 = 0x00001000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY13 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY13 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY13 = 0x00002000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY14 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY14 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY14 = 0x00004000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_OVERLAY15 symbol.
+		/// [WGL] Value of WGL_SWAP_OVERLAY15 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_OVERLAY15 = 0x00008000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY1 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY1 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY1 = 0x00010000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY2 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY2 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY2 = 0x00020000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY3 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY3 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY3 = 0x00040000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY4 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY4 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY4 = 0x00080000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY5 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY5 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY5 = 0x00100000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY6 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY6 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY6 = 0x00200000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY7 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY7 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY7 = 0x00400000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY8 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY8 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY8 = 0x00800000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY9 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY9 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY9 = 0x01000000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY10 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY10 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY10 = 0x02000000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY11 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY11 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY11 = 0x04000000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY12 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY12 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY12 = 0x08000000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY13 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY13 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY13 = 0x10000000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY14 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY14 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]
 		public const uint SWAP_UNDERLAY14 = 0x20000000;
 
 		/// <summary>
-		/// Value of WGL_SWAP_UNDERLAY15 symbol.
+		/// [WGL] Value of WGL_SWAP_UNDERLAY15 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		[Log(BitmaskName = "WGLLayerPlaneMask")]

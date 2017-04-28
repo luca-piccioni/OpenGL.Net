@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_FRAMEBUFFER_SRGB_CAPABLE_ARB symbol.
+		/// [WGL] Value of WGL_FRAMEBUFFER_SRGB_CAPABLE_ARB symbol.
 		/// </summary>
 		[AliasOf("WGL_FRAMEBUFFER_SRGB_CAPABLE_EXT")]
 		[RequiredByFeature("WGL_ARB_framebuffer_sRGB")]

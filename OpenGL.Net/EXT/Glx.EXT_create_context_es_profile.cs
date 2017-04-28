@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_CONTEXT_ES_PROFILE_BIT_EXT symbol.
+		/// [GLX] Value of GLX_CONTEXT_ES_PROFILE_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_create_context_es_profile")]
 		[Log(BitmaskName = "GLXContextProfileMask")]

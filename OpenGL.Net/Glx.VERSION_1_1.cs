@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_VENDOR symbol.
+		/// [GLX] Value of GLX_VENDOR symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public const int VENDOR = 0x1;
 
 		/// <summary>
-		/// Value of GLX_VERSION symbol.
+		/// [GLX] Value of GLX_VERSION symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public const int VERSION = 0x2;
 
 		/// <summary>
-		/// Value of GLX_EXTENSIONS symbol.
+		/// [GLX] Value of GLX_EXTENSIONS symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public const int EXTENSIONS = 0x3;

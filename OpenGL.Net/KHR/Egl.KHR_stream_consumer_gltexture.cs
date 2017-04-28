@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR symbol.
+		/// [EGL] Value of EGL_CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 		public const int CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;

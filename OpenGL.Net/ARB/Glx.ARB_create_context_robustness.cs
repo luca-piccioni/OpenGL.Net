@@ -29,26 +29,26 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_CONTEXT_ROBUST_ACCESS_BIT_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_ROBUST_ACCESS_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context_robustness")]
 		[Log(BitmaskName = "GLXContextFlags")]
 		public const uint CONTEXT_ROBUST_ACCESS_BIT_ARB = 0x00000004;
 
 		/// <summary>
-		/// Value of GLX_LOSE_CONTEXT_ON_RESET_ARB symbol.
+		/// [GLX] Value of GLX_LOSE_CONTEXT_ON_RESET_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context_robustness")]
 		public const int LOSE_CONTEXT_ON_RESET_ARB = 0x8252;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context_robustness")]
 		public const int CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB = 0x8256;
 
 		/// <summary>
-		/// Value of GLX_NO_RESET_NOTIFICATION_ARB symbol.
+		/// [GLX] Value of GLX_NO_RESET_NOTIFICATION_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context_robustness")]
 		public const int NO_RESET_NOTIFICATION_ARB = 0x8261;

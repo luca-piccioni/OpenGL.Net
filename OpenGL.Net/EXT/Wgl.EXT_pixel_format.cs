@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_TRANSPARENT_VALUE_EXT symbol.
+		/// [WGL] Value of WGL_TRANSPARENT_VALUE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pixel_format")]
 		public const int TRANSPARENT_VALUE_EXT = 0x200B;

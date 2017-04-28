@@ -29,14 +29,14 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_IMAGE_BUFFER_MIN_ACCESS_I3D symbol.
+		/// [WGL] Value of WGL_IMAGE_BUFFER_MIN_ACCESS_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
 		[Log(BitmaskName = "WGLImageBufferMaskI3D")]
 		public const int IMAGE_BUFFER_MIN_ACCESS_I3D = 0x00000001;
 
 		/// <summary>
-		/// Value of WGL_IMAGE_BUFFER_LOCK_I3D symbol.
+		/// [WGL] Value of WGL_IMAGE_BUFFER_LOCK_I3D symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
 		[Log(BitmaskName = "WGLImageBufferMaskI3D")]

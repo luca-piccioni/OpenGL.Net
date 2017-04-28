@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_RGBA_FLOAT_TYPE_ARB symbol.
+		/// [GLX] Value of GLX_RGBA_FLOAT_TYPE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_fbconfig_float")]
 		public const int RGBA_FLOAT_TYPE_ARB = 0x20B9;
 
 		/// <summary>
-		/// Value of GLX_RGBA_FLOAT_BIT_ARB symbol.
+		/// [GLX] Value of GLX_RGBA_FLOAT_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_fbconfig_float")]
 		[Log(BitmaskName = "GLXRenderTypeMask")]

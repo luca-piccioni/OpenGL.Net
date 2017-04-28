@@ -29,69 +29,69 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONTEXT_MINOR_VERSION symbol.
+		/// [EGL] Value of EGL_CONTEXT_MINOR_VERSION symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int CONTEXT_MINOR_VERSION = 0x30FB;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_PROFILE_MASK symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_PROFILE_MASK symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int CONTEXT_OPENGL_PROFILE_MASK = 0x30FD;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY = 0x31BD;
 
 		/// <summary>
-		/// Value of EGL_NO_RESET_NOTIFICATION symbol.
+		/// [EGL] Value of EGL_NO_RESET_NOTIFICATION symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int NO_RESET_NOTIFICATION = 0x31BE;
 
 		/// <summary>
-		/// Value of EGL_LOSE_CONTEXT_ON_RESET symbol.
+		/// [EGL] Value of EGL_LOSE_CONTEXT_ON_RESET symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int LOSE_CONTEXT_ON_RESET = 0x31BF;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		[Log(BitmaskName = "EGLContextProfileMask")]
 		public const uint CONTEXT_OPENGL_CORE_PROFILE_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		[Log(BitmaskName = "EGLContextProfileMask")]
 		public const uint CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_DEBUG symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_DEBUG symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int CONTEXT_OPENGL_DEBUG = 0x31B0;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int CONTEXT_OPENGL_FORWARD_COMPATIBLE = 0x31B1;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_ROBUST_ACCESS symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_ROBUST_ACCESS symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int CONTEXT_OPENGL_ROBUST_ACCESS = 0x31B2;
 
 		/// <summary>
-		/// Value of EGL_OPENGL_ES3_BIT symbol.
+		/// [EGL] Value of EGL_OPENGL_ES3_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		[RequiredByFeature("EGL_KHR_create_context")]
@@ -99,170 +99,170 @@ namespace OpenGL
 		public const uint OPENGL_ES3_BIT = 0x00000040;
 
 		/// <summary>
-		/// Value of EGL_CL_EVENT_HANDLE symbol.
+		/// [EGL] Value of EGL_CL_EVENT_HANDLE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int CL_EVENT_HANDLE = 0x309C;
 
 		/// <summary>
-		/// Value of EGL_SYNC_CL_EVENT symbol.
+		/// [EGL] Value of EGL_SYNC_CL_EVENT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int SYNC_CL_EVENT = 0x30FE;
 
 		/// <summary>
-		/// Value of EGL_SYNC_CL_EVENT_COMPLETE symbol.
+		/// [EGL] Value of EGL_SYNC_CL_EVENT_COMPLETE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int SYNC_CL_EVENT_COMPLETE = 0x30FF;
 
 		/// <summary>
-		/// Value of EGL_SYNC_PRIOR_COMMANDS_COMPLETE symbol.
+		/// [EGL] Value of EGL_SYNC_PRIOR_COMMANDS_COMPLETE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int SYNC_PRIOR_COMMANDS_COMPLETE = 0x30F0;
 
 		/// <summary>
-		/// Value of EGL_SYNC_TYPE symbol.
+		/// [EGL] Value of EGL_SYNC_TYPE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int SYNC_TYPE = 0x30F7;
 
 		/// <summary>
-		/// Value of EGL_SYNC_STATUS symbol.
+		/// [EGL] Value of EGL_SYNC_STATUS symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int SYNC_STATUS = 0x30F1;
 
 		/// <summary>
-		/// Value of EGL_SYNC_CONDITION symbol.
+		/// [EGL] Value of EGL_SYNC_CONDITION symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int SYNC_CONDITION = 0x30F8;
 
 		/// <summary>
-		/// Value of EGL_SIGNALED symbol.
+		/// [EGL] Value of EGL_SIGNALED symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int SIGNALED = 0x30F2;
 
 		/// <summary>
-		/// Value of EGL_UNSIGNALED symbol.
+		/// [EGL] Value of EGL_UNSIGNALED symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int UNSIGNALED = 0x30F3;
 
 		/// <summary>
-		/// Value of EGL_SYNC_FLUSH_COMMANDS_BIT symbol.
+		/// [EGL] Value of EGL_SYNC_FLUSH_COMMANDS_BIT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		[Log(BitmaskName = "EGLSyncFlagsKHR")]
 		public const int SYNC_FLUSH_COMMANDS_BIT = 0x0001;
 
 		/// <summary>
-		/// Value of EGL_FOREVER symbol.
+		/// [EGL] Value of EGL_FOREVER symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const ulong FOREVER = 0xFFFFFFFFFFFFF;
 
 		/// <summary>
-		/// Value of EGL_TIMEOUT_EXPIRED symbol.
+		/// [EGL] Value of EGL_TIMEOUT_EXPIRED symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int TIMEOUT_EXPIRED = 0x30F5;
 
 		/// <summary>
-		/// Value of EGL_CONDITION_SATISFIED symbol.
+		/// [EGL] Value of EGL_CONDITION_SATISFIED symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int CONDITION_SATISFIED = 0x30F6;
 
 		/// <summary>
-		/// Value of EGL_NO_SYNC symbol.
+		/// [EGL] Value of EGL_NO_SYNC symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int NO_SYNC = 0;
 
 		/// <summary>
-		/// Value of EGL_SYNC_FENCE symbol.
+		/// [EGL] Value of EGL_SYNC_FENCE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int SYNC_FENCE = 0x30F9;
 
 		/// <summary>
-		/// Value of EGL_GL_COLORSPACE symbol.
+		/// [EGL] Value of EGL_GL_COLORSPACE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_COLORSPACE = 0x309D;
 
 		/// <summary>
-		/// Value of EGL_GL_RENDERBUFFER symbol.
+		/// [EGL] Value of EGL_GL_RENDERBUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_RENDERBUFFER = 0x30B9;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_2D symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_2D symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_2D = 0x30B1;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_LEVEL symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_LEVEL symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_LEVEL = 0x30BC;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_3D symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_3D symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_3D = 0x30B2;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_ZOFFSET symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_ZOFFSET symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_ZOFFSET = 0x30BD;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_X symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_X symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_CUBE_MAP_POSITIVE_X = 0x30B3;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_X symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_X symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_CUBE_MAP_NEGATIVE_X = 0x30B4;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Y symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Y symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_CUBE_MAP_POSITIVE_Y = 0x30B5;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Y symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Y symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_CUBE_MAP_NEGATIVE_Y = 0x30B6;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_CUBE_MAP_POSITIVE_Z = 0x30B7;
 
 		/// <summary>
-		/// Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z symbol.
+		/// [EGL] Value of EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int GL_TEXTURE_CUBE_MAP_NEGATIVE_Z = 0x30B8;
 
 		/// <summary>
-		/// Value of EGL_IMAGE_PRESERVED symbol.
+		/// [EGL] Value of EGL_IMAGE_PRESERVED symbol.
 		/// </summary>
 		[AliasOf("EGL_IMAGE_PRESERVED_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_5")]
@@ -270,7 +270,7 @@ namespace OpenGL
 		public const int IMAGE_PRESERVED = 0x30D2;
 
 		/// <summary>
-		/// Value of EGL_NO_IMAGE symbol.
+		/// [EGL] Value of EGL_NO_IMAGE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		public const int NO_IMAGE = 0;

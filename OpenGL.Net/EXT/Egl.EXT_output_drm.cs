@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_DRM_CRTC_EXT symbol.
+		/// [EGL] Value of EGL_DRM_CRTC_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_output_drm")]
 		public const int DRM_CRTC_EXT = 0x3234;
 
 		/// <summary>
-		/// Value of EGL_DRM_PLANE_EXT symbol.
+		/// [EGL] Value of EGL_DRM_PLANE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_output_drm")]
 		public const int DRM_PLANE_EXT = 0x3235;
 
 		/// <summary>
-		/// Value of EGL_DRM_CONNECTOR_EXT symbol.
+		/// [EGL] Value of EGL_DRM_CONNECTOR_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_output_drm")]
 		public const int DRM_CONNECTOR_EXT = 0x3236;

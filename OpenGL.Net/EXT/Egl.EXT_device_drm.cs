@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_DRM_DEVICE_FILE_EXT symbol.
+		/// [EGL] Value of EGL_DRM_DEVICE_FILE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_device_drm")]
 		public const int DRM_DEVICE_FILE_EXT = 0x3233;

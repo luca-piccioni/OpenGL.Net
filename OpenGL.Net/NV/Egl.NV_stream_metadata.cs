@@ -29,85 +29,85 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_MAX_STREAM_METADATA_BLOCKS_NV symbol.
+		/// [EGL] Value of EGL_MAX_STREAM_METADATA_BLOCKS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int MAX_STREAM_METADATA_BLOCKS_NV = 0x3250;
 
 		/// <summary>
-		/// Value of EGL_MAX_STREAM_METADATA_BLOCK_SIZE_NV symbol.
+		/// [EGL] Value of EGL_MAX_STREAM_METADATA_BLOCK_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int MAX_STREAM_METADATA_BLOCK_SIZE_NV = 0x3251;
 
 		/// <summary>
-		/// Value of EGL_MAX_STREAM_METADATA_TOTAL_SIZE_NV symbol.
+		/// [EGL] Value of EGL_MAX_STREAM_METADATA_TOTAL_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int MAX_STREAM_METADATA_TOTAL_SIZE_NV = 0x3252;
 
 		/// <summary>
-		/// Value of EGL_PRODUCER_METADATA_NV symbol.
+		/// [EGL] Value of EGL_PRODUCER_METADATA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int PRODUCER_METADATA_NV = 0x3253;
 
 		/// <summary>
-		/// Value of EGL_CONSUMER_METADATA_NV symbol.
+		/// [EGL] Value of EGL_CONSUMER_METADATA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int CONSUMER_METADATA_NV = 0x3254;
 
 		/// <summary>
-		/// Value of EGL_PENDING_METADATA_NV symbol.
+		/// [EGL] Value of EGL_PENDING_METADATA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int PENDING_METADATA_NV = 0x3328;
 
 		/// <summary>
-		/// Value of EGL_METADATA0_SIZE_NV symbol.
+		/// [EGL] Value of EGL_METADATA0_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int METADATA0_SIZE_NV = 0x3255;
 
 		/// <summary>
-		/// Value of EGL_METADATA1_SIZE_NV symbol.
+		/// [EGL] Value of EGL_METADATA1_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int METADATA1_SIZE_NV = 0x3256;
 
 		/// <summary>
-		/// Value of EGL_METADATA2_SIZE_NV symbol.
+		/// [EGL] Value of EGL_METADATA2_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int METADATA2_SIZE_NV = 0x3257;
 
 		/// <summary>
-		/// Value of EGL_METADATA3_SIZE_NV symbol.
+		/// [EGL] Value of EGL_METADATA3_SIZE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int METADATA3_SIZE_NV = 0x3258;
 
 		/// <summary>
-		/// Value of EGL_METADATA0_TYPE_NV symbol.
+		/// [EGL] Value of EGL_METADATA0_TYPE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int METADATA0_TYPE_NV = 0x3259;
 
 		/// <summary>
-		/// Value of EGL_METADATA1_TYPE_NV symbol.
+		/// [EGL] Value of EGL_METADATA1_TYPE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int METADATA1_TYPE_NV = 0x325A;
 
 		/// <summary>
-		/// Value of EGL_METADATA2_TYPE_NV symbol.
+		/// [EGL] Value of EGL_METADATA2_TYPE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int METADATA2_TYPE_NV = 0x325B;
 
 		/// <summary>
-		/// Value of EGL_METADATA3_TYPE_NV symbol.
+		/// [EGL] Value of EGL_METADATA3_TYPE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_metadata")]
 		public const int METADATA3_TYPE_NV = 0x325C;

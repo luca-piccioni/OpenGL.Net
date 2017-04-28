@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_COLOR_FORMAT_HI symbol.
+		/// [EGL] Value of EGL_COLOR_FORMAT_HI symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_HI_colorformats")]
 		public const int COLOR_FORMAT_HI = 0x8F70;
 
 		/// <summary>
-		/// Value of EGL_COLOR_RGB_HI symbol.
+		/// [EGL] Value of EGL_COLOR_RGB_HI symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_HI_colorformats")]
 		public const int COLOR_RGB_HI = 0x8F71;
 
 		/// <summary>
-		/// Value of EGL_COLOR_RGBA_HI symbol.
+		/// [EGL] Value of EGL_COLOR_RGBA_HI symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_HI_colorformats")]
 		public const int COLOR_RGBA_HI = 0x8F72;
 
 		/// <summary>
-		/// Value of EGL_COLOR_ARGB_HI symbol.
+		/// [EGL] Value of EGL_COLOR_ARGB_HI symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_HI_colorformats")]
 		public const int COLOR_ARGB_HI = 0x8F73;

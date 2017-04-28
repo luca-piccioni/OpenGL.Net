@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CLIENT_PIXMAP_POINTER_HI symbol.
+		/// [EGL] Value of EGL_CLIENT_PIXMAP_POINTER_HI symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_HI_clientpixmap")]
 		public const int CLIENT_PIXMAP_POINTER_HI = 0x8F74;

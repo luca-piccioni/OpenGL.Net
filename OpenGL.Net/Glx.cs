@@ -123,6 +123,35 @@ namespace OpenGL
 
 		#endregion
 
+		#region Command Logging
+
+		/// <summary>
+		/// Load an API command call.
+		/// </summary>
+		/// <param name="name">
+		/// A <see cref="String"/> that specifies the name of the API command.
+		/// </param>
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the returned value, if any.
+		/// </param>
+		/// <param name="args">
+		/// A <see cref="T:Object[]"/> that specifies the API command arguments, if any.
+		/// </param>
+		[Conditional("GL_DEBUG")]
+		protected static new void LogCommand(string name, object returnValue, params object[] args)
+		{
+			if (_LogContext == null)
+				_LogContext = new KhronosLogContext(typeof(Glx));
+			RaiseLog(new KhronosLogEventArgs(_LogContext, name, args, returnValue));
+		}
+
+		/// <summary>
+		/// Context for logging enumerant names instead of numerical values.
+		/// </summary>
+		private static KhronosLogContext _LogContext;
+
+		#endregion
+
 		#region Required External Declarations
 
 		[StructLayout(LayoutKind.Sequential)]

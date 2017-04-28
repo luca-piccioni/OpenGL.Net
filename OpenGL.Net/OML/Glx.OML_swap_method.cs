@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_SWAP_METHOD_OML symbol.
+		/// [GLX] Value of GLX_SWAP_METHOD_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_OML_swap_method")]
 		public const int SWAP_METHOD_OML = 0x8060;
 
 		/// <summary>
-		/// Value of GLX_SWAP_EXCHANGE_OML symbol.
+		/// [GLX] Value of GLX_SWAP_EXCHANGE_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_OML_swap_method")]
 		public const int SWAP_EXCHANGE_OML = 0x8061;
 
 		/// <summary>
-		/// Value of GLX_SWAP_COPY_OML symbol.
+		/// [GLX] Value of GLX_SWAP_COPY_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_OML_swap_method")]
 		public const int SWAP_COPY_OML = 0x8062;
 
 		/// <summary>
-		/// Value of GLX_SWAP_UNDEFINED_OML symbol.
+		/// [GLX] Value of GLX_SWAP_UNDEFINED_OML symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_OML_swap_method")]
 		public const int SWAP_UNDEFINED_OML = 0x8063;

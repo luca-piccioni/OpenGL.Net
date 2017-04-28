@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_STREAM_CROSS_DISPLAY_NV symbol.
+		/// [EGL] Value of EGL_STREAM_CROSS_DISPLAY_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_cross_display")]
 		public const int STREAM_CROSS_DISPLAY_NV = 0x334E;

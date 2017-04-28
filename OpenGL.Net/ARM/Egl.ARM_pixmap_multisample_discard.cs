@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_DISCARD_SAMPLES_ARM symbol.
+		/// [EGL] Value of EGL_DISCARD_SAMPLES_ARM symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ARM_pixmap_multisample_discard")]
 		public const int DISCARD_SAMPLES_ARM = 0x3286;

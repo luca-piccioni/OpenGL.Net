@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_FRAMEBUFFER_TARGET_ANDROID symbol.
+		/// [EGL] Value of EGL_FRAMEBUFFER_TARGET_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_framebuffer_target")]
 		public const int FRAMEBUFFER_TARGET_ANDROID = 0x3147;

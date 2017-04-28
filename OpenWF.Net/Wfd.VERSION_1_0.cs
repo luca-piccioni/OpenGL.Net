@@ -28,736 +28,292 @@ namespace OpenWF
 {
 	public partial class Wfd
 	{
-		/// <summary>
-		/// Value of OPENWFD_VERSION_1_0 symbol.
-		/// </summary>
 		public const int OPENWFD_VERSION_1_0 = (1);
 
-		/// <summary>
-		/// Value of WFD_NONE symbol.
-		/// </summary>
 		public const int NONE = (0);
 
-		/// <summary>
-		/// Value of WFD_INVALID_PORT_ID symbol.
-		/// </summary>
 		public const int INVALID_PORT_ID = (0);
 
-		/// <summary>
-		/// Value of WFD_INVALID_PIPELINE_ID symbol.
-		/// </summary>
 		public const int INVALID_PIPELINE_ID = (0);
 
-		/// <summary>
-		/// Value of WFD_INVALID_PIPELINE_LAYER symbol.
-		/// </summary>
 		public const int INVALID_PIPELINE_LAYER = (0);
 
-		/// <summary>
-		/// Value of WFD_DEFAULT_DEVICE_ID symbol.
-		/// </summary>
 		public const int DEFAULT_DEVICE_ID = (0);
 
-		/// <summary>
-		/// Value of WFD_MAX_INT symbol.
-		/// </summary>
 		public const int MAX_INT = 16777216;
 
-		/// <summary>
-		/// Value of WFD_MAX_FLOAT symbol.
-		/// </summary>
 		public const int MAX_FLOAT = 16777216;
 
-		/// <summary>
-		/// Value of WFD_INVALID_HANDLE symbol.
-		/// </summary>
 		public const int INVALID_HANDLE = 0;
 
-		/// <summary>
-		/// Value of WFD_VENDOR symbol.
-		/// </summary>
 		public const int VENDOR = 0x7500;
 
-		/// <summary>
-		/// Value of WFD_RENDERER symbol.
-		/// </summary>
 		public const int RENDERER = 0x7501;
 
-		/// <summary>
-		/// Value of WFD_VERSION symbol.
-		/// </summary>
 		public const int VERSION = 0x7502;
 
-		/// <summary>
-		/// Value of WFD_EXTENSIONS symbol.
-		/// </summary>
 		public const int EXTENSIONS = 0x7503;
 
-		/// <summary>
-		/// Value of WFD_STRING_ID_FORCE_32BIT symbol.
-		/// </summary>
 		public const int STRING_ID_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_ERROR_NONE symbol.
-		/// </summary>
 		public const int ERROR_NONE = 0;
 
-		/// <summary>
-		/// Value of WFD_ERROR_OUT_OF_MEMORY symbol.
-		/// </summary>
 		public const int ERROR_OUT_OF_MEMORY = 0x7510;
 
-		/// <summary>
-		/// Value of WFD_ERROR_ILLEGAL_ARGUMENT symbol.
-		/// </summary>
 		public const int ERROR_ILLEGAL_ARGUMENT = 0x7511;
 
-		/// <summary>
-		/// Value of WFD_ERROR_NOT_SUPPORTED symbol.
-		/// </summary>
 		public const int ERROR_NOT_SUPPORTED = 0x7512;
 
-		/// <summary>
-		/// Value of WFD_ERROR_BAD_ATTRIBUTE symbol.
-		/// </summary>
 		public const int ERROR_BAD_ATTRIBUTE = 0x7513;
 
-		/// <summary>
-		/// Value of WFD_ERROR_IN_USE symbol.
-		/// </summary>
 		public const int ERROR_IN_USE = 0x7514;
 
-		/// <summary>
-		/// Value of WFD_ERROR_BUSY symbol.
-		/// </summary>
 		public const int ERROR_BUSY = 0x7515;
 
-		/// <summary>
-		/// Value of WFD_ERROR_BAD_DEVICE symbol.
-		/// </summary>
 		public const int ERROR_BAD_DEVICE = 0x7516;
 
-		/// <summary>
-		/// Value of WFD_ERROR_BAD_HANDLE symbol.
-		/// </summary>
 		public const int ERROR_BAD_HANDLE = 0x7517;
 
-		/// <summary>
-		/// Value of WFD_ERROR_INCONSISTENCY symbol.
-		/// </summary>
 		public const int ERROR_INCONSISTENCY = 0x7518;
 
-		/// <summary>
-		/// Value of WFD_ERROR_FORCE_32BIT symbol.
-		/// </summary>
 		public const int ERROR_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_DEVICE_FILTER_PORT_ID symbol.
-		/// </summary>
 		public const int DEVICE_FILTER_PORT_ID = 0x7530;
 
-		/// <summary>
-		/// Value of WFD_DEVICE_FILTER_FORCE_32BIT symbol.
-		/// </summary>
 		public const int DEVICE_FILTER_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_COMMIT_ENTIRE_DEVICE symbol.
-		/// </summary>
 		public const int COMMIT_ENTIRE_DEVICE = 0x7550;
 
-		/// <summary>
-		/// Value of WFD_COMMIT_ENTIRE_PORT symbol.
-		/// </summary>
 		public const int COMMIT_ENTIRE_PORT = 0x7551;
 
-		/// <summary>
-		/// Value of WFD_COMMIT_PIPELINE symbol.
-		/// </summary>
 		public const int COMMIT_PIPELINE = 0x7552;
 
-		/// <summary>
-		/// Value of WFD_COMMIT_FORCE_32BIT symbol.
-		/// </summary>
 		public const int COMMIT_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_DEVICE_ID symbol.
-		/// </summary>
 		public const int DEVICE_ID = 0x7560;
 
-		/// <summary>
-		/// Value of WFD_DEVICE_ATTRIB_FORCE_32BIT symbol.
-		/// </summary>
 		public const int DEVICE_ATTRIB_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_EVENT_INVALID symbol.
-		/// </summary>
 		public const int EVENT_INVALID = 0x7580;
 
-		/// <summary>
-		/// Value of WFD_EVENT_NONE symbol.
-		/// </summary>
 		public const int EVENT_NONE = 0x7581;
 
-		/// <summary>
-		/// Value of WFD_EVENT_DESTROYED symbol.
-		/// </summary>
 		public const int EVENT_DESTROYED = 0x7582;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PORT_ATTACH_DETACH symbol.
-		/// </summary>
 		public const int EVENT_PORT_ATTACH_DETACH = 0x7583;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PORT_PROTECTION_FAILURE symbol.
-		/// </summary>
 		public const int EVENT_PORT_PROTECTION_FAILURE = 0x7584;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PIPELINE_BIND_SOURCE_COMPLETE symbol.
-		/// </summary>
 		public const int EVENT_PIPELINE_BIND_SOURCE_COMPLETE = 0x7585;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PIPELINE_BIND_MASK_COMPLETE symbol.
-		/// </summary>
 		public const int EVENT_PIPELINE_BIND_MASK_COMPLETE = 0x7586;
 
-		/// <summary>
-		/// Value of WFD_EVENT_FORCE_32BIT symbol.
-		/// </summary>
 		public const int EVENT_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PIPELINE_BIND_QUEUE_SIZE symbol.
-		/// </summary>
 		public const int EVENT_PIPELINE_BIND_QUEUE_SIZE = 0x75C0;
 
-		/// <summary>
-		/// Value of WFD_EVENT_TYPE symbol.
-		/// </summary>
 		public const int EVENT_TYPE = 0x75C1;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PORT_ATTACH_PORT_ID symbol.
-		/// </summary>
 		public const int EVENT_PORT_ATTACH_PORT_ID = 0x75C2;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PORT_ATTACH_STATE symbol.
-		/// </summary>
 		public const int EVENT_PORT_ATTACH_STATE = 0x75C3;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PORT_PROTECTION_PORT_ID symbol.
-		/// </summary>
 		public const int EVENT_PORT_PROTECTION_PORT_ID = 0x75C4;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PIPELINE_BIND_PIPELINE_ID symbol.
-		/// </summary>
 		public const int EVENT_PIPELINE_BIND_PIPELINE_ID = 0x75C5;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PIPELINE_BIND_SOURCE symbol.
-		/// </summary>
 		public const int EVENT_PIPELINE_BIND_SOURCE = 0x75C6;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PIPELINE_BIND_MASK symbol.
-		/// </summary>
 		public const int EVENT_PIPELINE_BIND_MASK = 0x75C7;
 
-		/// <summary>
-		/// Value of WFD_EVENT_PIPELINE_BIND_QUEUE_OVERFLOW symbol.
-		/// </summary>
 		public const int EVENT_PIPELINE_BIND_QUEUE_OVERFLOW = 0x75C8;
 
-		/// <summary>
-		/// Value of WFD_EVENT_ATTRIB_FORCE_32BIT symbol.
-		/// </summary>
 		public const int EVENT_ATTRIB_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_PORT_MODE_WIDTH symbol.
-		/// </summary>
 		public const int PORT_MODE_WIDTH = 0x7600;
 
-		/// <summary>
-		/// Value of WFD_PORT_MODE_HEIGHT symbol.
-		/// </summary>
 		public const int PORT_MODE_HEIGHT = 0x7601;
 
-		/// <summary>
-		/// Value of WFD_PORT_MODE_REFRESH_RATE symbol.
-		/// </summary>
 		public const int PORT_MODE_REFRESH_RATE = 0x7602;
 
-		/// <summary>
-		/// Value of WFD_PORT_MODE_FLIP_MIRROR_SUPPORT symbol.
-		/// </summary>
 		public const int PORT_MODE_FLIP_MIRROR_SUPPORT = 0x7603;
 
-		/// <summary>
-		/// Value of WFD_PORT_MODE_ROTATION_SUPPORT symbol.
-		/// </summary>
 		public const int PORT_MODE_ROTATION_SUPPORT = 0x7604;
 
-		/// <summary>
-		/// Value of WFD_PORT_MODE_INTERLACED symbol.
-		/// </summary>
 		public const int PORT_MODE_INTERLACED = 0x7605;
 
-		/// <summary>
-		/// Value of WFD_PORT_MODE_ATTRIB_FORCE_32BIT symbol.
-		/// </summary>
 		public const int PORT_MODE_ATTRIB_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_PORT_ID symbol.
-		/// </summary>
 		public const int PORT_ID = 0x7620;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE symbol.
-		/// </summary>
 		public const int PORT_TYPE = 0x7621;
 
-		/// <summary>
-		/// Value of WFD_PORT_DETACHABLE symbol.
-		/// </summary>
 		public const int PORT_DETACHABLE = 0x7622;
 
-		/// <summary>
-		/// Value of WFD_PORT_ATTACHED symbol.
-		/// </summary>
 		public const int PORT_ATTACHED = 0x7623;
 
-		/// <summary>
-		/// Value of WFD_PORT_NATIVE_RESOLUTION symbol.
-		/// </summary>
 		public const int PORT_NATIVE_RESOLUTION = 0x7624;
 
-		/// <summary>
-		/// Value of WFD_PORT_PHYSICAL_SIZE symbol.
-		/// </summary>
 		public const int PORT_PHYSICAL_SIZE = 0x7625;
 
-		/// <summary>
-		/// Value of WFD_PORT_FILL_PORT_AREA symbol.
-		/// </summary>
 		public const int PORT_FILL_PORT_AREA = 0x7626;
 
-		/// <summary>
-		/// Value of WFD_PORT_BACKGROUND_COLOR symbol.
-		/// </summary>
 		public const int PORT_BACKGROUND_COLOR = 0x7627;
 
-		/// <summary>
-		/// Value of WFD_PORT_FLIP symbol.
-		/// </summary>
 		public const int PORT_FLIP = 0x7628;
 
-		/// <summary>
-		/// Value of WFD_PORT_MIRROR symbol.
-		/// </summary>
 		public const int PORT_MIRROR = 0x7629;
 
-		/// <summary>
-		/// Value of WFD_PORT_ROTATION symbol.
-		/// </summary>
 		public const int PORT_ROTATION = 0x762A;
 
-		/// <summary>
-		/// Value of WFD_PORT_POWER_MODE symbol.
-		/// </summary>
 		public const int PORT_POWER_MODE = 0x762B;
 
-		/// <summary>
-		/// Value of WFD_PORT_GAMMA_RANGE symbol.
-		/// </summary>
 		public const int PORT_GAMMA_RANGE = 0x762C;
 
-		/// <summary>
-		/// Value of WFD_PORT_GAMMA symbol.
-		/// </summary>
 		public const int PORT_GAMMA = 0x762D;
 
-		/// <summary>
-		/// Value of WFD_PORT_PARTIAL_REFRESH_SUPPORT symbol.
-		/// </summary>
 		public const int PORT_PARTIAL_REFRESH_SUPPORT = 0x762E;
 
-		/// <summary>
-		/// Value of WFD_PORT_PARTIAL_REFRESH_MAXIMUM symbol.
-		/// </summary>
 		public const int PORT_PARTIAL_REFRESH_MAXIMUM = 0x762F;
 
-		/// <summary>
-		/// Value of WFD_PORT_PARTIAL_REFRESH_ENABLE symbol.
-		/// </summary>
 		public const int PORT_PARTIAL_REFRESH_ENABLE = 0x7630;
 
-		/// <summary>
-		/// Value of WFD_PORT_PARTIAL_REFRESH_RECTANGLE symbol.
-		/// </summary>
 		public const int PORT_PARTIAL_REFRESH_RECTANGLE = 0x7631;
 
-		/// <summary>
-		/// Value of WFD_PORT_PIPELINE_ID_COUNT symbol.
-		/// </summary>
 		public const int PORT_PIPELINE_ID_COUNT = 0x7632;
 
-		/// <summary>
-		/// Value of WFD_PORT_BINDABLE_PIPELINE_IDS symbol.
-		/// </summary>
 		public const int PORT_BINDABLE_PIPELINE_IDS = 0x7633;
 
-		/// <summary>
-		/// Value of WFD_PORT_PROTECTION_ENABLE symbol.
-		/// </summary>
 		public const int PORT_PROTECTION_ENABLE = 0x7634;
 
-		/// <summary>
-		/// Value of WFD_PORT_ATTRIB_FORCE_32BIT symbol.
-		/// </summary>
 		public const int PORT_ATTRIB_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_INTERNAL symbol.
-		/// </summary>
 		public const int PORT_TYPE_INTERNAL = 0x7660;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_COMPOSITE symbol.
-		/// </summary>
 		public const int PORT_TYPE_COMPOSITE = 0x7661;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_SVIDEO symbol.
-		/// </summary>
 		public const int PORT_TYPE_SVIDEO = 0x7662;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_COMPONENT_YPbPr symbol.
-		/// </summary>
 		public const int PORT_TYPE_COMPONENT_YPbPr = 0x7663;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_COMPONENT_RGB symbol.
-		/// </summary>
 		public const int PORT_TYPE_COMPONENT_RGB = 0x7664;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_COMPONENT_RGBHV symbol.
-		/// </summary>
 		public const int PORT_TYPE_COMPONENT_RGBHV = 0x7665;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_DVI symbol.
-		/// </summary>
 		public const int PORT_TYPE_DVI = 0x7666;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_HDMI symbol.
-		/// </summary>
 		public const int PORT_TYPE_HDMI = 0x7667;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_DISPLAYPORT symbol.
-		/// </summary>
 		public const int PORT_TYPE_DISPLAYPORT = 0x7668;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_OTHER symbol.
-		/// </summary>
 		public const int PORT_TYPE_OTHER = 0x7669;
 
-		/// <summary>
-		/// Value of WFD_PORT_TYPE_FORCE_32BIT symbol.
-		/// </summary>
 		public const int PORT_TYPE_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_POWER_MODE_OFF symbol.
-		/// </summary>
 		public const int POWER_MODE_OFF = 0x7680;
 
-		/// <summary>
-		/// Value of WFD_POWER_MODE_SUSPEND symbol.
-		/// </summary>
 		public const int POWER_MODE_SUSPEND = 0x7681;
 
-		/// <summary>
-		/// Value of WFD_POWER_MODE_LIMITED_USE symbol.
-		/// </summary>
 		public const int POWER_MODE_LIMITED_USE = 0x7682;
 
-		/// <summary>
-		/// Value of WFD_POWER_MODE_ON symbol.
-		/// </summary>
 		public const int POWER_MODE_ON = 0x7683;
 
-		/// <summary>
-		/// Value of WFD_POWER_MODE_FORCE_32BIT symbol.
-		/// </summary>
 		public const int POWER_MODE_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_PARTIAL_REFRESH_NONE symbol.
-		/// </summary>
 		public const int PARTIAL_REFRESH_NONE = 0x7690;
 
-		/// <summary>
-		/// Value of WFD_PARTIAL_REFRESH_VERTICAL symbol.
-		/// </summary>
 		public const int PARTIAL_REFRESH_VERTICAL = 0x7691;
 
-		/// <summary>
-		/// Value of WFD_PARTIAL_REFRESH_HORIZONTAL symbol.
-		/// </summary>
 		public const int PARTIAL_REFRESH_HORIZONTAL = 0x7692;
 
-		/// <summary>
-		/// Value of WFD_PARTIAL_REFRESH_BOTH symbol.
-		/// </summary>
 		public const int PARTIAL_REFRESH_BOTH = 0x7693;
 
-		/// <summary>
-		/// Value of WFD_PARTIAL_REFRESH_FORCE_32BIT symbol.
-		/// </summary>
 		public const int PARTIAL_REFRESH_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_DISPLAY_DATA_FORMAT_NONE symbol.
-		/// </summary>
 		public const int DISPLAY_DATA_FORMAT_NONE = 0x76A0;
 
-		/// <summary>
-		/// Value of WFD_DISPLAY_DATA_FORMAT_EDID_V1 symbol.
-		/// </summary>
 		public const int DISPLAY_DATA_FORMAT_EDID_V1 = 0x76A1;
 
-		/// <summary>
-		/// Value of WFD_DISPLAY_DATA_FORMAT_EDID_V2 symbol.
-		/// </summary>
 		public const int DISPLAY_DATA_FORMAT_EDID_V2 = 0x76A2;
 
-		/// <summary>
-		/// Value of WFD_DISPLAY_DATA_FORMAT_DISPLAYID symbol.
-		/// </summary>
 		public const int DISPLAY_DATA_FORMAT_DISPLAYID = 0x76A3;
 
-		/// <summary>
-		/// Value of WFD_DISPLAY_DATA_FORMAT_FORCE_32BIT symbol.
-		/// </summary>
 		public const int DISPLAY_DATA_FORMAT_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_ROTATION_SUPPORT_NONE symbol.
-		/// </summary>
 		public const int ROTATION_SUPPORT_NONE = 0x76D0;
 
-		/// <summary>
-		/// Value of WFD_ROTATION_SUPPORT_LIMITED symbol.
-		/// </summary>
 		public const int ROTATION_SUPPORT_LIMITED = 0x76D1;
 
-		/// <summary>
-		/// Value of WFD_ROTATION_SUPPORT_FORMAT_FORCE_32BIT symbol.
-		/// </summary>
 		public const int ROTATION_SUPPORT_FORMAT_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_ID symbol.
-		/// </summary>
 		public const int PIPELINE_ID = 0x7720;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_PORTID symbol.
-		/// </summary>
 		public const int PIPELINE_PORTID = 0x7721;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_LAYER symbol.
-		/// </summary>
 		public const int PIPELINE_LAYER = 0x7722;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_SHAREABLE symbol.
-		/// </summary>
 		public const int PIPELINE_SHAREABLE = 0x7723;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_DIRECT_REFRESH symbol.
-		/// </summary>
 		public const int PIPELINE_DIRECT_REFRESH = 0x7724;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_MAX_SOURCE_SIZE symbol.
-		/// </summary>
 		public const int PIPELINE_MAX_SOURCE_SIZE = 0x7725;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_SOURCE_RECTANGLE symbol.
-		/// </summary>
 		public const int PIPELINE_SOURCE_RECTANGLE = 0x7726;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_FLIP symbol.
-		/// </summary>
 		public const int PIPELINE_FLIP = 0x7727;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_MIRROR symbol.
-		/// </summary>
 		public const int PIPELINE_MIRROR = 0x7728;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_ROTATION_SUPPORT symbol.
-		/// </summary>
 		public const int PIPELINE_ROTATION_SUPPORT = 0x7729;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_ROTATION symbol.
-		/// </summary>
 		public const int PIPELINE_ROTATION = 0x772A;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_SCALE_RANGE symbol.
-		/// </summary>
 		public const int PIPELINE_SCALE_RANGE = 0x772B;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_SCALE_FILTER symbol.
-		/// </summary>
 		public const int PIPELINE_SCALE_FILTER = 0x772C;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_DESTINATION_RECTANGLE symbol.
-		/// </summary>
 		public const int PIPELINE_DESTINATION_RECTANGLE = 0x772D;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_TRANSPARENCY_ENABLE symbol.
-		/// </summary>
 		public const int PIPELINE_TRANSPARENCY_ENABLE = 0x772E;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_GLOBAL_ALPHA symbol.
-		/// </summary>
 		public const int PIPELINE_GLOBAL_ALPHA = 0x772F;
 
-		/// <summary>
-		/// Value of WFD_PIPELINE_ATTRIB_FORCE_32BIT symbol.
-		/// </summary>
 		public const int PIPELINE_ATTRIB_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_SCALE_FILTER_NONE symbol.
-		/// </summary>
 		public const int SCALE_FILTER_NONE = 0x7760;
 
-		/// <summary>
-		/// Value of WFD_SCALE_FILTER_FASTER symbol.
-		/// </summary>
 		public const int SCALE_FILTER_FASTER = 0x7761;
 
-		/// <summary>
-		/// Value of WFD_SCALE_FILTER_BETTER symbol.
-		/// </summary>
 		public const int SCALE_FILTER_BETTER = 0x7762;
 
-		/// <summary>
-		/// Value of WFD_SCALE_FILTER_FORCE_32BIT symbol.
-		/// </summary>
 		public const int SCALE_FILTER_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_TRANSPARENCY_NONE symbol.
-		/// </summary>
 		public const int TRANSPARENCY_NONE = 0;
 
-		/// <summary>
-		/// Value of WFD_TRANSPARENCY_SOURCE_COLOR symbol.
-		/// </summary>
 		public const int TRANSPARENCY_SOURCE_COLOR = (1 << 0);
 
-		/// <summary>
-		/// Value of WFD_TRANSPARENCY_GLOBAL_ALPHA symbol.
-		/// </summary>
 		public const int TRANSPARENCY_GLOBAL_ALPHA = (1 << 1);
 
-		/// <summary>
-		/// Value of WFD_TRANSPARENCY_SOURCE_ALPHA symbol.
-		/// </summary>
 		public const int TRANSPARENCY_SOURCE_ALPHA = (1 << 2);
 
-		/// <summary>
-		/// Value of WFD_TRANSPARENCY_MASK symbol.
-		/// </summary>
 		public const int TRANSPARENCY_MASK = (1 << 3);
 
-		/// <summary>
-		/// Value of WFD_TRANSPARENCY_FORCE_32BIT symbol.
-		/// </summary>
 		public const int TRANSPARENCY_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_TSC_FORMAT_UINT8_RGB_8_8_8_LINEAR symbol.
-		/// </summary>
 		public const int TSC_FORMAT_UINT8_RGB_8_8_8_LINEAR = 0x7790;
 
-		/// <summary>
-		/// Value of WFD_TSC_FORMAT_UINT8_RGB_5_6_5_LINEAR symbol.
-		/// </summary>
 		public const int TSC_FORMAT_UINT8_RGB_5_6_5_LINEAR = 0x7791;
 
-		/// <summary>
-		/// Value of WFD_TSC_FORMAT_FORCE_32BIT symbol.
-		/// </summary>
 		public const int TSC_FORMAT_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Value of WFD_TRANSITION_INVALID symbol.
-		/// </summary>
 		public const int TRANSITION_INVALID = 0x77E0;
 
-		/// <summary>
-		/// Value of WFD_TRANSITION_IMMEDIATE symbol.
-		/// </summary>
 		public const int TRANSITION_IMMEDIATE = 0x77E1;
 
-		/// <summary>
-		/// Value of WFD_TRANSITION_AT_VSYNC symbol.
-		/// </summary>
 		public const int TRANSITION_AT_VSYNC = 0x77E2;
 
-		/// <summary>
-		/// Value of WFD_TRANSITION_FORCE_32BIT symbol.
-		/// </summary>
 		public const int TRANSITION_FORCE_32BIT = 0x7FFFFFFF;
 
-		/// <summary>
-		/// Binding for wfdGetStrings.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="name">
-		/// A <see cref="T:WFDStringID"/>.
-		/// </param>
-		/// <param name="strings">
-		/// A <see cref="T:IntPtr[]"/>.
-		/// </param>
-		/// <param name="stringsCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static int GetStrings(UInt32 device, WFDStringID name, [Out] IntPtr[] strings, int stringsCount)
 		{
 			int retValue;
@@ -775,15 +331,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdIsExtensionSupported.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="string">
-		/// A <see cref="T:char[]"/>.
-		/// </param>
 		public static bool IsExtensionSupported(UInt32 device, [Out] char[] @string)
 		{
 			bool retValue;
@@ -801,12 +348,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetError.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static WFDErrorCode GetError(UInt32 device)
 		{
 			WFDErrorCode retValue;
@@ -819,18 +360,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdEnumerateDevices.
-		/// </summary>
-		/// <param name="deviceIds">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="deviceIdsCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="filterList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static int EnumerateDevices(int[] deviceIds, int deviceIdsCount, int[] filterList)
 		{
 			int retValue;
@@ -849,15 +378,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdCreateDevice.
-		/// </summary>
-		/// <param name="deviceId">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateDevice(int deviceId, int[] attribList)
 		{
 			UInt32 retValue;
@@ -875,12 +395,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDestroyDevice.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static WFDErrorCode DestroyDevice(UInt32 device)
 		{
 			WFDErrorCode retValue;
@@ -893,18 +407,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDeviceCommit.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="type">
-		/// A <see cref="T:WFDCommitType"/>.
-		/// </param>
-		/// <param name="handle">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DeviceCommit(UInt32 device, WFDCommitType type, UInt32 handle)
 		{
 			Debug.Assert(Delegates.pwfdDeviceCommit != null, "pwfdDeviceCommit not implemented");
@@ -913,15 +415,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetDeviceAttribi.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDDeviceAttrib"/>.
-		/// </param>
 		public static int GetDeviceAttrib(UInt32 device, WFDDeviceAttrib attrib)
 		{
 			int retValue;
@@ -934,18 +427,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetDeviceAttribi.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDDeviceAttrib"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static void SetDeviceAttrib(UInt32 device, WFDDeviceAttrib attrib, int value)
 		{
 			Debug.Assert(Delegates.pwfdSetDeviceAttribi != null, "pwfdSetDeviceAttribi not implemented");
@@ -954,15 +435,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdCreateEvent.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateEvent(UInt32 device, int[] attribList)
 		{
 			UInt32 retValue;
@@ -980,15 +452,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDestroyEvent.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="event">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DestroyEvent(UInt32 device, UInt32 @event)
 		{
 			Debug.Assert(Delegates.pwfdDestroyEvent != null, "pwfdDestroyEvent not implemented");
@@ -997,18 +460,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetEventAttribi.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="event">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDEventAttrib"/>.
-		/// </param>
 		public static int GetEventAttrib(UInt32 device, UInt32 @event, WFDEventAttrib attrib)
 		{
 			int retValue;
@@ -1021,21 +472,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDeviceEventAsync.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="event">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="display">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="sync">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
 		public static void DeviceEventAsync(UInt32 device, UInt32 @event, IntPtr display, IntPtr sync)
 		{
 			Debug.Assert(Delegates.pwfdDeviceEventAsync != null, "pwfdDeviceEventAsync not implemented");
@@ -1044,18 +480,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdDeviceEventWait.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="event">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="timeout">
-		/// A <see cref="T:ulong"/>.
-		/// </param>
 		public static WFDEventType DeviceEventWait(UInt32 device, UInt32 @event, ulong timeout)
 		{
 			WFDEventType retValue;
@@ -1068,18 +492,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDeviceEventFilter.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="event">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="filter">
-		/// A <see cref="T:WFDEventType[]"/>.
-		/// </param>
 		public static void DeviceEventFilter(UInt32 device, UInt32 @event, WFDEventType[] filter)
 		{
 			unsafe {
@@ -1093,21 +505,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdEnumeratePorts.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="portIds">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="portIdsCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="filterList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static int EnumeratePorts(UInt32 device, int[] portIds, int portIdsCount, int[] filterList)
 		{
 			int retValue;
@@ -1126,18 +523,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdCreatePort.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="portId">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreatePort(UInt32 device, int portId, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1155,15 +540,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDestroyPort.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DestroyPort(UInt32 device, UInt32 port)
 		{
 			Debug.Assert(Delegates.pwfdDestroyPort != null, "pwfdDestroyPort not implemented");
@@ -1172,21 +548,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPortModes.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="modes">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="modesCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static int GetPortModes(UInt32 device, UInt32 port, [Out] UInt32[] modes, int modesCount)
 		{
 			int retValue;
@@ -1204,21 +565,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPortModeAttribi.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="mode">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortModeAttrib"/>.
-		/// </param>
 		public static int GetPortModeAttrib(UInt32 device, UInt32 port, UInt32 mode, WFDPortModeAttrib attrib)
 		{
 			int retValue;
@@ -1231,21 +577,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPortModeAttribf.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="mode">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortModeAttrib"/>.
-		/// </param>
 		public static float GetPortModeAttrib(UInt32 device, UInt32 port, UInt32 mode, WFDPortModeAttrib attrib)
 		{
 			float retValue;
@@ -1258,18 +589,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPortMode.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="mode">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void SetPortMode(UInt32 device, UInt32 port, UInt32 mode)
 		{
 			Debug.Assert(Delegates.pwfdSetPortMode != null, "pwfdSetPortMode not implemented");
@@ -1278,15 +597,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetCurrentPortMode.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static UInt32 GetCurrentPortMode(UInt32 device, UInt32 port)
 		{
 			UInt32 retValue;
@@ -1299,18 +609,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPortAttribi.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortConfigAttrib"/>.
-		/// </param>
 		public static int GetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib)
 		{
 			int retValue;
@@ -1323,18 +621,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPortAttribf.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortConfigAttrib"/>.
-		/// </param>
 		public static float GetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib)
 		{
 			float retValue;
@@ -1347,24 +633,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPortAttribiv.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortConfigAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static void GetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, [Out] int[] value)
 		{
 			unsafe {
@@ -1378,24 +646,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPortAttribfv.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortConfigAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
 		public static void GetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, [Out] float[] value)
 		{
 			unsafe {
@@ -1409,21 +659,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPortAttribi.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortConfigAttrib"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static void SetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int value)
 		{
 			Debug.Assert(Delegates.pwfdSetPortAttribi != null, "pwfdSetPortAttribi not implemented");
@@ -1432,21 +667,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPortAttribf.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortConfigAttrib"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:float"/>.
-		/// </param>
 		public static void SetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, float value)
 		{
 			Debug.Assert(Delegates.pwfdSetPortAttribf != null, "pwfdSetPortAttribf not implemented");
@@ -1455,24 +675,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPortAttribiv.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortConfigAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static void SetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, int[] value)
 		{
 			unsafe {
@@ -1486,24 +688,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPortAttribfv.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPortConfigAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
 		public static void SetPortAttrib(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, float[] value)
 		{
 			unsafe {
@@ -1517,18 +701,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdBindPipelineToPort.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void BindPipelineToPort(UInt32 device, UInt32 port, UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pwfdBindPipelineToPort != null, "pwfdBindPipelineToPort not implemented");
@@ -1537,21 +709,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetDisplayDataFormats.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:WFDDisplayDataFormat[]"/>.
-		/// </param>
-		/// <param name="formatCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static int GetDisplayDataFormat(UInt32 device, UInt32 port, [Out] WFDDisplayDataFormat[] format, int formatCount)
 		{
 			int retValue;
@@ -1569,24 +726,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetDisplayData.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="format">
-		/// A <see cref="T:WFDDisplayDataFormat"/>.
-		/// </param>
-		/// <param name="data">
-		/// A <see cref="T:byte[]"/>.
-		/// </param>
-		/// <param name="dataCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static int GetDisplayData(UInt32 device, UInt32 port, WFDDisplayDataFormat format, [Out] byte[] data, int dataCount)
 		{
 			int retValue;
@@ -1604,21 +743,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdEnumeratePipelines.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipelineIds">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
-		/// <param name="pipelineIdsCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="filterList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static int EnumeratePipelines(UInt32 device, int[] pipelineIds, int pipelineIdsCount, int[] filterList)
 		{
 			int retValue;
@@ -1637,18 +761,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdCreatePipeline.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipelineId">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreatePipeline(UInt32 device, int pipelineId, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1666,15 +778,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDestroyPipeline.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DestroyPipeline(UInt32 device, UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pwfdDestroyPipeline != null, "pwfdDestroyPipeline not implemented");
@@ -1683,21 +786,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdCreateSourceFromImage.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateSourceFromImage(UInt32 device, UInt32 pipeline, IntPtr image, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1715,21 +803,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdCreateSourceFromStream.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="stream">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateSourceFromStream(UInt32 device, UInt32 pipeline, UInt32 stream, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1747,15 +820,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDestroySource.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="source">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DestroySource(UInt32 device, UInt32 source)
 		{
 			Debug.Assert(Delegates.pwfdDestroySource != null, "pwfdDestroySource not implemented");
@@ -1764,21 +828,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdCreateMaskFromImage.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateMaskFromImage(UInt32 device, UInt32 pipeline, IntPtr image, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1796,21 +845,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdCreateMaskFromStream.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="stream">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attribList">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static UInt32 CreateMaskFromStream(UInt32 device, UInt32 pipeline, UInt32 stream, int[] attribList)
 		{
 			UInt32 retValue;
@@ -1828,15 +862,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdDestroyMask.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static void DestroyMask(UInt32 device, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pwfdDestroyMask != null, "pwfdDestroyMask not implemented");
@@ -1845,24 +870,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdBindSourceToPipeline.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="source">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="transition">
-		/// A <see cref="T:WFDTransition"/>.
-		/// </param>
-		/// <param name="region">
-		/// A <see cref="T:WFDRect[]"/>.
-		/// </param>
 		public static void BindSourceToPipeline(UInt32 device, UInt32 pipeline, UInt32 source, WFDTransition transition, WFDRect[] region)
 		{
 			unsafe {
@@ -1876,21 +883,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdBindMaskToPipeline.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="transition">
-		/// A <see cref="T:WFDTransition"/>.
-		/// </param>
 		public static void BindMaskToPipeline(UInt32 device, UInt32 pipeline, UInt32 mask, WFDTransition transition)
 		{
 			Debug.Assert(Delegates.pwfdBindMaskToPipeline != null, "pwfdBindMaskToPipeline not implemented");
@@ -1899,18 +891,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPipelineAttribi.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
-		/// </param>
 		public static int GetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib)
 		{
 			int retValue;
@@ -1923,18 +903,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPipelineAttribf.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
-		/// </param>
 		public static float GetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib)
 		{
 			float retValue;
@@ -1947,24 +915,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPipelineAttribiv.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static void GetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, [Out] int[] value)
 		{
 			unsafe {
@@ -1978,24 +928,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPipelineAttribfv.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
 		public static void GetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, [Out] float[] value)
 		{
 			unsafe {
@@ -2009,21 +941,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPipelineAttribi.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static void SetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int value)
 		{
 			Debug.Assert(Delegates.pwfdSetPipelineAttribi != null, "pwfdSetPipelineAttribi not implemented");
@@ -2032,21 +949,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPipelineAttribf.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:float"/>.
-		/// </param>
 		public static void SetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, float value)
 		{
 			Debug.Assert(Delegates.pwfdSetPipelineAttribf != null, "pwfdSetPipelineAttribf not implemented");
@@ -2055,24 +957,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPipelineAttribiv.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:int[]"/>.
-		/// </param>
 		public static void SetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, int[] value)
 		{
 			unsafe {
@@ -2086,24 +970,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPipelineAttribfv.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="attrib">
-		/// A <see cref="T:WFDPipelineConfigAttrib"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="value">
-		/// A <see cref="T:float[]"/>.
-		/// </param>
 		public static void SetPipelineAttrib(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, float[] value)
 		{
 			unsafe {
@@ -2117,21 +983,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPipelineTransparency.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="trans">
-		/// A <see cref="T:UInt32[]"/>.
-		/// </param>
-		/// <param name="transCount">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		public static int GetPipelineTransparency(UInt32 device, UInt32 pipeline, [Out] UInt32[] trans, int transCount)
 		{
 			int retValue;
@@ -2149,24 +1000,6 @@ namespace OpenWF
 			return (retValue);
 		}
 
-		/// <summary>
-		/// Binding for wfdSetPipelineTSColor.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="colorFormat">
-		/// A <see cref="T:WFDTSColorFormat"/>.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:int"/>.
-		/// </param>
-		/// <param name="color">
-		/// A <see cref="T:IntPtr"/>.
-		/// </param>
 		public static void SetPipelineTSColor(UInt32 device, UInt32 pipeline, WFDTSColorFormat colorFormat, int count, IntPtr color)
 		{
 			unsafe {
@@ -2179,18 +1012,6 @@ namespace OpenWF
 			DebugCheckErrors(null);
 		}
 
-		/// <summary>
-		/// Binding for wfdGetPipelineLayerOrder.
-		/// </summary>
-		/// <param name="device">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="port">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
-		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
-		/// </param>
 		public static int GetPipelineLayerOrder(UInt32 device, UInt32 port, UInt32 pipeline)
 		{
 			int retValue;

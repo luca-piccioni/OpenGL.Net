@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NATIVE_BUFFER_TIZEN symbol.
+		/// [EGL] Value of EGL_NATIVE_BUFFER_TIZEN symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_TIZEN_image_native_buffer")]
 		public const int NATIVE_BUFFER_TIZEN = 0x32A0;

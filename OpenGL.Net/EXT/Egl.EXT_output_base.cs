@@ -29,31 +29,31 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NO_OUTPUT_LAYER_EXT symbol.
+		/// [EGL] Value of EGL_NO_OUTPUT_LAYER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_output_base")]
 		public const int NO_OUTPUT_LAYER_EXT = 0;
 
 		/// <summary>
-		/// Value of EGL_NO_OUTPUT_PORT_EXT symbol.
+		/// [EGL] Value of EGL_NO_OUTPUT_PORT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_output_base")]
 		public const int NO_OUTPUT_PORT_EXT = 0;
 
 		/// <summary>
-		/// Value of EGL_BAD_OUTPUT_LAYER_EXT symbol.
+		/// [EGL] Value of EGL_BAD_OUTPUT_LAYER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_output_base")]
 		public const int BAD_OUTPUT_LAYER_EXT = 0x322D;
 
 		/// <summary>
-		/// Value of EGL_BAD_OUTPUT_PORT_EXT symbol.
+		/// [EGL] Value of EGL_BAD_OUTPUT_PORT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_output_base")]
 		public const int BAD_OUTPUT_PORT_EXT = 0x322E;
 
 		/// <summary>
-		/// Value of EGL_SWAP_INTERVAL_EXT symbol.
+		/// [EGL] Value of EGL_SWAP_INTERVAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_output_base")]
 		public const int SWAP_INTERVAL_EXT = 0x322F;

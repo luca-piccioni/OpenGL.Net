@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONTEXT_PRIORITY_LEVEL_IMG symbol.
+		/// [EGL] Value of EGL_CONTEXT_PRIORITY_LEVEL_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_IMG_context_priority")]
 		public const int CONTEXT_PRIORITY_LEVEL_IMG = 0x3100;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_PRIORITY_HIGH_IMG symbol.
+		/// [EGL] Value of EGL_CONTEXT_PRIORITY_HIGH_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_IMG_context_priority")]
 		public const int CONTEXT_PRIORITY_HIGH_IMG = 0x3101;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_PRIORITY_MEDIUM_IMG symbol.
+		/// [EGL] Value of EGL_CONTEXT_PRIORITY_MEDIUM_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_IMG_context_priority")]
 		public const int CONTEXT_PRIORITY_MEDIUM_IMG = 0x3102;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_PRIORITY_LOW_IMG symbol.
+		/// [EGL] Value of EGL_CONTEXT_PRIORITY_LOW_IMG symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_IMG_context_priority")]
 		public const int CONTEXT_PRIORITY_LOW_IMG = 0x3103;

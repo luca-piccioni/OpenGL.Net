@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_SUPPORT_RESET_NV symbol.
+		/// [EGL] Value of EGL_SUPPORT_RESET_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_reset")]
 		public const int SUPPORT_RESET_NV = 0x3334;
 
 		/// <summary>
-		/// Value of EGL_SUPPORT_REUSE_NV symbol.
+		/// [EGL] Value of EGL_SUPPORT_REUSE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_reset")]
 		public const int SUPPORT_REUSE_NV = 0x3335;

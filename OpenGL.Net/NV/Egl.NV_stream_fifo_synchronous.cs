@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_STREAM_FIFO_SYNCHRONOUS_NV symbol.
+		/// [EGL] Value of EGL_STREAM_FIFO_SYNCHRONOUS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_fifo_synchronous")]
 		public const int STREAM_FIFO_SYNCHRONOUS_NV = 0x3336;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_CONTEXT_ES_PROFILE_BIT_EXT symbol.
+		/// [WGL] Value of WGL_CONTEXT_ES_PROFILE_BIT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_create_context_es_profile")]
 		[Log(BitmaskName = "WGLContextProfileMask")]

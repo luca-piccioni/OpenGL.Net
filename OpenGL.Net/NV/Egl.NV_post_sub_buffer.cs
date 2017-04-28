@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_POST_SUB_BUFFER_SUPPORTED_NV symbol.
+		/// [EGL] Value of EGL_POST_SUB_BUFFER_SUPPORTED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_post_sub_buffer")]
 		public const int POST_SUB_BUFFER_SUPPORTED_NV = 0x30BE;

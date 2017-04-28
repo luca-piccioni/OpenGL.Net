@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_PROTECTED_CONTENT_EXT symbol.
+		/// [EGL] Value of EGL_PROTECTED_CONTENT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_protected_content")]
 		[RequiredByFeature("EGL_EXT_protected_surface")]

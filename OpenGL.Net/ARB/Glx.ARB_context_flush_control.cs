@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_CONTEXT_RELEASE_BEHAVIOR_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_RELEASE_BEHAVIOR_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_context_flush_control")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_ARB = 0x2097;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_RELEASE_BEHAVIOR_NONE_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_RELEASE_BEHAVIOR_NONE_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_context_flush_control")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_NONE_ARB = 0;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_RELEASE_BEHAVIOR_FLUSH_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_RELEASE_BEHAVIOR_FLUSH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_context_flush_control")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_FLUSH_ARB = 0x2098;

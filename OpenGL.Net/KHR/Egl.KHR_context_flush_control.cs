@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONTEXT_RELEASE_BEHAVIOR_NONE_KHR symbol.
+		/// [EGL] Value of EGL_CONTEXT_RELEASE_BEHAVIOR_NONE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_context_flush_control")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_NONE_KHR = 0;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_RELEASE_BEHAVIOR_KHR symbol.
+		/// [EGL] Value of EGL_CONTEXT_RELEASE_BEHAVIOR_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_context_flush_control")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_KHR = 0x2097;
 
 		/// <summary>
-		/// Value of EGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR symbol.
+		/// [EGL] Value of EGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_context_flush_control")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR = 0x2098;

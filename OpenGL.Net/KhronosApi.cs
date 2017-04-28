@@ -814,6 +814,26 @@ namespace OpenGL
 		public static event EventHandler<KhronosLogEventArgs> Log;
 
 		/// <summary>
+		/// Utility route for raising <see cref="Log"/> event.
+		/// </summary>
+		/// <param name="args">
+		/// The <see cref="KhronosLogEventArgs"/> passed to the event handlers.
+		/// </param>
+		protected static void RaiseLog(KhronosLogEventArgs args)
+		{
+			if (args == null)
+				throw new ArgumentNullException("args");
+
+			if (_ProcLogEnabled && Log != null) {
+				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
+					try {
+						eventHandler(null, args);
+					} catch { /* Fail-safe */ }
+				}
+			}
+		}
+
+		/// <summary>
 		/// Load an API command call.
 		/// </summary>
 		/// <param name="name">
@@ -826,16 +846,9 @@ namespace OpenGL
 		/// A <see cref="T:Object[]"/> that specifies the API command arguments, if any.
 		/// </param>
 		[Conditional("GL_DEBUG")]
-		protected internal static void LogCommand(string name, object returnValue, params object[] args)
+		public static void LogCommand(string name, object returnValue, params object[] args)
 		{
-			if (_ProcLogEnabled && Log != null) {
-				KhronosLogEventArgs e = new KhronosLogEventArgs(_LogContext, name, args, returnValue);
-				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
-					try {
-						eventHandler(null, e);
-					} catch { /* Fail-safe */ }
-				}
-			}
+			RaiseLog(new KhronosLogEventArgs(null, name, args, returnValue));
 		}
 
 		/// <summary>
@@ -852,7 +865,7 @@ namespace OpenGL
 		public static void LogComment(string format, params object[] args)
 		{
 			if (_ProcLogEnabled && Log != null) {
-				KhronosLogEventArgs e = new KhronosLogEventArgs(_LogContext, format, args);
+				KhronosLogEventArgs e = new KhronosLogEventArgs(format, args);
 				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
 					try {
 						eventHandler(null, e);
@@ -870,11 +883,6 @@ namespace OpenGL
 		/// Flag used for enabling/disabling procedure logging.
 		/// </summary>
 		protected static bool _ProcLogEnabled;
-
-		/// <summary>
-		/// The logging context.
-		/// </summary>
-		private static KhronosLogContext _LogContext;
 
 		#endregion
 	}

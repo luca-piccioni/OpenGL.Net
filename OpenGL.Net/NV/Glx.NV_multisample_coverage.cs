@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_COVERAGE_SAMPLES_NV symbol.
+		/// [GLX] Value of GLX_COVERAGE_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_multisample_coverage")]
 		public const int COVERAGE_SAMPLES_NV = 100001;
 
 		/// <summary>
-		/// Value of GLX_COLOR_SAMPLES_NV symbol.
+		/// [GLX] Value of GLX_COLOR_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_multisample_coverage")]
 		public const int COLOR_SAMPLES_NV = 0x20B3;

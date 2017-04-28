@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_RECORDABLE_ANDROID symbol.
+		/// [EGL] Value of EGL_RECORDABLE_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_recordable")]
 		public const int RECORDABLE_ANDROID = 0x3142;

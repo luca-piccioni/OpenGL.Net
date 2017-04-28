@@ -29,25 +29,25 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_STREAM_FIFO_LENGTH_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_FIFO_LENGTH_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream_fifo")]
 		public const int STREAM_FIFO_LENGTH_KHR = 0x31FC;
 
 		/// <summary>
-		/// Value of EGL_STREAM_TIME_NOW_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_TIME_NOW_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream_fifo")]
 		public const int STREAM_TIME_NOW_KHR = 0x31FD;
 
 		/// <summary>
-		/// Value of EGL_STREAM_TIME_CONSUMER_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_TIME_CONSUMER_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream_fifo")]
 		public const int STREAM_TIME_CONSUMER_KHR = 0x31FE;
 
 		/// <summary>
-		/// Value of EGL_STREAM_TIME_PRODUCER_KHR symbol.
+		/// [EGL] Value of EGL_STREAM_TIME_PRODUCER_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream_fifo")]
 		public const int STREAM_TIME_PRODUCER_KHR = 0x31FF;

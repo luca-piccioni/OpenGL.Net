@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_LATE_SWAPS_TEAR_EXT symbol.
+		/// [GLX] Value of GLX_LATE_SWAPS_TEAR_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_swap_control_tear")]
 		public const int LATE_SWAPS_TEAR_EXT = 0x20F3;

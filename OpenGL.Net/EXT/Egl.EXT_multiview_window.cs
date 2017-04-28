@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_MULTIVIEW_VIEW_COUNT_EXT symbol.
+		/// [EGL] Value of EGL_MULTIVIEW_VIEW_COUNT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_multiview_window")]
 		public const int MULTIVIEW_VIEW_COUNT_EXT = 0x3134;

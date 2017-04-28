@@ -29,21 +29,21 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_CONTEXT_CORE_PROFILE_BIT_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_CORE_PROFILE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context_profile")]
 		[Log(BitmaskName = "GLXContextProfileMask")]
 		public const uint CONTEXT_CORE_PROFILE_BIT_ARB = 0x00000001;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context_profile")]
 		[Log(BitmaskName = "GLXContextProfileMask")]
 		public const uint CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x00000002;
 
 		/// <summary>
-		/// Value of GLX_CONTEXT_PROFILE_MASK_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_PROFILE_MASK_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_create_context_profile")]
 		public const int CONTEXT_PROFILE_MASK_ARB = 0x9126;

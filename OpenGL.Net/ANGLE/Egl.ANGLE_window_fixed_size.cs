@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_FIXED_SIZE_ANGLE symbol.
+		/// [EGL] Value of EGL_FIXED_SIZE_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANGLE_window_fixed_size")]
 		public const int FIXED_SIZE_ANGLE = 0x3201;

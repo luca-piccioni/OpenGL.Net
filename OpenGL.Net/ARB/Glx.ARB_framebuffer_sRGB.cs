@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_FRAMEBUFFER_SRGB_CAPABLE_ARB symbol.
+		/// [GLX] Value of GLX_FRAMEBUFFER_SRGB_CAPABLE_ARB symbol.
 		/// </summary>
 		[AliasOf("GLX_FRAMEBUFFER_SRGB_CAPABLE_EXT")]
 		[RequiredByFeature("GLX_ARB_framebuffer_sRGB")]

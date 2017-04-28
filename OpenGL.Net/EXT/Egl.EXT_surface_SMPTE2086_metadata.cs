@@ -29,61 +29,61 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_SMPTE2086_DISPLAY_PRIMARY_RX_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_DISPLAY_PRIMARY_RX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_DISPLAY_PRIMARY_RX_EXT = 0x3341;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_DISPLAY_PRIMARY_RY_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_DISPLAY_PRIMARY_RY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_DISPLAY_PRIMARY_RY_EXT = 0x3342;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_DISPLAY_PRIMARY_GX_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_DISPLAY_PRIMARY_GX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_DISPLAY_PRIMARY_GX_EXT = 0x3343;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_DISPLAY_PRIMARY_GY_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_DISPLAY_PRIMARY_GY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_DISPLAY_PRIMARY_GY_EXT = 0x3344;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_DISPLAY_PRIMARY_BX_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_DISPLAY_PRIMARY_BX_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_DISPLAY_PRIMARY_BX_EXT = 0x3345;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_DISPLAY_PRIMARY_BY_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_DISPLAY_PRIMARY_BY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_DISPLAY_PRIMARY_BY_EXT = 0x3346;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_WHITE_POINT_X_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_WHITE_POINT_X_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_WHITE_POINT_X_EXT = 0x3347;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_WHITE_POINT_Y_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_WHITE_POINT_Y_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_WHITE_POINT_Y_EXT = 0x3348;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_MAX_LUMINANCE_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_MAX_LUMINANCE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_MAX_LUMINANCE_EXT = 0x3349;
 
 		/// <summary>
-		/// Value of EGL_SMPTE2086_MIN_LUMINANCE_EXT symbol.
+		/// [EGL] Value of EGL_SMPTE2086_MIN_LUMINANCE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_surface_SMPTE2086_metadata")]
 		public const int SMPTE2086_MIN_LUMINANCE_EXT = 0x334A;

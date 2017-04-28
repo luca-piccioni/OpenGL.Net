@@ -29,49 +29,49 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_STREAM_STATE_INITIALIZING_NV symbol.
+		/// [EGL] Value of EGL_STREAM_STATE_INITIALIZING_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_remote")]
 		public const int STREAM_STATE_INITIALIZING_NV = 0x3240;
 
 		/// <summary>
-		/// Value of EGL_STREAM_TYPE_NV symbol.
+		/// [EGL] Value of EGL_STREAM_TYPE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_remote")]
 		public const int STREAM_TYPE_NV = 0x3241;
 
 		/// <summary>
-		/// Value of EGL_STREAM_PROTOCOL_NV symbol.
+		/// [EGL] Value of EGL_STREAM_PROTOCOL_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_remote")]
 		public const int STREAM_PROTOCOL_NV = 0x3242;
 
 		/// <summary>
-		/// Value of EGL_STREAM_ENDPOINT_NV symbol.
+		/// [EGL] Value of EGL_STREAM_ENDPOINT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_remote")]
 		public const int STREAM_ENDPOINT_NV = 0x3243;
 
 		/// <summary>
-		/// Value of EGL_STREAM_LOCAL_NV symbol.
+		/// [EGL] Value of EGL_STREAM_LOCAL_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_remote")]
 		public const int STREAM_LOCAL_NV = 0x3244;
 
 		/// <summary>
-		/// Value of EGL_STREAM_PRODUCER_NV symbol.
+		/// [EGL] Value of EGL_STREAM_PRODUCER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_remote")]
 		public const int STREAM_PRODUCER_NV = 0x3247;
 
 		/// <summary>
-		/// Value of EGL_STREAM_CONSUMER_NV symbol.
+		/// [EGL] Value of EGL_STREAM_CONSUMER_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_remote")]
 		public const int STREAM_CONSUMER_NV = 0x3248;
 
 		/// <summary>
-		/// Value of EGL_STREAM_PROTOCOL_FD_NV symbol.
+		/// [EGL] Value of EGL_STREAM_PROTOCOL_FD_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_remote")]
 		public const int STREAM_PROTOCOL_FD_NV = 0x3246;

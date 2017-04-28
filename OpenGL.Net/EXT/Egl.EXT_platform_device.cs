@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_PLATFORM_DEVICE_EXT symbol.
+		/// [EGL] Value of EGL_PLATFORM_DEVICE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_platform_device")]
 		public const int PLATFORM_DEVICE_EXT = 0x313F;

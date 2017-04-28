@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_COLOR_COMPONENT_TYPE_EXT symbol.
+		/// [EGL] Value of EGL_COLOR_COMPONENT_TYPE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_pixel_format_float")]
 		public const int COLOR_COMPONENT_TYPE_EXT = 0x3339;
 
 		/// <summary>
-		/// Value of EGL_COLOR_COMPONENT_TYPE_FIXED_EXT symbol.
+		/// [EGL] Value of EGL_COLOR_COMPONENT_TYPE_FIXED_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_pixel_format_float")]
 		public const int COLOR_COMPONENT_TYPE_FIXED_EXT = 0x333A;
 
 		/// <summary>
-		/// Value of EGL_COLOR_COMPONENT_TYPE_FLOAT_EXT symbol.
+		/// [EGL] Value of EGL_COLOR_COMPONENT_TYPE_FLOAT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_pixel_format_float")]
 		public const int COLOR_COMPONENT_TYPE_FLOAT_EXT = 0x333B;

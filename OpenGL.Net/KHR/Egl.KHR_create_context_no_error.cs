@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CONTEXT_OPENGL_NO_ERROR_KHR symbol.
+		/// [EGL] Value of EGL_CONTEXT_OPENGL_NO_ERROR_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_create_context_no_error")]
 		public const int CONTEXT_OPENGL_NO_ERROR_KHR = 0x31B3;

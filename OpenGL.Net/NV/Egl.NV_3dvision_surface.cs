@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_AUTO_STEREO_NV symbol.
+		/// [EGL] Value of EGL_AUTO_STEREO_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_3dvision_surface")]
 		public const int AUTO_STEREO_NV = 0x3136;

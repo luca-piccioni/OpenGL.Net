@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_NUM_VIDEO_SLOTS_NV symbol.
+		/// [GLX] Value of GLX_NUM_VIDEO_SLOTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_present_video")]
 		public const int NUM_VIDEO_SLOTS_NV = 0x20F0;

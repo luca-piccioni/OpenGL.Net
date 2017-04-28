@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_MUTABLE_RENDER_BUFFER_BIT_KHR symbol.
+		/// [EGL] Value of EGL_MUTABLE_RENDER_BUFFER_BIT_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_mutable_render_buffer")]
 		[Log(BitmaskName = "EGLSurfaceTypeMask")]

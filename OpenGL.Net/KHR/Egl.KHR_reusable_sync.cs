@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_SYNC_REUSABLE_KHR symbol.
+		/// [EGL] Value of EGL_SYNC_REUSABLE_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_reusable_sync")]
 		public const int SYNC_REUSABLE_KHR = 0x30FA;

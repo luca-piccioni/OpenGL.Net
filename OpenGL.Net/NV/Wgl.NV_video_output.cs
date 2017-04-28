@@ -29,79 +29,79 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_BIND_TO_VIDEO_RGB_NV symbol.
+		/// [WGL] Value of WGL_BIND_TO_VIDEO_RGB_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int BIND_TO_VIDEO_RGB_NV = 0x20C0;
 
 		/// <summary>
-		/// Value of WGL_BIND_TO_VIDEO_RGBA_NV symbol.
+		/// [WGL] Value of WGL_BIND_TO_VIDEO_RGBA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int BIND_TO_VIDEO_RGBA_NV = 0x20C1;
 
 		/// <summary>
-		/// Value of WGL_BIND_TO_VIDEO_RGB_AND_DEPTH_NV symbol.
+		/// [WGL] Value of WGL_BIND_TO_VIDEO_RGB_AND_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int BIND_TO_VIDEO_RGB_AND_DEPTH_NV = 0x20C2;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_COLOR_NV symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_COLOR_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_COLOR_NV = 0x20C3;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_ALPHA_NV symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_ALPHA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_ALPHA_NV = 0x20C4;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_DEPTH_NV symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_DEPTH_NV = 0x20C5;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_COLOR_AND_ALPHA_NV symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_COLOR_AND_ALPHA_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_COLOR_AND_ALPHA_NV = 0x20C6;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_COLOR_AND_DEPTH_NV symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_COLOR_AND_DEPTH_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_COLOR_AND_DEPTH_NV = 0x20C7;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_FRAME symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_FRAME symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_FRAME = 0x20C8;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_FIELD_1 symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_FIELD_1 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_FIELD_1 = 0x20C9;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_FIELD_2 symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_FIELD_2 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_FIELD_2 = 0x20CA;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_STACKED_FIELDS_1_2 symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_STACKED_FIELDS_1_2 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_STACKED_FIELDS_1_2 = 0x20CB;
 
 		/// <summary>
-		/// Value of WGL_VIDEO_OUT_STACKED_FIELDS_2_1 symbol.
+		/// [WGL] Value of WGL_VIDEO_OUT_STACKED_FIELDS_2_1 symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_output")]
 		public const int VIDEO_OUT_STACKED_FIELDS_2_1 = 0x20CC;

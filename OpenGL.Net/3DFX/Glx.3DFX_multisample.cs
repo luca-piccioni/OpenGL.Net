@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_SAMPLE_BUFFERS_3DFX symbol.
+		/// [GLX] Value of GLX_SAMPLE_BUFFERS_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_3DFX_multisample")]
 		public const int SAMPLE_BUFFERS_3DFX = 0x8050;
 
 		/// <summary>
-		/// Value of GLX_SAMPLES_3DFX symbol.
+		/// [GLX] Value of GLX_SAMPLES_3DFX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_3DFX_multisample")]
 		public const int SAMPLES_3DFX = 0x8051;

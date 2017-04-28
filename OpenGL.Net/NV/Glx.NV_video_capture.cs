@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_DEVICE_ID_NV symbol.
+		/// [GLX] Value of GLX_DEVICE_ID_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_capture")]
 		public const int DEVICE_ID_NV = 0x20CD;
 
 		/// <summary>
-		/// Value of GLX_UNIQUE_ID_NV symbol.
+		/// [GLX] Value of GLX_UNIQUE_ID_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_capture")]
 		public const int UNIQUE_ID_NV = 0x20CE;
 
 		/// <summary>
-		/// Value of GLX_NUM_VIDEO_CAPTURE_SLOTS_NV symbol.
+		/// [GLX] Value of GLX_NUM_VIDEO_CAPTURE_SLOTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_NV_video_capture")]
 		public const int NUM_VIDEO_CAPTURE_SLOTS_NV = 0x20CF;

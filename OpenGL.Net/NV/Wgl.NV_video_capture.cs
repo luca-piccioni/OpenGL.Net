@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_UNIQUE_ID_NV symbol.
+		/// [WGL] Value of WGL_UNIQUE_ID_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_capture")]
 		public const int UNIQUE_ID_NV = 0x20CE;
 
 		/// <summary>
-		/// Value of WGL_NUM_VIDEO_CAPTURE_SLOTS_NV symbol.
+		/// [WGL] Value of WGL_NUM_VIDEO_CAPTURE_SLOTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_video_capture")]
 		public const int NUM_VIDEO_CAPTURE_SLOTS_NV = 0x20CF;

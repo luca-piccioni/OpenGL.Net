@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_CUDA_DEVICE_NV symbol.
+		/// [EGL] Value of EGL_CUDA_DEVICE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_device_cuda")]
 		public const int CUDA_DEVICE_NV = 0x323A;

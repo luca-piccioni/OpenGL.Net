@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_GL_COLORSPACE_BT2020_PQ_EXT symbol.
+		/// [EGL] Value of EGL_GL_COLORSPACE_BT2020_PQ_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_gl_colorspace_bt2020_pq")]
 		public const int GL_COLORSPACE_BT2020_PQ_EXT = 0x3340;

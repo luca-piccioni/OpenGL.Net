@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_COVERAGE_BUFFERS_NV symbol.
+		/// [EGL] Value of EGL_COVERAGE_BUFFERS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_coverage_sample")]
 		public const int COVERAGE_BUFFERS_NV = 0x30E0;
 
 		/// <summary>
-		/// Value of EGL_COVERAGE_SAMPLES_NV symbol.
+		/// [EGL] Value of EGL_COVERAGE_SAMPLES_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_coverage_sample")]
 		public const int COVERAGE_SAMPLES_NV = 0x30E1;

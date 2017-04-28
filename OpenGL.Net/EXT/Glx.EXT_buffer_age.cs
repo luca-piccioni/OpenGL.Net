@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_BACK_BUFFER_AGE_EXT symbol.
+		/// [GLX] Value of GLX_BACK_BUFFER_AGE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_buffer_age")]
 		public const int BACK_BUFFER_AGE_EXT = 0x20F4;

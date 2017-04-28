@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_WINDOW_BIT symbol.
+		/// [GLX] Value of GLX_WINDOW_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_WINDOW_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -38,7 +38,7 @@ namespace OpenGL
 		public const uint WINDOW_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GLX_PIXMAP_BIT symbol.
+		/// [GLX] Value of GLX_PIXMAP_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_PIXMAP_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -47,7 +47,7 @@ namespace OpenGL
 		public const uint PIXMAP_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of GLX_PBUFFER_BIT symbol.
+		/// [GLX] Value of GLX_PBUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_PBUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -56,7 +56,7 @@ namespace OpenGL
 		public const uint PBUFFER_BIT = 0x00000004;
 
 		/// <summary>
-		/// Value of GLX_RGBA_BIT symbol.
+		/// [GLX] Value of GLX_RGBA_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_RGBA_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -65,7 +65,7 @@ namespace OpenGL
 		public const uint RGBA_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GLX_COLOR_INDEX_BIT symbol.
+		/// [GLX] Value of GLX_COLOR_INDEX_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_COLOR_INDEX_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -74,14 +74,14 @@ namespace OpenGL
 		public const uint COLOR_INDEX_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of GLX_PBUFFER_CLOBBER_MASK symbol.
+		/// [GLX] Value of GLX_PBUFFER_CLOBBER_MASK symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[Log(BitmaskName = "GLXEventMask")]
 		public const uint PBUFFER_CLOBBER_MASK = 0x08000000;
 
 		/// <summary>
-		/// Value of GLX_FRONT_LEFT_BUFFER_BIT symbol.
+		/// [GLX] Value of GLX_FRONT_LEFT_BUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_FRONT_LEFT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -90,7 +90,7 @@ namespace OpenGL
 		public const uint FRONT_LEFT_BUFFER_BIT = 0x00000001;
 
 		/// <summary>
-		/// Value of GLX_FRONT_RIGHT_BUFFER_BIT symbol.
+		/// [GLX] Value of GLX_FRONT_RIGHT_BUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_FRONT_RIGHT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -99,7 +99,7 @@ namespace OpenGL
 		public const uint FRONT_RIGHT_BUFFER_BIT = 0x00000002;
 
 		/// <summary>
-		/// Value of GLX_BACK_LEFT_BUFFER_BIT symbol.
+		/// [GLX] Value of GLX_BACK_LEFT_BUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_BACK_LEFT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -108,7 +108,7 @@ namespace OpenGL
 		public const uint BACK_LEFT_BUFFER_BIT = 0x00000004;
 
 		/// <summary>
-		/// Value of GLX_BACK_RIGHT_BUFFER_BIT symbol.
+		/// [GLX] Value of GLX_BACK_RIGHT_BUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_BACK_RIGHT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -117,7 +117,7 @@ namespace OpenGL
 		public const uint BACK_RIGHT_BUFFER_BIT = 0x00000008;
 
 		/// <summary>
-		/// Value of GLX_AUX_BUFFERS_BIT symbol.
+		/// [GLX] Value of GLX_AUX_BUFFERS_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_AUX_BUFFERS_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -126,7 +126,7 @@ namespace OpenGL
 		public const uint AUX_BUFFERS_BIT = 0x00000010;
 
 		/// <summary>
-		/// Value of GLX_DEPTH_BUFFER_BIT symbol.
+		/// [GLX] Value of GLX_DEPTH_BUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_DEPTH_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -135,7 +135,7 @@ namespace OpenGL
 		public const uint DEPTH_BUFFER_BIT = 0x00000020;
 
 		/// <summary>
-		/// Value of GLX_STENCIL_BUFFER_BIT symbol.
+		/// [GLX] Value of GLX_STENCIL_BUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_STENCIL_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -144,7 +144,7 @@ namespace OpenGL
 		public const uint STENCIL_BUFFER_BIT = 0x00000040;
 
 		/// <summary>
-		/// Value of GLX_ACCUM_BUFFER_BIT symbol.
+		/// [GLX] Value of GLX_ACCUM_BUFFER_BIT symbol.
 		/// </summary>
 		[AliasOf("GLX_ACCUM_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -154,14 +154,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by one of Glx.NONE, Glx.SLOW_CONFIG, Glx.NON_CONFORMANT_CONFIG. If Glx.NONE is 
-		/// specified, then only frame buffer configurations with no caveats will be considered; if Glx.SLOW_CONFIG is specified, 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by one of Glx.NONE, Glx.SLOW_CONFIG, Glx.NON_CONFORMANT_CONFIG. If Glx.NONE 
+		/// is specified, then only frame buffer configurations with no caveats will be considered; if Glx.SLOW_CONFIG is specified, 
 		/// then only slow frame buffer configurations will be considered; if Glx.NON_CONFORMANT_CONFIG is specified, then only 
 		/// nonconformant frame buffer configurations will be considered. The default value is Glx.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: one of Glx.NONE, Glx.SLOW_CONFIG, or Glx.NON_CONFORMANT_CONFIG, indicating that the frame buffer 
-		/// configuration has no caveats, some aspect of the frame buffer configuration runs slower than other frame buffer 
+		/// [GL2.1] Glx.GetFBConfigAttrib: One of Glx.NONE, Glx.SLOW_CONFIG, or Glx.NON_CONFORMANT_CONFIG, indicating that the frame 
+		/// buffer configuration has no caveats, some aspect of the frame buffer configuration runs slower than other frame buffer 
 		/// configurations, or some aspect of the frame buffer configuration is nonconformant, respectively.
 		/// </para>
 		/// </summary>
@@ -170,17 +170,17 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by one of Glx.TRUE_COLOR, Glx.DIRECT_COLOR, Glx.PSEUDO_COLOR, Glx.STATIC_COLOR, 
-		/// Glx.GRAY_SCALE, or Glx.STATIC_GRAY, indicating the desired X visual type. Not all frame buffer configurations have an 
-		/// associated X visual. If Glx.DRAWABLE_TYPE is specified in attrib_list and the mask that follows does not have 
-		/// Glx.WINDOW_BIT set, then this value is ignored. It is also ignored if Glx.X_RENDERABLE is specified as Glx.e. RGBA 
-		/// rendering may be supported for visuals of type Glx.TRUE_COLOR, Glx.DIRECT_COLOR, Glx.PSEUDO_COLOR, or Glx.STATIC_COLOR, 
-		/// but color index rendering is only supported for visuals of type Glx.PSEUDO_COLOR or Glx.STATIC_COLOR (i.e., 
-		/// single-channel visuals). The tokens Glx.GRAY_SCALE and Glx.STATIC_GRAY will not match current OpenGL enabled visuals, 
-		/// but are included for future use. The default value for Glx.X_VISUAL_TYPE is Glx.DONT_CARE.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by one of Glx.TRUE_COLOR, Glx.DIRECT_COLOR, Glx.PSEUDO_COLOR, 
+		/// Glx.STATIC_COLOR, Glx.GRAY_SCALE, or Glx.STATIC_GRAY, indicating the desired X visual type. Not all frame buffer 
+		/// configurations have an associated X visual. If Glx.DRAWABLE_TYPE is specified in attrib_list and the mask that follows 
+		/// does not have Glx.WINDOW_BIT set, then this value is ignored. It is also ignored if Glx.X_RENDERABLE is specified as 
+		/// Glx.e. RGBA rendering may be supported for visuals of type Glx.TRUE_COLOR, Glx.DIRECT_COLOR, Glx.PSEUDO_COLOR, or 
+		/// Glx.STATIC_COLOR, but color index rendering is only supported for visuals of type Glx.PSEUDO_COLOR or Glx.STATIC_COLOR 
+		/// (i.e., single-channel visuals). The tokens Glx.GRAY_SCALE and Glx.STATIC_GRAY will not match current OpenGL enabled 
+		/// visuals, but are included for future use. The default value for Glx.X_VISUAL_TYPE is Glx.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: visual type of associated visual. The returned value will be one of: Glx.TRUE_COLOR, 
+		/// [GL2.1] Glx.GetFBConfigAttrib: Visual type of associated visual. The returned value will be one of: Glx.TRUE_COLOR, 
 		/// Glx.DIRECT_COLOR, Glx.PSEUDO_COLOR, Glx.STATIC_COLOR, Glx.GRAY_SCALE, Glx.STATIC_GRAY, or Glx.NONE, if there is no 
 		/// associated visual (i.e., if Glx.X_RENDERABLE is Glx.e or Glx.DRAWABLE_TYPE does not have the Glx.WINDOW_BIT bit set).
 		/// </para>
@@ -192,16 +192,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by one of Glx.NONE, Glx.TRANSPARENT_RGB, Glx.TRANSPARENT_INDEX. If Glx.NONE is 
-		/// specified, then only opaque frame buffer configurations will be considered; if Glx.TRANSPARENT_RGB is specified, then 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by one of Glx.NONE, Glx.TRANSPARENT_RGB, Glx.TRANSPARENT_INDEX. If Glx.NONE 
+		/// is specified, then only opaque frame buffer configurations will be considered; if Glx.TRANSPARENT_RGB is specified, then 
 		/// only transparent frame buffer configurations that support RGBA rendering will be considered; if Glx.TRANSPARENT_INDEX is 
 		/// specified, then only transparent frame buffer configurations that support color index rendering will be considered. The 
 		/// default value is Glx.NONE.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: one of Glx.NONE, Glx.TRANSPARENT_RGB, Glx.TRANSPARENT_INDEX, indicating that the frame buffer 
-		/// configuration is opaque, is transparent for particular values of red, green, and blue, or is transparent for particular 
-		/// index values, respectively.
+		/// [GL2.1] Glx.GetFBConfigAttrib: One of Glx.NONE, Glx.TRANSPARENT_RGB, Glx.TRANSPARENT_INDEX, indicating that the frame 
+		/// buffer configuration is opaque, is transparent for particular values of red, green, and blue, or is transparent for 
+		/// particular index values, respectively.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_TYPE_EXT")]
@@ -211,13 +211,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by an integer value indicating the transparent index value; the value must be 
-		/// between 0 and the maximum frame buffer value for indices. Only frame buffer configurations that use the specified 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by an integer value indicating the transparent index value; the value must 
+		/// be between 0 and the maximum frame buffer value for indices. Only frame buffer configurations that use the specified 
 		/// transparent index value will be considered. The default value is Glx.DONT_CARE. This attribute is ignored unless 
 		/// Glx.TRANSPARENT_TYPE is included in attrib_list and specified as Glx.TRANSPARENT_INDEX.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: integer value between 0 and the maximum frame buffer value for indices, indicating the 
+		/// [GL2.1] Glx.GetFBConfigAttrib: Integer value between 0 and the maximum frame buffer value for indices, indicating the 
 		/// transparent index value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not 
 		/// Glx.TRANSPARENT_INDEX.
 		/// </para>
@@ -229,14 +229,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by an integer value indicating the transparent red value; the value must be between 
-		/// 0 and the maximum frame buffer value for red. Only frame buffer configurations that use the specified transparent red 
-		/// value will be considered. The default value is Glx.DONT_CARE. This attribute is ignored unless Glx.TRANSPARENT_TYPE is 
-		/// included in attrib_list and specified as Glx.TRANSPARENT_RGB.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by an integer value indicating the transparent red value; the value must be 
+		/// between 0 and the maximum frame buffer value for red. Only frame buffer configurations that use the specified 
+		/// transparent red value will be considered. The default value is Glx.DONT_CARE. This attribute is ignored unless 
+		/// Glx.TRANSPARENT_TYPE is included in attrib_list and specified as Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: integer value between 0 and the maximum frame buffer value for red, indicating the transparent 
-		/// red value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Integer value between 0 and the maximum frame buffer value for red, indicating the 
+		/// transparent red value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_RED_VALUE_EXT")]
@@ -246,14 +246,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by an integer value indicating the transparent green value; the value must be 
-		/// between 0 and the maximum frame buffer value for green. Only frame buffer configurations that use the specified 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by an integer value indicating the transparent green value; the value must 
+		/// be between 0 and the maximum frame buffer value for green. Only frame buffer configurations that use the specified 
 		/// transparent green value will be considered. The default value is Glx.DONT_CARE. This attribute is ignored unless 
 		/// Glx.TRANSPARENT_TYPE is included in attrib_list and specified as Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: integer value between 0 and the maximum frame buffer value for green, indicating the transparent 
-		/// green value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Integer value between 0 and the maximum frame buffer value for green, indicating the 
+		/// transparent green value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not 
+		/// Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_GREEN_VALUE_EXT")]
@@ -263,14 +264,14 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by an integer value indicating the transparent blue value; the value must be 
-		/// between 0 and the maximum frame buffer value for blue. Only frame buffer configurations that use the specified 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by an integer value indicating the transparent blue value; the value must 
+		/// be between 0 and the maximum frame buffer value for blue. Only frame buffer configurations that use the specified 
 		/// transparent blue value will be considered. The default value is Glx.DONT_CARE. This attribute is ignored unless 
 		/// Glx.TRANSPARENT_TYPE is included in attrib_list and specified as Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: integer value between 0 and the maximum frame buffer value for blue, indicating the transparent 
-		/// blue value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Integer value between 0 and the maximum frame buffer value for blue, indicating the 
+		/// transparent blue value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_BLUE_VALUE_EXT")]
@@ -280,13 +281,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by an integer value indicating the transparent alpha value; the value must be 
-		/// between 0 and the maximum frame buffer value for alpha. Only frame buffer configurations that use the specified 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by an integer value indicating the transparent alpha value; the value must 
+		/// be between 0 and the maximum frame buffer value for alpha. Only frame buffer configurations that use the specified 
 		/// transparent alpha value will be considered. The default value is Glx.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: integer value between 0 and the maximum frame buffer value for alpha, indicating the transparent 
-		/// blue value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Integer value between 0 and the maximum frame buffer value for alpha, indicating the 
+		/// transparent blue value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_ALPHA_VALUE_EXT")]
@@ -295,13 +296,13 @@ namespace OpenGL
 		public const int TRANSPARENT_ALPHA_VALUE = 0x28;
 
 		/// <summary>
-		/// Value of GLX_DONT_CARE symbol.
+		/// [GLX] Value of GLX_DONT_CARE symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public const uint DONT_CARE = 0xFFFFFFFF;
 
 		/// <summary>
-		/// Value of GLX_NONE symbol.
+		/// [GLX] Value of GLX_NONE symbol.
 		/// </summary>
 		[AliasOf("GLX_NONE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -310,13 +311,13 @@ namespace OpenGL
 		public const int NONE = 0x8000;
 
 		/// <summary>
-		/// Value of GLX_SLOW_CONFIG symbol.
+		/// [GLX] Value of GLX_SLOW_CONFIG symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public const int SLOW_CONFIG = 0x8001;
 
 		/// <summary>
-		/// Value of GLX_TRUE_COLOR symbol.
+		/// [GLX] Value of GLX_TRUE_COLOR symbol.
 		/// </summary>
 		[AliasOf("GLX_TRUE_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -324,7 +325,7 @@ namespace OpenGL
 		public const int TRUE_COLOR = 0x8002;
 
 		/// <summary>
-		/// Value of GLX_DIRECT_COLOR symbol.
+		/// [GLX] Value of GLX_DIRECT_COLOR symbol.
 		/// </summary>
 		[AliasOf("GLX_DIRECT_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -332,7 +333,7 @@ namespace OpenGL
 		public const int DIRECT_COLOR = 0x8003;
 
 		/// <summary>
-		/// Value of GLX_PSEUDO_COLOR symbol.
+		/// [GLX] Value of GLX_PSEUDO_COLOR symbol.
 		/// </summary>
 		[AliasOf("GLX_PSEUDO_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -340,7 +341,7 @@ namespace OpenGL
 		public const int PSEUDO_COLOR = 0x8004;
 
 		/// <summary>
-		/// Value of GLX_STATIC_COLOR symbol.
+		/// [GLX] Value of GLX_STATIC_COLOR symbol.
 		/// </summary>
 		[AliasOf("GLX_STATIC_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -348,7 +349,7 @@ namespace OpenGL
 		public const int STATIC_COLOR = 0x8005;
 
 		/// <summary>
-		/// Value of GLX_GRAY_SCALE symbol.
+		/// [GLX] Value of GLX_GRAY_SCALE symbol.
 		/// </summary>
 		[AliasOf("GLX_GRAY_SCALE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -356,7 +357,7 @@ namespace OpenGL
 		public const int GRAY_SCALE = 0x8006;
 
 		/// <summary>
-		/// Value of GLX_STATIC_GRAY symbol.
+		/// [GLX] Value of GLX_STATIC_GRAY symbol.
 		/// </summary>
 		[AliasOf("GLX_STATIC_GRAY_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -364,7 +365,7 @@ namespace OpenGL
 		public const int STATIC_GRAY = 0x8007;
 
 		/// <summary>
-		/// Value of GLX_TRANSPARENT_RGB symbol.
+		/// [GLX] Value of GLX_TRANSPARENT_RGB symbol.
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_RGB_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -372,7 +373,7 @@ namespace OpenGL
 		public const int TRANSPARENT_RGB = 0x8008;
 
 		/// <summary>
-		/// Value of GLX_TRANSPARENT_INDEX symbol.
+		/// [GLX] Value of GLX_TRANSPARENT_INDEX symbol.
 		/// </summary>
 		[AliasOf("GLX_TRANSPARENT_INDEX_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -380,7 +381,7 @@ namespace OpenGL
 		public const int TRANSPARENT_INDEX = 0x8009;
 
 		/// <summary>
-		/// Glx.GetFBConfigAttrib: xID of the corresponding visual, or zero if there is no associated visual (i.e., if 
+		/// [GL2.1] Glx.GetFBConfigAttrib: XID of the corresponding visual, or zero if there is no associated visual (i.e., if 
 		/// Glx.X_RENDERABLE is Glx.e or Glx.DRAWABLE_TYPE does not have the Glx.WINDOW_BIT bit set).
 		/// </summary>
 		[AliasOf("GLX_VISUAL_ID_EXT")]
@@ -389,7 +390,7 @@ namespace OpenGL
 		public const int VISUAL_ID = 0x800B;
 
 		/// <summary>
-		/// Glx.QueryContext: returns the screen number associated with ctx.
+		/// [GL2.1] Glx.QueryContext: Returns the screen number associated with ctx.
 		/// </summary>
 		[AliasOf("GLX_SCREEN_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -398,21 +399,21 @@ namespace OpenGL
 		public const int SCREEN = 0x800C;
 
 		/// <summary>
-		/// Value of GLX_NON_CONFORMANT_CONFIG symbol.
+		/// [GLX] Value of GLX_NON_CONFORMANT_CONFIG symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public const int NON_CONFORMANT_CONFIG = 0x800D;
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a mask indicating which GLX drawable types the frame buffer configuration must 
-		/// support. Valid bits are Glx.WINDOW_BIT, Glx.PIXMAP_BIT, and Glx.PBUFFER_BIT. For example, if mask is set to 
-		/// Glx.WINDOW_BIT | Glx.PIXMAP_BIT, only frame buffer configurations that support both windows and GLX pixmaps will be 
-		/// considered. The default value is Glx.WINDOW_BIT.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a mask indicating which GLX drawable types the frame buffer 
+		/// configuration must support. Valid bits are Glx.WINDOW_BIT, Glx.PIXMAP_BIT, and Glx.PBUFFER_BIT. For example, if mask is 
+		/// set to Glx.WINDOW_BIT | Glx.PIXMAP_BIT, only frame buffer configurations that support both windows and GLX pixmaps will 
+		/// be considered. The default value is Glx.WINDOW_BIT.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: mask indicating what drawable types the frame buffer configuration supports. Valid bits are 
-		/// Glx.WINDOW_BIT, Glx.PIXMAP_BIT, and Glx.PBUFFER_BIT.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Mask indicating what drawable types the frame buffer configuration supports. Valid bits 
+		/// are Glx.WINDOW_BIT, Glx.PIXMAP_BIT, and Glx.PBUFFER_BIT.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_DRAWABLE_TYPE_SGIX")]
@@ -422,17 +423,17 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a mask indicating which OpenGL rendering modes the frame buffer configuration 
-		/// must support. Valid bits are Glx.RGBA_BIT and Glx.COLOR_INDEX_BIT. If the mask is set to Glx.RGBA_BIT | 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a mask indicating which OpenGL rendering modes the frame buffer 
+		/// configuration must support. Valid bits are Glx.RGBA_BIT and Glx.COLOR_INDEX_BIT. If the mask is set to Glx.RGBA_BIT | 
 		/// Glx.COLOR_INDEX_BIT, then only frame buffer configurations that can be bound to both RGBA contexts and color index 
 		/// contexts will be considered. The default value is Glx.RGBA_BIT.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: mask indicating what type of GLX contexts can be made current to the frame buffer configuration. 
-		/// Valid bits are Glx.RGBA_BIT and Glx.COLOR_INDEX_BIT.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Mask indicating what type of GLX contexts can be made current to the frame buffer 
+		/// configuration. Valid bits are Glx.RGBA_BIT and Glx.COLOR_INDEX_BIT.
 		/// </para>
 		/// <para>
-		/// Glx.QueryContext: returns the rendering type supported by ctx.
+		/// [GL2.1] Glx.QueryContext: Returns the rendering type supported by ctx.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_RENDER_TYPE_SGIX")]
@@ -442,12 +443,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by Glx. or Glx.e. If Glx. is specified, then only frame buffer configurations that 
-		/// have associated X visuals (and can be used to render to Windows and/or GLX pixmaps) will be considered. The default 
-		/// value is Glx.DONT_CARE.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by Glx. or Glx.e. If Glx. is specified, then only frame buffer 
+		/// configurations that have associated X visuals (and can be used to render to Windows and/or GLX pixmaps) will be 
+		/// considered. The default value is Glx.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: glx. if drawables created with the frame buffer configuration can be rendered to by X.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Glx. if drawables created with the frame buffer configuration can be rendered to by X.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_X_RENDERABLE_SGIX")]
@@ -457,17 +458,17 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a valid XID that indicates the desired GLX frame buffer configuration. When a 
-		/// Glx.FBCONFIG_ID is specified, all attributes are ignored. The default value is Glx.DONT_CARE.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a valid XID that indicates the desired GLX frame buffer configuration. 
+		/// When a Glx.FBCONFIG_ID is specified, all attributes are ignored. The default value is Glx.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: xID of the given GLXFBConfig.
+		/// [GL2.1] Glx.GetFBConfigAttrib: XID of the given GLXFBConfig.
 		/// </para>
 		/// <para>
-		/// Glx.QueryContext: returns the XID of the GLXFBConfig associated with ctx.
+		/// [GL2.1] Glx.QueryContext: Returns the XID of the GLXFBConfig associated with ctx.
 		/// </para>
 		/// <para>
-		/// Glx.QueryDrawable: returns the XID for draw.
+		/// [GL2.1] Glx.QueryDrawable: Returns the XID for draw.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_FBCONFIG_ID_SGIX")]
@@ -476,7 +477,7 @@ namespace OpenGL
 		public const int FBCONFIG_ID = 0x8013;
 
 		/// <summary>
-		/// Value of GLX_RGBA_TYPE symbol.
+		/// [GLX] Value of GLX_RGBA_TYPE symbol.
 		/// </summary>
 		[AliasOf("GLX_RGBA_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -484,7 +485,7 @@ namespace OpenGL
 		public const int RGBA_TYPE = 0x8014;
 
 		/// <summary>
-		/// Value of GLX_COLOR_INDEX_TYPE symbol.
+		/// [GLX] Value of GLX_COLOR_INDEX_TYPE symbol.
 		/// </summary>
 		[AliasOf("GLX_COLOR_INDEX_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -492,7 +493,7 @@ namespace OpenGL
 		public const int COLOR_INDEX_TYPE = 0x8015;
 
 		/// <summary>
-		/// Glx.GetFBConfigAttrib: the maximum width that can be specified to Glx.CreatePbuffer.
+		/// [GL2.1] Glx.GetFBConfigAttrib: The maximum width that can be specified to Glx.CreatePbuffer.
 		/// </summary>
 		[AliasOf("GLX_MAX_PBUFFER_WIDTH_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -500,7 +501,7 @@ namespace OpenGL
 		public const int MAX_PBUFFER_WIDTH = 0x8016;
 
 		/// <summary>
-		/// Glx.GetFBConfigAttrib: the maximum height that can be specified to Glx.CreatePbuffer.
+		/// [GL2.1] Glx.GetFBConfigAttrib: The maximum height that can be specified to Glx.CreatePbuffer.
 		/// </summary>
 		[AliasOf("GLX_MAX_PBUFFER_HEIGHT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -508,10 +509,10 @@ namespace OpenGL
 		public const int MAX_PBUFFER_HEIGHT = 0x8017;
 
 		/// <summary>
-		/// Glx.GetFBConfigAttrib: the maximum number of pixels (width times height) for a pixel buffer. Note that this value may be 
-		/// less than Glx.MAX_PBUFFER_WIDTH times Glx.MAX_PBUFFER_HEIGHT. Also, this value is static and assumes that no other pixel 
-		/// buffers or X resources are contending for the frame buffer memory. As a result, it may not be possible to allocate a 
-		/// pixel buffer of the size given by Glx.MAX_PBUFFER_PIXELS.
+		/// [GL2.1] Glx.GetFBConfigAttrib: The maximum number of pixels (width times height) for a pixel buffer. Note that this 
+		/// value may be less than Glx.MAX_PBUFFER_WIDTH times Glx.MAX_PBUFFER_HEIGHT. Also, this value is static and assumes that 
+		/// no other pixel buffers or X resources are contending for the frame buffer memory. As a result, it may not be possible to 
+		/// allocate a pixel buffer of the size given by Glx.MAX_PBUFFER_PIXELS.
 		/// </summary>
 		[AliasOf("GLX_MAX_PBUFFER_PIXELS_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -520,15 +521,15 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.CreatePbuffer: specify if the contents of the pixel buffer should be preserved when a resource conflict occurs. If 
-		/// set to Glx.e, the contents of the pixel buffer may be lost at any time. If set to Glx., or not specified in attrib_list, 
-		/// then the contents of the pixel buffer will be preserved (most likely by copying the contents into main system memory 
-		/// from the frame buffer). In either case, the client can register (using Glx.SelectEvent, to receive pixel buffer clobber 
-		/// events that are generated when the pbuffer contents have been preserved or damaged.
+		/// [GL2.1] Glx.CreatePbuffer: Specify if the contents of the pixel buffer should be preserved when a resource conflict 
+		/// occurs. If set to Glx.e, the contents of the pixel buffer may be lost at any time. If set to Glx., or not specified in 
+		/// attrib_list, then the contents of the pixel buffer will be preserved (most likely by copying the contents into main 
+		/// system memory from the frame buffer). In either case, the client can register (using Glx.SelectEvent, to receive pixel 
+		/// buffer clobber events that are generated when the pbuffer contents have been preserved or damaged.
 		/// </para>
 		/// <para>
-		/// Glx.QueryDrawable: returns Glx. if the contents of a GLXPbuffer are preserved when a resource conflict occurs; Glx.e 
-		/// otherwise.
+		/// [GL2.1] Glx.QueryDrawable: Returns Glx. if the contents of a GLXPbuffer are preserved when a resource conflict occurs; 
+		/// Glx.e otherwise.
 		/// </para>
 		/// </summary>
 		[AliasOf("GLX_PRESERVED_CONTENTS_SGIX")]
@@ -538,13 +539,13 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.CreatePbuffer: specify to obtain the largest available pixel buffer, if the requested allocation would have failed. 
-		/// The width and height of the allocated pixel buffer will never exceed the specified Glx.PBUFFER_WIDTH or 
+		/// [GL2.1] Glx.CreatePbuffer: Specify to obtain the largest available pixel buffer, if the requested allocation would have 
+		/// failed. The width and height of the allocated pixel buffer will never exceed the specified Glx.PBUFFER_WIDTH or 
 		/// Glx.PBUFFER_HEIGHT, respectively. Use Glx.QueryDrawable to retrieve the dimensions of the allocated pixel buffer. The 
 		/// default value is Glx.e.
 		/// </para>
 		/// <para>
-		/// Glx.QueryDrawable: returns the value set when glXCreatePbuffer was called to create the GLXPbuffer. If Glx.e is 
+		/// [GL2.1] Glx.QueryDrawable: Returns the value set when glXCreatePbuffer was called to create the GLXPbuffer. If Glx.e is 
 		/// returned, then the call to glXCreatePbuffer will fail to create a GLXPbuffer if the requested size is larger than the 
 		/// implementation maximum or available resources. If Glx. is returned, a GLXPbuffer of the maximum availble size (if less 
 		/// than the requested width and height) is created.
@@ -556,7 +557,7 @@ namespace OpenGL
 		public const int LARGEST_PBUFFER = 0x801C;
 
 		/// <summary>
-		/// Glx.QueryDrawable: returns the width of ctx.
+		/// [GL2.1] Glx.QueryDrawable: Returns the width of ctx.
 		/// </summary>
 		[AliasOf("GLX_WIDTH_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -564,7 +565,7 @@ namespace OpenGL
 		public const int WIDTH = 0x801D;
 
 		/// <summary>
-		/// Glx.QueryDrawable: returns the height of ctx.
+		/// [GL2.1] Glx.QueryDrawable: Returns the height of ctx.
 		/// </summary>
 		[AliasOf("GLX_HEIGHT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -572,7 +573,7 @@ namespace OpenGL
 		public const int HEIGHT = 0x801E;
 
 		/// <summary>
-		/// Value of GLX_EVENT_MASK symbol.
+		/// [GLX] Value of GLX_EVENT_MASK symbol.
 		/// </summary>
 		[AliasOf("GLX_EVENT_MASK_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -580,7 +581,7 @@ namespace OpenGL
 		public const int EVENT_MASK = 0x801F;
 
 		/// <summary>
-		/// Value of GLX_DAMAGED symbol.
+		/// [GLX] Value of GLX_DAMAGED symbol.
 		/// </summary>
 		[AliasOf("GLX_DAMAGED_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -588,7 +589,7 @@ namespace OpenGL
 		public const int DAMAGED = 0x8020;
 
 		/// <summary>
-		/// Value of GLX_SAVED symbol.
+		/// [GLX] Value of GLX_SAVED symbol.
 		/// </summary>
 		[AliasOf("GLX_SAVED_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -596,7 +597,7 @@ namespace OpenGL
 		public const int SAVED = 0x8021;
 
 		/// <summary>
-		/// Value of GLX_WINDOW symbol.
+		/// [GLX] Value of GLX_WINDOW symbol.
 		/// </summary>
 		[AliasOf("GLX_WINDOW_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -604,7 +605,7 @@ namespace OpenGL
 		public const int WINDOW = 0x8022;
 
 		/// <summary>
-		/// Value of GLX_PBUFFER symbol.
+		/// [GLX] Value of GLX_PBUFFER symbol.
 		/// </summary>
 		[AliasOf("GLX_PBUFFER_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
@@ -612,13 +613,13 @@ namespace OpenGL
 		public const int PBUFFER = 0x8023;
 
 		/// <summary>
-		/// Glx.CreatePbuffer: specify the pixel height of the requested GLXPbuffer. The default value is 0.
+		/// [GL2.1] Glx.CreatePbuffer: Specify the pixel height of the requested GLXPbuffer. The default value is 0.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public const int PBUFFER_HEIGHT = 0x8040;
 
 		/// <summary>
-		/// Glx.CreatePbuffer: specify the pixel width of the requested GLXPbuffer. The default value is 0.
+		/// [GL2.1] Glx.CreatePbuffer: Specify the pixel width of the requested GLXPbuffer. The default value is 0.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public const int PBUFFER_WIDTH = 0x8041;
@@ -704,8 +705,6 @@ namespace OpenGL
 		/// <param name="nelements">
 		/// Returns the number of elements in the list returned by Glx.ChooseFBConfig.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx. is returned if an undefined GLX attribute is encountered in <paramref name="attrib_list"/>, if <paramref 
 		/// name="screen"/> is invalid, or if <paramref name="dpy"/> does not support the GLX extension.
@@ -747,8 +746,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension. Glx.BAD_ATTRIBUTE is returned 
 		/// if <paramref name="attribute"/> is not a valid GLX attribute.
@@ -790,8 +787,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension. Glx.BAD_ATTRIBUTE is returned 
 		/// if <paramref name="attribute"/> is not a valid GLX attribute.
@@ -827,8 +822,6 @@ namespace OpenGL
 		/// <param name="config">
 		/// Specifies the GLX frame buffer configuration.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Returns Glx. if <paramref name="config"/> is not a valid GLXFBConfig.
 		/// </exception>
@@ -864,8 +857,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Currently unused. This must be set to Glx. or be an empty list (i.e., one in which the first element is Glx.).
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if <paramref name="win"/> was not created with a visual that corresponds to <paramref 
 		/// name="config"/>.
@@ -918,8 +909,6 @@ namespace OpenGL
 		/// <param name="win">
 		/// Specifies the GLXWindow to be destroyed.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adWindow is generated if <paramref name="win"/> is not a valid GLXPixmap.
 		/// </exception>
@@ -950,8 +939,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Currently unused. This must be set to Glx. or be an empty list (i.e., one in which the first element is Glx.).
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if <paramref name="pixmap"/> was not created with a visual that corresponds to <paramref 
 		/// name="config"/>.
@@ -1003,8 +990,6 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// Specifies the GLXPixmap to be destroyed.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adPixmap is generated if <paramref name="pixmap"/> is not a valid GLXPixmap.
 		/// </exception>
@@ -1034,8 +1019,6 @@ namespace OpenGL
 		/// Specifies a list of attribute value pairs, which must be terminated with Glx. or Glx.. Accepted attributes are 
 		/// Glx.PBUFFER_WIDTH, Glx.PBUFFER_HEIGHT, Glx.PRESERVED_CONTENTS, and Glx.LARGEST_PBUFFER.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.lloc is generated if there are insufficient resources to allocate the requested GLXPbuffer.
 		/// </exception>
@@ -1076,8 +1059,6 @@ namespace OpenGL
 		/// <param name="pbuf">
 		/// Specifies the GLXPbuffer to be destroyed.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adPbuffer is generated if <paramref name="pbuf"/> is not a valid GLXPbuffer.
 		/// </exception>
@@ -1109,8 +1090,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// A Glx.adDrawable is generated if <paramref name="draw"/> is not a valid GLXDrawable.
 		/// </exception>
@@ -1151,8 +1130,6 @@ namespace OpenGL
 		/// <param name="direct">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx. is returned if execution fails on the client side.
 		/// </exception>
@@ -1208,8 +1185,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context to be bound to <paramref name="read"/> and <paramref name="ctx"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if <paramref name="draw"/> and <paramref name="read"/> are not compatible.
 		/// </exception>
@@ -1313,8 +1288,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
 		/// </exception>
@@ -1352,8 +1325,6 @@ namespace OpenGL
 		/// <param name="event_mask">
 		/// Specifies the events to be returned for <paramref name="draw"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adDrawable is generated if <paramref name="draw"/> is not a valid window or a valid GLX pixel buffer.
 		/// </exception>
@@ -1379,8 +1350,6 @@ namespace OpenGL
 		/// <param name="event_mask">
 		/// Returns the events that are selected for <paramref name="draw"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adDrawable is generated if <paramref name="draw"/> is not a valid window or a valid GLX pixel buffer.
 		/// </exception>

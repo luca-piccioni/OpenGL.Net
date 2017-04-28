@@ -29,21 +29,21 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_ACCESS_READ_ONLY_NV symbol.
+		/// [WGL] Value of WGL_ACCESS_READ_ONLY_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
 		[Log(BitmaskName = "WGLDXInteropMaskNV")]
 		public const int ACCESS_READ_ONLY_NV = 0x00000000;
 
 		/// <summary>
-		/// Value of WGL_ACCESS_READ_WRITE_NV symbol.
+		/// [WGL] Value of WGL_ACCESS_READ_WRITE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
 		[Log(BitmaskName = "WGLDXInteropMaskNV")]
 		public const int ACCESS_READ_WRITE_NV = 0x00000001;
 
 		/// <summary>
-		/// Value of WGL_ACCESS_WRITE_DISCARD_NV symbol.
+		/// [WGL] Value of WGL_ACCESS_WRITE_DISCARD_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_DX_interop")]
 		[Log(BitmaskName = "WGLDXInteropMaskNV")]

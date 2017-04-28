@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Text;
 
 namespace OpenGL
 {
@@ -36,6 +37,9 @@ namespace OpenGL
 		public KhronosLogContext(Type khronoApiType)
 		{
 			QueryLogContext(khronoApiType);
+			try {
+				_LogMap = KhronosLogMap.Load(String.Format("OpenGL.KhronosLogMap{0}.xml", khronoApiType.Name));
+			} catch { /* Fail-safe */ }
 		}
 
 		#endregion
@@ -58,7 +62,7 @@ namespace OpenGL
 			if (_EnumNames.TryGetValue(enumValue, out enumName))
 				return (enumName);
 
-			return ("0x" + enumValue.ToString("X8"));
+			return (null);
 		}
 
 		/// <summary>
@@ -130,6 +134,122 @@ namespace OpenGL
 		/// Enumeration names (indexed by their values) collected in enumeration bitmask.
 		/// </summary>
 		private Dictionary<string, Dictionary<long, string>> _EnumBitmasks;
+
+		/// <summary>
+		/// Log map, if any.
+		/// </summary>
+		private KhronosLogMap _LogMap;
+
+		#endregion
+
+		#region Command Formatting
+
+		public string ToString(string name, object returnValue, object[] args)
+		{
+			if (name == null)
+				throw new ArgumentException("name");
+
+			// Format string
+			StringBuilder sbFormat = new StringBuilder();
+			int formatIdx = 1;
+
+			sbFormat.Append("{0}(");
+			if (args != null && args.Length > 0) {
+				for (int i = 0; i < args.Length; i++)
+					sbFormat.AppendFormat("{{{0}}}, ", formatIdx++);
+				sbFormat.Remove(sbFormat.Length - 2, 2);
+			}
+			sbFormat.Append(")");
+			if (returnValue != null)
+				sbFormat.AppendFormat(" = {{{0}}}", formatIdx++);
+
+			// Format arguments
+			List<object> formatArgs = new List<object>();
+
+			formatArgs.Add(name);
+			if (args != null) {
+				for (int i = 0; i < args.Length; i++) {
+					KhronosLogMap.CommandParameterFlags flags = KhronosLogMap.CommandParameterFlags.None;
+					if (_LogMap != null)
+						flags = _LogMap.GetCommandParameterFlag(name, i);
+
+					formatArgs.Add(FormatArg(args[i], flags));
+				}
+					
+			}
+			if (returnValue != null)
+				formatArgs.Add(FormatArg(returnValue, KhronosLogMap.CommandParameterFlags.None));
+
+			// Returns formatted string
+			return (String.Format(sbFormat.ToString(), formatArgs.ToArray()));
+		}
+
+		private object FormatArg(object arg, KhronosLogMap.CommandParameterFlags flags)
+		{
+			Type argType = arg.GetType();
+
+			if (argType == typeof(string[]))
+				return (FormatArg((string[])arg, flags));
+			else if (argType.IsArray)
+				return (FormatArg((Array)arg, flags));
+			else if (argType == typeof(IntPtr))
+				return (FormatArg((IntPtr)arg, flags));
+			else if (argType == typeof(Int32))
+				return (FormatArg((Int32)arg, flags));
+			else
+				return (arg);
+		}
+
+		private object FormatArg(string[] arg, KhronosLogMap.CommandParameterFlags flags)
+		{
+			if (arg != null) {
+				StringBuilder sb = new StringBuilder();
+
+				sb.Append("{");
+				foreach (string arrayItem in arg)
+					sb.AppendFormat("{0},", arrayItem.Replace("\n", "\\n"));
+				if (arg.Length > 0)
+					sb.Remove(sb.Length - 1, 1);
+				sb.Append("}");
+
+				return (sb.ToString());
+			} else
+				return ("{ null }");
+		}
+
+		private object FormatArg(Array arg, KhronosLogMap.CommandParameterFlags flags)
+		{
+			if (arg != null) {
+				StringBuilder sb = new StringBuilder();
+
+				sb.Append("{");
+				foreach (object arrayItem in arg)
+					sb.AppendFormat("{0},", arrayItem.ToString());
+				if (arg.Length > 0)
+					sb.Remove(sb.Length - 1, 1);
+				sb.Append("}");
+
+				return (sb.ToString());
+			} else
+				return ("{ null }");
+		}
+
+		private object FormatArg(IntPtr arg, KhronosLogMap.CommandParameterFlags flags)
+		{
+			return ("0x" + arg.ToString("X8"));
+		}
+
+		private object FormatArg(Int32 arg, KhronosLogMap.CommandParameterFlags flags)
+		{
+			if ((flags & KhronosLogMap.CommandParameterFlags.Enum) != 0) {
+				string enumName = GetEnumName(arg);
+
+				if (enumName != null)
+					return (enumName);
+			}
+
+			return (arg);
+		}
 
 		#endregion
 	}

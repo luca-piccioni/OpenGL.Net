@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_SAMPLE_BUFFERS symbol.
+		/// [GLX] Value of GLX_SAMPLE_BUFFERS symbol.
 		/// </summary>
 		[AliasOf("GLX_SAMPLE_BUFFERS_ARB")]
 		[AliasOf("GLX_SAMPLE_BUFFERS_SGIS")]
@@ -39,7 +39,7 @@ namespace OpenGL
 		public const int SAMPLE_BUFFERS = 100000;
 
 		/// <summary>
-		/// Value of GLX_SAMPLES symbol.
+		/// [GLX] Value of GLX_SAMPLES symbol.
 		/// </summary>
 		[AliasOf("GLX_SAMPLES_ARB")]
 		[AliasOf("GLX_SAMPLES_SGIS")]

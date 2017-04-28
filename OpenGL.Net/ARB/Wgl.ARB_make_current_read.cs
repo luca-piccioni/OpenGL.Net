@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of ERROR_INVALID_PIXEL_TYPE_ARB symbol.
+		/// [WGL] Value of ERROR_INVALID_PIXEL_TYPE_ARB symbol.
 		/// </summary>
 		[AliasOf("ERROR_INVALID_PIXEL_TYPE_EXT")]
 		[RequiredByFeature("WGL_ARB_make_current_read")]
@@ -37,7 +37,7 @@ namespace OpenGL
 		public const int ERROR_INVALID_PIXEL_TYPE_ARB = 0x2043;
 
 		/// <summary>
-		/// Value of ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB symbol.
+		/// [WGL] Value of ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_make_current_read")]
 		public const int ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB = 0x2054;

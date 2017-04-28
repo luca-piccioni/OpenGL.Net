@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_OPTIMAL_PBUFFER_WIDTH_EXT symbol.
+		/// [WGL] Value of WGL_OPTIMAL_PBUFFER_WIDTH_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int OPTIMAL_PBUFFER_WIDTH_EXT = 0x2031;
 
 		/// <summary>
-		/// Value of WGL_OPTIMAL_PBUFFER_HEIGHT_EXT symbol.
+		/// [WGL] Value of WGL_OPTIMAL_PBUFFER_HEIGHT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_pbuffer")]
 		public const int OPTIMAL_PBUFFER_HEIGHT_EXT = 0x2032;

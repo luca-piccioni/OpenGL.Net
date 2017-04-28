@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_DIGITAL_MEDIA_PBUFFER_SGIX symbol.
+		/// [GLX] Value of GLX_DIGITAL_MEDIA_PBUFFER_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_dmbuffer")]
 		public const int DIGITAL_MEDIA_PBUFFER_SGIX = 0x8024;

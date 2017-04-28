@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NATIVE_BUFFER_ANDROID symbol.
+		/// [EGL] Value of EGL_NATIVE_BUFFER_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_image_native_buffer")]
 		public const int NATIVE_BUFFER_ANDROID = 0x3140;

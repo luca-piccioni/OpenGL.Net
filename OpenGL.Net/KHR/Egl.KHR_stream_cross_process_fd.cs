@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_NO_FILE_DESCRIPTOR_KHR symbol.
+		/// [EGL] Value of EGL_NO_FILE_DESCRIPTOR_KHR symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]
 		public const int NO_FILE_DESCRIPTOR_KHR = -1;

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_CONTEXT_ALLOW_BUFFER_BYTE_ORDER_MISMATCH_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_ALLOW_BUFFER_BYTE_ORDER_MISMATCH_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_vertex_buffer_object")]
 		public const int CONTEXT_ALLOW_BUFFER_BYTE_ORDER_MISMATCH_ARB = 0x2095;

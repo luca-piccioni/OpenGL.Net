@@ -29,77 +29,77 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_EXTENSION_NAME symbol.
+		/// [GLX] Value of GLX_EXTENSION_NAME symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const string EXTENSION_NAME = "GLX";
 
 		/// <summary>
-		/// Value of GLX_PbufferClobber symbol.
+		/// [GLX] Value of GLX_PbufferClobber symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int PbufferClobber = 0;
 
 		/// <summary>
-		/// Value of GLX_BufferSwapComplete symbol.
+		/// [GLX] Value of GLX_BufferSwapComplete symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BufferSwapComplete = 1;
 
 		/// <summary>
-		/// Value of __GLX_NUMBER_EVENTS symbol.
+		/// [GLX] Value of __GLX_NUMBER_EVENTS symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int __GLX_NUMBER_EVENTS = 17;
 
 		/// <summary>
-		/// Value of GLX_BAD_SCREEN symbol.
+		/// [GLX] Value of GLX_BAD_SCREEN symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BAD_SCREEN = 1;
 
 		/// <summary>
-		/// Value of GLX_BAD_ATTRIBUTE symbol.
+		/// [GLX] Value of GLX_BAD_ATTRIBUTE symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BAD_ATTRIBUTE = 2;
 
 		/// <summary>
-		/// Value of GLX_NO_EXTENSION symbol.
+		/// [GLX] Value of GLX_NO_EXTENSION symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int NO_EXTENSION = 3;
 
 		/// <summary>
-		/// Value of GLX_BAD_VISUAL symbol.
+		/// [GLX] Value of GLX_BAD_VISUAL symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BAD_VISUAL = 4;
 
 		/// <summary>
-		/// Value of GLX_BAD_CONTEXT symbol.
+		/// [GLX] Value of GLX_BAD_CONTEXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BAD_CONTEXT = 5;
 
 		/// <summary>
-		/// Value of GLX_BAD_VALUE symbol.
+		/// [GLX] Value of GLX_BAD_VALUE symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BAD_VALUE = 6;
 
 		/// <summary>
-		/// Value of GLX_BAD_ENUM symbol.
+		/// [GLX] Value of GLX_BAD_ENUM symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public const int BAD_ENUM = 7;
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseVisual: ignored. Only visuals that can be rendered with GLX are considered.
+		/// [GL2.1] Glx.ChooseVisual: Ignored. Only visuals that can be rendered with GLX are considered.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: glx. if OpenGL rendering is supported by this visual, Glx.e otherwise.
+		/// [GL2.1] Glx.GetConfig: Glx. if OpenGL rendering is supported by this visual, Glx.e otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -107,23 +107,23 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a nonnegative integer that indicates the desired color index buffer size. The 
-		/// smallest index buffer of at least the specified size is preferred. This attribute is ignored if Glx.COLOR_INDEX_BIT is 
-		/// not set in Glx.RENDER_TYPE. The default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a nonnegative integer that indicates the desired color index buffer 
+		/// size. The smallest index buffer of at least the specified size is preferred. This attribute is ignored if 
+		/// Glx.COLOR_INDEX_BIT is not set in Glx.RENDER_TYPE. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative integer that indicates the desired color index buffer size. The 
-		/// smallest index buffer of at least the specified size is preferred. Ignored if Glx.RGBA is asserted.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative integer that indicates the desired color index buffer size. 
+		/// The smallest index buffer of at least the specified size is preferred. Ignored if Glx.RGBA is asserted.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits per color buffer. For RGBA visuals, Glx.BUFFER_SIZE is the sum of Glx.RED_SIZE, 
+		/// [GL2.1] Glx.GetConfig: Number of bits per color buffer. For RGBA visuals, Glx.BUFFER_SIZE is the sum of Glx.RED_SIZE, 
 		/// Glx.GREEN_SIZE, Glx.BLUE_SIZE, and Glx.ALPHA_SIZE. For color index visuals, Glx.BUFFER_SIZE is the size of the color 
 		/// indexes.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits per color buffer. If the frame buffer configuration supports RGBA contexts, then 
-		/// Glx.BUFFER_SIZE is the sum of Glx.RED_SIZE, Glx.GREEN_SIZE, Glx.BLUE_SIZE, and Glx.ALPHA_SIZE. If the frame buffer 
-		/// configuration supports only color index contexts, Glx.BUFFER_SIZE is the size of the color indexes.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits per color buffer. If the frame buffer configuration supports RGBA 
+		/// contexts, then Glx.BUFFER_SIZE is the sum of Glx.RED_SIZE, Glx.GREEN_SIZE, Glx.BLUE_SIZE, and Glx.ALPHA_SIZE. If the 
+		/// frame buffer configuration supports only color index contexts, Glx.BUFFER_SIZE is the size of the color indexes.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -131,25 +131,25 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by an integer buffer-level specification. This specification is honored exactly. 
-		/// Buffer level 0 corresponds to the default frame buffer of the display. Buffer level 1 is the first overlay frame buffer, 
-		/// level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame buffers. The 
-		/// default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by an integer buffer-level specification. This specification is honored 
+		/// exactly. Buffer level 0 corresponds to the default frame buffer of the display. Buffer level 1 is the first overlay 
+		/// frame buffer, level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame 
+		/// buffers. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by an integer buffer-level specification. This specification is honored exactly. 
-		/// Buffer level zero corresponds to the main frame buffer of the display. Buffer level one is the first overlay frame 
-		/// buffer, level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame 
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by an integer buffer-level specification. This specification is honored 
+		/// exactly. Buffer level zero corresponds to the main frame buffer of the display. Buffer level one is the first overlay 
+		/// frame buffer, level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame 
 		/// buffers.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: frame buffer level of the visual. Level zero is the default frame buffer. Positive levels correspond to 
-		/// frame buffers that overlay the default buffer, and negative levels correspond to frame buffers that underlay the default 
-		/// buffer.
+		/// [GL2.1] Glx.GetConfig: Frame buffer level of the visual. Level zero is the default frame buffer. Positive levels 
+		/// correspond to frame buffers that overlay the default buffer, and negative levels correspond to frame buffers that 
+		/// underlay the default buffer.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: frame buffer level of the configuration. Level zero is the default frame buffer. Positive levels 
-		/// correspond to frame buffers that overlay the default buffer, and negative levels correspond to frame buffers that 
+		/// [GL2.1] Glx.GetFBConfigAttrib: Frame buffer level of the configuration. Level zero is the default frame buffer. Positive 
+		/// levels correspond to frame buffers that overlay the default buffer, and negative levels correspond to frame buffers that 
 		/// underlie the default buffer.
 		/// </para>
 		/// </summary>
@@ -158,11 +158,12 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseVisual: if present, only TrueColor and DirectColor visuals are considered. Otherwise, only PseudoColor and 
-		/// StaticColor visuals are considered.
+		/// [GL2.1] Glx.ChooseVisual: If present, only TrueColor and DirectColor visuals are considered. Otherwise, only PseudoColor 
+		/// and StaticColor visuals are considered.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: glx. if color buffers store red, green, blue, and alpha values. Glx.e if they store color indexes.
+		/// [GL2.1] Glx.GetConfig: Glx. if color buffers store red, green, blue, and alpha values. Glx.e if they store color 
+		/// indexes.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -170,19 +171,19 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by Glx. or Glx.e. If Glx. is specified, then only double-buffered frame buffer 
-		/// configurations are considered; if Glx.e is specified, then only single-buffered frame buffer configurations are 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by Glx. or Glx.e. If Glx. is specified, then only double-buffered frame 
+		/// buffer configurations are considered; if Glx.e is specified, then only single-buffered frame buffer configurations are 
 		/// considered. The default value is Glx.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: if present, only double-buffered visuals are considered. Otherwise, only single-buffered visuals are 
-		/// considered.
+		/// [GL2.1] Glx.ChooseVisual: If present, only double-buffered visuals are considered. Otherwise, only single-buffered 
+		/// visuals are considered.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: glx. if color buffers exist in front/back pairs that can be swapped, Glx.e otherwise.
+		/// [GL2.1] Glx.GetConfig: Glx. if color buffers exist in front/back pairs that can be swapped, Glx.e otherwise.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: glx. if color buffers exist in front/back pairs that can be swapped, Glx.e otherwise.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Glx. if color buffers exist in front/back pairs that can be swapped, Glx.e otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -190,18 +191,19 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by Glx. or Glx.e. If Glx. is specified, then only stereo frame buffer 
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by Glx. or Glx.e. If Glx. is specified, then only stereo frame buffer 
 		/// configurations are considered; if Glx.e is specified, then only monoscopic frame buffer configurations are considered. 
 		/// The default value is Glx.e.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: if present, only stereo visuals are considered. Otherwise, only monoscopic visuals are considered.
+		/// [GL2.1] Glx.ChooseVisual: If present, only stereo visuals are considered. Otherwise, only monoscopic visuals are 
+		/// considered.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: glx. if color buffers exist in left/right pairs, Glx.e otherwise.
+		/// [GL2.1] Glx.GetConfig: Glx. if color buffers exist in left/right pairs, Glx.e otherwise.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: glx. if color buffers exist in left/right pairs, Glx.e otherwise.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Glx. if color buffers exist in left/right pairs, Glx.e otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -209,21 +211,21 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a nonnegative integer that indicates the desired number of auxiliary buffers. 
-		/// Configurations with the smallest number of auxiliary buffers that meet or exceed the specified number are preferred. The 
-		/// default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a nonnegative integer that indicates the desired number of auxiliary 
+		/// buffers. Configurations with the smallest number of auxiliary buffers that meet or exceed the specified number are 
+		/// preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative integer that indicates the desired number of auxiliary buffers. 
-		/// Visuals with the smallest number of auxiliary buffers that meets or exceeds the specified number are preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative integer that indicates the desired number of auxiliary 
+		/// buffers. Visuals with the smallest number of auxiliary buffers that meets or exceeds the specified number are preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of auxiliary color buffers that are available. Zero indicates that no auxiliary color buffers 
-		/// exist.
-		/// </para>
-		/// <para>
-		/// Glx.GetFBConfigAttrib: number of auxiliary color buffers that are available. Zero indicates that no auxiliary color 
+		/// [GL2.1] Glx.GetConfig: Number of auxiliary color buffers that are available. Zero indicates that no auxiliary color 
 		/// buffers exist.
+		/// </para>
+		/// <para>
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of auxiliary color buffers that are available. Zero indicates that no auxiliary 
+		/// color buffers exist.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -231,23 +233,23 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: each attribute, if present, must be followed by a nonnegative minimum size specification or 
+		/// [GL2.1] Glx.ChooseFBConfig: Each attribute, if present, must be followed by a nonnegative minimum size specification or 
 		/// Glx.DONT_CARE. The largest available total RGBA color buffer size (sum of Glx.RED_SIZE, Glx.GREEN_SIZE, Glx.BLUE_SIZE, 
 		/// and Glx.ALPHA_SIZE) of at least the minimum size specified for each color component is preferred. If the requested 
 		/// number of bits for a color component is 0 or Glx.DONT_CARE, it is not considered. The default value for each color 
 		/// component is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, the smallest 
-		/// available red buffer is preferred. Otherwise, the largest available red buffer of at least the minimum size is 
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
+		/// smallest available red buffer is preferred. Otherwise, the largest available red buffer of at least the minimum size is 
 		/// preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits of red stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
+		/// [GL2.1] Glx.GetConfig: Number of bits of red stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits of red stored in each color buffer. Undefined if RGBA contexts are not supported 
-		/// by the frame buffer configuration.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits of red stored in each color buffer. Undefined if RGBA contexts are not 
+		/// supported by the frame buffer configuration.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -255,16 +257,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, the smallest 
-		/// available green buffer is preferred. Otherwise, the largest available green buffer of at least the minimum size is 
-		/// preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
+		/// smallest available green buffer is preferred. Otherwise, the largest available green buffer of at least the minimum size 
+		/// is preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits of green stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
+		/// [GL2.1] Glx.GetConfig: Number of bits of green stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits of green stored in each color buffer. Undefined if RGBA contexts are not supported 
-		/// by the frame buffer configuration.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits of green stored in each color buffer. Undefined if RGBA contexts are not 
+		/// supported by the frame buffer configuration.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -272,16 +274,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, the smallest 
-		/// available blue buffer is preferred. Otherwise, the largest available blue buffer of at least the minimum size is 
-		/// preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
+		/// smallest available blue buffer is preferred. Otherwise, the largest available blue buffer of at least the minimum size 
+		/// is preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits of blue stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
+		/// [GL2.1] Glx.GetConfig: Number of bits of blue stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits of blue stored in each color buffer. Undefined if RGBA contexts are not supported 
-		/// by the frame buffer configuration.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits of blue stored in each color buffer. Undefined if RGBA contexts are not 
+		/// supported by the frame buffer configuration.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -289,16 +291,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, the smallest 
-		/// available alpha buffer is preferred. Otherwise, the largest available alpha buffer of at least the minimum size is 
-		/// preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
+		/// smallest available alpha buffer is preferred. Otherwise, the largest available alpha buffer of at least the minimum size 
+		/// is preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits of alpha stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
+		/// [GL2.1] Glx.GetConfig: Number of bits of alpha stored in each color buffer. Undefined if Glx.RGBA is Glx.e.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits of alpha stored in each color buffer. Undefined if RGBA contexts are not supported 
-		/// by the frame buffer configuration.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits of alpha stored in each color buffer. Undefined if RGBA contexts are not 
+		/// supported by the frame buffer configuration.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -306,19 +308,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
-		/// configurations with no depth buffer are preferred. Otherwise, the largest available depth buffer of at least the minimum 
-		/// size is preferred. The default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a nonnegative minimum size specification. If this value is zero, frame 
+		/// buffer configurations with no depth buffer are preferred. Otherwise, the largest available depth buffer of at least the 
+		/// minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
-		/// depth buffer are preferred. Otherwise, the largest available depth buffer of at least the minimum size is preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
+		/// with no depth buffer are preferred. Otherwise, the largest available depth buffer of at least the minimum size is 
+		/// preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits in the depth buffer.
+		/// [GL2.1] Glx.GetConfig: Number of bits in the depth buffer.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits in the depth buffer.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits in the depth buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -326,20 +329,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a nonnegative integer that indicates the desired number of stencil bitplanes. 
-		/// The smallest stencil buffer of at least the specified size is preferred. If the desired value is zero, frame buffer 
-		/// configurations with no stencil buffer are preferred. The default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a nonnegative integer that indicates the desired number of stencil 
+		/// bitplanes. The smallest stencil buffer of at least the specified size is preferred. If the desired value is zero, frame 
+		/// buffer configurations with no stencil buffer are preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative integer that indicates the desired number of stencil bitplanes. The 
-		/// smallest stencil buffer of at least the specified size is preferred. If the desired value is zero, visuals with no 
-		/// stencil buffer are preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative integer that indicates the desired number of stencil 
+		/// bitplanes. The smallest stencil buffer of at least the specified size is preferred. If the desired value is zero, 
+		/// visuals with no stencil buffer are preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits in the stencil buffer.
+		/// [GL2.1] Glx.GetConfig: Number of bits in the stencil buffer.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits in the stencil buffer.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits in the stencil buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -347,20 +350,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
-		/// configurations with no red accumulation buffer are preferred. Otherwise, the largest possible red accumulation buffer of 
-		/// at least the minimum size is preferred. The default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a nonnegative minimum size specification. If this value is zero, frame 
+		/// buffer configurations with no red accumulation buffer are preferred. Otherwise, the largest possible red accumulation 
+		/// buffer of at least the minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
-		/// red accumulation buffer are preferred. Otherwise, the largest possible red accumulation buffer of at least the minimum 
-		/// size is preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
+		/// with no red accumulation buffer are preferred. Otherwise, the largest possible red accumulation buffer of at least the 
+		/// minimum size is preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits of red stored in the accumulation buffer.
+		/// [GL2.1] Glx.GetConfig: Number of bits of red stored in the accumulation buffer.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits of red stored in the accumulation buffer.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits of red stored in the accumulation buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -368,20 +371,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
-		/// configurations with no green accumulation buffer are preferred. Otherwise, the largest possible green accumulation 
-		/// buffer of at least the minimum size is preferred. The default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a nonnegative minimum size specification. If this value is zero, frame 
+		/// buffer configurations with no green accumulation buffer are preferred. Otherwise, the largest possible green 
+		/// accumulation buffer of at least the minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
-		/// green accumulation buffer are preferred. Otherwise, the largest possible green accumulation buffer of at least the 
-		/// minimum size is preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
+		/// with no green accumulation buffer are preferred. Otherwise, the largest possible green accumulation buffer of at least 
+		/// the minimum size is preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits of green stored in the accumulation buffer.
+		/// [GL2.1] Glx.GetConfig: Number of bits of green stored in the accumulation buffer.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits of green stored in the accumulation buffer.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits of green stored in the accumulation buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -389,20 +392,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
-		/// configurations with no blue accumulation buffer are preferred. Otherwise, the largest possible blue accumulation buffer 
-		/// of at least the minimum size is preferred. The default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a nonnegative minimum size specification. If this value is zero, frame 
+		/// buffer configurations with no blue accumulation buffer are preferred. Otherwise, the largest possible blue accumulation 
+		/// buffer of at least the minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
-		/// blue accumulation buffer are preferred. Otherwise, the largest possible blue accumulation buffer of at least the minimum 
-		/// size is preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
+		/// with no blue accumulation buffer are preferred. Otherwise, the largest possible blue accumulation buffer of at least the 
+		/// minimum size is preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits of blue stored in the accumulation buffer.
+		/// [GL2.1] Glx.GetConfig: Number of bits of blue stored in the accumulation buffer.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits of blue stored in the accumulation buffer.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits of blue stored in the accumulation buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -410,20 +413,20 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Glx.ChooseFBConfig: must be followed by a nonnegative minimum size specification. If this value is zero, frame buffer 
-		/// configurations with no alpha accumulation buffer are preferred. Otherwise, the largest possible alpha accumulation 
-		/// buffer of at least the minimum size is preferred. The default value is 0.
+		/// [GL2.1] Glx.ChooseFBConfig: Must be followed by a nonnegative minimum size specification. If this value is zero, frame 
+		/// buffer configurations with no alpha accumulation buffer are preferred. Otherwise, the largest possible alpha 
+		/// accumulation buffer of at least the minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// Glx.ChooseVisual: must be followed by a nonnegative minimum size specification. If this value is zero, visuals with no 
-		/// alpha accumulation buffer are preferred. Otherwise, the largest possible alpha accumulation buffer of at least the 
-		/// minimum size is preferred.
+		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
+		/// with no alpha accumulation buffer are preferred. Otherwise, the largest possible alpha accumulation buffer of at least 
+		/// the minimum size is preferred.
 		/// </para>
 		/// <para>
-		/// Glx.GetConfig: number of bits of alpha stored in the accumulation buffer.
+		/// [GL2.1] Glx.GetConfig: Number of bits of alpha stored in the accumulation buffer.
 		/// </para>
 		/// <para>
-		/// Glx.GetFBConfigAttrib: number of bits of alpha stored in the accumulation buffer.
+		/// [GL2.1] Glx.GetFBConfigAttrib: Number of bits of alpha stored in the accumulation buffer.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("GLX_VERSION_1_0")]
@@ -441,8 +444,6 @@ namespace OpenGL
 		/// <param name="attribList">
 		/// Specifies a list of boolean attributes and integer attribute/value pairs. The last attribute must be Glx..
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx. is returned if an undefined GLX attribute is encountered in <paramref name="attribList"/>.
 		/// </exception>
@@ -483,8 +484,6 @@ namespace OpenGL
 		/// Specifies whether rendering is to be done with a direct connection to the graphics system if possible (Glx.) or through 
 		/// the X server (Glx.e).
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx. is returned if execution fails on the client side.
 		/// </exception>
@@ -528,8 +527,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context to be destroyed.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX context.
 		/// </exception>
@@ -557,8 +554,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies a GLX rendering context that is to be attached to <paramref name="drawable"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if <paramref name="drawable"/> was not created with the same X screen and visual as <paramref 
 		/// name="ctx"/>. It is also generated if <paramref name="drawable"/> is Glx. and <paramref name="ctx"/> is not Glx..
@@ -623,8 +618,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies which portions of <paramref name="src"/> state are to be copied to <paramref name="dst"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if rendering contexts <paramref name="src"/> and <paramref name="dst"/> do not share an address 
 		/// space or were not created with respect to the same screen.
@@ -661,8 +654,6 @@ namespace OpenGL
 		/// <param name="drawable">
 		/// Specifies the drawable whose buffers are to be swapped.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adDrawable is generated if <paramref name="drawable"/> is not a valid GLX drawable.
 		/// </exception>
@@ -693,8 +684,6 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// Specifies the X pixmap that will be used as the front left color buffer of the off-screen rendering area.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.atch is generated if the depth of <paramref name="pixmap"/> does not match the depth value reported by core X11 for 
 		/// <paramref name="vis"/>, or if <paramref name="pixmap"/> was not created with respect to the same screen as <paramref 
@@ -737,8 +726,6 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adPixmap is generated if <paramref name="pix"/> is not a valid GLX pixmap.
 		/// </exception>
@@ -798,8 +785,6 @@ namespace OpenGL
 		/// <param name="min">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.QueryVersion returns Glx.e if it fails, Glx. otherwise.
 		/// </exception>
@@ -835,8 +820,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context that is being queried.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX context.
 		/// </exception>
@@ -870,8 +853,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension.
 		/// </exception>
@@ -949,8 +930,6 @@ namespace OpenGL
 		/// <summary>
 		/// complete GL execution prior to subsequent X calls
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
 		/// and that window is no longer valid.
@@ -970,8 +949,6 @@ namespace OpenGL
 		/// <summary>
 		/// complete X execution prior to subsequent GL calls
 		/// </summary>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
 		/// and that window is no longer valid.
@@ -1003,8 +980,6 @@ namespace OpenGL
 		/// <param name="list">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <remarks>
-		/// </remarks>
 		/// <exception cref="KhronosException">
 		/// Glx.ont is generated if <paramref name="font"/> is not a valid font.
 		/// </exception>

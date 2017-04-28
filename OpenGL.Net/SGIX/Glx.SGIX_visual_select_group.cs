@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_VISUAL_SELECT_GROUP_SGIX symbol.
+		/// [GLX] Value of GLX_VISUAL_SELECT_GROUP_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_visual_select_group")]
 		public const int VISUAL_SELECT_GROUP_SGIX = 0x8028;

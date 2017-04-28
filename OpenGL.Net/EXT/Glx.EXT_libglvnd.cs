@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_VENDOR_NAMES_EXT symbol.
+		/// [GLX] Value of GLX_VENDOR_NAMES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_libglvnd")]
 		public const int VENDOR_NAMES_EXT = 0x20F6;

@@ -29,20 +29,20 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_STEREO_TREE_EXT symbol.
+		/// [GLX] Value of GLX_STEREO_TREE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_stereo_tree")]
 		public const int STEREO_TREE_EXT = 0x20F5;
 
 		/// <summary>
-		/// Value of GLX_STEREO_NOTIFY_MASK_EXT symbol.
+		/// [GLX] Value of GLX_STEREO_NOTIFY_MASK_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_stereo_tree")]
 		[Log(BitmaskName = "GLXEventMask")]
 		public const uint STEREO_NOTIFY_MASK_EXT = 0x00000001;
 
 		/// <summary>
-		/// Value of GLX_STEREO_NOTIFY_EXT symbol.
+		/// [GLX] Value of GLX_STEREO_NOTIFY_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_stereo_tree")]
 		public const int STEREO_NOTIFY_EXT = 0x00000000;

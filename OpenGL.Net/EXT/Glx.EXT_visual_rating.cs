@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_VISUAL_CAVEAT_EXT symbol.
+		/// [GLX] Value of GLX_VISUAL_CAVEAT_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_visual_rating")]
 		public const int VISUAL_CAVEAT_EXT = 0x20;
 
 		/// <summary>
-		/// Value of GLX_SLOW_VISUAL_EXT symbol.
+		/// [GLX] Value of GLX_SLOW_VISUAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_visual_rating")]
 		public const int SLOW_VISUAL_EXT = 0x8001;
 
 		/// <summary>
-		/// Value of GLX_NON_CONFORMANT_VISUAL_EXT symbol.
+		/// [GLX] Value of GLX_NON_CONFORMANT_VISUAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_visual_rating")]
 		public const int NON_CONFORMANT_VISUAL_EXT = 0x800D;

@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_COVERAGE_SAMPLE_RESOLVE_NV symbol.
+		/// [EGL] Value of EGL_COVERAGE_SAMPLE_RESOLVE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_coverage_sample_resolve")]
 		public const int COVERAGE_SAMPLE_RESOLVE_NV = 0x3131;
 
 		/// <summary>
-		/// Value of EGL_COVERAGE_SAMPLE_RESOLVE_DEFAULT_NV symbol.
+		/// [EGL] Value of EGL_COVERAGE_SAMPLE_RESOLVE_DEFAULT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_coverage_sample_resolve")]
 		public const int COVERAGE_SAMPLE_RESOLVE_DEFAULT_NV = 0x3132;
 
 		/// <summary>
-		/// Value of EGL_COVERAGE_SAMPLE_RESOLVE_NONE_NV symbol.
+		/// [EGL] Value of EGL_COVERAGE_SAMPLE_RESOLVE_NONE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_coverage_sample_resolve")]
 		public const int COVERAGE_SAMPLE_RESOLVE_NONE_NV = 0x3133;

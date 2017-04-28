@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_D3D9_DEVICE_ANGLE symbol.
+		/// [EGL] Value of EGL_D3D9_DEVICE_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANGLE_device_d3d")]
 		public const int D3D9_DEVICE_ANGLE = 0x33A0;
 
 		/// <summary>
-		/// Value of EGL_D3D11_DEVICE_ANGLE symbol.
+		/// [EGL] Value of EGL_D3D11_DEVICE_ANGLE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANGLE_device_d3d")]
 		public const int D3D11_DEVICE_ANGLE = 0x33A1;

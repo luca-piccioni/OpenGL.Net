@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Value of WGL_NUM_VIDEO_SLOTS_NV symbol.
+		/// [WGL] Value of WGL_NUM_VIDEO_SLOTS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("WGL_NV_present_video")]
 		public const int NUM_VIDEO_SLOTS_NV = 0x20F0;

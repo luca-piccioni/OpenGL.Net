@@ -41,10 +41,9 @@ namespace OpenGL
 		/// <param name="args">
 		/// An array of objects that specifies the arguments for <paramref name="format"/>.
 		/// </param>
-		internal KhronosLogEventArgs(KhronosLogContext logContext, string format, params object[] args)
+		internal KhronosLogEventArgs(string format, params object[] args)
 		{
 			_Comment = String.Format(format, args);
-			_LogContext = logContext;
 		}
 
 		/// <summary>
@@ -74,7 +73,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Command Information
+		#region Event Information
 
 		/// <summary>
 		/// Command name.
@@ -91,6 +90,11 @@ namespace OpenGL
 		/// </summary>
 		public readonly object ReturnValue;
 
+		/// <summary>
+		/// Optional logging context holding information about the API logged.
+		/// </summary>
+		private readonly KhronosLogContext _LogContext;
+
 		#endregion
 
 		#region Comment Information
@@ -102,112 +106,14 @@ namespace OpenGL
 
 		#endregion
 
-		#region Default Value Formatting
-
-		private object FormatArg(object arg)
-		{
-			Type argType = arg.GetType();
-
-			if (argType == typeof(string[]))
-				return (FormatArg((string[])arg));
-			else if (argType.IsArray)
-				return (FormatArg((Array)arg));
-			if (argType == typeof(IntPtr))
-				return (FormatArg((IntPtr)arg));
-			else
-				return (arg);
-		}
-
-		private object FormatArg(string[] arg)
-		{
-			if (arg != null) {
-				StringBuilder sb = new StringBuilder();
-
-				sb.Append("{");
-				foreach (string arrayItem in arg)
-					sb.AppendFormat("{0},", arrayItem.Replace("\n", "\\n"));
-				if (arg.Length > 0)
-					sb.Remove(sb.Length - 1, 1);
-				sb.Append("}");
-
-				return (sb.ToString());
-			} else
-				return ("{ null }");
-		}
-
-		private object FormatArg(Array arg)
-		{
-			if (arg != null) {
-				StringBuilder sb = new StringBuilder();
-
-				sb.Append("{");
-				foreach (object arrayItem in arg)
-					sb.AppendFormat("{0},", arrayItem.ToString());
-				if (arg.Length > 0)
-					sb.Remove(sb.Length - 1, 1);
-				sb.Append("}");
-
-				return (sb.ToString());
-			} else
-				return ("{ null }");
-		}
-
-		private object FormatArg(IntPtr arg)
-		{
-			return ("0x" + arg.ToString("X8"));
-		}
-
-		/// <summary>
-		/// Optional logging context holding information about the API logged.
-		/// </summary>
-		private readonly KhronosLogContext _LogContext;
-
-		#endregion
-
 		#region Object Overrides
 
 		public override string ToString()
 		{
 			if (Name != null)
-				return (ToString_Command());
+				return (_LogContext.ToString(Name, ReturnValue, Args));
 			else
-				return (ToString_Comment());
-		}
-
-		private string ToString_Command()
-		{
-			// Format string
-			StringBuilder sbFormat = new StringBuilder();
-			int formatIdx = 1;
-
-			sbFormat.Append("{0}(");
-			if (Args != null && Args.Length > 0) {
-				for (int i = 0; i < Args.Length; i++)
-					sbFormat.AppendFormat("{{{0}}}, ", formatIdx++);
-				sbFormat.Remove(sbFormat.Length - 2, 2);
-			}
-			sbFormat.Append(")");
-			if (ReturnValue != null)
-				sbFormat.AppendFormat(" = {{{0}}}", formatIdx++);
-
-			// Format arguments
-			List<object> formatArgs = new List<object>();
-
-			formatArgs.Add(Name);
-			if (Args != null) {
-				foreach (object arg in Args)
-					formatArgs.Add(FormatArg(arg));
-			}
-			if (ReturnValue != null)
-				formatArgs.Add(FormatArg(ReturnValue));
-
-			// Returns formatted string
-			return (String.Format(sbFormat.ToString(), formatArgs.ToArray()));
-		}
-
-		private string ToString_Comment()
-		{
-			return (_Comment);
+				return (_Comment);
 		}
 
 		#endregion

@@ -29,19 +29,19 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_BACK_BUFFER symbol.
+		/// [EGL] Value of EGL_BACK_BUFFER symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int BACK_BUFFER = 0x3084;
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: Must be followed by Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only frame 
-		/// buffer configurations that support binding of color buffers to an OpenGL ES RGB texture will be considered. Currently 
-		/// only frame buffer configurations that support pbuffers allow this. The default value is Egl.DONT_CARE.
+		/// [EGL] Egl.ChooseConfig: Must be followed by Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only 
+		/// frame buffer configurations that support binding of color buffers to an OpenGL ES RGB texture will be considered. 
+		/// Currently only frame buffer configurations that support pbuffers allow this. The default value is Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: Returns Egl.TRUE if color buffers can be bound to an RGB texture, Egl.FALSE otherwise.
+		/// [EGL] Egl.GetConfigAttrib: Returns Egl.TRUE if color buffers can be bound to an RGB texture, Egl.FALSE otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -49,31 +49,31 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: Must be followed by one of Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then only 
-		/// frame buffer configurations that support binding of color buffers to an OpenGL ES RGBA texture will be considered. 
+		/// [EGL] Egl.ChooseConfig: Must be followed by one of Egl.DONT_CARE, Egl.TRUE, or Egl.FALSE. If Egl.TRUE is specified, then 
+		/// only frame buffer configurations that support binding of color buffers to an OpenGL ES RGBA texture will be considered. 
 		/// Currently only frame buffer configurations that support pbuffers allow this. The default value is Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: Returns Egl.TRUE if color buffers can be bound to an RGBA texture, Egl.FALSE otherwise.
+		/// [EGL] Egl.GetConfigAttrib: Returns Egl.TRUE if color buffers can be bound to an RGBA texture, Egl.FALSE otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int BIND_TO_TEXTURE_RGBA = 0x303A;
 
 		/// <summary>
-		/// Egl.GetError: A power management event has occurred. The application must destroy all contexts and reinitialise OpenGL 
-		/// ES state and objects to continue rendering.
+		/// [EGL] Egl.GetError: A power management event has occurred. The application must destroy all contexts and reinitialise 
+		/// OpenGL ES state and objects to continue rendering.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int CONTEXT_LOST = 0x300E;
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: Must be followed by a integer that indicates the minimum value that can be passed to eglSwapInterval. 
-		/// The default value is Egl.DONT_CARE.
+		/// [EGL] Egl.ChooseConfig: Must be followed by a integer that indicates the minimum value that can be passed to 
+		/// eglSwapInterval. The default value is Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: Returns the minimum value that can be passed to eglSwapInterval.
+		/// [EGL] Egl.GetConfigAttrib: Returns the minimum value that can be passed to eglSwapInterval.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -81,11 +81,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.ChooseConfig: Must be followed by a integer that indicates the maximum value that can be passed to Egl.SwapInterval. 
-		/// The default value is Egl.DONT_CARE.
+		/// [EGL] Egl.ChooseConfig: Must be followed by a integer that indicates the maximum value that can be passed to 
+		/// Egl.SwapInterval. The default value is Egl.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// Egl.GetConfigAttrib: Returns the maximum value that can be passed to eglSwapInterval.
+		/// [EGL] Egl.GetConfigAttrib: Returns the maximum value that can be passed to eglSwapInterval.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -93,16 +93,16 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferFromClientBuffer: Specifies whether storage for mipmaps should be allocated. Space for mipmaps will be 
-		/// set aside if the attribute value is Egl.TRUE and Egl.TEXTURE_FORMAT is not Egl.NO_TEXTURE. The default value is 
+		/// [EGL] Egl.CreatePbufferFromClientBuffer: Specifies whether storage for mipmaps should be allocated. Space for mipmaps 
+		/// will be set aside if the attribute value is Egl.TRUE and Egl.TEXTURE_FORMAT is not Egl.NO_TEXTURE. The default value is 
 		/// Egl.FALSE.
 		/// </para>
 		/// <para>
-		/// Egl.CreatePbufferSurface: Specifies whether storage for mipmaps should be allocated. Space for mipmaps will be set aside 
-		/// if the attribute value is Egl.TRUE and Egl.TEXTURE_FORMAT is not Egl.NO_TEXTURE. The default value is Egl.FALSE.
+		/// [EGL] Egl.CreatePbufferSurface: Specifies whether storage for mipmaps should be allocated. Space for mipmaps will be set 
+		/// aside if the attribute value is Egl.TRUE and Egl.TEXTURE_FORMAT is not Egl.NO_TEXTURE. The default value is Egl.FALSE.
 		/// </para>
 		/// <para>
-		/// Egl.QuerySurface: Returns Egl.TRUE if texture has mipmaps, Egl.FALSE otherwise.
+		/// [EGL] Egl.QuerySurface: Returns Egl.TRUE if texture has mipmaps, Egl.FALSE otherwise.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
@@ -110,71 +110,73 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// Egl.QuerySurface: Returns which level of the mipmap to render to, if texture has mipmaps.
+		/// [EGL] Egl.QuerySurface: Returns which level of the mipmap to render to, if texture has mipmaps.
 		/// </para>
 		/// <para>
-		/// Egl.SurfaceAttrib: For mipmap textures, the Egl.MIPMAP_LEVEL attribute indicates which level of the mipmap should be 
-		/// rendered. If the value of this attribute is outside the range of supported mipmap levels, the closest valid mipmap level 
-		/// is selected for rendering. The default value is Egl..
+		/// [EGL] Egl.SurfaceAttrib: For mipmap textures, the Egl.MIPMAP_LEVEL attribute indicates which level of the mipmap should 
+		/// be rendered. If the value of this attribute is outside the range of supported mipmap levels, the closest valid mipmap 
+		/// level is selected for rendering. The default value is Egl..
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int MIPMAP_LEVEL = 0x3083;
 
 		/// <summary>
-		/// Value of EGL_NO_TEXTURE symbol.
+		/// [EGL] Value of EGL_NO_TEXTURE symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int NO_TEXTURE = 0x305C;
 
 		/// <summary>
-		/// Value of EGL_TEXTURE_2D symbol.
+		/// [EGL] Value of EGL_TEXTURE_2D symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int TEXTURE_2D = 0x305F;
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferFromClientBuffer: Specifies the format of the texture that will be created when a pbuffer is bound to a 
+		/// [EGL] Egl.CreatePbufferFromClientBuffer: Specifies the format of the texture that will be created when a pbuffer is 
+		/// bound to a texture map. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and Egl.TEXTURE_RGBA. The default value is 
+		/// Egl.NO_TEXTURE.
+		/// </para>
+		/// <para>
+		/// [EGL] Egl.CreatePbufferSurface: Specifies the format of the texture that will be created when a pbuffer is bound to a 
 		/// texture map. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and Egl.TEXTURE_RGBA. The default value is 
 		/// Egl.NO_TEXTURE.
 		/// </para>
 		/// <para>
-		/// Egl.CreatePbufferSurface: Specifies the format of the texture that will be created when a pbuffer is bound to a texture 
-		/// map. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and Egl.TEXTURE_RGBA. The default value is Egl.NO_TEXTURE.
-		/// </para>
-		/// <para>
-		/// Egl.QuerySurface: Returns format of texture. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and Egl.TEXTURE_RGBA.
+		/// [EGL] Egl.QuerySurface: Returns format of texture. Possible values are Egl.NO_TEXTURE, Egl.TEXTURE_RGB, and 
+		/// Egl.TEXTURE_RGBA.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int TEXTURE_FORMAT = 0x3080;
 
 		/// <summary>
-		/// Value of EGL_TEXTURE_RGB symbol.
+		/// [EGL] Value of EGL_TEXTURE_RGB symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int TEXTURE_RGB = 0x305D;
 
 		/// <summary>
-		/// Value of EGL_TEXTURE_RGBA symbol.
+		/// [EGL] Value of EGL_TEXTURE_RGBA symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public const int TEXTURE_RGBA = 0x305E;
 
 		/// <summary>
 		/// <para>
-		/// Egl.CreatePbufferFromClientBuffer: Specifies the target for the texture that will be created when the pbuffer is created 
+		/// [EGL] Egl.CreatePbufferFromClientBuffer: Specifies the target for the texture that will be created when the pbuffer is 
+		/// created with a texture format of Egl.TEXTURE_RGB or Egl.TEXTURE_RGBA. Possible values are Egl.NO_TEXTURE, or 
+		/// Egl.TEXTURE_2D. The default value is Egl.NO_TEXTURE.
+		/// </para>
+		/// <para>
+		/// [EGL] Egl.CreatePbufferSurface: Specifies the target for the texture that will be created when the pbuffer is created 
 		/// with a texture format of Egl.TEXTURE_RGB or Egl.TEXTURE_RGBA. Possible values are Egl.NO_TEXTURE, or Egl.TEXTURE_2D. The 
 		/// default value is Egl.NO_TEXTURE.
 		/// </para>
 		/// <para>
-		/// Egl.CreatePbufferSurface: Specifies the target for the texture that will be created when the pbuffer is created with a 
-		/// texture format of Egl.TEXTURE_RGB or Egl.TEXTURE_RGBA. Possible values are Egl.NO_TEXTURE, or Egl.TEXTURE_2D. The 
-		/// default value is Egl.NO_TEXTURE.
-		/// </para>
-		/// <para>
-		/// Egl.QuerySurface: Returns type of texture. Possible values are Egl.NO_TEXTURE, or Egl.TEXTURE_2D.
+		/// [EGL] Egl.QuerySurface: Returns type of texture. Possible values are Egl.NO_TEXTURE, or Egl.TEXTURE_2D.
 		/// </para>
 		/// </summary>
 		[RequiredByFeature("EGL_VERSION_1_1")]

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_FRONT_BUFFER_AUTO_REFRESH_ANDROID symbol.
+		/// [EGL] Value of EGL_FRONT_BUFFER_AUTO_REFRESH_ANDROID symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_ANDROID_front_buffer_auto_refresh")]
 		public const int FRONT_BUFFER_AUTO_REFRESH_ANDROID = 0x314C;

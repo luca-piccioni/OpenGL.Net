@@ -29,61 +29,61 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_SYNC_PRIOR_COMMANDS_COMPLETE_NV symbol.
+		/// [EGL] Value of EGL_SYNC_PRIOR_COMMANDS_COMPLETE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int SYNC_PRIOR_COMMANDS_COMPLETE_NV = 0x30E6;
 
 		/// <summary>
-		/// Value of EGL_SYNC_STATUS_NV symbol.
+		/// [EGL] Value of EGL_SYNC_STATUS_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int SYNC_STATUS_NV = 0x30E7;
 
 		/// <summary>
-		/// Value of EGL_SIGNALED_NV symbol.
+		/// [EGL] Value of EGL_SIGNALED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int SIGNALED_NV = 0x30E8;
 
 		/// <summary>
-		/// Value of EGL_UNSIGNALED_NV symbol.
+		/// [EGL] Value of EGL_UNSIGNALED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int UNSIGNALED_NV = 0x30E9;
 
 		/// <summary>
-		/// Value of EGL_ALREADY_SIGNALED_NV symbol.
+		/// [EGL] Value of EGL_ALREADY_SIGNALED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int ALREADY_SIGNALED_NV = 0x30EA;
 
 		/// <summary>
-		/// Value of EGL_TIMEOUT_EXPIRED_NV symbol.
+		/// [EGL] Value of EGL_TIMEOUT_EXPIRED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int TIMEOUT_EXPIRED_NV = 0x30EB;
 
 		/// <summary>
-		/// Value of EGL_CONDITION_SATISFIED_NV symbol.
+		/// [EGL] Value of EGL_CONDITION_SATISFIED_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int CONDITION_SATISFIED_NV = 0x30EC;
 
 		/// <summary>
-		/// Value of EGL_SYNC_TYPE_NV symbol.
+		/// [EGL] Value of EGL_SYNC_TYPE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int SYNC_TYPE_NV = 0x30ED;
 
 		/// <summary>
-		/// Value of EGL_SYNC_CONDITION_NV symbol.
+		/// [EGL] Value of EGL_SYNC_CONDITION_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int SYNC_CONDITION_NV = 0x30EE;
 
 		/// <summary>
-		/// Value of EGL_SYNC_FENCE_NV symbol.
+		/// [EGL] Value of EGL_SYNC_FENCE_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_sync")]
 		public const int SYNC_FENCE_NV = 0x30EF;

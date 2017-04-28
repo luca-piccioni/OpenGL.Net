@@ -29,27 +29,27 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_BUFFER_CLOBBER_MASK_SGIX symbol.
+		/// [GLX] Value of GLX_BUFFER_CLOBBER_MASK_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXEventMask")]
 		public const uint BUFFER_CLOBBER_MASK_SGIX = 0x08000000;
 
 		/// <summary>
-		/// Value of GLX_SAMPLE_BUFFERS_BIT_SGIX symbol.
+		/// [GLX] Value of GLX_SAMPLE_BUFFERS_BIT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
 		public const uint SAMPLE_BUFFERS_BIT_SGIX = 0x00000100;
 
 		/// <summary>
-		/// Value of GLX_OPTIMAL_PBUFFER_WIDTH_SGIX symbol.
+		/// [GLX] Value of GLX_OPTIMAL_PBUFFER_WIDTH_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int OPTIMAL_PBUFFER_WIDTH_SGIX = 0x8019;
 
 		/// <summary>
-		/// Value of GLX_OPTIMAL_PBUFFER_HEIGHT_SGIX symbol.
+		/// [GLX] Value of GLX_OPTIMAL_PBUFFER_HEIGHT_SGIX symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int OPTIMAL_PBUFFER_HEIGHT_SGIX = 0x801A;

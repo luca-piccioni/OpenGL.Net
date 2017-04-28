@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_CONTEXT_RESET_ISOLATION_BIT_ARB symbol.
+		/// [GLX] Value of GLX_CONTEXT_RESET_ISOLATION_BIT_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_ARB_robustness_application_isolation")]
 		[RequiredByFeature("GLX_ARB_robustness_share_group_isolation")]

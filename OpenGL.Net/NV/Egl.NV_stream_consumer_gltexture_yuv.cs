@@ -29,32 +29,32 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_YUV_PLANE0_TEXTURE_UNIT_NV symbol.
+		/// [EGL] Value of EGL_YUV_PLANE0_TEXTURE_UNIT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
 		public const int YUV_PLANE0_TEXTURE_UNIT_NV = 0x332C;
 
 		/// <summary>
-		/// Value of EGL_YUV_PLANE1_TEXTURE_UNIT_NV symbol.
+		/// [EGL] Value of EGL_YUV_PLANE1_TEXTURE_UNIT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
 		public const int YUV_PLANE1_TEXTURE_UNIT_NV = 0x332D;
 
 		/// <summary>
-		/// Value of EGL_YUV_PLANE2_TEXTURE_UNIT_NV symbol.
+		/// [EGL] Value of EGL_YUV_PLANE2_TEXTURE_UNIT_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
 		public const int YUV_PLANE2_TEXTURE_UNIT_NV = 0x332E;
 
 		/// <summary>
-		/// Value of EGL_YUV_NUMBER_OF_PLANES_EXT symbol.
+		/// [EGL] Value of EGL_YUV_NUMBER_OF_PLANES_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_yuv_surface")]
 		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
 		public const int YUV_NUMBER_OF_PLANES_EXT = 0x3311;
 
 		/// <summary>
-		/// Value of EGL_YUV_BUFFER_EXT symbol.
+		/// [EGL] Value of EGL_YUV_BUFFER_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_yuv_surface")]
 		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]

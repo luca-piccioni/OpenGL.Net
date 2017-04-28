@@ -29,26 +29,26 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_BUFFER_SWAP_COMPLETE_INTEL_MASK symbol.
+		/// [GLX] Value of GLX_BUFFER_SWAP_COMPLETE_INTEL_MASK symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_INTEL_swap_event")]
 		[Log(BitmaskName = "GLXEventMask")]
 		public const uint BUFFER_SWAP_COMPLETE_INTEL_MASK = 0x04000000;
 
 		/// <summary>
-		/// Value of GLX_EXCHANGE_COMPLETE_INTEL symbol.
+		/// [GLX] Value of GLX_EXCHANGE_COMPLETE_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_INTEL_swap_event")]
 		public const int EXCHANGE_COMPLETE_INTEL = 0x8180;
 
 		/// <summary>
-		/// Value of GLX_COPY_COMPLETE_INTEL symbol.
+		/// [GLX] Value of GLX_COPY_COMPLETE_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_INTEL_swap_event")]
 		public const int COPY_COMPLETE_INTEL = 0x8181;
 
 		/// <summary>
-		/// Value of GLX_FLIP_COMPLETE_INTEL symbol.
+		/// [GLX] Value of GLX_FLIP_COMPLETE_INTEL symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_INTEL_swap_event")]
 		public const int FLIP_COMPLETE_INTEL = 0x8182;

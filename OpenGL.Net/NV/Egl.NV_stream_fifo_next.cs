@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_PENDING_FRAME_NV symbol.
+		/// [EGL] Value of EGL_PENDING_FRAME_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_fifo_next")]
 		public const int PENDING_FRAME_NV = 0x3329;
 
 		/// <summary>
-		/// Value of EGL_STREAM_TIME_PENDING_NV symbol.
+		/// [EGL] Value of EGL_STREAM_TIME_PENDING_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_fifo_next")]
 		public const int STREAM_TIME_PENDING_NV = 0x332A;

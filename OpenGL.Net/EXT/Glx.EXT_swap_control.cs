@@ -29,13 +29,13 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Value of GLX_SWAP_INTERVAL_EXT symbol.
+		/// [GLX] Value of GLX_SWAP_INTERVAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_swap_control")]
 		public const int SWAP_INTERVAL_EXT = 0x20F1;
 
 		/// <summary>
-		/// Value of GLX_MAX_SWAP_INTERVAL_EXT symbol.
+		/// [GLX] Value of GLX_MAX_SWAP_INTERVAL_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_swap_control")]
 		public const int MAX_SWAP_INTERVAL_EXT = 0x20F2;

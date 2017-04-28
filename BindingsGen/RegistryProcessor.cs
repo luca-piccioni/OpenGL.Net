@@ -49,11 +49,6 @@ namespace BindingsGen
 
 		public readonly string Namespace;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="path"></param>
-		/// <param name="filter"></param>
 		public void GenerateEnums(RegistryContext ctx, string path, EnumerantFilterDelegate filter)
 		{
 			if (path == null)
@@ -318,6 +313,47 @@ namespace BindingsGen
 
 				sw.WriteLine();
 				sw.WriteLine("}");
+			}
+		}
+
+		public void GenerateLogMap(RegistryContext ctx, string path)
+		{
+			OpenGL.KhronosLogMap logMap = new OpenGL.KhronosLogMap();
+			List<OpenGL.KhronosLogMap.Command> logCommands = new List<OpenGL.KhronosLogMap.Command>();
+
+			foreach (Command command in _Registry.Commands) {
+				if (command.Parameters.Exists(GenerateLogMap_IsEnumParameter) == false)
+					continue;
+
+				OpenGL.KhronosLogMap.Command logCommand = new OpenGL.KhronosLogMap.Command();
+				List<OpenGL.KhronosLogMap.CommandParam> logCommandParams = new List<OpenGL.KhronosLogMap.CommandParam>();
+
+				foreach (CommandParameter commandParameter in command.Parameters) {
+					OpenGL.KhronosLogMap.CommandParam logParameter = new OpenGL.KhronosLogMap.CommandParam();
+					logParameter.Name = commandParameter.Name;
+					logParameter.Flags = OpenGL.KhronosLogMap.CommandParameterFlags.None;
+					if (GenerateLogMap_IsEnumParameter(commandParameter))
+						logParameter.Flags |= OpenGL.KhronosLogMap.CommandParameterFlags.Enum;
+					logCommandParams.Add(logParameter);
+				}
+
+				logCommand.Name = command.Prototype.Name;
+				logCommand.Params = logCommandParams.ToArray();
+				logCommands.Add(logCommand);
+			}
+			logMap.Commands = logCommands.ToArray();
+
+			OpenGL.KhronosLogMap.Save(path, logMap);
+		}
+
+		private bool GenerateLogMap_IsEnumParameter(CommandParameter item)
+		{
+			switch (item.Type) {
+				case "GLenum":
+				case "EGLenum":
+					return (true);
+				default:
+					return (false);
 			}
 		}
 

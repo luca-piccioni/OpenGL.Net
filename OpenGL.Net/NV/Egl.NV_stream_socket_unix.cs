@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Value of EGL_SOCKET_TYPE_UNIX_NV symbol.
+		/// [EGL] Value of EGL_SOCKET_TYPE_UNIX_NV symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_stream_socket_unix")]
 		public const int SOCKET_TYPE_UNIX_NV = 0x324E;

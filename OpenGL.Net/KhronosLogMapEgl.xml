@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<KhronosLogMap xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <command name="eglBindAPI">
+    <param name="api" flags="enum" />
+  </command>
+  <command name="eglCreateFenceSyncNV">
+    <param name="dpy" />
+    <param name="condition" flags="enum" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglCreateImage">
+    <param name="dpy" />
+    <param name="ctx" />
+    <param name="target" flags="enum" />
+    <param name="buffer" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglCreateImageKHR">
+    <param name="dpy" />
+    <param name="ctx" />
+    <param name="target" flags="enum" />
+    <param name="buffer" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglCreatePbufferFromClientBuffer">
+    <param name="dpy" />
+    <param name="buftype" flags="enum" />
+    <param name="buffer" />
+    <param name="config" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglCreateStreamSyncNV">
+    <param name="dpy" />
+    <param name="stream" />
+    <param name="type" flags="enum" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglCreateSync">
+    <param name="dpy" />
+    <param name="type" flags="enum" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglCreateSyncKHR">
+    <param name="dpy" />
+    <param name="type" flags="enum" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglCreateSync64KHR">
+    <param name="dpy" />
+    <param name="type" flags="enum" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglGetPlatformDisplay">
+    <param name="platform" flags="enum" />
+    <param name="native_display" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglGetPlatformDisplayEXT">
+    <param name="platform" flags="enum" />
+    <param name="native_display" />
+    <param name="attrib_list" />
+  </command>
+  <command name="eglLabelObjectKHR">
+    <param name="display" />
+    <param name="objectType" flags="enum" />
+    <param name="object" />
+    <param name="label" />
+  </command>
+  <command name="eglQueryStreamKHR">
+    <param name="dpy" />
+    <param name="stream" />
+    <param name="attribute" flags="enum" />
+    <param name="value" />
+  </command>
+  <command name="eglQueryStreamAttribKHR">
+    <param name="dpy" />
+    <param name="stream" />
+    <param name="attribute" flags="enum" />
+    <param name="value" />
+  </command>
+  <command name="eglQueryStreamMetadataNV">
+    <param name="dpy" />
+    <param name="stream" />
+    <param name="name" flags="enum" />
+    <param name="n" />
+    <param name="offset" />
+    <param name="size" />
+    <param name="data" />
+  </command>
+  <command name="eglQueryStreamTimeKHR">
+    <param name="dpy" />
+    <param name="stream" />
+    <param name="attribute" flags="enum" />
+    <param name="value" />
+  </command>
+  <command name="eglQueryStreamu64KHR">
+    <param name="dpy" />
+    <param name="stream" />
+    <param name="attribute" flags="enum" />
+    <param name="value" />
+  </command>
+  <command name="eglSetStreamAttribKHR">
+    <param name="dpy" />
+    <param name="stream" />
+    <param name="attribute" flags="enum" />
+    <param name="value" />
+  </command>
+  <command name="eglSignalSyncKHR">
+    <param name="dpy" />
+    <param name="sync" />
+    <param name="mode" flags="enum" />
+  </command>
+  <command name="eglSignalSyncNV">
+    <param name="sync" />
+    <param name="mode" flags="enum" />
+  </command>
+  <command name="eglStreamAttribKHR">
+    <param name="dpy" />
+    <param name="stream" />
+    <param name="attribute" flags="enum" />
+    <param name="value" />
+  </command>
+</KhronosLogMap>

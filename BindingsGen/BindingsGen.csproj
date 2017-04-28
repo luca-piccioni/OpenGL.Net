@@ -96,6 +96,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\OpenGL.Net\KhronosLogMap.cs">
+      <Link>KhronosLogMap.cs</Link>
+    </Compile>
     <Compile Include="..\OpenGL.Net\KhronosVersion.cs">
       <Link>KhronosVersion.cs</Link>
     </Compile>
