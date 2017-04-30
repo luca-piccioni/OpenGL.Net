@@ -120,9 +120,58 @@ namespace BindingsGen.GLSpecs
 		string IFeature.Api { get { return (Api); } }
 
 		/// <summary>
+		/// Get the name of the API profile supporting this IFeature.
+		/// </summary>
+		string IFeature.Profile { get { return (null); } }
+
+		/// <summary>
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
 		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (Requirements); } }
+
+		#endregion
+	}
+
+	class FeatureProfile : IFeature
+	{
+		#region Constructors
+
+		public FeatureProfile(Feature feature, string profile)
+		{
+			_Feature = feature;
+			Profile = profile;
+		}
+
+		private readonly Feature _Feature;
+
+		public readonly string Profile;
+
+		#endregion
+
+		#region IFeature Implementation
+
+		/// <summary>
+		/// Get the feature name.
+		/// </summary>
+		string IFeature.Name
+		{
+			get { return (_Feature.Name); }
+		}
+
+		/// <summary>
+		/// Get the name of the API(s) supporting this IFeature.
+		/// </summary>
+		string IFeature.Api { get { return (_Feature.Api); } }
+
+		/// <summary>
+		/// Get the name of the API profile supporting this IFeature.
+		/// </summary>
+		string IFeature.Profile { get { return (Profile); } }
+
+		/// <summary>
+		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
+		/// </summary>
+		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (_Feature.Requirements); } }
 
 		#endregion
 	}

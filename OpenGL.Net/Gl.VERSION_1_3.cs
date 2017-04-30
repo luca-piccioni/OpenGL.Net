@@ -3501,7 +3501,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void MultiTexCoord4(Int32 target, float s, float t, float r, float q)
@@ -4413,7 +4413,7 @@ namespace OpenGL
 			internal static glMultiTexCoord4dv pglMultiTexCoord4dv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]

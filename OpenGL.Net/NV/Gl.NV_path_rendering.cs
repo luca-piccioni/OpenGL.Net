@@ -3270,7 +3270,7 @@ namespace OpenGL
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 		public static void PathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float[] coeffs)
 		{
 			unsafe {
@@ -3299,7 +3299,7 @@ namespace OpenGL
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 		public static void PathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float[] coeffs)
 		{
 			unsafe {
@@ -3319,7 +3319,7 @@ namespace OpenGL
 		/// <param name="genMode">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 		public static void PathFogGenNV(Int32 genMode)
 		{
 			Debug.Assert(Delegates.pglPathFogGenNV != null, "pglPathFogGenNV not implemented");
@@ -3340,7 +3340,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 		public static void GetPathColorGenNV(Int32 color, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
@@ -3366,7 +3366,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 		public static void GetPathColorGenNV(Int32 color, Int32 pname, [Out] float[] value)
 		{
 			unsafe {
@@ -3392,7 +3392,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 		public static void GetPathTexGenNV(Int32 texCoordSet, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
@@ -3418,7 +3418,7 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 		public static void GetPathTexGenNV(Int32 texCoordSet, Int32 pname, [Out] float[] value)
 		{
 			unsafe {
@@ -4097,49 +4097,49 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glGetProgramResourcefvNV pglGetProgramResourcefvNV;
 
-			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float* coeffs);
 
 			[ThreadStatic]
 			internal static glPathColorGenNV pglPathColorGenNV;
 
-			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float* coeffs);
 
 			[ThreadStatic]
 			internal static glPathTexGenNV pglPathTexGenNV;
 
-			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPathFogGenNV(Int32 genMode);
 
 			[ThreadStatic]
 			internal static glPathFogGenNV pglPathFogGenNV;
 
-			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPathColorGenivNV(Int32 color, Int32 pname, Int32* value);
 
 			[ThreadStatic]
 			internal static glGetPathColorGenivNV pglGetPathColorGenivNV;
 
-			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPathColorGenfvNV(Int32 color, Int32 pname, float* value);
 
 			[ThreadStatic]
 			internal static glGetPathColorGenfvNV pglGetPathColorGenfvNV;
 
-			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPathTexGenivNV(Int32 texCoordSet, Int32 pname, Int32* value);
 
 			[ThreadStatic]
 			internal static glGetPathTexGenivNV pglGetPathTexGenivNV;
 
-			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPathTexGenfvNV(Int32 texCoordSet, Int32 pname, float* value);
 

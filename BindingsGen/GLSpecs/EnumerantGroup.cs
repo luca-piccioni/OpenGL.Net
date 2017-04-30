@@ -163,28 +163,16 @@ namespace BindingsGen.GLSpecs
 
 				if (enumvalue != null) {
 					// RequiredByFeature
-					foreach (IFeature feature in enumvalue.RequiredBy) {
-						if (feature.Api != null && feature.Api != classDefaultApi)
-							sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
-						else
-							sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
-					}
-					// RequiredByFeature (from aliases)
+					foreach (IFeature feature in enumvalue.RequiredBy)
+						sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+					// RequiredByFeature (from aliases) Note: not sure that Profile is considered here
 					foreach (Enumerant aliasOf in enumvalue.AliasOf) {
-						foreach (IFeature feature in aliasOf.RequiredBy) {
-							if (feature.Api != null && feature.Api != classDefaultApi)
-								sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
-							else
-								sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
-						}
+						foreach (IFeature feature in aliasOf.RequiredBy)
+							sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
 					}
 					// RemovedByFeature
-					foreach (IFeature feature in enumvalue.RemovedBy) {
-						if (feature.Api != null && feature.Api != classDefaultApi)
-							sw.WriteLine("[RemovedByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
-						else
-							sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
-					}
+					foreach (IFeature feature in enumvalue.RemovedBy)
+						sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
 				}
 
 				sw.WriteLine("{0} = {1}.{2},", camelCase, ctx.Class, bindingName);

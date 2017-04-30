@@ -871,7 +871,7 @@ namespace OpenGL
 		[AliasOf("glPointParameterfEXT")]
 		[AliasOf("glPointParameterfSGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ARB_point_parameters")]
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
@@ -905,7 +905,7 @@ namespace OpenGL
 		[AliasOf("glPointParameterfvEXT")]
 		[AliasOf("glPointParameterfvSGIS")]
 		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ARB_point_parameters")]
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
@@ -2664,7 +2664,7 @@ namespace OpenGL
 			internal static glMultiDrawElements pglMultiDrawElements;
 
 			[RequiredByFeature("GL_VERSION_1_4")]
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ARB_point_parameters")]
 			[RequiredByFeature("GL_EXT_point_parameters")]
 			[RequiredByFeature("GL_SGIS_point_parameters")]
@@ -2679,7 +2679,7 @@ namespace OpenGL
 			internal static glPointParameterf pglPointParameterf;
 
 			[RequiredByFeature("GL_VERSION_1_4")]
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ARB_point_parameters")]
 			[RequiredByFeature("GL_EXT_point_parameters")]
 			[RequiredByFeature("GL_SGIS_point_parameters")]

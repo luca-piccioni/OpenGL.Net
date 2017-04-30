@@ -1397,7 +1397,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		public static void PolygonOffset(float factor, float units)
 		{
@@ -3618,7 +3618,7 @@ namespace OpenGL
 			internal static glGetPointerv pglGetPointerv;
 
 			[RequiredByFeature("GL_VERSION_1_1")]
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPolygonOffset(float factor, float units);

@@ -340,7 +340,7 @@ namespace OpenGL
 			/// </exception>
 			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2")]
 			public static void Fog(FogParameter pname, float param)
 			{
@@ -373,7 +373,7 @@ namespace OpenGL
 			/// </exception>
 			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2")]
 			public static void Fog(FogParameter pname, float[] @params)
 			{
@@ -634,7 +634,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.GetHistogram"/>
 			/// <seealso cref="Gl.ResetHistogram"/>
 			[AliasOf("glHistogramEXT")]
-			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public static void Histogram(Int32 target, Int32 width, Int32 internalformat, bool sink)
 			{
@@ -674,7 +674,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.GetMinmax"/>
 			/// <seealso cref="Gl.ResetMinmax"/>
 			[AliasOf("glMinmaxEXT")]
-			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public static void Minmax(Int32 target, Int32 internalformat, bool sink)
 			{

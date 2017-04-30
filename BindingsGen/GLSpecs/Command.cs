@@ -306,19 +306,11 @@ namespace BindingsGen.GLSpecs
 			// Attributes required for checking API commands support
 			string classDefaultApi = ctx.Class.ToLower();
 
-			foreach (IFeature feature in RequiredBy) {
-				if (feature.Api != null && feature.Api != classDefaultApi)
-					sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
-				else
-					sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
-			}
+			foreach (IFeature feature in RequiredBy)
+				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
 
-			foreach (IFeature feature in RemovedBy) {
-				if (feature.Api != null && feature.Api != classDefaultApi)
-					sw.WriteLine("[RemovedByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
-				else
-					sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
-			}
+			foreach (IFeature feature in RemovedBy)
+				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
 
 			// Not yet sure if it is really necessary
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
@@ -667,27 +659,18 @@ namespace BindingsGen.GLSpecs
 			if (ctx.RefPages.Count > 0)
 				ctx.RefPages.GenerateDocumentation(sw, ctx, this, true, commandParams);
 
-			string classDefaultApi = ctx.Class.ToLower();
-
 			if (Aliases.Count > 0) {
 				foreach (Command aliasOf in Aliases)
 					sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.ImportName);
 			}
 
-			foreach (IFeature feature in RequiredBy) {
-				if (feature.Api != null && feature.Api != classDefaultApi)
-					sw.WriteLine("[RequiredByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
-				else
-					sw.WriteLine("[RequiredByFeature(\"{0}\")]", feature.Name);
-			}
-				
-			foreach (IFeature feature in RemovedBy) {
-				if (feature.Api != null && feature.Api != classDefaultApi)
-					sw.WriteLine("[RemovedByFeature(\"{0}\", Api = \"{1}\")]", feature.Name, feature.Api);
-				else
-					sw.WriteLine("[RemovedByFeature(\"{0}\")]", feature.Name);
-			}
-				
+			string classDefaultApi = ctx.Class.ToLower();
+
+			foreach (IFeature feature in RequiredBy)
+				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+
+			foreach (IFeature feature in RemovedBy)
+				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
 
 			#region Signature
 
@@ -1217,8 +1200,13 @@ namespace BindingsGen.GLSpecs
 					return (enumIndex != -1);
 				});
 
-				if (requirementIndex != -1)
-					features.Add(feature);
+				if (requirementIndex != -1) {
+					FeatureCommand featureCommand = feature.Requirements[requirementIndex];
+					if (featureCommand.Profile != null)
+						features.Add(new FeatureProfile(feature, featureCommand.Profile));
+					else
+						features.Add(feature);
+				}
 			}
 
 			// Extensions
@@ -1241,8 +1229,13 @@ namespace BindingsGen.GLSpecs
 					return (enumIndex != -1);
 				});
 
-				if (requirementIndex != -1)
-					features.Add(extension);
+				if (requirementIndex != -1) {
+					FeatureCommand featureCommand = extension.Requirements[requirementIndex];
+					if (featureCommand.Profile != null)
+						features.Add(new ExtensionProfile(extension, featureCommand.Profile));
+					else
+						features.Add(extension);
+				}
 			}
 
 			return (features);
@@ -1277,8 +1270,13 @@ namespace BindingsGen.GLSpecs
 					return (enumIndex != -1);
 				});
 
-				if (requirementIndex != -1)
-					features.Add(feature);
+				if (requirementIndex != -1) {
+					FeatureCommand featureCommand = feature.Requirements[requirementIndex];
+					if (featureCommand.Profile != null)
+						features.Add(new FeatureProfile(feature, featureCommand.Profile));
+					else
+						features.Add(feature);
+				}
 			}
 
 			return (features);

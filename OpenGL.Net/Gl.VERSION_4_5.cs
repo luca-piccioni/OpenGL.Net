@@ -7149,7 +7149,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnMap(Int32 target, Int32 query, Int32 bufSize, [Out] double[] v)
 		{
 			unsafe {
@@ -7178,7 +7178,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnMap(Int32 target, Int32 query, Int32 bufSize, [Out] float[] v)
 		{
 			unsafe {
@@ -7207,7 +7207,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnMap(Int32 target, Int32 query, Int32 bufSize, [Out] Int32[] v)
 		{
 			unsafe {
@@ -7233,7 +7233,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnPixelMap(Int32 map, Int32 bufSize, [Out] float[] values)
 		{
 			unsafe {
@@ -7259,7 +7259,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnPixelMap(Int32 map, Int32 bufSize, [Out] UInt32[] values)
 		{
 			unsafe {
@@ -7285,7 +7285,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnPixelMap(Int32 map, Int32 bufSize, [Out] UInt16[] values)
 		{
 			unsafe {
@@ -7308,7 +7308,7 @@ namespace OpenGL
 		/// <param name="pattern">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnPolygonStipple(Int32 bufSize, [Out] byte[] pattern)
 		{
 			unsafe {
@@ -7340,7 +7340,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnColorTable(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetnColorTable != null, "pglGetnColorTable not implemented");
@@ -7367,7 +7367,7 @@ namespace OpenGL
 		/// <param name="table">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnColorTable(Int32 target, Int32 format, Int32 type, Int32 bufSize, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
@@ -7396,7 +7396,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnConvolutionFilter(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetnConvolutionFilter != null, "pglGetnConvolutionFilter not implemented");
@@ -7423,7 +7423,7 @@ namespace OpenGL
 		/// <param name="image">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnConvolutionFilter(Int32 target, Int32 format, Int32 type, Int32 bufSize, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
@@ -7461,7 +7461,7 @@ namespace OpenGL
 		/// <param name="span">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnSeparableFilter(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilter != null, "pglGetnSeparableFilter not implemented");
@@ -7497,7 +7497,7 @@ namespace OpenGL
 		/// <param name="span">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnSeparableFilter(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
@@ -7533,7 +7533,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnHistogram(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnHistogram != null, "pglGetnHistogram not implemented");
@@ -7563,7 +7563,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnHistogram(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
@@ -7595,7 +7595,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnMinmax(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnMinmax != null, "pglGetnMinmax not implemented");
@@ -7625,7 +7625,7 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 		public static void GetnMinmax(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
@@ -9043,84 +9043,84 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glReadnPixels pglReadnPixels;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapdv(Int32 target, Int32 query, Int32 bufSize, double* v);
 
 			[ThreadStatic]
 			internal static glGetnMapdv pglGetnMapdv;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapfv(Int32 target, Int32 query, Int32 bufSize, float* v);
 
 			[ThreadStatic]
 			internal static glGetnMapfv pglGetnMapfv;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMapiv(Int32 target, Int32 query, Int32 bufSize, Int32* v);
 
 			[ThreadStatic]
 			internal static glGetnMapiv pglGetnMapiv;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapfv(Int32 map, Int32 bufSize, float* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapfv pglGetnPixelMapfv;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapuiv(Int32 map, Int32 bufSize, UInt32* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapuiv pglGetnPixelMapuiv;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPixelMapusv(Int32 map, Int32 bufSize, UInt16* values);
 
 			[ThreadStatic]
 			internal static glGetnPixelMapusv pglGetnPixelMapusv;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnPolygonStipple(Int32 bufSize, byte* pattern);
 
 			[ThreadStatic]
 			internal static glGetnPolygonStipple pglGetnPolygonStipple;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnColorTable(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table);
 
 			[ThreadStatic]
 			internal static glGetnColorTable pglGetnColorTable;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnConvolutionFilter(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image);
 
 			[ThreadStatic]
 			internal static glGetnConvolutionFilter pglGetnConvolutionFilter;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnSeparableFilter(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span);
 
 			[ThreadStatic]
 			internal static glGetnSeparableFilter pglGetnSeparableFilter;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnHistogram(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
 			[ThreadStatic]
 			internal static glGetnHistogram pglGetnHistogram;
 
-			[RequiredByFeature("GL_VERSION_4_5")]
+			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnMinmax(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 

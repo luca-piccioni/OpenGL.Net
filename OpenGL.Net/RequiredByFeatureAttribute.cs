@@ -60,6 +60,11 @@ namespace OpenGL
 		/// </summary>
 		public string Api = "gl";
 
+		/// <summary>
+		/// The name of the API profile. Default to null, indicating all profiles for the API.
+		/// </summary>
+		public string Profile;
+
 		#endregion
 
 		#region Support Detection

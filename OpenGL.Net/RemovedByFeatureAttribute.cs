@@ -44,6 +44,8 @@ namespace OpenGL
 			FeatureName = featureName;
 		}
 
+		#region Attributes
+
 		/// <summary>
 		/// The name of the feature.
 		/// </summary>
@@ -53,6 +55,13 @@ namespace OpenGL
 		/// The name of the featuring API. Defaults to "gl".
 		/// </summary>
 		public string Api = "gl";
+
+		/// <summary>
+		/// The name of the API profile. Default to null, indicating all profiles for the API.
+		/// </summary>
+		public string Profile;
+
+		#endregion
 
 		#region Information Parsing
 

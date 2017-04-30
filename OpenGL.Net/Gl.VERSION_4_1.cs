@@ -673,7 +673,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.removedTypes"/>
 		[AliasOf("glDepthRangefOES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
@@ -695,7 +695,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.removedTypes"/>
 		[AliasOf("glClearDepthfOES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
@@ -7441,7 +7441,7 @@ namespace OpenGL
 			internal static glGetShaderPrecisionFormat pglGetShaderPrecisionFormat;
 
 			[RequiredByFeature("GL_VERSION_4_1")]
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
@@ -7454,7 +7454,7 @@ namespace OpenGL
 			internal static glDepthRangef pglDepthRangef;
 
 			[RequiredByFeature("GL_VERSION_4_1")]
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]

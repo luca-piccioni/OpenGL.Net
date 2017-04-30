@@ -1308,8 +1308,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void VertexP2(Int32 type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP2ui != null, "pglVertexP2ui not implemented");
@@ -1327,8 +1327,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void VertexP2(Int32 type, UInt32[] value)
 		{
 			unsafe {
@@ -1351,8 +1351,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void VertexP3(Int32 type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP3ui != null, "pglVertexP3ui not implemented");
@@ -1370,8 +1370,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void VertexP3(Int32 type, UInt32[] value)
 		{
 			unsafe {
@@ -1394,8 +1394,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void VertexP4(Int32 type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP4ui != null, "pglVertexP4ui not implemented");
@@ -1413,8 +1413,8 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void VertexP4(Int32 type, UInt32[] value)
 		{
 			unsafe {
@@ -1437,8 +1437,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void TexCoordP1(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP1ui != null, "pglTexCoordP1ui not implemented");
@@ -1456,8 +1456,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void TexCoordP1(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1480,8 +1480,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void TexCoordP2(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP2ui != null, "pglTexCoordP2ui not implemented");
@@ -1499,8 +1499,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void TexCoordP2(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1523,8 +1523,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void TexCoordP3(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP3ui != null, "pglTexCoordP3ui not implemented");
@@ -1542,8 +1542,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void TexCoordP3(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1566,8 +1566,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void TexCoordP4(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP4ui != null, "pglTexCoordP4ui not implemented");
@@ -1585,8 +1585,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void TexCoordP4(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1612,8 +1612,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void MultiTexCoordP1(Int32 texture, Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP1ui != null, "pglMultiTexCoordP1ui not implemented");
@@ -1634,8 +1634,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void MultiTexCoordP1(Int32 texture, Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1661,8 +1661,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void MultiTexCoordP2(Int32 texture, Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP2ui != null, "pglMultiTexCoordP2ui not implemented");
@@ -1683,8 +1683,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void MultiTexCoordP2(Int32 texture, Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1710,8 +1710,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void MultiTexCoordP3(Int32 texture, Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP3ui != null, "pglMultiTexCoordP3ui not implemented");
@@ -1732,8 +1732,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void MultiTexCoordP3(Int32 texture, Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1759,8 +1759,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void MultiTexCoordP4(Int32 texture, Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP4ui != null, "pglMultiTexCoordP4ui not implemented");
@@ -1781,8 +1781,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void MultiTexCoordP4(Int32 texture, Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1805,8 +1805,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void NormalP3(Int32 type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglNormalP3ui != null, "pglNormalP3ui not implemented");
@@ -1824,8 +1824,8 @@ namespace OpenGL
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void NormalP3(Int32 type, UInt32[] coords)
 		{
 			unsafe {
@@ -1848,8 +1848,8 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void ColorP3(Int32 type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglColorP3ui != null, "pglColorP3ui not implemented");
@@ -1867,8 +1867,8 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void ColorP3(Int32 type, UInt32[] color)
 		{
 			unsafe {
@@ -1891,8 +1891,8 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void ColorP4(Int32 type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglColorP4ui != null, "pglColorP4ui not implemented");
@@ -1910,8 +1910,8 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void ColorP4(Int32 type, UInt32[] color)
 		{
 			unsafe {
@@ -1934,8 +1934,8 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void SecondaryColorP3(Int32 type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorP3ui != null, "pglSecondaryColorP3ui not implemented");
@@ -1953,8 +1953,8 @@ namespace OpenGL
 		/// <param name="color">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 		public static void SecondaryColorP3(Int32 type, UInt32[] color)
 		{
 			unsafe {
@@ -2491,240 +2491,240 @@ namespace OpenGL
 			[ThreadStatic]
 			internal static glVertexAttribP4uiv pglVertexAttribP4uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP2ui(Int32 type, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexP2ui pglVertexP2ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP2uiv(Int32 type, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexP2uiv pglVertexP2uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP3ui(Int32 type, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexP3ui pglVertexP3ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP3uiv(Int32 type, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexP3uiv pglVertexP3uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP4ui(Int32 type, UInt32 value);
 
 			[ThreadStatic]
 			internal static glVertexP4ui pglVertexP4ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP4uiv(Int32 type, UInt32* value);
 
 			[ThreadStatic]
 			internal static glVertexP4uiv pglVertexP4uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP1ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP1ui pglTexCoordP1ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP1uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP1uiv pglTexCoordP1uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP2ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP2ui pglTexCoordP2ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP2uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP2uiv pglTexCoordP2uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP3ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP3ui pglTexCoordP3ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP3uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP3uiv pglTexCoordP3uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP4ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP4ui pglTexCoordP4ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP4uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glTexCoordP4uiv pglTexCoordP4uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP1ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP1ui pglMultiTexCoordP1ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP1uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP1uiv pglMultiTexCoordP1uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP2ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP2ui pglMultiTexCoordP2ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP2uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP2uiv pglMultiTexCoordP2uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP3ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP3ui pglMultiTexCoordP3ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP3uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP3uiv pglMultiTexCoordP3uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP4ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP4ui pglMultiTexCoordP4ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP4uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glMultiTexCoordP4uiv pglMultiTexCoordP4uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormalP3ui(Int32 type, UInt32 coords);
 
 			[ThreadStatic]
 			internal static glNormalP3ui pglNormalP3ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormalP3uiv(Int32 type, UInt32* coords);
 
 			[ThreadStatic]
 			internal static glNormalP3uiv pglNormalP3uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorP3ui(Int32 type, UInt32 color);
 
 			[ThreadStatic]
 			internal static glColorP3ui pglColorP3ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorP3uiv(Int32 type, UInt32* color);
 
 			[ThreadStatic]
 			internal static glColorP3uiv pglColorP3uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorP4ui(Int32 type, UInt32 color);
 
 			[ThreadStatic]
 			internal static glColorP4ui pglColorP4ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorP4uiv(Int32 type, UInt32* color);
 
 			[ThreadStatic]
 			internal static glColorP4uiv pglColorP4uiv;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColorP3ui(Int32 type, UInt32 color);
 
 			[ThreadStatic]
 			internal static glSecondaryColorP3ui pglSecondaryColorP3ui;
 
-			[RequiredByFeature("GL_VERSION_3_3")]
-			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColorP3uiv(Int32 type, UInt32* color);
 

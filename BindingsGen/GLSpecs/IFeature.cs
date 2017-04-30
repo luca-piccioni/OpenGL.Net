@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
 using System.Collections.Generic;
 
 namespace BindingsGen.GLSpecs
@@ -34,8 +35,44 @@ namespace BindingsGen.GLSpecs
 		string Api { get; }
 
 		/// <summary>
+		/// Get the name of the API profile supporting this IFeature.
+		/// </summary>
+		string Profile { get; }
+
+		/// <summary>
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
 		IEnumerable<FeatureCommand> Requirements { get; }
+	}
+
+	static class IFeatureExtensions
+	{
+		public static string GetRequiredByFeature(this IFeature feature, string classDefaultApi)
+		{
+			string requiredByFeature = String.Format("[RequiredByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != classDefaultApi)
+				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+
+			requiredByFeature += ")]";
+
+			return (requiredByFeature);
+		}
+
+		public static string GetRemovedByFeature(this IFeature feature, string classDefaultApi)
+		{
+			string requiredByFeature = String.Format("[RemovedByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != classDefaultApi)
+				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+
+			requiredByFeature += ")]";
+
+			return (requiredByFeature);
+		}
 	}
 }

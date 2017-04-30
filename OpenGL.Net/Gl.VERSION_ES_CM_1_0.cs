@@ -61,7 +61,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetClipPlane"/>
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.Enable"/>
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void ClipPlane(Int32 p, float[] eqn)
 		{
 			unsafe {
@@ -106,7 +106,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		/// <seealso cref="Gl.Viewport"/>
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void Frustum(float l, float r, float b, float t, float n, float f)
 		{
 			Debug.Assert(Delegates.pglFrustumf != null, "pglFrustumf not implemented");
@@ -131,7 +131,7 @@ namespace OpenGL
 		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
 		/// </exception>
 		/// <seealso cref="Gl.ClipPlane"/>
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void GetClipPlane(Int32 plane, [Out] float[] equation)
 		{
 			unsafe {
@@ -175,7 +175,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		/// <seealso cref="Gl.Viewport"/>
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void Ortho(float l, float r, float b, float t, float n, float f)
 		{
 			Debug.Assert(Delegates.pglOrthof != null, "pglOrthof not implemented");
@@ -1545,28 +1545,28 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlanef(Int32 p, float* eqn);
 
 			[ThreadStatic]
 			internal static glClipPlanef pglClipPlanef;
 
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrustumf(float l, float r, float b, float t, float n, float f);
 
 			[ThreadStatic]
 			internal static glFrustumf pglFrustumf;
 
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetClipPlanef(Int32 plane, float* equation);
 
 			[ThreadStatic]
 			internal static glGetClipPlanef pglGetClipPlanef;
 
-			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glOrthof(float l, float r, float b, float t, float n, float f);
 
