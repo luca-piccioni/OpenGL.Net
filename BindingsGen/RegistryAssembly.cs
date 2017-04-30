@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 using Mono.Collections.Generic;
@@ -237,10 +238,19 @@ namespace BindingsGen
 
 			foreach (RegistryAssemblyConfiguration.VersionRange cfgFeature in cfg.Features) {
 				if (cfgFeature.Api != null) {
-					string apiRegex = customAttrib.Fields.Count > 0 ? customAttrib.Fields[0].Argument.Value as string : "gl";
+					CustomAttributeNamedArgument apiArg = customAttrib.Fields.FirstOrDefault(delegate(CustomAttributeNamedArgument item) { return (item.Name == "Api"); });
+					string apiRegex = apiArg.Argument.Value != null ? apiArg.Argument.Value as string : "gl";
 
 					if (Regex.IsMatch(cfgFeature.Api, "^(" + apiRegex + ")$"))
 						compatible |= true;
+				}
+
+				if (cfgFeature.Profile != null) {
+					CustomAttributeNamedArgument apiArg = customAttrib.Fields.FirstOrDefault(delegate(CustomAttributeNamedArgument item) { return (item.Name == "Profile"); });
+					string apiRegex = apiArg.Argument.Value != null ? apiArg.Argument.Value as string : null;
+
+					if (apiRegex != null)
+						compatible &= Regex.IsMatch(cfgFeature.Profile, "^(" + apiRegex + ")$");
 				}
 
 				if (attribVersion != null) {
