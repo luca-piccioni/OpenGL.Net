@@ -902,7 +902,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramParameter(UInt32 program, Int32 pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglProgramParameteri != null, "pglProgramParameteri not implemented");
@@ -1242,7 +1242,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, Int32 v0)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1i != null, "pglProgramUniform1i not implemented");
@@ -1307,7 +1307,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, Int32[] value)
 		{
 			unsafe {
@@ -1381,7 +1381,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform1(UInt32 program, Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1iv != null, "pglProgramUniform1iv not implemented");
@@ -1445,7 +1445,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, float v0)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1f != null, "pglProgramUniform1f not implemented");
@@ -1510,7 +1510,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, float[] value)
 		{
 			unsafe {
@@ -1584,7 +1584,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform1(UInt32 program, Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1fv != null, "pglProgramUniform1fv not implemented");
@@ -1722,7 +1722,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, UInt32 v0)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1ui != null, "pglProgramUniform1ui not implemented");
@@ -1787,7 +1787,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1(UInt32 program, Int32 location, UInt32[] value)
 		{
 			unsafe {
@@ -1861,7 +1861,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform1(UInt32 program, Int32 location, Int32 count, UInt32* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1uiv != null, "pglProgramUniform1uiv not implemented");
@@ -1928,7 +1928,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 v0, Int32 v1)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2i != null, "pglProgramUniform2i not implemented");
@@ -1997,7 +1997,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -2071,7 +2071,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform2(UInt32 program, Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2iv != null, "pglProgramUniform2iv not implemented");
@@ -2138,7 +2138,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, float v0, float v1)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2f != null, "pglProgramUniform2f not implemented");
@@ -2207,7 +2207,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -2281,7 +2281,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform2(UInt32 program, Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2fv != null, "pglProgramUniform2fv not implemented");
@@ -2428,7 +2428,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, UInt32 v0, UInt32 v1)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2ui != null, "pglProgramUniform2ui not implemented");
@@ -2497,7 +2497,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2(UInt32 program, Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -2571,7 +2571,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform2(UInt32 program, Int32 location, Int32 count, UInt32* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2uiv != null, "pglProgramUniform2uiv not implemented");
@@ -2641,7 +2641,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3i != null, "pglProgramUniform3i not implemented");
@@ -2710,7 +2710,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -2784,7 +2784,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform3(UInt32 program, Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3iv != null, "pglProgramUniform3iv not implemented");
@@ -2854,7 +2854,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, float v0, float v1, float v2)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3f != null, "pglProgramUniform3f not implemented");
@@ -2923,7 +2923,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -2997,7 +2997,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform3(UInt32 program, Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3fv != null, "pglProgramUniform3fv not implemented");
@@ -3150,7 +3150,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3ui != null, "pglProgramUniform3ui not implemented");
@@ -3219,7 +3219,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3(UInt32 program, Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -3293,7 +3293,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform3(UInt32 program, Int32 location, Int32 count, UInt32* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3uiv != null, "pglProgramUniform3uiv not implemented");
@@ -3366,7 +3366,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4i != null, "pglProgramUniform4i not implemented");
@@ -3435,7 +3435,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, Int32[] value)
 		{
 			unsafe {
@@ -3509,7 +3509,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform4(UInt32 program, Int32 location, Int32 count, Int32* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4iv != null, "pglProgramUniform4iv not implemented");
@@ -3582,7 +3582,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, float v0, float v1, float v2, float v3)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4f != null, "pglProgramUniform4f not implemented");
@@ -3651,7 +3651,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, float[] value)
 		{
 			unsafe {
@@ -3725,7 +3725,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform4(UInt32 program, Int32 location, Int32 count, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4fv != null, "pglProgramUniform4fv not implemented");
@@ -3884,7 +3884,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4ui != null, "pglProgramUniform4ui not implemented");
@@ -3953,7 +3953,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4(UInt32 program, Int32 location, Int32 count, UInt32[] value)
 		{
 			unsafe {
@@ -4027,7 +4027,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniform4(UInt32 program, Int32 location, Int32 count, UInt32* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4uiv != null, "pglProgramUniform4uiv not implemented");
@@ -4099,7 +4099,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4176,7 +4176,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix2(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2fv != null, "pglProgramUniformMatrix2fv not implemented");
@@ -4248,7 +4248,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4325,7 +4325,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix3(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3fv != null, "pglProgramUniformMatrix3fv not implemented");
@@ -4397,7 +4397,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4474,7 +4474,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix4(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4fv != null, "pglProgramUniformMatrix4fv not implemented");
@@ -4729,7 +4729,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4806,7 +4806,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix2x3(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2x3fv != null, "pglProgramUniformMatrix2x3fv not implemented");
@@ -4878,7 +4878,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -4955,7 +4955,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix3x2(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3x2fv != null, "pglProgramUniformMatrix3x2fv not implemented");
@@ -5027,7 +5027,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -5104,7 +5104,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix2x4(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2x4fv != null, "pglProgramUniformMatrix2x4fv not implemented");
@@ -5176,7 +5176,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -5253,7 +5253,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix4x2(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4x2fv != null, "pglProgramUniformMatrix4x2fv not implemented");
@@ -5325,7 +5325,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -5402,7 +5402,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix3x4(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3x4fv != null, "pglProgramUniformMatrix3x4fv not implemented");
@@ -5474,7 +5474,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, float[] value)
 		{
 			unsafe {
@@ -5551,7 +5551,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix4x3(UInt32 program, Int32 location, Int32 count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4x3fv != null, "pglProgramUniformMatrix4x3fv not implemented");
@@ -7496,7 +7496,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader4")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramParameteri(UInt32 program, Int32 pname, Int32 value);
 
@@ -7582,7 +7582,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1i(UInt32 program, Int32 location, Int32 v0);
 
@@ -7595,7 +7595,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1iv(UInt32 program, Int32 location, Int32 count, Int32* value);
 
@@ -7608,7 +7608,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1f(UInt32 program, Int32 location, float v0);
 
@@ -7621,7 +7621,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1fv(UInt32 program, Int32 location, Int32 count, float* value);
 
@@ -7650,7 +7650,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1ui(UInt32 program, Int32 location, UInt32 v0);
 
@@ -7663,7 +7663,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
 
@@ -7676,7 +7676,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2i(UInt32 program, Int32 location, Int32 v0, Int32 v1);
 
@@ -7689,7 +7689,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2iv(UInt32 program, Int32 location, Int32 count, Int32* value);
 
@@ -7702,7 +7702,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2f(UInt32 program, Int32 location, float v0, float v1);
 
@@ -7715,7 +7715,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2fv(UInt32 program, Int32 location, Int32 count, float* value);
 
@@ -7744,7 +7744,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1);
 
@@ -7757,7 +7757,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
 
@@ -7770,7 +7770,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3i(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2);
 
@@ -7783,7 +7783,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3iv(UInt32 program, Int32 location, Int32 count, Int32* value);
 
@@ -7796,7 +7796,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3f(UInt32 program, Int32 location, float v0, float v1, float v2);
 
@@ -7809,7 +7809,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3fv(UInt32 program, Int32 location, Int32 count, float* value);
 
@@ -7838,7 +7838,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2);
 
@@ -7851,7 +7851,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
 
@@ -7864,7 +7864,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4i(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3);
 
@@ -7877,7 +7877,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4iv(UInt32 program, Int32 location, Int32 count, Int32* value);
 
@@ -7890,7 +7890,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4f(UInt32 program, Int32 location, float v0, float v1, float v2, float v3);
 
@@ -7903,7 +7903,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4fv(UInt32 program, Int32 location, Int32 count, float* value);
 
@@ -7932,7 +7932,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3);
 
@@ -7945,7 +7945,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
 
@@ -7958,7 +7958,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 
@@ -7971,7 +7971,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 
@@ -7984,7 +7984,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 
@@ -8021,7 +8021,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2x3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 
@@ -8034,7 +8034,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3x2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 
@@ -8047,7 +8047,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2x4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 
@@ -8060,7 +8060,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4x2fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 
@@ -8073,7 +8073,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3x4fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 
@@ -8086,7 +8086,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4x3fv(UInt32 program, Int32 location, Int32 count, bool transpose, float* value);
 

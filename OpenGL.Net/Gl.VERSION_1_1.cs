@@ -1332,7 +1332,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPointer(GetPointervPName pname, out IntPtr @params)
 		{
@@ -1367,7 +1367,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPointer(GetPointervPName pname, Object @params)
 		{
@@ -3606,7 +3606,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_vertex_array")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPointerv(Int32 pname, IntPtr* @params);

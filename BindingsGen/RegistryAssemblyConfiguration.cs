@@ -50,18 +50,10 @@ namespace BindingsGen
 			public string Api;
 
 			/// <summary>
-			/// Minimum version of the API to be implemented.
+			/// Regular expression for matching specific profile.
 			/// </summary>
-			[XmlElement("MinApiVersion")]
-			[DefaultValue(null)]
-			public string MinApiVersion;
-
-			/// <summary>
-			/// Maximum version of the API to be implemented.
-			/// </summary>
-			[XmlElement("MaxApiVersion")]
-			[DefaultValue(null)]
-			public string MaxApiVersion;
+			[XmlAttribute("Profile")]
+			public string Profile;
 		}
 
 		/// <summary>

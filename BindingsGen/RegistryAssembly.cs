@@ -244,8 +244,8 @@ namespace BindingsGen
 				}
 
 				if (attribVersion != null) {
-					KhronosVersion minVersion = cfgFeature.MinApiVersion != null ? KhronosVersion.Parse(cfgFeature.MinApiVersion) : null;
-					KhronosVersion maxVersion = cfgFeature.MaxApiVersion != null ? KhronosVersion.Parse(cfgFeature.MaxApiVersion) : null;
+					KhronosVersion minVersion = /*cfgFeature.MinApiVersion != null ? KhronosVersion.Parse(cfgFeature.MinApiVersion) :*/ null;
+					KhronosVersion maxVersion = /*cfgFeature.MaxApiVersion != null ? KhronosVersion.Parse(cfgFeature.MaxApiVersion) :*/ null;
 					// API version
 					if (minVersion != null && attribVersion < minVersion)
 						return (false);

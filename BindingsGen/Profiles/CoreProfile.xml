@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RegistryAssemblyConfiguration Name="CoreProfile">
-	<Feature Api="gl" />
-	<Feature Api="glcore" />
+	<Feature Api="gl" Profile="(?!compatibility)"  />
+	<Feature Api="glcore" Profile="(?!compatibility)" />
 	<!-- Extension list got grepping gl.xml using glcore on extensions element -->
 	<Extensions>
 		<Extension>GL_AMD_performance_monitor</Extension>

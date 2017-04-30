@@ -137,12 +137,26 @@ namespace BindingsGen.GLSpecs
 		#region Constructors
 
 		public FeatureProfile(Feature feature, string profile)
+			: this(feature, null, profile)
+		{
+			
+		}
+
+		public FeatureProfile(Feature feature, string api, string profile)
 		{
 			_Feature = feature;
+			_Api = api;
 			Profile = profile;
 		}
 
 		private readonly Feature _Feature;
+
+		public string Api
+		{
+			get { return (_Api ?? _Feature.Api); }
+		}
+
+		private readonly string _Api;
 
 		public readonly string Profile;
 
@@ -161,7 +175,7 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Get the name of the API(s) supporting this IFeature.
 		/// </summary>
-		string IFeature.Api { get { return (_Feature.Api); } }
+		string IFeature.Api { get { return (Api); } }
 
 		/// <summary>
 		/// Get the name of the API profile supporting this IFeature.

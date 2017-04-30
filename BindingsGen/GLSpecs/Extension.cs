@@ -131,12 +131,26 @@ namespace BindingsGen.GLSpecs
 		#region Constructors
 
 		public ExtensionProfile(Extension extension, string profile)
+			: this(extension, null, profile)
+		{
+
+		}
+
+		public ExtensionProfile(Extension extension, string api, string profile)
 		{
 			_Extension = extension;
+			_Api = api;
 			Profile = profile;
 		}
 
 		private readonly Extension _Extension;
+
+		public string Api
+		{
+			get { return (_Api ?? _Extension.Supported); }
+		}
+
+		private readonly string _Api;
 
 		public readonly string Profile;
 
@@ -155,7 +169,7 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Get the name of the API(s) supporting this IFeature.
 		/// </summary>
-		string IFeature.Api { get { return (_Extension.Supported); } }
+		string IFeature.Api { get { return (Api); } }
 
 		/// <summary>
 		/// Get the name of the API profile supporting this IFeature.

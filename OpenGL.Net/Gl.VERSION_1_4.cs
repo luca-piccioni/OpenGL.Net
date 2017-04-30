@@ -2427,7 +2427,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
+		[RequiredByFeature("GL_EXT_blend_minmax")]
 		public static void BlendEquation(Int32 mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquation != null, "pglBlendEquation not implemented");
@@ -3178,7 +3178,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
+			[RequiredByFeature("GL_EXT_blend_minmax")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquation(Int32 mode);
 

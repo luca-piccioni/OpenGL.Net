@@ -37,7 +37,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void UseShaderProgramEXT(Int32 type, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseShaderProgramEXT != null, "pglUseShaderProgramEXT not implemented");
@@ -52,7 +52,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static void ActiveProgramEXT(UInt32 program)
 		{
 			Debug.Assert(Delegates.pglActiveProgramEXT != null, "pglActiveProgramEXT not implemented");
@@ -70,7 +70,7 @@ namespace OpenGL
 		/// <param name="string">
 		/// A <see cref="T:String"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects")]
 		public static UInt32 CreateShaderProgramEXT(Int32 type, String @string)
 		{
 			UInt32 retValue;
@@ -92,7 +92,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ActiveShaderProgramEXT(UInt32 pipeline, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglActiveShaderProgramEXT != null, "pglActiveShaderProgramEXT not implemented");
@@ -107,7 +107,7 @@ namespace OpenGL
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void BindProgramPipelineEXT(UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pglBindProgramPipelineEXT != null, "pglBindProgramPipelineEXT not implemented");
@@ -125,7 +125,7 @@ namespace OpenGL
 		/// <param name="strings">
 		/// A <see cref="T:String[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static UInt32 CreateShaderProgramEXT(Int32 type, String[] strings)
 		{
 			UInt32 retValue;
@@ -144,7 +144,7 @@ namespace OpenGL
 		/// <param name="pipelines">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void DeleteProgramPipelinesEXT(params UInt32[] pipelines)
 		{
 			unsafe {
@@ -164,7 +164,7 @@ namespace OpenGL
 		/// <param name="pipelines">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void GenProgramPipelinesEXT(UInt32[] pipelines)
 		{
 			unsafe {
@@ -181,7 +181,7 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glGenProgramPipelinesEXT.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static UInt32 GenProgramPipelinesEXT()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -204,7 +204,7 @@ namespace OpenGL
 		/// <param name="infoLog">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void GetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
@@ -230,7 +230,7 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void GetProgramPipelineEXT(UInt32 pipeline, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -250,7 +250,7 @@ namespace OpenGL
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static bool IsProgramPipelineEXT(UInt32 pipeline)
 		{
 			bool retValue;
@@ -275,7 +275,7 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void UseProgramStageEXT(UInt32 pipeline, UInt32 stages, UInt32 program)
 		{
 			Debug.Assert(Delegates.pglUseProgramStagesEXT != null, "pglUseProgramStagesEXT not implemented");
@@ -290,7 +290,7 @@ namespace OpenGL
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ValidateProgramPipelineEXT(UInt32 pipeline)
 		{
 			Debug.Assert(Delegates.pglValidateProgramPipelineEXT != null, "pglValidateProgramPipelineEXT not implemented");
@@ -358,91 +358,91 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUseShaderProgramEXT(Int32 type, UInt32 program);
 
 			[ThreadStatic]
 			internal static glUseShaderProgramEXT pglUseShaderProgramEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glActiveProgramEXT(UInt32 program);
 
 			[ThreadStatic]
 			internal static glActiveProgramEXT pglActiveProgramEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glCreateShaderProgramEXT(Int32 type, String @string);
 
 			[ThreadStatic]
 			internal static glCreateShaderProgramEXT pglCreateShaderProgramEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glActiveShaderProgramEXT(UInt32 pipeline, UInt32 program);
 
 			[ThreadStatic]
 			internal static glActiveShaderProgramEXT pglActiveShaderProgramEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindProgramPipelineEXT(UInt32 pipeline);
 
 			[ThreadStatic]
 			internal static glBindProgramPipelineEXT pglBindProgramPipelineEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glCreateShaderProgramvEXT(Int32 type, Int32 count, String[] strings);
 
 			[ThreadStatic]
 			internal static glCreateShaderProgramvEXT pglCreateShaderProgramvEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteProgramPipelinesEXT(Int32 n, UInt32* pipelines);
 
 			[ThreadStatic]
 			internal static glDeleteProgramPipelinesEXT pglDeleteProgramPipelinesEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenProgramPipelinesEXT(Int32 n, UInt32* pipelines);
 
 			[ThreadStatic]
 			internal static glGenProgramPipelinesEXT pglGenProgramPipelinesEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
 
 			[ThreadStatic]
 			internal static glGetProgramPipelineInfoLogEXT pglGetProgramPipelineInfoLogEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramPipelineivEXT(UInt32 pipeline, Int32 pname, Int32* @params);
 
 			[ThreadStatic]
 			internal static glGetProgramPipelineivEXT pglGetProgramPipelineivEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsProgramPipelineEXT(UInt32 pipeline);
 
 			[ThreadStatic]
 			internal static glIsProgramPipelineEXT pglIsProgramPipelineEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUseProgramStagesEXT(UInt32 pipeline, UInt32 stages, UInt32 program);
 
 			[ThreadStatic]
 			internal static glUseProgramStagesEXT pglUseProgramStagesEXT;
 
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glValidateProgramPipelineEXT(UInt32 pipeline);
 

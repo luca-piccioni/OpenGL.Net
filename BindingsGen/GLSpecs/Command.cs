@@ -1202,8 +1202,8 @@ namespace BindingsGen.GLSpecs
 
 				if (requirementIndex != -1) {
 					FeatureCommand featureCommand = feature.Requirements[requirementIndex];
-					if (featureCommand.Profile != null)
-						features.Add(new FeatureProfile(feature, featureCommand.Profile));
+					if (featureCommand.Api != null || featureCommand.Profile != null)
+						features.Add(new FeatureProfile(feature, featureCommand.Api, featureCommand.Profile));
 					else
 						features.Add(feature);
 				}
@@ -1231,8 +1231,8 @@ namespace BindingsGen.GLSpecs
 
 				if (requirementIndex != -1) {
 					FeatureCommand featureCommand = extension.Requirements[requirementIndex];
-					if (featureCommand.Profile != null)
-						features.Add(new ExtensionProfile(extension, featureCommand.Profile));
+					if (featureCommand.Api != null || featureCommand.Profile != null)
+						features.Add(new ExtensionProfile(extension, featureCommand.Api, featureCommand.Profile));
 					else
 						features.Add(extension);
 				}
@@ -1272,8 +1272,8 @@ namespace BindingsGen.GLSpecs
 
 				if (requirementIndex != -1) {
 					FeatureCommand featureCommand = feature.Requirements[requirementIndex];
-					if (featureCommand.Profile != null)
-						features.Add(new FeatureProfile(feature, featureCommand.Profile));
+					if (featureCommand.Api != null || featureCommand.Profile != null)
+						features.Add(new FeatureProfile(feature, featureCommand.Api, featureCommand.Profile));
 					else
 						features.Add(feature);
 				}

@@ -4676,7 +4676,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageControl(Int32 source, Int32 type, Int32 severity, UInt32[] ids, bool enabled)
 		{
 			unsafe {
@@ -4726,7 +4726,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageInsert(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf)
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsert != null, "pglDebugMessageInsert not implemented");
@@ -4752,7 +4752,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageCallback(Gl.DebugProc callback, IntPtr userParam)
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallback != null, "pglDebugMessageCallback not implemented");
@@ -4778,7 +4778,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void DebugMessageCallback(Gl.DebugProc callback, Object userParam)
 		{
 			GCHandle pin_userParam = GCHandle.Alloc(userParam, GCHandleType.Pinned);
@@ -4824,7 +4824,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static UInt32 GetDebugMessageLog(Int32 bufSize, [Out] Int32[] sources, [Out] Int32[] types, [Out] UInt32[] ids, [Out] Int32[] severities, [Out] Int32[] lengths, [Out] StringBuilder messageLog)
 		{
 			UInt32 retValue;
@@ -4875,7 +4875,7 @@ namespace OpenGL
 		[AliasOf("glPushDebugGroupKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void PushDebugGroup(Int32 source, UInt32 id, Int32 length, String message)
 		{
 			Debug.Assert(Delegates.pglPushDebugGroup != null, "pglPushDebugGroup not implemented");
@@ -4896,7 +4896,7 @@ namespace OpenGL
 		[AliasOf("glPopDebugGroupKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void PopDebugGroup()
 		{
 			Debug.Assert(Delegates.pglPopDebugGroup != null, "pglPopDebugGroup not implemented");
@@ -4937,7 +4937,7 @@ namespace OpenGL
 		[AliasOf("glObjectLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void ObjectLabel(Int32 identifier, UInt32 name, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglObjectLabel != null, "pglObjectLabel not implemented");
@@ -4985,7 +4985,7 @@ namespace OpenGL
 		[AliasOf("glGetObjectLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObjectLabel(Int32 identifier, UInt32 name, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
@@ -5024,7 +5024,7 @@ namespace OpenGL
 		[AliasOf("glObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void ObjectPtrLabel(IntPtr ptr, Int32 length, String label)
 		{
 			Debug.Assert(Delegates.pglObjectPtrLabel != null, "pglObjectPtrLabel not implemented");
@@ -5058,7 +5058,7 @@ namespace OpenGL
 		[AliasOf("glObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void ObjectPtrLabel(Object ptr, Int32 length, String label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
@@ -5104,7 +5104,7 @@ namespace OpenGL
 		[AliasOf("glGetObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObjectPtrLabel(IntPtr ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			unsafe {
@@ -5153,7 +5153,7 @@ namespace OpenGL
 		[AliasOf("glGetObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug")]
 		public static void GetObjectPtrLabel(Object ptr, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
@@ -5657,7 +5657,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageControl(Int32 source, Int32 type, Int32 severity, Int32 count, UInt32* ids, bool enabled);
 
@@ -5670,7 +5670,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDebugMessageInsert(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf);
 
@@ -5683,7 +5683,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageCallback(Gl.DebugProc callback, IntPtr userParam);
 
@@ -5696,7 +5696,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32 glGetDebugMessageLog(UInt32 count, Int32 bufSize, Int32* sources, Int32* types, UInt32* ids, Int32* severities, Int32* lengths, [Out] StringBuilder messageLog);
 
@@ -5708,7 +5708,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushDebugGroup(Int32 source, UInt32 id, Int32 length, String message);
 
@@ -5719,7 +5719,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopDebugGroup();
 
@@ -5730,7 +5730,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glObjectLabel(Int32 identifier, UInt32 name, Int32 length, String label);
 
@@ -5741,7 +5741,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetObjectLabel(Int32 identifier, UInt32 name, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 
@@ -5752,7 +5752,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glObjectPtrLabel(IntPtr ptr, Int32 length, String label);
 
@@ -5763,7 +5763,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetObjectPtrLabel(IntPtr ptr, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 

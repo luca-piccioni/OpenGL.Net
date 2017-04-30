@@ -634,7 +634,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.GetHistogram"/>
 			/// <seealso cref="Gl.ResetHistogram"/>
 			[AliasOf("glHistogramEXT")]
-			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public static void Histogram(Int32 target, Int32 width, Int32 internalformat, bool sink)
 			{
@@ -674,7 +674,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.GetMinmax"/>
 			/// <seealso cref="Gl.ResetMinmax"/>
 			[AliasOf("glMinmaxEXT")]
-			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public static void Minmax(Int32 target, Int32 internalformat, bool sink)
 			{

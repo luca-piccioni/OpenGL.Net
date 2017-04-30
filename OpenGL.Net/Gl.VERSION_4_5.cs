@@ -6679,7 +6679,7 @@ namespace OpenGL
 		[AliasOf("glGetGraphicsResetStatusKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static Int32 GetGraphicsResetStatus()
 		{
 			Int32 retValue;
@@ -6973,7 +6973,7 @@ namespace OpenGL
 		[AliasOf("glGetnUniformfvKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] float[] @params)
 		{
 			unsafe {
@@ -7025,7 +7025,7 @@ namespace OpenGL
 		[AliasOf("glGetnUniformivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -7077,7 +7077,7 @@ namespace OpenGL
 		[AliasOf("glGetnUniformuivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -7125,7 +7125,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_robustness")]
 		public static void ReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglReadnPixels != null, "pglReadnPixels not implemented");
@@ -8965,7 +8965,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_robustness")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetGraphicsResetStatus();
 
@@ -8997,7 +8997,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_robustness")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
@@ -9008,7 +9008,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_robustness")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
@@ -9019,7 +9019,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_robustness")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
@@ -9032,7 +9032,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_robustness")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
 
