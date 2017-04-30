@@ -209,37 +209,6 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_FUNC_SUBTRACT"/>
         </group>
 
-        <group name="BlendingFactorDest">
-            <enum name="GL_CONSTANT_ALPHA_EXT"/>
-            <enum name="GL_CONSTANT_COLOR_EXT"/>
-            <enum name="GL_DST_ALPHA"/>
-            <enum name="GL_ONE"/>
-            <enum name="GL_ONE_MINUS_CONSTANT_ALPHA_EXT"/>
-            <enum name="GL_ONE_MINUS_CONSTANT_COLOR_EXT"/>
-            <enum name="GL_ONE_MINUS_DST_ALPHA"/>
-            <enum name="GL_ONE_MINUS_SRC_ALPHA"/>
-            <enum name="GL_ONE_MINUS_SRC_COLOR"/>
-            <enum name="GL_SRC_ALPHA"/>
-            <enum name="GL_SRC_COLOR"/>
-            <enum name="GL_ZERO"/>
-        </group>
-
-        <group name="BlendingFactorSrc">
-            <enum name="GL_CONSTANT_ALPHA_EXT"/>
-            <enum name="GL_CONSTANT_COLOR_EXT"/>
-            <enum name="GL_DST_ALPHA"/>
-            <enum name="GL_DST_COLOR"/>
-            <enum name="GL_ONE"/>
-            <enum name="GL_ONE_MINUS_CONSTANT_ALPHA_EXT"/>
-            <enum name="GL_ONE_MINUS_CONSTANT_COLOR_EXT"/>
-            <enum name="GL_ONE_MINUS_DST_ALPHA"/>
-            <enum name="GL_ONE_MINUS_DST_COLOR"/>
-            <enum name="GL_ONE_MINUS_SRC_ALPHA"/>
-            <enum name="GL_SRC_ALPHA"/>
-            <enum name="GL_SRC_ALPHA_SATURATE"/>
-            <enum name="GL_ZERO"/>
-        </group>
-
         <group name="Boolean">
             <enum name="GL_FALSE"/>
             <enum name="GL_TRUE"/>
@@ -2425,7 +2394,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_PROGRAM_SEPARABLE"/>
         </group>
 
-        <group name="ColorScaleFactor">
+        <group name="BlendingFactor">
             <enum name="GL_ZERO"/>
             <enum name="GL_ONE"/>
             <enum name="GL_SRC_COLOR"/>
@@ -10464,8 +10433,8 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glBlendFunc</name></proto>
-            <param group="BlendingFactorSrc"><ptype>GLenum</ptype> <name>sfactor</name></param>
-            <param group="BlendingFactorDest"><ptype>GLenum</ptype> <name>dfactor</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>sfactor</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dfactor</name></param>
             <glx type="render" opcode="160"/>
         </command>
         <command>
@@ -10477,106 +10446,106 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparate</name></proto>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>sfactorRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dfactorRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>sfactorAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dfactorAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>sfactorRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dfactorRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>sfactorAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dfactorAlpha</name></param>
             <glx type="render" opcode="4134"/>
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparateEXT</name></proto>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>sfactorRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dfactorRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>sfactorAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dfactorAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>sfactorRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dfactorRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>sfactorAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dfactorAlpha</name></param>
             <alias name="glBlendFuncSeparate"/>
             <glx type="render" opcode="4134"/>
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparateINGR</name></proto>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
             <alias name="glBlendFuncSeparate"/>
             <glx type="render" opcode="4134"/>
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparateIndexedAMD</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
             <alias name="glBlendFuncSeparatei"/>
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparateOES</name></proto>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparatei</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparateiARB</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
             <alias name="glBlendFuncSeparatei"/>
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparateiEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
             <alias name="glBlendFuncSeparatei"/>
         </command>
         <command>
             <proto>void <name>glBlendFuncSeparateiOES</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstRGB</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>srcAlpha</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dstAlpha</name></param>
             <alias name="glBlendFuncSeparatei"/>
         </command>
         <command>
             <proto>void <name>glBlendFunci</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>src</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dst</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>src</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dst</name></param>
         </command>
         <command>
             <proto>void <name>glBlendFunciARB</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>src</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dst</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>src</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dst</name></param>
             <alias name="glBlendFunci"/>
         </command>
         <command>
             <proto>void <name>glBlendFunciEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>src</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dst</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>src</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dst</name></param>
             <alias name="glBlendFunci"/>
         </command>
         <command>
             <proto>void <name>glBlendFunciOES</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>src</name></param>
-            <param group="ColorScaleFactor"><ptype>GLenum</ptype> <name>dst</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>src</name></param>
+            <param group="BlendingFactor"><ptype>GLenum</ptype> <name>dst</name></param>
             <alias name="glBlendFunci"/>
         </command>
         <command>

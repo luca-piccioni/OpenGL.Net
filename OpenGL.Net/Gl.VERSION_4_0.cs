@@ -962,10 +962,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="src">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="dst">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		[AliasOf("glBlendFuncIndexedAMD")]
 		[AliasOf("glBlendFunciARB")]
@@ -977,7 +977,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendFunci(UInt32 buf, ColorScaleFactor src, ColorScaleFactor dst)
+		public static void BlendFunci(UInt32 buf, BlendingFactor src, BlendingFactor dst)
 		{
 			Debug.Assert(Delegates.pglBlendFunci != null, "pglBlendFunci not implemented");
 			Delegates.pglBlendFunci(buf, (Int32)src, (Int32)dst);
@@ -992,16 +992,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="srcRGB">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="dstRGB">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="srcAlpha">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="dstAlpha">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		[AliasOf("glBlendFuncSeparateIndexedAMD")]
 		[AliasOf("glBlendFuncSeparateiARB")]
@@ -1013,7 +1013,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendFuncSeparatei(UInt32 buf, ColorScaleFactor srcRGB, ColorScaleFactor dstRGB, ColorScaleFactor srcAlpha, ColorScaleFactor dstAlpha)
+		public static void BlendFuncSeparatei(UInt32 buf, BlendingFactor srcRGB, BlendingFactor dstRGB, BlendingFactor srcAlpha, BlendingFactor dstAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparatei != null, "pglBlendFuncSeparatei not implemented");
 			Delegates.pglBlendFuncSeparatei(buf, (Int32)srcRGB, (Int32)dstRGB, (Int32)srcAlpha, (Int32)dstAlpha);

@@ -32,19 +32,19 @@ namespace OpenGL
 		/// Binding for glBlendFuncSeparateOES.
 		/// </summary>
 		/// <param name="srcRGB">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="dstRGB">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="srcAlpha">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="dstAlpha">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_blend_func_separate", Api = "gles1")]
-		public static void BlendFuncSeparateOES(ColorScaleFactor srcRGB, ColorScaleFactor dstRGB, ColorScaleFactor srcAlpha, ColorScaleFactor dstAlpha)
+		public static void BlendFuncSeparateOES(BlendingFactor srcRGB, BlendingFactor dstRGB, BlendingFactor srcAlpha, BlendingFactor dstAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparateOES != null, "pglBlendFuncSeparateOES not implemented");
 			Delegates.pglBlendFuncSeparateOES((Int32)srcRGB, (Int32)dstRGB, (Int32)srcAlpha, (Int32)dstAlpha);

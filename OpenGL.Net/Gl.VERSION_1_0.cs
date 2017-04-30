@@ -6742,7 +6742,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void BlendFunc(BlendingFactorSrc sfactor, BlendingFactorDest dfactor)
+		public static void BlendFunc(BlendingFactor sfactor, BlendingFactor dfactor)
 		{
 			Debug.Assert(Delegates.pglBlendFunc != null, "pglBlendFunc not implemented");
 			Delegates.pglBlendFunc((Int32)sfactor, (Int32)dfactor);

@@ -713,16 +713,16 @@ namespace OpenGL
 		/// specify pixel arithmetic for RGB and alpha components separately
 		/// </summary>
 		/// <param name="sfactorRGB">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="dfactorRGB">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="sfactorAlpha">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <param name="dfactorAlpha">
-		/// A <see cref="T:ColorScaleFactor"/>.
+		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if either <paramref name="srcRGB"/> or <paramref name="dstRGB"/> is not an accepted value.
@@ -746,7 +746,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_blend_func_separate")]
 		[RequiredByFeature("GL_INGR_blend_func_separate")]
-		public static void BlendFuncSeparate(ColorScaleFactor sfactorRGB, ColorScaleFactor dfactorRGB, ColorScaleFactor sfactorAlpha, ColorScaleFactor dfactorAlpha)
+		public static void BlendFuncSeparate(BlendingFactor sfactorRGB, BlendingFactor dfactorRGB, BlendingFactor sfactorAlpha, BlendingFactor dfactorAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparate != null, "pglBlendFuncSeparate not implemented");
 			Delegates.pglBlendFuncSeparate((Int32)sfactorRGB, (Int32)dfactorRGB, (Int32)sfactorAlpha, (Int32)dfactorAlpha);
