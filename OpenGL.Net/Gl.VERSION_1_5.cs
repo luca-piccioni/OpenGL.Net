@@ -762,7 +762,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-		public static void GetQueryObject(UInt32 id, QueryParameterName pname, [Out] Int32[] @params)
+		public static void GetQueryObject(UInt32 id, QueryObjectParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -813,7 +813,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-		public static void GetQueryObject(UInt32 id, QueryParameterName pname, out Int32 @params)
+		public static void GetQueryObject(UInt32 id, QueryObjectParameterName pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -863,7 +863,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
-		public static void GetQueryObject(UInt32 id, QueryParameterName pname, [Out] UInt32[] @params)
+		public static void GetQueryObject(UInt32 id, QueryObjectParameterName pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
@@ -913,7 +913,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
-		public static void GetQueryObject(UInt32 id, QueryParameterName pname, out UInt32 @params)
+		public static void GetQueryObject(UInt32 id, QueryObjectParameterName pname, out UInt32 @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = &@params)

@@ -171,14 +171,14 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:QueryParameterName"/>.
+		/// A <see cref="T:QueryObjectParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void GetQueryObjectuivEXT(UInt32 id, QueryParameterName pname, [Out] UInt32[] @params)
+		public static void GetQueryObjectuivEXT(UInt32 id, QueryObjectParameterName pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)

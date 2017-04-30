@@ -815,7 +815,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_timer_query")]
-		public static void GetQueryObject(UInt32 id, QueryParameterName pname, [Out] Int64[] @params)
+		public static void GetQueryObject(UInt32 id, QueryObjectParameterName pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -866,7 +866,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_timer_query")]
-		public static void GetQueryObject(UInt32 id, QueryParameterName pname, out Int64 @params)
+		public static void GetQueryObject(UInt32 id, QueryObjectParameterName pname, out Int64 @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = &@params)
@@ -917,7 +917,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_timer_query")]
-		public static void GetQueryObject(UInt32 id, QueryParameterName pname, [Out] UInt64[] @params)
+		public static void GetQueryObject(UInt32 id, QueryObjectParameterName pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
@@ -968,7 +968,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_timer_query")]
-		public static void GetQueryObject(UInt32 id, QueryParameterName pname, out UInt64 @params)
+		public static void GetQueryObject(UInt32 id, QueryObjectParameterName pname, out UInt64 @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = &@params)

@@ -2728,6 +2728,13 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_SHADER_SOURCE_LENGTH"/>
         </group>
 
+        <group name="QueryObjectParameterName">
+            <enum name="GL_QUERY_RESULT_AVAILABLE"/>
+            <enum name="GL_QUERY_RESULT"/>
+            <enum name="GL_QUERY_RESULT_NO_WAIT"/>
+            <enum name="GL_QUERY_TARGET"/>
+        </group>
+
         <group name="QueryParameterName">
             <enum name="GL_CURRENT_QUERY"/>
             <enum name="GL_QUERY_COUNTER_BITS"/>
@@ -17250,28 +17257,28 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glGetQueryBufferObjecti64v</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
         </command>
         <command>
             <proto>void <name>glGetQueryBufferObjectiv</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
         </command>
         <command>
             <proto>void <name>glGetQueryBufferObjectui64v</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
         </command>
         <command>
             <proto>void <name>glGetQueryBufferObjectuiv</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
         </command>
         <command>
@@ -17284,13 +17291,13 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glGetQueryObjecti64v</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(pname)"><ptype>GLint64</ptype> *<name>params</name></param>
         </command>
         <command>
             <proto>void <name>glGetQueryObjecti64vEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(pname)"><ptype>GLint64</ptype> *<name>params</name></param>
             <glx type="vendor" opcode="1328"/>
             <alias name="glGetQueryObjecti64v"/>
@@ -17298,34 +17305,34 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glGetQueryObjectiv</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(pname)"><ptype>GLint</ptype> *<name>params</name></param>
             <glx type="single" opcode="165"/>
         </command>
         <command>
             <proto>void <name>glGetQueryObjectivARB</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(pname)"><ptype>GLint</ptype> *<name>params</name></param>
             <alias name="glGetQueryObjectiv"/>
         </command>
         <command>
             <proto>void <name>glGetQueryObjectivEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param><ptype>GLint</ptype> *<name>params</name></param>
             <alias name="glGetQueryObjectiv"/>
         </command>
         <command>
             <proto>void <name>glGetQueryObjectui64v</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(pname)"><ptype>GLuint64</ptype> *<name>params</name></param>
         </command>
         <command>
             <proto>void <name>glGetQueryObjectui64vEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(pname)"><ptype>GLuint64</ptype> *<name>params</name></param>
             <glx type="vendor" opcode="1329"/>
             <alias name="glGetQueryObjectui64v"/>
@@ -17333,21 +17340,21 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glGetQueryObjectuiv</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(pname)"><ptype>GLuint</ptype> *<name>params</name></param>
             <glx type="single" opcode="166"/>
         </command>
         <command>
             <proto>void <name>glGetQueryObjectuivARB</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(pname)"><ptype>GLuint</ptype> *<name>params</name></param>
             <alias name="glGetQueryObjectuiv"/>
         </command>
         <command>
             <proto>void <name>glGetQueryObjectuivEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="QueryObjectParameterName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param><ptype>GLuint</ptype> *<name>params</name></param>
         </command>
         <command>

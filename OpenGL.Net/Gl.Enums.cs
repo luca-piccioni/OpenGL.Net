@@ -15792,6 +15792,48 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration QueryObjectParameterName.
+	/// </summary>
+	public enum QueryObjectParameterName
+	{
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_RESULT_AVAILABLE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_occlusion_query")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
+		QueryResultAvailable = Gl.QUERY_RESULT_AVAILABLE,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_RESULT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_occlusion_query")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
+		QueryResult = Gl.QUERY_RESULT,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_RESULT_NO_WAIT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_AMD_query_buffer_object")]
+		QueryResultNoWait = Gl.QUERY_RESULT_NO_WAIT,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_TARGET.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		QueryTarget = Gl.QUERY_TARGET,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration QueryParameterName.
 	/// </summary>
 	public enum QueryParameterName
