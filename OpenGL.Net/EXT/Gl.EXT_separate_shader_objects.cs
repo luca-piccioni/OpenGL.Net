@@ -65,18 +65,18 @@ namespace OpenGL
 		/// Binding for glCreateShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ShaderType"/>.
 		/// </param>
 		/// <param name="string">
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static UInt32 CreateShaderProgramEXT(Int32 type, String @string)
+		public static UInt32 CreateShaderProgramEXT(ShaderType type, String @string)
 		{
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramEXT != null, "pglCreateShaderProgramEXT not implemented");
-			retValue = Delegates.pglCreateShaderProgramEXT(type, @string);
+			retValue = Delegates.pglCreateShaderProgramEXT((Int32)type, @string);
 			LogCommand("glCreateShaderProgramEXT", retValue, type, @string			);
 			DebugCheckErrors(retValue);
 
@@ -120,18 +120,44 @@ namespace OpenGL
 		/// Binding for glCreateShaderProgramvEXT.
 		/// </summary>
 		/// <param name="type">
+		/// A <see cref="T:ShaderType"/>.
+		/// </param>
+		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="strings">
 		/// A <see cref="T:String[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static UInt32 CreateShaderProgramEXT(Int32 type, String[] strings)
+		public static UInt32 CreateShaderProgramEXT(ShaderType type, Int32 count, String[] strings)
+		{
+			Debug.Assert(strings.Length >= count);
+			UInt32 retValue;
+
+			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");
+			retValue = Delegates.pglCreateShaderProgramvEXT((Int32)type, count, strings);
+			LogCommand("glCreateShaderProgramvEXT", retValue, type, count, strings			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// Binding for glCreateShaderProgramvEXT.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="T:ShaderType"/>.
+		/// </param>
+		/// <param name="strings">
+		/// A <see cref="T:String[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static UInt32 CreateShaderProgramEXT(ShaderType type, String[] strings)
 		{
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");
-			retValue = Delegates.pglCreateShaderProgramvEXT(type, (Int32)strings.Length, strings);
+			retValue = Delegates.pglCreateShaderProgramvEXT((Int32)type, (Int32)strings.Length, strings);
 			LogCommand("glCreateShaderProgramvEXT", retValue, type, strings.Length, strings			);
 			DebugCheckErrors(retValue);
 
@@ -225,19 +251,19 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PipelineParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void GetProgramPipelineEXT(UInt32 pipeline, Int32 pname, [Out] Int32[] @params)
+		public static void GetProgramPipelineEXT(UInt32 pipeline, PipelineParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramPipelineivEXT != null, "pglGetProgramPipelineivEXT not implemented");
-					Delegates.pglGetProgramPipelineivEXT(pipeline, pname, p_params);
+					Delegates.pglGetProgramPipelineivEXT(pipeline, (Int32)pname, p_params);
 					LogCommand("glGetProgramPipelineivEXT", null, pipeline, pname, @params					);
 				}
 			}

@@ -32,19 +32,19 @@ namespace OpenGL
 		/// Binding for glClipPlanefIMG.
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ClipPlaneName"/>.
 		/// </param>
 		/// <param name="eqn">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
-		public static void ClipPlaneIMG(Int32 p, float[] eqn)
+		public static void ClipPlaneIMG(ClipPlaneName p, float[] eqn)
 		{
 			unsafe {
 				fixed (float* p_eqn = eqn)
 				{
 					Debug.Assert(Delegates.pglClipPlanefIMG != null, "pglClipPlanefIMG not implemented");
-					Delegates.pglClipPlanefIMG(p, p_eqn);
+					Delegates.pglClipPlanefIMG((Int32)p, p_eqn);
 					LogCommand("glClipPlanefIMG", null, p, eqn					);
 				}
 			}
@@ -55,19 +55,19 @@ namespace OpenGL
 		/// Binding for glClipPlanexIMG.
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ClipPlaneName"/>.
 		/// </param>
 		/// <param name="eqn">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
-		public static void ClipPlaneIMG(Int32 p, IntPtr[] eqn)
+		public static void ClipPlaneIMG(ClipPlaneName p, IntPtr[] eqn)
 		{
 			unsafe {
 				fixed (IntPtr* p_eqn = eqn)
 				{
 					Debug.Assert(Delegates.pglClipPlanexIMG != null, "pglClipPlanexIMG not implemented");
-					Delegates.pglClipPlanexIMG(p, p_eqn);
+					Delegates.pglClipPlanexIMG((Int32)p, p_eqn);
 					LogCommand("glClipPlanexIMG", null, p, eqn					);
 				}
 			}

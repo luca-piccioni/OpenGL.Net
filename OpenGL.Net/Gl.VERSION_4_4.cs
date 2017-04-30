@@ -265,10 +265,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags)
+		public static void BufferStorage(BufferStorageTarget target, UInt32 size, IntPtr data, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
-			Delegates.pglBufferStorage(target, size, data, flags);
+			Delegates.pglBufferStorage((Int32)target, size, data, flags);
 			LogCommand("glBufferStorage", null, target, size, data, flags			);
 			DebugCheckErrors(null);
 		}
@@ -332,7 +332,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(Int32 target, UInt32 size, Object data, UInt32 flags)
+		public static void BufferStorage(BufferStorageTarget target, UInt32 size, Object data, UInt32 flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -408,10 +408,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data)
+		public static void ClearTexImage(UInt32 texture, Int32 level, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
-			Delegates.pglClearTexImage(texture, level, format, type, data);
+			Delegates.pglClearTexImage(texture, level, (Int32)format, (Int32)type, data);
 			LogCommand("glClearTexImage", null, texture, level, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -482,7 +482,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Object data)
+		public static void ClearTexImage(UInt32 texture, Int32 level, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -577,10 +577,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data)
+		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
-			Delegates.pglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
+			Delegates.pglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, data);
 			LogCommand("glClearTexSubImage", null, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -670,7 +670,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Object data)
+		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -678,6 +678,57 @@ namespace OpenGL
 			} finally {
 				pin_data.Free();
 			}
+		}
+
+		/// <summary>
+		/// bind one or more buffer objects to a sequence of indexed buffer targets
+		/// </summary>
+		/// <param name="target">
+		/// Specify the target of the bind operation. <paramref name="target"/> must be one of Gl.ATOMIC_COUNTER_BUFFER, 
+		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
+		/// </param>
+		/// <param name="first">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// Specify the number of contiguous binding points to which to bind buffers.
+		/// </param>
+		/// <param name="buffers">
+		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.ATOMIC_COUNTER_BUFFER, Gl.TRANSFORM_FEEDBACK_BUFFER, 
+		/// Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="first"/> + <paramref name="count"/> is greater than the number of 
+		/// target-specific indexed binding points.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if any value in <paramref name="buffers"/> is not zero or the name of an existing 
+		/// buffer object.
+		/// </exception>
+		/// <seealso cref="Gl.GenBuffers"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BindBufferBase"/>
+		/// <seealso cref="Gl.BindBufferRange"/>
+		/// <seealso cref="Gl.BindBuffersRange"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
+		public static void BindBuffersBase(BufferTargetARB target, UInt32 first, Int32 count, UInt32[] buffers)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				{
+					Debug.Assert(Delegates.pglBindBuffersBase != null, "pglBindBuffersBase not implemented");
+					Delegates.pglBindBuffersBase((Int32)target, first, count, p_buffers);
+					LogCommand("glBindBuffersBase", null, target, first, count, buffers					);
+				}
+			}
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -715,14 +766,83 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersBase(Int32 target, UInt32 first, UInt32[] buffers)
+		public static void BindBuffersBase(BufferTargetARB target, UInt32 first, UInt32[] buffers)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{
 					Debug.Assert(Delegates.pglBindBuffersBase != null, "pglBindBuffersBase not implemented");
-					Delegates.pglBindBuffersBase(target, first, (Int32)buffers.Length, p_buffers);
+					Delegates.pglBindBuffersBase((Int32)target, first, (Int32)buffers.Length, p_buffers);
 					LogCommand("glBindBuffersBase", null, target, first, buffers.Length, buffers					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// bind ranges of one or more buffer objects to a sequence of indexed buffer targets
+		/// </summary>
+		/// <param name="target">
+		/// Specify the target of the bind operation. <paramref name="target"/> must be one of Gl.ATOMIC_COUNTER_BUFFER, 
+		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
+		/// </param>
+		/// <param name="first">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="count">
+		/// Specify the number of contiguous binding points to which to bind buffers.
+		/// </param>
+		/// <param name="buffers">
+		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
+		/// </param>
+		/// <param name="offsets">
+		/// A pointer to an array of offsets into the corresponding buffer in <paramref name="buffers"/> to bind, or Gl.L if 
+		/// <paramref name="buffers"/> is Gl.L.
+		/// </param>
+		/// <param name="sizes">
+		/// A pointer to an array of sizes of the corresponding buffer in <paramref name="buffers"/> to bind, or Gl.L if <paramref 
+		/// name="buffers"/> is Gl.L.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.ATOMIC_COUNTER_BUFFER, Gl.TRANSFORM_FEEDBACK_BUFFER, 
+		/// Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if <paramref name="first"/> + <paramref name="count"/> is greater than the number of 
+		/// target-specific indexed binding points.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if any value in <paramref name="buffers"/> is not zero or the name of an existing 
+		/// buffer object.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated by if any value in <paramref name="offsets"/> is less than zero or if any value in 
+		/// <paramref name="sizes"/> is less than zero.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if any pair of values in <paramref name="offsets"/> and <paramref name="sizes"/> does not 
+		/// respectively satisfy the constraints described for those parameters for the specified target.
+		/// </exception>
+		/// <seealso cref="Gl.GenBuffers"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.BindBuffer"/>
+		/// <seealso cref="Gl.BindBufferBase"/>
+		/// <seealso cref="Gl.BindBufferRange"/>
+		/// <seealso cref="Gl.BindBuffersRange"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
+		public static void BindBuffersRange(BufferTargetARB target, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
+		{
+			unsafe {
+				fixed (UInt32* p_buffers = buffers)
+				fixed (IntPtr* p_offsets = offsets)
+				fixed (UInt32* p_sizes = sizes)
+				{
+					Debug.Assert(Delegates.pglBindBuffersRange != null, "pglBindBuffersRange not implemented");
+					Delegates.pglBindBuffersRange((Int32)target, first, count, p_buffers, p_offsets, p_sizes);
+					LogCommand("glBindBuffersRange", null, target, first, count, buffers, offsets, sizes					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -779,7 +899,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersRange(Int32 target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
+		public static void BindBuffersRange(BufferTargetARB target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
@@ -787,7 +907,7 @@ namespace OpenGL
 				fixed (UInt32* p_sizes = sizes)
 				{
 					Debug.Assert(Delegates.pglBindBuffersRange != null, "pglBindBuffersRange not implemented");
-					Delegates.pglBindBuffersRange(target, first, (Int32)buffers.Length, p_buffers, p_offsets, p_sizes);
+					Delegates.pglBindBuffersRange((Int32)target, first, (Int32)buffers.Length, p_buffers, p_offsets, p_sizes);
 					LogCommand("glBindBuffersRange", null, target, first, buffers.Length, buffers, offsets, sizes					);
 				}
 			}

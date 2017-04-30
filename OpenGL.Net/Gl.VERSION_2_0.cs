@@ -1400,7 +1400,7 @@ namespace OpenGL
 		/// Creates a shader object
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ShaderType"/>.
 		/// </param>
 		/// <exception cref="KhronosException">
 		/// This function returns 0 if an error occurs creating the shader object.
@@ -1417,12 +1417,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static UInt32 CreateShader(Int32 type)
+		public static UInt32 CreateShader(ShaderType type)
 		{
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglCreateShader != null, "pglCreateShader not implemented");
-			retValue = Delegates.pglCreateShader(type);
+			retValue = Delegates.pglCreateShader((Int32)type);
 			LogCommand("glCreateShader", retValue, type			);
 			DebugCheckErrors(retValue);
 
@@ -1967,13 +1967,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void GetShader(UInt32 shader, Int32 pname, [Out] Int32[] @params)
+		public static void GetShader(UInt32 shader, ShaderParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetShaderiv != null, "pglGetShaderiv not implemented");
-					Delegates.pglGetShaderiv(shader, pname, p_params);
+					Delegates.pglGetShaderiv(shader, (Int32)pname, p_params);
 					LogCommand("glGetShaderiv", null, shader, pname, @params					);
 				}
 			}
@@ -2009,13 +2009,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.ShaderSource"/>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void GetShader(UInt32 shader, Int32 pname, out Int32 @params)
+		public static void GetShader(UInt32 shader, ShaderParameterName pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetShaderiv != null, "pglGetShaderiv not implemented");
-					Delegates.pglGetShaderiv(shader, pname, p_params);
+					Delegates.pglGetShaderiv(shader, (Int32)pname, p_params);
 					LogCommand("glGetShaderiv", null, shader, pname, @params					);
 				}
 			}
@@ -6217,10 +6217,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr pointer)
+		public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribPointerType type, bool normalized, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
-			Delegates.pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
+			Delegates.pglVertexAttribPointer(index, size, (Int32)type, normalized, stride, pointer);
 			LogCommand("glVertexAttribPointer", null, index, size, type, normalized, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -6301,7 +6301,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, Object pointer)
+		public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribPointerType type, bool normalized, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

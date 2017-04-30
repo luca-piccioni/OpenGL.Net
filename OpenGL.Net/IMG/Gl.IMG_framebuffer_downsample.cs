@@ -56,13 +56,13 @@ namespace OpenGL
 		/// Binding for glFramebufferTexture2DDownsampleIMG.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="attachment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="textarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -77,10 +77,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
-		public static void FramebufferTexture2DIMG(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 xscale, Int32 yscale)
+		public static void FramebufferTexture2DIMG(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level, Int32 xscale, Int32 yscale)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DDownsampleIMG != null, "pglFramebufferTexture2DDownsampleIMG not implemented");
-			Delegates.pglFramebufferTexture2DDownsampleIMG(target, attachment, textarget, texture, level, xscale, yscale);
+			Delegates.pglFramebufferTexture2DDownsampleIMG((Int32)target, (Int32)attachment, (Int32)textarget, texture, level, xscale, yscale);
 			LogCommand("glFramebufferTexture2DDownsampleIMG", null, target, attachment, textarget, texture, level, xscale, yscale			);
 			DebugCheckErrors(null);
 		}
@@ -89,10 +89,10 @@ namespace OpenGL
 		/// Binding for glFramebufferTextureLayerDownsampleIMG.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="attachment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -110,10 +110,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
-		public static void FramebufferTextureLayerIMG(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 layer, Int32 xscale, Int32 yscale)
+		public static void FramebufferTextureLayerIMG(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 layer, Int32 xscale, Int32 yscale)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureLayerDownsampleIMG != null, "pglFramebufferTextureLayerDownsampleIMG not implemented");
-			Delegates.pglFramebufferTextureLayerDownsampleIMG(target, attachment, texture, level, layer, xscale, yscale);
+			Delegates.pglFramebufferTextureLayerDownsampleIMG((Int32)target, (Int32)attachment, texture, level, layer, xscale, yscale);
 			LogCommand("glFramebufferTextureLayerDownsampleIMG", null, target, attachment, texture, level, layer, xscale, yscale			);
 			DebugCheckErrors(null);
 		}

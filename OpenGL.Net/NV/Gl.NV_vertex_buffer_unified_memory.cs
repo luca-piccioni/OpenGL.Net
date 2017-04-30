@@ -209,16 +209,16 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-		public static void VertexFormatNV(Int32 size, Int32 type, Int32 stride)
+		public static void VertexFormatNV(Int32 size, VertexPointerType type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglVertexFormatNV != null, "pglVertexFormatNV not implemented");
-			Delegates.pglVertexFormatNV(size, type, stride);
+			Delegates.pglVertexFormatNV(size, (Int32)type, stride);
 			LogCommand("glVertexFormatNV", null, size, type, stride			);
 			DebugCheckErrors(null);
 		}
@@ -323,16 +323,16 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-		public static void SecondaryColorFormatNV(Int32 size, Int32 type, Int32 stride)
+		public static void SecondaryColorFormatNV(Int32 size, ColorPointerType type, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorFormatNV != null, "pglSecondaryColorFormatNV not implemented");
-			Delegates.pglSecondaryColorFormatNV(size, type, stride);
+			Delegates.pglSecondaryColorFormatNV(size, (Int32)type, stride);
 			LogCommand("glSecondaryColorFormatNV", null, size, type, stride			);
 			DebugCheckErrors(null);
 		}

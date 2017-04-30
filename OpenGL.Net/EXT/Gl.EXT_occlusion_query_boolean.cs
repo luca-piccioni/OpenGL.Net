@@ -106,17 +106,17 @@ namespace OpenGL
 		/// Binding for glBeginQueryEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryTarget"/>.
 		/// </param>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void BeginQueryEXT(Int32 target, UInt32 id)
+		public static void BeginQueryEXT(QueryTarget target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBeginQueryEXT != null, "pglBeginQueryEXT not implemented");
-			Delegates.pglBeginQueryEXT(target, id);
+			Delegates.pglBeginQueryEXT((Int32)target, id);
 			LogCommand("glBeginQueryEXT", null, target, id			);
 			DebugCheckErrors(null);
 		}
@@ -125,14 +125,14 @@ namespace OpenGL
 		/// Binding for glEndQueryEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void EndQueryEXT(Int32 target)
+		public static void EndQueryEXT(QueryTarget target)
 		{
 			Debug.Assert(Delegates.pglEndQueryEXT != null, "pglEndQueryEXT not implemented");
-			Delegates.pglEndQueryEXT(target);
+			Delegates.pglEndQueryEXT((Int32)target);
 			LogCommand("glEndQueryEXT", null, target			);
 			DebugCheckErrors(null);
 		}
@@ -141,23 +141,23 @@ namespace OpenGL
 		/// Binding for glGetQueryivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void GetQueryEXT(Int32 target, Int32 pname, [Out] Int32[] @params)
+		public static void GetQueryEXT(QueryTarget target, QueryParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryivEXT != null, "pglGetQueryivEXT not implemented");
-					Delegates.pglGetQueryivEXT(target, pname, p_params);
+					Delegates.pglGetQueryivEXT((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetQueryivEXT", null, target, pname, @params					);
 				}
 			}
@@ -171,20 +171,20 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void GetQueryObjectuivEXT(UInt32 id, Int32 pname, [Out] UInt32[] @params)
+		public static void GetQueryObjectuivEXT(UInt32 id, QueryParameterName pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuivEXT != null, "pglGetQueryObjectuivEXT not implemented");
-					Delegates.pglGetQueryObjectuivEXT(id, pname, p_params);
+					Delegates.pglGetQueryObjectuivEXT(id, (Int32)pname, p_params);
 					LogCommand("glGetQueryObjectuivEXT", null, id, pname, @params					);
 				}
 			}

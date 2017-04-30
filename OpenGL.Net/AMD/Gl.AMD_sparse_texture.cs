@@ -61,10 +61,10 @@ namespace OpenGL
 		/// Binding for glTexStorageSparseAMD.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -82,10 +82,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public static void TexStorageAMD(Int32 target, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, UInt32 flags)
+		public static void TexStorageAMD(TextureTarget target, InternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglTexStorageSparseAMD != null, "pglTexStorageSparseAMD not implemented");
-			Delegates.pglTexStorageSparseAMD(target, internalFormat, width, height, depth, layers, flags);
+			Delegates.pglTexStorageSparseAMD((Int32)target, (Int32)internalFormat, width, height, depth, layers, flags);
 			LogCommand("glTexStorageSparseAMD", null, target, internalFormat, width, height, depth, layers, flags			);
 			DebugCheckErrors(null);
 		}
@@ -100,7 +100,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -118,10 +118,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public static void TextureStorageAMD(UInt32 texture, Int32 target, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, UInt32 flags)
+		public static void TextureStorageAMD(UInt32 texture, Int32 target, InternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglTextureStorageSparseAMD != null, "pglTextureStorageSparseAMD not implemented");
-			Delegates.pglTextureStorageSparseAMD(texture, target, internalFormat, width, height, depth, layers, flags);
+			Delegates.pglTextureStorageSparseAMD(texture, target, (Int32)internalFormat, width, height, depth, layers, flags);
 			LogCommand("glTextureStorageSparseAMD", null, texture, target, internalFormat, width, height, depth, layers, flags			);
 			DebugCheckErrors(null);
 		}

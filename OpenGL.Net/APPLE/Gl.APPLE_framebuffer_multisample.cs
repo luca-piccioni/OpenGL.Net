@@ -32,13 +32,13 @@ namespace OpenGL
 		/// Binding for glRenderbufferStorageMultisampleAPPLE.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="samples">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -47,10 +47,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
-		public static void RenderbufferStorageMultisampleAPPLE(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height)
+		public static void RenderbufferStorageMultisampleAPPLE(RenderbufferTarget target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleAPPLE != null, "pglRenderbufferStorageMultisampleAPPLE not implemented");
-			Delegates.pglRenderbufferStorageMultisampleAPPLE(target, samples, internalformat, width, height);
+			Delegates.pglRenderbufferStorageMultisampleAPPLE((Int32)target, samples, (Int32)internalformat, width, height);
 			LogCommand("glRenderbufferStorageMultisampleAPPLE", null, target, samples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}

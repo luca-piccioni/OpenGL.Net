@@ -74,7 +74,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -89,10 +89,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirectARB(PrimitiveType mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawElementsIndirectARB(PrimitiveType mode, DrawElementsType type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectCountARB != null, "pglMultiDrawElementsIndirectCountARB not implemented");
-			Delegates.pglMultiDrawElementsIndirectCountARB((Int32)mode, type, indirect, drawcount, maxdrawcount, stride);
+			Delegates.pglMultiDrawElementsIndirectCountARB((Int32)mode, (Int32)type, indirect, drawcount, maxdrawcount, stride);
 			LogCommand("glMultiDrawElementsIndirectCountARB", null, mode, type, indirect, drawcount, maxdrawcount, stride			);
 			DebugCheckErrors(null);
 		}

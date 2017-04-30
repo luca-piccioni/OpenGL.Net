@@ -51,16 +51,16 @@ namespace OpenGL
 		/// Binding for glBindRenderbufferOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void BindRenderbufferOES(Int32 target, UInt32 renderbuffer)
+		public static void BindRenderbufferOES(RenderbufferTarget target, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglBindRenderbufferOES != null, "pglBindRenderbufferOES not implemented");
-			Delegates.pglBindRenderbufferOES(target, renderbuffer);
+			Delegates.pglBindRenderbufferOES((Int32)target, renderbuffer);
 			LogCommand("glBindRenderbufferOES", null, target, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -120,10 +120,10 @@ namespace OpenGL
 		/// Binding for glRenderbufferStorageOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -132,10 +132,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void RenderbufferStorageOES(Int32 target, Int32 internalformat, Int32 width, Int32 height)
+		public static void RenderbufferStorageOES(RenderbufferTarget target, InternalFormat internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageOES != null, "pglRenderbufferStorageOES not implemented");
-			Delegates.pglRenderbufferStorageOES(target, internalformat, width, height);
+			Delegates.pglRenderbufferStorageOES((Int32)target, (Int32)internalformat, width, height);
 			LogCommand("glRenderbufferStorageOES", null, target, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -144,22 +144,22 @@ namespace OpenGL
 		/// Binding for glGetRenderbufferParameterivOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:RenderbufferParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void GetRenderbufferParameterOES(Int32 target, Int32 pname, [Out] Int32[] @params)
+		public static void GetRenderbufferParameterOES(RenderbufferTarget target, RenderbufferParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetRenderbufferParameterivOES != null, "pglGetRenderbufferParameterivOES not implemented");
-					Delegates.pglGetRenderbufferParameterivOES(target, pname, p_params);
+					Delegates.pglGetRenderbufferParameterivOES((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetRenderbufferParameterivOES", null, target, pname, @params					);
 				}
 			}
@@ -189,16 +189,16 @@ namespace OpenGL
 		/// Binding for glBindFramebufferOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void BindFramebufferOES(Int32 target, UInt32 framebuffer)
+		public static void BindFramebufferOES(FramebufferTarget target, UInt32 framebuffer)
 		{
 			Debug.Assert(Delegates.pglBindFramebufferOES != null, "pglBindFramebufferOES not implemented");
-			Delegates.pglBindFramebufferOES(target, framebuffer);
+			Delegates.pglBindFramebufferOES((Int32)target, framebuffer);
 			LogCommand("glBindFramebufferOES", null, target, framebuffer			);
 			DebugCheckErrors(null);
 		}
@@ -258,41 +258,41 @@ namespace OpenGL
 		/// Binding for glCheckFramebufferStatusOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static Int32 CheckFramebufferStatusOES(Int32 target)
+		public static FramebufferStatus CheckFramebufferStatusOES(FramebufferTarget target)
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglCheckFramebufferStatusOES != null, "pglCheckFramebufferStatusOES not implemented");
-			retValue = Delegates.pglCheckFramebufferStatusOES(target);
-			LogCommand("glCheckFramebufferStatusOES", retValue, target			);
+			retValue = Delegates.pglCheckFramebufferStatusOES((Int32)target);
+			LogCommand("glCheckFramebufferStatusOES", (FramebufferStatus)retValue, target			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return ((FramebufferStatus)retValue);
 		}
 
 		/// <summary>
 		/// Binding for glFramebufferRenderbufferOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="attachment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="renderbuffertarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void FramebufferRenderbufferOES(Int32 target, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer)
+		public static void FramebufferRenderbufferOES(FramebufferTarget target, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglFramebufferRenderbufferOES != null, "pglFramebufferRenderbufferOES not implemented");
-			Delegates.pglFramebufferRenderbufferOES(target, attachment, renderbuffertarget, renderbuffer);
+			Delegates.pglFramebufferRenderbufferOES((Int32)target, (Int32)attachment, (Int32)renderbuffertarget, renderbuffer);
 			LogCommand("glFramebufferRenderbufferOES", null, target, attachment, renderbuffertarget, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -301,13 +301,13 @@ namespace OpenGL
 		/// Binding for glFramebufferTexture2DOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="attachment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="textarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -316,10 +316,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void FramebufferTexture2DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level)
+		public static void FramebufferTexture2DOES(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DOES != null, "pglFramebufferTexture2DOES not implemented");
-			Delegates.pglFramebufferTexture2DOES(target, attachment, textarget, texture, level);
+			Delegates.pglFramebufferTexture2DOES((Int32)target, (Int32)attachment, (Int32)textarget, texture, level);
 			LogCommand("glFramebufferTexture2DOES", null, target, attachment, textarget, texture, level			);
 			DebugCheckErrors(null);
 		}
@@ -328,25 +328,25 @@ namespace OpenGL
 		/// Binding for glGetFramebufferAttachmentParameterivOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="attachment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachmentParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void GetFramebufferAttachmentParameterOES(Int32 target, Int32 attachment, Int32 pname, [Out] Int32[] @params)
+		public static void GetFramebufferAttachmentParameterOES(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFramebufferAttachmentParameterivOES != null, "pglGetFramebufferAttachmentParameterivOES not implemented");
-					Delegates.pglGetFramebufferAttachmentParameterivOES(target, attachment, pname, p_params);
+					Delegates.pglGetFramebufferAttachmentParameterivOES((Int32)target, (Int32)attachment, (Int32)pname, p_params);
 					LogCommand("glGetFramebufferAttachmentParameterivOES", null, target, attachment, pname, @params					);
 				}
 			}
@@ -357,13 +357,13 @@ namespace OpenGL
 		/// Binding for glGenerateMipmapOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void GenerateMipmapOES(Int32 target)
+		public static void GenerateMipmapOES(TextureTarget target)
 		{
 			Debug.Assert(Delegates.pglGenerateMipmapOES != null, "pglGenerateMipmapOES not implemented");
-			Delegates.pglGenerateMipmapOES(target);
+			Delegates.pglGenerateMipmapOES((Int32)target);
 			LogCommand("glGenerateMipmapOES", null, target			);
 			DebugCheckErrors(null);
 		}

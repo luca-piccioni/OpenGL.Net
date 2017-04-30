@@ -56,7 +56,7 @@ namespace OpenGL
 		/// Binding for glRenderbufferStorageMultisampleCoverageNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="coverageSamples">
 		/// A <see cref="T:Int32"/>.
@@ -65,7 +65,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -74,10 +74,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_framebuffer_multisample_coverage", Api = "gl|glcore")]
-		public static void RenderbufferStorageMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height)
+		public static void RenderbufferStorageMultisampleCoverageNV(RenderbufferTarget target, Int32 coverageSamples, Int32 colorSamples, InternalFormat internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleCoverageNV != null, "pglRenderbufferStorageMultisampleCoverageNV not implemented");
-			Delegates.pglRenderbufferStorageMultisampleCoverageNV(target, coverageSamples, colorSamples, internalformat, width, height);
+			Delegates.pglRenderbufferStorageMultisampleCoverageNV((Int32)target, coverageSamples, colorSamples, (Int32)internalformat, width, height);
 			LogCommand("glRenderbufferStorageMultisampleCoverageNV", null, target, coverageSamples, colorSamples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}

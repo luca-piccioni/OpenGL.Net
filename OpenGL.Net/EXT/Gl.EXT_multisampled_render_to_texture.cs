@@ -38,13 +38,13 @@ namespace OpenGL
 		/// Binding for glFramebufferTexture2DMultisampleEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="attachment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="textarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -56,10 +56,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multisampled_render_to_texture", Api = "gles1|gles2")]
-		public static void FramebufferTexture2DMultisampleEXT(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 samples)
+		public static void FramebufferTexture2DMultisampleEXT(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level, Int32 samples)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DMultisampleEXT != null, "pglFramebufferTexture2DMultisampleEXT not implemented");
-			Delegates.pglFramebufferTexture2DMultisampleEXT(target, attachment, textarget, texture, level, samples);
+			Delegates.pglFramebufferTexture2DMultisampleEXT((Int32)target, (Int32)attachment, (Int32)textarget, texture, level, samples);
 			LogCommand("glFramebufferTexture2DMultisampleEXT", null, target, attachment, textarget, texture, level, samples			);
 			DebugCheckErrors(null);
 		}

@@ -130,15 +130,15 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-		public static UInt64 GetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format)
+		public static UInt64 GetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, PixelFormat format)
 		{
 			UInt64 retValue;
 
 			Debug.Assert(Delegates.pglGetImageHandleARB != null, "pglGetImageHandleARB not implemented");
-			retValue = Delegates.pglGetImageHandleARB(texture, level, layered, layer, format);
+			retValue = Delegates.pglGetImageHandleARB(texture, level, layered, layer, (Int32)format);
 			LogCommand("glGetImageHandleARB", retValue, texture, level, layered, layer, format			);
 			DebugCheckErrors(retValue);
 
@@ -360,19 +360,19 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:VertexAttribEnum"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-		public static void GetVertexAttribLARB(UInt32 index, Int32 pname, [Out] UInt64[] @params)
+		public static void GetVertexAttribLARB(UInt32 index, VertexAttribEnum pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLui64vARB != null, "pglGetVertexAttribLui64vARB not implemented");
-					Delegates.pglGetVertexAttribLui64vARB(index, pname, p_params);
+					Delegates.pglGetVertexAttribLui64vARB(index, (Int32)pname, p_params);
 					LogCommand("glGetVertexAttribLui64vARB", null, index, pname, @params					);
 				}
 			}

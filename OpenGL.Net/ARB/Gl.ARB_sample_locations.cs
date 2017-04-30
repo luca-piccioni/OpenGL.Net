@@ -88,7 +88,7 @@ namespace OpenGL
 		/// Binding for glFramebufferSampleLocationsfvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -100,13 +100,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-		public static void FramebufferSampleLocationARB(Int32 target, UInt32 start, Int32 count, float[] v)
+		public static void FramebufferSampleLocationARB(FramebufferTarget target, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglFramebufferSampleLocationsfvARB != null, "pglFramebufferSampleLocationsfvARB not implemented");
-					Delegates.pglFramebufferSampleLocationsfvARB(target, start, count, p_v);
+					Delegates.pglFramebufferSampleLocationsfvARB((Int32)target, start, count, p_v);
 					LogCommand("glFramebufferSampleLocationsfvARB", null, target, start, count, v					);
 				}
 			}

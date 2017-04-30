@@ -68,15 +68,15 @@ namespace OpenGL
 		/// Binding for glGetFramebufferPixelLocalStorageSizeEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-		public static Int32 GetFramebufferPixelLocalStorageSizeEXT(UInt32 target)
+		public static Int32 GetFramebufferPixelLocalStorageSizeEXT(FramebufferTarget target)
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglGetFramebufferPixelLocalStorageSizeEXT != null, "pglGetFramebufferPixelLocalStorageSizeEXT not implemented");
-			retValue = Delegates.pglGetFramebufferPixelLocalStorageSizeEXT(target);
+			retValue = Delegates.pglGetFramebufferPixelLocalStorageSizeEXT((UInt32)target);
 			LogCommand("glGetFramebufferPixelLocalStorageSizeEXT", retValue, target			);
 			DebugCheckErrors(retValue);
 

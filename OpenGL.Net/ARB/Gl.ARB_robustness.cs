@@ -32,32 +32,32 @@ namespace OpenGL
 		/// Binding for glGetGraphicsResetStatusARB.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-		public static Int32 GetGraphicsResetStatusARB()
+		public static GraphicsResetStatus GetGraphicsResetStatusARB()
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglGetGraphicsResetStatusARB != null, "pglGetGraphicsResetStatusARB not implemented");
 			retValue = Delegates.pglGetGraphicsResetStatusARB();
-			LogCommand("glGetGraphicsResetStatusARB", retValue			);
+			LogCommand("glGetGraphicsResetStatusARB", (GraphicsResetStatus)retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return ((GraphicsResetStatus)retValue);
 		}
 
 		/// <summary>
 		/// Binding for glGetnTexImageARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -66,10 +66,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-		public static void GetnTexImageARB(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr img)
+		public static void GetnTexImageARB(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetnTexImageARB != null, "pglGetnTexImageARB not implemented");
-			Delegates.pglGetnTexImageARB(target, level, format, type, bufSize, img);
+			Delegates.pglGetnTexImageARB((Int32)target, level, (Int32)format, (Int32)type, bufSize, img);
 			LogCommand("glGetnTexImageARB", null, target, level, format, type, bufSize, img			);
 			DebugCheckErrors(null);
 		}
@@ -78,16 +78,16 @@ namespace OpenGL
 		/// Binding for glGetnTexImageARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -96,7 +96,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-		public static void GetnTexImageARB(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, Object img)
+		public static void GetnTexImageARB(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, Object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
 			try {
@@ -110,7 +110,7 @@ namespace OpenGL
 		/// Binding for glGetnCompressedTexImageARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="lod">
 		/// A <see cref="T:Int32"/>.
@@ -122,10 +122,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-		public static void GetnCompressedTexImageARB(Int32 target, Int32 lod, Int32 bufSize, IntPtr img)
+		public static void GetnCompressedTexImageARB(TextureTarget target, Int32 lod, Int32 bufSize, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetnCompressedTexImageARB != null, "pglGetnCompressedTexImageARB not implemented");
-			Delegates.pglGetnCompressedTexImageARB(target, lod, bufSize, img);
+			Delegates.pglGetnCompressedTexImageARB((Int32)target, lod, bufSize, img);
 			LogCommand("glGetnCompressedTexImageARB", null, target, lod, bufSize, img			);
 			DebugCheckErrors(null);
 		}
@@ -134,7 +134,7 @@ namespace OpenGL
 		/// Binding for glGetnCompressedTexImageARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="lod">
 		/// A <see cref="T:Int32"/>.
@@ -146,7 +146,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-		public static void GetnCompressedTexImageARB(Int32 target, Int32 lod, Int32 bufSize, Object img)
+		public static void GetnCompressedTexImageARB(TextureTarget target, Int32 lod, Int32 bufSize, Object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
 			try {
@@ -264,22 +264,51 @@ namespace OpenGL
 		/// Binding for glGetnMapdvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
+		/// A <see cref="T:MapQuery"/>.
+		/// </param>
+		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(Int32 target, Int32 query, [Out] double[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglGetnMapdvARB != null, "pglGetnMapdvARB not implemented");
-					Delegates.pglGetnMapdvARB(target, query, (Int32)v.Length, p_v);
+					Delegates.pglGetnMapdvARB((Int32)target, (Int32)query, bufSize, p_v);
+					LogCommand("glGetnMapdvARB", null, target, query, bufSize, v					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetnMapdvARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:MapTarget"/>.
+		/// </param>
+		/// <param name="query">
+		/// A <see cref="T:MapQuery"/>.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="T:double[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
+		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] double[] v)
+		{
+			unsafe {
+				fixed (double* p_v = v)
+				{
+					Debug.Assert(Delegates.pglGetnMapdvARB != null, "pglGetnMapdvARB not implemented");
+					Delegates.pglGetnMapdvARB((Int32)target, (Int32)query, (Int32)v.Length, p_v);
 					LogCommand("glGetnMapdvARB", null, target, query, v.Length, v					);
 				}
 			}
@@ -290,22 +319,51 @@ namespace OpenGL
 		/// Binding for glGetnMapfvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
+		/// A <see cref="T:MapQuery"/>.
+		/// </param>
+		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(Int32 target, Int32 query, [Out] float[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglGetnMapfvARB != null, "pglGetnMapfvARB not implemented");
-					Delegates.pglGetnMapfvARB(target, query, (Int32)v.Length, p_v);
+					Delegates.pglGetnMapfvARB((Int32)target, (Int32)query, bufSize, p_v);
+					LogCommand("glGetnMapfvARB", null, target, query, bufSize, v					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetnMapfvARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:MapTarget"/>.
+		/// </param>
+		/// <param name="query">
+		/// A <see cref="T:MapQuery"/>.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
+		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] float[] v)
+		{
+			unsafe {
+				fixed (float* p_v = v)
+				{
+					Debug.Assert(Delegates.pglGetnMapfvARB != null, "pglGetnMapfvARB not implemented");
+					Delegates.pglGetnMapfvARB((Int32)target, (Int32)query, (Int32)v.Length, p_v);
 					LogCommand("glGetnMapfvARB", null, target, query, v.Length, v					);
 				}
 			}
@@ -316,22 +374,51 @@ namespace OpenGL
 		/// Binding for glGetnMapivARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
+		/// A <see cref="T:MapQuery"/>.
+		/// </param>
+		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(Int32 target, Int32 query, [Out] Int32[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
 					Debug.Assert(Delegates.pglGetnMapivARB != null, "pglGetnMapivARB not implemented");
-					Delegates.pglGetnMapivARB(target, query, (Int32)v.Length, p_v);
+					Delegates.pglGetnMapivARB((Int32)target, (Int32)query, bufSize, p_v);
+					LogCommand("glGetnMapivARB", null, target, query, bufSize, v					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetnMapivARB.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:MapTarget"/>.
+		/// </param>
+		/// <param name="query">
+		/// A <see cref="T:MapQuery"/>.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="T:Int32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
+		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] Int32[] v)
+		{
+			unsafe {
+				fixed (Int32* p_v = v)
+				{
+					Debug.Assert(Delegates.pglGetnMapivARB != null, "pglGetnMapivARB not implemented");
+					Delegates.pglGetnMapivARB((Int32)target, (Int32)query, (Int32)v.Length, p_v);
 					LogCommand("glGetnMapivARB", null, target, query, v.Length, v					);
 				}
 			}
@@ -342,19 +429,45 @@ namespace OpenGL
 		/// Binding for glGetnPixelMapfvARB.
 		/// </summary>
 		/// <param name="map">
+		/// A <see cref="T:PixelMap"/>.
+		/// </param>
+		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnPixelMapARB(Int32 map, [Out] float[] values)
+		public static void GetnPixelMapARB(PixelMap map, Int32 bufSize, [Out] float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapfvARB != null, "pglGetnPixelMapfvARB not implemented");
-					Delegates.pglGetnPixelMapfvARB(map, (Int32)values.Length, p_values);
+					Delegates.pglGetnPixelMapfvARB((Int32)map, bufSize, p_values);
+					LogCommand("glGetnPixelMapfvARB", null, map, bufSize, values					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetnPixelMapfvARB.
+		/// </summary>
+		/// <param name="map">
+		/// A <see cref="T:PixelMap"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
+		public static void GetnPixelMapARB(PixelMap map, [Out] float[] values)
+		{
+			unsafe {
+				fixed (float* p_values = values)
+				{
+					Debug.Assert(Delegates.pglGetnPixelMapfvARB != null, "pglGetnPixelMapfvARB not implemented");
+					Delegates.pglGetnPixelMapfvARB((Int32)map, (Int32)values.Length, p_values);
 					LogCommand("glGetnPixelMapfvARB", null, map, values.Length, values					);
 				}
 			}
@@ -365,19 +478,45 @@ namespace OpenGL
 		/// Binding for glGetnPixelMapuivARB.
 		/// </summary>
 		/// <param name="map">
+		/// A <see cref="T:PixelMap"/>.
+		/// </param>
+		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnPixelMapARB(Int32 map, [Out] UInt32[] values)
+		public static void GetnPixelMapARB(PixelMap map, Int32 bufSize, [Out] UInt32[] values)
 		{
 			unsafe {
 				fixed (UInt32* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapuivARB != null, "pglGetnPixelMapuivARB not implemented");
-					Delegates.pglGetnPixelMapuivARB(map, (Int32)values.Length, p_values);
+					Delegates.pglGetnPixelMapuivARB((Int32)map, bufSize, p_values);
+					LogCommand("glGetnPixelMapuivARB", null, map, bufSize, values					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetnPixelMapuivARB.
+		/// </summary>
+		/// <param name="map">
+		/// A <see cref="T:PixelMap"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:UInt32[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
+		public static void GetnPixelMapARB(PixelMap map, [Out] UInt32[] values)
+		{
+			unsafe {
+				fixed (UInt32* p_values = values)
+				{
+					Debug.Assert(Delegates.pglGetnPixelMapuivARB != null, "pglGetnPixelMapuivARB not implemented");
+					Delegates.pglGetnPixelMapuivARB((Int32)map, (Int32)values.Length, p_values);
 					LogCommand("glGetnPixelMapuivARB", null, map, values.Length, values					);
 				}
 			}
@@ -388,19 +527,45 @@ namespace OpenGL
 		/// Binding for glGetnPixelMapusvARB.
 		/// </summary>
 		/// <param name="map">
+		/// A <see cref="T:PixelMap"/>.
+		/// </param>
+		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnPixelMapARB(Int32 map, [Out] UInt16[] values)
+		public static void GetnPixelMapARB(PixelMap map, Int32 bufSize, [Out] UInt16[] values)
 		{
 			unsafe {
 				fixed (UInt16* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapusvARB != null, "pglGetnPixelMapusvARB not implemented");
-					Delegates.pglGetnPixelMapusvARB(map, (Int32)values.Length, p_values);
+					Delegates.pglGetnPixelMapusvARB((Int32)map, bufSize, p_values);
+					LogCommand("glGetnPixelMapusvARB", null, map, bufSize, values					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetnPixelMapusvARB.
+		/// </summary>
+		/// <param name="map">
+		/// A <see cref="T:PixelMap"/>.
+		/// </param>
+		/// <param name="values">
+		/// A <see cref="T:UInt16[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
+		public static void GetnPixelMapARB(PixelMap map, [Out] UInt16[] values)
+		{
+			unsafe {
+				fixed (UInt16* p_values = values)
+				{
+					Debug.Assert(Delegates.pglGetnPixelMapusvARB != null, "pglGetnPixelMapusvARB not implemented");
+					Delegates.pglGetnPixelMapusvARB((Int32)map, (Int32)values.Length, p_values);
 					LogCommand("glGetnPixelMapusvARB", null, map, values.Length, values					);
 				}
 			}
@@ -431,13 +596,13 @@ namespace OpenGL
 		/// Binding for glGetnColorTableARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorTableTarget"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -446,10 +611,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnColorTableARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table)
+		public static void GetnColorTableARB(ColorTableTarget target, PixelFormat format, PixelType type, Int32 bufSize, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetnColorTableARB != null, "pglGetnColorTableARB not implemented");
-			Delegates.pglGetnColorTableARB(target, format, type, bufSize, table);
+			Delegates.pglGetnColorTableARB((Int32)target, (Int32)format, (Int32)type, bufSize, table);
 			LogCommand("glGetnColorTableARB", null, target, format, type, bufSize, table			);
 			DebugCheckErrors(null);
 		}
@@ -458,13 +623,13 @@ namespace OpenGL
 		/// Binding for glGetnColorTableARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorTableTarget"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -473,7 +638,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnColorTableARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, Object table)
+		public static void GetnColorTableARB(ColorTableTarget target, PixelFormat format, PixelType type, Int32 bufSize, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
 			try {
@@ -487,13 +652,13 @@ namespace OpenGL
 		/// Binding for glGetnConvolutionFilterARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -502,10 +667,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnConvolutionFilterARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image)
+		public static void GetnConvolutionFilterARB(ConvolutionTarget target, PixelFormat format, PixelType type, Int32 bufSize, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetnConvolutionFilterARB != null, "pglGetnConvolutionFilterARB not implemented");
-			Delegates.pglGetnConvolutionFilterARB(target, format, type, bufSize, image);
+			Delegates.pglGetnConvolutionFilterARB((Int32)target, (Int32)format, (Int32)type, bufSize, image);
 			LogCommand("glGetnConvolutionFilterARB", null, target, format, type, bufSize, image			);
 			DebugCheckErrors(null);
 		}
@@ -514,13 +679,13 @@ namespace OpenGL
 		/// Binding for glGetnConvolutionFilterARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -529,7 +694,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnConvolutionFilterARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, Object image)
+		public static void GetnConvolutionFilterARB(ConvolutionTarget target, PixelFormat format, PixelType type, Int32 bufSize, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -543,13 +708,13 @@ namespace OpenGL
 		/// Binding for glGetnSeparableFilterARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:SeparableTargetEXT"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="rowBufSize">
 		/// A <see cref="T:Int32"/>.
@@ -567,10 +732,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnSeparableFilterARB(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
+		public static void GetnSeparableFilterARB(SeparableTargetEXT target, PixelFormat format, PixelType type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilterARB != null, "pglGetnSeparableFilterARB not implemented");
-			Delegates.pglGetnSeparableFilterARB(target, format, type, rowBufSize, row, columnBufSize, column, span);
+			Delegates.pglGetnSeparableFilterARB((Int32)target, (Int32)format, (Int32)type, rowBufSize, row, columnBufSize, column, span);
 			LogCommand("glGetnSeparableFilterARB", null, target, format, type, rowBufSize, row, columnBufSize, column, span			);
 			DebugCheckErrors(null);
 		}
@@ -579,13 +744,13 @@ namespace OpenGL
 		/// Binding for glGetnSeparableFilterARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:SeparableTargetEXT"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="rowBufSize">
 		/// A <see cref="T:Int32"/>.
@@ -603,7 +768,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnSeparableFilterARB(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
+		public static void GetnSeparableFilterARB(SeparableTargetEXT target, PixelFormat format, PixelType type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -621,16 +786,16 @@ namespace OpenGL
 		/// Binding for glGetnHistogramARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -639,10 +804,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values)
+		public static void GetnHistogramARB(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnHistogramARB != null, "pglGetnHistogramARB not implemented");
-			Delegates.pglGetnHistogramARB(target, reset, format, type, bufSize, values);
+			Delegates.pglGetnHistogramARB((Int32)target, reset, (Int32)format, (Int32)type, bufSize, values);
 			LogCommand("glGetnHistogramARB", null, target, reset, format, type, bufSize, values			);
 			DebugCheckErrors(null);
 		}
@@ -651,16 +816,16 @@ namespace OpenGL
 		/// Binding for glGetnHistogramARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -669,7 +834,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, Object values)
+		public static void GetnHistogramARB(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -683,16 +848,16 @@ namespace OpenGL
 		/// Binding for glGetnMinmaxARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -701,10 +866,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values)
+		public static void GetnMinmaxARB(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnMinmaxARB != null, "pglGetnMinmaxARB not implemented");
-			Delegates.pglGetnMinmaxARB(target, reset, format, type, bufSize, values);
+			Delegates.pglGetnMinmaxARB((Int32)target, reset, (Int32)format, (Int32)type, bufSize, values);
 			LogCommand("glGetnMinmaxARB", null, target, reset, format, type, bufSize, values			);
 			DebugCheckErrors(null);
 		}
@@ -713,16 +878,16 @@ namespace OpenGL
 		/// Binding for glGetnMinmaxARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -731,7 +896,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, Object values)
+		public static void GetnMinmaxARB(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

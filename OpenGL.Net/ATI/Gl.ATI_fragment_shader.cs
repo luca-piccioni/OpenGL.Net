@@ -784,7 +784,7 @@ namespace OpenGL
 		/// Binding for glColorFragmentOp1ATI.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FragmentOpATI"/>.
 		/// </param>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.
@@ -805,10 +805,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
-		public static void ColorFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod)
+		public static void ColorFragmentOp1ATI(FragmentOpATI op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod)
 		{
 			Debug.Assert(Delegates.pglColorFragmentOp1ATI != null, "pglColorFragmentOp1ATI not implemented");
-			Delegates.pglColorFragmentOp1ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod);
+			Delegates.pglColorFragmentOp1ATI((Int32)op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod);
 			LogCommand("glColorFragmentOp1ATI", null, op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod			);
 			DebugCheckErrors(null);
 		}
@@ -817,7 +817,7 @@ namespace OpenGL
 		/// Binding for glColorFragmentOp2ATI.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FragmentOpATI"/>.
 		/// </param>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.
@@ -847,10 +847,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
-		public static void ColorFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod)
+		public static void ColorFragmentOp2ATI(FragmentOpATI op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod)
 		{
 			Debug.Assert(Delegates.pglColorFragmentOp2ATI != null, "pglColorFragmentOp2ATI not implemented");
-			Delegates.pglColorFragmentOp2ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod);
+			Delegates.pglColorFragmentOp2ATI((Int32)op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod);
 			LogCommand("glColorFragmentOp2ATI", null, op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod			);
 			DebugCheckErrors(null);
 		}
@@ -859,7 +859,7 @@ namespace OpenGL
 		/// Binding for glColorFragmentOp3ATI.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FragmentOpATI"/>.
 		/// </param>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.
@@ -898,10 +898,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
-		public static void ColorFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod)
+		public static void ColorFragmentOp3ATI(FragmentOpATI op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod)
 		{
 			Debug.Assert(Delegates.pglColorFragmentOp3ATI != null, "pglColorFragmentOp3ATI not implemented");
-			Delegates.pglColorFragmentOp3ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod);
+			Delegates.pglColorFragmentOp3ATI((Int32)op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod);
 			LogCommand("glColorFragmentOp3ATI", null, op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod			);
 			DebugCheckErrors(null);
 		}
@@ -910,7 +910,7 @@ namespace OpenGL
 		/// Binding for glAlphaFragmentOp1ATI.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FragmentOpATI"/>.
 		/// </param>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.
@@ -928,10 +928,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
-		public static void AlphaFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod)
+		public static void AlphaFragmentOp1ATI(FragmentOpATI op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod)
 		{
 			Debug.Assert(Delegates.pglAlphaFragmentOp1ATI != null, "pglAlphaFragmentOp1ATI not implemented");
-			Delegates.pglAlphaFragmentOp1ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod);
+			Delegates.pglAlphaFragmentOp1ATI((Int32)op, dst, dstMod, arg1, arg1Rep, arg1Mod);
 			LogCommand("glAlphaFragmentOp1ATI", null, op, dst, dstMod, arg1, arg1Rep, arg1Mod			);
 			DebugCheckErrors(null);
 		}
@@ -940,7 +940,7 @@ namespace OpenGL
 		/// Binding for glAlphaFragmentOp2ATI.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FragmentOpATI"/>.
 		/// </param>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.
@@ -967,10 +967,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
-		public static void AlphaFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod)
+		public static void AlphaFragmentOp2ATI(FragmentOpATI op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod)
 		{
 			Debug.Assert(Delegates.pglAlphaFragmentOp2ATI != null, "pglAlphaFragmentOp2ATI not implemented");
-			Delegates.pglAlphaFragmentOp2ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod);
+			Delegates.pglAlphaFragmentOp2ATI((Int32)op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod);
 			LogCommand("glAlphaFragmentOp2ATI", null, op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod			);
 			DebugCheckErrors(null);
 		}
@@ -979,7 +979,7 @@ namespace OpenGL
 		/// Binding for glAlphaFragmentOp3ATI.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FragmentOpATI"/>.
 		/// </param>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.
@@ -1015,10 +1015,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
-		public static void AlphaFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod)
+		public static void AlphaFragmentOp3ATI(FragmentOpATI op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod)
 		{
 			Debug.Assert(Delegates.pglAlphaFragmentOp3ATI != null, "pglAlphaFragmentOp3ATI not implemented");
-			Delegates.pglAlphaFragmentOp3ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod);
+			Delegates.pglAlphaFragmentOp3ATI((Int32)op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod);
 			LogCommand("glAlphaFragmentOp3ATI", null, op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod			);
 			DebugCheckErrors(null);
 		}

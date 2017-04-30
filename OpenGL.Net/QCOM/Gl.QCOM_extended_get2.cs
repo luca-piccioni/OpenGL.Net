@@ -102,7 +102,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="shadertype">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ShaderType"/>.
 		/// </param>
 		/// <param name="source">
 		/// A <see cref="T:String"/>.
@@ -111,13 +111,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
-		public static void ExtGetProgramBinarySourceQCOM(UInt32 program, Int32 shadertype, String source, Int32[] length)
+		public static void ExtGetProgramBinarySourceQCOM(UInt32 program, ShaderType shadertype, String source, Int32[] length)
 		{
 			unsafe {
 				fixed (Int32* p_length = length)
 				{
 					Debug.Assert(Delegates.pglExtGetProgramBinarySourceQCOM != null, "pglExtGetProgramBinarySourceQCOM not implemented");
-					Delegates.pglExtGetProgramBinarySourceQCOM(program, shadertype, source, p_length);
+					Delegates.pglExtGetProgramBinarySourceQCOM(program, (Int32)shadertype, source, p_length);
 					LogCommand("glExtGetProgramBinarySourceQCOM", null, program, shadertype, source, length					);
 				}
 			}

@@ -1329,10 +1329,12 @@ namespace OpenGL
 		[AliasOf("glGetPointervKHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPointer(GetPointervPName pname, out IntPtr @params)
 		{
@@ -1364,10 +1366,12 @@ namespace OpenGL
 		[AliasOf("glGetPointervKHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RequiredByFeature("GL_KHR_debug")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public static void GetPointer(GetPointervPName pname, Object @params)
 		{
@@ -1487,10 +1491,10 @@ namespace OpenGL
 		[AliasOf("glCopyTexImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
-		public static void CopyTexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
+		public static void CopyTexImage1D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage1D != null, "pglCopyTexImage1D not implemented");
-			Delegates.pglCopyTexImage1D((Int32)target, level, internalformat, x, y, width, border);
+			Delegates.pglCopyTexImage1D((Int32)target, level, (Int32)internalformat, x, y, width, border);
 			LogCommand("glCopyTexImage1D", null, target, level, internalformat, x, y, width, border			);
 			DebugCheckErrors(null);
 		}
@@ -1583,10 +1587,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
-		public static void CopyTexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
+		public static void CopyTexImage2D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage2D != null, "pglCopyTexImage2D not implemented");
-			Delegates.pglCopyTexImage2D((Int32)target, level, internalformat, x, y, width, height, border);
+			Delegates.pglCopyTexImage2D((Int32)target, level, (Int32)internalformat, x, y, width, height, border);
 			LogCommand("glCopyTexImage2D", null, target, level, internalformat, x, y, width, height, border			);
 			DebugCheckErrors(null);
 		}
@@ -3603,10 +3607,12 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[RemovedByFeature("GL_VERSION_3_2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPointerv(Int32 pname, IntPtr* @params);

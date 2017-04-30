@@ -595,10 +595,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
-		public static void BeginQuery(Int32 target, UInt32 id)
+		public static void BeginQuery(QueryTarget target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBeginQuery != null, "pglBeginQuery not implemented");
-			Delegates.pglBeginQuery(target, id);
+			Delegates.pglBeginQuery((Int32)target, id);
 			LogCommand("glBeginQuery", null, target, id			);
 			DebugCheckErrors(null);
 		}
@@ -642,10 +642,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
-		public static void EndQuery(Int32 target)
+		public static void EndQuery(QueryTarget target)
 		{
 			Debug.Assert(Delegates.pglEndQuery != null, "pglEndQuery not implemented");
-			Delegates.pglEndQuery(target);
+			Delegates.pglEndQuery((Int32)target);
 			LogCommand("glEndQuery", null, target			);
 			DebugCheckErrors(null);
 		}
@@ -674,13 +674,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
-		public static void GetQuery(Int32 target, Int32 pname, [Out] Int32[] @params)
+		public static void GetQuery(QueryTarget target, QueryParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryiv != null, "pglGetQueryiv not implemented");
-					Delegates.pglGetQueryiv(target, pname, p_params);
+					Delegates.pglGetQueryiv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetQueryiv", null, target, pname, @params					);
 				}
 			}
@@ -711,13 +711,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
-		public static void GetQuery(Int32 target, Int32 pname, out Int32 @params)
+		public static void GetQuery(QueryTarget target, QueryParameterName pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetQueryiv != null, "pglGetQueryiv not implemented");
-					Delegates.pglGetQueryiv(target, pname, p_params);
+					Delegates.pglGetQueryiv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetQueryiv", null, target, pname, @params					);
 				}
 			}
@@ -762,13 +762,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] Int32[] @params)
+		public static void GetQueryObject(UInt32 id, QueryParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectiv != null, "pglGetQueryObjectiv not implemented");
-					Delegates.pglGetQueryObjectiv(id, pname, p_params);
+					Delegates.pglGetQueryObjectiv(id, (Int32)pname, p_params);
 					LogCommand("glGetQueryObjectiv", null, id, pname, @params					);
 				}
 			}
@@ -813,13 +813,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-		public static void GetQueryObject(UInt32 id, Int32 pname, out Int32 @params)
+		public static void GetQueryObject(UInt32 id, QueryParameterName pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectiv != null, "pglGetQueryObjectiv not implemented");
-					Delegates.pglGetQueryObjectiv(id, pname, p_params);
+					Delegates.pglGetQueryObjectiv(id, (Int32)pname, p_params);
 					LogCommand("glGetQueryObjectiv", null, id, pname, @params					);
 				}
 			}
@@ -863,13 +863,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
-		public static void GetQueryObject(UInt32 id, Int32 pname, [Out] UInt32[] @params)
+		public static void GetQueryObject(UInt32 id, QueryParameterName pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuiv != null, "pglGetQueryObjectuiv not implemented");
-					Delegates.pglGetQueryObjectuiv(id, pname, p_params);
+					Delegates.pglGetQueryObjectuiv(id, (Int32)pname, p_params);
 					LogCommand("glGetQueryObjectuiv", null, id, pname, @params					);
 				}
 			}
@@ -913,13 +913,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query")]
-		public static void GetQueryObject(UInt32 id, Int32 pname, out UInt32 @params)
+		public static void GetQueryObject(UInt32 id, QueryParameterName pname, out UInt32 @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuiv != null, "pglGetQueryObjectuiv not implemented");
-					Delegates.pglGetQueryObjectuiv(id, pname, p_params);
+					Delegates.pglGetQueryObjectuiv(id, (Int32)pname, p_params);
 					LogCommand("glGetQueryObjectuiv", null, id, pname, @params					);
 				}
 			}

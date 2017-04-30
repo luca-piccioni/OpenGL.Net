@@ -1764,16 +1764,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PathFillMode"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask)
+		public static void StencilFillPathNV(UInt32 path, PathFillMode fillMode, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFillPathNV != null, "pglStencilFillPathNV not implemented");
-			Delegates.pglStencilFillPathNV(path, fillMode, mask);
+			Delegates.pglStencilFillPathNV(path, (Int32)fillMode, mask);
 			LogCommand("glStencilFillPathNV", null, path, fillMode, mask			);
 			DebugCheckErrors(null);
 		}
@@ -1815,7 +1815,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PathFillMode"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
@@ -1827,13 +1827,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, PathFillMode fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
 				{
 					Debug.Assert(Delegates.pglStencilFillPathInstancedNV != null, "pglStencilFillPathInstancedNV not implemented");
-					Delegates.pglStencilFillPathInstancedNV(numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, p_transformValues);
+					Delegates.pglStencilFillPathInstancedNV(numPaths, pathNameType, paths, pathBase, (Int32)fillMode, mask, transformType, p_transformValues);
 					LogCommand("glStencilFillPathInstancedNV", null, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues					);
 				}
 			}
@@ -1856,7 +1856,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PathFillMode"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
@@ -1868,7 +1868,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, PathFillMode fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -3219,7 +3219,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="programInterface">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ProgramInterface"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -3240,7 +3240,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetProgramResourceNV(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32[] props, Int32 bufSize, [Out] Int32[] length, [Out] float[] @params)
+		public static void GetProgramResourceNV(UInt32 program, ProgramInterface programInterface, UInt32 index, Int32 propCount, Int32[] props, Int32 bufSize, [Out] Int32[] length, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_props = props)
@@ -3248,7 +3248,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramResourcefvNV != null, "pglGetProgramResourcefvNV not implemented");
-					Delegates.pglGetProgramResourcefvNV(program, programInterface, index, propCount, p_props, bufSize, p_length, p_params);
+					Delegates.pglGetProgramResourcefvNV(program, (Int32)programInterface, index, propCount, p_props, bufSize, p_length, p_params);
 					LogCommand("glGetProgramResourcefvNV", null, program, programInterface, index, propCount, props, bufSize, length, @params					);
 				}
 			}
@@ -3384,7 +3384,7 @@ namespace OpenGL
 		/// Binding for glGetPathTexGenivNV.
 		/// </summary>
 		/// <param name="texCoordSet">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -3393,13 +3393,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
-		public static void GetPathTexGenNV(Int32 texCoordSet, Int32 pname, [Out] Int32[] value)
+		public static void GetPathTexGenNV(TextureUnit texCoordSet, Int32 pname, [Out] Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglGetPathTexGenivNV != null, "pglGetPathTexGenivNV not implemented");
-					Delegates.pglGetPathTexGenivNV(texCoordSet, pname, p_value);
+					Delegates.pglGetPathTexGenivNV((Int32)texCoordSet, pname, p_value);
 					LogCommand("glGetPathTexGenivNV", null, texCoordSet, pname, value					);
 				}
 			}
@@ -3410,7 +3410,7 @@ namespace OpenGL
 		/// Binding for glGetPathTexGenfvNV.
 		/// </summary>
 		/// <param name="texCoordSet">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -3419,13 +3419,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
-		public static void GetPathTexGenNV(Int32 texCoordSet, Int32 pname, [Out] float[] value)
+		public static void GetPathTexGenNV(TextureUnit texCoordSet, Int32 pname, [Out] float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglGetPathTexGenfvNV != null, "pglGetPathTexGenfvNV not implemented");
-					Delegates.pglGetPathTexGenfvNV(texCoordSet, pname, p_value);
+					Delegates.pglGetPathTexGenfvNV((Int32)texCoordSet, pname, p_value);
 					LogCommand("glGetPathTexGenfvNV", null, texCoordSet, pname, value					);
 				}
 			}

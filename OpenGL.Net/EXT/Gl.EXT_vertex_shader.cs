@@ -1363,7 +1363,7 @@ namespace OpenGL
 		/// Binding for glBindTexGenParameterEXT.
 		/// </summary>
 		/// <param name="unit">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="coord">
 		/// A <see cref="T:TextureCoordName"/>.
@@ -1372,12 +1372,12 @@ namespace OpenGL
 		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindTexGenParameterEXT(Int32 unit, TextureCoordName coord, TextureGenParameter value)
+		public static UInt32 BindTexGenParameterEXT(TextureUnit unit, TextureCoordName coord, TextureGenParameter value)
 		{
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglBindTexGenParameterEXT != null, "pglBindTexGenParameterEXT not implemented");
-			retValue = Delegates.pglBindTexGenParameterEXT(unit, (Int32)coord, (Int32)value);
+			retValue = Delegates.pglBindTexGenParameterEXT((Int32)unit, (Int32)coord, (Int32)value);
 			LogCommand("glBindTexGenParameterEXT", retValue, unit, coord, value			);
 			DebugCheckErrors(retValue);
 
@@ -1388,18 +1388,18 @@ namespace OpenGL
 		/// Binding for glBindTextureUnitParameterEXT.
 		/// </summary>
 		/// <param name="unit">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindTextureUnitParameterEXT(Int32 unit, Int32 value)
+		public static UInt32 BindTextureUnitParameterEXT(TextureUnit unit, Int32 value)
 		{
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglBindTextureUnitParameterEXT != null, "pglBindTextureUnitParameterEXT not implemented");
-			retValue = Delegates.pglBindTextureUnitParameterEXT(unit, value);
+			retValue = Delegates.pglBindTextureUnitParameterEXT((Int32)unit, value);
 			LogCommand("glBindTextureUnitParameterEXT", retValue, unit, value			);
 			DebugCheckErrors(retValue);
 

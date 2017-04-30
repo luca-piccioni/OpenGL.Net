@@ -154,7 +154,7 @@ namespace OpenGL
 		/// Binding for glGetBufferParameterui64vNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:BufferTargetARB"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -163,13 +163,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-		public static void GetBufferParameterNV(Int32 target, Int32 pname, [Out] UInt64[] @params)
+		public static void GetBufferParameterNV(BufferTargetARB target, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameterui64vNV != null, "pglGetBufferParameterui64vNV not implemented");
-					Delegates.pglGetBufferParameterui64vNV(target, pname, p_params);
+					Delegates.pglGetBufferParameterui64vNV((Int32)target, pname, p_params);
 					LogCommand("glGetBufferParameterui64vNV", null, target, pname, @params					);
 				}
 			}
@@ -183,19 +183,19 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:VertexBufferObjectParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-		public static void GetNamedBufferParameterNV(UInt32 buffer, Int32 pname, [Out] UInt64[] @params)
+		public static void GetNamedBufferParameterNV(UInt32 buffer, VertexBufferObjectParameter pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameterui64vNV != null, "pglGetNamedBufferParameterui64vNV not implemented");
-					Delegates.pglGetNamedBufferParameterui64vNV(buffer, pname, p_params);
+					Delegates.pglGetNamedBufferParameterui64vNV(buffer, (Int32)pname, p_params);
 					LogCommand("glGetNamedBufferParameterui64vNV", null, buffer, pname, @params					);
 				}
 			}

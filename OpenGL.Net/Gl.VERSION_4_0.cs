@@ -905,7 +905,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:BlendEquationModeEXT"/>.
 		/// </param>
 		[AliasOf("glBlendEquationIndexedAMD")]
 		[AliasOf("glBlendEquationiARB")]
@@ -917,10 +917,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendEquation(UInt32 buf, Int32 mode)
+		public static void BlendEquation(UInt32 buf, BlendEquationModeEXT mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationi != null, "pglBlendEquationi not implemented");
-			Delegates.pglBlendEquationi(buf, mode);
+			Delegates.pglBlendEquationi(buf, (Int32)mode);
 			LogCommand("glBlendEquationi", null, buf, mode			);
 			DebugCheckErrors(null);
 		}
@@ -932,10 +932,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="modeRGB">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:BlendEquationModeEXT"/>.
 		/// </param>
 		/// <param name="modeAlpha">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:BlendEquationModeEXT"/>.
 		/// </param>
 		[AliasOf("glBlendEquationSeparateIndexedAMD")]
 		[AliasOf("glBlendEquationSeparateiARB")]
@@ -947,10 +947,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendEquationSeparatei(UInt32 buf, Int32 modeRGB, Int32 modeAlpha)
+		public static void BlendEquationSeparatei(UInt32 buf, BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparatei != null, "pglBlendEquationSeparatei not implemented");
-			Delegates.pglBlendEquationSeparatei(buf, modeRGB, modeAlpha);
+			Delegates.pglBlendEquationSeparatei(buf, (Int32)modeRGB, (Int32)modeAlpha);
 			LogCommand("glBlendEquationSeparatei", null, buf, modeRGB, modeAlpha			);
 			DebugCheckErrors(null);
 		}
@@ -962,10 +962,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="src">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorScaleFactor"/>.
 		/// </param>
 		/// <param name="dst">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorScaleFactor"/>.
 		/// </param>
 		[AliasOf("glBlendFuncIndexedAMD")]
 		[AliasOf("glBlendFunciARB")]
@@ -977,10 +977,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendFunci(UInt32 buf, Int32 src, Int32 dst)
+		public static void BlendFunci(UInt32 buf, ColorScaleFactor src, ColorScaleFactor dst)
 		{
 			Debug.Assert(Delegates.pglBlendFunci != null, "pglBlendFunci not implemented");
-			Delegates.pglBlendFunci(buf, src, dst);
+			Delegates.pglBlendFunci(buf, (Int32)src, (Int32)dst);
 			LogCommand("glBlendFunci", null, buf, src, dst			);
 			DebugCheckErrors(null);
 		}
@@ -992,16 +992,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="srcRGB">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorScaleFactor"/>.
 		/// </param>
 		/// <param name="dstRGB">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorScaleFactor"/>.
 		/// </param>
 		/// <param name="srcAlpha">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorScaleFactor"/>.
 		/// </param>
 		/// <param name="dstAlpha">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorScaleFactor"/>.
 		/// </param>
 		[AliasOf("glBlendFuncSeparateIndexedAMD")]
 		[AliasOf("glBlendFuncSeparateiARB")]
@@ -1013,10 +1013,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendFuncSeparatei(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha)
+		public static void BlendFuncSeparatei(UInt32 buf, ColorScaleFactor srcRGB, ColorScaleFactor dstRGB, ColorScaleFactor srcAlpha, ColorScaleFactor dstAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparatei != null, "pglBlendFuncSeparatei not implemented");
-			Delegates.pglBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+			Delegates.pglBlendFuncSeparatei(buf, (Int32)srcRGB, (Int32)dstRGB, (Int32)srcAlpha, (Int32)dstAlpha);
 			LogCommand("glBlendFuncSeparatei", null, buf, srcRGB, dstRGB, srcAlpha, dstAlpha			);
 			DebugCheckErrors(null);
 		}
@@ -1143,10 +1143,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
-		public static void DrawElementsIndirect(PrimitiveType mode, Int32 type, IntPtr indirect)
+		public static void DrawElementsIndirect(PrimitiveType mode, DrawElementsType type, IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDrawElementsIndirect != null, "pglDrawElementsIndirect not implemented");
-			Delegates.pglDrawElementsIndirect((Int32)mode, type, indirect);
+			Delegates.pglDrawElementsIndirect((Int32)mode, (Int32)type, indirect);
 			LogCommand("glDrawElementsIndirect", null, mode, type, indirect			);
 			DebugCheckErrors(null);
 		}
@@ -1191,7 +1191,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
-		public static void DrawElementsIndirect(PrimitiveType mode, Int32 type, Object indirect)
+		public static void DrawElementsIndirect(PrimitiveType mode, DrawElementsType type, Object indirect)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -2059,12 +2059,12 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static Int32 GetSubroutineUniformLocation(UInt32 program, Int32 shadertype, String name)
+		public static Int32 GetSubroutineUniformLocation(UInt32 program, ShaderType shadertype, String name)
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglGetSubroutineUniformLocation != null, "pglGetSubroutineUniformLocation not implemented");
-			retValue = Delegates.pglGetSubroutineUniformLocation(program, shadertype, name);
+			retValue = Delegates.pglGetSubroutineUniformLocation(program, (Int32)shadertype, name);
 			LogCommand("glGetSubroutineUniformLocation", retValue, program, shadertype, name			);
 			DebugCheckErrors(retValue);
 
@@ -2096,12 +2096,12 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static UInt32 GetSubroutineIndex(UInt32 program, Int32 shadertype, String name)
+		public static UInt32 GetSubroutineIndex(UInt32 program, ShaderType shadertype, String name)
 		{
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglGetSubroutineIndex != null, "pglGetSubroutineIndex not implemented");
-			retValue = Delegates.pglGetSubroutineIndex(program, shadertype, name);
+			retValue = Delegates.pglGetSubroutineIndex(program, (Int32)shadertype, name);
 			LogCommand("glGetSubroutineIndex", retValue, program, shadertype, name			);
 			DebugCheckErrors(retValue);
 
@@ -2144,13 +2144,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static void GetActiveSubroutineUniform(UInt32 program, Int32 shadertype, UInt32 index, Int32 pname, [Out] Int32[] values)
+		public static void GetActiveSubroutineUniform(UInt32 program, ShaderType shadertype, UInt32 index, SubroutineParameterName pname, [Out] Int32[] values)
 		{
 			unsafe {
 				fixed (Int32* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineUniformiv != null, "pglGetActiveSubroutineUniformiv not implemented");
-					Delegates.pglGetActiveSubroutineUniformiv(program, shadertype, index, pname, p_values);
+					Delegates.pglGetActiveSubroutineUniformiv(program, (Int32)shadertype, index, (Int32)pname, p_values);
 					LogCommand("glGetActiveSubroutineUniformiv", null, program, shadertype, index, pname, values					);
 				}
 			}
@@ -2195,13 +2195,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static void GetActiveSubroutineUniformName(UInt32 program, Int32 shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
+		public static void GetActiveSubroutineUniformName(UInt32 program, ShaderType shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineUniformName != null, "pglGetActiveSubroutineUniformName not implemented");
-					Delegates.pglGetActiveSubroutineUniformName(program, shadertype, index, bufsize, p_length, name);
+					Delegates.pglGetActiveSubroutineUniformName(program, (Int32)shadertype, index, bufsize, p_length, name);
 					LogCommand("glGetActiveSubroutineUniformName", null, program, shadertype, index, bufsize, length, name					);
 				}
 			}
@@ -2241,14 +2241,60 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static void GetActiveSubroutineName(UInt32 program, Int32 shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
+		public static void GetActiveSubroutineName(UInt32 program, ShaderType shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineName != null, "pglGetActiveSubroutineName not implemented");
-					Delegates.pglGetActiveSubroutineName(program, shadertype, index, bufsize, p_length, name);
+					Delegates.pglGetActiveSubroutineName(program, (Int32)shadertype, index, bufsize, p_length, name);
 					LogCommand("glGetActiveSubroutineName", null, program, shadertype, index, bufsize, length, name					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// load active subroutine uniforms
+		/// </summary>
+		/// <param name="shadertype">
+		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
+		/// </param>
+		/// <param name="count">
+		/// Specifies the number of uniform indices stored in <paramref name="indices"/>.
+		/// </param>
+		/// <param name="indices">
+		/// Specifies the address of an array holding the indices to load into the shader subroutine variables.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_OPERATION is generated if no program object is current.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is not equal to the value of 
+		/// Gl.ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS for the shader stage <paramref name="shadertype"/> of the current program.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if any value in <paramref name="indices"/> is geater than or equal to the value of 
+		/// Gl.ACTIVE_SUBROUTINES for the shader stage <paramref name="shadertype"/> of the current program.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="shadertype"/> is not one of the accepted values.
+		/// </exception>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
+		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
+		/// <seealso cref="Gl.GetProgramStage"/>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
+		public static void UniformSubroutines(ShaderType shadertype, Int32 count, UInt32[] indices)
+		{
+			unsafe {
+				fixed (UInt32* p_indices = indices)
+				{
+					Debug.Assert(Delegates.pglUniformSubroutinesuiv != null, "pglUniformSubroutinesuiv not implemented");
+					Delegates.pglUniformSubroutinesuiv((Int32)shadertype, count, p_indices);
+					LogCommand("glUniformSubroutinesuiv", null, shadertype, count, indices					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2284,13 +2330,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static void UniformSubroutines(Int32 shadertype, UInt32[] indices)
+		public static void UniformSubroutines(ShaderType shadertype, UInt32[] indices)
 		{
 			unsafe {
 				fixed (UInt32* p_indices = indices)
 				{
 					Debug.Assert(Delegates.pglUniformSubroutinesuiv != null, "pglUniformSubroutinesuiv not implemented");
-					Delegates.pglUniformSubroutinesuiv(shadertype, (Int32)indices.Length, p_indices);
+					Delegates.pglUniformSubroutinesuiv((Int32)shadertype, (Int32)indices.Length, p_indices);
 					LogCommand("glUniformSubroutinesuiv", null, shadertype, indices.Length, indices					);
 				}
 			}
@@ -2326,13 +2372,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static void GetUniformSubroutine(Int32 shadertype, Int32 location, out UInt32 @params)
+		public static void GetUniformSubroutine(ShaderType shadertype, Int32 location, out UInt32 @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetUniformSubroutineuiv != null, "pglGetUniformSubroutineuiv not implemented");
-					Delegates.pglGetUniformSubroutineuiv(shadertype, location, p_params);
+					Delegates.pglGetUniformSubroutineuiv((Int32)shadertype, location, p_params);
 					LogCommand("glGetUniformSubroutineuiv", null, shadertype, location, @params					);
 				}
 			}
@@ -2367,13 +2413,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetProgram"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static void GetProgramStage(UInt32 program, Int32 shadertype, Int32 pname, out Int32 values)
+		public static void GetProgramStage(UInt32 program, ShaderType shadertype, ProgramStagePName pname, out Int32 values)
 		{
 			unsafe {
 				fixed (Int32* p_values = &values)
 				{
 					Debug.Assert(Delegates.pglGetProgramStageiv != null, "pglGetProgramStageiv not implemented");
-					Delegates.pglGetProgramStageiv(program, shadertype, pname, p_values);
+					Delegates.pglGetProgramStageiv(program, (Int32)shadertype, (Int32)pname, p_values);
 					LogCommand("glGetProgramStageiv", null, program, shadertype, pname, values					);
 				}
 			}
@@ -2408,10 +2454,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-		public static void PatchParameter(Int32 pname, Int32 value)
+		public static void PatchParameter(PatchParameterName pname, Int32 value)
 		{
 			Debug.Assert(Delegates.pglPatchParameteri != null, "pglPatchParameteri not implemented");
-			Delegates.pglPatchParameteri(pname, value);
+			Delegates.pglPatchParameteri((Int32)pname, value);
 			LogCommand("glPatchParameteri", null, pname, value			);
 			DebugCheckErrors(null);
 		}
@@ -2439,13 +2485,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
-		public static void PatchParameter(Int32 pname, float[] values)
+		public static void PatchParameter(PatchParameterName pname, float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
 				{
 					Debug.Assert(Delegates.pglPatchParameterfv != null, "pglPatchParameterfv not implemented");
-					Delegates.pglPatchParameterfv(pname, p_values);
+					Delegates.pglPatchParameterfv((Int32)pname, p_values);
 					LogCommand("glPatchParameterfv", null, pname, values					);
 				}
 			}
@@ -2483,10 +2529,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-		public static void BindTransformFeedback(Int32 target, UInt32 id)
+		public static void BindTransformFeedback(BindTransformFeedbackTarget target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedback != null, "pglBindTransformFeedback not implemented");
-			Delegates.pglBindTransformFeedback(target, id);
+			Delegates.pglBindTransformFeedback((Int32)target, id);
 			LogCommand("glBindTransformFeedback", null, target, id			);
 			DebugCheckErrors(null);
 		}
@@ -2797,10 +2843,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-		public static void BeginQueryIndexed(Int32 target, UInt32 index, UInt32 id)
+		public static void BeginQueryIndexed(QueryTarget target, UInt32 index, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBeginQueryIndexed != null, "pglBeginQueryIndexed not implemented");
-			Delegates.pglBeginQueryIndexed(target, index, id);
+			Delegates.pglBeginQueryIndexed((Int32)target, index, id);
 			LogCommand("glBeginQueryIndexed", null, target, index, id			);
 			DebugCheckErrors(null);
 		}
@@ -2848,10 +2894,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-		public static void EndQueryIndexed(Int32 target, UInt32 index)
+		public static void EndQueryIndexed(QueryTarget target, UInt32 index)
 		{
 			Debug.Assert(Delegates.pglEndQueryIndexed != null, "pglEndQueryIndexed not implemented");
-			Delegates.pglEndQueryIndexed(target, index);
+			Delegates.pglEndQueryIndexed((Int32)target, index);
 			LogCommand("glEndQueryIndexed", null, target, index			);
 			DebugCheckErrors(null);
 		}
@@ -2885,13 +2931,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-		public static void GetQueryIndexed(Int32 target, UInt32 index, Int32 pname, [Out] Int32[] @params)
+		public static void GetQueryIndexed(Int32 target, UInt32 index, QueryParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryIndexediv != null, "pglGetQueryIndexediv not implemented");
-					Delegates.pglGetQueryIndexediv(target, index, pname, p_params);
+					Delegates.pglGetQueryIndexediv(target, index, (Int32)pname, p_params);
 					LogCommand("glGetQueryIndexediv", null, target, index, pname, @params					);
 				}
 			}

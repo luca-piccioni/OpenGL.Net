@@ -1114,7 +1114,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -1129,10 +1129,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, PrimitiveType type, IntPtr indices, Int32 primcount, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseInstance != null, "pglDrawElementsInstancedBaseInstance not implemented");
-			Delegates.pglDrawElementsInstancedBaseInstance((Int32)mode, count, type, indices, primcount, baseinstance);
+			Delegates.pglDrawElementsInstancedBaseInstance((Int32)mode, count, (Int32)type, indices, primcount, baseinstance);
 			LogCommand("glDrawElementsInstancedBaseInstance", null, mode, count, type, indices, primcount, baseinstance			);
 			DebugCheckErrors(null);
 		}
@@ -1147,7 +1147,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -1162,7 +1162,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 primcount, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, Int32 count, PrimitiveType type, Object indices, Int32 primcount, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1182,7 +1182,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -1200,10 +1200,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, IntPtr indices, Int32 primcount, Int32 basevertex, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, PrimitiveType type, IntPtr indices, Int32 primcount, Int32 basevertex, UInt32 baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
-			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((Int32)mode, count, type, indices, primcount, basevertex, baseinstance);
+			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((Int32)mode, count, (Int32)type, indices, primcount, basevertex, baseinstance);
 			LogCommand("glDrawElementsInstancedBaseVertexBaseInstance", null, mode, count, type, indices, primcount, basevertex, baseinstance			);
 			DebugCheckErrors(null);
 		}
@@ -1218,7 +1218,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:Object"/>.
@@ -1236,7 +1236,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, Int32 type, Object indices, Int32 primcount, Int32 basevertex, UInt32 baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, Int32 count, PrimitiveType type, Object indices, Int32 primcount, Int32 basevertex, UInt32 baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1244,6 +1244,57 @@ namespace OpenGL
 			} finally {
 				pin_indices.Free();
 			}
+		}
+
+		/// <summary>
+		/// retrieve information about implementation-dependent support for internal formats
+		/// </summary>
+		/// <param name="target">
+		/// Indicates the usage of the internal format. <paramref name="target"/> must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, 
+		/// Gl.TEXTURE_2D, Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, Gl.TEXTURE_CUBE_MAP_ARRAY, Gl.TEXTURE_RECTANGLE, 
+		/// Gl.TEXTURE_BUFFER, Gl.RENDERBUFFER, Gl.TEXTURE_2D_MULTISAMPLE or Gl.TEXTURE_2D_MULTISAMPLE_ARRAY.
+		/// </param>
+		/// <param name="internalformat">
+		/// Specifies the internal format about which to retrieve information.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the type of information to query.
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the maximum number of integers of the specified width that may be written to <paramref name="params"/> by the 
+		/// function.
+		/// </param>
+		/// <param name="params">
+		/// Specifies the address of a variable into which to write the retrieved information.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="bufSize"/> is negative.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not Gl.SAMPLES or Gl.NUM_SAMPLE_COUNTS.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not color-, depth-, or stencil-renderable.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of Gl.TEXTURE_2D_MULTISAMPLE, 
+		/// Gl.TEXTURE_2D_MULTISAMPLE_ARRAY or Gl.RENDERBUFFER.
+		/// </exception>
+		/// <seealso cref="Gl.Get"/>
+		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
+		public static void GetInternalformat(TextureTarget target, InternalFormat internalformat, InternalFormatPName pname, Int32 bufSize, [Out] Int32[] @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetInternalformativ != null, "pglGetInternalformativ not implemented");
+					Delegates.pglGetInternalformativ((Int32)target, (Int32)internalformat, (Int32)pname, bufSize, p_params);
+					LogCommand("glGetInternalformativ", null, target, internalformat, pname, bufSize, @params					);
+				}
+			}
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1280,13 +1331,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
-		public static void GetInternalformat(Int32 target, Int32 internalformat, Int32 pname, [Out] Int32[] @params)
+		public static void GetInternalformat(TextureTarget target, InternalFormat internalformat, InternalFormatPName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetInternalformativ != null, "pglGetInternalformativ not implemented");
-					Delegates.pglGetInternalformativ(target, internalformat, pname, (Int32)@params.Length, p_params);
+					Delegates.pglGetInternalformativ((Int32)target, (Int32)internalformat, (Int32)pname, (Int32)@params.Length, p_params);
 					LogCommand("glGetInternalformativ", null, target, internalformat, pname, @params.Length, @params					);
 				}
 			}
@@ -1325,13 +1376,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-		public static void GetActiveAtomicCounterBuffer(UInt32 program, UInt32 bufferIndex, Int32 pname, [Out] Int32[] @params)
+		public static void GetActiveAtomicCounterBuffer(UInt32 program, UInt32 bufferIndex, AtomicCounterBufferPName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetActiveAtomicCounterBufferiv != null, "pglGetActiveAtomicCounterBufferiv not implemented");
-					Delegates.pglGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, p_params);
+					Delegates.pglGetActiveAtomicCounterBufferiv(program, bufferIndex, (Int32)pname, p_params);
 					LogCommand("glGetActiveAtomicCounterBufferiv", null, program, bufferIndex, pname, @params					);
 				}
 			}
@@ -1387,10 +1438,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-		public static void BindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 access, Int32 format)
+		public static void BindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, BufferAccessARB access, InternalFormat format)
 		{
 			Debug.Assert(Delegates.pglBindImageTexture != null, "pglBindImageTexture not implemented");
-			Delegates.pglBindImageTexture(unit, texture, level, layered, layer, access, format);
+			Delegates.pglBindImageTexture(unit, texture, level, layered, layer, (Int32)access, (Int32)format);
 			LogCommand("glBindImageTexture", null, unit, texture, level, layered, layer, access, format			);
 			DebugCheckErrors(null);
 		}
@@ -1428,13 +1479,13 @@ namespace OpenGL
 		/// Binding for glTexStorage1D.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="levels">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -1443,10 +1494,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TexStorage1D(Int32 target, Int32 levels, Int32 internalformat, Int32 width)
+		public static void TexStorage1D(TextureTarget target, Int32 levels, InternalFormat internalformat, Int32 width)
 		{
 			Debug.Assert(Delegates.pglTexStorage1D != null, "pglTexStorage1D not implemented");
-			Delegates.pglTexStorage1D(target, levels, internalformat, width);
+			Delegates.pglTexStorage1D((Int32)target, levels, (Int32)internalformat, width);
 			LogCommand("glTexStorage1D", null, target, levels, internalformat, width			);
 			DebugCheckErrors(null);
 		}
@@ -1455,13 +1506,13 @@ namespace OpenGL
 		/// Binding for glTexStorage2D.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="levels">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -1474,10 +1525,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TexStorage2D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height)
+		public static void TexStorage2D(TextureTarget target, Int32 levels, InternalFormat internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglTexStorage2D != null, "pglTexStorage2D not implemented");
-			Delegates.pglTexStorage2D(target, levels, internalformat, width, height);
+			Delegates.pglTexStorage2D((Int32)target, levels, (Int32)internalformat, width, height);
 			LogCommand("glTexStorage2D", null, target, levels, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -1486,13 +1537,13 @@ namespace OpenGL
 		/// Binding for glTexStorage3D.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="levels">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -1508,10 +1559,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TexStorage3D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth)
+		public static void TexStorage3D(TextureTarget target, Int32 levels, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglTexStorage3D != null, "pglTexStorage3D not implemented");
-			Delegates.pglTexStorage3D(target, levels, internalformat, width, height, depth);
+			Delegates.pglTexStorage3D((Int32)target, levels, (Int32)internalformat, width, height, depth);
 			LogCommand("glTexStorage3D", null, target, levels, internalformat, width, height, depth			);
 			DebugCheckErrors(null);
 		}

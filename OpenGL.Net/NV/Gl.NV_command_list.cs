@@ -251,15 +251,15 @@ namespace OpenGL
 		/// Binding for glGetStageIndexNV.
 		/// </summary>
 		/// <param name="shadertype">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ShaderType"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-		public static UInt16 GetStageIndexNV(Int32 shadertype)
+		public static UInt16 GetStageIndexNV(ShaderType shadertype)
 		{
 			UInt16 retValue;
 
 			Debug.Assert(Delegates.pglGetStageIndexNV != null, "pglGetStageIndexNV not implemented");
-			retValue = Delegates.pglGetStageIndexNV(shadertype);
+			retValue = Delegates.pglGetStageIndexNV((Int32)shadertype);
 			LogCommand("glGetStageIndexNV", retValue, shadertype			);
 			DebugCheckErrors(retValue);
 

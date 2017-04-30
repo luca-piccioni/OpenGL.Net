@@ -115,15 +115,15 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static UInt64 GetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format)
+		public static UInt64 GetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, PixelFormat format)
 		{
 			UInt64 retValue;
 
 			Debug.Assert(Delegates.pglGetImageHandleNV != null, "pglGetImageHandleNV not implemented");
-			retValue = Delegates.pglGetImageHandleNV(texture, level, layered, layer, format);
+			retValue = Delegates.pglGetImageHandleNV(texture, level, layered, layer, (Int32)format);
 			LogCommand("glGetImageHandleNV", retValue, texture, level, layered, layer, format			);
 			DebugCheckErrors(retValue);
 

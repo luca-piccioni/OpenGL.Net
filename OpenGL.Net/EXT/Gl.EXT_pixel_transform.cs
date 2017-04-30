@@ -180,7 +180,7 @@ namespace OpenGL
 		/// Binding for glGetPixelTransformParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TypeEnum"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -189,13 +189,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void GetPixelTransformParameterEXT(Int32 target, Int32 pname, [Out] Int32[] @params)
+		public static void GetPixelTransformParameterEXT(TypeEnum target, Int32 pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetPixelTransformParameterivEXT != null, "pglGetPixelTransformParameterivEXT not implemented");
-					Delegates.pglGetPixelTransformParameterivEXT(target, pname, p_params);
+					Delegates.pglGetPixelTransformParameterivEXT((Int32)target, pname, p_params);
 					LogCommand("glGetPixelTransformParameterivEXT", null, target, pname, @params					);
 				}
 			}
@@ -206,7 +206,7 @@ namespace OpenGL
 		/// Binding for glGetPixelTransformParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TypeEnum"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -215,13 +215,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void GetPixelTransformParameterEXT(Int32 target, Int32 pname, [Out] float[] @params)
+		public static void GetPixelTransformParameterEXT(TypeEnum target, Int32 pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetPixelTransformParameterfvEXT != null, "pglGetPixelTransformParameterfvEXT not implemented");
-					Delegates.pglGetPixelTransformParameterfvEXT(target, pname, p_params);
+					Delegates.pglGetPixelTransformParameterfvEXT((Int32)target, pname, p_params);
 					LogCommand("glGetPixelTransformParameterfvEXT", null, target, pname, @params					);
 				}
 			}

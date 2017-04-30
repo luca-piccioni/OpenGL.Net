@@ -38,7 +38,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:VertexAttribPointerType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -53,10 +53,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-		public static void VertexAttribArrayObjectATI(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset)
+		public static void VertexAttribArrayObjectATI(UInt32 index, Int32 size, VertexAttribPointerType type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribArrayObjectATI != null, "pglVertexAttribArrayObjectATI not implemented");
-			Delegates.pglVertexAttribArrayObjectATI(index, size, type, normalized, stride, buffer, offset);
+			Delegates.pglVertexAttribArrayObjectATI(index, size, (Int32)type, normalized, stride, buffer, offset);
 			LogCommand("glVertexAttribArrayObjectATI", null, index, size, type, normalized, stride, buffer, offset			);
 			DebugCheckErrors(null);
 		}

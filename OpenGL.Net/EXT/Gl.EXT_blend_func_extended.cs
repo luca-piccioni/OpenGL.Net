@@ -35,18 +35,18 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="programInterface">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ProgramInterface"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
-		public static Int32 GetProgramResourceLocationIndexEXT(UInt32 program, Int32 programInterface, String name)
+		public static Int32 GetProgramResourceLocationIndexEXT(UInt32 program, ProgramInterface programInterface, String name)
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglGetProgramResourceLocationIndexEXT != null, "pglGetProgramResourceLocationIndexEXT not implemented");
-			retValue = Delegates.pglGetProgramResourceLocationIndexEXT(program, programInterface, name);
+			retValue = Delegates.pglGetProgramResourceLocationIndexEXT(program, (Int32)programInterface, name);
 			LogCommand("glGetProgramResourceLocationIndexEXT", retValue, program, programInterface, name			);
 			DebugCheckErrors(retValue);
 

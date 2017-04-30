@@ -29,39 +29,39 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glBlendEquationSeparateOES.
+		/// [GL] Value of GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM symbol.
 		/// </summary>
-		/// <param name="modeRGB">
-		/// A <see cref="T:BlendEquationModeEXT"/>.
-		/// </param>
-		/// <param name="modeAlpha">
-		/// A <see cref="T:BlendEquationModeEXT"/>.
-		/// </param>
-		[RequiredByFeature("GL_OES_blend_equation_separate", Api = "gles1")]
-		public static void BlendEquationSeparateOES(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
+		[RequiredByFeature("GL_QCOM_shader_framebuffer_fetch_noncoherent", Api = "gles2")]
+		public const int FRAMEBUFFER_FETCH_NONCOHERENT_QCOM = 0x96A2;
+
+		/// <summary>
+		/// Binding for glFramebufferFetchBarrierQCOM.
+		/// </summary>
+		[RequiredByFeature("GL_QCOM_shader_framebuffer_fetch_noncoherent", Api = "gles2")]
+		public static void FramebufferFetchBarrierQCOM()
 		{
-			Debug.Assert(Delegates.pglBlendEquationSeparateOES != null, "pglBlendEquationSeparateOES not implemented");
-			Delegates.pglBlendEquationSeparateOES((Int32)modeRGB, (Int32)modeAlpha);
-			LogCommand("glBlendEquationSeparateOES", null, modeRGB, modeAlpha			);
+			Debug.Assert(Delegates.pglFramebufferFetchBarrierQCOM != null, "pglFramebufferFetchBarrierQCOM not implemented");
+			Delegates.pglFramebufferFetchBarrierQCOM();
+			LogCommand("glFramebufferFetchBarrierQCOM", null			);
 			DebugCheckErrors(null);
 		}
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			[DllImport(Library, EntryPoint = "glBlendEquationSeparateOES", ExactSpelling = true)]
-			internal extern static void glBlendEquationSeparateOES(Int32 modeRGB, Int32 modeAlpha);
+			[DllImport(Library, EntryPoint = "glFramebufferFetchBarrierQCOM", ExactSpelling = true)]
+			internal extern static void glFramebufferFetchBarrierQCOM();
 
 		}
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_OES_blend_equation_separate", Api = "gles1")]
+			[RequiredByFeature("GL_QCOM_shader_framebuffer_fetch_noncoherent", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationSeparateOES(Int32 modeRGB, Int32 modeAlpha);
+			internal delegate void glFramebufferFetchBarrierQCOM();
 
 			[ThreadStatic]
-			internal static glBlendEquationSeparateOES pglBlendEquationSeparateOES;
+			internal static glFramebufferFetchBarrierQCOM pglFramebufferFetchBarrierQCOM;
 
 		}
 	}

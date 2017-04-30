@@ -68,7 +68,7 @@ namespace OpenGL
 		/// Binding for glQueryObjectParameteruiAMD.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryTarget"/>.
 		/// </param>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -80,10 +80,10 @@ namespace OpenGL
 		/// A <see cref="T:OcclusionQueryEventMaskAMD"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_occlusion_query_event")]
-		public static void QueryObjectParameterAMD(Int32 target, UInt32 id, Int32 pname, OcclusionQueryEventMaskAMD param)
+		public static void QueryObjectParameterAMD(QueryTarget target, UInt32 id, Int32 pname, OcclusionQueryEventMaskAMD param)
 		{
 			Debug.Assert(Delegates.pglQueryObjectParameteruiAMD != null, "pglQueryObjectParameteruiAMD not implemented");
-			Delegates.pglQueryObjectParameteruiAMD(target, id, pname, (UInt32)param);
+			Delegates.pglQueryObjectParameteruiAMD((Int32)target, id, pname, (UInt32)param);
 			LogCommand("glQueryObjectParameteruiAMD", null, target, id, pname, param			);
 			DebugCheckErrors(null);
 		}

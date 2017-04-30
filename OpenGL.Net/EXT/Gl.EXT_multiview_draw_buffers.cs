@@ -50,16 +50,16 @@ namespace OpenGL
 		/// Binding for glReadBufferIndexedEXT.
 		/// </summary>
 		/// <param name="src">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ReadBufferMode"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-		public static void ReadBufferIndexedEXT(Int32 src, Int32 index)
+		public static void ReadBufferIndexedEXT(ReadBufferMode src, Int32 index)
 		{
 			Debug.Assert(Delegates.pglReadBufferIndexedEXT != null, "pglReadBufferIndexedEXT not implemented");
-			Delegates.pglReadBufferIndexedEXT(src, index);
+			Delegates.pglReadBufferIndexedEXT((Int32)src, index);
 			LogCommand("glReadBufferIndexedEXT", null, src, index			);
 			DebugCheckErrors(null);
 		}
@@ -92,7 +92,7 @@ namespace OpenGL
 		/// Binding for glGetIntegeri_vEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TypeEnum"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -101,13 +101,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-		public static void GetIntegerEXT(Int32 target, UInt32 index, [Out] Int32[] data)
+		public static void GetIntegerEXT(TypeEnum target, UInt32 index, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetIntegeri_vEXT != null, "pglGetIntegeri_vEXT not implemented");
-					Delegates.pglGetIntegeri_vEXT(target, index, p_data);
+					Delegates.pglGetIntegeri_vEXT((Int32)target, index, p_data);
 					LogCommand("glGetIntegeri_vEXT", null, target, index, data					);
 				}
 			}

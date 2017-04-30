@@ -736,6 +736,7 @@
     <Compile Include="QCOM\Gl.QCOM_extended_get2.cs" />
     <Compile Include="QCOM\Gl.QCOM_framebuffer_foveated.cs" />
     <Compile Include="QCOM\Gl.QCOM_perfmon_global_mode.cs" />
+    <Compile Include="QCOM\Gl.QCOM_shader_framebuffer_fetch_noncoherent.cs" />
     <Compile Include="QCOM\Gl.QCOM_tiled_rendering.cs" />
     <Compile Include="QCOM\Gl.QCOM_writeonly_rendering.cs" />
     <Compile Include="Quaternion.cs" />
@@ -922,10 +923,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-		<EmbeddedResource Include="KhronosLogMapGl.xml" />
-		<EmbeddedResource Include="KhronosLogMapEgl.xml" />
-		<EmbeddedResource Include="KhronosLogMapGlx.xml" />
-		<EmbeddedResource Include="KhronosLogMapWgl.xml" />
+    <EmbeddedResource Include="KhronosLogMapGl.xml" />
+    <EmbeddedResource Include="KhronosLogMapEgl.xml" />
+    <EmbeddedResource Include="KhronosLogMapGlx.xml" />
+    <EmbeddedResource Include="KhronosLogMapWgl.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

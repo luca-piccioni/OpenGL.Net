@@ -32,10 +32,10 @@ namespace OpenGL
 		/// Binding for glFramebufferTextureMultisampleMultiviewOVR.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="attachment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -53,10 +53,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_OVR_multiview_multisampled_render_to_texture", Api = "gles2")]
-		public static void FramebufferTextureMultisampleMultiOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 samples, Int32 baseViewIndex, Int32 numViews)
+		public static void FramebufferTextureMultisampleMultiOVR(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 samples, Int32 baseViewIndex, Int32 numViews)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureMultisampleMultiviewOVR != null, "pglFramebufferTextureMultisampleMultiviewOVR not implemented");
-			Delegates.pglFramebufferTextureMultisampleMultiviewOVR(target, attachment, texture, level, samples, baseViewIndex, numViews);
+			Delegates.pglFramebufferTextureMultisampleMultiviewOVR((Int32)target, (Int32)attachment, texture, level, samples, baseViewIndex, numViews);
 			LogCommand("glFramebufferTextureMultisampleMultiviewOVR", null, target, attachment, texture, level, samples, baseViewIndex, numViews			);
 			DebugCheckErrors(null);
 		}

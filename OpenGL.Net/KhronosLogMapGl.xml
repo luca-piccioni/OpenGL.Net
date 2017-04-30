@@ -384,10 +384,10 @@
     <param name="dfactorAlpha" flags="enum" />
   </command>
   <command name="glBlendFuncSeparateINGR">
-    <param name="sfactorRGB" flags="enum" />
-    <param name="dfactorRGB" flags="enum" />
-    <param name="sfactorAlpha" flags="enum" />
-    <param name="dfactorAlpha" flags="enum" />
+    <param name="srcRGB" flags="enum" />
+    <param name="dstRGB" flags="enum" />
+    <param name="srcAlpha" flags="enum" />
+    <param name="dstAlpha" flags="enum" />
   </command>
   <command name="glBlendFuncSeparateIndexedAMD">
     <param name="buf" />

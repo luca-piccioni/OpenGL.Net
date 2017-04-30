@@ -52,7 +52,7 @@ namespace OpenGL
 
 					List<string> extensions = new List<string>();
 					for (uint i = 0; i < (uint)extensionCount; i++)
-						extensions.Add(GetString((int)StringName.Extensions, i));
+						extensions.Add(GetString(StringName.Extensions, i));
 
 					Query(glVersion, extensions.ToArray());
 				} else {

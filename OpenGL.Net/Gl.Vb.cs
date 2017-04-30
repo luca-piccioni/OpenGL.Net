@@ -555,10 +555,10 @@ namespace OpenGL
 			/// </exception>
 			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			public static void Fog(Int32 pname, IntPtr param)
+			public static void Fog(FogPName pname, IntPtr param)
 			{
 				Debug.Assert(Delegates.pglFogx != null, "pglFogx not implemented");
-				Delegates.pglFogx(pname, param);
+				Delegates.pglFogx((Int32)pname, param);
 				LogCommand("glFogx", null, pname, param				);
 				DebugCheckErrors(null);
 			}
@@ -581,13 +581,13 @@ namespace OpenGL
 			/// </exception>
 			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			public static void Fog(Int32 pname, IntPtr[] param)
+			public static void Fog(FogPName pname, IntPtr[] param)
 			{
 				unsafe {
 					fixed (IntPtr* p_param = param)
 					{
 						Debug.Assert(Delegates.pglFogxv != null, "pglFogxv not implemented");
-						Delegates.pglFogxv(pname, p_param);
+						Delegates.pglFogxv((Int32)pname, p_param);
 						LogCommand("glFogxv", null, pname, param						);
 					}
 				}
@@ -636,10 +636,10 @@ namespace OpenGL
 			[AliasOf("glHistogramEXT")]
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			public static void Histogram(Int32 target, Int32 width, Int32 internalformat, bool sink)
+			public static void Histogram(HistogramTargetEXT target, Int32 width, InternalFormat internalformat, bool sink)
 			{
 				Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
-				Delegates.pglHistogram(target, width, internalformat, sink);
+				Delegates.pglHistogram((Int32)target, width, (Int32)internalformat, sink);
 				LogCommand("glHistogram", null, target, width, internalformat, sink				);
 				DebugCheckErrors(null);
 			}
@@ -676,10 +676,10 @@ namespace OpenGL
 			[AliasOf("glMinmaxEXT")]
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			public static void Minmax(Int32 target, Int32 internalformat, bool sink)
+			public static void Minmax(MinmaxTargetEXT target, InternalFormat internalformat, bool sink)
 			{
 				Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
-				Delegates.pglMinmax(target, internalformat, sink);
+				Delegates.pglMinmax((Int32)target, (Int32)internalformat, sink);
 				LogCommand("glMinmax", null, target, internalformat, sink				);
 				DebugCheckErrors(null);
 			}

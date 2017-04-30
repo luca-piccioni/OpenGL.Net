@@ -50,7 +50,7 @@ namespace OpenGL
 		/// specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="p">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ClipPlaneName"/>.
 		/// </param>
 		/// <param name="eqn">
 		/// A <see cref="T:float[]"/>.
@@ -62,13 +62,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		public static void ClipPlane(Int32 p, float[] eqn)
+		public static void ClipPlane(ClipPlaneName p, float[] eqn)
 		{
 			unsafe {
 				fixed (float* p_eqn = eqn)
 				{
 					Debug.Assert(Delegates.pglClipPlanef != null, "pglClipPlanef not implemented");
-					Delegates.pglClipPlanef(p, p_eqn);
+					Delegates.pglClipPlanef((Int32)p, p_eqn);
 					LogCommand("glClipPlanef", null, p, eqn					);
 				}
 			}
@@ -132,13 +132,13 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		public static void GetClipPlane(Int32 plane, [Out] float[] equation)
+		public static void GetClipPlane(ClipPlaneName plane, [Out] float[] equation)
 		{
 			unsafe {
 				fixed (float* p_equation = equation)
 				{
 					Debug.Assert(Delegates.pglGetClipPlanef != null, "pglGetClipPlanef not implemented");
-					Delegates.pglGetClipPlanef(plane, p_equation);
+					Delegates.pglGetClipPlanef((Int32)plane, p_equation);
 					LogCommand("glGetClipPlanef", null, plane, equation					);
 				}
 			}
@@ -204,10 +204,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void AlphaFunc(Int32 func, IntPtr @ref)
+		public static void AlphaFunc(AlphaFunction func, IntPtr @ref)
 		{
 			Debug.Assert(Delegates.pglAlphaFuncx != null, "pglAlphaFuncx not implemented");
-			Delegates.pglAlphaFuncx(func, @ref);
+			Delegates.pglAlphaFuncx((Int32)func, @ref);
 			LogCommand("glAlphaFuncx", null, func, @ref			);
 			DebugCheckErrors(null);
 		}
@@ -278,13 +278,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void ClipPlane(Int32 plane, IntPtr[] equation)
+		public static void ClipPlane(ClipPlaneName plane, IntPtr[] equation)
 		{
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
 				{
 					Debug.Assert(Delegates.pglClipPlanex != null, "pglClipPlanex not implemented");
-					Delegates.pglClipPlanex(plane, p_equation);
+					Delegates.pglClipPlanex((Int32)plane, p_equation);
 					LogCommand("glClipPlanex", null, plane, equation					);
 				}
 			}
@@ -357,10 +357,10 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Fog(Int32 pname, IntPtr param)
+		public static void Fog(FogPName pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglFogx != null, "pglFogx not implemented");
-			Delegates.pglFogx(pname, param);
+			Delegates.pglFogx((Int32)pname, param);
 			LogCommand("glFogx", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -383,13 +383,13 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Fog(Int32 pname, IntPtr[] param)
+		public static void Fog(FogPName pname, IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
 				{
 					Debug.Assert(Delegates.pglFogxv != null, "pglFogxv not implemented");
-					Delegates.pglFogxv(pname, p_param);
+					Delegates.pglFogxv((Int32)pname, p_param);
 					LogCommand("glFogxv", null, pname, param					);
 				}
 			}
@@ -453,13 +453,13 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void GetClipPlane(Int32 plane, [Out] IntPtr[] equation)
+		public static void GetClipPlane(ClipPlaneName plane, [Out] IntPtr[] equation)
 		{
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
 				{
 					Debug.Assert(Delegates.pglGetClipPlanex != null, "pglGetClipPlanex not implemented");
-					Delegates.pglGetClipPlanex(plane, p_equation);
+					Delegates.pglGetClipPlanex((Int32)plane, p_equation);
 					LogCommand("glGetClipPlanex", null, plane, equation					);
 				}
 			}
@@ -481,13 +481,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetError"/>
 		/// <seealso cref="Gl.GetString"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void GetFixed(Int32 pname, [Out] IntPtr[] @params)
+		public static void GetFixed(GetPName pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFixedv != null, "pglGetFixedv not implemented");
-					Delegates.pglGetFixedv(pname, p_params);
+					Delegates.pglGetFixedv((Int32)pname, p_params);
 					LogCommand("glGetFixedv", null, pname, @params					);
 				}
 			}
@@ -514,13 +514,13 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void GetLightxv(Int32 light, Int32 pname, [Out] IntPtr[] @params)
+		public static void GetLightxv(LightName light, LightParameter pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetLightxv != null, "pglGetLightxv not implemented");
-					Delegates.pglGetLightxv(light, pname, p_params);
+					Delegates.pglGetLightxv((Int32)light, (Int32)pname, p_params);
 					LogCommand("glGetLightxv", null, light, pname, @params					);
 				}
 			}
@@ -546,13 +546,13 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void GetMaterial(Int32 face, Int32 pname, [Out] IntPtr[] @params)
+		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMaterialxv != null, "pglGetMaterialxv not implemented");
-					Delegates.pglGetMaterialxv(face, pname, p_params);
+					Delegates.pglGetMaterialxv((Int32)face, (Int32)pname, p_params);
 					LogCommand("glGetMaterialxv", null, face, pname, @params					);
 				}
 			}
@@ -580,13 +580,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void GetTexEnv(Int32 target, Int32 pname, [Out] IntPtr[] @params)
+		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTexEnvxv != null, "pglGetTexEnvxv not implemented");
-					Delegates.pglGetTexEnvxv(target, pname, p_params);
+					Delegates.pglGetTexEnvxv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetTexEnvxv", null, target, pname, @params					);
 				}
 			}
@@ -612,13 +612,13 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void GetTexParameter(Int32 target, Int32 pname, [Out] IntPtr[] @params)
+		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTexParameterxv != null, "pglGetTexParameterxv not implemented");
-					Delegates.pglGetTexParameterxv(target, pname, p_params);
+					Delegates.pglGetTexParameterxv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetTexParameterxv", null, target, pname, @params					);
 				}
 			}
@@ -640,10 +640,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void LightModel(Int32 pname, IntPtr param)
+		public static void LightModel(LightModelParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglLightModelx != null, "pglLightModelx not implemented");
-			Delegates.pglLightModelx(pname, param);
+			Delegates.pglLightModelx((Int32)pname, param);
 			LogCommand("glLightModelx", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -663,13 +663,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void LightModel(Int32 pname, IntPtr[] param)
+		public static void LightModel(LightModelParameter pname, IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
 				{
 					Debug.Assert(Delegates.pglLightModelxv != null, "pglLightModelxv not implemented");
-					Delegates.pglLightModelxv(pname, p_param);
+					Delegates.pglLightModelxv((Int32)pname, p_param);
 					LogCommand("glLightModelxv", null, pname, param					);
 				}
 			}
@@ -702,10 +702,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Lightx(Int32 light, Int32 pname, IntPtr param)
+		public static void Lightx(LightName light, LightParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglLightx != null, "pglLightx not implemented");
-			Delegates.pglLightx(light, pname, param);
+			Delegates.pglLightx((Int32)light, (Int32)pname, param);
 			LogCommand("glLightx", null, light, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -736,13 +736,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Lightxv(Int32 light, Int32 pname, IntPtr[] @params)
+		public static void Lightxv(LightName light, LightParameter pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglLightxv != null, "pglLightxv not implemented");
-					Delegates.pglLightxv(light, pname, p_params);
+					Delegates.pglLightxv((Int32)light, (Int32)pname, p_params);
 					LogCommand("glLightxv", null, light, pname, @params					);
 				}
 			}
@@ -815,10 +815,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Material(Int32 face, Int32 pname, IntPtr param)
+		public static void Material(MaterialFace face, MaterialParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglMaterialx != null, "pglMaterialx not implemented");
-			Delegates.pglMaterialx(face, pname, param);
+			Delegates.pglMaterialx((Int32)face, (Int32)pname, param);
 			LogCommand("glMaterialx", null, face, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -845,13 +845,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Material(Int32 face, Int32 pname, IntPtr[] param)
+		public static void Material(MaterialFace face, MaterialParameter pname, IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
 				{
 					Debug.Assert(Delegates.pglMaterialxv != null, "pglMaterialxv not implemented");
-					Delegates.pglMaterialxv(face, pname, p_param);
+					Delegates.pglMaterialxv((Int32)face, (Int32)pname, p_param);
 					LogCommand("glMaterialxv", null, face, pname, param					);
 				}
 			}
@@ -886,7 +886,7 @@ namespace OpenGL
 		/// set the current texture coordinates
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
@@ -911,10 +911,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.Normal"/>
 		/// <seealso cref="Gl.TexCoordPointer"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void MultiTexCoord4(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q)
+		public static void MultiTexCoord4(TextureUnit texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4x != null, "pglMultiTexCoord4x not implemented");
-			Delegates.pglMultiTexCoord4x(texture, s, t, r, q);
+			Delegates.pglMultiTexCoord4x((Int32)texture, s, t, r, q);
 			LogCommand("glMultiTexCoord4x", null, texture, s, t, r, q			);
 			DebugCheckErrors(null);
 		}
@@ -1204,10 +1204,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void TexEnv(Int32 target, Int32 pname, IntPtr param)
+		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglTexEnvx != null, "pglTexEnvx not implemented");
-			Delegates.pglTexEnvx(target, pname, param);
+			Delegates.pglTexEnvx((Int32)target, (Int32)pname, param);
 			LogCommand("glTexEnvx", null, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -1245,13 +1245,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void TexEnv(Int32 target, Int32 pname, IntPtr[] @params)
+		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTexEnvxv != null, "pglTexEnvxv not implemented");
-					Delegates.pglTexEnvxv(target, pname, p_params);
+					Delegates.pglTexEnvxv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glTexEnvxv", null, target, pname, @params					);
 				}
 			}
@@ -1289,10 +1289,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void TexParameter(Int32 target, Int32 pname, IntPtr param)
+		public static void TexParameter(TextureTarget target, GetTextureParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglTexParameterx != null, "pglTexParameterx not implemented");
-			Delegates.pglTexParameterx(target, pname, param);
+			Delegates.pglTexParameterx((Int32)target, (Int32)pname, param);
 			LogCommand("glTexParameterx", null, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -1328,13 +1328,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2D"/>
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void TexParameter(Int32 target, Int32 pname, IntPtr[] @params)
+		public static void TexParameter(TextureTarget target, GetTextureParameter pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTexParameterxv != null, "pglTexParameterxv not implemented");
-					Delegates.pglTexParameterxv(target, pname, p_params);
+					Delegates.pglTexParameterxv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glTexParameterxv", null, target, pname, @params					);
 				}
 			}

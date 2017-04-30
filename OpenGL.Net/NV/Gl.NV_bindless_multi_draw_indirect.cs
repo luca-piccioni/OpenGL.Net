@@ -91,7 +91,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -106,10 +106,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirectBindNV(PrimitiveType mode, Int32 type, IntPtr indirect, Int32 drawCount, Int32 stride, Int32 vertexBufferCount)
+		public static void MultiDrawElementsIndirectBindNV(PrimitiveType mode, DrawElementsType type, IntPtr indirect, Int32 drawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectBindlessNV != null, "pglMultiDrawElementsIndirectBindlessNV not implemented");
-			Delegates.pglMultiDrawElementsIndirectBindlessNV((Int32)mode, type, indirect, drawCount, stride, vertexBufferCount);
+			Delegates.pglMultiDrawElementsIndirectBindlessNV((Int32)mode, (Int32)type, indirect, drawCount, stride, vertexBufferCount);
 			LogCommand("glMultiDrawElementsIndirectBindlessNV", null, mode, type, indirect, drawCount, stride, vertexBufferCount			);
 			DebugCheckErrors(null);
 		}
@@ -121,7 +121,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:Object"/>.
@@ -136,7 +136,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirectBindNV(PrimitiveType mode, Int32 type, Object indirect, Int32 drawCount, Int32 stride, Int32 vertexBufferCount)
+		public static void MultiDrawElementsIndirectBindNV(PrimitiveType mode, DrawElementsType type, Object indirect, Int32 drawCount, Int32 stride, Int32 vertexBufferCount)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {

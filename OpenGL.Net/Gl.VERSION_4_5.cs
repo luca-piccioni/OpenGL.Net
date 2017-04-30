@@ -262,10 +262,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DepthRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
-		public static void ClipControl(Int32 origin, Int32 depth)
+		public static void ClipControl(ClipControlOrigin origin, ClipControlDepth depth)
 		{
 			Debug.Assert(Delegates.pglClipControl != null, "pglClipControl not implemented");
-			Delegates.pglClipControl(origin, depth);
+			Delegates.pglClipControl((Int32)origin, (Int32)depth);
 			LogCommand("glClipControl", null, origin, depth			);
 			DebugCheckErrors(null);
 		}
@@ -431,13 +431,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTransformFeedback(UInt32 xfb, Int32 pname, [Out] Int32[] param)
+		public static void GetTransformFeedback(UInt32 xfb, TransformFeedbackPName pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetTransformFeedbackiv != null, "pglGetTransformFeedbackiv not implemented");
-					Delegates.pglGetTransformFeedbackiv(xfb, pname, p_param);
+					Delegates.pglGetTransformFeedbackiv(xfb, (Int32)pname, p_param);
 					LogCommand("glGetTransformFeedbackiv", null, xfb, pname, param					);
 				}
 			}
@@ -489,13 +489,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTransformFeedback(UInt32 xfb, Int32 pname, UInt32 index, [Out] Int32[] param)
+		public static void GetTransformFeedback(UInt32 xfb, TransformFeedbackPName pname, UInt32 index, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetTransformFeedbacki_v != null, "pglGetTransformFeedbacki_v not implemented");
-					Delegates.pglGetTransformFeedbacki_v(xfb, pname, index, p_param);
+					Delegates.pglGetTransformFeedbacki_v(xfb, (Int32)pname, index, p_param);
 					LogCommand("glGetTransformFeedbacki_v", null, xfb, pname, index, param					);
 				}
 			}
@@ -547,13 +547,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTransformFeedback(UInt32 xfb, Int32 pname, UInt32 index, [Out] Int64[] param)
+		public static void GetTransformFeedback(UInt32 xfb, TransformFeedbackPName pname, UInt32 index, [Out] Int64[] param)
 		{
 			unsafe {
 				fixed (Int64* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetTransformFeedbacki64_v != null, "pglGetTransformFeedbacki64_v not implemented");
-					Delegates.pglGetTransformFeedbacki64_v(xfb, pname, index, p_param);
+					Delegates.pglGetTransformFeedbacki64_v(xfb, (Int32)pname, index, p_param);
 					LogCommand("glGetTransformFeedbacki64_v", null, xfb, pname, index, param					);
 				}
 			}
@@ -652,7 +652,7 @@ namespace OpenGL
 		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglNamedBufferStorage != null, "pglNamedBufferStorage not implemented");
@@ -718,7 +718,7 @@ namespace OpenGL
 		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferStorage(UInt32 buffer, UInt32 size, Object data, UInt32 flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -775,10 +775,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage)
+		public static void NamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, VertexBufferObjectUsage usage)
 		{
 			Debug.Assert(Delegates.pglNamedBufferData != null, "pglNamedBufferData not implemented");
-			Delegates.pglNamedBufferData(buffer, size, data, usage);
+			Delegates.pglNamedBufferData(buffer, size, data, (Int32)usage);
 			LogCommand("glNamedBufferData", null, buffer, size, data, usage			);
 			DebugCheckErrors(null);
 		}
@@ -829,7 +829,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferData(UInt32 buffer, UInt32 size, Object data, Int32 usage)
+		public static void NamedBufferData(UInt32 buffer, UInt32 size, Object data, VertexBufferObjectUsage usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -885,7 +885,7 @@ namespace OpenGL
 		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglNamedBufferSubData != null, "pglNamedBufferSubData not implemented");
@@ -940,7 +940,7 @@ namespace OpenGL
 		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1060,10 +1060,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferData(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data)
+		public static void ClearNamedBufferData(UInt32 buffer, InternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearNamedBufferData != null, "pglClearNamedBufferData not implemented");
-			Delegates.pglClearNamedBufferData(buffer, internalformat, format, type, data);
+			Delegates.pglClearNamedBufferData(buffer, (Int32)internalformat, (Int32)format, (Int32)type, data);
 			LogCommand("glClearNamedBufferData", null, buffer, internalformat, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -1113,7 +1113,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferData(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, Object data)
+		public static void ClearNamedBufferData(UInt32 buffer, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1184,10 +1184,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferSubData(UInt32 buffer, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, IntPtr data)
+		public static void ClearNamedBufferSubData(UInt32 buffer, InternalFormat internalformat, IntPtr offset, UInt32 size, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearNamedBufferSubData != null, "pglClearNamedBufferSubData not implemented");
-			Delegates.pglClearNamedBufferSubData(buffer, internalformat, offset, size, format, type, data);
+			Delegates.pglClearNamedBufferSubData(buffer, (Int32)internalformat, offset, size, (Int32)format, (Int32)type, data);
 			LogCommand("glClearNamedBufferSubData", null, buffer, internalformat, offset, size, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -1253,7 +1253,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferSubData(UInt32 buffer, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, Object data)
+		public static void ClearNamedBufferSubData(UInt32 buffer, InternalFormat internalformat, IntPtr offset, UInt32 size, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1305,12 +1305,12 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static IntPtr MapNamedBuffer(UInt32 buffer, Int32 access)
+		public static IntPtr MapNamedBuffer(UInt32 buffer, BufferAccessARB access)
 		{
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglMapNamedBuffer != null, "pglMapNamedBuffer not implemented");
-			retValue = Delegates.pglMapNamedBuffer(buffer, access);
+			retValue = Delegates.pglMapNamedBuffer(buffer, (Int32)access);
 			LogCommand("glMapNamedBuffer", retValue, buffer, access			);
 			DebugCheckErrors(retValue);
 
@@ -1494,13 +1494,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferParameter(UInt32 buffer, Int32 value, [Out] Int32[] data)
+		public static void GetNamedBufferParameter(UInt32 buffer, VertexBufferObjectParameter value, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_params = data)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameteriv != null, "pglGetNamedBufferParameteriv not implemented");
-					Delegates.pglGetNamedBufferParameteriv(buffer, value, p_params);
+					Delegates.pglGetNamedBufferParameteriv(buffer, (Int32)value, p_params);
 					LogCommand("glGetNamedBufferParameteriv", null, buffer, value, data					);
 				}
 			}
@@ -1541,13 +1541,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferParameter(UInt32 buffer, Int32 value, [Out] Int64[] data)
+		public static void GetNamedBufferParameter(UInt32 buffer, VertexBufferObjectParameter value, [Out] Int64[] data)
 		{
 			unsafe {
 				fixed (Int64* p_params = data)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameteri64v != null, "pglGetNamedBufferParameteri64v not implemented");
-					Delegates.pglGetNamedBufferParameteri64v(buffer, value, p_params);
+					Delegates.pglGetNamedBufferParameteri64v(buffer, (Int32)value, p_params);
 					LogCommand("glGetNamedBufferParameteri64v", null, buffer, value, data					);
 				}
 			}
@@ -1581,13 +1581,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferPointer(UInt32 buffer, Int32 pname, [Out] IntPtr[] @params)
+		public static void GetNamedBufferPointer(UInt32 buffer, VertexBufferObjectParameter pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferPointerv != null, "pglGetNamedBufferPointerv not implemented");
-					Delegates.pglGetNamedBufferPointerv(buffer, pname, p_params);
+					Delegates.pglGetNamedBufferPointerv(buffer, (Int32)pname, p_params);
 					LogCommand("glGetNamedBufferPointerv", null, buffer, pname, @params					);
 				}
 			}
@@ -1770,10 +1770,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferRenderbuffer(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer)
+		public static void NamedFramebufferRenderbuffer(UInt32 framebuffer, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferRenderbuffer != null, "pglNamedFramebufferRenderbuffer not implemented");
-			Delegates.pglNamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer);
+			Delegates.pglNamedFramebufferRenderbuffer(framebuffer, (Int32)attachment, (Int32)renderbuffertarget, renderbuffer);
 			LogCommand("glNamedFramebufferRenderbuffer", null, framebuffer, attachment, renderbuffertarget, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -1826,10 +1826,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferParameter(UInt32 framebuffer, Int32 pname, Int32 param)
+		public static void NamedFramebufferParameter(UInt32 framebuffer, FramebufferParameterName pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferParameteri != null, "pglNamedFramebufferParameteri not implemented");
-			Delegates.pglNamedFramebufferParameteri(framebuffer, pname, param);
+			Delegates.pglNamedFramebufferParameteri(framebuffer, (Int32)pname, param);
 			LogCommand("glNamedFramebufferParameteri", null, framebuffer, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -1889,10 +1889,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferTexture(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level)
+		public static void NamedFramebufferTexture(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTexture != null, "pglNamedFramebufferTexture not implemented");
-			Delegates.pglNamedFramebufferTexture(framebuffer, attachment, texture, level);
+			Delegates.pglNamedFramebufferTexture(framebuffer, (Int32)attachment, texture, level);
 			LogCommand("glNamedFramebufferTexture", null, framebuffer, attachment, texture, level			);
 			DebugCheckErrors(null);
 		}
@@ -1955,10 +1955,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.FramebufferTexture"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferTextureLayer(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer)
+		public static void NamedFramebufferTextureLayer(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 layer)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTextureLayer != null, "pglNamedFramebufferTextureLayer not implemented");
-			Delegates.pglNamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer);
+			Delegates.pglNamedFramebufferTextureLayer(framebuffer, (Int32)attachment, texture, level, layer);
 			LogCommand("glNamedFramebufferTextureLayer", null, framebuffer, attachment, texture, level, layer			);
 			DebugCheckErrors(null);
 		}
@@ -1999,10 +1999,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferDrawBuffer(UInt32 framebuffer, Int32 buf)
+		public static void NamedFramebufferDrawBuffer(UInt32 framebuffer, ColorBuffer buf)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferDrawBuffer != null, "pglNamedFramebufferDrawBuffer not implemented");
-			Delegates.pglNamedFramebufferDrawBuffer(framebuffer, buf);
+			Delegates.pglNamedFramebufferDrawBuffer(framebuffer, (Int32)buf);
 			LogCommand("glNamedFramebufferDrawBuffer", null, framebuffer, buf			);
 			DebugCheckErrors(null);
 		}
@@ -2102,10 +2102,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferReadBuffer(UInt32 framebuffer, Int32 mode)
+		public static void NamedFramebufferReadBuffer(UInt32 framebuffer, ColorBuffer mode)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferReadBuffer != null, "pglNamedFramebufferReadBuffer not implemented");
-			Delegates.pglNamedFramebufferReadBuffer(framebuffer, mode);
+			Delegates.pglNamedFramebufferReadBuffer(framebuffer, (Int32)mode);
 			LogCommand("glNamedFramebufferReadBuffer", null, framebuffer, mode			);
 			DebugCheckErrors(null);
 		}
@@ -2274,13 +2274,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, Int32[] value)
+		public static void ClearNamedFramebuffer(UInt32 framebuffer, Buffer buffer, Int32 drawbuffer, Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglClearNamedFramebufferiv != null, "pglClearNamedFramebufferiv not implemented");
-					Delegates.pglClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, p_value);
+					Delegates.pglClearNamedFramebufferiv(framebuffer, (Int32)buffer, drawbuffer, p_value);
 					LogCommand("glClearNamedFramebufferiv", null, framebuffer, buffer, drawbuffer, value					);
 				}
 			}
@@ -2336,13 +2336,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, UInt32[] value)
+		public static void ClearNamedFramebuffer(UInt32 framebuffer, Buffer buffer, Int32 drawbuffer, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglClearNamedFramebufferuiv != null, "pglClearNamedFramebufferuiv not implemented");
-					Delegates.pglClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, p_value);
+					Delegates.pglClearNamedFramebufferuiv(framebuffer, (Int32)buffer, drawbuffer, p_value);
 					LogCommand("glClearNamedFramebufferuiv", null, framebuffer, buffer, drawbuffer, value					);
 				}
 			}
@@ -2398,13 +2398,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float[] value)
+		public static void ClearNamedFramebuffer(UInt32 framebuffer, Buffer buffer, Int32 drawbuffer, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglClearNamedFramebufferfv != null, "pglClearNamedFramebufferfv not implemented");
-					Delegates.pglClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, p_value);
+					Delegates.pglClearNamedFramebufferfv(framebuffer, (Int32)buffer, drawbuffer, p_value);
 					LogCommand("glClearNamedFramebufferfv", null, framebuffer, buffer, drawbuffer, value					);
 				}
 			}
@@ -2463,10 +2463,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedFramebuffer(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float depth, Int32 stencil)
+		public static void ClearNamedFramebuffer(UInt32 framebuffer, Buffer buffer, Int32 drawbuffer, float depth, Int32 stencil)
 		{
 			Debug.Assert(Delegates.pglClearNamedFramebufferfi != null, "pglClearNamedFramebufferfi not implemented");
-			Delegates.pglClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil);
+			Delegates.pglClearNamedFramebufferfi(framebuffer, (Int32)buffer, drawbuffer, depth, stencil);
 			LogCommand("glClearNamedFramebufferfi", null, framebuffer, buffer, drawbuffer, depth, stencil			);
 			DebugCheckErrors(null);
 		}
@@ -2551,10 +2551,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void BlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter)
+		public static void BlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, BlitFramebufferFilter filter)
 		{
 			Debug.Assert(Delegates.pglBlitNamedFramebuffer != null, "pglBlitNamedFramebuffer not implemented");
-			Delegates.pglBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+			Delegates.pglBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, (Int32)filter);
 			LogCommand("glBlitNamedFramebuffer", null, readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter			);
 			DebugCheckErrors(null);
 		}
@@ -2582,16 +2582,16 @@ namespace OpenGL
 		/// <seealso cref="Gl.BindFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static Int32 CheckNamedFramebufferStatus(UInt32 framebuffer, Int32 target)
+		public static FramebufferStatus CheckNamedFramebufferStatus(UInt32 framebuffer, FramebufferTarget target)
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglCheckNamedFramebufferStatus != null, "pglCheckNamedFramebufferStatus not implemented");
-			retValue = Delegates.pglCheckNamedFramebufferStatus(framebuffer, target);
-			LogCommand("glCheckNamedFramebufferStatus", retValue, framebuffer, target			);
+			retValue = Delegates.pglCheckNamedFramebufferStatus(framebuffer, (Int32)target);
+			LogCommand("glCheckNamedFramebufferStatus", (FramebufferStatus)retValue, framebuffer, target			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return ((FramebufferStatus)retValue);
 		}
 
 		/// <summary>
@@ -2626,13 +2626,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFramebufferAttachmentParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferParameter(UInt32 framebuffer, Int32 pname, [Out] Int32[] param)
+		public static void GetNamedFramebufferParameter(UInt32 framebuffer, GetFramebufferParameter pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferParameteriv != null, "pglGetNamedFramebufferParameteriv not implemented");
-					Delegates.pglGetNamedFramebufferParameteriv(framebuffer, pname, p_param);
+					Delegates.pglGetNamedFramebufferParameteriv(framebuffer, (Int32)pname, p_param);
 					LogCommand("glGetNamedFramebufferParameteriv", null, framebuffer, pname, param					);
 				}
 			}
@@ -2687,13 +2687,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferAttachmentParameter(UInt32 framebuffer, Int32 attachment, Int32 pname, [Out] Int32[] @params)
+		public static void GetNamedFramebufferAttachmentParameter(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameteriv != null, "pglGetNamedFramebufferAttachmentParameteriv not implemented");
-					Delegates.pglGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, p_params);
+					Delegates.pglGetNamedFramebufferAttachmentParameteriv(framebuffer, (Int32)attachment, (Int32)pname, p_params);
 					LogCommand("glGetNamedFramebufferAttachmentParameteriv", null, framebuffer, attachment, pname, @params					);
 				}
 			}
@@ -2773,10 +2773,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedRenderbufferStorage(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height)
+		public static void NamedRenderbufferStorage(UInt32 renderbuffer, InternalFormat internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglNamedRenderbufferStorage != null, "pglNamedRenderbufferStorage not implemented");
-			Delegates.pglNamedRenderbufferStorage(renderbuffer, internalformat, width, height);
+			Delegates.pglNamedRenderbufferStorage(renderbuffer, (Int32)internalformat, width, height);
 			LogCommand("glNamedRenderbufferStorage", null, renderbuffer, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -2833,10 +2833,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height)
+		public static void NamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglNamedRenderbufferStorageMultisample != null, "pglNamedRenderbufferStorageMultisample not implemented");
-			Delegates.pglNamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width, height);
+			Delegates.pglNamedRenderbufferStorageMultisample(renderbuffer, samples, (Int32)internalformat, width, height);
 			LogCommand("glNamedRenderbufferStorageMultisample", null, renderbuffer, samples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -2873,13 +2873,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedRenderbufferParameter(UInt32 renderbuffer, Int32 pname, [Out] Int32[] @params)
+		public static void GetNamedRenderbufferParameter(UInt32 renderbuffer, RenderbufferParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedRenderbufferParameteriv != null, "pglGetNamedRenderbufferParameteriv not implemented");
-					Delegates.pglGetNamedRenderbufferParameteriv(renderbuffer, pname, p_params);
+					Delegates.pglGetNamedRenderbufferParameteriv(renderbuffer, (Int32)pname, p_params);
 					LogCommand("glGetNamedRenderbufferParameteriv", null, renderbuffer, pname, @params					);
 				}
 			}
@@ -2919,13 +2919,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateTextures(Int32 target, Int32 n, UInt32[] textures)
+		public static void CreateTextures(TextureTarget target, Int32 n, UInt32[] textures)
 		{
 			unsafe {
 				fixed (UInt32* p_textures = textures)
 				{
 					Debug.Assert(Delegates.pglCreateTextures != null, "pglCreateTextures not implemented");
-					Delegates.pglCreateTextures(target, n, p_textures);
+					Delegates.pglCreateTextures((Int32)target, n, p_textures);
 					LogCommand("glCreateTextures", null, target, n, textures					);
 				}
 			}
@@ -2939,7 +2939,7 @@ namespace OpenGL
 		/// Specifies the texture object name for Gl.TextureBuffer.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
@@ -2972,10 +2972,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureBuffer(UInt32 texture, Int32 internalformat, UInt32 buffer)
+		public static void TextureBuffer(UInt32 texture, InternalFormat internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglTextureBuffer != null, "pglTextureBuffer not implemented");
-			Delegates.pglTextureBuffer(texture, internalformat, buffer);
+			Delegates.pglTextureBuffer(texture, (Int32)internalformat, buffer);
 			LogCommand("glTextureBuffer", null, texture, internalformat, buffer			);
 			DebugCheckErrors(null);
 		}
@@ -2987,7 +2987,7 @@ namespace OpenGL
 		/// Specifies the texture object name for Gl.TextureBufferRange.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
@@ -3029,10 +3029,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureBufferRange(UInt32 texture, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
+		public static void TextureBufferRange(UInt32 texture, InternalFormat internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglTextureBufferRange != null, "pglTextureBufferRange not implemented");
-			Delegates.pglTextureBufferRange(texture, internalformat, buffer, offset, size);
+			Delegates.pglTextureBufferRange(texture, (Int32)internalformat, buffer, offset, size);
 			LogCommand("glTextureBufferRange", null, texture, internalformat, buffer, offset, size			);
 			DebugCheckErrors(null);
 		}
@@ -3047,17 +3047,17 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureStorage1D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width)
+		public static void TextureStorage1D(UInt32 texture, Int32 levels, InternalFormat internalformat, Int32 width)
 		{
 			Debug.Assert(Delegates.pglTextureStorage1D != null, "pglTextureStorage1D not implemented");
-			Delegates.pglTextureStorage1D(texture, levels, internalformat, width);
+			Delegates.pglTextureStorage1D(texture, levels, (Int32)internalformat, width);
 			LogCommand("glTextureStorage1D", null, texture, levels, internalformat, width			);
 			DebugCheckErrors(null);
 		}
@@ -3072,7 +3072,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -3082,10 +3082,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureStorage2D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height)
+		public static void TextureStorage2D(UInt32 texture, Int32 levels, InternalFormat internalformat, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglTextureStorage2D != null, "pglTextureStorage2D not implemented");
-			Delegates.pglTextureStorage2D(texture, levels, internalformat, width, height);
+			Delegates.pglTextureStorage2D(texture, levels, (Int32)internalformat, width, height);
 			LogCommand("glTextureStorage2D", null, texture, levels, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -3100,7 +3100,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -3113,10 +3113,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureStorage3D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth)
+		public static void TextureStorage3D(UInt32 texture, Int32 levels, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth)
 		{
 			Debug.Assert(Delegates.pglTextureStorage3D != null, "pglTextureStorage3D not implemented");
-			Delegates.pglTextureStorage3D(texture, levels, internalformat, width, height, depth);
+			Delegates.pglTextureStorage3D(texture, levels, (Int32)internalformat, width, height, depth);
 			LogCommand("glTextureStorage3D", null, texture, levels, internalformat, width, height, depth			);
 			DebugCheckErrors(null);
 		}
@@ -3183,10 +3183,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureStorage2DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
+		public static void TextureStorage2DMultisample(UInt32 texture, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTextureStorage2DMultisample != null, "pglTextureStorage2DMultisample not implemented");
-			Delegates.pglTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations);
+			Delegates.pglTextureStorage2DMultisample(texture, samples, (Int32)internalformat, width, height, fixedsamplelocations);
 			LogCommand("glTextureStorage2DMultisample", null, texture, samples, internalformat, width, height, fixedsamplelocations			);
 			DebugCheckErrors(null);
 		}
@@ -3261,10 +3261,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureStorage3DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
+		public static void TextureStorage3DMultisample(UInt32 texture, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTextureStorage3DMultisample != null, "pglTextureStorage3DMultisample not implemented");
-			Delegates.pglTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations);
+			Delegates.pglTextureStorage3DMultisample(texture, samples, (Int32)internalformat, width, height, depth, fixedsamplelocations);
 			LogCommand("glTextureStorage3DMultisample", null, texture, samples, internalformat, width, height, depth, fixedsamplelocations			);
 			DebugCheckErrors(null);
 		}
@@ -3373,10 +3373,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels)
+		public static void TextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage1D != null, "pglTextureSubImage1D not implemented");
-			Delegates.pglTextureSubImage1D(texture, level, xoffset, width, format, type, pixels);
+			Delegates.pglTextureSubImage1D(texture, level, xoffset, width, (Int32)format, (Int32)type, pixels);
 			LogCommand("glTextureSubImage1D", null, texture, level, xoffset, width, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -3485,7 +3485,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, Object pixels)
+		public static void TextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -3607,10 +3607,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels)
+		public static void TextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage2D != null, "pglTextureSubImage2D not implemented");
-			Delegates.pglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels);
+			Delegates.pglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, (Int32)format, (Int32)type, pixels);
 			LogCommand("glTextureSubImage2D", null, texture, level, xoffset, yoffset, width, height, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -3727,7 +3727,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, Object pixels)
+		public static void TextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -3857,10 +3857,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels)
+		public static void TextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage3D != null, "pglTextureSubImage3D not implemented");
-			Delegates.pglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+			Delegates.pglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, pixels);
 			LogCommand("glTextureSubImage3D", null, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -3985,7 +3985,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Object pixels)
+		public static void TextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -4068,10 +4068,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data)
+		public static void CompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage1D != null, "pglCompressedTextureSubImage1D not implemented");
-			Delegates.pglCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data);
+			Delegates.pglCompressedTextureSubImage1D(texture, level, xoffset, width, (Int32)format, imageSize, data);
 			LogCommand("glCompressedTextureSubImage1D", null, texture, level, xoffset, width, format, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -4149,7 +4149,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, Object data)
+		public static void CompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -4245,10 +4245,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data)
+		public static void CompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage2D != null, "pglCompressedTextureSubImage2D not implemented");
-			Delegates.pglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data);
+			Delegates.pglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, (Int32)format, imageSize, data);
 			LogCommand("glCompressedTextureSubImage2D", null, texture, level, xoffset, yoffset, width, height, format, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -4339,7 +4339,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, Object data)
+		public static void CompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -4438,10 +4438,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data)
+		public static void CompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage3D != null, "pglCompressedTextureSubImage3D not implemented");
-			Delegates.pglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+			Delegates.pglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, imageSize, data);
 			LogCommand("glCompressedTextureSubImage3D", null, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -4535,7 +4535,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, Object data)
+		public static void CompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -4660,17 +4660,17 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameter(UInt32 texture, Int32 pname, float param)
+		public static void TextureParameter(UInt32 texture, TextureParameterName pname, float param)
 		{
 			Debug.Assert(Delegates.pglTextureParameterf != null, "pglTextureParameterf not implemented");
-			Delegates.pglTextureParameterf(texture, pname, param);
+			Delegates.pglTextureParameterf(texture, (Int32)pname, param);
 			LogCommand("glTextureParameterf", null, texture, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -4682,20 +4682,20 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameter(UInt32 texture, Int32 pname, float[] param)
+		public static void TextureParameter(UInt32 texture, TextureParameterName pname, float[] param)
 		{
 			unsafe {
 				fixed (float* p_param = param)
 				{
 					Debug.Assert(Delegates.pglTextureParameterfv != null, "pglTextureParameterfv not implemented");
-					Delegates.pglTextureParameterfv(texture, pname, p_param);
+					Delegates.pglTextureParameterfv(texture, (Int32)pname, p_param);
 					LogCommand("glTextureParameterfv", null, texture, pname, param					);
 				}
 			}
@@ -4709,17 +4709,17 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameter(UInt32 texture, Int32 pname, Int32 param)
+		public static void TextureParameter(UInt32 texture, TextureParameterName pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglTextureParameteri != null, "pglTextureParameteri not implemented");
-			Delegates.pglTextureParameteri(texture, pname, param);
+			Delegates.pglTextureParameteri(texture, (Int32)pname, param);
 			LogCommand("glTextureParameteri", null, texture, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -4731,20 +4731,20 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterI(UInt32 texture, Int32 pname, Int32[] @params)
+		public static void TextureParameterI(UInt32 texture, TextureParameterName pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTextureParameterIiv != null, "pglTextureParameterIiv not implemented");
-					Delegates.pglTextureParameterIiv(texture, pname, p_params);
+					Delegates.pglTextureParameterIiv(texture, (Int32)pname, p_params);
 					LogCommand("glTextureParameterIiv", null, texture, pname, @params					);
 				}
 			}
@@ -4758,20 +4758,20 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterI(UInt32 texture, Int32 pname, UInt32[] @params)
+		public static void TextureParameterI(UInt32 texture, TextureParameterName pname, UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTextureParameterIuiv != null, "pglTextureParameterIuiv not implemented");
-					Delegates.pglTextureParameterIuiv(texture, pname, p_params);
+					Delegates.pglTextureParameterIuiv(texture, (Int32)pname, p_params);
 					LogCommand("glTextureParameterIuiv", null, texture, pname, @params					);
 				}
 			}
@@ -4785,20 +4785,20 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameter(UInt32 texture, Int32 pname, Int32[] param)
+		public static void TextureParameter(UInt32 texture, TextureParameterName pname, Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
 				{
 					Debug.Assert(Delegates.pglTextureParameteriv != null, "pglTextureParameteriv not implemented");
-					Delegates.pglTextureParameteriv(texture, pname, p_param);
+					Delegates.pglTextureParameteriv(texture, (Int32)pname, p_param);
 					LogCommand("glTextureParameteriv", null, texture, pname, param					);
 				}
 			}
@@ -4881,10 +4881,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -4894,10 +4894,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels)
+		public static void GetTextureImage(UInt32 texture, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetTextureImage != null, "pglGetTextureImage not implemented");
-			Delegates.pglGetTextureImage(texture, level, format, type, bufSize, pixels);
+			Delegates.pglGetTextureImage(texture, level, (Int32)format, (Int32)type, bufSize, pixels);
 			LogCommand("glGetTextureImage", null, texture, level, format, type, bufSize, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -4912,10 +4912,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -4925,7 +4925,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Int32 bufSize, Object pixels)
+		public static void GetTextureImage(UInt32 texture, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -5192,13 +5192,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, Int32 pname, [Out] Int32[] @params)
+		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameteriv != null, "pglGetTextureLevelParameteriv not implemented");
-					Delegates.pglGetTextureLevelParameteriv(texture, level, pname, p_params);
+					Delegates.pglGetTextureLevelParameteriv(texture, level, (Int32)pname, p_params);
 					LogCommand("glGetTextureLevelParameteriv", null, texture, level, pname, @params					);
 				}
 			}
@@ -5242,13 +5242,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameter(UInt32 texture, Int32 pname, [Out] float[] @params)
+		public static void GetTextureParameter(UInt32 texture, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterfv != null, "pglGetTextureParameterfv not implemented");
-					Delegates.pglGetTextureParameterfv(texture, pname, p_params);
+					Delegates.pglGetTextureParameterfv(texture, (Int32)pname, p_params);
 					LogCommand("glGetTextureParameterfv", null, texture, pname, @params					);
 				}
 			}
@@ -5292,13 +5292,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterI(UInt32 texture, Int32 pname, [Out] Int32[] @params)
+		public static void GetTextureParameterI(UInt32 texture, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIiv != null, "pglGetTextureParameterIiv not implemented");
-					Delegates.pglGetTextureParameterIiv(texture, pname, p_params);
+					Delegates.pglGetTextureParameterIiv(texture, (Int32)pname, p_params);
 					LogCommand("glGetTextureParameterIiv", null, texture, pname, @params					);
 				}
 			}
@@ -5342,13 +5342,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterI(UInt32 texture, Int32 pname, [Out] UInt32[] @params)
+		public static void GetTextureParameterI(UInt32 texture, GetTextureParameter pname, [Out] UInt32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIuiv != null, "pglGetTextureParameterIuiv not implemented");
-					Delegates.pglGetTextureParameterIuiv(texture, pname, p_params);
+					Delegates.pglGetTextureParameterIuiv(texture, (Int32)pname, p_params);
 					LogCommand("glGetTextureParameterIuiv", null, texture, pname, @params					);
 				}
 			}
@@ -5392,13 +5392,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameter(UInt32 texture, Int32 pname, [Out] Int32[] @params)
+		public static void GetTextureParameter(UInt32 texture, GetTextureParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameteriv != null, "pglGetTextureParameteriv not implemented");
-					Delegates.pglGetTextureParameteriv(texture, pname, p_params);
+					Delegates.pglGetTextureParameteriv(texture, (Int32)pname, p_params);
 					LogCommand("glGetTextureParameteriv", null, texture, pname, @params					);
 				}
 			}
@@ -5755,10 +5755,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset)
+		public static void VertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribType type, bool normalized, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayAttribFormat != null, "pglVertexArrayAttribFormat not implemented");
-			Delegates.pglVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
+			Delegates.pglVertexArrayAttribFormat(vaobj, attribindex, size, (Int32)type, normalized, relativeoffset);
 			LogCommand("glVertexArrayAttribFormat", null, vaobj, attribindex, size, type, normalized, relativeoffset			);
 			DebugCheckErrors(null);
 		}
@@ -5823,10 +5823,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset)
+		public static void VertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribType type, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayAttribIFormat != null, "pglVertexArrayAttribIFormat not implemented");
-			Delegates.pglVertexArrayAttribIFormat(vaobj, attribindex, size, type, relativeoffset);
+			Delegates.pglVertexArrayAttribIFormat(vaobj, attribindex, size, (Int32)type, relativeoffset);
 			LogCommand("glVertexArrayAttribIFormat", null, vaobj, attribindex, size, type, relativeoffset			);
 			DebugCheckErrors(null);
 		}
@@ -5891,10 +5891,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset)
+		public static void VertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribType type, UInt32 relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayAttribLFormat != null, "pglVertexArrayAttribLFormat not implemented");
-			Delegates.pglVertexArrayAttribLFormat(vaobj, attribindex, size, type, relativeoffset);
+			Delegates.pglVertexArrayAttribLFormat(vaobj, attribindex, size, (Int32)type, relativeoffset);
 			LogCommand("glVertexArrayAttribLFormat", null, vaobj, attribindex, size, type, relativeoffset			);
 			DebugCheckErrors(null);
 		}
@@ -5944,20 +5944,20 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:VertexArrayPName"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetVertexArray(UInt32 vaobj, Int32 pname, [Out] Int32[] param)
+		public static void GetVertexArray(UInt32 vaobj, VertexArrayPName pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayiv != null, "pglGetVertexArrayiv not implemented");
-					Delegates.pglGetVertexArrayiv(vaobj, pname, p_param);
+					Delegates.pglGetVertexArrayiv(vaobj, (Int32)pname, p_param);
 					LogCommand("glGetVertexArrayiv", null, vaobj, pname, param					);
 				}
 			}
@@ -5998,13 +5998,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, Int32 pname, [Out] Int32[] param)
+		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, VertexArrayPName pname, [Out] Int32[] param)
 		{
 			unsafe {
 				fixed (Int32* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayIndexediv != null, "pglGetVertexArrayIndexediv not implemented");
-					Delegates.pglGetVertexArrayIndexediv(vaobj, index, pname, p_param);
+					Delegates.pglGetVertexArrayIndexediv(vaobj, index, (Int32)pname, p_param);
 					LogCommand("glGetVertexArrayIndexediv", null, vaobj, index, pname, param					);
 				}
 			}
@@ -6045,13 +6045,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, Int32 pname, [Out] Int64[] param)
+		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, VertexArrayPName pname, [Out] Int64[] param)
 		{
 			unsafe {
 				fixed (Int64* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayIndexed64iv != null, "pglGetVertexArrayIndexed64iv not implemented");
-					Delegates.pglGetVertexArrayIndexed64iv(vaobj, index, pname, p_param);
+					Delegates.pglGetVertexArrayIndexed64iv(vaobj, index, (Int32)pname, p_param);
 					LogCommand("glGetVertexArrayIndexed64iv", null, vaobj, index, pname, param					);
 				}
 			}
@@ -6156,13 +6156,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateQueries(Int32 target, Int32 n, UInt32[] ids)
+		public static void CreateQueries(QueryTarget target, Int32 n, UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
 					Debug.Assert(Delegates.pglCreateQueries != null, "pglCreateQueries not implemented");
-					Delegates.pglCreateQueries(target, n, p_ids);
+					Delegates.pglCreateQueries((Int32)target, n, p_ids);
 					LogCommand("glCreateQueries", null, target, n, ids					);
 				}
 			}
@@ -6179,17 +6179,17 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryParameterName"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetQueryBufferObject64i(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
+		public static void GetQueryBufferObject64i(UInt32 id, UInt32 buffer, QueryParameterName pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjecti64v != null, "pglGetQueryBufferObjecti64v not implemented");
-			Delegates.pglGetQueryBufferObjecti64v(id, buffer, pname, offset);
+			Delegates.pglGetQueryBufferObjecti64v(id, buffer, (Int32)pname, offset);
 			LogCommand("glGetQueryBufferObjecti64v", null, id, buffer, pname, offset			);
 			DebugCheckErrors(null);
 		}
@@ -6204,17 +6204,17 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryParameterName"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetQueryBufferObject32i(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
+		public static void GetQueryBufferObject32i(UInt32 id, UInt32 buffer, QueryParameterName pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectiv != null, "pglGetQueryBufferObjectiv not implemented");
-			Delegates.pglGetQueryBufferObjectiv(id, buffer, pname, offset);
+			Delegates.pglGetQueryBufferObjectiv(id, buffer, (Int32)pname, offset);
 			LogCommand("glGetQueryBufferObjectiv", null, id, buffer, pname, offset			);
 			DebugCheckErrors(null);
 		}
@@ -6229,17 +6229,17 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryParameterName"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetQueryBufferObject64ui(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
+		public static void GetQueryBufferObject64ui(UInt32 id, UInt32 buffer, QueryParameterName pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectui64v != null, "pglGetQueryBufferObjectui64v not implemented");
-			Delegates.pglGetQueryBufferObjectui64v(id, buffer, pname, offset);
+			Delegates.pglGetQueryBufferObjectui64v(id, buffer, (Int32)pname, offset);
 			LogCommand("glGetQueryBufferObjectui64v", null, id, buffer, pname, offset			);
 			DebugCheckErrors(null);
 		}
@@ -6254,17 +6254,17 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:QueryParameterName"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetQueryBufferObject32ui(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset)
+		public static void GetQueryBufferObject32ui(UInt32 id, UInt32 buffer, QueryParameterName pname, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglGetQueryBufferObjectuiv != null, "pglGetQueryBufferObjectuiv not implemented");
-			Delegates.pglGetQueryBufferObjectuiv(id, buffer, pname, offset);
+			Delegates.pglGetQueryBufferObjectuiv(id, buffer, (Int32)pname, offset);
 			LogCommand("glGetQueryBufferObjectuiv", null, id, buffer, pname, offset			);
 			DebugCheckErrors(null);
 		}
@@ -6379,10 +6379,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
-		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels)
+		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Int32 bufSize, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetTextureSubImage != null, "pglGetTextureSubImage not implemented");
-			Delegates.pglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
+			Delegates.pglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, bufSize, pixels);
 			LogCommand("glGetTextureSubImage", null, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -6470,7 +6470,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
-		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Int32 bufSize, Object pixels)
+		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Int32 bufSize, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -6680,16 +6680,17 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
-		public static Int32 GetGraphicsResetStatus()
+		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+		public static GraphicsResetStatus GetGraphicsResetStatus()
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglGetGraphicsResetStatus != null, "pglGetGraphicsResetStatus not implemented");
 			retValue = Delegates.pglGetGraphicsResetStatus();
-			LogCommand("glGetGraphicsResetStatus", retValue			);
+			LogCommand("glGetGraphicsResetStatus", (GraphicsResetStatus)retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return ((GraphicsResetStatus)retValue);
 		}
 
 		/// <summary>
@@ -6749,10 +6750,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnCompressedTexImage(Int32 target, Int32 lod, Int32 bufSize, IntPtr pixels)
+		public static void GetnCompressedTexImage(TextureTarget target, Int32 lod, Int32 bufSize, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetnCompressedTexImage != null, "pglGetnCompressedTexImage not implemented");
-			Delegates.pglGetnCompressedTexImage(target, lod, bufSize, pixels);
+			Delegates.pglGetnCompressedTexImage((Int32)target, lod, bufSize, pixels);
 			LogCommand("glGetnCompressedTexImage", null, target, lod, bufSize, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -6814,7 +6815,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnCompressedTexImage(Int32 target, Int32 lod, Int32 bufSize, Object pixels)
+		public static void GetnCompressedTexImage(TextureTarget target, Int32 lod, Int32 bufSize, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -6828,16 +6829,16 @@ namespace OpenGL
 		/// Binding for glGetnTexImage.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -6846,10 +6847,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnTexImage(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels)
+		public static void GetnTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetnTexImage != null, "pglGetnTexImage not implemented");
-			Delegates.pglGetnTexImage(target, level, format, type, bufSize, pixels);
+			Delegates.pglGetnTexImage((Int32)target, level, (Int32)format, (Int32)type, bufSize, pixels);
 			LogCommand("glGetnTexImage", null, target, level, format, type, bufSize, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -6858,16 +6859,16 @@ namespace OpenGL
 		/// Binding for glGetnTexImage.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -6876,7 +6877,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnTexImage(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, Object pixels)
+		public static void GetnTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -6970,10 +6971,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[AliasOf("glGetnUniformfvEXT")]
 		[AliasOf("glGetnUniformfvKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] float[] @params)
 		{
 			unsafe {
@@ -7022,10 +7026,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.Uniform"/>
+		[AliasOf("glGetnUniformivEXT")]
 		[AliasOf("glGetnUniformivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -7078,6 +7085,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
+		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] UInt32[] @params)
 		{
 			unsafe {
@@ -7107,10 +7115,10 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7126,10 +7134,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
-		public static void ReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data)
+		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+		public static void ReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelFormat format, PixelType type, Int32 bufSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglReadnPixels != null, "pglReadnPixels not implemented");
-			Delegates.pglReadnPixels(x, y, width, height, format, type, bufSize, data);
+			Delegates.pglReadnPixels(x, y, width, height, (Int32)format, (Int32)type, bufSize, data);
 			LogCommand("glReadnPixels", null, x, y, width, height, format, type, bufSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -7138,10 +7147,10 @@ namespace OpenGL
 		/// Binding for glGetnMapdv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7150,13 +7159,13 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(Int32 target, Int32 query, Int32 bufSize, [Out] double[] v)
+		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglGetnMapdv != null, "pglGetnMapdv not implemented");
-					Delegates.pglGetnMapdv(target, query, bufSize, p_v);
+					Delegates.pglGetnMapdv((Int32)target, (Int32)query, bufSize, p_v);
 					LogCommand("glGetnMapdv", null, target, query, bufSize, v					);
 				}
 			}
@@ -7167,10 +7176,10 @@ namespace OpenGL
 		/// Binding for glGetnMapfv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7179,13 +7188,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(Int32 target, Int32 query, Int32 bufSize, [Out] float[] v)
+		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglGetnMapfv != null, "pglGetnMapfv not implemented");
-					Delegates.pglGetnMapfv(target, query, bufSize, p_v);
+					Delegates.pglGetnMapfv((Int32)target, (Int32)query, bufSize, p_v);
 					LogCommand("glGetnMapfv", null, target, query, bufSize, v					);
 				}
 			}
@@ -7196,10 +7205,10 @@ namespace OpenGL
 		/// Binding for glGetnMapiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7208,13 +7217,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(Int32 target, Int32 query, Int32 bufSize, [Out] Int32[] v)
+		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
 					Debug.Assert(Delegates.pglGetnMapiv != null, "pglGetnMapiv not implemented");
-					Delegates.pglGetnMapiv(target, query, bufSize, p_v);
+					Delegates.pglGetnMapiv((Int32)target, (Int32)query, bufSize, p_v);
 					LogCommand("glGetnMapiv", null, target, query, bufSize, v					);
 				}
 			}
@@ -7225,7 +7234,7 @@ namespace OpenGL
 		/// Binding for glGetnPixelMapfv.
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelMap"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7234,13 +7243,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnPixelMap(Int32 map, Int32 bufSize, [Out] float[] values)
+		public static void GetnPixelMap(PixelMap map, Int32 bufSize, [Out] float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapfv != null, "pglGetnPixelMapfv not implemented");
-					Delegates.pglGetnPixelMapfv(map, bufSize, p_values);
+					Delegates.pglGetnPixelMapfv((Int32)map, bufSize, p_values);
 					LogCommand("glGetnPixelMapfv", null, map, bufSize, values					);
 				}
 			}
@@ -7251,7 +7260,7 @@ namespace OpenGL
 		/// Binding for glGetnPixelMapuiv.
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelMap"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7260,13 +7269,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnPixelMap(Int32 map, Int32 bufSize, [Out] UInt32[] values)
+		public static void GetnPixelMap(PixelMap map, Int32 bufSize, [Out] UInt32[] values)
 		{
 			unsafe {
 				fixed (UInt32* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapuiv != null, "pglGetnPixelMapuiv not implemented");
-					Delegates.pglGetnPixelMapuiv(map, bufSize, p_values);
+					Delegates.pglGetnPixelMapuiv((Int32)map, bufSize, p_values);
 					LogCommand("glGetnPixelMapuiv", null, map, bufSize, values					);
 				}
 			}
@@ -7277,7 +7286,7 @@ namespace OpenGL
 		/// Binding for glGetnPixelMapusv.
 		/// </summary>
 		/// <param name="map">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelMap"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7286,13 +7295,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnPixelMap(Int32 map, Int32 bufSize, [Out] UInt16[] values)
+		public static void GetnPixelMap(PixelMap map, Int32 bufSize, [Out] UInt16[] values)
 		{
 			unsafe {
 				fixed (UInt16* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetnPixelMapusv != null, "pglGetnPixelMapusv not implemented");
-					Delegates.pglGetnPixelMapusv(map, bufSize, p_values);
+					Delegates.pglGetnPixelMapusv((Int32)map, bufSize, p_values);
 					LogCommand("glGetnPixelMapusv", null, map, bufSize, values					);
 				}
 			}
@@ -7326,13 +7335,13 @@ namespace OpenGL
 		/// Binding for glGetnColorTable.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorTableTarget"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7341,10 +7350,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnColorTable(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table)
+		public static void GetnColorTable(ColorTableTarget target, PixelFormat format, PixelType type, Int32 bufSize, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetnColorTable != null, "pglGetnColorTable not implemented");
-			Delegates.pglGetnColorTable(target, format, type, bufSize, table);
+			Delegates.pglGetnColorTable((Int32)target, (Int32)format, (Int32)type, bufSize, table);
 			LogCommand("glGetnColorTable", null, target, format, type, bufSize, table			);
 			DebugCheckErrors(null);
 		}
@@ -7353,13 +7362,13 @@ namespace OpenGL
 		/// Binding for glGetnColorTable.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ColorTableTarget"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7368,7 +7377,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnColorTable(Int32 target, Int32 format, Int32 type, Int32 bufSize, Object table)
+		public static void GetnColorTable(ColorTableTarget target, PixelFormat format, PixelType type, Int32 bufSize, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
 			try {
@@ -7382,13 +7391,13 @@ namespace OpenGL
 		/// Binding for glGetnConvolutionFilter.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7397,10 +7406,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnConvolutionFilter(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image)
+		public static void GetnConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, Int32 bufSize, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetnConvolutionFilter != null, "pglGetnConvolutionFilter not implemented");
-			Delegates.pglGetnConvolutionFilter(target, format, type, bufSize, image);
+			Delegates.pglGetnConvolutionFilter((Int32)target, (Int32)format, (Int32)type, bufSize, image);
 			LogCommand("glGetnConvolutionFilter", null, target, format, type, bufSize, image			);
 			DebugCheckErrors(null);
 		}
@@ -7409,13 +7418,13 @@ namespace OpenGL
 		/// Binding for glGetnConvolutionFilter.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7424,7 +7433,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnConvolutionFilter(Int32 target, Int32 format, Int32 type, Int32 bufSize, Object image)
+		public static void GetnConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, Int32 bufSize, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -7438,13 +7447,13 @@ namespace OpenGL
 		/// Binding for glGetnSeparableFilter.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:SeparableTargetEXT"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="rowBufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7462,10 +7471,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnSeparableFilter(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
+		public static void GetnSeparableFilter(SeparableTargetEXT target, PixelFormat format, PixelType type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilter != null, "pglGetnSeparableFilter not implemented");
-			Delegates.pglGetnSeparableFilter(target, format, type, rowBufSize, row, columnBufSize, column, span);
+			Delegates.pglGetnSeparableFilter((Int32)target, (Int32)format, (Int32)type, rowBufSize, row, columnBufSize, column, span);
 			LogCommand("glGetnSeparableFilter", null, target, format, type, rowBufSize, row, columnBufSize, column, span			);
 			DebugCheckErrors(null);
 		}
@@ -7474,13 +7483,13 @@ namespace OpenGL
 		/// Binding for glGetnSeparableFilter.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:SeparableTargetEXT"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="rowBufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7498,7 +7507,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnSeparableFilter(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
+		public static void GetnSeparableFilter(SeparableTargetEXT target, PixelFormat format, PixelType type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -7516,16 +7525,16 @@ namespace OpenGL
 		/// Binding for glGetnHistogram.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7534,10 +7543,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnHistogram(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values)
+		public static void GetnHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnHistogram != null, "pglGetnHistogram not implemented");
-			Delegates.pglGetnHistogram(target, reset, format, type, bufSize, values);
+			Delegates.pglGetnHistogram((Int32)target, reset, (Int32)format, (Int32)type, bufSize, values);
 			LogCommand("glGetnHistogram", null, target, reset, format, type, bufSize, values			);
 			DebugCheckErrors(null);
 		}
@@ -7546,16 +7555,16 @@ namespace OpenGL
 		/// Binding for glGetnHistogram.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7564,7 +7573,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnHistogram(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, Object values)
+		public static void GetnHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -7578,16 +7587,16 @@ namespace OpenGL
 		/// Binding for glGetnMinmax.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7596,10 +7605,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMinmax(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values)
+		public static void GetnMinmax(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnMinmax != null, "pglGetnMinmax not implemented");
-			Delegates.pglGetnMinmax(target, reset, format, type, bufSize, values);
+			Delegates.pglGetnMinmax((Int32)target, reset, (Int32)format, (Int32)type, bufSize, values);
 			LogCommand("glGetnMinmax", null, target, reset, format, type, bufSize, values			);
 			DebugCheckErrors(null);
 		}
@@ -7608,16 +7617,16 @@ namespace OpenGL
 		/// Binding for glGetnMinmax.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:MinmaxTargetEXT"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7626,7 +7635,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMinmax(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, Object values)
+		public static void GetnMinmax(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -8214,7 +8223,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags);
 
@@ -8233,7 +8242,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
@@ -8966,6 +8975,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetGraphicsResetStatus();
 
@@ -8997,22 +9007,28 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
 			[AliasOf("glGetnUniformfv")]
+			[AliasOf("glGetnUniformfvEXT")]
 			[AliasOf("glGetnUniformfvKHR")]
 			[ThreadStatic]
 			internal static glGetnUniformfv pglGetnUniformfv;
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
 			[AliasOf("glGetnUniformiv")]
+			[AliasOf("glGetnUniformivEXT")]
 			[AliasOf("glGetnUniformivKHR")]
 			[ThreadStatic]
 			internal static glGetnUniformiv pglGetnUniformiv;
@@ -9020,6 +9036,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
@@ -9033,6 +9050,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
 

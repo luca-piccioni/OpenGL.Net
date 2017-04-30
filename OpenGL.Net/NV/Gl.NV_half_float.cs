@@ -439,16 +439,16 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord1hNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord1hNV(Int32 target, UInt16 s)
+		public static void MultiTexCoord1hNV(TextureUnit target, UInt16 s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1hNV != null, "pglMultiTexCoord1hNV not implemented");
-			Delegates.pglMultiTexCoord1hNV(target, s);
+			Delegates.pglMultiTexCoord1hNV((Int32)target, s);
 			LogCommand("glMultiTexCoord1hNV", null, target, s			);
 			DebugCheckErrors(null);
 		}
@@ -457,19 +457,19 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord1hvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord1hNV(Int32 target, UInt16[] v)
+		public static void MultiTexCoord1hNV(TextureUnit target, UInt16[] v)
 		{
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1hvNV != null, "pglMultiTexCoord1hvNV not implemented");
-					Delegates.pglMultiTexCoord1hvNV(target, p_v);
+					Delegates.pglMultiTexCoord1hvNV((Int32)target, p_v);
 					LogCommand("glMultiTexCoord1hvNV", null, target, v					);
 				}
 			}
@@ -480,7 +480,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord2hNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:UInt16"/>.
@@ -489,10 +489,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord2hNV(Int32 target, UInt16 s, UInt16 t)
+		public static void MultiTexCoord2hNV(TextureUnit target, UInt16 s, UInt16 t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2hNV != null, "pglMultiTexCoord2hNV not implemented");
-			Delegates.pglMultiTexCoord2hNV(target, s, t);
+			Delegates.pglMultiTexCoord2hNV((Int32)target, s, t);
 			LogCommand("glMultiTexCoord2hNV", null, target, s, t			);
 			DebugCheckErrors(null);
 		}
@@ -501,19 +501,19 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord2hvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord2hNV(Int32 target, UInt16[] v)
+		public static void MultiTexCoord2hNV(TextureUnit target, UInt16[] v)
 		{
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2hvNV != null, "pglMultiTexCoord2hvNV not implemented");
-					Delegates.pglMultiTexCoord2hvNV(target, p_v);
+					Delegates.pglMultiTexCoord2hvNV((Int32)target, p_v);
 					LogCommand("glMultiTexCoord2hvNV", null, target, v					);
 				}
 			}
@@ -524,7 +524,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord3hNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:UInt16"/>.
@@ -536,10 +536,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord3hNV(Int32 target, UInt16 s, UInt16 t, UInt16 r)
+		public static void MultiTexCoord3hNV(TextureUnit target, UInt16 s, UInt16 t, UInt16 r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3hNV != null, "pglMultiTexCoord3hNV not implemented");
-			Delegates.pglMultiTexCoord3hNV(target, s, t, r);
+			Delegates.pglMultiTexCoord3hNV((Int32)target, s, t, r);
 			LogCommand("glMultiTexCoord3hNV", null, target, s, t, r			);
 			DebugCheckErrors(null);
 		}
@@ -548,19 +548,19 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord3hvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord3hNV(Int32 target, UInt16[] v)
+		public static void MultiTexCoord3hNV(TextureUnit target, UInt16[] v)
 		{
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3hvNV != null, "pglMultiTexCoord3hvNV not implemented");
-					Delegates.pglMultiTexCoord3hvNV(target, p_v);
+					Delegates.pglMultiTexCoord3hvNV((Int32)target, p_v);
 					LogCommand("glMultiTexCoord3hvNV", null, target, v					);
 				}
 			}
@@ -571,7 +571,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord4hNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:UInt16"/>.
@@ -586,10 +586,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt16"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord4hNV(Int32 target, UInt16 s, UInt16 t, UInt16 r, UInt16 q)
+		public static void MultiTexCoord4hNV(TextureUnit target, UInt16 s, UInt16 t, UInt16 r, UInt16 q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4hNV != null, "pglMultiTexCoord4hNV not implemented");
-			Delegates.pglMultiTexCoord4hNV(target, s, t, r, q);
+			Delegates.pglMultiTexCoord4hNV((Int32)target, s, t, r, q);
 			LogCommand("glMultiTexCoord4hNV", null, target, s, t, r, q			);
 			DebugCheckErrors(null);
 		}
@@ -598,19 +598,19 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord4hvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord4hNV(Int32 target, UInt16[] v)
+		public static void MultiTexCoord4hNV(TextureUnit target, UInt16[] v)
 		{
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4hvNV != null, "pglMultiTexCoord4hvNV not implemented");
-					Delegates.pglMultiTexCoord4hvNV(target, p_v);
+					Delegates.pglMultiTexCoord4hvNV((Int32)target, p_v);
 					LogCommand("glMultiTexCoord4hvNV", null, target, v					);
 				}
 			}

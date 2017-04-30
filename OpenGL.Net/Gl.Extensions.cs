@@ -2705,7 +2705,7 @@ namespace OpenGL
 			/// <summary>
 			/// Support for extension GL_EXT_direct_state_access.
 			/// </summary>
-			[Extension("GL_EXT_direct_state_access")]
+			[Extension("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			public bool DirectStateAccess_EXT;
 
 			/// <summary>
@@ -3520,6 +3520,12 @@ namespace OpenGL
 			public bool TiledRendering_QCOM;
 
 			/// <summary>
+			/// Support for extension GL_QCOM_shader_framebuffer_fetch_noncoherent.
+			/// </summary>
+			[Extension("GL_QCOM_shader_framebuffer_fetch_noncoherent", Api = "gles2")]
+			public bool ShaderFramebufferFetchNoncoherent_QCOM;
+
+			/// <summary>
 			/// Support for extension GL_QCOM_perfmon_global_mode.
 			/// </summary>
 			[Extension("GL_QCOM_perfmon_global_mode", Api = "gles1|gles2")]
@@ -4242,7 +4248,7 @@ namespace OpenGL
 			/// <summary>
 			/// Support for extension GL_MESA_shader_integer_functions.
 			/// </summary>
-			[Extension("GL_MESA_shader_integer_functions")]
+			[Extension("GL_MESA_shader_integer_functions", Api = "gl|gles2")]
 			public bool ShaderIntegerFunctions_MESA;
 
 			/// <summary>

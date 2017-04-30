@@ -32,7 +32,7 @@ namespace OpenGL
 		/// Binding for glFramebufferSampleLocationsfvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="start">
 		/// A <see cref="T:UInt32"/>.
@@ -44,13 +44,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-		public static void FramebufferSampleLocationNV(Int32 target, UInt32 start, Int32 count, float[] v)
+		public static void FramebufferSampleLocationNV(FramebufferTarget target, UInt32 start, Int32 count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglFramebufferSampleLocationsfvNV != null, "pglFramebufferSampleLocationsfvNV not implemented");
-					Delegates.pglFramebufferSampleLocationsfvNV(target, start, count, p_v);
+					Delegates.pglFramebufferSampleLocationsfvNV((Int32)target, start, count, p_v);
 					LogCommand("glFramebufferSampleLocationsfvNV", null, target, start, count, v					);
 				}
 			}

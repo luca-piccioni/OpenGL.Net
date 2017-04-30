@@ -50,7 +50,7 @@ namespace OpenGL
 		/// Binding for glFramebufferSamplePositionsfvAMD.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="numsamples">
 		/// A <see cref="T:UInt32"/>.
@@ -62,13 +62,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-		public static void FramebufferSampleAMD(Int32 target, UInt32 numsamples, UInt32 pixelindex, float[] values)
+		public static void FramebufferSampleAMD(FramebufferTarget target, UInt32 numsamples, UInt32 pixelindex, float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
 				{
 					Debug.Assert(Delegates.pglFramebufferSamplePositionsfvAMD != null, "pglFramebufferSamplePositionsfvAMD not implemented");
-					Delegates.pglFramebufferSamplePositionsfvAMD(target, numsamples, pixelindex, p_values);
+					Delegates.pglFramebufferSamplePositionsfvAMD((Int32)target, numsamples, pixelindex, p_values);
 					LogCommand("glFramebufferSamplePositionsfvAMD", null, target, numsamples, pixelindex, values					);
 				}
 			}
@@ -108,10 +108,10 @@ namespace OpenGL
 		/// Binding for glGetFramebufferParameterfvAMD.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:FramebufferAttachmentParameterName"/>.
 		/// </param>
 		/// <param name="numsamples">
 		/// A <see cref="T:UInt32"/>.
@@ -126,13 +126,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-		public static void GetFramebufferParameterAMD(Int32 target, Int32 pname, UInt32 numsamples, UInt32 pixelindex, Int32 size, [Out] float[] values)
+		public static void GetFramebufferParameterAMD(FramebufferTarget target, FramebufferAttachmentParameterName pname, UInt32 numsamples, UInt32 pixelindex, Int32 size, [Out] float[] values)
 		{
 			unsafe {
 				fixed (float* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetFramebufferParameterfvAMD != null, "pglGetFramebufferParameterfvAMD not implemented");
-					Delegates.pglGetFramebufferParameterfvAMD(target, pname, numsamples, pixelindex, size, p_values);
+					Delegates.pglGetFramebufferParameterfvAMD((Int32)target, (Int32)pname, numsamples, pixelindex, size, p_values);
 					LogCommand("glGetFramebufferParameterfvAMD", null, target, pname, numsamples, pixelindex, size, values					);
 				}
 			}

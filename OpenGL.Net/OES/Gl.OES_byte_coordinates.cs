@@ -32,16 +32,16 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord1bOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_byte_coordinates")]
-		public static void MultiTexCoord1OES(Int32 texture, sbyte s)
+		public static void MultiTexCoord1OES(TextureUnit texture, sbyte s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1bOES != null, "pglMultiTexCoord1bOES not implemented");
-			Delegates.pglMultiTexCoord1bOES(texture, s);
+			Delegates.pglMultiTexCoord1bOES((Int32)texture, s);
 			LogCommand("glMultiTexCoord1bOES", null, texture, s			);
 			DebugCheckErrors(null);
 		}
@@ -50,19 +50,19 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord1bvOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_byte_coordinates")]
-		public static void MultiTexCoord1OES(Int32 texture, sbyte[] coords)
+		public static void MultiTexCoord1OES(TextureUnit texture, sbyte[] coords)
 		{
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1bvOES != null, "pglMultiTexCoord1bvOES not implemented");
-					Delegates.pglMultiTexCoord1bvOES(texture, p_coords);
+					Delegates.pglMultiTexCoord1bvOES((Int32)texture, p_coords);
 					LogCommand("glMultiTexCoord1bvOES", null, texture, coords					);
 				}
 			}
@@ -73,7 +73,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord2bOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
@@ -82,10 +82,10 @@ namespace OpenGL
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_byte_coordinates")]
-		public static void MultiTexCoord2OES(Int32 texture, sbyte s, sbyte t)
+		public static void MultiTexCoord2OES(TextureUnit texture, sbyte s, sbyte t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2bOES != null, "pglMultiTexCoord2bOES not implemented");
-			Delegates.pglMultiTexCoord2bOES(texture, s, t);
+			Delegates.pglMultiTexCoord2bOES((Int32)texture, s, t);
 			LogCommand("glMultiTexCoord2bOES", null, texture, s, t			);
 			DebugCheckErrors(null);
 		}
@@ -94,19 +94,19 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord2bvOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_byte_coordinates")]
-		public static void MultiTexCoord2OES(Int32 texture, sbyte[] coords)
+		public static void MultiTexCoord2OES(TextureUnit texture, sbyte[] coords)
 		{
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2bvOES != null, "pglMultiTexCoord2bvOES not implemented");
-					Delegates.pglMultiTexCoord2bvOES(texture, p_coords);
+					Delegates.pglMultiTexCoord2bvOES((Int32)texture, p_coords);
 					LogCommand("glMultiTexCoord2bvOES", null, texture, coords					);
 				}
 			}
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord3bOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
@@ -129,10 +129,10 @@ namespace OpenGL
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_byte_coordinates")]
-		public static void MultiTexCoord3OES(Int32 texture, sbyte s, sbyte t, sbyte r)
+		public static void MultiTexCoord3OES(TextureUnit texture, sbyte s, sbyte t, sbyte r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3bOES != null, "pglMultiTexCoord3bOES not implemented");
-			Delegates.pglMultiTexCoord3bOES(texture, s, t, r);
+			Delegates.pglMultiTexCoord3bOES((Int32)texture, s, t, r);
 			LogCommand("glMultiTexCoord3bOES", null, texture, s, t, r			);
 			DebugCheckErrors(null);
 		}
@@ -141,19 +141,19 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord3bvOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_byte_coordinates")]
-		public static void MultiTexCoord3OES(Int32 texture, sbyte[] coords)
+		public static void MultiTexCoord3OES(TextureUnit texture, sbyte[] coords)
 		{
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3bvOES != null, "pglMultiTexCoord3bvOES not implemented");
-					Delegates.pglMultiTexCoord3bvOES(texture, p_coords);
+					Delegates.pglMultiTexCoord3bvOES((Int32)texture, p_coords);
 					LogCommand("glMultiTexCoord3bvOES", null, texture, coords					);
 				}
 			}
@@ -164,7 +164,7 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord4bOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
@@ -179,10 +179,10 @@ namespace OpenGL
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_byte_coordinates")]
-		public static void MultiTexCoord4OES(Int32 texture, sbyte s, sbyte t, sbyte r, sbyte q)
+		public static void MultiTexCoord4OES(TextureUnit texture, sbyte s, sbyte t, sbyte r, sbyte q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4bOES != null, "pglMultiTexCoord4bOES not implemented");
-			Delegates.pglMultiTexCoord4bOES(texture, s, t, r, q);
+			Delegates.pglMultiTexCoord4bOES((Int32)texture, s, t, r, q);
 			LogCommand("glMultiTexCoord4bOES", null, texture, s, t, r, q			);
 			DebugCheckErrors(null);
 		}
@@ -191,19 +191,19 @@ namespace OpenGL
 		/// Binding for glMultiTexCoord4bvOES.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_byte_coordinates")]
-		public static void MultiTexCoord4OES(Int32 texture, sbyte[] coords)
+		public static void MultiTexCoord4OES(TextureUnit texture, sbyte[] coords)
 		{
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4bvOES != null, "pglMultiTexCoord4bvOES not implemented");
-					Delegates.pglMultiTexCoord4bvOES(texture, p_coords);
+					Delegates.pglMultiTexCoord4bvOES((Int32)texture, p_coords);
 					LogCommand("glMultiTexCoord4bvOES", null, texture, coords					);
 				}
 			}

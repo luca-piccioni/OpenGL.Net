@@ -1127,10 +1127,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_provoking_vertex")]
-		public static void ProvokingVertex(Int32 provokeMode)
+		public static void ProvokingVertex(VertexProvokingMode provokeMode)
 		{
 			Debug.Assert(Delegates.pglProvokingVertex != null, "pglProvokingVertex not implemented");
-			Delegates.pglProvokingVertex(provokeMode);
+			Delegates.pglProvokingVertex((Int32)provokeMode);
 			LogCommand("glProvokingVertex", null, provokeMode			);
 			DebugCheckErrors(null);
 		}
@@ -1165,12 +1165,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static Int32 FenceSync(Int32 condition, UInt32 flags)
+		public static Int32 FenceSync(SyncCondition condition, UInt32 flags)
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglFenceSync != null, "pglFenceSync not implemented");
-			retValue = Delegates.pglFenceSync(condition, flags);
+			retValue = Delegates.pglFenceSync((Int32)condition, flags);
 			LogCommand("glFenceSync", retValue, condition, flags			);
 			DebugCheckErrors(retValue);
 
@@ -1256,16 +1256,16 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static Int32 ClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout)
+		public static SyncStatus ClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout)
 		{
 			Int32 retValue;
 
 			Debug.Assert(Delegates.pglClientWaitSync != null, "pglClientWaitSync not implemented");
 			retValue = Delegates.pglClientWaitSync(sync, flags, timeout);
-			LogCommand("glClientWaitSync", retValue, sync, flags, timeout			);
+			LogCommand("glClientWaitSync", (SyncStatus)retValue, sync, flags, timeout			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return ((SyncStatus)retValue);
 		}
 
 		/// <summary>
@@ -1410,6 +1410,65 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		public static void Get(GetPName pname, [Out] Int64[] data)
+		{
+			unsafe {
+				fixed (Int64* p_data = data)
+				{
+					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
+					Delegates.pglGetInteger64v((Int32)pname, p_data);
+					LogCommand("glGetInteger64v", null, pname, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		[AliasOf("glGetInteger64vAPPLE")]
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		public static void Get(Int32 pname, out Int64 data)
 		{
 			unsafe {
@@ -1418,6 +1477,111 @@ namespace OpenGL
 					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
 					Delegates.pglGetInteger64v(pname, p_data);
 					LogCommand("glGetInteger64v", null, pname, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		[AliasOf("glGetInteger64vAPPLE")]
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		public static void Get(GetPName pname, out Int64 data)
+		{
+			unsafe {
+				fixed (Int64* p_data = &data)
+				{
+					Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
+					Delegates.pglGetInteger64v((Int32)pname, p_data);
+					LogCommand("glGetInteger64v", null, pname, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// query the properties of a sync object
+		/// </summary>
+		/// <param name="sync">
+		/// Specifies the sync object whose properties to query.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter whose value to retrieve from the sync object specified in <paramref name="sync"/>.
+		/// </param>
+		/// <param name="bufSize">
+		/// Specifies the size of the buffer whose address is given in <paramref name="values"/>.
+		/// </param>
+		/// <param name="length">
+		/// Specifies the address of an variable to receive the number of integers placed in <paramref name="values"/>.
+		/// </param>
+		/// <param name="values">
+		/// Specifies the address of an array to receive the values of the queried parameter.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="sync"/> is not the name of a sync object.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the accepted tokens.
+		/// </exception>
+		/// <seealso cref="Gl.FenceSync"/>
+		/// <seealso cref="Gl.WaitSync"/>
+		/// <seealso cref="Gl.ClientWaitSync"/>
+		[AliasOf("glGetSyncivAPPLE")]
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		public static void GetSync(Int32 sync, SyncParameterName pname, Int32 bufSize, out Int32 length, [Out] Int32[] values)
+		{
+			unsafe {
+				fixed (Int32* p_length = &length)
+				fixed (Int32* p_values = values)
+				{
+					Debug.Assert(Delegates.pglGetSynciv != null, "pglGetSynciv not implemented");
+					Delegates.pglGetSynciv(sync, (Int32)pname, bufSize, p_length, p_values);
+					LogCommand("glGetSynciv", null, sync, pname, bufSize, length, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1452,14 +1616,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static void GetSync(Int32 sync, Int32 pname, out Int32 length, [Out] Int32[] values)
+		public static void GetSync(Int32 sync, SyncParameterName pname, out Int32 length, [Out] Int32[] values)
 		{
 			unsafe {
 				fixed (Int32* p_length = &length)
 				fixed (Int32* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetSynciv != null, "pglGetSynciv not implemented");
-					Delegates.pglGetSynciv(sync, pname, (Int32)values.Length, p_length, p_values);
+					Delegates.pglGetSynciv(sync, (Int32)pname, (Int32)values.Length, p_length, p_values);
 					LogCommand("glGetSynciv", null, sync, pname, values.Length, length, values					);
 				}
 			}
@@ -1571,6 +1735,65 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		public static void Get(TypeEnum target, UInt32 index, [Out] Int64[] data)
+		{
+			unsafe {
+				fixed (Int64* p_data = data)
+				{
+					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
+					Delegates.pglGetInteger64i_v((Int32)target, index, p_data);
+					LogCommand("glGetInteger64i_v", null, target, index, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void Get(Int32 target, UInt32 index, out Int64 data)
 		{
 			unsafe {
@@ -1578,6 +1801,65 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
+					LogCommand("glGetInteger64i_v", null, target, index, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
+		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
+		/// </exception>
+		/// <seealso cref="Gl.GetActiveUniform"/>
+		/// <seealso cref="Gl.GetAttachedShaders"/>
+		/// <seealso cref="Gl.GetAttribLocation"/>
+		/// <seealso cref="Gl.GetBufferParameter"/>
+		/// <seealso cref="Gl.GetBufferPointerv"/>
+		/// <seealso cref="Gl.GetBufferSubData"/>
+		/// <seealso cref="Gl.GetCompressedTexImage"/>
+		/// <seealso cref="Gl.GetError"/>
+		/// <seealso cref="Gl.GetProgram"/>
+		/// <seealso cref="Gl.GetProgramInfoLog"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetShader"/>
+		/// <seealso cref="Gl.GetShaderInfoLog"/>
+		/// <seealso cref="Gl.GetShaderSource"/>
+		/// <seealso cref="Gl.GetString"/>
+		/// <seealso cref="Gl.GetTexImage"/>
+		/// <seealso cref="Gl.GetTexLevelParameter"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.GetUniform"/>
+		/// <seealso cref="Gl.GetUniformLocation"/>
+		/// <seealso cref="Gl.GetVertexAttrib"/>
+		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
+		/// <seealso cref="Gl.IsEnabled"/>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		public static void Get(TypeEnum target, UInt32 index, out Int64 data)
+		{
+			unsafe {
+				fixed (Int64* p_data = &data)
+				{
+					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
+					Delegates.pglGetInteger64i_v((Int32)target, index, p_data);
 					LogCommand("glGetInteger64i_v", null, target, index, data					);
 				}
 			}
@@ -1694,10 +1976,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-		public static void FramebufferTexture(Int32 target, Int32 attachment, UInt32 texture, Int32 level)
+		public static void FramebufferTexture(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture != null, "pglFramebufferTexture not implemented");
-			Delegates.pglFramebufferTexture(target, attachment, texture, level);
+			Delegates.pglFramebufferTexture((Int32)target, (Int32)attachment, texture, level);
 			LogCommand("glFramebufferTexture", null, target, attachment, texture, level			);
 			DebugCheckErrors(null);
 		}
@@ -1753,10 +2035,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2DMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-		public static void TexImage2DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
+		public static void TexImage2DMultisample(TextureTarget target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexImage2DMultisample != null, "pglTexImage2DMultisample not implemented");
-			Delegates.pglTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
+			Delegates.pglTexImage2DMultisample((Int32)target, samples, (Int32)internalformat, width, height, fixedsamplelocations);
 			LogCommand("glTexImage2DMultisample", null, target, samples, internalformat, width, height, fixedsamplelocations			);
 			DebugCheckErrors(null);
 		}
@@ -1818,10 +2100,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexImage2DMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-		public static void TexImage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
+		public static void TexImage3DMultisample(TextureTarget target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexImage3DMultisample != null, "pglTexImage3DMultisample not implemented");
-			Delegates.pglTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
+			Delegates.pglTexImage3DMultisample((Int32)target, samples, (Int32)internalformat, width, height, depth, fixedsamplelocations);
 			LogCommand("glTexImage3DMultisample", null, target, samples, internalformat, width, height, depth, fixedsamplelocations			);
 			DebugCheckErrors(null);
 		}
