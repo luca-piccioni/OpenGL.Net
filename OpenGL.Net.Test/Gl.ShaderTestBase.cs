@@ -37,8 +37,7 @@ namespace OpenGL.Test
 		/// Creates and compiles a shader object.
 		/// </summary>
 		/// <param name="shaderType">
-		/// Specifies the type of shader to be created. Must be one of Gl.COMPUTE_SHADER, Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, 
-		/// Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER, or Gl.FRAGMENT_SHADER.
+		/// Specifies the type of shader to be created.
 		/// </param>
 		/// <param name="source">
 		/// Specifies an array of pointers to strings containing the source code to be loaded into the shader.
@@ -46,7 +45,7 @@ namespace OpenGL.Test
 		/// <returns>
 		/// It returns a shader object of type <paramref name="shaderType"/>.
 		/// </returns>
-		protected static UInt32 CreateShaderObject(int shaderType, string[] source)
+		protected static UInt32 CreateShaderObject(ShaderType shaderType, string[] source)
 		{
 			UInt32 shaderObject = 0;
 
@@ -57,7 +56,7 @@ namespace OpenGL.Test
 
 				int compileStatus;
 
-				Gl.GetShader(shaderObject, Gl.COMPILE_STATUS, out compileStatus);
+				Gl.GetShader(shaderObject, ShaderParameterName.CompileStatus, out compileStatus);
 				if (compileStatus == Gl.FALSE) {
 					StringBuilder log = new StringBuilder(4096);
 					int logLength;
@@ -125,7 +124,7 @@ namespace OpenGL.Test
 
 				if (activeAttributeName.ToString() == attributeName) {
 					Gl.BindBuffer(BufferTargetARB.ArrayBuffer, buffer);
-					Gl.VertexAttribPointer((uint)i, activeAttributeSize, activeAttributeType, false, 0, IntPtr.Zero);
+					Gl.VertexAttribPointer((uint)i, activeAttributeSize, (VertexAttribPointerType)activeAttributeType, false, 0, IntPtr.Zero);
 
 					return;
 				}

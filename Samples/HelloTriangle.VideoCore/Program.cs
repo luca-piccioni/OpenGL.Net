@@ -70,19 +70,19 @@ namespace HelloTriangle.VideoCore
 			infolog.EnsureCapacity(1024);
 
 			// Vertex shader
-			uint vertexShader = Gl.CreateShader(Gl.VERTEX_SHADER);
+			uint vertexShader = Gl.CreateShader(ShaderType.VertexShader);
 			Gl.ShaderSource(vertexShader, _Es2_ShaderVertexSource);
 			Gl.CompileShader(vertexShader);
-			Gl.GetShader(vertexShader, Gl.COMPILE_STATUS, out compiled);
+			Gl.GetShader(vertexShader, ShaderParameterName.CompileStatus, out compiled);
 			if (compiled == 0) {
 				Gl.GetShaderInfoLog(vertexShader, 1024, out infologLength, infolog);
 			}
 
 			// Fragment shader
-			uint fragmentShader = Gl.CreateShader(Gl.FRAGMENT_SHADER);
+			uint fragmentShader = Gl.CreateShader(ShaderType.FragmentShader);
 			Gl.ShaderSource(fragmentShader, _Es2_ShaderFragmentSource);
 			Gl.CompileShader(fragmentShader);
-			Gl.GetShader(fragmentShader, Gl.COMPILE_STATUS, out compiled);
+			Gl.GetShader(fragmentShader, ShaderParameterName.CompileStatus, out compiled);
 			if (compiled == 0) {
 				Gl.GetShaderInfoLog(fragmentShader, 1024, out infologLength, infolog);
 			}
@@ -117,10 +117,10 @@ namespace HelloTriangle.VideoCore
 			using (MemoryLock arrayPosition = new MemoryLock(_ArrayPosition))
 			using (MemoryLock arrayColor = new MemoryLock(_ArrayColor))
 			{
-				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aPosition, 2, Gl.FLOAT, false, 0, arrayPosition.Address);
+				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aPosition, 2, VertexAttribPointerType.Float, false, 0, arrayPosition.Address);
 				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aPosition);
 
-				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, Gl.FLOAT, false, 0, arrayColor.Address);
+				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, VertexAttribPointerType.Float, false, 0, arrayColor.Address);
 				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aColor);
 
 				Gl.UniformMatrix4(_Es2_Program_Location_uMVP, 1, false, projectionMatrix.ToArray());

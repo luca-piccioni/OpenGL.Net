@@ -12590,6 +12590,18 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_framebuffer_blit", Api = "gles2")]
 		DrawFramebuffer = Gl.DRAW_FRAMEBUFFER,
 
+		/// <summary>
+		/// Strongly typed for value GL_READ_FRAMEBUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ANGLE_framebuffer_blit", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_blit")]
+		[RequiredByFeature("GL_NV_framebuffer_blit", Api = "gles2")]
+		ReadFramebuffer = Gl.READ_FRAMEBUFFER,
+
 	}
 
 	/// <summary>

@@ -74,18 +74,18 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
 				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
-			uint shader = Gl.CreateShader(Gl.VERTEX_SHADER);
+			uint shader = Gl.CreateShader(ShaderType.VertexShader);
 			try {
 				Assert.AreNotEqual(0, shader, "Gl.CreateShader failure");
 				Assert.IsTrue(Gl.IsShader(shader));
 
 				int shaderGet;
 
-				Gl.GetShader(shader, Gl.SHADER_TYPE, out shaderGet);
+				Gl.GetShader(shader, ShaderParameterName.ShaderType, out shaderGet);
 				Assert.AreEqual(Gl.VERTEX_SHADER, shaderGet);
-				Gl.GetShader(shader, Gl.DELETE_STATUS, out shaderGet);
+				Gl.GetShader(shader, ShaderParameterName.DeleteStatus, out shaderGet);
 				Assert.AreEqual(Gl.FALSE, shaderGet);
-				Gl.GetShader(shader, Gl.COMPILE_STATUS, out shaderGet);
+				Gl.GetShader(shader, ShaderParameterName.CompileStatus, out shaderGet);
 				Assert.AreEqual(Gl.FALSE, shaderGet);
 
 			} finally {

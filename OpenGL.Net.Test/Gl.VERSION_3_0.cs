@@ -46,7 +46,7 @@ namespace OpenGL.Test
 			Console.WriteLine("Found {0} GL extensions:", numExtensions);
 
 			for (uint i = 0; i < (uint)numExtensions; i++) {
-				string extensionName = Gl.GetString((int)StringName.Extensions, i);
+				string extensionName = Gl.GetString(StringName.Extensions, i);
 				Console.WriteLine("- {0}", extensionName);
 			}
 

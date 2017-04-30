@@ -116,6 +116,9 @@ namespace BindingsGen
 
 		public override void WriteLine(string value)
 		{
+			if (Program.DummyStream)
+				return;
+
 			if (!value.StartsWith("\t"))
 				base.WriteLine(mIdentation + value);
 			else {
@@ -125,21 +128,29 @@ namespace BindingsGen
 
 		public override void WriteLine(string format, object arg0)
 		{
+			if (Program.DummyStream)
+				return;
 			base.WriteLine(mIdentation + format, arg0);
 		}
 
 		public override void WriteLine(string format, object arg0, object arg1)
 		{
+			if (Program.DummyStream)
+				return;
 			base.WriteLine(mIdentation + format, arg0, arg1);
 		}
 
 		public override void WriteLine(string format, object arg0, object arg1, object arg2)
 		{
+			if (Program.DummyStream)
+				return;
 			base.WriteLine(mIdentation + format, arg0, arg1, arg2);
 		}
 		
 		public override void WriteLine(string format, params object[] arg)
 		{
+			if (Program.DummyStream)
+				return;
 			base.WriteLine(mIdentation + format, arg);
 		}
 

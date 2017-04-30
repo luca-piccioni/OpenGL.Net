@@ -1189,19 +1189,18 @@ namespace BindingsGen.GLSpecs
 				if (feature.Api != null && !ctx.IsSupportedApi(feature.Api))
 					continue;
 
-				int requirementIndex = feature.Requirements.FindIndex(delegate(FeatureCommand item) {
+				List<FeatureCommand> requirementIndexes = feature.Requirements.FindAll(delegate(FeatureCommand item) {
 					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
 						return (false);
 
-					int enumIndex = item.Commands.FindIndex(delegate(FeatureCommand.Item subitem) {
+					int enumIndex = item.Commands.FindIndex(delegate (FeatureCommand.Item subitem) {
 						return (subitem.Name == Prototype.Name);
 					});
 
 					return (enumIndex != -1);
 				});
 
-				if (requirementIndex != -1) {
-					FeatureCommand featureCommand = feature.Requirements[requirementIndex];
+				foreach (FeatureCommand featureCommand in requirementIndexes) {
 					if (featureCommand.Api != null || featureCommand.Profile != null)
 						features.Add(new FeatureProfile(feature, featureCommand.Api, featureCommand.Profile));
 					else
@@ -1214,7 +1213,7 @@ namespace BindingsGen.GLSpecs
 				if (extension.Supported != null && !ctx.IsSupportedApi(extension.Supported))
 					continue;
 
-				int requirementIndex = extension.Requirements.FindIndex(delegate(FeatureCommand item) {
+				List<FeatureCommand> requirementIndexes = extension.Requirements.FindAll(delegate(FeatureCommand item) {
 					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
 						return (false);
 
@@ -1229,8 +1228,7 @@ namespace BindingsGen.GLSpecs
 					return (enumIndex != -1);
 				});
 
-				if (requirementIndex != -1) {
-					FeatureCommand featureCommand = extension.Requirements[requirementIndex];
+				foreach (FeatureCommand featureCommand in requirementIndexes) {
 					if (featureCommand.Api != null || featureCommand.Profile != null)
 						features.Add(new ExtensionProfile(extension, featureCommand.Api, featureCommand.Profile));
 					else

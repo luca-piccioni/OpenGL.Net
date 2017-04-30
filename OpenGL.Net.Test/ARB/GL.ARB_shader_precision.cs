@@ -94,10 +94,10 @@ namespace OpenGL.Test
 
 				try {
 					string vertexSkeletonSource = LoadShaderFromManifest("OpenGL.Test.ARB.Gl.ARB_shader_precision.glvs");
-					vertexSkeleton = CreateShaderObject(Gl.VERTEX_SHADER, new string[] { vertexSkeletonSource });
+					vertexSkeleton = CreateShaderObject(ShaderType.VertexShader, new string[] { vertexSkeletonSource });
 
 					string vertexMethodSource = GenerateTestMethod(methodName);
-					vertexMethod = CreateShaderObject(Gl.VERTEX_SHADER, new string[] { vertexMethodSource });
+					vertexMethod = CreateShaderObject(ShaderType.VertexShader, new string[] { vertexMethodSource });
 
 					shaderProgram = Gl.CreateProgram();
 

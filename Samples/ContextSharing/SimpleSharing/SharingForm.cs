@@ -49,7 +49,7 @@ namespace SimpleSharing
 					sharedTexture.UnlockBits(iBitmapData);
 			}
 
-			Gl.GenerateMipmap(Gl.TEXTURE_2D);
+			Gl.GenerateMipmap(TextureTarget.Texture2d);
 		}
 
 		private void GlControl2_ContextCreated(object sender, OpenGL.GlControlEventArgs e)

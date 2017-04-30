@@ -45,7 +45,7 @@ namespace OpenGL.Test
 
 			Console.WriteLine("Found {0} GL Shading Language versions:", numShadingLanguage);
 			for (uint i = 0; i < (uint)numShadingLanguage; i++) {
-				string shadingLanguageVersion = Gl.GetString((int)StringName.ShadingLanguageVersion, i);
+				string shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion, i);
 				Console.WriteLine("- {0}", shadingLanguageVersion);
 			}
 

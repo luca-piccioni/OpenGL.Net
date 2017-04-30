@@ -78,16 +78,16 @@ namespace OffscreenTriangle
 				int h = Math.Min(600, Gl.CurrentLimits.MaxRenderBufferSize);
 
 				renderbuffer = Gl.GenRenderbuffer();
-				Gl.BindRenderbuffer(Gl.RENDERBUFFER, renderbuffer);
-				Gl.RenderbufferStorage(Gl.RENDERBUFFER, Gl.RGB8, w, h);
+				Gl.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderbuffer);
+				Gl.RenderbufferStorage(RenderbufferTarget.Renderbuffer, InternalFormat.Rgb8, w, h);
 
 				framebuffer = Gl.GenFramebuffer();
-				Gl.BindFramebuffer(Gl.READ_FRAMEBUFFER, framebuffer);
-				Gl.BindFramebuffer(Gl.FRAMEBUFFER, framebuffer);
-				Gl.FramebufferRenderbuffer(Gl.FRAMEBUFFER, Gl.COLOR_ATTACHMENT0, Gl.RENDERBUFFER, renderbuffer);
+				Gl.BindFramebuffer(FramebufferTarget.ReadFramebuffer, framebuffer);
+				Gl.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer);
+				Gl.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.ColorAttachment0, RenderbufferTarget.Renderbuffer, renderbuffer);
 
-				int framebufferStatus = Gl.CheckFramebufferStatus(Gl.FRAMEBUFFER);
-				if (framebufferStatus != Gl.FRAMEBUFFER_COMPLETE)
+				FramebufferStatus framebufferStatus = Gl.CheckFramebufferStatus(FramebufferTarget.Framebuffer);
+				if (framebufferStatus != FramebufferStatus.FramebufferComplete)
 					throw new InvalidOperationException("framebuffer not complete");
 
 				Gl.DrawBuffers(Gl.COLOR_ATTACHMENT0);

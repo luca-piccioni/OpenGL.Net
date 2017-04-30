@@ -41,6 +41,9 @@ namespace BindingsGen
 			RegistryProcessor glRegistryProcessor;
 			int index;
 
+			DummyStream = Array.FindIndex(args, delegate(string item) { return (item == "--dummy"); }) >= 0;
+			DocDisabled= Array.FindIndex(args, delegate(string item) { return (item == "--nodoc"); }) >= 0;
+
 			#region Assembly processing
 
 			if ((args.Length > 0) && ((index = Array.FindIndex(args, delegate(string item) { return (item == "--assembly"); })) >= 0)) {
@@ -67,7 +70,7 @@ namespace BindingsGen
 
 			#region Log Maps
 
-			if ((args.Length > 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--only-logmaps"); }) >= 0)) {
+			if ((args.Length > 0) && (Array.FindIndex(args, delegate(string item) { return (item == "--only-logmaps"); }) >= 0)) {
 				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
 					Console.WriteLine("Generating GL log map...");
 					ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
@@ -105,11 +108,13 @@ namespace BindingsGen
 			// (Common) Documentation
 			RegistryDocumentation<RegistryDocumentationHandler_GL4> gl4Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
 			gl4Documentation.Api = "GL4";
-			gl4Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl4"));
+			if (DocDisabled == false)
+				gl4Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl4"));
 
 			RegistryDocumentation<RegistryDocumentationHandler_GL2> gl2Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL2>();
 			gl2Documentation.Api = "GL2.1";
-			gl2Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl2.1"));
+			if (DocDisabled == false)
+				gl2Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl2.1"));
 
 			// XML-based specifications
 
@@ -118,12 +123,15 @@ namespace BindingsGen
 				// Additional ES documentation
 				RegistryDocumentation<RegistryDocumentationHandler_GL4> gles3Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
 				gles3Documentation.Api = "GLES3.2";
-				gles3Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es3"));
+				if (DocDisabled == false)
+					gles3Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es3"));
 
 				RegistryDocumentation<RegistryDocumentationHandler_GL2> gles1Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL2>();
 				gles1Documentation.Api = "GLES1.1";
-				gles1Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es1.1"));
+				if (DocDisabled == false)
+					gles1Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es1.1"));
 
+				Console.WriteLine("Loading GL specification...");
 				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
 				ctx.RefPages.Add(gl4Documentation);
 				ctx.RefPages.Add(gl2Documentation);
@@ -215,6 +223,10 @@ namespace BindingsGen
 			}
 		}
 
+		public static bool DocDisabled;
+
+		public static bool DummyStream;
+
 		/// <summary>
 		/// Base path to construct correct file paths.
 		/// </summary>
@@ -225,6 +237,9 @@ namespace BindingsGen
 		/// </summary>
 		private static string _OutputBasePath = "OpenGL.Net";
 
+		/// <summary>
+		/// Namespace.
+		/// </summary>
 		private static string _Namespace = "OpenGL";
 
 		/// <summary>
