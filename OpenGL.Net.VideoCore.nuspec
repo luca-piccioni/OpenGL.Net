@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net.VideoCore</id>
-		<version>0.4.2</version>
+		<version>0.5.0</version>
 		<title>OpenGL for .Net - Broadcom VideoCore IV (Raspberry PI 2) utilities</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
