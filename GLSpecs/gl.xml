@@ -15469,7 +15469,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>program</name></param>
             <param><ptype>GLsizei</ptype> <name>uniformCount</name></param>
             <param len="uniformCount">const <ptype>GLuint</ptype> *<name>uniformIndices</name></param>
-            <param group="UniformBlockPName"><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="UniformPName"><ptype>GLenum</ptype> <name>pname</name></param>
             <param len="COMPSIZE(uniformCount,pname)"><ptype>GLint</ptype> *<name>params</name></param>
         </command>
         <command>

@@ -1042,7 +1042,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		public static void GetActiveUniforms(UInt32 program, Int32 uniformCount, UInt32[] uniformIndices, UniformBlockPName pname, [Out] Int32[] @params)
+		public static void GetActiveUniforms(UInt32 program, Int32 uniformCount, UInt32[] uniformIndices, UniformPName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_uniformIndices = uniformIndices)
@@ -1096,7 +1096,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		public static void GetActiveUniforms(UInt32 program, UInt32[] uniformIndices, UniformBlockPName pname, [Out] Int32[] @params)
+		public static void GetActiveUniforms(UInt32 program, UInt32[] uniformIndices, UniformPName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (UInt32* p_uniformIndices = uniformIndices)
