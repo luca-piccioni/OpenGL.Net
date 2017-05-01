@@ -643,7 +643,7 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
@@ -778,10 +778,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr data)
+		public static void TexImage3D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglTexImage3D != null, "pglTexImage3D not implemented");
-			Delegates.pglTexImage3D((Int32)target, level, internalformat, width, height, depth, border, (Int32)format, (Int32)type, data);
+			Delegates.pglTexImage3D((Int32)target, level, (Int32)internalformat, width, height, depth, border, (Int32)format, (Int32)type, data);
 			LogCommand("glTexImage3D", null, target, level, internalformat, width, height, depth, border, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -796,7 +796,7 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
@@ -931,7 +931,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void TexImage3D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object data)
+		public static void TexImage3D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

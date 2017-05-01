@@ -5769,7 +5769,7 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
@@ -5886,10 +5886,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexImage1D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexImage1D != null, "pglTexImage1D not implemented");
-			Delegates.pglTexImage1D((Int32)target, level, internalformat, width, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTexImage1D((Int32)target, level, (Int32)internalformat, width, border, (Int32)format, (Int32)type, pixels);
 			LogCommand("glTexImage1D", null, target, level, internalformat, width, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -5904,7 +5904,7 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
@@ -6021,7 +6021,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage1D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TexImage1D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -6043,7 +6043,7 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
@@ -6180,10 +6180,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void TexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexImage2D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexImage2D != null, "pglTexImage2D not implemented");
-			Delegates.pglTexImage2D((Int32)target, level, internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTexImage2D((Int32)target, level, (Int32)internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
 			LogCommand("glTexImage2D", null, target, level, internalformat, width, height, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -6200,7 +6200,7 @@ namespace OpenGL
 		/// Specifies the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture image including the border if any. If the GL version does not support 
@@ -6337,7 +6337,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void TexImage2D(TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TexImage2D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {

@@ -548,7 +548,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -566,10 +566,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureImage1DEXT != null, "pglTextureImage1DEXT not implemented");
-			Delegates.pglTextureImage1DEXT(texture, (Int32)target, level, internalformat, width, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureImage1DEXT(texture, (Int32)target, level, (Int32)internalformat, width, border, (Int32)format, (Int32)type, pixels);
 			LogCommand("glTextureImage1DEXT", null, texture, target, level, internalformat, width, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -587,7 +587,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -605,7 +605,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -628,7 +628,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -649,10 +649,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureImage2DEXT != null, "pglTextureImage2DEXT not implemented");
-			Delegates.pglTextureImage2DEXT(texture, (Int32)target, level, internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureImage2DEXT(texture, (Int32)target, level, (Int32)internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
 			LogCommand("glTextureImage2DEXT", null, texture, target, level, internalformat, width, height, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -670,7 +670,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -691,7 +691,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1205,7 +1205,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -1229,10 +1229,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureImage3DEXT != null, "pglTextureImage3DEXT not implemented");
-			Delegates.pglTextureImage3DEXT(texture, (Int32)target, level, internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureImage3DEXT(texture, (Int32)target, level, (Int32)internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
 			LogCommand("glTextureImage3DEXT", null, texture, target, level, internalformat, width, height, depth, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -1250,7 +1250,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -1274,7 +1274,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2030,7 +2030,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -2048,10 +2048,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexImage1DEXT != null, "pglMultiTexImage1DEXT not implemented");
-			Delegates.pglMultiTexImage1DEXT((Int32)texunit, (Int32)target, level, internalformat, width, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexImage1DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, border, (Int32)format, (Int32)type, pixels);
 			LogCommand("glMultiTexImage1DEXT", null, texunit, target, level, internalformat, width, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -2069,7 +2069,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -2087,7 +2087,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2110,7 +2110,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -2131,10 +2131,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexImage2DEXT != null, "pglMultiTexImage2DEXT not implemented");
-			Delegates.pglMultiTexImage2DEXT((Int32)texunit, (Int32)target, level, internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexImage2DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
 			LogCommand("glMultiTexImage2DEXT", null, texunit, target, level, internalformat, width, height, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -2152,7 +2152,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -2173,7 +2173,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2687,7 +2687,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -2711,10 +2711,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexImage3DEXT != null, "pglMultiTexImage3DEXT not implemented");
-			Delegates.pglMultiTexImage3DEXT((Int32)texunit, (Int32)target, level, internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexImage3DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
 			LogCommand("glMultiTexImage3DEXT", null, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -2732,7 +2732,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
@@ -2756,7 +2756,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {

@@ -8308,40 +8308,6 @@ namespace OpenGL
 		Alpha8 = Gl.ALPHA8,
 
 		/// <summary>
-		/// Strongly typed for value GL_DEPTH_COMPONENT16_SGIX.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_depth_texture")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_SGIX_depth_texture")]
-		DepthComponent16 = Gl.DEPTH_COMPONENT16,
-
-		/// <summary>
-		/// Strongly typed for value GL_DEPTH_COMPONENT24_SGIX.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_depth_texture")]
-		[RequiredByFeature("GL_OES_depth24", Api = "gles1|gles2|glsc2")]
-		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_SGIX_depth_texture")]
-		DepthComponent24 = Gl.DEPTH_COMPONENT24,
-
-		/// <summary>
-		/// Strongly typed for value GL_DEPTH_COMPONENT32_SGIX.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ARB_depth_texture")]
-		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
-		[RequiredByFeature("GL_OES_depth32", Api = "gles1|gles2|glsc2")]
-		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_SGIX_depth_texture")]
-		DepthComponent32 = Gl.DEPTH_COMPONENT32,
-
-		/// <summary>
 		/// Strongly typed for value GL_DUAL_ALPHA12_SGIS.
 		/// </summary>
 		[RequiredByFeature("GL_SGIS_texture_select")]
@@ -8587,44 +8553,239 @@ namespace OpenGL
 		QuadLuminance8Sgis = Gl.QUAD_LUMINANCE8_SGIS,
 
 		/// <summary>
-		/// Strongly typed for value GL_R3_G3_B2.
+		/// Strongly typed for value GL_RED, GL_RED_EXT.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		R3G3B2 = Gl.R3_G3_B2,
-
-		/// <summary>
-		/// Strongly typed for value GL_RGB10.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
-		Rgb10 = Gl.RGB10,
-
-		/// <summary>
-		/// Strongly typed for value GL_RGB10_A2.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_AMD_interleaved_elements")]
+		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		Red = Gl.RED,
+
+		/// <summary>
+		/// Strongly typed for value GL_R8, GL_R8_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
-		Rgb10A2 = Gl.RGB10_A2,
+		R8 = Gl.R8,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGB12.
+		/// Strongly typed for value GL_R8_SNORM.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_EXT_texture")]
-		Rgb12 = Gl.RGB12,
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_snorm")]
+		R8Snorm = Gl.R8_SNORM,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGB16.
+		/// Strongly typed for value GL_R16, GL_R16_EXT.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
-		Rgb16 = Gl.RGB16,
+		R16 = Gl.R16,
+
+		/// <summary>
+		/// Strongly typed for value GL_R16_SNORM, GL_R16_SNORM_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_EXT_texture_snorm")]
+		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
+		R16Snorm = Gl.R16_SNORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_R16F, GL_R16F_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_color_buffer_half_float", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		R16f = Gl.R16F,
+
+		/// <summary>
+		/// Strongly typed for value GL_R32F, GL_R32F_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		R32f = Gl.R32F,
+
+		/// <summary>
+		/// Strongly typed for value GL_R8I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		R8i = Gl.R8I,
+
+		/// <summary>
+		/// Strongly typed for value GL_R16I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		R16i = Gl.R16I,
+
+		/// <summary>
+		/// Strongly typed for value GL_R32I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		R32i = Gl.R32I,
+
+		/// <summary>
+		/// Strongly typed for value GL_R8UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		R8ui = Gl.R8UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_R16UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		R16ui = Gl.R16UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_R32UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		R32ui = Gl.R32UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
+		Rg = Gl.RG,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG8, GL_RG8_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		Rg8 = Gl.RG8,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG8_SNORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_snorm")]
+		Rg8Snorm = Gl.RG8_SNORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG16, GL_RG16_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
+		Rg16 = Gl.RG16,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG16_SNORM, GL_RG16_SNORM_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_EXT_texture_snorm")]
+		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
+		Rg16Snorm = Gl.RG16_SNORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG16F, GL_RG16F_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_color_buffer_half_float", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		Rg16f = Gl.RG16F,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG32F, GL_RG32F_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		Rg32f = Gl.RG32F,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG8I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		Rg8i = Gl.RG8I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG16I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		Rg16i = Gl.RG16I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG32I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		Rg32i = Gl.RG32I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG8UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_AMD_interleaved_elements")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		Rg8ui = Gl.RG8UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG16UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_AMD_interleaved_elements")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		Rg16ui = Gl.RG16UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RG32UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
+		Rg32ui = Gl.RG32UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		Rgb = Gl.RGB,
 
 		/// <summary>
 		/// Strongly typed for value GL_RGB2_EXT.
@@ -8633,31 +8794,21 @@ namespace OpenGL
 		Rgb2Ext = Gl.RGB2_EXT,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGB4.
+		/// Strongly typed for value GL_RGB4, GL_RGB4_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
 		Rgb4 = Gl.RGB4,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGB5.
+		/// Strongly typed for value GL_RGB5, GL_RGB5_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
 		Rgb5 = Gl.RGB5,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGB5_A1.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
-		Rgb5A1 = Gl.RGB5_A1,
-
-		/// <summary>
-		/// Strongly typed for value GL_RGB8.
+		/// Strongly typed for value GL_RGB8, GL_RGB8_EXT, GL_RGB8_OES.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -8667,29 +8818,175 @@ namespace OpenGL
 		Rgb8 = Gl.RGB8,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGBA12.
+		/// Strongly typed for value GL_RGB8_SNORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_snorm")]
+		Rgb8Snorm = Gl.RGB8_SNORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB10, GL_RGB10_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
-		Rgba12 = Gl.RGBA12,
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		Rgb10 = Gl.RGB10,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGBA16.
+		/// Strongly typed for value GL_RGB12, GL_RGB12_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		Rgb12 = Gl.RGB12,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB16, GL_RGB16_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
 		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
-		Rgba16 = Gl.RGBA16,
+		Rgb16 = Gl.RGB16,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGBA2.
+		/// Strongly typed for value GL_RGB16F, GL_RGB16F_ARB, GL_RGB16F_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_float")]
+		[RequiredByFeature("GL_EXT_color_buffer_half_float", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		Rgb16f = Gl.RGB16F,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB16_SNORM, GL_RGB16_SNORM_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_EXT_texture_snorm")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
+		Rgb16Snorm = Gl.RGB16_SNORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB8I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgb8i = Gl.RGB8I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB16I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgb16i = Gl.RGB16I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB32I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_buffer_object_rgb32", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgb32i = Gl.RGB32I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB8UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgb8ui = Gl.RGB8UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB16UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgb16ui = Gl.RGB16UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB32UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_buffer_object_rgb32", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgb32ui = Gl.RGB32UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_SRGB, GL_SRGB_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		Srgb = Gl.SRGB,
+
+		/// <summary>
+		/// Strongly typed for value GL_SRGB_ALPHA, GL_SRGB_ALPHA_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		SrgbAlpha = Gl.SRGB_ALPHA,
+
+		/// <summary>
+		/// Strongly typed for value GL_SRGB8, GL_SRGB8_EXT, GL_SRGB8_NV.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
+		Srgb8 = Gl.SRGB8,
+
+		/// <summary>
+		/// Strongly typed for value GL_SRGB8_ALPHA8, GL_SRGB8_ALPHA8_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		Srgb8Alpha8 = Gl.SRGB8_ALPHA8,
+
+		/// <summary>
+		/// Strongly typed for value GL_R3_G3_B2.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_EXT_texture")]
-		Rgba2 = Gl.RGBA2,
+		R3G3B2 = Gl.R3_G3_B2,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGBA4.
+		/// Strongly typed for value GL_R11F_G11F_B10F, GL_R11F_G11F_B10F_APPLE, GL_R11F_G11F_B10F_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_texture_packed_float", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_packed_float")]
+		R11fG11fB10f = Gl.R11F_G11F_B10F,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB9_E5, GL_RGB9_E5_APPLE, GL_RGB9_E5_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_texture_packed_float", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_shared_exponent")]
+		Rgb9E5 = Gl.RGB9_E5,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		Rgba = Gl.RGBA,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA4, GL_RGBA4_EXT, GL_RGBA4_OES.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -8699,7 +8996,17 @@ namespace OpenGL
 		Rgba4 = Gl.RGBA4,
 
 		/// <summary>
-		/// Strongly typed for value GL_RGBA8.
+		/// Strongly typed for value GL_RGB5_A1, GL_RGB5_A1_EXT, GL_RGB5_A1_OES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		Rgb5A1 = Gl.RGB5_A1,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA8, GL_RGBA8_EXT, GL_RGBA8_OES.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -8709,7 +9016,253 @@ namespace OpenGL
 		Rgba8 = Gl.RGBA8,
 
 		/// <summary>
-		/// Strongly typed for value GL_COMPRESSED_RED_RGTC1.
+		/// Strongly typed for value GL_RGBA8_SNORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_snorm")]
+		Rgba8Snorm = Gl.RGBA8_SNORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB10_A2, GL_RGB10_A2_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		Rgb10A2 = Gl.RGB10_A2,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA12, GL_RGBA12_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		Rgba12 = Gl.RGBA12,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA16, GL_RGBA16_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_EXT_texture")]
+		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
+		Rgba16 = Gl.RGBA16,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA16F, GL_RGBA16F_ARB, GL_RGBA16F_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_float")]
+		[RequiredByFeature("GL_EXT_color_buffer_half_float", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		Rgba16f = Gl.RGBA16F,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA32F, GL_RGBA32F_ARB, GL_RGBA32F_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_float")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		Rgba32f = Gl.RGBA32F,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA8I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgba8i = Gl.RGBA8I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA16I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgba16i = Gl.RGBA16I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA32I.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgba32i = Gl.RGBA32I,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA8UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_AMD_interleaved_elements")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgba8ui = Gl.RGBA8UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA16UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgba16ui = Gl.RGBA16UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGBA32UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		Rgba32ui = Gl.RGBA32UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_RGB10_A2UI.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_texture_rgb10_a2ui", Api = "gl|glcore")]
+		Rgb10A2ui = Gl.RGB10_A2UI,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_COMPONENT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_depth_texture", Api = "gles2")]
+		DepthComponent = Gl.DEPTH_COMPONENT,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_COMPONENT16, GL_DEPTH_COMPONENT16_ARB, GL_DEPTH_COMPONENT16_OES, 
+		/// GL_DEPTH_COMPONENT16_SGIX.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
+		DepthComponent16 = Gl.DEPTH_COMPONENT16,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_COMPONENT24_ARB, GL_DEPTH_COMPONENT24_OES, GL_DEPTH_COMPONENT24_SGIX.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_OES_depth24", Api = "gles1|gles2|glsc2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
+		DepthComponent24 = Gl.DEPTH_COMPONENT24,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_COMPONENT32_ARB, GL_DEPTH_COMPONENT32_OES, GL_DEPTH_COMPONENT32_SGIX.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ARB_depth_texture")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_depth32", Api = "gles1|gles2|glsc2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_SGIX_depth_texture")]
+		DepthComponent32 = Gl.DEPTH_COMPONENT32,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_COMPONENT32F.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_depth_buffer_float", Api = "gl|glcore")]
+		DepthComponent32f = Gl.DEPTH_COMPONENT32F,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_COMPONENT32F_NV, GL_DEPTH_COMPONENT32F_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		DepthComponent32fNv = Gl.DEPTH_COMPONENT32F_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH_STENCIL, GL_DEPTH_STENCIL_EXT, GL_DEPTH_STENCIL_NV, GL_DEPTH_STENCIL_OES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_packed_depth_stencil")]
+		[RequiredByFeature("GL_NV_packed_depth_stencil")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_packed_depth_stencil", Api = "gles1|gles2")]
+		DepthStencil = Gl.DEPTH_STENCIL,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH24_STENCIL8, GL_DEPTH24_STENCIL8_EXT, GL_DEPTH24_STENCIL8_OES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_packed_depth_stencil")]
+		[RequiredByFeature("GL_ANGLE_depth_texture", Api = "gles2")]
+		[RequiredByFeature("GL_OES_packed_depth_stencil", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
+		Depth24Stencil8 = Gl.DEPTH24_STENCIL8,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH32F_STENCIL8.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_depth_buffer_float", Api = "gl|glcore")]
+		Depth32fStencil8 = Gl.DEPTH32F_STENCIL8,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEPTH32F_STENCIL8_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		Depth32fStencil8Nv = Gl.DEPTH32F_STENCIL8_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RED.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		CompressedRed = Gl.COMPRESSED_RED,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RG.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		CompressedRg = Gl.COMPRESSED_RG,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RGB.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
+		CompressedRgb = Gl.COMPRESSED_RGB,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RGBA.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_texture_compression")]
+		CompressedRgba = Gl.COMPRESSED_RGBA,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_SRGB.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		CompressedSrgb = Gl.COMPRESSED_SRGB,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_SRGB_ALPHA.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		CompressedSrgbAlpha = Gl.COMPRESSED_SRGB_ALPHA,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RED_RGTC1, GL_COMPRESSED_RED_RGTC1_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc", Api = "gl|glcore")]
@@ -8717,12 +9270,28 @@ namespace OpenGL
 		CompressedRedRgtc1 = Gl.COMPRESSED_RED_RGTC1,
 
 		/// <summary>
-		/// Strongly typed for value GL_COMPRESSED_SIGNED_RED_RGTC1.
+		/// Strongly typed for value GL_COMPRESSED_SIGNED_RED_RGTC1, GL_COMPRESSED_SIGNED_RED_RGTC1_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
 		CompressedSignedRedRgtc1 = Gl.COMPRESSED_SIGNED_RED_RGTC1,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_R11_EAC.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
+		CompressedR11Eac = Gl.COMPRESSED_R11_EAC,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_SIGNED_R11_EAC.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
+		CompressedSignedR11Eac = Gl.COMPRESSED_SIGNED_R11_EAC,
 
 		/// <summary>
 		/// Strongly typed for value GL_COMPRESSED_RG_RGTC2.
@@ -8813,22 +9382,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		CompressedSrgb8Alpha8Etc2Eac = Gl.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC,
-
-		/// <summary>
-		/// Strongly typed for value GL_COMPRESSED_R11_EAC.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
-		CompressedR11Eac = Gl.COMPRESSED_R11_EAC,
-
-		/// <summary>
-		/// Strongly typed for value GL_COMPRESSED_SIGNED_R11_EAC.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
-		CompressedSignedR11Eac = Gl.COMPRESSED_SIGNED_R11_EAC,
 
 		/// <summary>
 		/// Strongly typed for value GL_COMPRESSED_RG11_EAC.

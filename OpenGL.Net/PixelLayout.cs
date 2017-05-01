@@ -861,40 +861,40 @@ namespace OpenGL
 		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel internal format.
 		/// </returns>
-		public static int GetGlInternalFormat(this PixelLayout type)
+		public static InternalFormat GetGlInternalFormat(this PixelLayout type)
 		{
 			switch (type) {
 
 				#region RGB/BGR Formats
 
 				case PixelLayout.RGB8:
-				case PixelLayout.BGR8:
-					return (Gl.RGB);
+				case PixelLayout.BGR8:	
+					return (InternalFormat.Rgb8);
 				case PixelLayout.RGB15:
 				case PixelLayout.BGR15:
-					return (Gl.RGB5);
+					return (InternalFormat.Rgb5);
 				case PixelLayout.RGB16:
 				case PixelLayout.BGR16:
-					return (Gl.RGB);
+					return (InternalFormat.Rgb8);
 				case PixelLayout.RGB24:
 				case PixelLayout.BGR24:
-					return (Gl.RGB8);
+					return (InternalFormat.Rgb8);
 				case PixelLayout.RGB48:
 				case PixelLayout.BGR48:
-					return (Gl.RGB16);
+					return (InternalFormat.Rgb16);
 				case PixelLayout.RGBF:
 				case PixelLayout.RGBD:
 				case PixelLayout.BGRF:
 					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
-						return (Gl.RGB32F);
+						return (InternalFormat.Rgba32f);
 					else
-						return (Gl.RGB);
+						return (InternalFormat.Rgb8);
 				case PixelLayout.RGBHF:
 				case PixelLayout.BGRHF:
 					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
-						return (Gl.RGB16F);
+						return (InternalFormat.Rgb16f);
 					else
-						return (Gl.RGB);
+						return (InternalFormat.Rgb8);
 
 				#endregion
 
@@ -902,7 +902,7 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 				case PixelLayout.SBGR24:
-					return (Gl.SRGB8);
+					return (InternalFormat.Srgb8);
 
 				#endregion
 
@@ -912,43 +912,43 @@ namespace OpenGL
 				//case PixelLayout.BGR30A2:
 				case PixelLayout.RGBA32:
 				case PixelLayout.BGRA32:
-					return (Gl.RGBA);
+					return (InternalFormat.Rgba8);
 				case PixelLayout.RGBA64:
 				case PixelLayout.BGRA64:
-					return (Gl.RGBA16);
+					return (InternalFormat.Rgba16);
 				case PixelLayout.RGBAF:
 				case PixelLayout.BGRAF:
 					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
-						return (Gl.RGBA32F);
+						return (InternalFormat.Rgba32f);
 					else
-						return (Gl.RGBA);
+						return (InternalFormat.Rgba8);
 				case PixelLayout.RGBAHF:
 				case PixelLayout.BGRAHF:
 					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
-						return (Gl.RGBA16F);
+						return (InternalFormat.Rgba16f);
 					else
-						return (Gl.RGBA);
+						return (InternalFormat.Rgba8);
 
 				#endregion
 
 				#region GRAY Internal Formats
 
 				case PixelLayout.R8:
-					return (Gl.R8);
+					return (InternalFormat.R8);
 				case PixelLayout.R16:
-					return (Gl.R16);
+					return (InternalFormat.R16);
 				case PixelLayout.GRAY16S:
-					return (Gl.R16_SNORM);
+					return (InternalFormat.R16Snorm);
 				case PixelLayout.RF:
 					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
-						return (Gl.R32F);
+						return (InternalFormat.R32f);
 					else
-						return (Gl.RED);
+						return (InternalFormat.R8);
 				case PixelLayout.RHF:
 					if (Gl.CurrentExtensions.TextureFloat_ARB == true)
-						return (Gl.R16F);
+						return (InternalFormat.R16f);
 					else
-						return (Gl.RED);
+						return (InternalFormat.R8);
 
 				#endregion
 
@@ -962,43 +962,43 @@ namespace OpenGL
 				#region Depth Formats
 
 				case PixelLayout.Depth16:
-					return (Gl.DEPTH_COMPONENT16);
+					return (InternalFormat.DepthComponent16);
 				case PixelLayout.Depth24:
-					return (Gl.DEPTH_COMPONENT24);
+					return (InternalFormat.DepthComponent24);
 				case PixelLayout.Depth32:
-					return (Gl.DEPTH_COMPONENT32);
+					return (InternalFormat.DepthComponent32);
 				case PixelLayout.DepthF:
-					return (Gl.DEPTH_COMPONENT32F);
+					return (InternalFormat.DepthComponent32f);
 
 				#endregion
 
 				#region Depth/Stencil Formats
 
 				case PixelLayout.Depth24Stencil8:
-					return (Gl.DEPTH24_STENCIL8);
+					return (InternalFormat.Depth24Stencil8);
 				case PixelLayout.Depth32FStencil8:
-					return (Gl.DEPTH32F_STENCIL8);
+					return (InternalFormat.Depth32fStencil8);
 
 				#endregion
 
 				#region Integer Formats
 
 				case PixelLayout.Integer1:
-					return (Gl.R32I);
+					return (InternalFormat.R32i);
 				case PixelLayout.Integer2:
-					return (Gl.RG32I);
+					return (InternalFormat.Rg32i);
 				case PixelLayout.Integer3:
-					return (Gl.RGB32I);
+					return (InternalFormat.Rgb32i);
 				case PixelLayout.Integer4:
-					return (Gl.RGBA32I);
+					return (InternalFormat.Rgba32i);
 				case PixelLayout.UInteger1:
-					return (Gl.R32UI);
+					return (InternalFormat.R32ui);
 				case PixelLayout.UInteger2:
-					return (Gl.RG32UI);
+					return (InternalFormat.Rg32ui);
 				case PixelLayout.UInteger3:
-					return (Gl.RGB32UI);
+					return (InternalFormat.Rgb32ui);
 				case PixelLayout.UInteger4:
-					return (Gl.RGBA32UI);
+					return (InternalFormat.Rgba32ui);
 
 				#endregion
 

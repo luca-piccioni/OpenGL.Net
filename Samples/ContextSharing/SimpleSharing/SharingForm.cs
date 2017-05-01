@@ -43,7 +43,7 @@ namespace SimpleSharing
 			try {
 				iBitmapData = sharedTexture.LockBits(new Rectangle(0, 0, sharedTexture.Width, sharedTexture.Height), System.Drawing.Imaging.ImageLockMode.ReadOnly, sharedTexture.PixelFormat);
 
-				Gl.TexImage2D(TextureTarget.Texture2d, 0, Gl.RGBA, sharedTexture.Width, sharedTexture.Height, 0, OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, iBitmapData.Scan0);
+				Gl.TexImage2D(TextureTarget.Texture2d, 0, InternalFormat.Rgba, sharedTexture.Width, sharedTexture.Height, 0, OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, iBitmapData.Scan0);
 			} finally {
 				if (iBitmapData != null)
 					sharedTexture.UnlockBits(iBitmapData);
