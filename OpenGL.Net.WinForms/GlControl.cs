@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace OpenGL
@@ -393,6 +394,46 @@ namespace OpenGL
 
 		#endregion
 
+		#region Design Properties - Animation
+
+		/// <summary>
+		/// Get or set the flag indicating whether control should update itself continuosly.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Animation")]
+		[Description("Flag indicating whether control should update itself continuosly.")]
+		[DefaultValue(false)]
+		public bool Animation
+		{
+			get { return (_Animation); }
+			set
+			{
+				_Animation = value;
+				// Start animation, if necessary
+				if (_Animation && IsHandleCreated)
+					BeginInvoke(new Action(delegate() { Invalidate(); }));
+			}
+		}
+
+		/// <summary>
+		/// Flag indicating whether control should update itself continuosly.
+		/// </summary>
+		private bool _Animation;
+
+		/// <summary>
+		/// Get or set the flag indicating whether control should update itself continuosly.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Animation")]
+		[Description("Animation update time, in milliseconds. Zero means continuos update, limited to V-Sync (see SwapInterval property).")]
+		[DefaultValue(0)]
+		public int AnimationTime
+		{
+			get; set;
+		}
+
+		#endregion
+
 		#region Design/Debug Graphics
 
 		/// <summary>
@@ -425,10 +466,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Pen used for drawing the UserControl at design time.
+		/// </summary>
+		private readonly Pen _DesignPen = new Pen(Color.Black, 1.5f);
+
+		/// <summary>
+		/// Brush used for drawing the UserControl at design time.
+		/// </summary>
+		private readonly Brush _DesignBrush = new SolidBrush(Color.Black);
+
+		/// <summary>
+		/// Font used for drawing  the UserControl in the case of failures.
+		/// </summary>
+		private readonly Font _DesignFont = new Font(FontFamily.GenericMonospace, 9.0f);
+
+		/// <summary>
 		/// Draw design mode graphics in case of failures.
 		/// </summary>
 		/// <param name="e">
 		/// A <see cref="PaintEventArgs"/> that specify the event arguments.
+		/// </param>
+		/// <param name="exception">
+		/// An <see cref="Exception"/> that describe the error encountered.
 		/// </param>
 		protected void DrawFailure(PaintEventArgs e, Exception exception)
 		{
@@ -450,21 +509,6 @@ namespace OpenGL
 				});
 			}
 		}
-
-		/// <summary>
-		/// Pen used for drawing the UserControl at design time.
-		/// </summary>
-		private readonly Pen _DesignPen = new Pen(Color.Black, 1.5f);
-
-		/// <summary>
-		/// Brush used for drawing the UserControl at design time.
-		/// </summary>
-		private readonly Brush _DesignBrush = new SolidBrush(Color.Black);
-
-		/// <summary>
-		/// Font used for drawing  the UserControl in the case of failures.
-		/// </summary>
-		private readonly Font _DesignFont = new Font(FontFamily.GenericMonospace, 9.0f);
 
 		/// <summary>
 		/// Pen used for drawing  the UserControl in the case of failures.
@@ -930,6 +974,9 @@ namespace OpenGL
 		/// <summary>
 		/// Event raised on control creation time, allow user to allocate resource on control.
 		/// </summary>
+		[Browsable(true)]
+		[Category("Rendering")]
+		[Description("Generated when the relative OpenGL context has been created.")]
 		public event EventHandler<GlControlEventArgs> ContextCreated
 		{
 			add { _ContextCreated += value; }
@@ -962,6 +1009,9 @@ namespace OpenGL
 		/// <summary>
 		/// Event raised on control disposition time, allow user to dispose resources on control.
 		/// </summary>
+		[Browsable(true)]
+		[Category("Rendering")]
+		[Description("Generated just before the relative OpenGL context is being released.")]
 		public event EventHandler<GlControlEventArgs> ContextDestroying;
 
 		/// <summary>
@@ -976,6 +1026,9 @@ namespace OpenGL
 		/// <summary>
 		/// Event raised on control render time, allow user to draw on control.
 		/// </summary>
+		[Browsable(true)]
+		[Category("Rendering")]
+		[Description("Generated when the GlControl has been requested to update its contents.")]
 		public event EventHandler<GlControlEventArgs> Render;
 
 		/// <summary>
@@ -987,12 +1040,30 @@ namespace OpenGL
 				Render(this, new GlControlEventArgs(_DeviceContext, _RenderContext));
 		}
 
+		/// <summary>
+		/// Event raised on control render time, allow user to update resources. It is executed AFTER the <see cref="Render"/>
+		/// event.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Rendering")]
+		[Description("Generated when the GlControl drawing commands are executed, but before the back-buffer is swapped.")]
+		public event EventHandler<GlControlEventArgs> ContextUpdate;
+
+		/// <summary>
+		/// Raise the event <see cref="ContextUpdate"/>.
+		/// </summary>
+		protected virtual void OnContextUpdate()
+		{
+			if (ContextUpdate != null && _RenderContext != IntPtr.Zero)
+				ContextUpdate(this, new GlControlEventArgs(_DeviceContext, _RenderContext));
+		}
+
 		#endregion
 
 		#region Statistics
 
 		/// <summary>
-		/// Get the time spent for drawing a frame.
+		/// Get the time spent for drawing the last frame.
 		/// </summary>
 		public TimeSpan FrameDrawTime
 		{
@@ -1000,46 +1071,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// The time spent for drawing a frame.
+		/// The time spent for drawing the last frame.
 		/// </summary>
 		private TimeSpan _FrameDrawTime;
 
 		/// <summary>
-		/// Get the frames per second.
+		/// Get the time spent for swapping the last frame.
 		/// </summary>
-		public int Fps
+		public TimeSpan FrameSwapTime
 		{
-			get
-			{
-				if (_FrameTs.Count > 1) {
-					TimeSpan fpsInterval = _FrameTs[_FrameTs.Count - 1] - _FrameTs[0];
-
-					return (int)(Math.Floor(_FrameTs.Count / fpsInterval.TotalSeconds + 0.5f));
-				} else
-					return (0);
-			}
+			get { return (_FrameSwapTime); }
 		}
 
 		/// <summary>
-		/// Record
+		/// The time spent for drawing the last frame.
 		/// </summary>
-		private void RecFrameTimestamp()
-		{
-			DateTime now = DateTime.UtcNow;
-
-			_FrameTs.Add(now);
-			_FrameTs.RemoveAll(delegate(DateTime item) { return (now - item > _FpsInterval); });
-		}
-
-		/// <summary>
-		/// Frame timestamps.
-		/// </summary>
-		private readonly List<DateTime> _FrameTs = new List<DateTime>();
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private TimeSpan _FpsInterval = new TimeSpan(0, 0, 0, 0, 1667);
+		private TimeSpan _FrameSwapTime;
 
 		#endregion
 
@@ -1108,17 +1155,21 @@ namespace OpenGL
 				if (_FailureException == null) {
 					try {
 						Stopwatch sw = Stopwatch.StartNew();
-
-						// Ensure that context is actually current on this device
+						
 						MakeCurrentContext();
-						// Event handling
-						OnRender();
 
+						// Draw
+						OnRender();
 						_FrameDrawTime = sw.Elapsed;
 
-						// Swap buffers if double-buffering
+						// Update
+						OnContextUpdate();
+
+
+						// Swap
 						_DeviceContext.SwapBuffers();
-						RecFrameTimestamp();
+						_FrameSwapTime = sw.Elapsed;
+
 					} catch (Exception exception) {
 						DrawFailure(e, exception);
 					}
@@ -1126,8 +1177,24 @@ namespace OpenGL
 					DrawFailure(e, _FailureException);
 			} else
 				DrawDesign(e);
+
 			// Base implementation
 			base.OnPaint(e);
+
+			// Animation
+			if (_Animation && !DesignMode) {
+				if (AnimationTime > 0) {
+					// Invalidate asynchronsly using Sleep
+					// @todo Timers may be a better alternative, but who use this feature?
+					BeginInvoke(new Action(delegate() {
+						Thread.Sleep(AnimationTime);
+						Invalidate();
+					}));
+				} else {
+					// Invalidate continuosly
+					Invalidate();
+				}
+			}
 		}
 
 		/// <summary>
@@ -1177,7 +1244,7 @@ namespace OpenGL
 		/// <summary>
 		/// Construct a GlControlEventArgs.
 		/// </summary>
-		/// <param name="ctx">
+		/// <param name="deviceContext">
 		/// The <see cref="DeviceContext"/> used for the underlying <see cref="GlControl"/>.
 		/// </param>
 		/// <param name="renderContext">

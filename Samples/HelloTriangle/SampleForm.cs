@@ -47,7 +47,7 @@ namespace HelloTriangle
 				// Here you can allocate resources or initialize state
 				Gl.MatrixMode(MatrixMode.Projection);
 				Gl.LoadIdentity();
-				Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
+				Gl.Ortho(0.0, 1.0, 0.0, 1.0, 0.0, 1.0);
 
 				// Uses multisampling, if available
 				if (glControl.MultisampleBits > 0)
@@ -61,6 +61,12 @@ namespace HelloTriangle
 				RenderControl_Render_ES(sender, e);
 			else
 				RenderControl_Render_GL(sender, e);
+		}
+
+		private void RenderControl_ContextUpdate(object sender, GlControlEventArgs e)
+		{
+			// Change triangle rotation
+			_Angle = (_Angle + 0.1f) % 45.0f;
 		}
 
 		private void RenderControl_ContextDestroying(object sender, GlControlEventArgs e)
@@ -246,14 +252,5 @@ namespace HelloTriangle
 		};
 
 		#endregion
-
-		private void AnimationTimer_Tick(object sender, EventArgs e)
-		{
-			// Change triangle rotation
-			_Angle = (_Angle + 0.1f) % 90.0f;
-
-			// Issue a new frame after this render
-			RenderControl.Invalidate();
-		}
 	}
 }
