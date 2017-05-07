@@ -39,21 +39,57 @@ namespace OpenGL
 			return (Math.IEEERemainder(angle, 360.0));
 		}
 
+		/// <summary>
+		/// Convert angle from radian units to degree units.
+		/// </summary>
+		/// <param name="radians">
+		/// A <see cref="Double"/> that specifies the angle to convert, in radians.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Double"/> that is <paramref name="radians"/>, but expressed in degress.
+		/// </returns>
 		public static double ToDegrees(double radians)
 		{
 			return (radians / Math.PI * 180.0);
 		}
 
+		/// <summary>
+		/// Convert angle from radian units to degree units.
+		/// </summary>
+		/// <param name="radians">
+		/// A <see cref="Single"/> that specifies the angle to convert, in radians.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Single"/> that is <paramref name="radians"/>, but expressed in degress.
+		/// </returns>
 		public static float ToDegrees(float radians)
 		{
 			return (radians / (float)Math.PI * 180.0f);
 		}
 
+		/// <summary>
+		/// Convert angle from degree units to radian units.
+		/// </summary>
+		/// <param name="radians">
+		/// A <see cref="Double"/> that specifies the angle to convert, in degress.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Double"/> that is <paramref name="radians"/>, but expressed in radians.
+		/// </returns>
 		public static double ToRadians(double degrees)
 		{
 			return (degrees / 180.0 * Math.PI);
 		}
 
+		/// <summary>
+		/// Convert angle from degree units to radian units.
+		/// </summary>
+		/// <param name="radians">
+		/// A <see cref="Single"/> that specifies the angle to convert, in degress.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Single"/> that is <paramref name="radians"/>, but expressed in radians.
+		/// </returns>
 		public static float ToRadians(float degrees)
 		{
 			return (degrees / 180.0f * (float)Math.PI);

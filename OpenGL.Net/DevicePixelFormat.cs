@@ -25,7 +25,11 @@ namespace OpenGL
 	/// <summary>
 	/// Pixel format description.
 	/// </summary>
-	[DebuggerDisplay("DevicePixelFormat: Idx={FormatIndex} Color={ColorBits} Depth={DepthBits} Stencil={StencilBits} Ms={MultisampleBits} sRGB={SRGBCapable} DB={DoubleBuffer}")]
+	[DebuggerDisplay(
+		"DevicePixelFormat: " +
+		"Idx={FormatIndex} Color={ColorBits} Depth={DepthBits} Stencil={StencilBits} DB={DoubleBuffer} " +
+		"Ms={MultisampleBits} sRGB={SRGBCapable}"
+	)]
 	public sealed class DevicePixelFormat
 	{
 		#region Constructors
@@ -194,16 +198,8 @@ namespace OpenGL
 		/// </returns>
 		public DevicePixelFormat Copy()
 		{
-			DevicePixelFormat copy = (DevicePixelFormat)MemberwiseClone();
-
-			return (copy);
+			return ((DevicePixelFormat)MemberwiseClone());
 		}
-
-		#endregion
-
-		#region ToString
-
-
 
 		#endregion
 
