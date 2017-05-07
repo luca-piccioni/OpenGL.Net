@@ -55,13 +55,12 @@ namespace OpenGL
 				return; // Already initialized
 			_Initialized = true;
 
-#if DEBUG
-			string envGlInit = Environment.GetEnvironmentVariable("GL_INIT");
-
+			// Optional initialization
+			string envGlInit = Environment.GetEnvironmentVariable("OPENGL_NET_INIT");
 			if (envGlInit != null && envGlInit == "NO")
 				return;
-#endif
 
+			// Environment options
 			LogComment("OpenGL.Net is initializing");
 
 			// Loader function			OS API			GL API
@@ -116,10 +115,10 @@ namespace OpenGL
 					_CurrentExtensions = new Extensions();
 					_CurrentExtensions.Query();
 
-#if GL_DEBUG
-					Debug.Assert(CurrentVersion != null && CurrentExtensions != null);
-					CheckExtensionCommands<Gl>(CurrentVersion, CurrentExtensions, false);
-#endif
+					if (EnvDebug || EnvExperimental) {
+						Debug.Assert(CurrentVersion != null && CurrentExtensions != null);
+						CheckExtensionCommands<Gl>(CurrentVersion, CurrentExtensions, EnvExperimental);
+					}
 
 					// Query OpenGL limits
 					_CurrentLimits = Limits.Query(Gl.CurrentVersion, _CurrentExtensions);

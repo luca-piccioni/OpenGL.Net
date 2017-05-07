@@ -45,6 +45,33 @@ namespace OpenGL
 	/// </remarks>
 	public class KhronosApi
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static KhronosApi()
+		{
+			EnvDebug = Environment.GetEnvironmentVariable("OPENGL_NET_DEBUG") != null;
+			EnvExperimental = Environment.GetEnvironmentVariable("OPENGL_NET_EXPERIMENTAL") != null;
+		}
+
+		#endregion
+
+		#region Options
+
+		/// <summary>
+		/// Debug environment.
+		/// </summary>
+		protected static readonly bool EnvDebug;
+
+		/// <summary>
+		/// Experimental environment.
+		/// </summary>
+		protected static readonly bool EnvExperimental;
+
+		#endregion
+
 		#region Function Linkage
 
 		/// <summary>

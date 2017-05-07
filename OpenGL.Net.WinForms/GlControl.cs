@@ -452,10 +452,10 @@ namespace OpenGL
 
 			StringBuilder sysinfo = new StringBuilder();
 
-			sysinfo.AppendFormat("Running on OpenGL {0}\n", Gl.CurrentVersion);
-			sysinfo.AppendFormat("  - OpenGL Shading Language version: {0}\n", Gl.CurrentShadingVersion);
-			sysinfo.AppendFormat("  - Vendor: {0}\n", Gl.CurrentVendor);
-			sysinfo.AppendFormat("  - Renderer: {0}\n", Gl.CurrentRenderer);
+			sysinfo.AppendFormat("Running on OpenGL {0}\n", Gl.CurrentVersion != null ? Gl.CurrentVersion.ToString() : "unknown (not initialized)");
+			sysinfo.AppendFormat("  - OpenGL Shading Language version: {0}\n", Gl.CurrentShadingVersion != null ? Gl.CurrentShadingVersion.ToString() : "unknown (not initialized)");
+			sysinfo.AppendFormat("  - Vendor: {0}\n", Gl.CurrentVendor ?? "unknown (not initialized)");
+			sysinfo.AppendFormat("  - Renderer: {0}\n", Gl.CurrentRenderer ?? "unknown (not initialized)");
 			if (Egl.IsAvailable)
 				sysinfo.AppendFormat("- EGL is available.\n\n");
 
@@ -738,8 +738,8 @@ namespace OpenGL
 					// required for specifying CONTEXT_FLAGS_ARB and CONTEXT_PROFILE_MASK_ARB attributes:
 					// - Required by NVIDIA 266.72 on GeForce GT 540M on Windows 7 x64
 					attributes.AddRange(new int[] {
-						Wgl.CONTEXT_MAJOR_VERSION_ARB, Gl.CurrentVersion.Major,
-						Wgl.CONTEXT_MINOR_VERSION_ARB, Gl.CurrentVersion.Minor
+						Wgl.CONTEXT_MAJOR_VERSION_ARB, 1,
+						Wgl.CONTEXT_MINOR_VERSION_ARB, 0
 					});
 				}
 
