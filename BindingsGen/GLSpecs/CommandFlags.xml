@@ -189,7 +189,7 @@
 	
 	<command name="^(gl\w+TexImage(1-4)|glBufferData)$">
 		<!-- Let the application handles the *TexImage* and glBufferData errors (proxy texture targets, out of memory) -->
-		<flags>NoGetError ForcePlainParams</flags>
+		<flags>NoGetError</flags>
 	</command>
 	
 	<!-- GL - Variadic Commands -->
