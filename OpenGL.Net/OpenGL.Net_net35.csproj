@@ -259,6 +259,7 @@
     <Compile Include="ColorSRGB.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
     <Compile Include="DMP\Gl.DMP_shader_binary.cs" />
+    <Compile Include="EglEventArgs.cs" />
     <Compile Include="EXT\Egl.EXT_gl_colorspace_bt2020_linear.cs" />
     <Compile Include="EXT\Egl.EXT_gl_colorspace_bt2020_pq.cs" />
     <Compile Include="EXT\Egl.EXT_gl_colorspace_scrgb_linear.cs" />

@@ -91,11 +91,8 @@ namespace OpenGL
 				LogComment("EGL not available:\n{0}", exception.ToString());
 			}
 
-			// Support for BCM VideoCore API
-			if (IsAvailable && Bcm.IsAvailable) {
-				// This need to be executed before any EGL/GL routine
-				Bcm.bcm_host_init();
-			}
+			if (IsAvailable == false)
+				return;
 
 #if DEBUG
 			string envEglInit = Environment.GetEnvironmentVariable("EGL_INIT");
@@ -104,27 +101,30 @@ namespace OpenGL
 				return;
 #endif
 
+			// Platform initialization
+			EglEventArgs args = new EglEventArgs();
+
+			RaiseEglInitializing(args);
+
 			// Get EGL information
-			if (IsAvailable) {
-				IntPtr eglDisplay = GetDisplay(new IntPtr(DEFAULT_DISPLAY));
+			IntPtr eglDisplay = Egl.GetDisplay(args.Display);
 
-				try {
-					if (Initialize(eglDisplay, null, null) == false)
-						throw new InvalidOperationException("unable to initialize EGL");
+			try {
+				if (Initialize(eglDisplay, null, null) == false)
+					throw new InvalidOperationException("unable to initialize EGL");
 
-					// Query EGL version
-					string eglVersionString = QueryString(eglDisplay, VERSION);
-					_CurrentVersion = KhronosVersion.Parse(eglVersionString, KhronosVersion.ApiEgl);
-					// Query EGL vendor
-					_Vendor = QueryString(eglDisplay, VENDOR);
-					// Client APIs
-					if (_CurrentVersion >= Version_120) {
-						string clientApisString = QueryString(eglDisplay, CLIENT_APIS);
-						_AvailableApis = System.Text.RegularExpressions.Regex.Split(clientApisString, " ");
-					}
-				} finally {
-					Terminate(eglDisplay);
+				// Query EGL version
+				string eglVersionString = QueryString(eglDisplay, VERSION);
+				_CurrentVersion = KhronosVersion.Parse(eglVersionString, KhronosVersion.ApiEgl);
+				// Query EGL vendor
+				_Vendor = QueryString(eglDisplay, VENDOR);
+				// Client APIs
+				if (_CurrentVersion >= Version_120) {
+					string clientApisString = QueryString(eglDisplay, CLIENT_APIS);
+					_AvailableApis = System.Text.RegularExpressions.Regex.Split(clientApisString, " ");
 				}
+			} finally {
+				Terminate(eglDisplay);
 			}
 		}
 

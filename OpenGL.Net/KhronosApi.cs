@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2015 Luca Piccioni
+// Copyright (C) 2009-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -24,7 +24,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Text.RegularExpressions;
 
 using ImportMap = System.Collections.Generic.SortedList<string, System.Reflection.MethodInfo>;
@@ -54,6 +53,9 @@ namespace OpenGL
 		{
 			EnvDebug = Environment.GetEnvironmentVariable("OPENGL_NET_DEBUG") != null;
 			EnvExperimental = Environment.GetEnvironmentVariable("OPENGL_NET_EXPERIMENTAL") != null;
+
+			// Support for RPi
+			EglInitializing += KhronosApi_PlatformInit_Rpi;
 		}
 
 		#endregion
@@ -69,6 +71,37 @@ namespace OpenGL
 		/// Experimental environment.
 		/// </summary>
 		protected static readonly bool EnvExperimental;
+
+		#endregion
+
+		#region Platform Initialization
+
+		/// <summary>
+		/// Platform initialization. Executed only once before everything else.
+		/// </summary>
+		public static event EventHandler<EglEventArgs> EglInitializing;
+
+		/// <summary>
+		/// Raise the <see cref="EglInitializing"/>.
+		/// </summary>
+		/// <param name="e">
+		/// 
+		/// </param>
+		protected static void RaiseEglInitializing(EglEventArgs e)
+		{
+			EglInitializing?.Invoke(null, e);
+		}
+
+		/// <summary>
+		/// Initialize RPi Broadcom VideoCore IV API.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private static void KhronosApi_PlatformInit_Rpi(object sender, EglEventArgs e)
+		{
+			if (Bcm.IsAvailable)
+				Bcm.bcm_host_init();
+		}
 
 		#endregion
 
