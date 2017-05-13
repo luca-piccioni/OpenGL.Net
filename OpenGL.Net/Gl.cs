@@ -316,19 +316,22 @@ namespace OpenGL
 			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
 
 			// Context profile
-			string glProfile = null;
-			int ctxProfile = 0;
+			if (glversion.Api == KhronosVersion.ApiGl && glversion >= Gl.Version_320) {
+				string glProfile = null;
+				int ctxProfile = 0;
 
-			Gl.Get(Gl.CONTEXT_PROFILE_MASK, out ctxProfile);
+				Gl.Get(Gl.CONTEXT_PROFILE_MASK, out ctxProfile);
 
-			if     ((ctxProfile & Gl.CONTEXT_COMPATIBILITY_PROFILE_BIT) != 0)
-				glProfile = KhronosVersion.ProfileCompatibility;
-			else if ((ctxProfile & Gl.CONTEXT_CORE_PROFILE_BIT) != 0)
-				glProfile = KhronosVersion.ProfileCore;
-			else
-				glProfile = KhronosVersion.ProfileCompatibility;
+				if     ((ctxProfile & Gl.CONTEXT_COMPATIBILITY_PROFILE_BIT) != 0)
+					glProfile = KhronosVersion.ProfileCompatibility;
+				else if ((ctxProfile & Gl.CONTEXT_CORE_PROFILE_BIT) != 0)
+					glProfile = KhronosVersion.ProfileCore;
+				else
+					glProfile = KhronosVersion.ProfileCompatibility;
 
-			return (new KhronosVersion(glversion, glProfile));
+				return (new KhronosVersion(glversion, glProfile));
+			} else
+				return (new KhronosVersion(glversion, KhronosVersion.ProfileCompatibility));
 		}
 
 		/// <summary>
