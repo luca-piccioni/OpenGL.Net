@@ -176,6 +176,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFramebufferSampleLocationsfvARB(Int32 target, UInt32 start, Int32 count, float* v);
 
+			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glFramebufferSampleLocationsfvARB pglFramebufferSampleLocationsfvARB;
 
@@ -183,6 +184,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedFramebufferSampleLocationsfvARB(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
 
+			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferSampleLocationsfvARB pglNamedFramebufferSampleLocationsfvARB;
 
@@ -190,6 +192,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvaluateDepthValuesARB();
 
+			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glEvaluateDepthValuesARB pglEvaluateDepthValuesARB;
 

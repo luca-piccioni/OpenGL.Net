@@ -141,6 +141,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelDataRangeNV(Int32 target, Int32 length, IntPtr pointer);
 
+			[RequiredByFeature("GL_NV_pixel_data_range")]
 			[ThreadStatic]
 			internal static glPixelDataRangeNV pglPixelDataRangeNV;
 
@@ -148,6 +149,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFlushPixelDataRangeNV(Int32 target);
 
+			[RequiredByFeature("GL_NV_pixel_data_range")]
 			[ThreadStatic]
 			internal static glFlushPixelDataRangeNV pglFlushPixelDataRangeNV;
 

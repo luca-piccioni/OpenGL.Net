@@ -298,6 +298,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPresentFrameKeyedNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, UInt32 key0, Int32 target1, UInt32 fill1, UInt32 key1);
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
 			internal static glPresentFrameKeyedNV pglPresentFrameKeyedNV;
 
@@ -305,6 +306,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPresentFrameDualFillNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, Int32 target1, UInt32 fill1, Int32 target2, UInt32 fill2, Int32 target3, UInt32 fill3);
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
 			internal static glPresentFrameDualFillNV pglPresentFrameDualFillNV;
 
@@ -312,6 +314,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoivNV(UInt32 video_slot, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
 			internal static glGetVideoivNV pglGetVideoivNV;
 
@@ -319,6 +322,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideouivNV(UInt32 video_slot, Int32 pname, UInt32* @params);
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
 			internal static glGetVideouivNV pglGetVideouivNV;
 
@@ -326,6 +330,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoi64vNV(UInt32 video_slot, Int32 pname, Int64* @params);
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
 			internal static glGetVideoi64vNV pglGetVideoi64vNV;
 
@@ -333,6 +338,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoui64vNV(UInt32 video_slot, Int32 pname, UInt64* @params);
 
+			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
 			internal static glGetVideoui64vNV pglGetVideoui64vNV;
 

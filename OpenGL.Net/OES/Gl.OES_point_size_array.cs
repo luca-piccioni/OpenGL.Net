@@ -152,6 +152,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointSizePointerOES(Int32 type, Int32 stride, IntPtr pointer);
 
+			[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 			[ThreadStatic]
 			internal static glPointSizePointerOES pglPointSizePointerOES;
 

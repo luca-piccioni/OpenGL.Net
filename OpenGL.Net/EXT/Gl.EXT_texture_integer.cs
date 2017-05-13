@@ -256,6 +256,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearColorIiEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha);
 
+			[RequiredByFeature("GL_EXT_texture_integer")]
 			[ThreadStatic]
 			internal static glClearColorIiEXT pglClearColorIiEXT;
 
@@ -263,6 +264,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
 
+			[RequiredByFeature("GL_EXT_texture_integer")]
 			[ThreadStatic]
 			internal static glClearColorIuiEXT pglClearColorIuiEXT;
 

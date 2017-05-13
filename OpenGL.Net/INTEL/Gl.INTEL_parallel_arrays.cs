@@ -185,6 +185,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
 
+			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[ThreadStatic]
 			internal static glVertexPointervINTEL pglVertexPointervINTEL;
 
@@ -192,6 +193,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormalPointervINTEL(Int32 type, IntPtr* pointer);
 
+			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[ThreadStatic]
 			internal static glNormalPointervINTEL pglNormalPointervINTEL;
 
@@ -199,6 +201,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
 
+			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[ThreadStatic]
 			internal static glColorPointervINTEL pglColorPointervINTEL;
 
@@ -206,6 +209,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
 
+			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[ThreadStatic]
 			internal static glTexCoordPointervINTEL pglTexCoordPointervINTEL;
 

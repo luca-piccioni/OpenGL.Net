@@ -133,6 +133,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInternalformatSampleivNV(Int32 target, Int32 internalformat, Int32 samples, Int32 pname, Int32 bufSize, Int32* @params);
 
+			[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetInternalformatSampleivNV pglGetInternalformatSampleivNV;
 

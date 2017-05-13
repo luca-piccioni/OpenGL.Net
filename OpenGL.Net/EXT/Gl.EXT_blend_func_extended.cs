@@ -67,6 +67,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetProgramResourceLocationIndexEXT(UInt32 program, Int32 programInterface, String name);
 
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetProgramResourceLocationIndexEXT pglGetProgramResourceLocationIndexEXT;
 

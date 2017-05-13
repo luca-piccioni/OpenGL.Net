@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSwapBuffersRegion2NOK(IntPtr dpy, IntPtr surface, int numRects, int* rects);
 
+			[RequiredByFeature("EGL_NOK_swap_region2")]
 			internal static eglSwapBuffersRegion2NOK peglSwapBuffersRegion2NOK;
 
 		}

@@ -73,6 +73,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glImportSyncEXT(Int32 external_sync_type, IntPtr external_sync, UInt32 flags);
 
+			[RequiredByFeature("GL_EXT_x11_sync_object")]
 			[ThreadStatic]
 			internal static glImportSyncEXT pglImportSyncEXT;
 

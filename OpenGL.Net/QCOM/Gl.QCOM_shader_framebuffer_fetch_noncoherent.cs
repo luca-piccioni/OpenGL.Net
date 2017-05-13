@@ -60,6 +60,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferFetchBarrierQCOM();
 
+			[RequiredByFeature("GL_QCOM_shader_framebuffer_fetch_noncoherent", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFramebufferFetchBarrierQCOM pglFramebufferFetchBarrierQCOM;
 

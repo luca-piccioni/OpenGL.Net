@@ -118,6 +118,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTessellationFactorAMD(float factor);
 
+			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 			[ThreadStatic]
 			internal static glTessellationFactorAMD pglTessellationFactorAMD;
 
@@ -125,6 +126,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTessellationModeAMD(Int32 mode);
 
+			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 			[ThreadStatic]
 			internal static glTessellationModeAMD pglTessellationModeAMD;
 

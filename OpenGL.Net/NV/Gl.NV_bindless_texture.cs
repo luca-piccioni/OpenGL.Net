@@ -353,6 +353,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt64 glGetTextureHandleNV(UInt32 texture);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetTextureHandleNV pglGetTextureHandleNV;
 
@@ -360,6 +361,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt64 glGetTextureSamplerHandleNV(UInt32 texture, UInt32 sampler);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetTextureSamplerHandleNV pglGetTextureSamplerHandleNV;
 
@@ -367,6 +369,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMakeTextureHandleResidentNV(UInt64 handle);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMakeTextureHandleResidentNV pglMakeTextureHandleResidentNV;
 
@@ -374,6 +377,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMakeTextureHandleNonResidentNV(UInt64 handle);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMakeTextureHandleNonResidentNV pglMakeTextureHandleNonResidentNV;
 
@@ -381,6 +385,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt64 glGetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetImageHandleNV pglGetImageHandleNV;
 
@@ -388,6 +393,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMakeImageHandleResidentNV(UInt64 handle, Int32 access);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMakeImageHandleResidentNV pglMakeImageHandleResidentNV;
 
@@ -395,6 +401,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMakeImageHandleNonResidentNV(UInt64 handle);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMakeImageHandleNonResidentNV pglMakeImageHandleNonResidentNV;
 
@@ -402,6 +409,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniformHandleui64NV(Int32 location, UInt64 value);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glUniformHandleui64NV pglUniformHandleui64NV;
 
@@ -409,6 +417,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformHandleui64vNV(Int32 location, Int32 count, UInt64* value);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glUniformHandleui64vNV pglUniformHandleui64vNV;
 
@@ -416,6 +425,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniformHandleui64NV(UInt32 program, Int32 location, UInt64 value);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glProgramUniformHandleui64NV pglProgramUniformHandleui64NV;
 
@@ -423,6 +433,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformHandleui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* values);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glProgramUniformHandleui64vNV pglProgramUniformHandleui64vNV;
 
@@ -430,6 +441,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsTextureHandleResidentNV(UInt64 handle);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glIsTextureHandleResidentNV pglIsTextureHandleResidentNV;
 
@@ -437,6 +449,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsImageHandleResidentNV(UInt64 handle);
 
+			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glIsImageHandleResidentNV pglIsImageHandleResidentNV;
 

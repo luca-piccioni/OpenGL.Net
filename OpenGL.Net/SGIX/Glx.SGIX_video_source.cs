@@ -98,12 +98,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXCreateGLXVideoSourceSGIX(IntPtr display, int screen, IntPtr server, IntPtr path, int nodeClass, IntPtr drainNode);
 
+			[RequiredByFeature("GLX_SGIX_video_source")]
 			internal static glXCreateGLXVideoSourceSGIX pglXCreateGLXVideoSourceSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_source")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXDestroyGLXVideoSourceSGIX(IntPtr dpy, IntPtr glxvideosource);
 
+			[RequiredByFeature("GLX_SGIX_video_source")]
 			internal static glXDestroyGLXVideoSourceSGIX pglXDestroyGLXVideoSourceSGIX;
 
 		}

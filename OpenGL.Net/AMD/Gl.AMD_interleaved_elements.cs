@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribParameteriAMD(UInt32 index, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_AMD_interleaved_elements")]
 			[ThreadStatic]
 			internal static glVertexAttribParameteriAMD pglVertexAttribParameteriAMD;
 

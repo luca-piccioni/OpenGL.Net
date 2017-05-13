@@ -98,6 +98,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindRenderbufferEXT(Int32 target, UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glBindRenderbufferEXT pglBindRenderbufferEXT;
 
@@ -105,6 +106,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindFramebufferEXT(Int32 target, UInt32 framebuffer);
 
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glBindFramebufferEXT pglBindFramebufferEXT;
 

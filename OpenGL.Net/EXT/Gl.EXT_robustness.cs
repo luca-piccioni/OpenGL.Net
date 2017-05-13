@@ -58,6 +58,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetGraphicsResetStatusEXT();
 
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glGetGraphicsResetStatusEXT pglGetGraphicsResetStatusEXT;
 

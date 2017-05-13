@@ -96,6 +96,23 @@ namespace OpenGL
 		/// </exception>
 		internal static void BindAPI<T>(string path, IGetProcAddress getProcAddress)
 		{
+			BindAPI<T>(path, getProcAddress, null, null);
+		}
+
+		/// <summary>
+		/// Link delegates fields using import declarations, using platform specific method for determining procedures addresses.
+		/// </summary>
+		/// <param name="imports">
+		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// </param>
+		/// <param name="delegates">
+		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
+		/// </exception>
+		internal static void BindAPI<T>(string path, IGetProcAddress getProcAddress, KhronosVersion version, ExtensionsCollection extensions)
+		{
 			BindAPI<T>(path, delegate(string libpath, string function) {
 				// Note: IGetProcAddress implementation may have GetOpenGLProcAddress equivalent to GetProcAddress
 				IntPtr procAddress = getProcAddress.GetOpenGLProcAddress(function);
@@ -104,21 +121,21 @@ namespace OpenGL
 					return (GetProcAddress.GetProcAddressOS.GetProcAddress(libpath, function));
 
 				return (procAddress);
-			});
+			}, version, extensions);
 		}
 
 		/// <summary>
 		/// Link delegates field using import declaration, using platform specific method for determining procedures address.
 		/// </summary>
-		internal static void BindAPIFunction<T>(string path, string functionName)
+		internal static void BindAPIFunction<T>(string path, string functionName, KhronosVersion version, ExtensionsCollection extensions)
 		{
-			BindAPIFunction<T>(path, functionName, GetProcAddress.GetProcAddressOS);
+			BindAPIFunction<T>(path, functionName, GetProcAddress.GetProcAddressOS, version, extensions);
 		}
 
 		/// <summary>
 		/// Link delegates field using import declaration, using platform specific method for determining procedures address.
 		/// </summary>
-		internal static void BindAPIFunction<T>(string path, string functionName, IGetProcAddress getProcAddress)
+		internal static void BindAPIFunction<T>(string path, string functionName, IGetProcAddress getProcAddress, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
@@ -143,7 +160,7 @@ namespace OpenGL
 			if (functionField == null)
 				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
 
-			BindAPIFunction(path, functionContext, functionField, delegate (string libpath, string function) {
+			BindAPIFunction(path, delegate (string libpath, string function) {
 				// Note: IGetProcAddress implementation may have GetOpenGLProcAddress equivalent to GetProcAddress
 				IntPtr procAddress = getProcAddress.GetOpenGLProcAddress(function);
 
@@ -151,7 +168,7 @@ namespace OpenGL
 					return (GetProcAddress.GetProcAddressOS.GetProcAddress(libpath, function));
 
 				return (procAddress);
-			});
+			}, functionContext, functionField, version, extensions);
 		}
 
 		/// <summary>
@@ -166,7 +183,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="path"/> or <paramref name="getAddress"/> is null.
 		/// </exception>
-		private static void BindAPI<T>(string path, GetAddressDelegate getAddress)
+		private static void BindAPI<T>(string path, GetAddressDelegate getAddress, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
@@ -180,7 +197,7 @@ namespace OpenGL
 				throw new InvalidOperationException("unrecognized API type");
 
 			foreach (FieldInfo fi in functionContext.Delegates)
-				BindAPIFunction(path, functionContext, fi, getAddress);
+				BindAPIFunction(path, getAddress, functionContext, fi, version, extensions);
 		}
 
 		/// <summary>
@@ -189,19 +206,19 @@ namespace OpenGL
 		/// <param name="path">
 		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
 		/// </param>
+		/// <param name="getAddress">
+		/// A <see cref="GetAddressDelegate"/> used for getting function pointers. This parameter is dependent on the currently running platform.
+		/// </param>
 		/// <param name="functionContext">
 		/// A <see cref="FunctionContext"/> mapping a <see cref="MethodInfo"/> with the relative function name.
 		/// </param>
 		/// <param name="function">
 		/// A <see cref="FieldInfo"/> that specifies the underlying function field to be updated.
 		/// </param>
-		/// <param name="getAddress">
-		/// A <see cref="GetAddressDelegate"/> used for getting function pointers. This parameter is dependent on the currently running platform.
-		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="path"/>, <paramref name="function"/> or <paramref name="getAddress"/> is null.
 		/// </exception>
-		private static void BindAPIFunction(string path, FunctionContext functionContext, FieldInfo function, GetAddressDelegate getAddress)
+		private static void BindAPIFunction(string path, GetAddressDelegate getAddress, FunctionContext functionContext, FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
@@ -212,19 +229,29 @@ namespace OpenGL
 			if (getAddress == null)
 				throw new ArgumentNullException("getAddress");
 
-			Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(function, typeof(AliasOfAttribute));
+			if (version != null || extensions != null) {
+				if (IsCompatibleField(function, version, extensions) == false) {
+					function.SetValue(null, null);				// Function not supported: reset
+					return;
+				}
+			}
+
 			string importName = function.Name.Substring(1);           // Delegate name always prefixes with 'p'
 			IntPtr importAddress = IntPtr.Zero;
 
+			// Load command address
+			importAddress = getAddress(path, importName);
+
 			// Manages aliases (load external symbol)
-			if (aliasOfAttributes.Length > 0) {
-				for (int i = 0; i < aliasOfAttributes.Length; i++) {
+			if (importAddress == IntPtr.Zero) {
+				Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(function, typeof(AliasOfAttribute));
+
+				for (int i = 1 /* Skip base name */; i < aliasOfAttributes.Length; i++) {
 					AliasOfAttribute aliasOfAttribute = (AliasOfAttribute)aliasOfAttributes[i];
 					if ((importAddress = getAddress(path, aliasOfAttribute.SymbolName)) != IntPtr.Zero)
 						break;
 				}
-			} else
-				importAddress = getAddress(path, importName);
+			}
 
 			if (importAddress != IntPtr.Zero) {
 				Delegate delegatePtr;
@@ -240,7 +267,78 @@ namespace OpenGL
 				if (delegatePtr != null)
 					function.SetValue(null, delegatePtr);
 			} else
-				function.SetValue(null, null);				// Function not implemented
+				function.SetValue(null, null);				// Function not implemented: reset
+		}
+
+		/// <summary>
+		/// Determine whether an API command is compatible with the specific API version and extensions registry.
+		/// </summary>
+		/// <param name="function">
+		/// A <see cref="FieldInfo"/> that specifies the command delegate to set. This argument make avail attributes useful
+		/// to determine the actual support for this command.
+		/// </param>
+		/// <param name="version">
+		/// The <see cref="KhronosVersion"/> that specifies the API version.
+		/// </param>
+		/// <param name="extensions">
+		/// The <see cref="ExtensionsCollection"/> that specifies the API extensions registry.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Boolean"/> that specifies whether <paramref name="function"/> is supported by the
+		/// API having the version <paramref name="version"/> and the extensions registry <paramref name="extensions"/>.
+		/// </returns>
+		private static bool IsCompatibleField(FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
+		{
+			if (function == null)
+				throw new ArgumentNullException("function");
+			if (version == null)
+				throw new ArgumentNullException("version");
+
+			Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
+
+			KhronosVersion maxRequiredVersion = null;
+			bool isRequired = false, isRemoved = false;
+
+			foreach (RequiredByFeatureAttribute attr in attrRequired) {
+				// Check for API support
+				if (attr.IsSupported(version, extensions) == false)
+					continue;
+				// Supported!
+				isRequired |= true;
+				// Keep track of the maximum API version supporting this command
+				// Note: useful for resurrected commands after deprecation
+				if (maxRequiredVersion == null || maxRequiredVersion < attr.FeatureVersion)
+					maxRequiredVersion = attr.FeatureVersion;
+			}
+
+			if (isRequired) {
+				// Note: indeed the feature could be supported; check whether it is removed
+				Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
+				KhronosVersion maxRemovedVersion = null;
+
+				foreach (RemovedByFeatureAttribute attr in attrRemoved) {
+					if (attr.IsRemoved(version, extensions) == false)
+						continue;
+
+					// Removed!
+					isRemoved |= true;
+					// Keep track of the maximum API version removing this command
+					if (maxRemovedVersion == null || maxRemovedVersion < attr.FeatureVersion)
+						maxRemovedVersion = attr.FeatureVersion;
+				}
+
+				// Check for resurrection
+				if (isRemoved) {
+					Debug.Assert(maxRequiredVersion != null);
+					Debug.Assert(maxRemovedVersion != null);
+					
+					if (maxRequiredVersion > maxRemovedVersion)
+						isRemoved = false;
+				}
+
+				return (isRemoved == false);
+			} else
+				return (false);
 		}
 
 		/// <summary>

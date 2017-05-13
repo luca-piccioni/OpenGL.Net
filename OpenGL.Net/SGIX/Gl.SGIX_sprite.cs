@@ -178,6 +178,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSpriteParameterfSGIX(Int32 pname, float param);
 
+			[RequiredByFeature("GL_SGIX_sprite")]
 			[ThreadStatic]
 			internal static glSpriteParameterfSGIX pglSpriteParameterfSGIX;
 
@@ -185,6 +186,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSpriteParameterfvSGIX(Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_SGIX_sprite")]
 			[ThreadStatic]
 			internal static glSpriteParameterfvSGIX pglSpriteParameterfvSGIX;
 
@@ -192,6 +194,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSpriteParameteriSGIX(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_SGIX_sprite")]
 			[ThreadStatic]
 			internal static glSpriteParameteriSGIX pglSpriteParameteriSGIX;
 
@@ -199,6 +202,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSpriteParameterivSGIX(Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_SGIX_sprite")]
 			[ThreadStatic]
 			internal static glSpriteParameterivSGIX pglSpriteParameterivSGIX;
 

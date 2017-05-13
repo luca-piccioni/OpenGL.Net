@@ -589,6 +589,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoord1bOES(Int32 texture, sbyte s);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1bOES pglMultiTexCoord1bOES;
 
@@ -596,6 +597,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord1bvOES(Int32 texture, sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1bvOES pglMultiTexCoord1bvOES;
 
@@ -603,6 +605,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoord2bOES(Int32 texture, sbyte s, sbyte t);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2bOES pglMultiTexCoord2bOES;
 
@@ -610,6 +613,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord2bvOES(Int32 texture, sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2bvOES pglMultiTexCoord2bvOES;
 
@@ -617,6 +621,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoord3bOES(Int32 texture, sbyte s, sbyte t, sbyte r);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3bOES pglMultiTexCoord3bOES;
 
@@ -624,6 +629,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord3bvOES(Int32 texture, sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3bvOES pglMultiTexCoord3bvOES;
 
@@ -631,6 +637,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoord4bOES(Int32 texture, sbyte s, sbyte t, sbyte r, sbyte q);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4bOES pglMultiTexCoord4bOES;
 
@@ -638,6 +645,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord4bvOES(Int32 texture, sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4bvOES pglMultiTexCoord4bvOES;
 
@@ -645,6 +653,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1bOES(sbyte s);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glTexCoord1bOES pglTexCoord1bOES;
 
@@ -652,6 +661,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1bvOES(sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glTexCoord1bvOES pglTexCoord1bvOES;
 
@@ -659,6 +669,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2bOES(sbyte s, sbyte t);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glTexCoord2bOES pglTexCoord2bOES;
 
@@ -666,6 +677,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2bvOES(sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glTexCoord2bvOES pglTexCoord2bvOES;
 
@@ -673,6 +685,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3bOES(sbyte s, sbyte t, sbyte r);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glTexCoord3bOES pglTexCoord3bOES;
 
@@ -680,6 +693,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3bvOES(sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glTexCoord3bvOES pglTexCoord3bvOES;
 
@@ -687,6 +701,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4bOES(sbyte s, sbyte t, sbyte r, sbyte q);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glTexCoord4bOES pglTexCoord4bOES;
 
@@ -694,6 +709,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4bvOES(sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glTexCoord4bvOES pglTexCoord4bvOES;
 
@@ -701,6 +717,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2bOES(sbyte x, sbyte y);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glVertex2bOES pglVertex2bOES;
 
@@ -708,6 +725,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2bvOES(sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glVertex2bvOES pglVertex2bvOES;
 
@@ -715,6 +733,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3bOES(sbyte x, sbyte y, sbyte z);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glVertex3bOES pglVertex3bOES;
 
@@ -722,6 +741,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3bvOES(sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glVertex3bvOES pglVertex3bvOES;
 
@@ -729,6 +749,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4bOES(sbyte x, sbyte y, sbyte z, sbyte w);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glVertex4bOES pglVertex4bOES;
 
@@ -736,6 +757,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4bvOES(sbyte* coords);
 
+			[RequiredByFeature("GL_OES_byte_coordinates")]
 			[ThreadStatic]
 			internal static glVertex4bvOES pglVertex4bvOES;
 

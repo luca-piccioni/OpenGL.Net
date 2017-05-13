@@ -490,6 +490,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBeginPerfQueryINTEL(UInt32 queryHandle);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glBeginPerfQueryINTEL pglBeginPerfQueryINTEL;
 
@@ -497,6 +498,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCreatePerfQueryINTEL(UInt32 queryId, UInt32* queryHandle);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glCreatePerfQueryINTEL pglCreatePerfQueryINTEL;
 
@@ -504,6 +506,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeletePerfQueryINTEL(UInt32 queryHandle);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glDeletePerfQueryINTEL pglDeletePerfQueryINTEL;
 
@@ -511,6 +514,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndPerfQueryINTEL(UInt32 queryHandle);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glEndPerfQueryINTEL pglEndPerfQueryINTEL;
 
@@ -518,6 +522,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFirstPerfQueryIdINTEL(UInt32* queryId);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetFirstPerfQueryIdINTEL pglGetFirstPerfQueryIdINTEL;
 
@@ -525,6 +530,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNextPerfQueryIdINTEL(UInt32 queryId, UInt32* nextQueryId);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetNextPerfQueryIdINTEL pglGetNextPerfQueryIdINTEL;
 
@@ -532,6 +538,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPerfCounterInfoINTEL(UInt32 queryId, UInt32 counterId, UInt32 counterNameLength, String counterName, UInt32 counterDescLength, String counterDesc, UInt32* counterOffset, UInt32* counterDataSize, UInt32* counterTypeEnum, UInt32* counterDataTypeEnum, UInt64* rawCounterMaxValue);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetPerfCounterInfoINTEL pglGetPerfCounterInfoINTEL;
 
@@ -539,6 +546,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPerfQueryDataINTEL(UInt32 queryHandle, UInt32 flags, Int32 dataSize, void* data, UInt32* bytesWritten);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetPerfQueryDataINTEL pglGetPerfQueryDataINTEL;
 
@@ -546,6 +554,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPerfQueryIdByNameINTEL(String queryName, UInt32* queryId);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetPerfQueryIdByNameINTEL pglGetPerfQueryIdByNameINTEL;
 
@@ -553,6 +562,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPerfQueryInfoINTEL(UInt32 queryId, UInt32 queryNameLength, String queryName, UInt32* dataSize, UInt32* noCounters, UInt32* noInstances, UInt32* capsMask);
 
+			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetPerfQueryInfoINTEL pglGetPerfQueryInfoINTEL;
 

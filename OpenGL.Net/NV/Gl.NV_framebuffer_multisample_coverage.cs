@@ -96,6 +96,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRenderbufferStorageMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_NV_framebuffer_multisample_coverage", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glRenderbufferStorageMultisampleCoverageNV pglRenderbufferStorageMultisampleCoverageNV;
 

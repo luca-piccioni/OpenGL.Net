@@ -153,6 +153,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCoverageModulationTableNV(Int32 n, float* v);
 
+			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glCoverageModulationTableNV pglCoverageModulationTableNV;
 
@@ -160,6 +161,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCoverageModulationTableNV(Int32 bufsize, float* v);
 
+			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetCoverageModulationTableNV pglGetCoverageModulationTableNV;
 
@@ -167,6 +169,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCoverageModulationNV(Int32 components);
 
+			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glCoverageModulationNV pglCoverageModulationNV;
 

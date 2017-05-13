@@ -69,6 +69,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFragmentCoverageColorNV(UInt32 color);
 
+			[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glFragmentCoverageColorNV pglFragmentCoverageColorNV;
 

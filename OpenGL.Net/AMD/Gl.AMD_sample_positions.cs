@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSetMultisamplefvAMD(Int32 pname, UInt32 index, float* val);
 
+			[RequiredByFeature("GL_AMD_sample_positions")]
 			[ThreadStatic]
 			internal static glSetMultisamplefvAMD pglSetMultisamplefvAMD;
 

@@ -194,6 +194,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLGPUNamedBufferSubDataNVX(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
+			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[ThreadStatic]
 			internal static glLGPUNamedBufferSubDataNVX pglLGPUNamedBufferSubDataNVX;
 
@@ -201,6 +202,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLGPUCopyImageSubDataNVX(UInt32 sourceGpu, UInt32 destinationGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srxY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
 
+			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[ThreadStatic]
 			internal static glLGPUCopyImageSubDataNVX pglLGPUCopyImageSubDataNVX;
 
@@ -208,6 +210,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLGPUInterlockNVX();
 
+			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[ThreadStatic]
 			internal static glLGPUInterlockNVX pglLGPUInterlockNVX;
 

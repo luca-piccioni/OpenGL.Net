@@ -57,6 +57,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBeginConditionalRenderNVX(UInt32 id);
 
+			[RequiredByFeature("GL_NVX_conditional_render")]
 			[ThreadStatic]
 			internal static glBeginConditionalRenderNVX pglBeginConditionalRenderNVX;
 

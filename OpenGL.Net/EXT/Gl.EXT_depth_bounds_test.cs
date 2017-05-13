@@ -72,6 +72,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthBoundsEXT(double zmin, double zmax);
 
+			[RequiredByFeature("GL_EXT_depth_bounds_test")]
 			[ThreadStatic]
 			internal static glDepthBoundsEXT pglDepthBoundsEXT;
 

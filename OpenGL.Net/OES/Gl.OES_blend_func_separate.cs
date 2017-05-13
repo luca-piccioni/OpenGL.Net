@@ -66,6 +66,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFuncSeparateOES(Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
 
+			[RequiredByFeature("GL_OES_blend_func_separate", Api = "gles1")]
 			[ThreadStatic]
 			internal static glBlendFuncSeparateOES pglBlendFuncSeparateOES;
 

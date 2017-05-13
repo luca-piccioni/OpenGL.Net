@@ -66,6 +66,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFinishTextureSUNX();
 
+			[RequiredByFeature("GL_SUNX_constant_data")]
 			[ThreadStatic]
 			internal static glFinishTextureSUNX pglFinishTextureSUNX;
 

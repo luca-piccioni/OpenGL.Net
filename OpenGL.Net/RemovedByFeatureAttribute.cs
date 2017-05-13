@@ -17,8 +17,7 @@
 // USA
 
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Text.RegularExpressions;
 
 namespace OpenGL
 {
@@ -28,6 +27,8 @@ namespace OpenGL
 	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method | AttributeTargets.Delegate, AllowMultiple = true)]
 	public sealed class RemovedByFeatureAttribute : Attribute
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a RemovedByFeatureAttribute, specifying the feature name.
 		/// </summary>
@@ -42,7 +43,10 @@ namespace OpenGL
 			if (String.IsNullOrEmpty(featureName))
 				throw new ArgumentException("null or empty feature not allowed", "featureName");
 			FeatureName = featureName;
+			FeatureVersion = KhronosVersion.ParseFeature(FeatureName, false);
 		}
+
+		#endregion
 
 		#region Attributes
 
@@ -50,6 +54,11 @@ namespace OpenGL
 		/// The name of the feature.
 		/// </summary>
 		public readonly string FeatureName;
+
+		/// <summary>
+		/// A <see cref="KhronosVersion"/> representing <see cref="FeatureName"/>, in case it is an API version.
+		/// </summary>
+		public readonly KhronosVersion FeatureVersion;
 
 		/// <summary>
 		/// The name of the featuring API. Defaults to "gl".
@@ -63,12 +72,67 @@ namespace OpenGL
 
 		#endregion
 
-		#region Information Parsing
+		#region Support Detection
 
 		/// <summary>
-		/// Get the OpenGL version of the feature, if any.
+		///  Determine whether an API implementation removes this feature.
 		/// </summary>
-		public KhronosVersion FeatureVersion { get { return (KhronosVersion.ParseFeature(FeatureName, false)); } }
+		/// <param name="version">
+		/// The <see cref="KhronosVersion"/> that specifies the API version.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Boolean"/> that specifies whether this feature is removed by the
+		/// API having the version <paramref name="version"/>.
+		/// </returns>
+		public bool IsRemoved(KhronosVersion version)
+		{
+			return (IsRemoved(version, null));
+		}
+
+		/// <summary>
+		///  Determine whether an API implementation removes this feature.
+		/// </summary>
+		/// <param name="version">
+		/// The <see cref="KhronosVersion"/> that specifies the API version.
+		/// </param>
+		/// <param name="extensions">
+		/// The <see cref="ExtensionsCollection"/> that specifies the API extensions registry. It can be null.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Boolean"/> that specifies whether this feature is removed by the
+		/// API having the version <paramref name="version"/> and the extensions registry <paramref name="extensions"/>.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="version"/> is null.
+		/// </exception>
+		public bool IsRemoved(KhronosVersion version, KhronosApi.ExtensionsCollection extensions)
+		{
+			if (version == null)
+				throw new ArgumentNullException("version");
+
+			// Feature is an API version?
+			if (FeatureVersion != null) {
+				// API must match
+				// Note: no need or regex, since Api cannot be a pattern
+				if (version.Api != FeatureVersion.Api)
+					return (false);
+				// Profile must match, if defined
+				if (Profile != null && version.Profile != null && Regex.IsMatch(version.Profile, Profile) == false)
+					return (false);
+				// API version must be greater than or equal to the required version
+				return (version >= FeatureVersion);
+			}
+
+			if (extensions != null) {
+				// Check compatible API
+				if (Regex.IsMatch(version.Api, Api) == false)
+					return (false);
+
+				// Last chance: extension name
+				return (extensions.HasExtensions(FeatureName));
+			} else
+				return (false);
+		}
 
 		#endregion
 	}

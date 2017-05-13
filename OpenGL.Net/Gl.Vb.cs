@@ -143,7 +143,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.RasterPos"/>
 			/// <seealso cref="Gl.WindowPos"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Bitmap(Int32 width, Int32 height, float xorig, float yorig, float xmove, float ymove, byte[] bitmap)
 			{
 				unsafe {
@@ -166,7 +166,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(double c)
 			{
 				Debug.Assert(Delegates.pglIndexd != null, "pglIndexd not implemented");
@@ -183,7 +183,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(double[] c)
 			{
 				unsafe {
@@ -206,7 +206,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(float c)
 			{
 				Debug.Assert(Delegates.pglIndexf != null, "pglIndexf not implemented");
@@ -223,7 +223,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(float[] c)
 			{
 				unsafe {
@@ -246,7 +246,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int32 c)
 			{
 				Debug.Assert(Delegates.pglIndexi != null, "pglIndexi not implemented");
@@ -263,7 +263,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int32[] c)
 			{
 				unsafe {
@@ -286,7 +286,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int16 c)
 			{
 				Debug.Assert(Delegates.pglIndexs != null, "pglIndexs not implemented");
@@ -303,7 +303,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int16[] c)
 			{
 				unsafe {
@@ -341,7 +341,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Fog(FogParameter pname, float param)
 			{
 				Debug.Assert(Delegates.pglFogf != null, "pglFogf not implemented");
@@ -374,7 +374,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Fog(FogParameter pname, float[] @params)
 			{
 				unsafe {
@@ -411,7 +411,7 @@ namespace OpenGL
 			/// </exception>
 			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Fog(FogParameter pname, Int32 param)
 			{
 				Debug.Assert(Delegates.pglFogi != null, "pglFogi not implemented");
@@ -443,7 +443,7 @@ namespace OpenGL
 			/// </exception>
 			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Fog(FogParameter pname, Int32[] @params)
 			{
 				unsafe {
@@ -488,7 +488,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Scissor"/>
 			/// <seealso cref="Gl.StencilOp"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Accum(AccumOp op, float value)
 			{
 				Debug.Assert(Delegates.pglAccum != null, "pglAccum not implemented");
@@ -506,7 +506,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(byte c)
 			{
 				Debug.Assert(Delegates.pglIndexub != null, "pglIndexub not implemented");
@@ -523,7 +523,7 @@ namespace OpenGL
 			/// <seealso cref="Gl.Color"/>
 			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(byte[] c)
 			{
 				unsafe {

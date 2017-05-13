@@ -119,6 +119,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSharpenTexFuncSGIS(Int32 target, Int32 n, float* points);
 
+			[RequiredByFeature("GL_SGIS_sharpen_texture")]
 			[ThreadStatic]
 			internal static glSharpenTexFuncSGIS pglSharpenTexFuncSGIS;
 
@@ -126,6 +127,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSharpenTexFuncSGIS(Int32 target, float* points);
 
+			[RequiredByFeature("GL_SGIS_sharpen_texture")]
 			[ThreadStatic]
 			internal static glGetSharpenTexFuncSGIS pglGetSharpenTexFuncSGIS;
 

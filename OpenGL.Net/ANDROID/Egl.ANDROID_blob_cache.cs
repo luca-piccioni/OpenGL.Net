@@ -63,6 +63,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void eglSetBlobCacheFuncsANDROID(IntPtr dpy, SetBlobFuncDelegate set, GetBlobFuncDelegate get);
 
+			[RequiredByFeature("EGL_ANDROID_blob_cache")]
 			internal static eglSetBlobCacheFuncsANDROID peglSetBlobCacheFuncsANDROID;
 
 		}

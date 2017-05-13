@@ -159,6 +159,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
 
+			[RequiredByFeature("EGL_EXT_device_base")]
+			[RequiredByFeature("EGL_EXT_device_query")]
 			internal static eglQueryDeviceAttribEXT peglQueryDeviceAttribEXT;
 
 			[RequiredByFeature("EGL_EXT_device_base")]
@@ -166,6 +168,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
 
+			[RequiredByFeature("EGL_EXT_device_base")]
+			[RequiredByFeature("EGL_EXT_device_query")]
 			internal static eglQueryDeviceStringEXT peglQueryDeviceStringEXT;
 
 			[RequiredByFeature("EGL_EXT_device_base")]
@@ -176,6 +180,9 @@ namespace OpenGL
 
 			[AliasOf("eglQueryDisplayAttribEXT")]
 			[AliasOf("eglQueryDisplayAttribNV")]
+			[RequiredByFeature("EGL_EXT_device_base")]
+			[RequiredByFeature("EGL_EXT_device_query")]
+			[RequiredByFeature("EGL_NV_stream_metadata")]
 			internal static eglQueryDisplayAttribEXT peglQueryDisplayAttribEXT;
 
 		}

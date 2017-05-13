@@ -81,6 +81,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glViewportPositionWScaleNV(UInt32 index, float xcoeff, float ycoeff);
 
+			[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glViewportPositionWScaleNV pglViewportPositionWScaleNV;
 

@@ -117,6 +117,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiModeDrawArraysIBM(Int32* mode, Int32* first, Int32* count, Int32 primcount, Int32 modestride);
 
+			[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 			[ThreadStatic]
 			internal static glMultiModeDrawArraysIBM pglMultiModeDrawArraysIBM;
 
@@ -124,6 +125,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiModeDrawElementsIBM(Int32* mode, Int32* count, Int32 type, IntPtr* indices, Int32 primcount, Int32 modestride);
 
+			[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 			[ThreadStatic]
 			internal static glMultiModeDrawElementsIBM pglMultiModeDrawElementsIBM;
 

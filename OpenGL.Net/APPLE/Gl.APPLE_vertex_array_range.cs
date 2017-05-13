@@ -148,6 +148,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
 
+			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[ThreadStatic]
 			internal static glVertexArrayRangeAPPLE pglVertexArrayRangeAPPLE;
 
@@ -155,6 +156,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFlushVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
 
+			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[ThreadStatic]
 			internal static glFlushVertexArrayRangeAPPLE pglFlushVertexArrayRangeAPPLE;
 
@@ -162,6 +164,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayParameteriAPPLE(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[ThreadStatic]
 			internal static glVertexArrayParameteriAPPLE pglVertexArrayParameteriAPPLE;
 

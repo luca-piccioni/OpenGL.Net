@@ -119,6 +119,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthRangedNV(double zNear, double zFar);
 
+			[RequiredByFeature("GL_NV_depth_buffer_float")]
 			[ThreadStatic]
 			internal static glDepthRangedNV pglDepthRangedNV;
 
@@ -126,6 +127,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearDepthdNV(double depth);
 
+			[RequiredByFeature("GL_NV_depth_buffer_float")]
 			[ThreadStatic]
 			internal static glClearDepthdNV pglClearDepthdNV;
 
@@ -133,6 +135,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthBoundsdNV(double zmin, double zmax);
 
+			[RequiredByFeature("GL_NV_depth_buffer_float")]
 			[ThreadStatic]
 			internal static glDepthBoundsdNV pglDepthBoundsdNV;
 

@@ -136,6 +136,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTexture2DDownsampleIMG(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 xscale, Int32 yscale);
 
+			[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFramebufferTexture2DDownsampleIMG pglFramebufferTexture2DDownsampleIMG;
 
@@ -143,6 +144,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTextureLayerDownsampleIMG(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 layer, Int32 xscale, Int32 yscale);
 
+			[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFramebufferTextureLayerDownsampleIMG pglFramebufferTextureLayerDownsampleIMG;
 

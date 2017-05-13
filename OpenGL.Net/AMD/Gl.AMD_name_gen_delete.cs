@@ -151,6 +151,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
 
+			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[ThreadStatic]
 			internal static glGenNamesAMD pglGenNamesAMD;
 
@@ -158,6 +159,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
 
+			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[ThreadStatic]
 			internal static glDeleteNamesAMD pglDeleteNamesAMD;
 
@@ -165,6 +167,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsNameAMD(Int32 identifier, UInt32 name);
 
+			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[ThreadStatic]
 			internal static glIsNameAMD pglIsNameAMD;
 

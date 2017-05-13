@@ -84,6 +84,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilOpValueAMD(Int32 face, UInt32 value);
 
+			[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 			[ThreadStatic]
 			internal static glStencilOpValueAMD pglStencilOpValueAMD;
 

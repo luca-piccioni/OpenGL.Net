@@ -69,6 +69,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFlushStaticDataIBM(Int32 target);
 
+			[RequiredByFeature("GL_IBM_static_data")]
 			[ThreadStatic]
 			internal static glFlushStaticDataIBM pglFlushStaticDataIBM;
 

@@ -87,6 +87,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTextureNV(UInt32 texture, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
+			[RequiredByFeature("GL_NV_draw_texture")]
 			[ThreadStatic]
 			internal static glDrawTextureNV pglDrawTextureNV;
 

@@ -57,6 +57,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTbufferMask3DFX(UInt32 mask);
 
+			[RequiredByFeature("GL_3DFX_tbuffer")]
 			[ThreadStatic]
 			internal static glTbufferMask3DFX pglTbufferMask3DFX;
 

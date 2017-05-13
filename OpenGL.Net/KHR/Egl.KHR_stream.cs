@@ -255,30 +255,35 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateStreamKHR(IntPtr dpy, int* attrib_list);
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			internal static eglCreateStreamKHR peglCreateStreamKHR;
 
 			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroyStreamKHR(IntPtr dpy, IntPtr stream);
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			internal static eglDestroyStreamKHR peglDestroyStreamKHR;
 
 			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, int value);
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			internal static eglStreamAttribKHR peglStreamAttribKHR;
 
 			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			internal static eglQueryStreamKHR peglQueryStreamKHR;
 
 			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
 
+			[RequiredByFeature("EGL_KHR_stream")]
 			internal static eglQueryStreamu64KHR peglQueryStreamu64KHR;
 
 		}

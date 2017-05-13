@@ -77,6 +77,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTranslatedShaderSourceANGLE(UInt32 shader, Int32 bufsize, Int32* length, String source);
 
+			[RequiredByFeature("GL_ANGLE_translated_shader_source", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetTranslatedShaderSourceANGLE pglGetTranslatedShaderSourceANGLE;
 

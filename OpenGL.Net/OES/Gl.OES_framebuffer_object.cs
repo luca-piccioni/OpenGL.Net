@@ -440,6 +440,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsRenderbufferOES(UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glIsRenderbufferOES pglIsRenderbufferOES;
 
@@ -447,6 +448,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindRenderbufferOES(Int32 target, UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glBindRenderbufferOES pglBindRenderbufferOES;
 
@@ -454,6 +456,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteRenderbuffersOES(Int32 n, UInt32* renderbuffers);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glDeleteRenderbuffersOES pglDeleteRenderbuffersOES;
 
@@ -461,6 +464,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenRenderbuffersOES(Int32 n, UInt32* renderbuffers);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGenRenderbuffersOES pglGenRenderbuffersOES;
 
@@ -468,6 +472,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRenderbufferStorageOES(Int32 target, Int32 internalformat, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glRenderbufferStorageOES pglRenderbufferStorageOES;
 
@@ -475,6 +480,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetRenderbufferParameterivOES(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetRenderbufferParameterivOES pglGetRenderbufferParameterivOES;
 
@@ -482,6 +488,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsFramebufferOES(UInt32 framebuffer);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glIsFramebufferOES pglIsFramebufferOES;
 
@@ -489,6 +496,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindFramebufferOES(Int32 target, UInt32 framebuffer);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glBindFramebufferOES pglBindFramebufferOES;
 
@@ -496,6 +504,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteFramebuffersOES(Int32 n, UInt32* framebuffers);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glDeleteFramebuffersOES pglDeleteFramebuffersOES;
 
@@ -503,6 +512,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenFramebuffersOES(Int32 n, UInt32* framebuffers);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGenFramebuffersOES pglGenFramebuffersOES;
 
@@ -510,6 +520,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glCheckFramebufferStatusOES(Int32 target);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glCheckFramebufferStatusOES pglCheckFramebufferStatusOES;
 
@@ -517,6 +528,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferRenderbufferOES(Int32 target, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glFramebufferRenderbufferOES pglFramebufferRenderbufferOES;
 
@@ -524,6 +536,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTexture2DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glFramebufferTexture2DOES pglFramebufferTexture2DOES;
 
@@ -531,6 +544,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFramebufferAttachmentParameterivOES(Int32 target, Int32 attachment, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetFramebufferAttachmentParameterivOES pglGetFramebufferAttachmentParameterivOES;
 
@@ -538,6 +552,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGenerateMipmapOES(Int32 target);
 
+			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGenerateMipmapOES pglGenerateMipmapOES;
 

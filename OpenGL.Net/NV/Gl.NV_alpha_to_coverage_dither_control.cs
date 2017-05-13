@@ -81,6 +81,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glAlphaToCoverageDitherControlNV(Int32 mode);
 
+			[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
 			[ThreadStatic]
 			internal static glAlphaToCoverageDitherControlNV pglAlphaToCoverageDitherControlNV;
 

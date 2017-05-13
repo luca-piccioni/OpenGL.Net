@@ -250,6 +250,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageEnableAMD(Int32 category, Int32 severity, Int32 count, UInt32* ids, bool enabled);
 
+			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]
 			internal static glDebugMessageEnableAMD pglDebugMessageEnableAMD;
 
@@ -257,6 +258,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDebugMessageInsertAMD(Int32 category, Int32 severity, UInt32 id, Int32 length, String buf);
 
+			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]
 			internal static glDebugMessageInsertAMD pglDebugMessageInsertAMD;
 
@@ -264,6 +266,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
 
+			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]
 			internal static glDebugMessageCallbackAMD pglDebugMessageCallbackAMD;
 
@@ -271,6 +274,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32 glGetDebugMessageLogAMD(UInt32 count, Int32 bufsize, Int32* categories, UInt32* severities, UInt32* ids, Int32* lengths, [Out] StringBuilder message);
 
+			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]
 			internal static glGetDebugMessageLogAMD pglGetDebugMessageLogAMD;
 

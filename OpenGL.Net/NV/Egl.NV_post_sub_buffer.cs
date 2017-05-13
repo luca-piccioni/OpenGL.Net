@@ -82,6 +82,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglPostSubBufferNV(IntPtr dpy, IntPtr surface, int x, int y, int width, int height);
 
+			[RequiredByFeature("EGL_NV_post_sub_buffer")]
 			internal static eglPostSubBufferNV peglPostSubBufferNV;
 
 		}

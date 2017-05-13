@@ -214,6 +214,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGenfOES(Int32 coord, Int32 pname, float param);
 
+			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTexGenfOES pglTexGenfOES;
 
@@ -221,6 +222,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGenfvOES(Int32 coord, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTexGenfvOES pglTexGenfvOES;
 
@@ -228,6 +230,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGeniOES(Int32 coord, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTexGeniOES pglTexGeniOES;
 
@@ -235,6 +238,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTexGenivOES pglTexGenivOES;
 
@@ -242,6 +246,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGenfvOES(Int32 coord, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetTexGenfvOES pglGetTexGenfvOES;
 
@@ -249,6 +254,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetTexGenivOES pglGetTexGenivOES;
 

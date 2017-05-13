@@ -62,6 +62,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glXGetCurrentDisplay();
 
+			[RequiredByFeature("GLX_VERSION_1_2")]
 			internal static glXGetCurrentDisplay pglXGetCurrentDisplay;
 
 		}

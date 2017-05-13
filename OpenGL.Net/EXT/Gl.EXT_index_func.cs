@@ -78,6 +78,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexFuncEXT(Int32 func, float @ref);
 
+			[RequiredByFeature("GL_EXT_index_func")]
 			[ThreadStatic]
 			internal static glIndexFuncEXT pglIndexFuncEXT;
 

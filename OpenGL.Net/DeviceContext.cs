@@ -609,37 +609,6 @@ namespace OpenGL
 				return (Egl.GetCurrentContext());
 		}
 
-		/// <summary>
-		/// Query the version of the current OpenGL context.
-		/// </summary>
-		/// <returns>
-		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
-		/// </returns>
-		internal static KhronosVersion QueryContextVersion()
-		{
-			IntPtr ctx = GetCurrentContext();
-			if (ctx == null)
-				throw new InvalidOperationException("no current context");
-
-			// Load minimal Gl functions for querying information
-			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressGL;
-
-			if (Egl.IsRequired == false) {
-				Gl.BindAPIFunction(Gl.Version_100, "glGetError", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_100, "glGetString", getProcAddress);
-			} else {
-				Gl.BindAPIFunction(Gl.Version_320_ES, "glGetError", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_320_ES, "glGetString", getProcAddress);
-			}
-
-			// Parse version string (effective for detecting Desktop and ES contextes)
-			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
-
-			// ATM do not support fancy context creation flags
-
-			return (glversion);
-		}
-
 		#endregion
 
 		#region IDisposable Implementation

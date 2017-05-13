@@ -78,6 +78,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glConservativeRasterParameterfNV(Int32 pname, float value);
 
+			[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glConservativeRasterParameterfNV pglConservativeRasterParameterfNV;
 

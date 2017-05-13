@@ -54,6 +54,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrameTerminatorGREMEDY();
 
+			[RequiredByFeature("GL_GREMEDY_frame_terminator")]
 			[ThreadStatic]
 			internal static glFrameTerminatorGREMEDY pglFrameTerminatorGREMEDY;
 

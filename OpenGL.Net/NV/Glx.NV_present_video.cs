@@ -115,12 +115,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32* glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
 
+			[RequiredByFeature("GLX_NV_present_video")]
 			internal static glXEnumerateVideoDevicesNV pglXEnumerateVideoDevicesNV;
 
 			[RequiredByFeature("GLX_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int glXBindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int* attrib_list);
 
+			[RequiredByFeature("GLX_NV_present_video")]
 			internal static glXBindVideoDeviceNV pglXBindVideoDeviceNV;
 
 		}

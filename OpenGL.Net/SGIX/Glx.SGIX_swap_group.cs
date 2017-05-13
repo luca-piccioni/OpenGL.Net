@@ -63,6 +63,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXJoinSwapGroupSGIX(IntPtr dpy, IntPtr drawable, IntPtr member);
 
+			[RequiredByFeature("GLX_SGIX_swap_group")]
 			internal static glXJoinSwapGroupSGIX pglXJoinSwapGroupSGIX;
 
 		}

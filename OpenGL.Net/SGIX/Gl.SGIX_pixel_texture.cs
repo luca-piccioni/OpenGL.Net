@@ -69,6 +69,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelTexGenSGIX(Int32 mode);
 
+			[RequiredByFeature("GL_SGIX_pixel_texture")]
 			[ThreadStatic]
 			internal static glPixelTexGenSGIX pglPixelTexGenSGIX;
 

@@ -572,6 +572,9 @@ namespace OpenGL
 			[AliasOf("glBlendBarrier")]
 			[AliasOf("glBlendBarrierKHR")]
 			[AliasOf("glBlendBarrierNV")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glBlendBarrier pglBlendBarrier;
 
@@ -586,6 +589,10 @@ namespace OpenGL
 			[AliasOf("glPrimitiveBoundingBoxARB")]
 			[AliasOf("glPrimitiveBoundingBoxEXT")]
 			[AliasOf("glPrimitiveBoundingBoxOES")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
+			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
 			[ThreadStatic]
 			internal static glPrimitiveBoundingBox pglPrimitiveBoundingBox;
 

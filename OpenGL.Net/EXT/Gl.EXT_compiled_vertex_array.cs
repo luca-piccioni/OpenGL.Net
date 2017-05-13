@@ -88,6 +88,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLockArraysEXT(Int32 first, Int32 count);
 
+			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 			[ThreadStatic]
 			internal static glLockArraysEXT pglLockArraysEXT;
 
@@ -95,6 +96,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUnlockArraysEXT();
 
+			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 			[ThreadStatic]
 			internal static glUnlockArraysEXT pglUnlockArraysEXT;
 

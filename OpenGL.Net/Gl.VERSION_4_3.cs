@@ -5580,6 +5580,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearBufferData(Int32 target, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glClearBufferData pglClearBufferData;
 
@@ -5588,6 +5590,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearBufferSubData(Int32 target, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glClearBufferSubData pglClearBufferSubData;
 
@@ -5597,6 +5601,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDispatchCompute(UInt32 num_groups_x, UInt32 num_groups_y, UInt32 num_groups_z);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDispatchCompute pglDispatchCompute;
 
@@ -5606,6 +5613,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDispatchComputeIndirect(IntPtr indirect);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDispatchComputeIndirect pglDispatchComputeIndirect;
 
@@ -5620,6 +5630,11 @@ namespace OpenGL
 			[AliasOf("glCopyImageSubData")]
 			[AliasOf("glCopyImageSubDataEXT")]
 			[AliasOf("glCopyImageSubDataOES")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_copy_image", Api = "gles2")]
+			[RequiredByFeature("GL_OES_copy_image", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCopyImageSubData pglCopyImageSubData;
 
@@ -5629,6 +5644,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferParameteri(Int32 target, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glFramebufferParameteri pglFramebufferParameteri;
 
@@ -5638,6 +5656,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFramebufferParameteriv(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetFramebufferParameteriv pglGetFramebufferParameteriv;
 
@@ -5646,6 +5667,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetInternalformati64v(Int32 target, Int32 internalformat, Int32 pname, Int32 bufSize, Int64* @params);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetInternalformati64v pglGetInternalformati64v;
 
@@ -5654,6 +5677,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glInvalidateTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glInvalidateTexSubImage pglInvalidateTexSubImage;
 
@@ -5662,6 +5687,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glInvalidateTexImage(UInt32 texture, Int32 level);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glInvalidateTexImage pglInvalidateTexImage;
 
@@ -5670,6 +5697,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glInvalidateBufferSubData(UInt32 buffer, IntPtr offset, UInt32 length);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glInvalidateBufferSubData pglInvalidateBufferSubData;
 
@@ -5678,6 +5707,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glInvalidateBufferData(UInt32 buffer);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glInvalidateBufferData pglInvalidateBufferData;
 
@@ -5687,6 +5718,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glInvalidateFramebuffer(Int32 target, Int32 numAttachments, Int32* attachments);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glInvalidateFramebuffer pglInvalidateFramebuffer;
 
@@ -5696,6 +5730,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glInvalidateSubFramebuffer(Int32 target, Int32 numAttachments, Int32* attachments, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glInvalidateSubFramebuffer pglInvalidateSubFramebuffer;
 
@@ -5709,6 +5746,10 @@ namespace OpenGL
 			[AliasOf("glMultiDrawArraysIndirect")]
 			[AliasOf("glMultiDrawArraysIndirectAMD")]
 			[AliasOf("glMultiDrawArraysIndirectEXT")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_AMD_multi_draw_indirect")]
+			[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
 			[ThreadStatic]
 			internal static glMultiDrawArraysIndirect pglMultiDrawArraysIndirect;
 
@@ -5722,6 +5763,10 @@ namespace OpenGL
 			[AliasOf("glMultiDrawElementsIndirect")]
 			[AliasOf("glMultiDrawElementsIndirectAMD")]
 			[AliasOf("glMultiDrawElementsIndirectEXT")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_AMD_multi_draw_indirect")]
+			[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
 			[ThreadStatic]
 			internal static glMultiDrawElementsIndirect pglMultiDrawElementsIndirect;
 
@@ -5731,6 +5776,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramInterfaceiv(UInt32 program, Int32 programInterface, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetProgramInterfaceiv pglGetProgramInterfaceiv;
 
@@ -5740,6 +5788,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGetProgramResourceIndex(UInt32 program, Int32 programInterface, String name);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetProgramResourceIndex pglGetProgramResourceIndex;
 
@@ -5749,6 +5800,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramResourceName(UInt32 program, Int32 programInterface, UInt32 index, Int32 bufSize, Int32* length, [Out] StringBuilder name);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetProgramResourceName pglGetProgramResourceName;
 
@@ -5758,6 +5812,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramResourceiv(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32* props, Int32 bufSize, Int32* length, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetProgramResourceiv pglGetProgramResourceiv;
 
@@ -5767,6 +5824,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetProgramResourceLocation(UInt32 program, Int32 programInterface, String name);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetProgramResourceLocation pglGetProgramResourceLocation;
 
@@ -5775,6 +5835,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetProgramResourceLocationIndex(UInt32 program, Int32 programInterface, String name);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetProgramResourceLocationIndex pglGetProgramResourceLocationIndex;
 
@@ -5783,6 +5845,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glShaderStorageBlockBinding(UInt32 program, UInt32 storageBlockIndex, UInt32 storageBlockBinding);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glShaderStorageBlockBinding pglShaderStorageBlockBinding;
 
@@ -5797,6 +5861,11 @@ namespace OpenGL
 			[AliasOf("glTexBufferRange")]
 			[AliasOf("glTexBufferRangeEXT")]
 			[AliasOf("glTexBufferRangeOES")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexBufferRange pglTexBufferRange;
 
@@ -5806,6 +5875,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage2DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTexStorage2DMultisample pglTexStorage2DMultisample;
 
@@ -5818,6 +5890,10 @@ namespace OpenGL
 
 			[AliasOf("glTexStorage3DMultisample")]
 			[AliasOf("glTexStorage3DMultisampleOES")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
+			[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexStorage3DMultisample pglTexStorage3DMultisample;
 
@@ -5831,6 +5907,10 @@ namespace OpenGL
 			[AliasOf("glTextureView")]
 			[AliasOf("glTextureViewEXT")]
 			[AliasOf("glTextureViewOES")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTextureView pglTextureView;
 
@@ -5840,6 +5920,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindVertexBuffer(UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindVertexBuffer pglBindVertexBuffer;
 
@@ -5849,6 +5932,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribFormat(UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribFormat pglVertexAttribFormat;
 
@@ -5858,6 +5944,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribIFormat(UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribIFormat pglVertexAttribIFormat;
 
@@ -5866,6 +5955,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribLFormat(UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribLFormat pglVertexAttribLFormat;
 
@@ -5875,6 +5966,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribBinding(UInt32 attribindex, UInt32 bindingindex);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribBinding pglVertexAttribBinding;
 
@@ -5884,6 +5978,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexBindingDivisor(UInt32 bindingindex, UInt32 divisor);
 
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexBindingDivisor pglVertexBindingDivisor;
 
@@ -5898,6 +5995,11 @@ namespace OpenGL
 			[AliasOf("glDebugMessageControl")]
 			[AliasOf("glDebugMessageControlARB")]
 			[AliasOf("glDebugMessageControlKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDebugMessageControl pglDebugMessageControl;
 
@@ -5912,6 +6014,11 @@ namespace OpenGL
 			[AliasOf("glDebugMessageInsert")]
 			[AliasOf("glDebugMessageInsertARB")]
 			[AliasOf("glDebugMessageInsertKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDebugMessageInsert pglDebugMessageInsert;
 
@@ -5926,6 +6033,11 @@ namespace OpenGL
 			[AliasOf("glDebugMessageCallback")]
 			[AliasOf("glDebugMessageCallbackARB")]
 			[AliasOf("glDebugMessageCallbackKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDebugMessageCallback pglDebugMessageCallback;
 
@@ -5940,6 +6052,11 @@ namespace OpenGL
 			[AliasOf("glGetDebugMessageLog")]
 			[AliasOf("glGetDebugMessageLogARB")]
 			[AliasOf("glGetDebugMessageLogKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetDebugMessageLog pglGetDebugMessageLog;
 
@@ -5952,6 +6069,10 @@ namespace OpenGL
 
 			[AliasOf("glPushDebugGroup")]
 			[AliasOf("glPushDebugGroupKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glPushDebugGroup pglPushDebugGroup;
 
@@ -5964,6 +6085,10 @@ namespace OpenGL
 
 			[AliasOf("glPopDebugGroup")]
 			[AliasOf("glPopDebugGroupKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glPopDebugGroup pglPopDebugGroup;
 
@@ -5976,6 +6101,10 @@ namespace OpenGL
 
 			[AliasOf("glObjectLabel")]
 			[AliasOf("glObjectLabelKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glObjectLabel pglObjectLabel;
 
@@ -5988,6 +6117,10 @@ namespace OpenGL
 
 			[AliasOf("glGetObjectLabel")]
 			[AliasOf("glGetObjectLabelKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetObjectLabel pglGetObjectLabel;
 
@@ -6000,6 +6133,10 @@ namespace OpenGL
 
 			[AliasOf("glObjectPtrLabel")]
 			[AliasOf("glObjectPtrLabelKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glObjectPtrLabel pglObjectPtrLabel;
 
@@ -6012,6 +6149,10 @@ namespace OpenGL
 
 			[AliasOf("glGetObjectPtrLabel")]
 			[AliasOf("glGetObjectPtrLabelKHR")]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetObjectPtrLabel pglGetObjectPtrLabel;
 

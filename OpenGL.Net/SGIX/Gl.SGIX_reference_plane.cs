@@ -74,6 +74,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReferencePlaneSGIX(double* equation);
 
+			[RequiredByFeature("GL_SGIX_reference_plane")]
 			[ThreadStatic]
 			internal static glReferencePlaneSGIX pglReferencePlaneSGIX;
 

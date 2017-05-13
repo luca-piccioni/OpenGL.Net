@@ -276,6 +276,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramNamedParameter4fNV(UInt32 id, Int32 len, byte* name, float x, float y, float z, float w);
 
+			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
 			internal static glProgramNamedParameter4fNV pglProgramNamedParameter4fNV;
 
@@ -283,6 +284,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramNamedParameter4fvNV(UInt32 id, Int32 len, byte* name, float* v);
 
+			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
 			internal static glProgramNamedParameter4fvNV pglProgramNamedParameter4fvNV;
 
@@ -290,6 +292,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramNamedParameter4dNV(UInt32 id, Int32 len, byte* name, double x, double y, double z, double w);
 
+			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
 			internal static glProgramNamedParameter4dNV pglProgramNamedParameter4dNV;
 
@@ -297,6 +300,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramNamedParameter4dvNV(UInt32 id, Int32 len, byte* name, double* v);
 
+			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
 			internal static glProgramNamedParameter4dvNV pglProgramNamedParameter4dvNV;
 
@@ -304,6 +308,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramNamedParameterfvNV(UInt32 id, Int32 len, byte* name, float* @params);
 
+			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
 			internal static glGetProgramNamedParameterfvNV pglGetProgramNamedParameterfvNV;
 
@@ -311,6 +316,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramNamedParameterdvNV(UInt32 id, Int32 len, byte* name, double* @params);
 
+			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
 			internal static glGetProgramNamedParameterdvNV pglGetProgramNamedParameterdvNV;
 

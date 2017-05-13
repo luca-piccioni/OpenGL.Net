@@ -188,6 +188,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glAsyncMarkerSGIX(UInt32 marker);
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[ThreadStatic]
 			internal static glAsyncMarkerSGIX pglAsyncMarkerSGIX;
 
@@ -195,6 +196,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glFinishAsyncSGIX(UInt32* markerp);
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[ThreadStatic]
 			internal static glFinishAsyncSGIX pglFinishAsyncSGIX;
 
@@ -202,6 +204,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glPollAsyncSGIX(UInt32* markerp);
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[ThreadStatic]
 			internal static glPollAsyncSGIX pglPollAsyncSGIX;
 
@@ -209,6 +212,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGenAsyncMarkersSGIX(Int32 range);
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[ThreadStatic]
 			internal static glGenAsyncMarkersSGIX pglGenAsyncMarkersSGIX;
 
@@ -216,6 +220,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteAsyncMarkersSGIX(UInt32 marker, Int32 range);
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[ThreadStatic]
 			internal static glDeleteAsyncMarkersSGIX pglDeleteAsyncMarkersSGIX;
 
@@ -223,6 +228,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsAsyncMarkerSGIX(UInt32 marker);
 
+			[RequiredByFeature("GL_SGIX_async")]
 			[ThreadStatic]
 			internal static glIsAsyncMarkerSGIX pglIsAsyncMarkerSGIX;
 

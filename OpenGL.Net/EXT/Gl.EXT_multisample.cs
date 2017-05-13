@@ -178,6 +178,8 @@ namespace OpenGL
 
 			[AliasOf("glSampleMaskEXT")]
 			[AliasOf("glSampleMaskSGIS")]
+			[RequiredByFeature("GL_EXT_multisample")]
+			[RequiredByFeature("GL_SGIS_multisample")]
 			[ThreadStatic]
 			internal static glSampleMaskEXT pglSampleMaskEXT;
 
@@ -188,6 +190,8 @@ namespace OpenGL
 
 			[AliasOf("glSamplePatternEXT")]
 			[AliasOf("glSamplePatternSGIS")]
+			[RequiredByFeature("GL_EXT_multisample")]
+			[RequiredByFeature("GL_SGIS_multisample")]
 			[ThreadStatic]
 			internal static glSamplePatternEXT pglSamplePatternEXT;
 

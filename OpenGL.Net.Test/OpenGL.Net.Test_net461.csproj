@@ -115,6 +115,7 @@
     <Compile Include="Gl.VERSION_3_0.cs" />
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="GlTestBase.cs" />
+    <Compile Include="KhronosApi.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Matrix4x4.cs" />
     <Compile Include="Memory.cs" />

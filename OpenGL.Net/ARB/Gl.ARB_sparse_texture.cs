@@ -176,6 +176,8 @@ namespace OpenGL
 
 			[AliasOf("glTexPageCommitmentARB")]
 			[AliasOf("glTexPageCommitmentEXT")]
+			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexPageCommitmentARB pglTexPageCommitmentARB;
 

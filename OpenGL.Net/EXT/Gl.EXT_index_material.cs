@@ -78,6 +78,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexMaterialEXT(Int32 face, Int32 mode);
 
+			[RequiredByFeature("GL_EXT_index_material")]
 			[ThreadStatic]
 			internal static glIndexMaterialEXT pglIndexMaterialEXT;
 

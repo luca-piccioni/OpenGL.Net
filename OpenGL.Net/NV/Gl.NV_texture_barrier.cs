@@ -54,6 +54,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureBarrierNV();
 
+			[RequiredByFeature("GL_NV_texture_barrier", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureBarrierNV pglTextureBarrierNV;
 

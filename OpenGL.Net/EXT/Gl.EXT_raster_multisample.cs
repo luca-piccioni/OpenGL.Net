@@ -112,6 +112,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterSamplesEXT(UInt32 samples, bool fixedsamplelocations);
 
+			[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glRasterSamplesEXT pglRasterSamplesEXT;
 

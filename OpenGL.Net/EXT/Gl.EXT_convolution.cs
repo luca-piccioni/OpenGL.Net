@@ -222,6 +222,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetConvolutionFilterEXT(Int32 target, Int32 format, Int32 type, IntPtr image);
 
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glGetConvolutionFilterEXT pglGetConvolutionFilterEXT;
 
@@ -229,6 +230,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetConvolutionParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glGetConvolutionParameterfvEXT pglGetConvolutionParameterfvEXT;
 
@@ -236,6 +238,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetConvolutionParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glGetConvolutionParameterivEXT pglGetConvolutionParameterivEXT;
 
@@ -243,6 +246,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSeparableFilterEXT(Int32 target, Int32 format, Int32 type, IntPtr row, IntPtr column, IntPtr span);
 
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glGetSeparableFilterEXT pglGetSeparableFilterEXT;
 

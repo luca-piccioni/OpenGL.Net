@@ -202,6 +202,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorbSUN(sbyte factor);
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorbSUN pglGlobalAlphaFactorbSUN;
 
@@ -209,6 +210,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorsSUN(Int16 factor);
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorsSUN pglGlobalAlphaFactorsSUN;
 
@@ -216,6 +218,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactoriSUN(Int32 factor);
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
 			internal static glGlobalAlphaFactoriSUN pglGlobalAlphaFactoriSUN;
 
@@ -223,6 +226,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorfSUN(float factor);
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorfSUN pglGlobalAlphaFactorfSUN;
 
@@ -230,6 +234,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactordSUN(double factor);
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
 			internal static glGlobalAlphaFactordSUN pglGlobalAlphaFactordSUN;
 
@@ -237,6 +242,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorubSUN(byte factor);
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorubSUN pglGlobalAlphaFactorubSUN;
 
@@ -244,6 +250,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactorusSUN(UInt16 factor);
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
 			internal static glGlobalAlphaFactorusSUN pglGlobalAlphaFactorusSUN;
 
@@ -251,6 +258,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGlobalAlphaFactoruiSUN(UInt32 factor);
 
+			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
 			internal static glGlobalAlphaFactoruiSUN pglGlobalAlphaFactoruiSUN;
 

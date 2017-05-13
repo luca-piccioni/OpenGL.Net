@@ -98,6 +98,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glInsertEventMarkerEXT(Int32 length, String marker);
 
+			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glInsertEventMarkerEXT pglInsertEventMarkerEXT;
 
@@ -105,6 +106,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushGroupMarkerEXT(Int32 length, String marker);
 
+			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glPushGroupMarkerEXT pglPushGroupMarkerEXT;
 
@@ -112,6 +114,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopGroupMarkerEXT();
 
+			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glPopGroupMarkerEXT pglPopGroupMarkerEXT;
 

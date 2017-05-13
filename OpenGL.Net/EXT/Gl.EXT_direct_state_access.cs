@@ -8437,6 +8437,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixLoadfEXT(Int32 mode, float* m);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixLoadfEXT pglMatrixLoadfEXT;
 
@@ -8444,6 +8445,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixLoaddEXT(Int32 mode, double* m);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixLoaddEXT pglMatrixLoaddEXT;
 
@@ -8451,6 +8453,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixMultfEXT(Int32 mode, float* m);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixMultfEXT pglMatrixMultfEXT;
 
@@ -8458,6 +8461,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixMultdEXT(Int32 mode, double* m);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixMultdEXT pglMatrixMultdEXT;
 
@@ -8465,6 +8469,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixLoadIdentityEXT(Int32 mode);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixLoadIdentityEXT pglMatrixLoadIdentityEXT;
 
@@ -8472,6 +8477,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixRotatefEXT(Int32 mode, float angle, float x, float y, float z);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixRotatefEXT pglMatrixRotatefEXT;
 
@@ -8479,6 +8485,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixRotatedEXT(Int32 mode, double angle, double x, double y, double z);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixRotatedEXT pglMatrixRotatedEXT;
 
@@ -8486,6 +8493,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixScalefEXT(Int32 mode, float x, float y, float z);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixScalefEXT pglMatrixScalefEXT;
 
@@ -8493,6 +8501,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixScaledEXT(Int32 mode, double x, double y, double z);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixScaledEXT pglMatrixScaledEXT;
 
@@ -8500,6 +8509,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixTranslatefEXT(Int32 mode, float x, float y, float z);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixTranslatefEXT pglMatrixTranslatefEXT;
 
@@ -8507,6 +8517,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixTranslatedEXT(Int32 mode, double x, double y, double z);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixTranslatedEXT pglMatrixTranslatedEXT;
 
@@ -8514,6 +8525,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixFrustumEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixFrustumEXT pglMatrixFrustumEXT;
 
@@ -8521,6 +8533,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixOrthoEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixOrthoEXT pglMatrixOrthoEXT;
 
@@ -8528,6 +8541,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixPopEXT(Int32 mode);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixPopEXT pglMatrixPopEXT;
 
@@ -8535,6 +8549,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixPushEXT(Int32 mode);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixPushEXT pglMatrixPushEXT;
 
@@ -8542,6 +8557,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClientAttribDefaultEXT(UInt32 mask);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glClientAttribDefaultEXT pglClientAttribDefaultEXT;
 
@@ -8549,6 +8565,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushClientAttribDefaultEXT(UInt32 mask);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glPushClientAttribDefaultEXT pglPushClientAttribDefaultEXT;
 
@@ -8556,6 +8573,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureParameterfEXT(UInt32 texture, Int32 target, Int32 pname, float param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureParameterfEXT pglTextureParameterfEXT;
 
@@ -8563,6 +8581,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureParameterfvEXT pglTextureParameterfvEXT;
 
@@ -8570,6 +8589,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureParameteriEXT(UInt32 texture, Int32 target, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureParameteriEXT pglTextureParameteriEXT;
 
@@ -8577,6 +8597,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureParameterivEXT pglTextureParameterivEXT;
 
@@ -8584,6 +8605,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureImage1DEXT pglTextureImage1DEXT;
 
@@ -8591,6 +8613,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureImage2DEXT pglTextureImage2DEXT;
 
@@ -8598,6 +8621,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureSubImage1DEXT pglTextureSubImage1DEXT;
 
@@ -8605,6 +8629,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureSubImage2DEXT pglTextureSubImage2DEXT;
 
@@ -8612,6 +8637,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyTextureImage1DEXT pglCopyTextureImage1DEXT;
 
@@ -8619,6 +8645,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyTextureImage2DEXT pglCopyTextureImage2DEXT;
 
@@ -8626,6 +8653,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyTextureSubImage1DEXT pglCopyTextureSubImage1DEXT;
 
@@ -8633,6 +8661,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyTextureSubImage2DEXT pglCopyTextureSubImage2DEXT;
 
@@ -8640,6 +8669,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureImageEXT(UInt32 texture, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetTextureImageEXT pglGetTextureImageEXT;
 
@@ -8647,6 +8677,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetTextureParameterfvEXT pglGetTextureParameterfvEXT;
 
@@ -8654,6 +8685,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetTextureParameterivEXT pglGetTextureParameterivEXT;
 
@@ -8661,6 +8693,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureLevelParameterfvEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetTextureLevelParameterfvEXT pglGetTextureLevelParameterfvEXT;
 
@@ -8668,6 +8701,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureLevelParameterivEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetTextureLevelParameterivEXT pglGetTextureLevelParameterivEXT;
 
@@ -8675,6 +8709,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureImage3DEXT pglTextureImage3DEXT;
 
@@ -8682,6 +8717,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureSubImage3DEXT pglTextureSubImage3DEXT;
 
@@ -8689,6 +8725,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyTextureSubImage3DEXT pglCopyTextureSubImage3DEXT;
 
@@ -8696,6 +8733,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindMultiTextureEXT(Int32 texunit, Int32 target, UInt32 texture);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindMultiTextureEXT pglBindMultiTextureEXT;
 
@@ -8703,6 +8741,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordPointerEXT(Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexCoordPointerEXT pglMultiTexCoordPointerEXT;
 
@@ -8710,6 +8749,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexEnvfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexEnvfEXT pglMultiTexEnvfEXT;
 
@@ -8717,6 +8757,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexEnvfvEXT pglMultiTexEnvfvEXT;
 
@@ -8724,6 +8765,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexEnviEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexEnviEXT pglMultiTexEnviEXT;
 
@@ -8731,6 +8773,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexEnvivEXT pglMultiTexEnvivEXT;
 
@@ -8738,6 +8781,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexGendEXT(Int32 texunit, Int32 coord, Int32 pname, double param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexGendEXT pglMultiTexGendEXT;
 
@@ -8745,6 +8789,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexGendvEXT pglMultiTexGendvEXT;
 
@@ -8752,6 +8797,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexGenfEXT(Int32 texunit, Int32 coord, Int32 pname, float param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexGenfEXT pglMultiTexGenfEXT;
 
@@ -8759,6 +8805,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexGenfvEXT pglMultiTexGenfvEXT;
 
@@ -8766,6 +8813,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexGeniEXT(Int32 texunit, Int32 coord, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexGeniEXT pglMultiTexGeniEXT;
 
@@ -8773,6 +8821,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexGenivEXT pglMultiTexGenivEXT;
 
@@ -8780,6 +8829,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexEnvfvEXT pglGetMultiTexEnvfvEXT;
 
@@ -8787,6 +8837,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexEnvivEXT pglGetMultiTexEnvivEXT;
 
@@ -8794,6 +8845,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexGendvEXT pglGetMultiTexGendvEXT;
 
@@ -8801,6 +8853,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexGenfvEXT pglGetMultiTexGenfvEXT;
 
@@ -8808,6 +8861,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexGenivEXT pglGetMultiTexGenivEXT;
 
@@ -8815,6 +8869,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexParameteriEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexParameteriEXT pglMultiTexParameteriEXT;
 
@@ -8822,6 +8877,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexParameterivEXT pglMultiTexParameterivEXT;
 
@@ -8829,6 +8885,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexParameterfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexParameterfEXT pglMultiTexParameterfEXT;
 
@@ -8836,6 +8893,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexParameterfvEXT pglMultiTexParameterfvEXT;
 
@@ -8843,6 +8901,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexImage1DEXT pglMultiTexImage1DEXT;
 
@@ -8850,6 +8909,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexImage2DEXT pglMultiTexImage2DEXT;
 
@@ -8857,6 +8917,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexSubImage1DEXT pglMultiTexSubImage1DEXT;
 
@@ -8864,6 +8925,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexSubImage2DEXT pglMultiTexSubImage2DEXT;
 
@@ -8871,6 +8933,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyMultiTexImage1DEXT pglCopyMultiTexImage1DEXT;
 
@@ -8878,6 +8941,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyMultiTexImage2DEXT pglCopyMultiTexImage2DEXT;
 
@@ -8885,6 +8949,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyMultiTexSubImage1DEXT pglCopyMultiTexSubImage1DEXT;
 
@@ -8892,6 +8957,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyMultiTexSubImage2DEXT pglCopyMultiTexSubImage2DEXT;
 
@@ -8899,6 +8965,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexImageEXT(Int32 texunit, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexImageEXT pglGetMultiTexImageEXT;
 
@@ -8906,6 +8973,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexParameterfvEXT pglGetMultiTexParameterfvEXT;
 
@@ -8913,6 +8981,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexParameterivEXT pglGetMultiTexParameterivEXT;
 
@@ -8920,6 +8989,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexLevelParameterfvEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexLevelParameterfvEXT pglGetMultiTexLevelParameterfvEXT;
 
@@ -8927,6 +8997,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexLevelParameterivEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexLevelParameterivEXT pglGetMultiTexLevelParameterivEXT;
 
@@ -8934,6 +9005,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexImage3DEXT pglMultiTexImage3DEXT;
 
@@ -8941,6 +9013,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexSubImage3DEXT pglMultiTexSubImage3DEXT;
 
@@ -8948,6 +9021,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCopyMultiTexSubImage3DEXT pglCopyMultiTexSubImage3DEXT;
 
@@ -8955,6 +9029,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnableClientStateIndexedEXT(Int32 array, UInt32 index);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glEnableClientStateIndexedEXT pglEnableClientStateIndexedEXT;
 
@@ -8962,6 +9037,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisableClientStateIndexedEXT(Int32 array, UInt32 index);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDisableClientStateIndexedEXT pglDisableClientStateIndexedEXT;
 
@@ -8969,6 +9045,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPointerIndexedvEXT(Int32 target, UInt32 index, IntPtr* data);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetPointerIndexedvEXT pglGetPointerIndexedvEXT;
 
@@ -8976,6 +9053,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedTextureImage3DEXT pglCompressedTextureImage3DEXT;
 
@@ -8983,6 +9061,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedTextureImage2DEXT pglCompressedTextureImage2DEXT;
 
@@ -8990,6 +9069,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedTextureImage1DEXT pglCompressedTextureImage1DEXT;
 
@@ -8997,6 +9077,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedTextureSubImage3DEXT pglCompressedTextureSubImage3DEXT;
 
@@ -9004,6 +9085,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedTextureSubImage2DEXT pglCompressedTextureSubImage2DEXT;
 
@@ -9011,6 +9093,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedTextureSubImage1DEXT pglCompressedTextureSubImage1DEXT;
 
@@ -9018,6 +9101,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCompressedTextureImageEXT(UInt32 texture, Int32 target, Int32 lod, IntPtr img);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetCompressedTextureImageEXT pglGetCompressedTextureImageEXT;
 
@@ -9025,6 +9109,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedMultiTexImage3DEXT pglCompressedMultiTexImage3DEXT;
 
@@ -9032,6 +9117,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedMultiTexImage2DEXT pglCompressedMultiTexImage2DEXT;
 
@@ -9039,6 +9125,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedMultiTexImage1DEXT pglCompressedMultiTexImage1DEXT;
 
@@ -9046,6 +9133,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedMultiTexSubImage3DEXT pglCompressedMultiTexSubImage3DEXT;
 
@@ -9053,6 +9141,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedMultiTexSubImage2DEXT pglCompressedMultiTexSubImage2DEXT;
 
@@ -9060,6 +9149,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompressedMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompressedMultiTexSubImage1DEXT pglCompressedMultiTexSubImage1DEXT;
 
@@ -9067,6 +9157,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCompressedMultiTexImageEXT(Int32 texunit, Int32 target, Int32 lod, IntPtr img);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetCompressedMultiTexImageEXT pglGetCompressedMultiTexImageEXT;
 
@@ -9074,6 +9165,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixLoadTransposefEXT(Int32 mode, float* m);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixLoadTransposefEXT pglMatrixLoadTransposefEXT;
 
@@ -9081,6 +9173,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixLoadTransposedEXT(Int32 mode, double* m);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixLoadTransposedEXT pglMatrixLoadTransposedEXT;
 
@@ -9088,6 +9181,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixMultTransposefEXT(Int32 mode, float* m);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixMultTransposefEXT pglMatrixMultTransposefEXT;
 
@@ -9095,6 +9189,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMatrixMultTransposedEXT(Int32 mode, double* m);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMatrixMultTransposedEXT pglMatrixMultTransposedEXT;
 
@@ -9102,6 +9197,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedBufferDataEXT pglNamedBufferDataEXT;
 
@@ -9109,6 +9205,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glMapNamedBufferEXT(UInt32 buffer, Int32 access);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMapNamedBufferEXT pglMapNamedBufferEXT;
 
@@ -9116,6 +9213,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glUnmapNamedBufferEXT(UInt32 buffer);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glUnmapNamedBufferEXT pglUnmapNamedBufferEXT;
 
@@ -9123,6 +9221,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedBufferParameterivEXT(UInt32 buffer, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedBufferParameterivEXT pglGetNamedBufferParameterivEXT;
 
@@ -9130,6 +9229,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedBufferPointervEXT(UInt32 buffer, Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedBufferPointervEXT pglGetNamedBufferPointervEXT;
 
@@ -9137,6 +9237,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedBufferSubDataEXT pglGetNamedBufferSubDataEXT;
 
@@ -9144,6 +9245,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureBufferEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureBufferEXT pglTextureBufferEXT;
 
@@ -9151,6 +9253,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexBufferEXT(Int32 texunit, Int32 target, Int32 internalformat, UInt32 buffer);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexBufferEXT pglMultiTexBufferEXT;
 
@@ -9158,6 +9261,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureParameterIivEXT pglTextureParameterIivEXT;
 
@@ -9165,6 +9269,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureParameterIuivEXT pglTextureParameterIuivEXT;
 
@@ -9172,6 +9277,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetTextureParameterIivEXT pglGetTextureParameterIivEXT;
 
@@ -9179,6 +9285,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetTextureParameterIuivEXT pglGetTextureParameterIuivEXT;
 
@@ -9186,6 +9293,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexParameterIivEXT pglMultiTexParameterIivEXT;
 
@@ -9193,6 +9301,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexParameterIuivEXT pglMultiTexParameterIuivEXT;
 
@@ -9200,6 +9309,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexParameterIivEXT pglGetMultiTexParameterIivEXT;
 
@@ -9207,6 +9317,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetMultiTexParameterIuivEXT pglGetMultiTexParameterIuivEXT;
 
@@ -9214,6 +9325,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedProgramLocalParameters4fvEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameters4fvEXT pglNamedProgramLocalParameters4fvEXT;
 
@@ -9221,6 +9333,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedProgramLocalParameterI4iEXT(UInt32 program, Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameterI4iEXT pglNamedProgramLocalParameterI4iEXT;
 
@@ -9228,6 +9341,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedProgramLocalParameterI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameterI4ivEXT pglNamedProgramLocalParameterI4ivEXT;
 
@@ -9235,6 +9349,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedProgramLocalParametersI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParametersI4ivEXT pglNamedProgramLocalParametersI4ivEXT;
 
@@ -9242,6 +9357,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameterI4uiEXT pglNamedProgramLocalParameterI4uiEXT;
 
@@ -9249,6 +9365,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedProgramLocalParameterI4uivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameterI4uivEXT pglNamedProgramLocalParameterI4uivEXT;
 
@@ -9256,6 +9373,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedProgramLocalParametersI4uivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, UInt32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParametersI4uivEXT pglNamedProgramLocalParametersI4uivEXT;
 
@@ -9263,6 +9381,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedProgramLocalParameterIivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedProgramLocalParameterIivEXT pglGetNamedProgramLocalParameterIivEXT;
 
@@ -9270,6 +9389,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedProgramLocalParameterIuivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedProgramLocalParameterIuivEXT pglGetNamedProgramLocalParameterIuivEXT;
 
@@ -9277,6 +9397,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnableClientStateiEXT(Int32 array, UInt32 index);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glEnableClientStateiEXT pglEnableClientStateiEXT;
 
@@ -9284,6 +9405,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisableClientStateiEXT(Int32 array, UInt32 index);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDisableClientStateiEXT pglDisableClientStateiEXT;
 
@@ -9291,6 +9413,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPointeri_vEXT(Int32 pname, UInt32 index, IntPtr* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetPointeri_vEXT pglGetPointeri_vEXT;
 
@@ -9298,6 +9421,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedProgramStringEXT(UInt32 program, Int32 target, Int32 format, Int32 len, IntPtr @string);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramStringEXT pglNamedProgramStringEXT;
 
@@ -9305,6 +9429,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedProgramLocalParameter4dEXT(UInt32 program, Int32 target, UInt32 index, double x, double y, double z, double w);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameter4dEXT pglNamedProgramLocalParameter4dEXT;
 
@@ -9312,6 +9437,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedProgramLocalParameter4dvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameter4dvEXT pglNamedProgramLocalParameter4dvEXT;
 
@@ -9319,6 +9445,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedProgramLocalParameter4fEXT(UInt32 program, Int32 target, UInt32 index, float x, float y, float z, float w);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameter4fEXT pglNamedProgramLocalParameter4fEXT;
 
@@ -9326,6 +9453,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedProgramLocalParameter4fvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedProgramLocalParameter4fvEXT pglNamedProgramLocalParameter4fvEXT;
 
@@ -9333,6 +9461,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedProgramLocalParameterdvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedProgramLocalParameterdvEXT pglGetNamedProgramLocalParameterdvEXT;
 
@@ -9340,6 +9469,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedProgramLocalParameterfvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedProgramLocalParameterfvEXT pglGetNamedProgramLocalParameterfvEXT;
 
@@ -9347,6 +9477,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedProgramivEXT(UInt32 program, Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedProgramivEXT pglGetNamedProgramivEXT;
 
@@ -9354,6 +9485,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedProgramStringEXT(UInt32 program, Int32 target, Int32 pname, IntPtr @string);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedProgramStringEXT pglGetNamedProgramStringEXT;
 
@@ -9361,6 +9493,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedRenderbufferStorageEXT(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedRenderbufferStorageEXT pglNamedRenderbufferStorageEXT;
 
@@ -9368,6 +9501,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedRenderbufferParameterivEXT(UInt32 renderbuffer, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedRenderbufferParameterivEXT pglGetNamedRenderbufferParameterivEXT;
 
@@ -9375,6 +9509,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedRenderbufferStorageMultisampleEXT(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedRenderbufferStorageMultisampleEXT pglNamedRenderbufferStorageMultisampleEXT;
 
@@ -9382,6 +9517,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedRenderbufferStorageMultisampleCoverageEXT(UInt32 renderbuffer, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedRenderbufferStorageMultisampleCoverageEXT pglNamedRenderbufferStorageMultisampleCoverageEXT;
 
@@ -9389,6 +9525,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glCheckNamedFramebufferStatusEXT(UInt32 framebuffer, Int32 target);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCheckNamedFramebufferStatusEXT pglCheckNamedFramebufferStatusEXT;
 
@@ -9396,6 +9533,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTexture1DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferTexture1DEXT pglNamedFramebufferTexture1DEXT;
 
@@ -9403,6 +9541,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTexture2DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferTexture2DEXT pglNamedFramebufferTexture2DEXT;
 
@@ -9410,6 +9549,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTexture3DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferTexture3DEXT pglNamedFramebufferTexture3DEXT;
 
@@ -9417,6 +9557,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferRenderbufferEXT(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferRenderbufferEXT pglNamedFramebufferRenderbufferEXT;
 
@@ -9424,6 +9565,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedFramebufferAttachmentParameterivEXT(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedFramebufferAttachmentParameterivEXT pglGetNamedFramebufferAttachmentParameterivEXT;
 
@@ -9431,6 +9573,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGenerateTextureMipmapEXT(UInt32 texture, Int32 target);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGenerateTextureMipmapEXT pglGenerateTextureMipmapEXT;
 
@@ -9438,6 +9581,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glGenerateMultiTexMipmapEXT(Int32 texunit, Int32 target);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGenerateMultiTexMipmapEXT pglGenerateMultiTexMipmapEXT;
 
@@ -9445,6 +9589,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferDrawBufferEXT(UInt32 framebuffer, Int32 mode);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glFramebufferDrawBufferEXT pglFramebufferDrawBufferEXT;
 
@@ -9452,6 +9597,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFramebufferDrawBuffersEXT(UInt32 framebuffer, Int32 n, Int32* bufs);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glFramebufferDrawBuffersEXT pglFramebufferDrawBuffersEXT;
 
@@ -9459,6 +9605,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferReadBufferEXT(UInt32 framebuffer, Int32 mode);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glFramebufferReadBufferEXT pglFramebufferReadBufferEXT;
 
@@ -9466,6 +9613,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetFramebufferParameterivEXT pglGetFramebufferParameterivEXT;
 
@@ -9473,6 +9621,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNamedCopyBufferSubDataEXT(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedCopyBufferSubDataEXT pglNamedCopyBufferSubDataEXT;
 
@@ -9480,6 +9629,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTextureEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferTextureEXT pglNamedFramebufferTextureEXT;
 
@@ -9487,6 +9637,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTextureLayerEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferTextureLayerEXT pglNamedFramebufferTextureLayerEXT;
 
@@ -9494,6 +9645,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferTextureFaceEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferTextureFaceEXT pglNamedFramebufferTextureFaceEXT;
 
@@ -9501,6 +9653,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureRenderbufferEXT(UInt32 texture, Int32 target, UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureRenderbufferEXT pglTextureRenderbufferEXT;
 
@@ -9508,6 +9661,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexRenderbufferEXT(Int32 texunit, Int32 target, UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiTexRenderbufferEXT pglMultiTexRenderbufferEXT;
 
@@ -9515,6 +9669,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayVertexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexOffsetEXT pglVertexArrayVertexOffsetEXT;
 
@@ -9522,6 +9677,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayColorOffsetEXT pglVertexArrayColorOffsetEXT;
 
@@ -9529,6 +9685,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayEdgeFlagOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayEdgeFlagOffsetEXT pglVertexArrayEdgeFlagOffsetEXT;
 
@@ -9536,6 +9693,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayIndexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayIndexOffsetEXT pglVertexArrayIndexOffsetEXT;
 
@@ -9543,6 +9701,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayNormalOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayNormalOffsetEXT pglVertexArrayNormalOffsetEXT;
 
@@ -9550,6 +9709,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayTexCoordOffsetEXT pglVertexArrayTexCoordOffsetEXT;
 
@@ -9557,6 +9717,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayMultiTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayMultiTexCoordOffsetEXT pglVertexArrayMultiTexCoordOffsetEXT;
 
@@ -9564,6 +9725,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayFogCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayFogCoordOffsetEXT pglVertexArrayFogCoordOffsetEXT;
 
@@ -9571,6 +9733,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArraySecondaryColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArraySecondaryColorOffsetEXT pglVertexArraySecondaryColorOffsetEXT;
 
@@ -9578,6 +9741,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexAttribOffsetEXT pglVertexArrayVertexAttribOffsetEXT;
 
@@ -9585,6 +9749,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexAttribIOffsetEXT pglVertexArrayVertexAttribIOffsetEXT;
 
@@ -9592,6 +9757,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnableVertexArrayEXT(UInt32 vaobj, Int32 array);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glEnableVertexArrayEXT pglEnableVertexArrayEXT;
 
@@ -9599,6 +9765,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisableVertexArrayEXT(UInt32 vaobj, Int32 array);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDisableVertexArrayEXT pglDisableVertexArrayEXT;
 
@@ -9606,6 +9773,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glEnableVertexArrayAttribEXT pglEnableVertexArrayAttribEXT;
 
@@ -9613,6 +9781,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDisableVertexArrayAttribEXT pglDisableVertexArrayAttribEXT;
 
@@ -9620,6 +9789,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexArrayIntegervEXT(UInt32 vaobj, Int32 pname, Int32* param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetVertexArrayIntegervEXT pglGetVertexArrayIntegervEXT;
 
@@ -9627,6 +9797,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexArrayPointervEXT(UInt32 vaobj, Int32 pname, IntPtr* param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetVertexArrayPointervEXT pglGetVertexArrayPointervEXT;
 
@@ -9634,6 +9805,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexArrayIntegeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetVertexArrayIntegeri_vEXT pglGetVertexArrayIntegeri_vEXT;
 
@@ -9641,6 +9813,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexArrayPointeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, IntPtr* param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetVertexArrayPointeri_vEXT pglGetVertexArrayPointeri_vEXT;
 
@@ -9648,6 +9821,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glMapNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMapNamedBufferRangeEXT pglMapNamedBufferRangeEXT;
 
@@ -9655,6 +9829,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFlushMappedNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glFlushMappedNamedBufferRangeEXT pglFlushMappedNamedBufferRangeEXT;
 
@@ -9662,6 +9837,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearNamedBufferDataEXT(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glClearNamedBufferDataEXT pglClearNamedBufferDataEXT;
 
@@ -9669,6 +9845,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearNamedBufferSubDataEXT(UInt32 buffer, Int32 internalformat, UInt32 offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glClearNamedBufferSubDataEXT pglClearNamedBufferSubDataEXT;
 
@@ -9676,6 +9853,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedFramebufferParameteriEXT(UInt32 framebuffer, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedFramebufferParameteriEXT pglNamedFramebufferParameteriEXT;
 
@@ -9683,6 +9861,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedFramebufferParameterivEXT pglGetNamedFramebufferParameterivEXT;
 
@@ -9690,6 +9869,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1dEXT(UInt32 program, Int32 location, double x);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniform1dEXT pglProgramUniform1dEXT;
 
@@ -9697,6 +9877,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2dEXT(UInt32 program, Int32 location, double x, double y);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniform2dEXT pglProgramUniform2dEXT;
 
@@ -9704,6 +9885,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3dEXT(UInt32 program, Int32 location, double x, double y, double z);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniform3dEXT pglProgramUniform3dEXT;
 
@@ -9711,6 +9893,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4dEXT(UInt32 program, Int32 location, double x, double y, double z, double w);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniform4dEXT pglProgramUniform4dEXT;
 
@@ -9718,6 +9901,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniform1dvEXT pglProgramUniform1dvEXT;
 
@@ -9725,6 +9909,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniform2dvEXT pglProgramUniform2dvEXT;
 
@@ -9732,6 +9917,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniform3dvEXT pglProgramUniform3dvEXT;
 
@@ -9739,6 +9925,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniform4dvEXT pglProgramUniform4dvEXT;
 
@@ -9746,6 +9933,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix2dvEXT pglProgramUniformMatrix2dvEXT;
 
@@ -9753,6 +9941,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix3dvEXT pglProgramUniformMatrix3dvEXT;
 
@@ -9760,6 +9949,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix4dvEXT pglProgramUniformMatrix4dvEXT;
 
@@ -9767,6 +9957,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix2x3dvEXT pglProgramUniformMatrix2x3dvEXT;
 
@@ -9774,6 +9965,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix2x4dvEXT pglProgramUniformMatrix2x4dvEXT;
 
@@ -9781,6 +9973,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix3x2dvEXT pglProgramUniformMatrix3x2dvEXT;
 
@@ -9788,6 +9981,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix3x4dvEXT pglProgramUniformMatrix3x4dvEXT;
 
@@ -9795,6 +9989,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix4x2dvEXT pglProgramUniformMatrix4x2dvEXT;
 
@@ -9802,6 +9997,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix4x3dvEXT pglProgramUniformMatrix4x3dvEXT;
 
@@ -9809,6 +10005,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTextureBufferRangeEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureBufferRangeEXT pglTextureBufferRangeEXT;
 
@@ -9817,6 +10014,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage1DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glTextureStorage1DEXT pglTextureStorage1DEXT;
 
@@ -9825,6 +10024,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage2DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glTextureStorage2DEXT pglTextureStorage2DEXT;
 
@@ -9833,6 +10034,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage3DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glTextureStorage3DEXT pglTextureStorage3DEXT;
 
@@ -9840,6 +10043,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage2DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureStorage2DMultisampleEXT pglTextureStorage2DMultisampleEXT;
 
@@ -9847,6 +10051,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorage3DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTextureStorage3DMultisampleEXT pglTextureStorage3DMultisampleEXT;
 
@@ -9854,6 +10059,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayBindVertexBufferEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayBindVertexBufferEXT pglVertexArrayBindVertexBufferEXT;
 
@@ -9861,6 +10067,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayVertexAttribFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexAttribFormatEXT pglVertexArrayVertexAttribFormatEXT;
 
@@ -9868,6 +10075,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayVertexAttribIFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexAttribIFormatEXT pglVertexArrayVertexAttribIFormatEXT;
 
@@ -9875,6 +10083,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayVertexAttribLFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexAttribLFormatEXT pglVertexArrayVertexAttribLFormatEXT;
 
@@ -9882,6 +10091,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayVertexAttribBindingEXT(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexAttribBindingEXT pglVertexArrayVertexAttribBindingEXT;
 
@@ -9889,6 +10099,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayVertexBindingDivisorEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexBindingDivisorEXT pglVertexArrayVertexBindingDivisorEXT;
 
@@ -9896,6 +10107,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayVertexAttribLOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexAttribLOffsetEXT pglVertexArrayVertexAttribLOffsetEXT;
 
@@ -9903,6 +10115,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glTexturePageCommitmentEXT pglTexturePageCommitmentEXT;
 
@@ -9910,6 +10123,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexArrayVertexAttribDivisorEXT(UInt32 vaobj, UInt32 index, UInt32 divisor);
 
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexArrayVertexAttribDivisorEXT pglVertexArrayVertexAttribDivisorEXT;
 

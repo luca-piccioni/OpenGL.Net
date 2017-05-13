@@ -3331,6 +3331,9 @@ namespace OpenGL
 			[AliasOf("glColorTable")]
 			[AliasOf("glColorTableEXT")]
 			[AliasOf("glColorTableSGI")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_paletted_texture")]
+			[RequiredByFeature("GL_SGI_color_table")]
 			[ThreadStatic]
 			internal static glColorTable pglColorTable;
 
@@ -3341,6 +3344,8 @@ namespace OpenGL
 
 			[AliasOf("glColorTableParameterfv")]
 			[AliasOf("glColorTableParameterfvSGI")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_SGI_color_table")]
 			[ThreadStatic]
 			internal static glColorTableParameterfv pglColorTableParameterfv;
 
@@ -3351,6 +3356,8 @@ namespace OpenGL
 
 			[AliasOf("glColorTableParameteriv")]
 			[AliasOf("glColorTableParameterivSGI")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_SGI_color_table")]
 			[ThreadStatic]
 			internal static glColorTableParameteriv pglColorTableParameteriv;
 
@@ -3361,6 +3368,8 @@ namespace OpenGL
 
 			[AliasOf("glCopyColorTable")]
 			[AliasOf("glCopyColorTableSGI")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_SGI_color_table")]
 			[ThreadStatic]
 			internal static glCopyColorTable pglCopyColorTable;
 
@@ -3371,6 +3380,8 @@ namespace OpenGL
 
 			[AliasOf("glGetColorTable")]
 			[AliasOf("glGetColorTableEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[ThreadStatic]
 			internal static glGetColorTable pglGetColorTable;
 
@@ -3381,6 +3392,8 @@ namespace OpenGL
 
 			[AliasOf("glGetColorTableParameterfv")]
 			[AliasOf("glGetColorTableParameterfvEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[ThreadStatic]
 			internal static glGetColorTableParameterfv pglGetColorTableParameterfv;
 
@@ -3391,6 +3404,8 @@ namespace OpenGL
 
 			[AliasOf("glGetColorTableParameteriv")]
 			[AliasOf("glGetColorTableParameterivEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[ThreadStatic]
 			internal static glGetColorTableParameteriv pglGetColorTableParameteriv;
 
@@ -3401,6 +3416,8 @@ namespace OpenGL
 
 			[AliasOf("glColorSubTable")]
 			[AliasOf("glColorSubTableEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_color_subtable")]
 			[ThreadStatic]
 			internal static glColorSubTable pglColorSubTable;
 
@@ -3411,6 +3428,8 @@ namespace OpenGL
 
 			[AliasOf("glCopyColorSubTable")]
 			[AliasOf("glCopyColorSubTableEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_color_subtable")]
 			[ThreadStatic]
 			internal static glCopyColorSubTable pglCopyColorSubTable;
 
@@ -3421,6 +3440,8 @@ namespace OpenGL
 
 			[AliasOf("glConvolutionFilter1D")]
 			[AliasOf("glConvolutionFilter1DEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glConvolutionFilter1D pglConvolutionFilter1D;
 
@@ -3431,6 +3452,8 @@ namespace OpenGL
 
 			[AliasOf("glConvolutionFilter2D")]
 			[AliasOf("glConvolutionFilter2DEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glConvolutionFilter2D pglConvolutionFilter2D;
 
@@ -3441,6 +3464,8 @@ namespace OpenGL
 
 			[AliasOf("glConvolutionParameterf")]
 			[AliasOf("glConvolutionParameterfEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glConvolutionParameterf pglConvolutionParameterf;
 
@@ -3451,6 +3476,8 @@ namespace OpenGL
 
 			[AliasOf("glConvolutionParameterfv")]
 			[AliasOf("glConvolutionParameterfvEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glConvolutionParameterfv pglConvolutionParameterfv;
 
@@ -3461,6 +3488,8 @@ namespace OpenGL
 
 			[AliasOf("glConvolutionParameteri")]
 			[AliasOf("glConvolutionParameteriEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glConvolutionParameteri pglConvolutionParameteri;
 
@@ -3471,6 +3500,8 @@ namespace OpenGL
 
 			[AliasOf("glConvolutionParameteriv")]
 			[AliasOf("glConvolutionParameterivEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glConvolutionParameteriv pglConvolutionParameteriv;
 
@@ -3481,6 +3512,8 @@ namespace OpenGL
 
 			[AliasOf("glCopyConvolutionFilter1D")]
 			[AliasOf("glCopyConvolutionFilter1DEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glCopyConvolutionFilter1D pglCopyConvolutionFilter1D;
 
@@ -3491,6 +3524,8 @@ namespace OpenGL
 
 			[AliasOf("glCopyConvolutionFilter2D")]
 			[AliasOf("glCopyConvolutionFilter2DEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glCopyConvolutionFilter2D pglCopyConvolutionFilter2D;
 
@@ -3498,6 +3533,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetConvolutionFilter(Int32 target, Int32 format, Int32 type, IntPtr image);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetConvolutionFilter pglGetConvolutionFilter;
 
@@ -3505,6 +3541,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetConvolutionParameterfv(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetConvolutionParameterfv pglGetConvolutionParameterfv;
 
@@ -3512,6 +3549,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetConvolutionParameteriv(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetConvolutionParameteriv pglGetConvolutionParameteriv;
 
@@ -3519,6 +3557,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSeparableFilter(Int32 target, Int32 format, Int32 type, IntPtr row, IntPtr column, IntPtr span);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetSeparableFilter pglGetSeparableFilter;
 
@@ -3529,6 +3568,8 @@ namespace OpenGL
 
 			[AliasOf("glSeparableFilter2D")]
 			[AliasOf("glSeparableFilter2DEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
 			internal static glSeparableFilter2D pglSeparableFilter2D;
 
@@ -3536,6 +3577,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetHistogram(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetHistogram pglGetHistogram;
 
@@ -3543,6 +3585,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetHistogramParameterfv(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetHistogramParameterfv pglGetHistogramParameterfv;
 
@@ -3550,6 +3593,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetHistogramParameteriv(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetHistogramParameteriv pglGetHistogramParameteriv;
 
@@ -3557,6 +3601,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMinmax(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetMinmax pglGetMinmax;
 
@@ -3564,6 +3609,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMinmaxParameterfv(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetMinmaxParameterfv pglGetMinmaxParameterfv;
 
@@ -3571,6 +3617,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMinmaxParameteriv(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glGetMinmaxParameteriv pglGetMinmaxParameteriv;
 
@@ -3581,6 +3628,8 @@ namespace OpenGL
 
 			[AliasOf("glHistogram")]
 			[AliasOf("glHistogramEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glHistogram pglHistogram;
 
@@ -3591,6 +3640,8 @@ namespace OpenGL
 
 			[AliasOf("glMinmax")]
 			[AliasOf("glMinmaxEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glMinmax pglMinmax;
 
@@ -3601,6 +3652,8 @@ namespace OpenGL
 
 			[AliasOf("glResetHistogram")]
 			[AliasOf("glResetHistogramEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glResetHistogram pglResetHistogram;
 
@@ -3611,6 +3664,8 @@ namespace OpenGL
 
 			[AliasOf("glResetMinmax")]
 			[AliasOf("glResetMinmaxEXT")]
+			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glResetMinmax pglResetMinmax;
 

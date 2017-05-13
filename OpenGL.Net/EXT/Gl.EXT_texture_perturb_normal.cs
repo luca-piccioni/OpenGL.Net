@@ -69,6 +69,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureNormalEXT(Int32 mode);
 
+			[RequiredByFeature("GL_EXT_texture_perturb_normal")]
 			[ThreadStatic]
 			internal static glTextureNormalEXT pglTextureNormalEXT;
 

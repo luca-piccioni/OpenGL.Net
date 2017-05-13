@@ -86,6 +86,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXGetProcAddress(byte* procName);
 
+			[RequiredByFeature("GLX_VERSION_1_4")]
 			internal static glXGetProcAddress pglXGetProcAddress;
 
 		}

@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTextureMultisampleMultiviewOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 samples, Int32 baseViewIndex, Int32 numViews);
 
+			[RequiredByFeature("GL_OVR_multiview_multisampled_render_to_texture", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFramebufferTextureMultisampleMultiviewOVR pglFramebufferTextureMultisampleMultiviewOVR;
 

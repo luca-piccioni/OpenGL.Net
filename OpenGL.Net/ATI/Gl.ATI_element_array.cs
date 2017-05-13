@@ -148,6 +148,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glElementPointerATI(Int32 type, IntPtr pointer);
 
+			[RequiredByFeature("GL_ATI_element_array")]
 			[ThreadStatic]
 			internal static glElementPointerATI pglElementPointerATI;
 
@@ -155,6 +156,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawElementArrayATI(Int32 mode, Int32 count);
 
+			[RequiredByFeature("GL_ATI_element_array")]
 			[ThreadStatic]
 			internal static glDrawElementArrayATI pglDrawElementArrayATI;
 
@@ -162,6 +164,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawRangeElementArrayATI(Int32 mode, UInt32 start, UInt32 end, Int32 count);
 
+			[RequiredByFeature("GL_ATI_element_array")]
 			[ThreadStatic]
 			internal static glDrawRangeElementArrayATI pglDrawRangeElementArrayATI;
 

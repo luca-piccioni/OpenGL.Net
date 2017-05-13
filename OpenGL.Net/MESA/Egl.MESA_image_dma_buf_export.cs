@@ -122,12 +122,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int* fourcc, int* num_planes, UInt64* modifiers);
 
+			[RequiredByFeature("EGL_MESA_image_dma_buf_export")]
 			internal static eglExportDMABUFImageQueryMESA peglExportDMABUFImageQueryMESA;
 
 			[RequiredByFeature("EGL_MESA_image_dma_buf_export")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglExportDMABUFImageMESA(IntPtr dpy, IntPtr image, int* fds, int* strides, int* offsets);
 
+			[RequiredByFeature("EGL_MESA_image_dma_buf_export")]
 			internal static eglExportDMABUFImageMESA peglExportDMABUFImageMESA;
 
 		}

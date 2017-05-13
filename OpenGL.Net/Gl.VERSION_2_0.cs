@@ -6699,6 +6699,9 @@ namespace OpenGL
 
 			[AliasOf("glBlendEquationSeparate")]
 			[AliasOf("glBlendEquationSeparateEXT")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_blend_equation_separate")]
 			[ThreadStatic]
 			internal static glBlendEquationSeparate pglBlendEquationSeparate;
 
@@ -6714,6 +6717,11 @@ namespace OpenGL
 			[AliasOf("glDrawBuffersARB")]
 			[AliasOf("glDrawBuffersATI")]
 			[AliasOf("glDrawBuffersEXT")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_draw_buffers")]
+			[RequiredByFeature("GL_ATI_draw_buffers")]
+			[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDrawBuffers pglDrawBuffers;
 
@@ -6725,6 +6733,9 @@ namespace OpenGL
 
 			[AliasOf("glStencilOpSeparate")]
 			[AliasOf("glStencilOpSeparateATI")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ATI_separate_stencil")]
 			[ThreadStatic]
 			internal static glStencilOpSeparate pglStencilOpSeparate;
 
@@ -6733,6 +6744,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilFuncSeparate(Int32 face, Int32 func, Int32 @ref, UInt32 mask);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glStencilFuncSeparate pglStencilFuncSeparate;
 
@@ -6741,6 +6754,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilMaskSeparate(Int32 face, UInt32 mask);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glStencilMaskSeparate pglStencilMaskSeparate;
 
@@ -6752,6 +6767,9 @@ namespace OpenGL
 
 			[AliasOf("glAttachShader")]
 			[AliasOf("glAttachObjectARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glAttachShader pglAttachShader;
 
@@ -6763,6 +6781,9 @@ namespace OpenGL
 
 			[AliasOf("glBindAttribLocation")]
 			[AliasOf("glBindAttribLocationARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glBindAttribLocation pglBindAttribLocation;
 
@@ -6774,6 +6795,9 @@ namespace OpenGL
 
 			[AliasOf("glCompileShader")]
 			[AliasOf("glCompileShaderARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glCompileShader pglCompileShader;
 
@@ -6785,6 +6809,9 @@ namespace OpenGL
 
 			[AliasOf("glCreateProgram")]
 			[AliasOf("glCreateProgramObjectARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glCreateProgram pglCreateProgram;
 
@@ -6796,6 +6823,9 @@ namespace OpenGL
 
 			[AliasOf("glCreateShader")]
 			[AliasOf("glCreateShaderObjectARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glCreateShader pglCreateShader;
 
@@ -6804,6 +6834,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteProgram(UInt32 program);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDeleteProgram pglDeleteProgram;
 
@@ -6812,6 +6844,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteShader(UInt32 shader);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDeleteShader pglDeleteShader;
 
@@ -6823,6 +6857,9 @@ namespace OpenGL
 
 			[AliasOf("glDetachShader")]
 			[AliasOf("glDetachObjectARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glDetachShader pglDetachShader;
 
@@ -6835,6 +6872,10 @@ namespace OpenGL
 
 			[AliasOf("glDisableVertexAttribArray")]
 			[AliasOf("glDisableVertexAttribArrayARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glDisableVertexAttribArray pglDisableVertexAttribArray;
 
@@ -6847,6 +6888,10 @@ namespace OpenGL
 
 			[AliasOf("glEnableVertexAttribArray")]
 			[AliasOf("glEnableVertexAttribArrayARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glEnableVertexAttribArray pglEnableVertexAttribArray;
 
@@ -6858,6 +6903,9 @@ namespace OpenGL
 
 			[AliasOf("glGetActiveAttrib")]
 			[AliasOf("glGetActiveAttribARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glGetActiveAttrib pglGetActiveAttrib;
 
@@ -6869,6 +6917,9 @@ namespace OpenGL
 
 			[AliasOf("glGetActiveUniform")]
 			[AliasOf("glGetActiveUniformARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glGetActiveUniform pglGetActiveUniform;
 
@@ -6877,6 +6928,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetAttachedShaders(UInt32 program, Int32 maxCount, Int32* count, UInt32* shaders);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetAttachedShaders pglGetAttachedShaders;
 
@@ -6888,6 +6941,9 @@ namespace OpenGL
 
 			[AliasOf("glGetAttribLocation")]
 			[AliasOf("glGetAttribLocationARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glGetAttribLocation pglGetAttribLocation;
 
@@ -6896,6 +6952,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramiv(UInt32 program, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetProgramiv pglGetProgramiv;
 
@@ -6904,6 +6962,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramInfoLog(UInt32 program, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetProgramInfoLog pglGetProgramInfoLog;
 
@@ -6912,6 +6972,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetShaderiv(UInt32 shader, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetShaderiv pglGetShaderiv;
 
@@ -6920,6 +6982,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetShaderInfoLog(UInt32 shader, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetShaderInfoLog pglGetShaderInfoLog;
 
@@ -6931,6 +6995,9 @@ namespace OpenGL
 
 			[AliasOf("glGetShaderSource")]
 			[AliasOf("glGetShaderSourceARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glGetShaderSource pglGetShaderSource;
 
@@ -6942,6 +7009,9 @@ namespace OpenGL
 
 			[AliasOf("glGetUniformLocation")]
 			[AliasOf("glGetUniformLocationARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glGetUniformLocation pglGetUniformLocation;
 
@@ -6953,6 +7023,9 @@ namespace OpenGL
 
 			[AliasOf("glGetUniformfv")]
 			[AliasOf("glGetUniformfvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glGetUniformfv pglGetUniformfv;
 
@@ -6964,6 +7037,9 @@ namespace OpenGL
 
 			[AliasOf("glGetUniformiv")]
 			[AliasOf("glGetUniformivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glGetUniformiv pglGetUniformiv;
 
@@ -6977,6 +7053,10 @@ namespace OpenGL
 			[AliasOf("glGetVertexAttribdv")]
 			[AliasOf("glGetVertexAttribdvARB")]
 			[AliasOf("glGetVertexAttribdvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glGetVertexAttribdv pglGetVertexAttribdv;
 
@@ -6991,6 +7071,11 @@ namespace OpenGL
 			[AliasOf("glGetVertexAttribfv")]
 			[AliasOf("glGetVertexAttribfvARB")]
 			[AliasOf("glGetVertexAttribfvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glGetVertexAttribfv pglGetVertexAttribfv;
 
@@ -7005,6 +7090,11 @@ namespace OpenGL
 			[AliasOf("glGetVertexAttribiv")]
 			[AliasOf("glGetVertexAttribivARB")]
 			[AliasOf("glGetVertexAttribivNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glGetVertexAttribiv pglGetVertexAttribiv;
 
@@ -7019,6 +7109,11 @@ namespace OpenGL
 			[AliasOf("glGetVertexAttribPointerv")]
 			[AliasOf("glGetVertexAttribPointervARB")]
 			[AliasOf("glGetVertexAttribPointervNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glGetVertexAttribPointerv pglGetVertexAttribPointerv;
 
@@ -7027,6 +7122,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsProgram(UInt32 program);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glIsProgram pglIsProgram;
 
@@ -7035,6 +7132,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsShader(UInt32 shader);
 
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glIsShader pglIsShader;
 
@@ -7046,6 +7145,9 @@ namespace OpenGL
 
 			[AliasOf("glLinkProgram")]
 			[AliasOf("glLinkProgramARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glLinkProgram pglLinkProgram;
 
@@ -7057,6 +7159,9 @@ namespace OpenGL
 
 			[AliasOf("glShaderSource")]
 			[AliasOf("glShaderSourceARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glShaderSource pglShaderSource;
 
@@ -7068,6 +7173,9 @@ namespace OpenGL
 
 			[AliasOf("glUseProgram")]
 			[AliasOf("glUseProgramObjectARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUseProgram pglUseProgram;
 
@@ -7079,6 +7187,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform1f")]
 			[AliasOf("glUniform1fARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform1f pglUniform1f;
 
@@ -7090,6 +7201,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform2f")]
 			[AliasOf("glUniform2fARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform2f pglUniform2f;
 
@@ -7101,6 +7215,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform3f")]
 			[AliasOf("glUniform3fARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform3f pglUniform3f;
 
@@ -7112,6 +7229,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform4f")]
 			[AliasOf("glUniform4fARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform4f pglUniform4f;
 
@@ -7123,6 +7243,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform1i")]
 			[AliasOf("glUniform1iARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform1i pglUniform1i;
 
@@ -7134,6 +7257,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform2i")]
 			[AliasOf("glUniform2iARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform2i pglUniform2i;
 
@@ -7145,6 +7271,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform3i")]
 			[AliasOf("glUniform3iARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform3i pglUniform3i;
 
@@ -7156,6 +7285,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform4i")]
 			[AliasOf("glUniform4iARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform4i pglUniform4i;
 
@@ -7167,6 +7299,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform1fv")]
 			[AliasOf("glUniform1fvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform1fv pglUniform1fv;
 
@@ -7178,6 +7313,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform2fv")]
 			[AliasOf("glUniform2fvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform2fv pglUniform2fv;
 
@@ -7189,6 +7327,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform3fv")]
 			[AliasOf("glUniform3fvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform3fv pglUniform3fv;
 
@@ -7200,6 +7341,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform4fv")]
 			[AliasOf("glUniform4fvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform4fv pglUniform4fv;
 
@@ -7211,6 +7355,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform1iv")]
 			[AliasOf("glUniform1ivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform1iv pglUniform1iv;
 
@@ -7222,6 +7369,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform2iv")]
 			[AliasOf("glUniform2ivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform2iv pglUniform2iv;
 
@@ -7233,6 +7383,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform3iv")]
 			[AliasOf("glUniform3ivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform3iv pglUniform3iv;
 
@@ -7244,6 +7397,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform4iv")]
 			[AliasOf("glUniform4ivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniform4iv pglUniform4iv;
 
@@ -7255,6 +7411,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix2fv")]
 			[AliasOf("glUniformMatrix2fvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniformMatrix2fv pglUniformMatrix2fv;
 
@@ -7266,6 +7425,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix3fv")]
 			[AliasOf("glUniformMatrix3fvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniformMatrix3fv pglUniformMatrix3fv;
 
@@ -7277,6 +7439,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix4fv")]
 			[AliasOf("glUniformMatrix4fvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glUniformMatrix4fv pglUniformMatrix4fv;
 
@@ -7288,6 +7453,9 @@ namespace OpenGL
 
 			[AliasOf("glValidateProgram")]
 			[AliasOf("glValidateProgramARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glValidateProgram pglValidateProgram;
 
@@ -7301,6 +7469,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib1d")]
 			[AliasOf("glVertexAttrib1dARB")]
 			[AliasOf("glVertexAttrib1dNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib1d pglVertexAttrib1d;
 
@@ -7314,6 +7486,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib1dv")]
 			[AliasOf("glVertexAttrib1dvARB")]
 			[AliasOf("glVertexAttrib1dvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib1dv pglVertexAttrib1dv;
 
@@ -7328,6 +7504,11 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib1f")]
 			[AliasOf("glVertexAttrib1fARB")]
 			[AliasOf("glVertexAttrib1fNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib1f pglVertexAttrib1f;
 
@@ -7342,6 +7523,11 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib1fv")]
 			[AliasOf("glVertexAttrib1fvARB")]
 			[AliasOf("glVertexAttrib1fvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib1fv pglVertexAttrib1fv;
 
@@ -7355,6 +7541,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib1s")]
 			[AliasOf("glVertexAttrib1sARB")]
 			[AliasOf("glVertexAttrib1sNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib1s pglVertexAttrib1s;
 
@@ -7368,6 +7558,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib1sv")]
 			[AliasOf("glVertexAttrib1svARB")]
 			[AliasOf("glVertexAttrib1svNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib1sv pglVertexAttrib1sv;
 
@@ -7381,6 +7575,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib2d")]
 			[AliasOf("glVertexAttrib2dARB")]
 			[AliasOf("glVertexAttrib2dNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib2d pglVertexAttrib2d;
 
@@ -7394,6 +7592,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib2dv")]
 			[AliasOf("glVertexAttrib2dvARB")]
 			[AliasOf("glVertexAttrib2dvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib2dv pglVertexAttrib2dv;
 
@@ -7408,6 +7610,11 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib2f")]
 			[AliasOf("glVertexAttrib2fARB")]
 			[AliasOf("glVertexAttrib2fNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib2f pglVertexAttrib2f;
 
@@ -7422,6 +7629,11 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib2fv")]
 			[AliasOf("glVertexAttrib2fvARB")]
 			[AliasOf("glVertexAttrib2fvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib2fv pglVertexAttrib2fv;
 
@@ -7435,6 +7647,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib2s")]
 			[AliasOf("glVertexAttrib2sARB")]
 			[AliasOf("glVertexAttrib2sNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib2s pglVertexAttrib2s;
 
@@ -7448,6 +7664,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib2sv")]
 			[AliasOf("glVertexAttrib2svARB")]
 			[AliasOf("glVertexAttrib2svNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib2sv pglVertexAttrib2sv;
 
@@ -7461,6 +7681,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib3d")]
 			[AliasOf("glVertexAttrib3dARB")]
 			[AliasOf("glVertexAttrib3dNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib3d pglVertexAttrib3d;
 
@@ -7474,6 +7698,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib3dv")]
 			[AliasOf("glVertexAttrib3dvARB")]
 			[AliasOf("glVertexAttrib3dvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib3dv pglVertexAttrib3dv;
 
@@ -7488,6 +7716,11 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib3f")]
 			[AliasOf("glVertexAttrib3fARB")]
 			[AliasOf("glVertexAttrib3fNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib3f pglVertexAttrib3f;
 
@@ -7502,6 +7735,11 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib3fv")]
 			[AliasOf("glVertexAttrib3fvARB")]
 			[AliasOf("glVertexAttrib3fvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib3fv pglVertexAttrib3fv;
 
@@ -7515,6 +7753,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib3s")]
 			[AliasOf("glVertexAttrib3sARB")]
 			[AliasOf("glVertexAttrib3sNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib3s pglVertexAttrib3s;
 
@@ -7528,6 +7770,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib3sv")]
 			[AliasOf("glVertexAttrib3svARB")]
 			[AliasOf("glVertexAttrib3svNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib3sv pglVertexAttrib3sv;
 
@@ -7539,6 +7785,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4Nbv")]
 			[AliasOf("glVertexAttrib4NbvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4Nbv pglVertexAttrib4Nbv;
 
@@ -7550,6 +7799,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4Niv")]
 			[AliasOf("glVertexAttrib4NivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4Niv pglVertexAttrib4Niv;
 
@@ -7561,6 +7813,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4Nsv")]
 			[AliasOf("glVertexAttrib4NsvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4Nsv pglVertexAttrib4Nsv;
 
@@ -7574,6 +7829,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib4Nub")]
 			[AliasOf("glVertexAttrib4NubARB")]
 			[AliasOf("glVertexAttrib4ubNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib4Nub pglVertexAttrib4Nub;
 
@@ -7587,6 +7846,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib4Nubv")]
 			[AliasOf("glVertexAttrib4NubvARB")]
 			[AliasOf("glVertexAttrib4ubvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib4Nubv pglVertexAttrib4Nubv;
 
@@ -7598,6 +7861,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4Nuiv")]
 			[AliasOf("glVertexAttrib4NuivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4Nuiv pglVertexAttrib4Nuiv;
 
@@ -7609,6 +7875,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4Nusv")]
 			[AliasOf("glVertexAttrib4NusvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4Nusv pglVertexAttrib4Nusv;
 
@@ -7620,6 +7889,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4bv")]
 			[AliasOf("glVertexAttrib4bvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4bv pglVertexAttrib4bv;
 
@@ -7633,6 +7905,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib4d")]
 			[AliasOf("glVertexAttrib4dARB")]
 			[AliasOf("glVertexAttrib4dNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib4d pglVertexAttrib4d;
 
@@ -7646,6 +7922,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib4dv")]
 			[AliasOf("glVertexAttrib4dvARB")]
 			[AliasOf("glVertexAttrib4dvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib4dv pglVertexAttrib4dv;
 
@@ -7660,6 +7940,11 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib4f")]
 			[AliasOf("glVertexAttrib4fARB")]
 			[AliasOf("glVertexAttrib4fNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib4f pglVertexAttrib4f;
 
@@ -7674,6 +7959,11 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib4fv")]
 			[AliasOf("glVertexAttrib4fvARB")]
 			[AliasOf("glVertexAttrib4fvNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib4fv pglVertexAttrib4fv;
 
@@ -7685,6 +7975,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4iv")]
 			[AliasOf("glVertexAttrib4ivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4iv pglVertexAttrib4iv;
 
@@ -7698,6 +7991,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib4s")]
 			[AliasOf("glVertexAttrib4sARB")]
 			[AliasOf("glVertexAttrib4sNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib4s pglVertexAttrib4s;
 
@@ -7711,6 +8008,10 @@ namespace OpenGL
 			[AliasOf("glVertexAttrib4sv")]
 			[AliasOf("glVertexAttrib4svARB")]
 			[AliasOf("glVertexAttrib4svNV")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glVertexAttrib4sv pglVertexAttrib4sv;
 
@@ -7722,6 +8023,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4ubv")]
 			[AliasOf("glVertexAttrib4ubvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4ubv pglVertexAttrib4ubv;
 
@@ -7733,6 +8037,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4uiv")]
 			[AliasOf("glVertexAttrib4uivARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4uiv pglVertexAttrib4uiv;
 
@@ -7744,6 +8051,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttrib4usv")]
 			[AliasOf("glVertexAttrib4usvARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttrib4usv pglVertexAttrib4usv;
 
@@ -7756,6 +8066,10 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribPointer")]
 			[AliasOf("glVertexAttribPointerARB")]
+			[RequiredByFeature("GL_VERSION_2_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[ThreadStatic]
 			internal static glVertexAttribPointer pglVertexAttribPointer;
 

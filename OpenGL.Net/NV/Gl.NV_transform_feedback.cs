@@ -353,6 +353,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTransformFeedbackAttribsNV(Int32 count, Int32* attribs, Int32 bufferMode);
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glTransformFeedbackAttribsNV pglTransformFeedbackAttribsNV;
 
@@ -360,6 +361,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTransformFeedbackVaryingsNV(UInt32 program, Int32 count, Int32* locations, Int32 bufferMode);
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glTransformFeedbackVaryingsNV pglTransformFeedbackVaryingsNV;
 
@@ -367,6 +369,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glActiveVaryingNV(UInt32 program, String name);
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glActiveVaryingNV pglActiveVaryingNV;
 
@@ -374,6 +377,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetVaryingLocationNV(UInt32 program, String name);
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glGetVaryingLocationNV pglGetVaryingLocationNV;
 
@@ -381,6 +385,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, Int32* length, Int32* size, Int32* type, [Out] StringBuilder name);
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glGetActiveVaryingNV pglGetActiveVaryingNV;
 
@@ -388,6 +393,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTransformFeedbackVaryingNV(UInt32 program, UInt32 index, Int32* location);
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glGetTransformFeedbackVaryingNV pglGetTransformFeedbackVaryingNV;
 
@@ -395,6 +401,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTransformFeedbackStreamAttribsNV(Int32 count, Int32* attribs, Int32 nbuffers, Int32* bufstreams, Int32 bufferMode);
 
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glTransformFeedbackStreamAttribsNV pglTransformFeedbackStreamAttribsNV;
 

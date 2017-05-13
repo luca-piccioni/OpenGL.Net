@@ -152,6 +152,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glApplyTextureEXT(Int32 mode);
 
+			[RequiredByFeature("GL_EXT_light_texture")]
 			[ThreadStatic]
 			internal static glApplyTextureEXT pglApplyTextureEXT;
 
@@ -159,6 +160,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureLightEXT(Int32 pname);
 
+			[RequiredByFeature("GL_EXT_light_texture")]
 			[ThreadStatic]
 			internal static glTextureLightEXT pglTextureLightEXT;
 
@@ -166,6 +168,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureMaterialEXT(Int32 face, Int32 mode);
 
+			[RequiredByFeature("GL_EXT_light_texture")]
 			[ThreadStatic]
 			internal static glTextureMaterialEXT pglTextureMaterialEXT;
 

@@ -60,6 +60,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glAlphaFuncQCOM(Int32 func, float @ref);
 
+			[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 			[ThreadStatic]
 			internal static glAlphaFuncQCOM pglAlphaFuncQCOM;
 

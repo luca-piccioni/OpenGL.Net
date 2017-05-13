@@ -69,6 +69,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glActiveStencilFaceEXT(Int32 face);
 
+			[RequiredByFeature("GL_EXT_stencil_two_side")]
 			[ThreadStatic]
 			internal static glActiveStencilFaceEXT pglActiveStencilFaceEXT;
 

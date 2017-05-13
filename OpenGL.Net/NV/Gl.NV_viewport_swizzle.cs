@@ -141,6 +141,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glViewportSwizzleNV(UInt32 index, Int32 swizzlex, Int32 swizzley, Int32 swizzlez, Int32 swizzlew);
 
+			[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glViewportSwizzleNV pglViewportSwizzleNV;
 

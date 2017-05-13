@@ -278,6 +278,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetHistogramEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glGetHistogramEXT pglGetHistogramEXT;
 
@@ -285,6 +286,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetHistogramParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glGetHistogramParameterfvEXT pglGetHistogramParameterfvEXT;
 
@@ -292,6 +294,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetHistogramParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glGetHistogramParameterivEXT pglGetHistogramParameterivEXT;
 
@@ -299,6 +302,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMinmaxEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glGetMinmaxEXT pglGetMinmaxEXT;
 
@@ -306,6 +310,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMinmaxParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glGetMinmaxParameterfvEXT pglGetMinmaxParameterfvEXT;
 
@@ -313,6 +318,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMinmaxParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
 			internal static glGetMinmaxParameterivEXT pglGetMinmaxParameterivEXT;
 

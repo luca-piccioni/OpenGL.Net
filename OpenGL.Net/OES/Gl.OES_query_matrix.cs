@@ -73,6 +73,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32 glQueryMatrixxOES(IntPtr* mantissa, Int32* exponent);
 
+			[RequiredByFeature("GL_OES_query_matrix", Api = "gl|gles1")]
 			[ThreadStatic]
 			internal static glQueryMatrixxOES pglQueryMatrixxOES;
 

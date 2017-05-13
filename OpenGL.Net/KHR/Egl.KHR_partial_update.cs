@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSetDamageRegionKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
 
+			[RequiredByFeature("EGL_KHR_partial_update")]
 			internal static eglSetDamageRegionKHR peglSetDamageRegionKHR;
 
 		}

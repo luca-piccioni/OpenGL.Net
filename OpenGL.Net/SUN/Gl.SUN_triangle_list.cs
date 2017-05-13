@@ -299,6 +299,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glReplacementCodeuiSUN(UInt32 code);
 
+			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
 			internal static glReplacementCodeuiSUN pglReplacementCodeuiSUN;
 
@@ -306,6 +307,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glReplacementCodeusSUN(UInt16 code);
 
+			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
 			internal static glReplacementCodeusSUN pglReplacementCodeusSUN;
 
@@ -313,6 +315,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glReplacementCodeubSUN(byte code);
 
+			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
 			internal static glReplacementCodeubSUN pglReplacementCodeubSUN;
 
@@ -320,6 +323,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReplacementCodeuivSUN(UInt32* code);
 
+			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
 			internal static glReplacementCodeuivSUN pglReplacementCodeuivSUN;
 
@@ -327,6 +331,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReplacementCodeusvSUN(UInt16* code);
 
+			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
 			internal static glReplacementCodeusvSUN pglReplacementCodeusvSUN;
 
@@ -334,6 +339,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReplacementCodeubvSUN(byte* code);
 
+			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
 			internal static glReplacementCodeubvSUN pglReplacementCodeubvSUN;
 
@@ -341,6 +347,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr* pointer);
 
+			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
 			internal static glReplacementCodePointerSUN pglReplacementCodePointerSUN;
 

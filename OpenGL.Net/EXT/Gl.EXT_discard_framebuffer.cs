@@ -65,6 +65,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDiscardFramebufferEXT(Int32 target, Int32 numAttachments, Int32* attachments);
 
+			[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glDiscardFramebufferEXT pglDiscardFramebufferEXT;
 

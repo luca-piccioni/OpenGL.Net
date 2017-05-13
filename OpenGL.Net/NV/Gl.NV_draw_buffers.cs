@@ -62,6 +62,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawBuffersNV(Int32 n, Int32* bufs);
 
+			[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDrawBuffersNV pglDrawBuffersNV;
 

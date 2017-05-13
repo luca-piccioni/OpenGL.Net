@@ -146,6 +146,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetFrameUsageI3D(float * pUsage);
 
+			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			[ThreadStatic]
 			internal static wglGetFrameUsageI3D pwglGetFrameUsageI3D;
 
@@ -153,6 +154,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool wglBeginFrameTrackingI3D();
 
+			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			[ThreadStatic]
 			internal static wglBeginFrameTrackingI3D pwglBeginFrameTrackingI3D;
 
@@ -160,6 +162,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool wglEndFrameTrackingI3D();
 
+			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			[ThreadStatic]
 			internal static wglEndFrameTrackingI3D pwglEndFrameTrackingI3D;
 
@@ -167,6 +170,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglQueryFrameTrackingI3D(Int32* pFrameCount, Int32* pMissedFrames, float * pLastMissedUsage);
 
+			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			[ThreadStatic]
 			internal static wglQueryFrameTrackingI3D pwglQueryFrameTrackingI3D;
 

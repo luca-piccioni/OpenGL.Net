@@ -54,6 +54,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glApplyFramebufferAttachmentCMAAINTEL();
 
+			[RequiredByFeature("GL_INTEL_framebuffer_CMAA", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glApplyFramebufferAttachmentCMAAINTEL pglApplyFramebufferAttachmentCMAAINTEL;
 

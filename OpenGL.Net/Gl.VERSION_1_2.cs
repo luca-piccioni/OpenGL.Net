@@ -1318,6 +1318,9 @@ namespace OpenGL
 
 			[AliasOf("glDrawRangeElements")]
 			[AliasOf("glDrawRangeElementsEXT")]
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_range_elements")]
 			[ThreadStatic]
 			internal static glDrawRangeElements pglDrawRangeElements;
 
@@ -1331,6 +1334,10 @@ namespace OpenGL
 			[AliasOf("glTexImage3D")]
 			[AliasOf("glTexImage3DEXT")]
 			[AliasOf("glTexImage3DOES")]
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture3D")]
+			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexImage3D pglTexImage3D;
 
@@ -1344,6 +1351,10 @@ namespace OpenGL
 			[AliasOf("glTexSubImage3D")]
 			[AliasOf("glTexSubImage3DEXT")]
 			[AliasOf("glTexSubImage3DOES")]
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture3D")]
+			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexSubImage3D pglTexSubImage3D;
 
@@ -1357,6 +1368,10 @@ namespace OpenGL
 			[AliasOf("glCopyTexSubImage3D")]
 			[AliasOf("glCopyTexSubImage3DEXT")]
 			[AliasOf("glCopyTexSubImage3DOES")]
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
+			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCopyTexSubImage3D pglCopyTexSubImage3D;
 

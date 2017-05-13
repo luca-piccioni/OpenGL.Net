@@ -80,6 +80,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glMapObjectBufferATI(UInt32 buffer);
 
+			[RequiredByFeature("GL_ATI_map_object_buffer")]
 			[ThreadStatic]
 			internal static glMapObjectBufferATI pglMapObjectBufferATI;
 
@@ -87,6 +88,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUnmapObjectBufferATI(UInt32 buffer);
 
+			[RequiredByFeature("GL_ATI_map_object_buffer")]
 			[ThreadStatic]
 			internal static glUnmapObjectBufferATI pglUnmapObjectBufferATI;
 

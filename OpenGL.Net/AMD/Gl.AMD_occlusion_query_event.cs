@@ -102,6 +102,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glQueryObjectParameteruiAMD(Int32 target, UInt32 id, Int32 pname, UInt32 param);
 
+			[RequiredByFeature("GL_AMD_occlusion_query_event")]
 			[ThreadStatic]
 			internal static glQueryObjectParameteruiAMD pglQueryObjectParameteruiAMD;
 

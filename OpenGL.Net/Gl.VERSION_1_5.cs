@@ -1792,6 +1792,9 @@ namespace OpenGL
 
 			[AliasOf("glGenQueries")]
 			[AliasOf("glGenQueriesARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[ThreadStatic]
 			internal static glGenQueries pglGenQueries;
 
@@ -1803,6 +1806,9 @@ namespace OpenGL
 
 			[AliasOf("glDeleteQueries")]
 			[AliasOf("glDeleteQueriesARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[ThreadStatic]
 			internal static glDeleteQueries pglDeleteQueries;
 
@@ -1814,6 +1820,9 @@ namespace OpenGL
 
 			[AliasOf("glIsQuery")]
 			[AliasOf("glIsQueryARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[ThreadStatic]
 			internal static glIsQuery pglIsQuery;
 
@@ -1825,6 +1834,9 @@ namespace OpenGL
 
 			[AliasOf("glBeginQuery")]
 			[AliasOf("glBeginQueryARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[ThreadStatic]
 			internal static glBeginQuery pglBeginQuery;
 
@@ -1836,6 +1848,9 @@ namespace OpenGL
 
 			[AliasOf("glEndQuery")]
 			[AliasOf("glEndQueryARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[ThreadStatic]
 			internal static glEndQuery pglEndQuery;
 
@@ -1847,6 +1862,9 @@ namespace OpenGL
 
 			[AliasOf("glGetQueryiv")]
 			[AliasOf("glGetQueryivARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[ThreadStatic]
 			internal static glGetQueryiv pglGetQueryiv;
 
@@ -1859,6 +1877,9 @@ namespace OpenGL
 			[AliasOf("glGetQueryObjectiv")]
 			[AliasOf("glGetQueryObjectivARB")]
 			[AliasOf("glGetQueryObjectivEXT")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ARB_occlusion_query")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetQueryObjectiv pglGetQueryObjectiv;
 
@@ -1870,6 +1891,9 @@ namespace OpenGL
 
 			[AliasOf("glGetQueryObjectuiv")]
 			[AliasOf("glGetQueryObjectuivARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[ThreadStatic]
 			internal static glGetQueryObjectuiv pglGetQueryObjectuiv;
 
@@ -1882,6 +1906,10 @@ namespace OpenGL
 
 			[AliasOf("glBindBuffer")]
 			[AliasOf("glBindBufferARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glBindBuffer pglBindBuffer;
 
@@ -1894,6 +1922,10 @@ namespace OpenGL
 
 			[AliasOf("glDeleteBuffers")]
 			[AliasOf("glDeleteBuffersARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glDeleteBuffers pglDeleteBuffers;
 
@@ -1906,6 +1938,10 @@ namespace OpenGL
 
 			[AliasOf("glGenBuffers")]
 			[AliasOf("glGenBuffersARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glGenBuffers pglGenBuffers;
 
@@ -1918,6 +1954,10 @@ namespace OpenGL
 
 			[AliasOf("glIsBuffer")]
 			[AliasOf("glIsBufferARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glIsBuffer pglIsBuffer;
 
@@ -1930,6 +1970,10 @@ namespace OpenGL
 
 			[AliasOf("glBufferData")]
 			[AliasOf("glBufferDataARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glBufferData pglBufferData;
 
@@ -1942,6 +1986,10 @@ namespace OpenGL
 
 			[AliasOf("glBufferSubData")]
 			[AliasOf("glBufferSubDataARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glBufferSubData pglBufferSubData;
 
@@ -1952,6 +2000,8 @@ namespace OpenGL
 
 			[AliasOf("glGetBufferSubData")]
 			[AliasOf("glGetBufferSubDataARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glGetBufferSubData pglGetBufferSubData;
 
@@ -1964,6 +2014,9 @@ namespace OpenGL
 			[AliasOf("glMapBuffer")]
 			[AliasOf("glMapBufferARB")]
 			[AliasOf("glMapBufferOES")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glMapBuffer pglMapBuffer;
 
@@ -1977,6 +2030,10 @@ namespace OpenGL
 			[AliasOf("glUnmapBuffer")]
 			[AliasOf("glUnmapBufferARB")]
 			[AliasOf("glUnmapBufferOES")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glUnmapBuffer pglUnmapBuffer;
 
@@ -1989,6 +2046,10 @@ namespace OpenGL
 
 			[AliasOf("glGetBufferParameteriv")]
 			[AliasOf("glGetBufferParameterivARB")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glGetBufferParameteriv pglGetBufferParameteriv;
 
@@ -2002,6 +2063,10 @@ namespace OpenGL
 			[AliasOf("glGetBufferPointerv")]
 			[AliasOf("glGetBufferPointervARB")]
 			[AliasOf("glGetBufferPointervOES")]
+			[RequiredByFeature("GL_VERSION_1_5")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glGetBufferPointerv pglGetBufferPointerv;
 

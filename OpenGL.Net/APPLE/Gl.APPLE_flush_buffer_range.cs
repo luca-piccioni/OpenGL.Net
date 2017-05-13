@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBufferParameteriAPPLE(Int32 target, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 			[ThreadStatic]
 			internal static glBufferParameteriAPPLE pglBufferParameteriAPPLE;
 

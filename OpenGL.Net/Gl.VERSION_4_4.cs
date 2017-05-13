@@ -1156,6 +1156,9 @@ namespace OpenGL
 
 			[AliasOf("glBufferStorage")]
 			[AliasOf("glBufferStorageEXT")]
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 			[ThreadStatic]
 			internal static glBufferStorage pglBufferStorage;
 
@@ -1167,6 +1170,9 @@ namespace OpenGL
 
 			[AliasOf("glClearTexImage")]
 			[AliasOf("glClearTexImageEXT")]
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearTexImage pglClearTexImage;
 
@@ -1178,6 +1184,9 @@ namespace OpenGL
 
 			[AliasOf("glClearTexSubImage")]
 			[AliasOf("glClearTexSubImageEXT")]
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearTexSubImage pglClearTexSubImage;
 
@@ -1186,6 +1195,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindBuffersBase(Int32 target, UInt32 first, Int32 count, UInt32* buffers);
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindBuffersBase pglBindBuffersBase;
 
@@ -1194,6 +1205,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindBuffersRange(Int32 target, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, UInt32* sizes);
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindBuffersRange pglBindBuffersRange;
 
@@ -1202,6 +1215,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindTextures(UInt32 first, Int32 count, UInt32* textures);
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindTextures pglBindTextures;
 
@@ -1210,6 +1225,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindSamplers(UInt32 first, Int32 count, UInt32* samplers);
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindSamplers pglBindSamplers;
 
@@ -1218,6 +1235,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindImageTextures(UInt32 first, Int32 count, UInt32* textures);
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindImageTextures pglBindImageTextures;
 
@@ -1226,6 +1245,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindVertexBuffers(UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
 
+			[RequiredByFeature("GL_VERSION_4_4")]
+			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindVertexBuffers pglBindVertexBuffers;
 

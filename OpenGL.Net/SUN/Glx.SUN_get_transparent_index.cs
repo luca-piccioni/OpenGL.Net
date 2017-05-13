@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glXGetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, long * pTransparentIndex);
 
+			[RequiredByFeature("GLX_SUN_get_transparent_index")]
 			internal static glXGetTransparentIndexSUN pglXGetTransparentIndexSUN;
 
 		}

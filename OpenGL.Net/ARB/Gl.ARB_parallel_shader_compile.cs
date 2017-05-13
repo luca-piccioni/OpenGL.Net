@@ -69,6 +69,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMaxShaderCompilerThreadsARB(UInt32 count);
 
+			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMaxShaderCompilerThreadsARB pglMaxShaderCompilerThreadsARB;
 

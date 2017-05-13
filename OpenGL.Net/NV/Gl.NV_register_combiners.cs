@@ -750,6 +750,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCombinerParameterfvNV(Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glCombinerParameterfvNV pglCombinerParameterfvNV;
 
@@ -757,6 +758,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCombinerParameterfNV(Int32 pname, float param);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glCombinerParameterfNV pglCombinerParameterfNV;
 
@@ -764,6 +766,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCombinerParameterivNV(Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glCombinerParameterivNV pglCombinerParameterivNV;
 
@@ -771,6 +774,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCombinerParameteriNV(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glCombinerParameteriNV pglCombinerParameteriNV;
 
@@ -778,6 +782,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCombinerInputNV(Int32 stage, Int32 portion, Int32 variable, Int32 input, Int32 mapping, Int32 componentUsage);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glCombinerInputNV pglCombinerInputNV;
 
@@ -785,6 +790,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCombinerOutputNV(Int32 stage, Int32 portion, Int32 abOutput, Int32 cdOutput, Int32 sumOutput, Int32 scale, Int32 bias, bool abDotProduct, bool cdDotProduct, bool muxSum);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glCombinerOutputNV pglCombinerOutputNV;
 
@@ -792,6 +798,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFinalCombinerInputNV(Int32 variable, Int32 input, Int32 mapping, Int32 componentUsage);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glFinalCombinerInputNV pglFinalCombinerInputNV;
 
@@ -799,6 +806,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCombinerInputParameterfvNV(Int32 stage, Int32 portion, Int32 variable, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glGetCombinerInputParameterfvNV pglGetCombinerInputParameterfvNV;
 
@@ -806,6 +814,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCombinerInputParameterivNV(Int32 stage, Int32 portion, Int32 variable, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glGetCombinerInputParameterivNV pglGetCombinerInputParameterivNV;
 
@@ -813,6 +822,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCombinerOutputParameterfvNV(Int32 stage, Int32 portion, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glGetCombinerOutputParameterfvNV pglGetCombinerOutputParameterfvNV;
 
@@ -820,6 +830,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCombinerOutputParameterivNV(Int32 stage, Int32 portion, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glGetCombinerOutputParameterivNV pglGetCombinerOutputParameterivNV;
 
@@ -827,6 +838,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFinalCombinerInputParameterfvNV(Int32 variable, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glGetFinalCombinerInputParameterfvNV pglGetFinalCombinerInputParameterfvNV;
 
@@ -834,6 +846,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFinalCombinerInputParameterivNV(Int32 variable, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]
 			internal static glGetFinalCombinerInputParameterivNV pglGetFinalCombinerInputParameterivNV;
 

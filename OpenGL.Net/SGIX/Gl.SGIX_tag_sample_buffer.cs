@@ -54,6 +54,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTagSampleBufferSGIX();
 
+			[RequiredByFeature("GL_SGIX_tag_sample_buffer")]
 			[ThreadStatic]
 			internal static glTagSampleBufferSGIX pglTagSampleBufferSGIX;
 

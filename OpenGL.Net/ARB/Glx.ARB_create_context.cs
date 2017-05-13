@@ -110,6 +110,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXCreateContextAttribsARB(IntPtr dpy, IntPtr config, IntPtr share_context, bool direct, int* attrib_list);
 
+			[RequiredByFeature("GLX_ARB_create_context")]
 			internal static glXCreateContextAttribsARB pglXCreateContextAttribsARB;
 
 		}

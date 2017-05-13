@@ -131,6 +131,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCoverageMaskNV(bool mask);
 
+			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCoverageMaskNV pglCoverageMaskNV;
 
@@ -138,6 +139,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCoverageOperationNV(Int32 operation);
 
+			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCoverageOperationNV pglCoverageOperationNV;
 

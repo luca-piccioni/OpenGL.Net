@@ -85,6 +85,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPrimitiveRestartNV();
 
+			[RequiredByFeature("GL_NV_primitive_restart")]
 			[ThreadStatic]
 			internal static glPrimitiveRestartNV pglPrimitiveRestartNV;
 
@@ -92,6 +93,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPrimitiveRestartIndexNV(UInt32 index);
 
+			[RequiredByFeature("GL_NV_primitive_restart")]
 			[ThreadStatic]
 			internal static glPrimitiveRestartIndexNV pglPrimitiveRestartIndexNV;
 

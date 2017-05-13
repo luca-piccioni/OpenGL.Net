@@ -66,6 +66,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilFuncSeparateATI(Int32 frontfunc, Int32 backfunc, Int32 @ref, UInt32 mask);
 
+			[RequiredByFeature("GL_ATI_separate_stencil")]
 			[ThreadStatic]
 			internal static glStencilFuncSeparateATI pglStencilFuncSeparateATI;
 

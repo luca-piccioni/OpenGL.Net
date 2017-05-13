@@ -61,6 +61,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate int glXSwapIntervalSGI(int interval);
 
+			[RequiredByFeature("GLX_SGI_swap_control")]
 			internal static glXSwapIntervalSGI pglXSwapIntervalSGI;
 
 		}

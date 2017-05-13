@@ -514,6 +514,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRenderGpuMaskNV(UInt32 mask);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glRenderGpuMaskNV pglRenderGpuMaskNV;
 
@@ -521,6 +522,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMulticastBufferSubDataNV(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, void* data);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastBufferSubDataNV pglMulticastBufferSubDataNV;
 
@@ -528,6 +530,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMulticastCopyBufferSubDataNV(UInt32 readGpu, UInt32 writeGpuMask, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastCopyBufferSubDataNV pglMulticastCopyBufferSubDataNV;
 
@@ -535,6 +538,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMulticastCopyImageSubDataNV(UInt32 srcGpu, UInt32 dstGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastCopyImageSubDataNV pglMulticastCopyImageSubDataNV;
 
@@ -542,6 +546,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMulticastBlitFramebufferNV(UInt32 srcGpu, UInt32 dstGpu, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastBlitFramebufferNV pglMulticastBlitFramebufferNV;
 
@@ -549,6 +554,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMulticastFramebufferSampleLocationsfvNV(UInt32 gpu, UInt32 framebuffer, UInt32 start, Int32 count, float* v);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastFramebufferSampleLocationsfvNV pglMulticastFramebufferSampleLocationsfvNV;
 
@@ -556,6 +562,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMulticastBarrierNV();
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastBarrierNV pglMulticastBarrierNV;
 
@@ -563,6 +570,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMulticastWaitSyncNV(UInt32 signalGpu, UInt32 waitGpuMask);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastWaitSyncNV pglMulticastWaitSyncNV;
 
@@ -570,6 +578,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMulticastGetQueryObjectivNV(UInt32 gpu, UInt32 id, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastGetQueryObjectivNV pglMulticastGetQueryObjectivNV;
 
@@ -577,6 +586,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMulticastGetQueryObjectuivNV(UInt32 gpu, UInt32 id, Int32 pname, UInt32* @params);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastGetQueryObjectuivNV pglMulticastGetQueryObjectuivNV;
 
@@ -584,6 +594,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMulticastGetQueryObjecti64vNV(UInt32 gpu, UInt32 id, Int32 pname, Int64* @params);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastGetQueryObjecti64vNV pglMulticastGetQueryObjecti64vNV;
 
@@ -591,6 +602,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMulticastGetQueryObjectui64vNV(UInt32 gpu, UInt32 id, Int32 pname, UInt64* @params);
 
+			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
 			internal static glMulticastGetQueryObjectui64vNV pglMulticastGetQueryObjectui64vNV;
 

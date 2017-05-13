@@ -144,6 +144,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSyncTextureINTEL(UInt32 texture);
 
+			[RequiredByFeature("GL_INTEL_map_texture")]
 			[ThreadStatic]
 			internal static glSyncTextureINTEL pglSyncTextureINTEL;
 
@@ -151,6 +152,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUnmapTexture2DINTEL(UInt32 texture, Int32 level);
 
+			[RequiredByFeature("GL_INTEL_map_texture")]
 			[ThreadStatic]
 			internal static glUnmapTexture2DINTEL pglUnmapTexture2DINTEL;
 
@@ -158,6 +160,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glMapTexture2DINTEL(UInt32 texture, Int32 level, UInt32 access, Int32* stride, Int32* layout);
 
+			[RequiredByFeature("GL_INTEL_map_texture")]
 			[ThreadStatic]
 			internal static glMapTexture2DINTEL pglMapTexture2DINTEL;
 

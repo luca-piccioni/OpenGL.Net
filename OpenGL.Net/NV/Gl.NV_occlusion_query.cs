@@ -240,6 +240,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenOcclusionQueriesNV(Int32 n, UInt32* ids);
 
+			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
 			internal static glGenOcclusionQueriesNV pglGenOcclusionQueriesNV;
 
@@ -247,6 +248,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteOcclusionQueriesNV(Int32 n, UInt32* ids);
 
+			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
 			internal static glDeleteOcclusionQueriesNV pglDeleteOcclusionQueriesNV;
 
@@ -254,6 +256,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsOcclusionQueryNV(UInt32 id);
 
+			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
 			internal static glIsOcclusionQueryNV pglIsOcclusionQueryNV;
 
@@ -261,6 +264,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBeginOcclusionQueryNV(UInt32 id);
 
+			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
 			internal static glBeginOcclusionQueryNV pglBeginOcclusionQueryNV;
 
@@ -268,6 +272,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndOcclusionQueryNV();
 
+			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
 			internal static glEndOcclusionQueryNV pglEndOcclusionQueryNV;
 
@@ -275,6 +280,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetOcclusionQueryivNV(UInt32 id, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
 			internal static glGetOcclusionQueryivNV pglGetOcclusionQueryivNV;
 
@@ -282,6 +288,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetOcclusionQueryuivNV(UInt32 id, Int32 pname, UInt32* @params);
 
+			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
 			internal static glGetOcclusionQueryuivNV pglGetOcclusionQueryuivNV;
 

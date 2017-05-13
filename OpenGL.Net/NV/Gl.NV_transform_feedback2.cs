@@ -60,6 +60,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindTransformFeedbackNV(Int32 target, UInt32 id);
 
+			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[ThreadStatic]
 			internal static glBindTransformFeedbackNV pglBindTransformFeedbackNV;
 

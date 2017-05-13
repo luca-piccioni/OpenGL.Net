@@ -72,6 +72,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilClearTagEXT(Int32 stencilTagBits, UInt32 stencilClearTag);
 
+			[RequiredByFeature("GL_EXT_stencil_clear_tag")]
 			[ThreadStatic]
 			internal static glStencilClearTagEXT pglStencilClearTagEXT;
 

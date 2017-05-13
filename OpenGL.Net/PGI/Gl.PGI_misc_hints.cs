@@ -180,6 +180,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glHintPGI(Int32 target, Int32 mode);
 
+			[RequiredByFeature("GL_PGI_misc_hints")]
 			[ThreadStatic]
 			internal static glHintPGI pglHintPGI;
 

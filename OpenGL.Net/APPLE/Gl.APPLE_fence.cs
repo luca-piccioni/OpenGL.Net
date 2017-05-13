@@ -244,6 +244,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenFencesAPPLE(Int32 n, UInt32* fences);
 
+			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
 			internal static glGenFencesAPPLE pglGenFencesAPPLE;
 
@@ -251,6 +252,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteFencesAPPLE(Int32 n, UInt32* fences);
 
+			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
 			internal static glDeleteFencesAPPLE pglDeleteFencesAPPLE;
 
@@ -258,6 +260,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSetFenceAPPLE(UInt32 fence);
 
+			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
 			internal static glSetFenceAPPLE pglSetFenceAPPLE;
 
@@ -265,6 +268,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsFenceAPPLE(UInt32 fence);
 
+			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
 			internal static glIsFenceAPPLE pglIsFenceAPPLE;
 
@@ -272,6 +276,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glTestFenceAPPLE(UInt32 fence);
 
+			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
 			internal static glTestFenceAPPLE pglTestFenceAPPLE;
 
@@ -279,6 +284,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFinishFenceAPPLE(UInt32 fence);
 
+			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
 			internal static glFinishFenceAPPLE pglFinishFenceAPPLE;
 
@@ -286,6 +292,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glTestObjectAPPLE(Int32 @object, UInt32 name);
 
+			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
 			internal static glTestObjectAPPLE pglTestObjectAPPLE;
 
@@ -293,6 +300,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFinishObjectAPPLE(Int32 @object, Int32 name);
 
+			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
 			internal static glFinishObjectAPPLE pglFinishObjectAPPLE;
 

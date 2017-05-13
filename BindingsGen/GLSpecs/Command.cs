@@ -349,6 +349,12 @@ namespace BindingsGen.GLSpecs
 					sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.ImportName);
 			}
 
+			foreach (IFeature feature in RequiredBy)
+				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+
+			foreach (IFeature feature in RemovedBy)
+				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
+
 			// Required on Windows platform: different threads can bind different OpenGL context, which can have different
 			// entry points
 			if (ctx.Class == "Gl" || ctx.Class == "Wgl")
@@ -1254,22 +1260,24 @@ namespace BindingsGen.GLSpecs
 
 			// Features
 			foreach (Feature feature in ctx.Registry.Features) {
-				if (feature.Api != null && feature.Api != ctx.Class.ToLowerInvariant())
+				if (feature.Api != null && !ctx.IsSupportedApi(feature.Api))
 					continue;
 
-				int requirementIndex = feature.Removals.FindIndex(delegate(FeatureCommand item) {
+				List<FeatureCommand> requirementIndexes = feature.Removals.FindAll(delegate(FeatureCommand item) {
 					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
 						return (false);
 
 					int enumIndex = item.Commands.FindIndex(delegate(FeatureCommand.Item subitem) {
+						foreach (Command commandAlias in Aliases)
+							if (subitem.Name == commandAlias.Prototype.Name)
+								return (true);
 						return (subitem.Name == Prototype.Name);
 					});
 
 					return (enumIndex != -1);
 				});
 
-				if (requirementIndex != -1) {
-					FeatureCommand featureCommand = feature.Requirements[requirementIndex];
+				foreach (FeatureCommand featureCommand in requirementIndexes) {
 					if (featureCommand.Api != null || featureCommand.Profile != null)
 						features.Add(new FeatureProfile(feature, featureCommand.Api, featureCommand.Profile));
 					else

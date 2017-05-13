@@ -8711,7 +8711,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteLists"/>
 		/// <seealso cref="Gl.GenLists"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void NewList(UInt32 list, ListMode mode)
 		{
 			Debug.Assert(Delegates.pglNewList != null, "pglNewList not implemented");
@@ -8747,7 +8747,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteLists"/>
 		/// <seealso cref="Gl.GenLists"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EndList()
 		{
 			Debug.Assert(Delegates.pglEndList != null, "pglEndList not implemented");
@@ -8768,7 +8768,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushAttrib"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void CallList(UInt32 list)
 		{
 			Debug.Assert(Delegates.pglCallList != null, "pglCallList not implemented");
@@ -8805,7 +8805,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushAttrib"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void CallLists(Int32 n, ListNameType type, IntPtr lists)
 		{
 			Debug.Assert(Delegates.pglCallLists != null, "pglCallLists not implemented");
@@ -8842,7 +8842,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushAttrib"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void CallLists(Int32 n, ListNameType type, Object lists)
 		{
 			GCHandle pin_lists = GCHandle.Alloc(lists, GCHandleType.Pinned);
@@ -8875,7 +8875,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsList"/>
 		/// <seealso cref="Gl.NewList"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void DeleteLists(UInt32 list, Int32 range)
 		{
 			Debug.Assert(Delegates.pglDeleteLists != null, "pglDeleteLists not implemented");
@@ -8902,7 +8902,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.DeleteLists"/>
 		/// <seealso cref="Gl.NewList"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static UInt32 GenLists(Int32 range)
 		{
 			UInt32 retValue;
@@ -8928,7 +8928,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.CallLists"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ListBase(UInt32 @base)
 		{
 			Debug.Assert(Delegates.pglListBase != null, "pglListBase not implemented");
@@ -8983,7 +8983,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Begin(PrimitiveType mode)
 		{
 			Debug.Assert(Delegates.pglBegin != null, "pglBegin not implemented");
@@ -9039,7 +9039,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RasterPos"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Bitmap(Int32 width, Int32 height, float xorig, float yorig, float xmove, float ymove, byte[] bitmap)
 		{
 			unsafe {
@@ -9068,7 +9068,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(sbyte red, sbyte green, sbyte blue)
 		{
 			Debug.Assert(Delegates.pglColor3b != null, "pglColor3b not implemented");
@@ -9085,7 +9085,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(sbyte[] v)
 		{
 			unsafe {
@@ -9114,7 +9114,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(double red, double green, double blue)
 		{
 			Debug.Assert(Delegates.pglColor3d != null, "pglColor3d not implemented");
@@ -9131,7 +9131,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(double[] v)
 		{
 			unsafe {
@@ -9160,7 +9160,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(float red, float green, float blue)
 		{
 			Debug.Assert(Delegates.pglColor3f != null, "pglColor3f not implemented");
@@ -9177,7 +9177,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(float[] v)
 		{
 			unsafe {
@@ -9206,7 +9206,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int32 red, Int32 green, Int32 blue)
 		{
 			Debug.Assert(Delegates.pglColor3i != null, "pglColor3i not implemented");
@@ -9223,7 +9223,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int32[] v)
 		{
 			unsafe {
@@ -9252,7 +9252,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int16 red, Int16 green, Int16 blue)
 		{
 			Debug.Assert(Delegates.pglColor3s != null, "pglColor3s not implemented");
@@ -9269,7 +9269,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int16[] v)
 		{
 			unsafe {
@@ -9298,7 +9298,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(byte red, byte green, byte blue)
 		{
 			Debug.Assert(Delegates.pglColor3ub != null, "pglColor3ub not implemented");
@@ -9315,7 +9315,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(byte[] v)
 		{
 			unsafe {
@@ -9344,7 +9344,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt32 red, UInt32 green, UInt32 blue)
 		{
 			Debug.Assert(Delegates.pglColor3ui != null, "pglColor3ui not implemented");
@@ -9361,7 +9361,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt32[] v)
 		{
 			unsafe {
@@ -9390,7 +9390,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt16 red, UInt16 green, UInt16 blue)
 		{
 			Debug.Assert(Delegates.pglColor3us != null, "pglColor3us not implemented");
@@ -9407,7 +9407,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt16[] v)
 		{
 			unsafe {
@@ -9439,7 +9439,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(sbyte red, sbyte green, sbyte blue, sbyte alpha)
 		{
 			Debug.Assert(Delegates.pglColor4b != null, "pglColor4b not implemented");
@@ -9456,7 +9456,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(sbyte[] v)
 		{
 			unsafe {
@@ -9488,7 +9488,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(double red, double green, double blue, double alpha)
 		{
 			Debug.Assert(Delegates.pglColor4d != null, "pglColor4d not implemented");
@@ -9505,7 +9505,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(double[] v)
 		{
 			unsafe {
@@ -9538,7 +9538,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(float red, float green, float blue, float alpha)
 		{
 			Debug.Assert(Delegates.pglColor4f != null, "pglColor4f not implemented");
@@ -9555,7 +9555,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(float[] v)
 		{
 			unsafe {
@@ -9587,7 +9587,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int32 red, Int32 green, Int32 blue, Int32 alpha)
 		{
 			Debug.Assert(Delegates.pglColor4i != null, "pglColor4i not implemented");
@@ -9604,7 +9604,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int32[] v)
 		{
 			unsafe {
@@ -9636,7 +9636,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int16 red, Int16 green, Int16 blue, Int16 alpha)
 		{
 			Debug.Assert(Delegates.pglColor4s != null, "pglColor4s not implemented");
@@ -9653,7 +9653,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int16[] v)
 		{
 			unsafe {
@@ -9686,7 +9686,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(byte red, byte green, byte blue, byte alpha)
 		{
 			Debug.Assert(Delegates.pglColor4ub != null, "pglColor4ub not implemented");
@@ -9703,7 +9703,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(byte[] v)
 		{
 			unsafe {
@@ -9735,7 +9735,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha)
 		{
 			Debug.Assert(Delegates.pglColor4ui != null, "pglColor4ui not implemented");
@@ -9752,7 +9752,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt32[] v)
 		{
 			unsafe {
@@ -9784,7 +9784,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha)
 		{
 			Debug.Assert(Delegates.pglColor4us != null, "pglColor4us not implemented");
@@ -9801,7 +9801,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Index"/>
 		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt16[] v)
 		{
 			unsafe {
@@ -9824,7 +9824,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.PolygonMode"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EdgeFlag(bool flag)
 		{
 			Debug.Assert(Delegates.pglEdgeFlag != null, "pglEdgeFlag not implemented");
@@ -9841,7 +9841,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.PolygonMode"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EdgeFlag(bool[] flag)
 		{
 			unsafe {
@@ -9896,7 +9896,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void End()
 		{
 			Debug.Assert(Delegates.pglEnd != null, "pglEnd not implemented");
@@ -9914,7 +9914,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Color"/>
 		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(double c)
 		{
 			Debug.Assert(Delegates.pglIndexd != null, "pglIndexd not implemented");
@@ -9931,7 +9931,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Color"/>
 		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(double[] c)
 		{
 			unsafe {
@@ -9954,7 +9954,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Color"/>
 		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(float c)
 		{
 			Debug.Assert(Delegates.pglIndexf != null, "pglIndexf not implemented");
@@ -9971,7 +9971,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Color"/>
 		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(float[] c)
 		{
 			unsafe {
@@ -9994,7 +9994,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Color"/>
 		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int32 c)
 		{
 			Debug.Assert(Delegates.pglIndexi != null, "pglIndexi not implemented");
@@ -10011,7 +10011,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Color"/>
 		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int32[] c)
 		{
 			unsafe {
@@ -10034,7 +10034,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Color"/>
 		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int16 c)
 		{
 			Debug.Assert(Delegates.pglIndexs != null, "pglIndexs not implemented");
@@ -10051,7 +10051,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Color"/>
 		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int16[] c)
 		{
 			unsafe {
@@ -10088,7 +10088,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(sbyte nx, sbyte ny, sbyte nz)
 		{
 			Debug.Assert(Delegates.pglNormal3b != null, "pglNormal3b not implemented");
@@ -10110,7 +10110,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(sbyte[] v)
 		{
 			unsafe {
@@ -10147,7 +10147,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(double nx, double ny, double nz)
 		{
 			Debug.Assert(Delegates.pglNormal3d != null, "pglNormal3d not implemented");
@@ -10169,7 +10169,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(double[] v)
 		{
 			unsafe {
@@ -10207,7 +10207,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(float nx, float ny, float nz)
 		{
 			Debug.Assert(Delegates.pglNormal3f != null, "pglNormal3f not implemented");
@@ -10229,7 +10229,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(float[] v)
 		{
 			unsafe {
@@ -10266,7 +10266,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int32 nx, Int32 ny, Int32 nz)
 		{
 			Debug.Assert(Delegates.pglNormal3i != null, "pglNormal3i not implemented");
@@ -10288,7 +10288,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int32[] v)
 		{
 			unsafe {
@@ -10325,7 +10325,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int16 nx, Int16 ny, Int16 nz)
 		{
 			Debug.Assert(Delegates.pglNormal3s != null, "pglNormal3s not implemented");
@@ -10347,7 +10347,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int16[] v)
 		{
 			unsafe {
@@ -10386,7 +10386,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(double x, double y)
 		{
 			Debug.Assert(Delegates.pglRasterPos2d != null, "pglRasterPos2d not implemented");
@@ -10417,7 +10417,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(double[] v)
 		{
 			unsafe {
@@ -10456,7 +10456,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(float x, float y)
 		{
 			Debug.Assert(Delegates.pglRasterPos2f != null, "pglRasterPos2f not implemented");
@@ -10487,7 +10487,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(float[] v)
 		{
 			unsafe {
@@ -10526,7 +10526,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int32 x, Int32 y)
 		{
 			Debug.Assert(Delegates.pglRasterPos2i != null, "pglRasterPos2i not implemented");
@@ -10557,7 +10557,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int32[] v)
 		{
 			unsafe {
@@ -10596,7 +10596,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int16 x, Int16 y)
 		{
 			Debug.Assert(Delegates.pglRasterPos2s != null, "pglRasterPos2s not implemented");
@@ -10627,7 +10627,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int16[] v)
 		{
 			unsafe {
@@ -10669,7 +10669,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglRasterPos3d != null, "pglRasterPos3d not implemented");
@@ -10700,7 +10700,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(double[] v)
 		{
 			unsafe {
@@ -10742,7 +10742,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglRasterPos3f != null, "pglRasterPos3f not implemented");
@@ -10773,7 +10773,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(float[] v)
 		{
 			unsafe {
@@ -10815,7 +10815,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int32 x, Int32 y, Int32 z)
 		{
 			Debug.Assert(Delegates.pglRasterPos3i != null, "pglRasterPos3i not implemented");
@@ -10846,7 +10846,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int32[] v)
 		{
 			unsafe {
@@ -10888,7 +10888,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int16 x, Int16 y, Int16 z)
 		{
 			Debug.Assert(Delegates.pglRasterPos3s != null, "pglRasterPos3s not implemented");
@@ -10919,7 +10919,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int16[] v)
 		{
 			unsafe {
@@ -10964,7 +10964,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglRasterPos4d != null, "pglRasterPos4d not implemented");
@@ -10995,7 +10995,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(double[] v)
 		{
 			unsafe {
@@ -11040,7 +11040,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglRasterPos4f != null, "pglRasterPos4f not implemented");
@@ -11071,7 +11071,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(float[] v)
 		{
 			unsafe {
@@ -11116,7 +11116,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int32 x, Int32 y, Int32 z, Int32 w)
 		{
 			Debug.Assert(Delegates.pglRasterPos4i != null, "pglRasterPos4i not implemented");
@@ -11147,7 +11147,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int32[] v)
 		{
 			unsafe {
@@ -11192,7 +11192,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int16 x, Int16 y, Int16 z, Int16 w)
 		{
 			Debug.Assert(Delegates.pglRasterPos4s != null, "pglRasterPos4s not implemented");
@@ -11223,7 +11223,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Vertex"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int16[] v)
 		{
 			unsafe {
@@ -11259,7 +11259,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(double x1, double y1, double x2, double y2)
 		{
 			Debug.Assert(Delegates.pglRectd != null, "pglRectd not implemented");
@@ -11284,7 +11284,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(double[] v1, double[] v2)
 		{
 			unsafe {
@@ -11321,7 +11321,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(float x1, float y1, float x2, float y2)
 		{
 			Debug.Assert(Delegates.pglRectf != null, "pglRectf not implemented");
@@ -11346,7 +11346,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(float[] v1, float[] v2)
 		{
 			unsafe {
@@ -11383,7 +11383,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int32 x1, Int32 y1, Int32 x2, Int32 y2)
 		{
 			Debug.Assert(Delegates.pglRecti != null, "pglRecti not implemented");
@@ -11408,7 +11408,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int32[] v1, Int32[] v2)
 		{
 			unsafe {
@@ -11445,7 +11445,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int16 x1, Int16 y1, Int16 x2, Int16 y2)
 		{
 			Debug.Assert(Delegates.pglRects != null, "pglRects not implemented");
@@ -11470,7 +11470,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Begin"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int16[] v1, Int16[] v2)
 		{
 			unsafe {
@@ -11494,7 +11494,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(double s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1d != null, "pglTexCoord1d not implemented");
@@ -11511,7 +11511,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(double[] v)
 		{
 			unsafe {
@@ -11534,7 +11534,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(float s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1f != null, "pglTexCoord1f not implemented");
@@ -11551,7 +11551,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(float[] v)
 		{
 			unsafe {
@@ -11574,7 +11574,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int32 s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1i != null, "pglTexCoord1i not implemented");
@@ -11591,7 +11591,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int32[] v)
 		{
 			unsafe {
@@ -11614,7 +11614,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int16 s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1s != null, "pglTexCoord1s not implemented");
@@ -11631,7 +11631,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int16[] v)
 		{
 			unsafe {
@@ -11657,7 +11657,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(double s, double t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2d != null, "pglTexCoord2d not implemented");
@@ -11674,7 +11674,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(double[] v)
 		{
 			unsafe {
@@ -11700,7 +11700,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(float s, float t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2f != null, "pglTexCoord2f not implemented");
@@ -11717,7 +11717,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(float[] v)
 		{
 			unsafe {
@@ -11743,7 +11743,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int32 s, Int32 t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2i != null, "pglTexCoord2i not implemented");
@@ -11760,7 +11760,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int32[] v)
 		{
 			unsafe {
@@ -11786,7 +11786,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int16 s, Int16 t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2s != null, "pglTexCoord2s not implemented");
@@ -11803,7 +11803,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int16[] v)
 		{
 			unsafe {
@@ -11832,7 +11832,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(double s, double t, double r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3d != null, "pglTexCoord3d not implemented");
@@ -11849,7 +11849,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(double[] v)
 		{
 			unsafe {
@@ -11878,7 +11878,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(float s, float t, float r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3f != null, "pglTexCoord3f not implemented");
@@ -11895,7 +11895,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(float[] v)
 		{
 			unsafe {
@@ -11924,7 +11924,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int32 s, Int32 t, Int32 r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3i != null, "pglTexCoord3i not implemented");
@@ -11941,7 +11941,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int32[] v)
 		{
 			unsafe {
@@ -11970,7 +11970,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int16 s, Int16 t, Int16 r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3s != null, "pglTexCoord3s not implemented");
@@ -11987,7 +11987,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int16[] v)
 		{
 			unsafe {
@@ -12019,7 +12019,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(double s, double t, double r, double q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4d != null, "pglTexCoord4d not implemented");
@@ -12036,7 +12036,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(double[] v)
 		{
 			unsafe {
@@ -12068,7 +12068,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(float s, float t, float r, float q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4f != null, "pglTexCoord4f not implemented");
@@ -12085,7 +12085,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(float[] v)
 		{
 			unsafe {
@@ -12117,7 +12117,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int32 s, Int32 t, Int32 r, Int32 q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4i != null, "pglTexCoord4i not implemented");
@@ -12134,7 +12134,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int32[] v)
 		{
 			unsafe {
@@ -12166,7 +12166,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int16 s, Int16 t, Int16 r, Int16 q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4s != null, "pglTexCoord4s not implemented");
@@ -12183,7 +12183,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultiTexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int16[] v)
 		{
 			unsafe {
@@ -12220,7 +12220,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(double x, double y)
 		{
 			Debug.Assert(Delegates.pglVertex2d != null, "pglVertex2d not implemented");
@@ -12248,7 +12248,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(double[] v)
 		{
 			unsafe {
@@ -12285,7 +12285,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(float x, float y)
 		{
 			Debug.Assert(Delegates.pglVertex2f != null, "pglVertex2f not implemented");
@@ -12313,7 +12313,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(float[] v)
 		{
 			unsafe {
@@ -12350,7 +12350,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int32 x, Int32 y)
 		{
 			Debug.Assert(Delegates.pglVertex2i != null, "pglVertex2i not implemented");
@@ -12378,7 +12378,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int32[] v)
 		{
 			unsafe {
@@ -12415,7 +12415,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int16 x, Int16 y)
 		{
 			Debug.Assert(Delegates.pglVertex2s != null, "pglVertex2s not implemented");
@@ -12443,7 +12443,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int16[] v)
 		{
 			unsafe {
@@ -12483,7 +12483,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglVertex3d != null, "pglVertex3d not implemented");
@@ -12511,7 +12511,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(double[] v)
 		{
 			unsafe {
@@ -12551,7 +12551,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglVertex3f != null, "pglVertex3f not implemented");
@@ -12579,7 +12579,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(float[] v)
 		{
 			unsafe {
@@ -12619,7 +12619,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int32 x, Int32 y, Int32 z)
 		{
 			Debug.Assert(Delegates.pglVertex3i != null, "pglVertex3i not implemented");
@@ -12647,7 +12647,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int32[] v)
 		{
 			unsafe {
@@ -12687,7 +12687,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int16 x, Int16 y, Int16 z)
 		{
 			Debug.Assert(Delegates.pglVertex3s != null, "pglVertex3s not implemented");
@@ -12715,7 +12715,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int16[] v)
 		{
 			unsafe {
@@ -12758,7 +12758,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglVertex4d != null, "pglVertex4d not implemented");
@@ -12786,7 +12786,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(double[] v)
 		{
 			unsafe {
@@ -12829,7 +12829,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglVertex4f != null, "pglVertex4f not implemented");
@@ -12857,7 +12857,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(float[] v)
 		{
 			unsafe {
@@ -12900,7 +12900,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int32 x, Int32 y, Int32 z, Int32 w)
 		{
 			Debug.Assert(Delegates.pglVertex4i != null, "pglVertex4i not implemented");
@@ -12928,7 +12928,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int32[] v)
 		{
 			unsafe {
@@ -12971,7 +12971,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int16 x, Int16 y, Int16 z, Int16 w)
 		{
 			Debug.Assert(Delegates.pglVertex4s != null, "pglVertex4s not implemented");
@@ -12999,7 +12999,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int16[] v)
 		{
 			unsafe {
@@ -13033,7 +13033,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ClipPlane(ClipPlaneName plane, double[] equation)
 		{
 			unsafe {
@@ -13075,7 +13075,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ColorMaterial(MaterialFace face, ColorMaterialParameter mode)
 		{
 			Debug.Assert(Delegates.pglColorMaterial != null, "pglColorMaterial not implemented");
@@ -13108,7 +13108,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Fog(FogParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglFogf != null, "pglFogf not implemented");
@@ -13141,7 +13141,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Fog(FogParameter pname, float[] @params)
 		{
 			unsafe {
@@ -13178,7 +13178,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Fog(FogParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglFogi != null, "pglFogi not implemented");
@@ -13210,7 +13210,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Fog(FogParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -13254,7 +13254,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Light(LightName light, LightParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglLightf != null, "pglLightf not implemented");
@@ -13293,7 +13293,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Light(LightName light, LightParameter pname, float[] @params)
 		{
 			unsafe {
@@ -13336,7 +13336,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Light(LightName light, LightParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLighti != null, "pglLighti not implemented");
@@ -13374,7 +13374,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Light(LightName light, LightParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -13413,7 +13413,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LightModel(LightModelParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglLightModelf != null, "pglLightModelf not implemented");
@@ -13447,7 +13447,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LightModel(LightModelParameter pname, float[] @params)
 		{
 			unsafe {
@@ -13485,7 +13485,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LightModel(LightModelParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglLightModeli != null, "pglLightModeli not implemented");
@@ -13518,7 +13518,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LightModel(LightModelParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -13551,7 +13551,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LineWidth"/>
 		/// <seealso cref="Gl.PolygonStipple"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LineStipple(Int32 factor, UInt16 pattern)
 		{
 			Debug.Assert(Delegates.pglLineStipple != null, "pglLineStipple not implemented");
@@ -13583,7 +13583,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Material(MaterialFace face, MaterialParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglMaterialf != null, "pglMaterialf not implemented");
@@ -13614,7 +13614,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Material(MaterialFace face, MaterialParameter pname, float[] @params)
 		{
 			unsafe {
@@ -13650,7 +13650,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Material(MaterialFace face, MaterialParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglMateriali != null, "pglMateriali not implemented");
@@ -13680,7 +13680,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Material(MaterialFace face, MaterialParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -13717,7 +13717,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PixelStore"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PolygonStipple(byte[] mask)
 		{
 			unsafe {
@@ -13751,7 +13751,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ShadeModel(ShadingModel mode)
 		{
 			Debug.Assert(Delegates.pglShadeModel != null, "pglShadeModel not implemented");
@@ -13808,7 +13808,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglTexEnvf != null, "pglTexEnvf not implemented");
@@ -13861,7 +13861,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, float[] @params)
 		{
 			unsafe {
@@ -13923,7 +13923,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglTexEnvi != null, "pglTexEnvi not implemented");
@@ -13976,7 +13976,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -14030,7 +14030,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, double param)
 		{
 			Debug.Assert(Delegates.pglTexGend != null, "pglTexGend not implemented");
@@ -14078,7 +14078,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, double[] @params)
 		{
 			unsafe {
@@ -14132,7 +14132,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglTexGenf != null, "pglTexGenf not implemented");
@@ -14180,7 +14180,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, float[] @params)
 		{
 			unsafe {
@@ -14234,7 +14234,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglTexGeni != null, "pglTexGeni not implemented");
@@ -14282,7 +14282,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, Int32[] @params)
 		{
 			unsafe {
@@ -14330,7 +14330,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderMode"/>
 		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void FeedbackBuffer(Int32 size, FeedbackType type, params float[] buffer)
 		{
 			unsafe {
@@ -14375,7 +14375,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderMode"/>
 		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void FeedbackBuffer(FeedbackType type, params float[] buffer)
 		{
 			unsafe {
@@ -14412,7 +14412,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushName"/>
 		/// <seealso cref="Gl.RenderMode"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SelectBuffer(params UInt32[] buffer)
 		{
 			unsafe {
@@ -14455,7 +14455,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushName"/>
 		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static Int32 RenderMode(RenderingMode mode)
 		{
 			Int32 retValue;
@@ -14480,7 +14480,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderMode"/>
 		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void InitName()
 		{
 			Debug.Assert(Delegates.pglInitNames != null, "pglInitNames not implemented");
@@ -14507,7 +14507,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderMode"/>
 		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadName(UInt32 name)
 		{
 			Debug.Assert(Delegates.pglLoadName != null, "pglLoadName not implemented");
@@ -14529,7 +14529,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.FeedbackBuffer"/>
 		/// <seealso cref="Gl.RenderMode"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PassThrough(float token)
 		{
 			Debug.Assert(Delegates.pglPassThrough != null, "pglPassThrough not implemented");
@@ -14556,7 +14556,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderMode"/>
 		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PopName()
 		{
 			Debug.Assert(Delegates.pglPopName != null, "pglPopName not implemented");
@@ -14586,7 +14586,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderMode"/>
 		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PushName(UInt32 name)
 		{
 			Debug.Assert(Delegates.pglPushName != null, "pglPushName not implemented");
@@ -14621,7 +14621,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Accum"/>
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ClearAccum(float red, float green, float blue, float alpha)
 		{
 			Debug.Assert(Delegates.pglClearAccum != null, "pglClearAccum not implemented");
@@ -14642,7 +14642,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ClearIndex(float c)
 		{
 			Debug.Assert(Delegates.pglClearIndex != null, "pglClearIndex not implemented");
@@ -14669,7 +14669,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IndexPointer"/>
 		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void IndexMask(UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglIndexMask != null, "pglIndexMask not implemented");
@@ -14709,7 +14709,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Scissor"/>
 		/// <seealso cref="Gl.StencilOp"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Accum(AccumOp op, float value)
 		{
 			Debug.Assert(Delegates.pglAccum != null, "pglAccum not implemented");
@@ -14748,7 +14748,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.PushClientAttrib"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PopAttrib()
 		{
 			Debug.Assert(Delegates.pglPopAttrib != null, "pglPopAttrib not implemented");
@@ -14790,7 +14790,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		/// <seealso cref="Gl.PushClientAttrib"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PushAttrib(AttribMask mask)
 		{
 			Debug.Assert(Delegates.pglPushAttrib != null, "pglPushAttrib not implemented");
@@ -14859,7 +14859,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Map1(MapTarget target, double u1, double u2, Int32 stride, Int32 order, double[] points)
 		{
 			unsafe {
@@ -14933,7 +14933,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Map1(MapTarget target, float u1, float u2, Int32 stride, Int32 order, float[] points)
 		{
 			unsafe {
@@ -15026,7 +15026,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Map2(MapTarget target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double[] points)
 		{
 			unsafe {
@@ -15119,7 +15119,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Map2(MapTarget target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float[] points)
 		{
 			unsafe {
@@ -15159,7 +15159,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map1"/>
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MapGrid1(Int32 un, double u1, double u2)
 		{
 			Debug.Assert(Delegates.pglMapGrid1d != null, "pglMapGrid1d not implemented");
@@ -15194,7 +15194,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map1"/>
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MapGrid1(Int32 un, float u1, float u2)
 		{
 			Debug.Assert(Delegates.pglMapGrid1f != null, "pglMapGrid1f not implemented");
@@ -15239,7 +15239,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map1"/>
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MapGrid2(Int32 un, double u1, double u2, Int32 vn, double v1, double v2)
 		{
 			Debug.Assert(Delegates.pglMapGrid2d != null, "pglMapGrid2d not implemented");
@@ -15284,7 +15284,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map1"/>
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MapGrid2(Int32 un, float u1, float u2, Int32 vn, float v1, float v2)
 		{
 			Debug.Assert(Delegates.pglMapGrid2f != null, "pglMapGrid2f not implemented");
@@ -15313,7 +15313,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(double u)
 		{
 			Debug.Assert(Delegates.pglEvalCoord1d != null, "pglEvalCoord1d not implemented");
@@ -15341,7 +15341,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(double[] u)
 		{
 			unsafe {
@@ -15375,7 +15375,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(float u)
 		{
 			Debug.Assert(Delegates.pglEvalCoord1f != null, "pglEvalCoord1f not implemented");
@@ -15403,7 +15403,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(float[] u)
 		{
 			unsafe {
@@ -15441,7 +15441,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(double u, double v)
 		{
 			Debug.Assert(Delegates.pglEvalCoord2d != null, "pglEvalCoord2d not implemented");
@@ -15469,7 +15469,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(double[] u)
 		{
 			unsafe {
@@ -15507,7 +15507,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(float u, float v)
 		{
 			Debug.Assert(Delegates.pglEvalCoord2f != null, "pglEvalCoord2f not implemented");
@@ -15535,7 +15535,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexCoord"/>
 		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(float[] u)
 		{
 			unsafe {
@@ -15576,7 +15576,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map2"/>
 		/// <seealso cref="Gl.MapGrid"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalMesh1(MeshMode1 mode, Int32 i1, Int32 i2)
 		{
 			Debug.Assert(Delegates.pglEvalMesh1 != null, "pglEvalMesh1 not implemented");
@@ -15597,7 +15597,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map2"/>
 		/// <seealso cref="Gl.MapGrid"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalPoint1(Int32 i)
 		{
 			Debug.Assert(Delegates.pglEvalPoint1 != null, "pglEvalPoint1 not implemented");
@@ -15638,7 +15638,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map2"/>
 		/// <seealso cref="Gl.MapGrid"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalMesh2(MeshMode2 mode, Int32 i1, Int32 i2, Int32 j1, Int32 j2)
 		{
 			Debug.Assert(Delegates.pglEvalMesh2 != null, "pglEvalMesh2 not implemented");
@@ -15662,7 +15662,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map2"/>
 		/// <seealso cref="Gl.MapGrid"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalPoint2(Int32 i, Int32 j)
 		{
 			Debug.Assert(Delegates.pglEvalPoint2 != null, "pglEvalPoint2 not implemented");
@@ -15695,7 +15695,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void AlphaFunc(AlphaFunction func, float @ref)
 		{
 			Debug.Assert(Delegates.pglAlphaFunc != null, "pglAlphaFunc not implemented");
@@ -15720,7 +15720,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawPixels"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelZoom(float xfactor, float yfactor)
 		{
 			Debug.Assert(Delegates.pglPixelZoom != null, "pglPixelZoom not implemented");
@@ -15771,7 +15771,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelTransfer(PixelTransferParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglPixelTransferf != null, "pglPixelTransferf not implemented");
@@ -15822,7 +15822,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelTransfer(PixelTransferParameter pname, Int32 param)
 		{
 			Debug.Assert(Delegates.pglPixelTransferi != null, "pglPixelTransferi not implemented");
@@ -15906,7 +15906,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, float[] values)
 		{
 			unsafe {
@@ -15992,7 +15992,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, float[] values)
 		{
 			unsafe {
@@ -16081,7 +16081,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt32[] values)
 		{
 			unsafe {
@@ -16167,7 +16167,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, UInt32[] values)
 		{
 			unsafe {
@@ -16256,7 +16256,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt16[] values)
 		{
 			unsafe {
@@ -16342,7 +16342,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, UInt16[] values)
 		{
 			unsafe {
@@ -16408,7 +16408,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilFunc"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void CopyPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelCopyType type)
 		{
 			Debug.Assert(Delegates.pglCopyPixels != null, "pglCopyPixels not implemented");
@@ -16500,7 +16500,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilFunc"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void DrawPixels(Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglDrawPixels != null, "pglDrawPixels not implemented");
@@ -16592,7 +16592,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.StencilFunc"/>
 		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void DrawPixels(Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -16624,7 +16624,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] double[] equation)
 		{
 			unsafe {
@@ -16664,7 +16664,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetLight(LightName light, LightParameter pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -16703,7 +16703,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetLight(LightName light, LightParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -16743,7 +16743,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map1"/>
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMap(MapTarget target, GetMapQuery query, [Out] double[] v)
 		{
 			unsafe {
@@ -16783,7 +16783,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map1"/>
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMap(MapTarget target, GetMapQuery query, [Out] float[] v)
 		{
 			unsafe {
@@ -16823,7 +16823,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Map1"/>
 		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMap(MapTarget target, GetMapQuery query, [Out] Int32[] v)
 		{
 			unsafe {
@@ -16861,7 +16861,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -16898,7 +16898,7 @@ namespace OpenGL
 		/// </exception>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -16982,7 +16982,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetPixelMap(PixelMap map, [Out] float[] values)
 		{
 			unsafe {
@@ -17066,7 +17066,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetPixelMap(PixelMap map, [Out] UInt32[] values)
 		{
 			unsafe {
@@ -17150,7 +17150,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetPixelMap(PixelMap map, [Out] UInt16[] values)
 		{
 			unsafe {
@@ -17187,7 +17187,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PolygonStipple"/>
 		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetPolygonStipple([Out] byte[] mask)
 		{
 			unsafe {
@@ -17227,7 +17227,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -17267,7 +17267,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -17304,7 +17304,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] double[] @params)
 		{
 			unsafe {
@@ -17341,7 +17341,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] float[] @params)
 		{
 			unsafe {
@@ -17378,7 +17378,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] Int32[] @params)
 		{
 			unsafe {
@@ -17408,7 +17408,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenLists"/>
 		/// <seealso cref="Gl.NewList"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static bool IsList(UInt32 list)
 		{
 			bool retValue;
@@ -17457,7 +17457,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Frustum(double left, double right, double bottom, double top, double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglFrustum != null, "pglFrustum not implemented");
@@ -17481,7 +17481,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadIdentity()
 		{
 			Debug.Assert(Delegates.pglLoadIdentity != null, "pglLoadIdentity not implemented");
@@ -17507,7 +17507,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadMatrix(float[] m)
 		{
 			unsafe {
@@ -17537,7 +17537,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadMatrix(double[] m)
 		{
 			unsafe {
@@ -17574,7 +17574,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MatrixMode(MatrixMode mode)
 		{
 			Debug.Assert(Delegates.pglMatrixMode != null, "pglMatrixMode not implemented");
@@ -17601,7 +17601,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultMatrix(float[] m)
 		{
 			unsafe {
@@ -17632,7 +17632,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.MultTransposeMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultMatrix(double[] m)
 		{
 			unsafe {
@@ -17681,7 +17681,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.PushMatrix"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Ortho(double left, double right, double bottom, double top, double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglOrtho != null, "pglOrtho not implemented");
@@ -17717,7 +17717,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PopMatrix()
 		{
 			Debug.Assert(Delegates.pglPopMatrix != null, "pglPopMatrix not implemented");
@@ -17753,7 +17753,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PushMatrix()
 		{
 			Debug.Assert(Delegates.pglPushMatrix != null, "pglPushMatrix not implemented");
@@ -17787,7 +17787,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Scale"/>
 		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rotate(double angle, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglRotated != null, "pglRotated not implemented");
@@ -17822,7 +17822,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rotate(float angle, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglRotatef != null, "pglRotatef not implemented");
@@ -17853,7 +17853,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Rotate"/>
 		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Scale(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglScaled != null, "pglScaled not implemented");
@@ -17885,7 +17885,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Scale(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglScalef != null, "pglScalef not implemented");
@@ -17916,7 +17916,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Rotate"/>
 		/// <seealso cref="Gl.Scale"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Translate(double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglTranslated != null, "pglTranslated not implemented");
@@ -17948,7 +17948,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Scale"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		[RemovedByFeature("GL_VERSION_3_2")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Translate(float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglTranslatef != null, "pglTranslatef not implemented");
@@ -19195,6 +19195,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCullFace(Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCullFace pglCullFace;
 
@@ -19204,6 +19207,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrontFace(Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFrontFace pglFrontFace;
 
@@ -19213,6 +19219,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glHint(Int32 target, Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glHint pglHint;
 
@@ -19222,6 +19231,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLineWidth(float width);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glLineWidth pglLineWidth;
 
@@ -19230,6 +19242,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPointSize(float size);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[ThreadStatic]
 			internal static glPointSize pglPointSize;
 
@@ -19240,6 +19254,8 @@ namespace OpenGL
 
 			[AliasOf("glPolygonMode")]
 			[AliasOf("glPolygonModeNV")]
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 			[ThreadStatic]
 			internal static glPolygonMode pglPolygonMode;
 
@@ -19249,6 +19265,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glScissor(Int32 x, Int32 y, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glScissor pglScissor;
 
@@ -19258,6 +19277,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexParameterf(Int32 target, Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexParameterf pglTexParameterf;
 
@@ -19267,6 +19289,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameterfv(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexParameterfv pglTexParameterfv;
 
@@ -19276,6 +19301,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexParameteri(Int32 target, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexParameteri pglTexParameteri;
 
@@ -19285,6 +19313,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameteriv(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexParameteriv pglTexParameteriv;
 
@@ -19292,6 +19323,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
 			internal static glTexImage1D pglTexImage1D;
 
@@ -19301,6 +19333,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexImage2D pglTexImage2D;
 
@@ -19308,6 +19343,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawBuffer(Int32 buf);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
 			internal static glDrawBuffer pglDrawBuffer;
 
@@ -19317,6 +19353,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClear(UInt32 mask);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClear pglClear;
 
@@ -19326,6 +19365,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearColor(float red, float green, float blue, float alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearColor pglClearColor;
 
@@ -19335,6 +19377,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearStencil(Int32 s);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearStencil pglClearStencil;
 
@@ -19342,6 +19387,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearDepth(double depth);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
 			internal static glClearDepth pglClearDepth;
 
@@ -19351,6 +19397,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilMask(UInt32 mask);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glStencilMask pglStencilMask;
 
@@ -19360,6 +19409,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorMask(bool red, bool green, bool blue, bool alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glColorMask pglColorMask;
 
@@ -19369,6 +19421,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthMask(bool flag);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDepthMask pglDepthMask;
 
@@ -19378,6 +19433,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDisable(Int32 cap);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDisable pglDisable;
 
@@ -19387,6 +19445,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnable(Int32 cap);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glEnable pglEnable;
 
@@ -19396,6 +19457,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFinish();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFinish pglFinish;
 
@@ -19405,6 +19469,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFlush();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFlush pglFlush;
 
@@ -19414,6 +19481,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFunc(Int32 sfactor, Int32 dfactor);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glBlendFunc pglBlendFunc;
 
@@ -19422,6 +19492,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLogicOp(Int32 opcode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glLogicOp pglLogicOp;
 
@@ -19431,6 +19503,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilFunc(Int32 func, Int32 @ref, UInt32 mask);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glStencilFunc pglStencilFunc;
 
@@ -19440,6 +19515,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStencilOp(Int32 fail, Int32 zfail, Int32 zpass);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glStencilOp pglStencilOp;
 
@@ -19449,6 +19527,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthFunc(Int32 func);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDepthFunc pglDepthFunc;
 
@@ -19456,6 +19537,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelStoref(Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
 			internal static glPixelStoref pglPixelStoref;
 
@@ -19465,6 +19547,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelStorei(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glPixelStorei pglPixelStorei;
 
@@ -19473,6 +19558,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glReadBuffer(Int32 src);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glReadBuffer pglReadBuffer;
 
@@ -19482,6 +19569,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReadPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glReadPixels pglReadPixels;
 
@@ -19491,6 +19581,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetBooleanv(Int32 pname, bool* data);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetBooleanv pglGetBooleanv;
 
@@ -19498,6 +19591,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetDoublev(Int32 pname, double* data);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
 			internal static glGetDoublev pglGetDoublev;
 
@@ -19507,6 +19601,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetError();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetError pglGetError;
 
@@ -19516,6 +19613,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFloatv(Int32 pname, float* data);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetFloatv pglGetFloatv;
 
@@ -19525,6 +19625,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetIntegerv(Int32 pname, Int32* data);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetIntegerv pglGetIntegerv;
 
@@ -19534,6 +19637,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glGetString(Int32 name);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetString pglGetString;
 
@@ -19541,6 +19647,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexImage(Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
 			internal static glGetTexImage pglGetTexImage;
 
@@ -19550,6 +19657,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameterfv(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetTexParameterfv pglGetTexParameterfv;
 
@@ -19559,6 +19669,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameteriv(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetTexParameteriv pglGetTexParameteriv;
 
@@ -19567,6 +19680,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexLevelParameterfv(Int32 target, Int32 level, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetTexLevelParameterfv pglGetTexLevelParameterfv;
 
@@ -19575,6 +19690,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexLevelParameteriv(Int32 target, Int32 level, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetTexLevelParameteriv pglGetTexLevelParameteriv;
 
@@ -19584,6 +19701,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsEnabled(Int32 cap);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glIsEnabled pglIsEnabled;
 
@@ -19591,6 +19711,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthRange(double near, double far);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
 			internal static glDepthRange pglDepthRange;
 
@@ -19600,2100 +19721,2649 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glViewport(Int32 x, Int32 y, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glViewport pglViewport;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNewList(UInt32 list, Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNewList pglNewList;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndList();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEndList pglEndList;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCallList(UInt32 list);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glCallList pglCallList;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCallLists(Int32 n, Int32 type, IntPtr lists);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glCallLists pglCallLists;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteLists(UInt32 list, Int32 range);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glDeleteLists pglDeleteLists;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGenLists(Int32 range);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGenLists pglGenLists;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glListBase(UInt32 @base);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glListBase pglListBase;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBegin(Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glBegin pglBegin;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBitmap(Int32 width, Int32 height, float xorig, float yorig, float xmove, float ymove, byte* bitmap);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glBitmap pglBitmap;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3b(sbyte red, sbyte green, sbyte blue);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3b pglColor3b;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3bv(sbyte* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3bv pglColor3bv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3d(double red, double green, double blue);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3d pglColor3d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3dv pglColor3dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3f(float red, float green, float blue);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3f pglColor3f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3fv pglColor3fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3i(Int32 red, Int32 green, Int32 blue);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3i pglColor3i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3iv pglColor3iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3s(Int16 red, Int16 green, Int16 blue);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3s pglColor3s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3sv pglColor3sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3ub(byte red, byte green, byte blue);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3ub pglColor3ub;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3ubv(byte* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3ubv pglColor3ubv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3ui(UInt32 red, UInt32 green, UInt32 blue);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3ui pglColor3ui;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3uiv(UInt32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3uiv pglColor3uiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor3us(UInt16 red, UInt16 green, UInt16 blue);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3us pglColor3us;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor3usv(UInt16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor3usv pglColor3usv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4b(sbyte red, sbyte green, sbyte blue, sbyte alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4b pglColor4b;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4bv(sbyte* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4bv pglColor4bv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4d(double red, double green, double blue, double alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4d pglColor4d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4dv pglColor4dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4f(float red, float green, float blue, float alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4f pglColor4f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4fv pglColor4fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4i(Int32 red, Int32 green, Int32 blue, Int32 alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4i pglColor4i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4iv pglColor4iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4s(Int16 red, Int16 green, Int16 blue, Int16 alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4s pglColor4s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4sv pglColor4sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4ub(byte red, byte green, byte blue, byte alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4ub pglColor4ub;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4ubv(byte* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4ubv pglColor4ubv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4ui(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4ui pglColor4ui;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4uiv(UInt32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4uiv pglColor4uiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColor4us(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4us pglColor4us;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4usv(UInt16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColor4usv pglColor4usv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEdgeFlag(bool flag);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEdgeFlag pglEdgeFlag;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEdgeFlagv(bool* flag);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEdgeFlagv pglEdgeFlagv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEnd();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEnd pglEnd;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexd(double c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexd pglIndexd;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexdv(double* c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexdv pglIndexdv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexf(float c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexf pglIndexf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexfv(float* c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexfv pglIndexfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexi(Int32 c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexi pglIndexi;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexiv(Int32* c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexiv pglIndexiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexs(Int16 c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexs pglIndexs;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glIndexsv(Int16* c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexsv pglIndexsv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3b(sbyte nx, sbyte ny, sbyte nz);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3b pglNormal3b;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3bv(sbyte* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3bv pglNormal3bv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3d(double nx, double ny, double nz);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3d pglNormal3d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3dv pglNormal3dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3f(float nx, float ny, float nz);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3f pglNormal3f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3fv pglNormal3fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3i(Int32 nx, Int32 ny, Int32 nz);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3i pglNormal3i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3iv pglNormal3iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormal3s(Int16 nx, Int16 ny, Int16 nz);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3s pglNormal3s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glNormal3sv pglNormal3sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos2d(double x, double y);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos2d pglRasterPos2d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos2dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos2dv pglRasterPos2dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos2f(float x, float y);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos2f pglRasterPos2f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos2fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos2fv pglRasterPos2fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos2i(Int32 x, Int32 y);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos2i pglRasterPos2i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos2iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos2iv pglRasterPos2iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos2s(Int16 x, Int16 y);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos2s pglRasterPos2s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos2sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos2sv pglRasterPos2sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos3d(double x, double y, double z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos3d pglRasterPos3d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos3dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos3dv pglRasterPos3dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos3f(float x, float y, float z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos3f pglRasterPos3f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos3fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos3fv pglRasterPos3fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos3i(Int32 x, Int32 y, Int32 z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos3i pglRasterPos3i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos3iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos3iv pglRasterPos3iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos3s(Int16 x, Int16 y, Int16 z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos3s pglRasterPos3s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos3sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos3sv pglRasterPos3sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos4d(double x, double y, double z, double w);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos4d pglRasterPos4d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos4dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos4dv pglRasterPos4dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos4f(float x, float y, float z, float w);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos4f pglRasterPos4f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos4fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos4fv pglRasterPos4fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos4i(Int32 x, Int32 y, Int32 z, Int32 w);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos4i pglRasterPos4i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos4iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos4iv pglRasterPos4iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRasterPos4s(Int16 x, Int16 y, Int16 z, Int16 w);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos4s pglRasterPos4s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRasterPos4sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRasterPos4sv pglRasterPos4sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRectd(double x1, double y1, double x2, double y2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRectd pglRectd;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRectdv(double* v1, double* v2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRectdv pglRectdv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRectf(float x1, float y1, float x2, float y2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRectf pglRectf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRectfv(float* v1, float* v2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRectfv pglRectfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRecti(Int32 x1, Int32 y1, Int32 x2, Int32 y2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRecti pglRecti;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRectiv(Int32* v1, Int32* v2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRectiv pglRectiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRects(Int16 x1, Int16 y1, Int16 x2, Int16 y2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRects pglRects;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRectsv(Int16* v1, Int16* v2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRectsv pglRectsv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1d(double s);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord1d pglTexCoord1d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord1dv pglTexCoord1dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1f(float s);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord1f pglTexCoord1f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord1fv pglTexCoord1fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1i(Int32 s);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord1i pglTexCoord1i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord1iv pglTexCoord1iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord1s(Int16 s);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord1s pglTexCoord1s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord1sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord1sv pglTexCoord1sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2d(double s, double t);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord2d pglTexCoord2d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord2dv pglTexCoord2dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2f(float s, float t);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord2f pglTexCoord2f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord2fv pglTexCoord2fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2i(Int32 s, Int32 t);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord2i pglTexCoord2i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord2iv pglTexCoord2iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord2s(Int16 s, Int16 t);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord2s pglTexCoord2s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord2sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord2sv pglTexCoord2sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3d(double s, double t, double r);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord3d pglTexCoord3d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord3dv pglTexCoord3dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3f(float s, float t, float r);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord3f pglTexCoord3f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord3fv pglTexCoord3fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3i(Int32 s, Int32 t, Int32 r);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord3i pglTexCoord3i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord3iv pglTexCoord3iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord3s(Int16 s, Int16 t, Int16 r);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord3s pglTexCoord3s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord3sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord3sv pglTexCoord3sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4d(double s, double t, double r, double q);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord4d pglTexCoord4d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord4dv pglTexCoord4dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4f(float s, float t, float r, float q);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord4f pglTexCoord4f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord4fv pglTexCoord4fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4i(Int32 s, Int32 t, Int32 r, Int32 q);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord4i pglTexCoord4i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord4iv pglTexCoord4iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoord4s(Int16 s, Int16 t, Int16 r, Int16 q);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord4s pglTexCoord4s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoord4sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexCoord4sv pglTexCoord4sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2d(double x, double y);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex2d pglVertex2d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex2dv pglVertex2dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2f(float x, float y);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex2f pglVertex2f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex2fv pglVertex2fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2i(Int32 x, Int32 y);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex2i pglVertex2i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex2iv pglVertex2iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex2s(Int16 x, Int16 y);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex2s pglVertex2s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex2sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex2sv pglVertex2sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3d(double x, double y, double z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex3d pglVertex3d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex3dv pglVertex3dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3f(float x, float y, float z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex3f pglVertex3f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex3fv pglVertex3fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3i(Int32 x, Int32 y, Int32 z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex3i pglVertex3i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex3iv pglVertex3iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex3s(Int16 x, Int16 y, Int16 z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex3s pglVertex3s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex3sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex3sv pglVertex3sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4d(double x, double y, double z, double w);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex4d pglVertex4d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4dv(double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex4dv pglVertex4dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4f(float x, float y, float z, float w);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex4f pglVertex4f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4fv(float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex4fv pglVertex4fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4i(Int32 x, Int32 y, Int32 z, Int32 w);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex4i pglVertex4i;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4iv(Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex4iv pglVertex4iv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertex4s(Int16 x, Int16 y, Int16 z, Int16 w);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex4s pglVertex4s;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertex4sv(Int16* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glVertex4sv pglVertex4sv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlane(Int32 plane, double* equation);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glClipPlane pglClipPlane;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorMaterial(Int32 face, Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glColorMaterial pglColorMaterial;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFogf(Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glFogf pglFogf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogfv(Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glFogfv pglFogfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFogi(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glFogi pglFogi;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogiv(Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glFogiv pglFogiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLightf(Int32 light, Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLightf pglLightf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightfv(Int32 light, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLightfv pglLightfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLighti(Int32 light, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLighti pglLighti;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightiv(Int32 light, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLightiv pglLightiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLightModelf(Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLightModelf pglLightModelf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightModelfv(Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLightModelfv pglLightModelfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLightModeli(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLightModeli pglLightModeli;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightModeliv(Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLightModeliv pglLightModeliv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLineStipple(Int32 factor, UInt16 pattern);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLineStipple pglLineStipple;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMaterialf(Int32 face, Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMaterialf pglMaterialf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMaterialfv(Int32 face, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMaterialfv pglMaterialfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMateriali(Int32 face, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMateriali pglMateriali;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMaterialiv(Int32 face, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMaterialiv pglMaterialiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPolygonStipple(byte* mask);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPolygonStipple pglPolygonStipple;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glShadeModel(Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glShadeModel pglShadeModel;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexEnvf(Int32 target, Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexEnvf pglTexEnvf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexEnvfv(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexEnvfv pglTexEnvfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexEnvi(Int32 target, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexEnvi pglTexEnvi;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexEnviv(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexEnviv pglTexEnviv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGend(Int32 coord, Int32 pname, double param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexGend pglTexGend;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGendv(Int32 coord, Int32 pname, double* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexGendv pglTexGendv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGenf(Int32 coord, Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexGenf pglTexGenf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGenfv(Int32 coord, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexGenfv pglTexGenfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexGeni(Int32 coord, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexGeni pglTexGeni;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexGeniv(Int32 coord, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTexGeniv pglTexGeniv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFeedbackBuffer(Int32 size, Int32 type, float* buffer);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glFeedbackBuffer pglFeedbackBuffer;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSelectBuffer(Int32 size, UInt32* buffer);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glSelectBuffer pglSelectBuffer;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glRenderMode(Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRenderMode pglRenderMode;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glInitNames();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glInitNames pglInitNames;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLoadName(UInt32 name);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLoadName pglLoadName;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPassThrough(float token);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPassThrough pglPassThrough;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopName();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPopName pglPopName;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushName(UInt32 name);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPushName pglPushName;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearAccum(float red, float green, float blue, float alpha);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glClearAccum pglClearAccum;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearIndex(float c);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glClearIndex pglClearIndex;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glIndexMask(UInt32 mask);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIndexMask pglIndexMask;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glAccum(Int32 op, float value);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glAccum pglAccum;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopAttrib();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPopAttrib pglPopAttrib;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushAttrib(UInt32 mask);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPushAttrib pglPushAttrib;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMap1d(Int32 target, double u1, double u2, Int32 stride, Int32 order, double* points);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMap1d pglMap1d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMap1f(Int32 target, float u1, float u2, Int32 stride, Int32 order, float* points);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMap1f pglMap1f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMap2d(Int32 target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double* points);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMap2d pglMap2d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMap2f(Int32 target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float* points);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMap2f pglMap2f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMapGrid1d(Int32 un, double u1, double u2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMapGrid1d pglMapGrid1d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMapGrid1f(Int32 un, float u1, float u2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMapGrid1f pglMapGrid1f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMapGrid2d(Int32 un, double u1, double u2, Int32 vn, double v1, double v2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMapGrid2d pglMapGrid2d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMapGrid2f(Int32 un, float u1, float u2, Int32 vn, float v1, float v2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMapGrid2f pglMapGrid2f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalCoord1d(double u);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalCoord1d pglEvalCoord1d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEvalCoord1dv(double* u);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalCoord1dv pglEvalCoord1dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalCoord1f(float u);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalCoord1f pglEvalCoord1f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEvalCoord1fv(float* u);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalCoord1fv pglEvalCoord1fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalCoord2d(double u, double v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalCoord2d pglEvalCoord2d;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEvalCoord2dv(double* u);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalCoord2dv pglEvalCoord2dv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalCoord2f(float u, float v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalCoord2f pglEvalCoord2f;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glEvalCoord2fv(float* u);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalCoord2fv pglEvalCoord2fv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalMesh1(Int32 mode, Int32 i1, Int32 i2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalMesh1 pglEvalMesh1;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalPoint1(Int32 i);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalPoint1 pglEvalPoint1;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalMesh2(Int32 mode, Int32 i1, Int32 i2, Int32 j1, Int32 j2);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalMesh2 pglEvalMesh2;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEvalPoint2(Int32 i, Int32 j);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glEvalPoint2 pglEvalPoint2;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glAlphaFunc(Int32 func, float @ref);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glAlphaFunc pglAlphaFunc;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelZoom(float xfactor, float yfactor);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPixelZoom pglPixelZoom;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelTransferf(Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPixelTransferf pglPixelTransferf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPixelTransferi(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPixelTransferi pglPixelTransferi;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelMapfv(Int32 map, Int32 mapsize, float* values);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPixelMapfv pglPixelMapfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelMapuiv(Int32 map, Int32 mapsize, UInt32* values);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPixelMapuiv pglPixelMapuiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPixelMapusv(Int32 map, Int32 mapsize, UInt16* values);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPixelMapusv pglPixelMapusv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 type);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glCopyPixels pglCopyPixels;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawPixels(Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glDrawPixels pglDrawPixels;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetClipPlane(Int32 plane, double* equation);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetClipPlane pglGetClipPlane;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetLightfv(Int32 light, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetLightfv pglGetLightfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetLightiv(Int32 light, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetLightiv pglGetLightiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMapdv(Int32 target, Int32 query, double* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetMapdv pglGetMapdv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMapfv(Int32 target, Int32 query, float* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetMapfv pglGetMapfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMapiv(Int32 target, Int32 query, Int32* v);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetMapiv pglGetMapiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMaterialfv(Int32 face, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetMaterialfv pglGetMaterialfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMaterialiv(Int32 face, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetMaterialiv pglGetMaterialiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPixelMapfv(Int32 map, float* values);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetPixelMapfv pglGetPixelMapfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPixelMapuiv(Int32 map, UInt32* values);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetPixelMapuiv pglGetPixelMapuiv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPixelMapusv(Int32 map, UInt16* values);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetPixelMapusv pglGetPixelMapusv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPolygonStipple(byte* mask);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetPolygonStipple pglGetPolygonStipple;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexEnvfv(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetTexEnvfv pglGetTexEnvfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexEnviv(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetTexEnviv pglGetTexEnviv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGendv(Int32 coord, Int32 pname, double* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetTexGendv pglGetTexGendv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGenfv(Int32 coord, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetTexGenfv pglGetTexGenfv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexGeniv(Int32 coord, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetTexGeniv pglGetTexGeniv;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsList(UInt32 list);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glIsList pglIsList;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrustum(double left, double right, double bottom, double top, double zNear, double zFar);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glFrustum pglFrustum;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glLoadIdentity();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLoadIdentity pglLoadIdentity;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLoadMatrixf(float* m);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLoadMatrixf pglLoadMatrixf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLoadMatrixd(double* m);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLoadMatrixd pglLoadMatrixd;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMatrixMode(Int32 mode);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMatrixMode pglMatrixMode;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultMatrixf(float* m);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultMatrixf pglMultMatrixf;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultMatrixd(double* m);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultMatrixd pglMultMatrixd;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glOrtho(double left, double right, double bottom, double top, double zNear, double zFar);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glOrtho pglOrtho;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopMatrix();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPopMatrix pglPopMatrix;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushMatrix();
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glPushMatrix pglPushMatrix;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRotated(double angle, double x, double y, double z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRotated pglRotated;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRotatef(float angle, float x, float y, float z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glRotatef pglRotatef;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glScaled(double x, double y, double z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glScaled pglScaled;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glScalef(float x, float y, float z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glScalef pglScalef;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTranslated(double x, double y, double z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTranslated pglTranslated;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RemovedByFeature("GL_VERSION_3_2")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTranslatef(float x, float y, float z);
 
+			[RequiredByFeature("GL_VERSION_1_0")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glTranslatef pglTranslatef;
 

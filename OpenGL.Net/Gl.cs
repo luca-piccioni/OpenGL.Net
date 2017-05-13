@@ -284,7 +284,51 @@ namespace OpenGL
 		/// </summary>
 		public static void BindAPI()
 		{
-			BindAPI(DeviceContext.QueryContextVersion(), GetProcAddress.GetProcAddressGL);
+			BindAPI(QueryContextVersion(), Gl.CurrentExtensions, GetProcAddress.GetProcAddressGL);
+		}
+
+		/// <summary>
+		/// Query the version of the current OpenGL context.
+		/// </summary>
+		/// <returns>
+		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
+		/// </returns>
+		private static KhronosVersion QueryContextVersion()
+		{
+			IntPtr ctx = DeviceContext.GetCurrentContext();
+			if (ctx == null)
+				throw new InvalidOperationException("no current context");
+
+			// Load minimal Gl functions for querying information
+			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressGL;
+
+			if (Egl.IsRequired == false) {
+				Gl.BindAPIFunction(Gl.Version_100, null, "glGetError", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_100, null, "glGetString", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_100, null, "glGetIntegerv", getProcAddress);
+			} else {
+				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetError", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetString", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetIntegerv", getProcAddress);
+			}
+
+			// Parse version string (effective for detecting Desktop and ES contextes)
+			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+
+			// Context profile
+			string glProfile = null;
+			int ctxProfile = 0;
+
+			Gl.Get(Gl.CONTEXT_PROFILE_MASK, out ctxProfile);
+
+			if     ((ctxProfile & Gl.CONTEXT_COMPATIBILITY_PROFILE_BIT) != 0)
+				glProfile = KhronosVersion.ProfileCompatibility;
+			else if ((ctxProfile & Gl.CONTEXT_CORE_PROFILE_BIT) != 0)
+				glProfile = KhronosVersion.ProfileCore;
+			else
+				glProfile = KhronosVersion.ProfileCompatibility;
+
+			return (new KhronosVersion(glversion, glProfile));
 		}
 
 		/// <summary>
@@ -299,14 +343,14 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="version"/> or <paramref name="getProcAddress"/> is null.
 		/// </exception>
-		private static void BindAPI(KhronosVersion version, IGetProcAddress getProcAddress)
+		private static void BindAPI(KhronosVersion version, ExtensionsCollection extensions, IGetProcAddress getProcAddress)
 		{
 			if (version == null)
 				throw new ArgumentNullException("version");
 			if (getProcAddress == null)
 				throw new ArgumentNullException("getProcAddress");
 
-			BindAPI<Gl>(GetPlatformLibrary(version), getProcAddress);
+			BindAPI<Gl>(GetPlatformLibrary(version), getProcAddress, version, extensions);
 		}
 
 		/// <summary>
@@ -321,9 +365,9 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="version"/>, <paramref name="functionName"/> or <paramref name="getProcAddress"/> is null.
 		/// </exception>
-		internal static void BindAPIFunction(KhronosVersion version, string functionName, IGetProcAddress getProcAddress)
+		internal static void BindAPIFunction(KhronosVersion version, ExtensionsCollection extensions, string functionName, IGetProcAddress getProcAddress)
 		{
-			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, getProcAddress);
+			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, getProcAddress, version, extensions);
 		}
 
 		/// <summary>

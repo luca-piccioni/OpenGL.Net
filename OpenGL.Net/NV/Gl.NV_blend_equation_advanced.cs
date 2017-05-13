@@ -240,6 +240,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendParameteriNV(Int32 pname, Int32 value);
 
+			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glBlendParameteriNV pglBlendParameteriNV;
 

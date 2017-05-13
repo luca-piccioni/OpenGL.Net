@@ -78,12 +78,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt64 eglGetSystemTimeFrequencyNV();
 
+			[RequiredByFeature("EGL_NV_system_time")]
 			internal static eglGetSystemTimeFrequencyNV peglGetSystemTimeFrequencyNV;
 
 			[RequiredByFeature("EGL_NV_system_time")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt64 eglGetSystemTimeNV();
 
+			[RequiredByFeature("EGL_NV_system_time")]
 			internal static eglGetSystemTimeNV peglGetSystemTimeNV;
 
 		}

@@ -54,6 +54,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glResizeBuffersMESA();
 
+			[RequiredByFeature("GL_MESA_resize_buffers")]
 			[ThreadStatic]
 			internal static glResizeBuffersMESA pglResizeBuffersMESA;
 

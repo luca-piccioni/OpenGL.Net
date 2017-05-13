@@ -167,6 +167,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawVkImageNV(UInt64 vkImage, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
+			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glDrawVkImageNV pglDrawVkImageNV;
 
@@ -174,6 +175,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glGetVkProcAddrNV(String name);
 
+			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetVkProcAddrNV pglGetVkProcAddrNV;
 
@@ -181,6 +183,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWaitVkSemaphoreNV(UInt64 vkSemaphore);
 
+			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glWaitVkSemaphoreNV pglWaitVkSemaphoreNV;
 
@@ -188,6 +191,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSignalVkSemaphoreNV(UInt64 vkSemaphore);
 
+			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glSignalVkSemaphoreNV pglSignalVkSemaphoreNV;
 
@@ -195,6 +199,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSignalVkFenceNV(UInt64 vkFence);
 
+			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glSignalVkFenceNV pglSignalVkFenceNV;
 

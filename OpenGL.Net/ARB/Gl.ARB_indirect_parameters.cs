@@ -115,6 +115,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawArraysIndirectCountARB(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
 
+			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiDrawArraysIndirectCountARB pglMultiDrawArraysIndirectCountARB;
 
@@ -122,6 +123,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawElementsIndirectCountARB(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
 
+			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMultiDrawElementsIndirectCountARB pglMultiDrawElementsIndirectCountARB;
 

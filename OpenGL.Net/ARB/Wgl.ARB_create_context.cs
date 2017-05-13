@@ -116,6 +116,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglCreateContextAttribsARB(IntPtr hDC, IntPtr hShareContext, int* attribList);
 
+			[RequiredByFeature("WGL_ARB_create_context")]
 			[ThreadStatic]
 			internal static wglCreateContextAttribsARB pwglCreateContextAttribsARB;
 

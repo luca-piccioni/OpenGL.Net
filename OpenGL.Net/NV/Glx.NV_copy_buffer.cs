@@ -118,12 +118,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
+			[RequiredByFeature("GLX_NV_copy_buffer")]
 			internal static glXCopyBufferSubDataNV pglXCopyBufferSubDataNV;
 
 			[RequiredByFeature("GLX_NV_copy_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXNamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
+			[RequiredByFeature("GLX_NV_copy_buffer")]
 			internal static glXNamedCopyBufferSubDataNV pglXNamedCopyBufferSubDataNV;
 
 		}

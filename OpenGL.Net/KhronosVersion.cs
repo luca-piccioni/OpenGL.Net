@@ -77,7 +77,38 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="api"/> is null.
 		/// </exception>
-		public KhronosVersion(int major, int minor, int revision, string api)
+		public KhronosVersion(int major, int minor, int revision, string api) :
+			this(major, minor, revision, api, null)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct a KhronosVersion specifying the version numbers.
+		/// </summary>
+		/// <param name="major">
+		/// A <see cref="Int32"/> that specifies that major version number.
+		/// </param>
+		/// <param name="minor">
+		/// A <see cref="Int32"/> that specifies that minor version number.
+		/// </param>
+		/// <param name="revision">
+		/// A <see cref="Int32"/> that specifies that revision version number.
+		/// </param>
+		/// <param name="api">
+		/// A <see cref="String"/> that specifies the API name.
+		/// </param>
+		/// <param name="profile">
+		/// A <see cref="String"/> that specifies the API profile.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
+		/// <paramref name="revision"/> are less than 0.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="api"/> is null.
+		/// </exception>
+		public KhronosVersion(int major, int minor, int revision, string api, string profile)
 		{
 			if (major <= 0)
 				throw new ArgumentException("less or equal to 0 not allowed", "major");
@@ -92,6 +123,7 @@ namespace OpenGL
 			Minor = minor;
 			Revision = revision;
 			Api = api;
+			Profile = profile;
 		}
 
 		/// <summary>
@@ -109,6 +141,22 @@ namespace OpenGL
 			Minor = other.Minor;
 			Revision = other.Revision;
 			Api = other.Api;
+			Profile = other.Profile;
+		}
+
+		/// <summary>
+		/// Copy constructor.
+		/// </summary>
+		/// <param name="other">
+		/// The other <see cref="KhronosVersion"/> to be copied.
+		/// </param>
+		/// <param name="profile">
+		/// A <see cref="String"/> that specifies the API profile.
+		/// </param>
+		public KhronosVersion(KhronosVersion other, string profile) :
+			this(other)
+		{
+			Profile = profile;
 		}
 
 		#endregion
@@ -210,6 +258,30 @@ namespace OpenGL
 		{
 			get { return (Major * 100 + Minor * 10 + Revision); }
 		}
+
+		#endregion
+
+		#region Profile
+
+		/// <summary>
+		/// Specific to GL API: Core profile.
+		/// </summary>
+		public static readonly string ProfileCore = "core";
+
+		/// <summary>
+		/// Specific to GL API: Compatibility profile.
+		/// </summary>
+		public static readonly string ProfileCompatibility = "compatibility";
+
+		/// <summary>
+		/// Specific to GLES1 API: Common profile.
+		/// </summary>
+		public static readonly string ProfileCommon = "common";
+
+		/// <summary>
+		/// API profile. In the case of null profile, the meaning is determined by the specific method.
+		/// </summary>
+		public readonly string Profile;
 
 		#endregion
 

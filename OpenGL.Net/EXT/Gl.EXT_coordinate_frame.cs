@@ -708,6 +708,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTangent3bEXT(sbyte tx, sbyte ty, sbyte tz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3bEXT pglTangent3bEXT;
 
@@ -715,6 +716,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTangent3bvEXT(sbyte* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3bvEXT pglTangent3bvEXT;
 
@@ -722,6 +724,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTangent3dEXT(double tx, double ty, double tz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3dEXT pglTangent3dEXT;
 
@@ -729,6 +732,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTangent3dvEXT(double* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3dvEXT pglTangent3dvEXT;
 
@@ -736,6 +740,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTangent3fEXT(float tx, float ty, float tz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3fEXT pglTangent3fEXT;
 
@@ -743,6 +748,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTangent3fvEXT(float* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3fvEXT pglTangent3fvEXT;
 
@@ -750,6 +756,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTangent3iEXT(Int32 tx, Int32 ty, Int32 tz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3iEXT pglTangent3iEXT;
 
@@ -757,6 +764,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTangent3ivEXT(Int32* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3ivEXT pglTangent3ivEXT;
 
@@ -764,6 +772,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTangent3sEXT(Int16 tx, Int16 ty, Int16 tz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3sEXT pglTangent3sEXT;
 
@@ -771,6 +780,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTangent3svEXT(Int16* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangent3svEXT pglTangent3svEXT;
 
@@ -778,6 +788,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBinormal3bEXT(sbyte bx, sbyte by, sbyte bz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3bEXT pglBinormal3bEXT;
 
@@ -785,6 +796,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBinormal3bvEXT(sbyte* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3bvEXT pglBinormal3bvEXT;
 
@@ -792,6 +804,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBinormal3dEXT(double bx, double by, double bz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3dEXT pglBinormal3dEXT;
 
@@ -799,6 +812,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBinormal3dvEXT(double* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3dvEXT pglBinormal3dvEXT;
 
@@ -806,6 +820,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBinormal3fEXT(float bx, float by, float bz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3fEXT pglBinormal3fEXT;
 
@@ -813,6 +828,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBinormal3fvEXT(float* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3fvEXT pglBinormal3fvEXT;
 
@@ -820,6 +836,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBinormal3iEXT(Int32 bx, Int32 by, Int32 bz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3iEXT pglBinormal3iEXT;
 
@@ -827,6 +844,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBinormal3ivEXT(Int32* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3ivEXT pglBinormal3ivEXT;
 
@@ -834,6 +852,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBinormal3sEXT(Int16 bx, Int16 by, Int16 bz);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3sEXT pglBinormal3sEXT;
 
@@ -841,6 +860,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBinormal3svEXT(Int16* v);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormal3svEXT pglBinormal3svEXT;
 
@@ -848,6 +868,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTangentPointerEXT(Int32 type, Int32 stride, IntPtr pointer);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glTangentPointerEXT pglTangentPointerEXT;
 
@@ -855,6 +876,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBinormalPointerEXT(Int32 type, Int32 stride, IntPtr pointer);
 
+			[RequiredByFeature("GL_EXT_coordinate_frame")]
 			[ThreadStatic]
 			internal static glBinormalPointerEXT pglBinormalPointerEXT;
 

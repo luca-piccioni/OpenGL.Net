@@ -99,6 +99,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyImageSubDataNV(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
 
+			[RequiredByFeature("GL_NV_copy_image")]
 			[ThreadStatic]
 			internal static glCopyImageSubDataNV pglCopyImageSubDataNV;
 

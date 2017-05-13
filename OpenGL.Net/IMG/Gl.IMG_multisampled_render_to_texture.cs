@@ -127,6 +127,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRenderbufferStorageMultisampleIMG(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glRenderbufferStorageMultisampleIMG pglRenderbufferStorageMultisampleIMG;
 
@@ -134,6 +135,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferTexture2DMultisampleIMG(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 samples);
 
+			[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glFramebufferTexture2DMultisampleIMG pglFramebufferTexture2DMultisampleIMG;
 

@@ -78,6 +78,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glConservativeRasterParameteriNV(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_NV_conservative_raster_pre_snap_triangles", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glConservativeRasterParameteriNV pglConservativeRasterParameteriNV;
 

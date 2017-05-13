@@ -1549,6 +1549,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlanef(Int32 p, float* eqn);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[ThreadStatic]
 			internal static glClipPlanef pglClipPlanef;
 
@@ -1556,6 +1557,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrustumf(float l, float r, float b, float t, float n, float f);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[ThreadStatic]
 			internal static glFrustumf pglFrustumf;
 
@@ -1563,6 +1565,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetClipPlanef(Int32 plane, float* equation);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[ThreadStatic]
 			internal static glGetClipPlanef pglGetClipPlanef;
 
@@ -1570,6 +1573,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glOrthof(float l, float r, float b, float t, float n, float f);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[ThreadStatic]
 			internal static glOrthof pglOrthof;
 
@@ -1577,6 +1581,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glAlphaFuncx(Int32 func, IntPtr @ref);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glAlphaFuncx pglAlphaFuncx;
 
@@ -1584,6 +1589,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearColorx(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glClearColorx pglClearColorx;
 
@@ -1591,6 +1597,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearDepthx(IntPtr depth);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glClearDepthx pglClearDepthx;
 
@@ -1598,6 +1605,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlanex(Int32 plane, IntPtr* equation);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glClipPlanex pglClipPlanex;
 
@@ -1605,6 +1613,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColor4x(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glColor4x pglColor4x;
 
@@ -1612,6 +1621,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDepthRangex(IntPtr n, IntPtr f);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glDepthRangex pglDepthRangex;
 
@@ -1619,6 +1629,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogx(Int32 pname, IntPtr param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glFogx pglFogx;
 
@@ -1626,6 +1637,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFogxv(Int32 pname, IntPtr* param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glFogxv pglFogxv;
 
@@ -1633,6 +1645,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glFrustumx(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glFrustumx pglFrustumx;
 
@@ -1640,6 +1653,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetClipPlanex(Int32 plane, IntPtr* equation);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetClipPlanex pglGetClipPlanex;
 
@@ -1647,6 +1661,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFixedv(Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetFixedv pglGetFixedv;
 
@@ -1654,6 +1669,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetLightxv(Int32 light, Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetLightxv pglGetLightxv;
 
@@ -1661,6 +1677,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetMaterialxv(Int32 face, Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetMaterialxv pglGetMaterialxv;
 
@@ -1668,6 +1685,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetTexEnvxv pglGetTexEnvxv;
 
@@ -1675,6 +1693,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glGetTexParameterxv pglGetTexParameterxv;
 
@@ -1682,6 +1701,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightModelx(Int32 pname, IntPtr param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glLightModelx pglLightModelx;
 
@@ -1689,6 +1709,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightModelxv(Int32 pname, IntPtr* param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glLightModelxv pglLightModelxv;
 
@@ -1696,6 +1717,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightx(Int32 light, Int32 pname, IntPtr param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glLightx pglLightx;
 
@@ -1703,6 +1725,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLightxv(Int32 light, Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glLightxv pglLightxv;
 
@@ -1710,6 +1733,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLineWidthx(IntPtr width);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glLineWidthx pglLineWidthx;
 
@@ -1717,6 +1741,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glLoadMatrixx(IntPtr* m);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glLoadMatrixx pglLoadMatrixx;
 
@@ -1724,6 +1749,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMaterialx(Int32 face, Int32 pname, IntPtr param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glMaterialx pglMaterialx;
 
@@ -1731,6 +1757,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMaterialxv(Int32 face, Int32 pname, IntPtr* param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glMaterialxv pglMaterialxv;
 
@@ -1738,6 +1765,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultMatrixx(IntPtr* m);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glMultMatrixx pglMultMatrixx;
 
@@ -1745,6 +1773,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoord4x(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4x pglMultiTexCoord4x;
 
@@ -1752,6 +1781,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormal3x(IntPtr nx, IntPtr ny, IntPtr nz);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glNormal3x pglNormal3x;
 
@@ -1759,6 +1789,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glOrthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glOrthox pglOrthox;
 
@@ -1766,6 +1797,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointParameterx(Int32 pname, IntPtr param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glPointParameterx pglPointParameterx;
 
@@ -1773,6 +1805,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointParameterxv(Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glPointParameterxv pglPointParameterxv;
 
@@ -1780,6 +1813,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPointSizex(IntPtr size);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glPointSizex pglPointSizex;
 
@@ -1787,6 +1821,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPolygonOffsetx(IntPtr factor, IntPtr units);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glPolygonOffsetx pglPolygonOffsetx;
 
@@ -1794,6 +1829,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glRotatex(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glRotatex pglRotatex;
 
@@ -1801,6 +1837,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSampleCoveragex(Int32 value, bool invert);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glSampleCoveragex pglSampleCoveragex;
 
@@ -1808,6 +1845,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glScalex(IntPtr x, IntPtr y, IntPtr z);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glScalex pglScalex;
 
@@ -1815,6 +1853,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexEnvx(Int32 target, Int32 pname, IntPtr param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTexEnvx pglTexEnvx;
 
@@ -1822,6 +1861,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTexEnvxv pglTexEnvxv;
 
@@ -1829,6 +1869,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameterx(Int32 target, Int32 pname, IntPtr param);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTexParameterx pglTexParameterx;
 
@@ -1836,6 +1877,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTexParameterxv pglTexParameterxv;
 
@@ -1843,6 +1885,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTranslatex(IntPtr x, IntPtr y, IntPtr z);
 
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
 			internal static glTranslatex pglTranslatex;
 

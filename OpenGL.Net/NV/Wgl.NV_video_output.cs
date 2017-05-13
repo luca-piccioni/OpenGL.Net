@@ -306,6 +306,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr* hVideoDevice);
 
+			[RequiredByFeature("WGL_NV_video_output")]
 			[ThreadStatic]
 			internal static wglGetVideoDeviceNV pwglGetVideoDeviceNV;
 
@@ -313,6 +314,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglReleaseVideoDeviceNV(IntPtr hVideoDevice);
 
+			[RequiredByFeature("WGL_NV_video_output")]
 			[ThreadStatic]
 			internal static wglReleaseVideoDeviceNV pwglReleaseVideoDeviceNV;
 
@@ -320,6 +322,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglBindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer);
 
+			[RequiredByFeature("WGL_NV_video_output")]
 			[ThreadStatic]
 			internal static wglBindVideoImageNV pwglBindVideoImageNV;
 
@@ -327,6 +330,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer);
 
+			[RequiredByFeature("WGL_NV_video_output")]
 			[ThreadStatic]
 			internal static wglReleaseVideoImageNV pwglReleaseVideoImageNV;
 
@@ -334,6 +338,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
 
+			[RequiredByFeature("WGL_NV_video_output")]
 			[ThreadStatic]
 			internal static wglSendPbufferToVideoNV pwglSendPbufferToVideoNV;
 
@@ -341,6 +346,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetVideoInfoNV(IntPtr hpVideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
 
+			[RequiredByFeature("WGL_NV_video_output")]
 			[ThreadStatic]
 			internal static wglGetVideoInfoNV pwglGetVideoInfoNV;
 

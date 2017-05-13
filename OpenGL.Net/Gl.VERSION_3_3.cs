@@ -2215,6 +2215,9 @@ namespace OpenGL
 
 			[AliasOf("glBindFragDataLocationIndexed")]
 			[AliasOf("glBindFragDataLocationIndexedEXT")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[ThreadStatic]
 			internal static glBindFragDataLocationIndexed pglBindFragDataLocationIndexed;
 
@@ -2226,6 +2229,9 @@ namespace OpenGL
 
 			[AliasOf("glGetFragDataIndex")]
 			[AliasOf("glGetFragDataIndexEXT")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetFragDataIndex pglGetFragDataIndex;
 
@@ -2235,6 +2241,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenSamplers(Int32 count, UInt32* samplers);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGenSamplers pglGenSamplers;
 
@@ -2244,6 +2253,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteSamplers(Int32 count, UInt32* samplers);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDeleteSamplers pglDeleteSamplers;
 
@@ -2253,6 +2265,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsSampler(UInt32 sampler);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glIsSampler pglIsSampler;
 
@@ -2262,6 +2277,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindSampler(UInt32 unit, UInt32 sampler);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindSampler pglBindSampler;
 
@@ -2271,6 +2289,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSamplerParameteri(UInt32 sampler, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glSamplerParameteri pglSamplerParameteri;
 
@@ -2280,6 +2301,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* param);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glSamplerParameteriv pglSamplerParameteriv;
 
@@ -2289,6 +2313,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSamplerParameterf(UInt32 sampler, Int32 pname, float param);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glSamplerParameterf pglSamplerParameterf;
 
@@ -2298,6 +2325,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameterfv(UInt32 sampler, Int32 pname, float* param);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glSamplerParameterfv pglSamplerParameterfv;
 
@@ -2312,6 +2342,11 @@ namespace OpenGL
 			[AliasOf("glSamplerParameterIiv")]
 			[AliasOf("glSamplerParameterIivEXT")]
 			[AliasOf("glSamplerParameterIivOES")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[ThreadStatic]
 			internal static glSamplerParameterIiv pglSamplerParameterIiv;
 
@@ -2326,6 +2361,11 @@ namespace OpenGL
 			[AliasOf("glSamplerParameterIuiv")]
 			[AliasOf("glSamplerParameterIuivEXT")]
 			[AliasOf("glSamplerParameterIuivOES")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[ThreadStatic]
 			internal static glSamplerParameterIuiv pglSamplerParameterIuiv;
 
@@ -2335,6 +2375,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetSamplerParameteriv pglGetSamplerParameteriv;
 
@@ -2349,6 +2392,11 @@ namespace OpenGL
 			[AliasOf("glGetSamplerParameterIiv")]
 			[AliasOf("glGetSamplerParameterIivEXT")]
 			[AliasOf("glGetSamplerParameterIivOES")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetSamplerParameterIiv pglGetSamplerParameterIiv;
 
@@ -2358,6 +2406,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterfv(UInt32 sampler, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetSamplerParameterfv pglGetSamplerParameterfv;
 
@@ -2372,6 +2423,11 @@ namespace OpenGL
 			[AliasOf("glGetSamplerParameterIuiv")]
 			[AliasOf("glGetSamplerParameterIuivEXT")]
 			[AliasOf("glGetSamplerParameterIuivOES")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetSamplerParameterIuiv pglGetSamplerParameterIuiv;
 
@@ -2383,6 +2439,9 @@ namespace OpenGL
 
 			[AliasOf("glQueryCounter")]
 			[AliasOf("glQueryCounterEXT")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[ThreadStatic]
 			internal static glQueryCounter pglQueryCounter;
 
@@ -2395,6 +2454,10 @@ namespace OpenGL
 
 			[AliasOf("glGetQueryObjecti64v")]
 			[AliasOf("glGetQueryObjecti64vEXT")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_timer_query")]
 			[ThreadStatic]
 			internal static glGetQueryObjecti64v pglGetQueryObjecti64v;
 
@@ -2407,6 +2470,10 @@ namespace OpenGL
 
 			[AliasOf("glGetQueryObjectui64v")]
 			[AliasOf("glGetQueryObjectui64vEXT")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_timer_query")]
 			[ThreadStatic]
 			internal static glGetQueryObjectui64v pglGetQueryObjectui64v;
 
@@ -2424,6 +2491,12 @@ namespace OpenGL
 			[AliasOf("glVertexAttribDivisorARB")]
 			[AliasOf("glVertexAttribDivisorEXT")]
 			[AliasOf("glVertexAttribDivisorNV")]
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
 			[ThreadStatic]
 			internal static glVertexAttribDivisor pglVertexAttribDivisor;
 
@@ -2432,6 +2505,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribP1ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribP1ui pglVertexAttribP1ui;
 
@@ -2440,6 +2515,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribP1uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribP1uiv pglVertexAttribP1uiv;
 
@@ -2448,6 +2525,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribP2ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribP2ui pglVertexAttribP2ui;
 
@@ -2456,6 +2535,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribP2uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribP2uiv pglVertexAttribP2uiv;
 
@@ -2464,6 +2545,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribP3ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribP3ui pglVertexAttribP3ui;
 
@@ -2472,6 +2555,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribP3uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribP3uiv pglVertexAttribP3uiv;
 
@@ -2480,6 +2565,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribP4ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribP4ui pglVertexAttribP4ui;
 
@@ -2488,6 +2575,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribP4uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
+			[RequiredByFeature("GL_VERSION_3_3")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glVertexAttribP4uiv pglVertexAttribP4uiv;
 
@@ -2496,6 +2585,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP2ui(Int32 type, UInt32 value);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glVertexP2ui pglVertexP2ui;
 
@@ -2504,6 +2595,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP2uiv(Int32 type, UInt32* value);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glVertexP2uiv pglVertexP2uiv;
 
@@ -2512,6 +2605,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP3ui(Int32 type, UInt32 value);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glVertexP3ui pglVertexP3ui;
 
@@ -2520,6 +2615,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP3uiv(Int32 type, UInt32* value);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glVertexP3uiv pglVertexP3uiv;
 
@@ -2528,6 +2625,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexP4ui(Int32 type, UInt32 value);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glVertexP4ui pglVertexP4ui;
 
@@ -2536,6 +2635,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexP4uiv(Int32 type, UInt32* value);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glVertexP4uiv pglVertexP4uiv;
 
@@ -2544,6 +2645,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP1ui(Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glTexCoordP1ui pglTexCoordP1ui;
 
@@ -2552,6 +2655,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP1uiv(Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glTexCoordP1uiv pglTexCoordP1uiv;
 
@@ -2560,6 +2665,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP2ui(Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glTexCoordP2ui pglTexCoordP2ui;
 
@@ -2568,6 +2675,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP2uiv(Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glTexCoordP2uiv pglTexCoordP2uiv;
 
@@ -2576,6 +2685,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP3ui(Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glTexCoordP3ui pglTexCoordP3ui;
 
@@ -2584,6 +2695,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP3uiv(Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glTexCoordP3uiv pglTexCoordP3uiv;
 
@@ -2592,6 +2705,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexCoordP4ui(Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glTexCoordP4ui pglTexCoordP4ui;
 
@@ -2600,6 +2715,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexCoordP4uiv(Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glTexCoordP4uiv pglTexCoordP4uiv;
 
@@ -2608,6 +2725,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP1ui(Int32 texture, Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glMultiTexCoordP1ui pglMultiTexCoordP1ui;
 
@@ -2616,6 +2735,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP1uiv(Int32 texture, Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glMultiTexCoordP1uiv pglMultiTexCoordP1uiv;
 
@@ -2624,6 +2745,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP2ui(Int32 texture, Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glMultiTexCoordP2ui pglMultiTexCoordP2ui;
 
@@ -2632,6 +2755,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP2uiv(Int32 texture, Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glMultiTexCoordP2uiv pglMultiTexCoordP2uiv;
 
@@ -2640,6 +2765,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP3ui(Int32 texture, Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glMultiTexCoordP3ui pglMultiTexCoordP3ui;
 
@@ -2648,6 +2775,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP3uiv(Int32 texture, Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glMultiTexCoordP3uiv pglMultiTexCoordP3uiv;
 
@@ -2656,6 +2785,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMultiTexCoordP4ui(Int32 texture, Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glMultiTexCoordP4ui pglMultiTexCoordP4ui;
 
@@ -2664,6 +2795,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiTexCoordP4uiv(Int32 texture, Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glMultiTexCoordP4uiv pglMultiTexCoordP4uiv;
 
@@ -2672,6 +2805,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNormalP3ui(Int32 type, UInt32 coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glNormalP3ui pglNormalP3ui;
 
@@ -2680,6 +2815,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glNormalP3uiv(Int32 type, UInt32* coords);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glNormalP3uiv pglNormalP3uiv;
 
@@ -2688,6 +2825,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorP3ui(Int32 type, UInt32 color);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glColorP3ui pglColorP3ui;
 
@@ -2696,6 +2835,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorP3uiv(Int32 type, UInt32* color);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glColorP3uiv pglColorP3uiv;
 
@@ -2704,6 +2845,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glColorP4ui(Int32 type, UInt32 color);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glColorP4ui pglColorP4ui;
 
@@ -2712,6 +2855,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorP4uiv(Int32 type, UInt32* color);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glColorP4uiv pglColorP4uiv;
 
@@ -2720,6 +2865,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSecondaryColorP3ui(Int32 type, UInt32 color);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glSecondaryColorP3ui pglSecondaryColorP3ui;
 
@@ -2728,6 +2875,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSecondaryColorP3uiv(Int32 type, UInt32* color);
 
+			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
+			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 			[ThreadStatic]
 			internal static glSecondaryColorP3uiv pglSecondaryColorP3uiv;
 

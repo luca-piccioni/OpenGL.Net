@@ -204,18 +204,21 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int eglDebugMessageControlKHR(DebugProcKHR callback, IntPtr* attrib_list);
 
+			[RequiredByFeature("EGL_KHR_debug")]
 			internal static eglDebugMessageControlKHR peglDebugMessageControlKHR;
 
 			[RequiredByFeature("EGL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryDebugKHR(int attribute, IntPtr* value);
 
+			[RequiredByFeature("EGL_KHR_debug")]
 			internal static eglQueryDebugKHR peglQueryDebugKHR;
 
 			[RequiredByFeature("EGL_KHR_debug")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int eglLabelObjectKHR(IntPtr display, uint objectType, IntPtr @object, IntPtr label);
 
+			[RequiredByFeature("EGL_KHR_debug")]
 			internal static eglLabelObjectKHR peglLabelObjectKHR;
 
 		}

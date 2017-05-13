@@ -73,6 +73,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glXSet3DfxModeMESA(int mode);
 
+			[RequiredByFeature("GLX_MESA_set_3dfx_mode")]
 			internal static glXSet3DfxModeMESA pglXSet3DfxModeMESA;
 
 		}

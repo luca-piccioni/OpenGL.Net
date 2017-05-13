@@ -236,24 +236,28 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool glXQueryCurrentRendererIntegerMESA(int attribute, UInt32* value);
 
+			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryCurrentRendererIntegerMESA pglXQueryCurrentRendererIntegerMESA;
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glXQueryCurrentRendererStringMESA(int attribute);
 
+			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryCurrentRendererStringMESA pglXQueryCurrentRendererStringMESA;
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, UInt32* value);
 
+			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryRendererIntegerMESA pglXQueryRendererIntegerMESA;
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
 
+			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryRendererStringMESA pglXQueryRendererStringMESA;
 
 		}

@@ -87,6 +87,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateImageKHR(IntPtr dpy, IntPtr ctx, uint target, IntPtr buffer, int* attrib_list);
 
+			[RequiredByFeature("EGL_KHR_image")]
+			[RequiredByFeature("EGL_KHR_image_base")]
 			internal static eglCreateImageKHR peglCreateImageKHR;
 
 		}

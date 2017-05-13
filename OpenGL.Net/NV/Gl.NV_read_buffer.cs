@@ -57,6 +57,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glReadBufferNV(Int32 mode);
 
+			[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]
 			[ThreadStatic]
 			internal static glReadBufferNV pglReadBufferNV;
 

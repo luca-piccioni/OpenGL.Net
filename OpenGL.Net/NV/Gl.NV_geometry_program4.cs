@@ -99,6 +99,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramVertexLimitNV(Int32 target, Int32 limit);
 
+			[RequiredByFeature("GL_NV_geometry_program4")]
 			[ThreadStatic]
 			internal static glProgramVertexLimitNV pglProgramVertexLimitNV;
 

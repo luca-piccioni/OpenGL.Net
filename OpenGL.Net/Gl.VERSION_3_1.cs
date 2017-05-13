@@ -1391,6 +1391,13 @@ namespace OpenGL
 			[AliasOf("glDrawArraysInstancedARB")]
 			[AliasOf("glDrawArraysInstancedEXT")]
 			[AliasOf("glDrawArraysInstancedNV")]
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDrawArraysInstanced pglDrawArraysInstanced;
 
@@ -1409,6 +1416,13 @@ namespace OpenGL
 			[AliasOf("glDrawElementsInstancedARB")]
 			[AliasOf("glDrawElementsInstancedEXT")]
 			[AliasOf("glDrawElementsInstancedNV")]
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDrawElementsInstanced pglDrawElementsInstanced;
 
@@ -1425,6 +1439,12 @@ namespace OpenGL
 			[AliasOf("glTexBufferARB")]
 			[AliasOf("glTexBufferEXT")]
 			[AliasOf("glTexBufferOES")]
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_buffer_object")]
+			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexBuffer pglTexBuffer;
 
@@ -1432,6 +1452,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPrimitiveRestartIndex(UInt32 index);
 
+			[RequiredByFeature("GL_VERSION_3_1")]
 			[ThreadStatic]
 			internal static glPrimitiveRestartIndex pglPrimitiveRestartIndex;
 
@@ -1444,6 +1465,10 @@ namespace OpenGL
 
 			[AliasOf("glCopyBufferSubData")]
 			[AliasOf("glCopyBufferSubDataNV")]
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCopyBufferSubData pglCopyBufferSubData;
 
@@ -1453,6 +1478,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetUniformIndices(UInt32 program, Int32 uniformCount, String[] uniformNames, UInt32* uniformIndices);
 
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetUniformIndices pglGetUniformIndices;
 
@@ -1462,6 +1490,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetActiveUniformsiv(UInt32 program, Int32 uniformCount, UInt32* uniformIndices, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetActiveUniformsiv pglGetActiveUniformsiv;
 
@@ -1470,6 +1501,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetActiveUniformName(UInt32 program, UInt32 uniformIndex, Int32 bufSize, Int32* length, [Out] StringBuilder uniformName);
 
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetActiveUniformName pglGetActiveUniformName;
 
@@ -1479,6 +1512,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate UInt32 glGetUniformBlockIndex(UInt32 program, String uniformBlockName);
 
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetUniformBlockIndex pglGetUniformBlockIndex;
 
@@ -1488,6 +1524,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetActiveUniformBlockiv(UInt32 program, UInt32 uniformBlockIndex, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetActiveUniformBlockiv pglGetActiveUniformBlockiv;
 
@@ -1497,6 +1536,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetActiveUniformBlockName(UInt32 program, UInt32 uniformBlockIndex, Int32 bufSize, Int32* length, [Out] StringBuilder uniformBlockName);
 
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetActiveUniformBlockName pglGetActiveUniformBlockName;
 
@@ -1506,6 +1548,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniformBlockBinding(UInt32 program, UInt32 uniformBlockIndex, UInt32 uniformBlockBinding);
 
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glUniformBlockBinding pglUniformBlockBinding;
 

@@ -85,6 +85,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glRenderbufferStorageMultisampleAPPLE(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
+			[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glRenderbufferStorageMultisampleAPPLE pglRenderbufferStorageMultisampleAPPLE;
 
@@ -92,6 +93,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glResolveMultisampleFramebufferAPPLE();
 
+			[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glResolveMultisampleFramebufferAPPLE pglResolveMultisampleFramebufferAPPLE;
 

@@ -54,6 +54,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFlushRasterSGIX();
 
+			[RequiredByFeature("GL_SGIX_flush_raster")]
 			[ThreadStatic]
 			internal static glFlushRasterSGIX pglFlushRasterSGIX;
 

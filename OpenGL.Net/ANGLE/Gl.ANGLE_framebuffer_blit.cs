@@ -84,6 +84,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlitFramebufferANGLE(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
+			[RequiredByFeature("GL_ANGLE_framebuffer_blit", Api = "gles2")]
 			[ThreadStatic]
 			internal static glBlitFramebufferANGLE pglBlitFramebufferANGLE;
 

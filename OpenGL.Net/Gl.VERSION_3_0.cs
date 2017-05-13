@@ -7450,6 +7450,11 @@ namespace OpenGL
 			[AliasOf("glColorMaskIndexedEXT")]
 			[AliasOf("glColorMaskiEXT")]
 			[AliasOf("glColorMaskiOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_buffers2")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 			[ThreadStatic]
 			internal static glColorMaski pglColorMaski;
 
@@ -7462,6 +7467,10 @@ namespace OpenGL
 
 			[AliasOf("glGetBooleani_v")]
 			[AliasOf("glGetBooleanIndexedvEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers2")]
 			[ThreadStatic]
 			internal static glGetBooleani_v pglGetBooleani_v;
 
@@ -7476,6 +7485,12 @@ namespace OpenGL
 
 			[AliasOf("glGetIntegeri_v")]
 			[AliasOf("glGetIntegerIndexedvEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers2")]
 			[ThreadStatic]
 			internal static glGetIntegeri_v pglGetIntegeri_v;
 
@@ -7495,6 +7510,14 @@ namespace OpenGL
 			[AliasOf("glEnableiEXT")]
 			[AliasOf("glEnableiNV")]
 			[AliasOf("glEnableiOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers2")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[ThreadStatic]
 			internal static glEnablei pglEnablei;
 
@@ -7514,6 +7537,14 @@ namespace OpenGL
 			[AliasOf("glDisableiEXT")]
 			[AliasOf("glDisableiNV")]
 			[AliasOf("glDisableiOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers2")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDisablei pglDisablei;
 
@@ -7533,6 +7564,14 @@ namespace OpenGL
 			[AliasOf("glIsEnablediEXT")]
 			[AliasOf("glIsEnablediNV")]
 			[AliasOf("glIsEnablediOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers2")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[ThreadStatic]
 			internal static glIsEnabledi pglIsEnabledi;
 
@@ -7546,6 +7585,10 @@ namespace OpenGL
 			[AliasOf("glBeginTransformFeedback")]
 			[AliasOf("glBeginTransformFeedbackEXT")]
 			[AliasOf("glBeginTransformFeedbackNV")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_transform_feedback")]
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glBeginTransformFeedback pglBeginTransformFeedback;
 
@@ -7559,6 +7602,10 @@ namespace OpenGL
 			[AliasOf("glEndTransformFeedback")]
 			[AliasOf("glEndTransformFeedbackEXT")]
 			[AliasOf("glEndTransformFeedbackNV")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_transform_feedback")]
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glEndTransformFeedback pglEndTransformFeedback;
 
@@ -7574,6 +7621,12 @@ namespace OpenGL
 			[AliasOf("glBindBufferRange")]
 			[AliasOf("glBindBufferRangeEXT")]
 			[AliasOf("glBindBufferRangeNV")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_transform_feedback")]
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glBindBufferRange pglBindBufferRange;
 
@@ -7589,6 +7642,12 @@ namespace OpenGL
 			[AliasOf("glBindBufferBase")]
 			[AliasOf("glBindBufferBaseEXT")]
 			[AliasOf("glBindBufferBaseNV")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_transform_feedback")]
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glBindBufferBase pglBindBufferBase;
 
@@ -7600,6 +7659,9 @@ namespace OpenGL
 
 			[AliasOf("glTransformFeedbackVaryings")]
 			[AliasOf("glTransformFeedbackVaryingsEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[ThreadStatic]
 			internal static glTransformFeedbackVaryings pglTransformFeedbackVaryings;
 
@@ -7611,6 +7673,9 @@ namespace OpenGL
 
 			[AliasOf("glGetTransformFeedbackVarying")]
 			[AliasOf("glGetTransformFeedbackVaryingEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[ThreadStatic]
 			internal static glGetTransformFeedbackVarying pglGetTransformFeedbackVarying;
 
@@ -7621,6 +7686,8 @@ namespace OpenGL
 
 			[AliasOf("glClampColor")]
 			[AliasOf("glClampColorARB")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ARB_color_buffer_float")]
 			[ThreadStatic]
 			internal static glClampColor pglClampColor;
 
@@ -7631,6 +7698,8 @@ namespace OpenGL
 
 			[AliasOf("glBeginConditionalRender")]
 			[AliasOf("glBeginConditionalRenderNV")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_conditional_render", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glBeginConditionalRender pglBeginConditionalRender;
 
@@ -7643,6 +7712,9 @@ namespace OpenGL
 			[AliasOf("glEndConditionalRender")]
 			[AliasOf("glEndConditionalRenderNV")]
 			[AliasOf("glEndConditionalRenderNVX")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NVX_conditional_render")]
+			[RequiredByFeature("GL_NV_conditional_render", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glEndConditionalRender pglEndConditionalRender;
 
@@ -7654,6 +7726,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribIPointer")]
 			[AliasOf("glVertexAttribIPointerEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribIPointer pglVertexAttribIPointer;
 
@@ -7665,6 +7740,9 @@ namespace OpenGL
 
 			[AliasOf("glGetVertexAttribIiv")]
 			[AliasOf("glGetVertexAttribIivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glGetVertexAttribIiv pglGetVertexAttribIiv;
 
@@ -7676,6 +7754,9 @@ namespace OpenGL
 
 			[AliasOf("glGetVertexAttribIuiv")]
 			[AliasOf("glGetVertexAttribIuivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glGetVertexAttribIuiv pglGetVertexAttribIuiv;
 
@@ -7686,6 +7767,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI1i")]
 			[AliasOf("glVertexAttribI1iEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI1i pglVertexAttribI1i;
 
@@ -7696,6 +7779,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI2i")]
 			[AliasOf("glVertexAttribI2iEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI2i pglVertexAttribI2i;
 
@@ -7706,6 +7791,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI3i")]
 			[AliasOf("glVertexAttribI3iEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI3i pglVertexAttribI3i;
 
@@ -7717,6 +7804,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI4i")]
 			[AliasOf("glVertexAttribI4iEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI4i pglVertexAttribI4i;
 
@@ -7727,6 +7817,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI1ui")]
 			[AliasOf("glVertexAttribI1uiEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI1ui pglVertexAttribI1ui;
 
@@ -7737,6 +7829,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI2ui")]
 			[AliasOf("glVertexAttribI2uiEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI2ui pglVertexAttribI2ui;
 
@@ -7747,6 +7841,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI3ui")]
 			[AliasOf("glVertexAttribI3uiEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI3ui pglVertexAttribI3ui;
 
@@ -7758,6 +7854,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI4ui")]
 			[AliasOf("glVertexAttribI4uiEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI4ui pglVertexAttribI4ui;
 
@@ -7768,6 +7867,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI1iv")]
 			[AliasOf("glVertexAttribI1ivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI1iv pglVertexAttribI1iv;
 
@@ -7778,6 +7879,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI2iv")]
 			[AliasOf("glVertexAttribI2ivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI2iv pglVertexAttribI2iv;
 
@@ -7788,6 +7891,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI3iv")]
 			[AliasOf("glVertexAttribI3ivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI3iv pglVertexAttribI3iv;
 
@@ -7799,6 +7904,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI4iv")]
 			[AliasOf("glVertexAttribI4ivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI4iv pglVertexAttribI4iv;
 
@@ -7809,6 +7917,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI1uiv")]
 			[AliasOf("glVertexAttribI1uivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI1uiv pglVertexAttribI1uiv;
 
@@ -7819,6 +7929,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI2uiv")]
 			[AliasOf("glVertexAttribI2uivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI2uiv pglVertexAttribI2uiv;
 
@@ -7829,6 +7941,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI3uiv")]
 			[AliasOf("glVertexAttribI3uivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI3uiv pglVertexAttribI3uiv;
 
@@ -7840,6 +7954,9 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI4uiv")]
 			[AliasOf("glVertexAttribI4uivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI4uiv pglVertexAttribI4uiv;
 
@@ -7850,6 +7967,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI4bv")]
 			[AliasOf("glVertexAttribI4bvEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI4bv pglVertexAttribI4bv;
 
@@ -7860,6 +7979,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI4sv")]
 			[AliasOf("glVertexAttribI4svEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI4sv pglVertexAttribI4sv;
 
@@ -7870,6 +7991,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI4ubv")]
 			[AliasOf("glVertexAttribI4ubvEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI4ubv pglVertexAttribI4ubv;
 
@@ -7880,6 +8003,8 @@ namespace OpenGL
 
 			[AliasOf("glVertexAttribI4usv")]
 			[AliasOf("glVertexAttribI4usvEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_NV_vertex_program4")]
 			[ThreadStatic]
 			internal static glVertexAttribI4usv pglVertexAttribI4usv;
 
@@ -7891,6 +8016,9 @@ namespace OpenGL
 
 			[AliasOf("glGetUniformuiv")]
 			[AliasOf("glGetUniformuivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glGetUniformuiv pglGetUniformuiv;
 
@@ -7902,6 +8030,9 @@ namespace OpenGL
 
 			[AliasOf("glBindFragDataLocation")]
 			[AliasOf("glBindFragDataLocationEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glBindFragDataLocation pglBindFragDataLocation;
 
@@ -7913,6 +8044,9 @@ namespace OpenGL
 
 			[AliasOf("glGetFragDataLocation")]
 			[AliasOf("glGetFragDataLocationEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glGetFragDataLocation pglGetFragDataLocation;
 
@@ -7924,6 +8058,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform1ui")]
 			[AliasOf("glUniform1uiEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glUniform1ui pglUniform1ui;
 
@@ -7935,6 +8072,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform2ui")]
 			[AliasOf("glUniform2uiEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glUniform2ui pglUniform2ui;
 
@@ -7946,6 +8086,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform3ui")]
 			[AliasOf("glUniform3uiEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glUniform3ui pglUniform3ui;
 
@@ -7957,6 +8100,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform4ui")]
 			[AliasOf("glUniform4uiEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glUniform4ui pglUniform4ui;
 
@@ -7968,6 +8114,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform1uiv")]
 			[AliasOf("glUniform1uivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glUniform1uiv pglUniform1uiv;
 
@@ -7979,6 +8128,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform2uiv")]
 			[AliasOf("glUniform2uivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glUniform2uiv pglUniform2uiv;
 
@@ -7990,6 +8142,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform3uiv")]
 			[AliasOf("glUniform3uivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glUniform3uiv pglUniform3uiv;
 
@@ -8001,6 +8156,9 @@ namespace OpenGL
 
 			[AliasOf("glUniform4uiv")]
 			[AliasOf("glUniform4uivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[ThreadStatic]
 			internal static glUniform4uiv pglUniform4uiv;
 
@@ -8015,6 +8173,11 @@ namespace OpenGL
 			[AliasOf("glTexParameterIiv")]
 			[AliasOf("glTexParameterIivEXT")]
 			[AliasOf("glTexParameterIivOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_integer")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexParameterIiv pglTexParameterIiv;
 
@@ -8029,6 +8192,11 @@ namespace OpenGL
 			[AliasOf("glTexParameterIuiv")]
 			[AliasOf("glTexParameterIuivEXT")]
 			[AliasOf("glTexParameterIuivOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_integer")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexParameterIuiv pglTexParameterIuiv;
 
@@ -8043,6 +8211,11 @@ namespace OpenGL
 			[AliasOf("glGetTexParameterIiv")]
 			[AliasOf("glGetTexParameterIivEXT")]
 			[AliasOf("glGetTexParameterIivOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_integer")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetTexParameterIiv pglGetTexParameterIiv;
 
@@ -8057,6 +8230,11 @@ namespace OpenGL
 			[AliasOf("glGetTexParameterIuiv")]
 			[AliasOf("glGetTexParameterIuivEXT")]
 			[AliasOf("glGetTexParameterIuivOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_integer")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetTexParameterIuiv pglGetTexParameterIuiv;
 
@@ -8065,6 +8243,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearBufferiv(Int32 buffer, Int32 drawbuffer, Int32* value);
 
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearBufferiv pglClearBufferiv;
 
@@ -8073,6 +8253,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearBufferuiv(Int32 buffer, Int32 drawbuffer, UInt32* value);
 
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearBufferuiv pglClearBufferuiv;
 
@@ -8081,6 +8263,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearBufferfv(Int32 buffer, Int32 drawbuffer, float* value);
 
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearBufferfv pglClearBufferfv;
 
@@ -8089,6 +8273,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearBufferfi(Int32 buffer, Int32 drawbuffer, float depth, Int32 stencil);
 
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearBufferfi pglClearBufferfi;
 
@@ -8097,6 +8283,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glGetStringi(Int32 name, UInt32 index);
 
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetStringi pglGetStringi;
 
@@ -8109,6 +8297,10 @@ namespace OpenGL
 
 			[AliasOf("glIsRenderbuffer")]
 			[AliasOf("glIsRenderbufferEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glIsRenderbuffer pglIsRenderbuffer;
 
@@ -8118,6 +8310,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindRenderbuffer(Int32 target, UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindRenderbuffer pglBindRenderbuffer;
 
@@ -8130,6 +8325,10 @@ namespace OpenGL
 
 			[AliasOf("glDeleteRenderbuffers")]
 			[AliasOf("glDeleteRenderbuffersEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glDeleteRenderbuffers pglDeleteRenderbuffers;
 
@@ -8142,6 +8341,10 @@ namespace OpenGL
 
 			[AliasOf("glGenRenderbuffers")]
 			[AliasOf("glGenRenderbuffersEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glGenRenderbuffers pglGenRenderbuffers;
 
@@ -8154,6 +8357,10 @@ namespace OpenGL
 
 			[AliasOf("glRenderbufferStorage")]
 			[AliasOf("glRenderbufferStorageEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glRenderbufferStorage pglRenderbufferStorage;
 
@@ -8166,6 +8373,10 @@ namespace OpenGL
 
 			[AliasOf("glGetRenderbufferParameteriv")]
 			[AliasOf("glGetRenderbufferParameterivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glGetRenderbufferParameteriv pglGetRenderbufferParameteriv;
 
@@ -8178,6 +8389,10 @@ namespace OpenGL
 
 			[AliasOf("glIsFramebuffer")]
 			[AliasOf("glIsFramebufferEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glIsFramebuffer pglIsFramebuffer;
 
@@ -8187,6 +8402,9 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindFramebuffer(Int32 target, UInt32 framebuffer);
 
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glBindFramebuffer pglBindFramebuffer;
 
@@ -8199,6 +8417,10 @@ namespace OpenGL
 
 			[AliasOf("glDeleteFramebuffers")]
 			[AliasOf("glDeleteFramebuffersEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glDeleteFramebuffers pglDeleteFramebuffers;
 
@@ -8211,6 +8433,10 @@ namespace OpenGL
 
 			[AliasOf("glGenFramebuffers")]
 			[AliasOf("glGenFramebuffersEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glGenFramebuffers pglGenFramebuffers;
 
@@ -8223,6 +8449,10 @@ namespace OpenGL
 
 			[AliasOf("glCheckFramebufferStatus")]
 			[AliasOf("glCheckFramebufferStatusEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glCheckFramebufferStatus pglCheckFramebufferStatus;
 
@@ -8234,6 +8464,9 @@ namespace OpenGL
 
 			[AliasOf("glFramebufferTexture1D")]
 			[AliasOf("glFramebufferTexture1DEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glFramebufferTexture1D pglFramebufferTexture1D;
 
@@ -8246,6 +8479,10 @@ namespace OpenGL
 
 			[AliasOf("glFramebufferTexture2D")]
 			[AliasOf("glFramebufferTexture2DEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glFramebufferTexture2D pglFramebufferTexture2D;
 
@@ -8259,6 +8496,10 @@ namespace OpenGL
 			[AliasOf("glFramebufferTexture3D")]
 			[AliasOf("glFramebufferTexture3DEXT")]
 			[AliasOf("glFramebufferTexture3DOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
+			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFramebufferTexture3D pglFramebufferTexture3D;
 
@@ -8271,6 +8512,10 @@ namespace OpenGL
 
 			[AliasOf("glFramebufferRenderbuffer")]
 			[AliasOf("glFramebufferRenderbufferEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glFramebufferRenderbuffer pglFramebufferRenderbuffer;
 
@@ -8283,6 +8528,10 @@ namespace OpenGL
 
 			[AliasOf("glGetFramebufferAttachmentParameteriv")]
 			[AliasOf("glGetFramebufferAttachmentParameterivEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glGetFramebufferAttachmentParameteriv pglGetFramebufferAttachmentParameteriv;
 
@@ -8295,6 +8544,10 @@ namespace OpenGL
 
 			[AliasOf("glGenerateMipmap")]
 			[AliasOf("glGenerateMipmapEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
 			internal static glGenerateMipmap pglGenerateMipmap;
 
@@ -8309,6 +8562,11 @@ namespace OpenGL
 			[AliasOf("glBlitFramebuffer")]
 			[AliasOf("glBlitFramebufferEXT")]
 			[AliasOf("glBlitFramebufferNV")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_blit")]
+			[RequiredByFeature("GL_NV_framebuffer_blit", Api = "gles2")]
 			[ThreadStatic]
 			internal static glBlitFramebuffer pglBlitFramebuffer;
 
@@ -8324,6 +8582,12 @@ namespace OpenGL
 			[AliasOf("glRenderbufferStorageMultisample")]
 			[AliasOf("glRenderbufferStorageMultisampleEXT")]
 			[AliasOf("glRenderbufferStorageMultisampleNV")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_framebuffer_multisample")]
+			[RequiredByFeature("GL_EXT_multisampled_render_to_texture", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_NV_framebuffer_multisample", Api = "gles2")]
 			[ThreadStatic]
 			internal static glRenderbufferStorageMultisample pglRenderbufferStorageMultisample;
 
@@ -8339,6 +8603,12 @@ namespace OpenGL
 			[AliasOf("glFramebufferTextureLayer")]
 			[AliasOf("glFramebufferTextureLayerARB")]
 			[AliasOf("glFramebufferTextureLayerEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_array")]
+			[RequiredByFeature("GL_NV_geometry_program4")]
 			[ThreadStatic]
 			internal static glFramebufferTextureLayer pglFramebufferTextureLayer;
 
@@ -8351,6 +8621,10 @@ namespace OpenGL
 
 			[AliasOf("glMapBufferRange")]
 			[AliasOf("glMapBufferRangeEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glMapBufferRange pglMapBufferRange;
 
@@ -8365,6 +8639,11 @@ namespace OpenGL
 			[AliasOf("glFlushMappedBufferRange")]
 			[AliasOf("glFlushMappedBufferRangeAPPLE")]
 			[AliasOf("glFlushMappedBufferRangeEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_flush_buffer_range")]
+			[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glFlushMappedBufferRange pglFlushMappedBufferRange;
 
@@ -8377,6 +8656,10 @@ namespace OpenGL
 
 			[AliasOf("glBindVertexArray")]
 			[AliasOf("glBindVertexArrayOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glBindVertexArray pglBindVertexArray;
 
@@ -8391,6 +8674,11 @@ namespace OpenGL
 			[AliasOf("glDeleteVertexArrays")]
 			[AliasOf("glDeleteVertexArraysAPPLE")]
 			[AliasOf("glDeleteVertexArraysOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_vertex_array_object")]
+			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glDeleteVertexArrays pglDeleteVertexArrays;
 
@@ -8405,6 +8693,11 @@ namespace OpenGL
 			[AliasOf("glGenVertexArrays")]
 			[AliasOf("glGenVertexArraysAPPLE")]
 			[AliasOf("glGenVertexArraysOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_vertex_array_object")]
+			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glGenVertexArrays pglGenVertexArrays;
 
@@ -8419,6 +8712,11 @@ namespace OpenGL
 			[AliasOf("glIsVertexArray")]
 			[AliasOf("glIsVertexArrayAPPLE")]
 			[AliasOf("glIsVertexArrayOES")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_APPLE_vertex_array_object")]
+			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glIsVertexArray pglIsVertexArray;
 

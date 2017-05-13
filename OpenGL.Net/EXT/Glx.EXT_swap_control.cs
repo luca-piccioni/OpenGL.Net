@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXSwapIntervalEXT(IntPtr dpy, IntPtr drawable, int interval);
 
+			[RequiredByFeature("GLX_EXT_swap_control")]
 			internal static glXSwapIntervalEXT pglXSwapIntervalEXT;
 
 		}

@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQuerySurfacePointerANGLE(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
 
+			[RequiredByFeature("EGL_ANGLE_query_surface_pointer")]
 			internal static eglQuerySurfacePointerANGLE peglQuerySurfacePointerANGLE;
 
 		}

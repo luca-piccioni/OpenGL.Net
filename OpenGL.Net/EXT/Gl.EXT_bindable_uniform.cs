@@ -151,6 +151,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer);
 
+			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[ThreadStatic]
 			internal static glUniformBufferEXT pglUniformBufferEXT;
 
@@ -158,6 +159,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetUniformBufferSizeEXT(UInt32 program, Int32 location);
 
+			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[ThreadStatic]
 			internal static glGetUniformBufferSizeEXT pglGetUniformBufferSizeEXT;
 
@@ -165,6 +167,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr glGetUniformOffsetEXT(UInt32 program, Int32 location);
 
+			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[ThreadStatic]
 			internal static glGetUniformOffsetEXT pglGetUniformOffsetEXT;
 

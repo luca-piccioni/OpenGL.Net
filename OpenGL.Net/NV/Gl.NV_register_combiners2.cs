@@ -104,6 +104,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCombinerStageParameterfvNV(Int32 stage, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners2")]
 			[ThreadStatic]
 			internal static glCombinerStageParameterfvNV pglCombinerStageParameterfvNV;
 
@@ -111,6 +112,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetCombinerStageParameterfvNV(Int32 stage, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_NV_register_combiners2")]
 			[ThreadStatic]
 			internal static glGetCombinerStageParameterfvNV pglGetCombinerStageParameterfvNV;
 

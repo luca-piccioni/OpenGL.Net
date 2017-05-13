@@ -118,6 +118,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSampleMaskIndexedNV(UInt32 index, UInt32 mask);
 
+			[RequiredByFeature("GL_NV_explicit_multisample")]
 			[ThreadStatic]
 			internal static glSampleMaskIndexedNV pglSampleMaskIndexedNV;
 
@@ -125,6 +126,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexRenderbufferNV(Int32 target, UInt32 renderbuffer);
 
+			[RequiredByFeature("GL_NV_explicit_multisample")]
 			[ThreadStatic]
 			internal static glTexRenderbufferNV pglTexRenderbufferNV;
 

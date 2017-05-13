@@ -160,6 +160,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlanefOES(Int32 plane, float* equation);
 
+			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]
 			internal static glClipPlanefOES pglClipPlanefOES;
 
@@ -167,6 +168,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrustumfOES(float l, float r, float b, float t, float n, float f);
 
+			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]
 			internal static glFrustumfOES pglFrustumfOES;
 
@@ -174,6 +176,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetClipPlanefOES(Int32 plane, float* equation);
 
+			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]
 			internal static glGetClipPlanefOES pglGetClipPlanefOES;
 
@@ -181,6 +184,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glOrthofOES(float l, float r, float b, float t, float n, float f);
 
+			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]
 			internal static glOrthofOES pglOrthofOES;
 

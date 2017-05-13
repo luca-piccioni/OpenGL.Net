@@ -72,6 +72,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureColorMaskSGIS(bool red, bool green, bool blue, bool alpha);
 
+			[RequiredByFeature("GL_SGIS_texture_color_mask")]
 			[ThreadStatic]
 			internal static glTextureColorMaskSGIS pglTextureColorMaskSGIS;
 

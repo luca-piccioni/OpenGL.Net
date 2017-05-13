@@ -67,6 +67,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglPresentationTimeANDROID(IntPtr dpy, IntPtr surface, Int64 time);
 
+			[RequiredByFeature("EGL_ANDROID_presentation_time")]
 			internal static eglPresentationTimeANDROID peglPresentationTimeANDROID;
 
 		}

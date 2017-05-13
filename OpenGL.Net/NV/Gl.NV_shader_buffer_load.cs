@@ -411,6 +411,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMakeBufferResidentNV(Int32 target, Int32 access);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMakeBufferResidentNV pglMakeBufferResidentNV;
 
@@ -418,6 +419,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMakeBufferNonResidentNV(Int32 target);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMakeBufferNonResidentNV pglMakeBufferNonResidentNV;
 
@@ -425,6 +427,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsBufferResidentNV(Int32 target);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glIsBufferResidentNV pglIsBufferResidentNV;
 
@@ -432,6 +435,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMakeNamedBufferResidentNV(UInt32 buffer, Int32 access);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMakeNamedBufferResidentNV pglMakeNamedBufferResidentNV;
 
@@ -439,6 +443,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMakeNamedBufferNonResidentNV(UInt32 buffer);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glMakeNamedBufferNonResidentNV pglMakeNamedBufferNonResidentNV;
 
@@ -446,6 +451,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsNamedBufferResidentNV(UInt32 buffer);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glIsNamedBufferResidentNV pglIsNamedBufferResidentNV;
 
@@ -453,6 +459,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetBufferParameterui64vNV(Int32 target, Int32 pname, UInt64* @params);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetBufferParameterui64vNV pglGetBufferParameterui64vNV;
 
@@ -460,6 +467,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedBufferParameterui64vNV(UInt32 buffer, Int32 pname, UInt64* @params);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedBufferParameterui64vNV pglGetNamedBufferParameterui64vNV;
 
@@ -467,6 +475,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetIntegerui64vNV(Int32 value, UInt64* result);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetIntegerui64vNV pglGetIntegerui64vNV;
 
@@ -474,6 +483,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glUniformui64NV(Int32 location, UInt64 value);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glUniformui64NV pglUniformui64NV;
 
@@ -481,6 +491,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glUniformui64vNV(Int32 location, Int32 count, UInt64* value);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glUniformui64vNV pglUniformui64vNV;
 
@@ -489,6 +500,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetUniformui64vNV(UInt32 program, Int32 location, UInt64* @params);
 
+			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetUniformui64vNV pglGetUniformui64vNV;
 
@@ -496,6 +509,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniformui64NV(UInt32 program, Int32 location, UInt64 value);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformui64NV pglProgramUniformui64NV;
 
@@ -503,6 +517,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
 
+			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glProgramUniformui64vNV pglProgramUniformui64vNV;
 

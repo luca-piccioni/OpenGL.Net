@@ -298,6 +298,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glImageTransformParameteriHP(Int32 target, Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
 			internal static glImageTransformParameteriHP pglImageTransformParameteriHP;
 
@@ -305,6 +306,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glImageTransformParameterfHP(Int32 target, Int32 pname, float param);
 
+			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
 			internal static glImageTransformParameterfHP pglImageTransformParameterfHP;
 
@@ -312,6 +314,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
 			internal static glImageTransformParameterivHP pglImageTransformParameterivHP;
 
@@ -319,6 +322,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
 			internal static glImageTransformParameterfvHP pglImageTransformParameterfvHP;
 
@@ -326,6 +330,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
 			internal static glGetImageTransformParameterivHP pglGetImageTransformParameterivHP;
 
@@ -333,6 +338,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
 			internal static glGetImageTransformParameterfvHP pglGetImageTransformParameterfvHP;
 

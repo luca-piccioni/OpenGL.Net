@@ -1118,6 +1118,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix2x3fv")]
 			[AliasOf("glUniformMatrix2x3fvNV")]
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[ThreadStatic]
 			internal static glUniformMatrix2x3fv pglUniformMatrix2x3fv;
 
@@ -1129,6 +1132,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix3x2fv")]
 			[AliasOf("glUniformMatrix3x2fvNV")]
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[ThreadStatic]
 			internal static glUniformMatrix3x2fv pglUniformMatrix3x2fv;
 
@@ -1140,6 +1146,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix2x4fv")]
 			[AliasOf("glUniformMatrix2x4fvNV")]
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[ThreadStatic]
 			internal static glUniformMatrix2x4fv pglUniformMatrix2x4fv;
 
@@ -1151,6 +1160,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix4x2fv")]
 			[AliasOf("glUniformMatrix4x2fvNV")]
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[ThreadStatic]
 			internal static glUniformMatrix4x2fv pglUniformMatrix4x2fv;
 
@@ -1162,6 +1174,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix3x4fv")]
 			[AliasOf("glUniformMatrix3x4fvNV")]
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[ThreadStatic]
 			internal static glUniformMatrix3x4fv pglUniformMatrix3x4fv;
 
@@ -1173,6 +1188,9 @@ namespace OpenGL
 
 			[AliasOf("glUniformMatrix4x3fv")]
 			[AliasOf("glUniformMatrix4x3fvNV")]
+			[RequiredByFeature("GL_VERSION_2_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 			[ThreadStatic]
 			internal static glUniformMatrix4x3fv pglUniformMatrix4x3fv;
 

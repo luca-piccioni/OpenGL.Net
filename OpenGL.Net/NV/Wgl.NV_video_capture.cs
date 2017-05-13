@@ -200,6 +200,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglBindVideoCaptureDeviceNV(UInt32 uVideoSlot, IntPtr hDevice);
 
+			[RequiredByFeature("WGL_NV_video_capture")]
 			[ThreadStatic]
 			internal static wglBindVideoCaptureDeviceNV pwglBindVideoCaptureDeviceNV;
 
@@ -207,6 +208,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32 wglEnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr* phDeviceList);
 
+			[RequiredByFeature("WGL_NV_video_capture")]
 			[ThreadStatic]
 			internal static wglEnumerateVideoCaptureDevicesNV pwglEnumerateVideoCaptureDevicesNV;
 
@@ -214,6 +216,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglLockVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
 
+			[RequiredByFeature("WGL_NV_video_capture")]
 			[ThreadStatic]
 			internal static wglLockVideoCaptureDeviceNV pwglLockVideoCaptureDeviceNV;
 
@@ -221,6 +224,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglQueryVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice, int iAttribute, int* piValue);
 
+			[RequiredByFeature("WGL_NV_video_capture")]
 			[ThreadStatic]
 			internal static wglQueryVideoCaptureDeviceNV pwglQueryVideoCaptureDeviceNV;
 
@@ -228,6 +232,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglReleaseVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
 
+			[RequiredByFeature("WGL_NV_video_capture")]
 			[ThreadStatic]
 			internal static wglReleaseVideoCaptureDeviceNV pwglReleaseVideoCaptureDeviceNV;
 

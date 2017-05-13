@@ -71,6 +71,8 @@ namespace OpenGL
 
 			[AliasOf("glBindBufferOffsetEXT")]
 			[AliasOf("glBindBufferOffsetNV")]
+			[RequiredByFeature("GL_EXT_transform_feedback")]
+			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
 			internal static glBindBufferOffsetEXT pglBindBufferOffsetEXT;
 

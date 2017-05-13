@@ -72,6 +72,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPolygonOffsetEXT(float factor, float bias);
 
+			[RequiredByFeature("GL_EXT_polygon_offset")]
 			[ThreadStatic]
 			internal static glPolygonOffsetEXT pglPolygonOffsetEXT;
 

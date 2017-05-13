@@ -104,6 +104,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowRectanglesEXT(Int32 mode, Int32 count, Int32* box);
 
+			[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glWindowRectanglesEXT pglWindowRectanglesEXT;
 

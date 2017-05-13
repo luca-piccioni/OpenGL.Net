@@ -264,6 +264,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glNamedStringARB(Int32 type, Int32 namelen, String name, Int32 stringlen, String @string);
 
+			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedStringARB pglNamedStringARB;
 
@@ -271,6 +272,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDeleteNamedStringARB(Int32 namelen, String name);
 
+			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDeleteNamedStringARB pglDeleteNamedStringARB;
 
@@ -278,6 +280,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCompileShaderIncludeARB(UInt32 shader, Int32 count, String[] path, Int32* length);
 
+			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompileShaderIncludeARB pglCompileShaderIncludeARB;
 
@@ -285,6 +288,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate bool glIsNamedStringARB(Int32 namelen, String name);
 
+			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glIsNamedStringARB pglIsNamedStringARB;
 
@@ -292,6 +296,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedStringARB(Int32 namelen, String name, Int32 bufSize, Int32* stringlen, [Out] StringBuilder @string);
 
+			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedStringARB pglGetNamedStringARB;
 
@@ -299,6 +304,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetNamedStringivARB(Int32 namelen, String name, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedStringivARB pglGetNamedStringivARB;
 

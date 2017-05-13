@@ -557,6 +557,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetPixelFormatAttribivARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
 
+			[RequiredByFeature("WGL_ARB_pixel_format")]
 			[ThreadStatic]
 			internal static wglGetPixelFormatAttribivARB pwglGetPixelFormatAttribivARB;
 
@@ -564,6 +565,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetPixelFormatAttribfvARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
 
+			[RequiredByFeature("WGL_ARB_pixel_format")]
 			[ThreadStatic]
 			internal static wglGetPixelFormatAttribfvARB pwglGetPixelFormatAttribfvARB;
 
@@ -571,6 +573,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglChoosePixelFormatARB(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
 
+			[RequiredByFeature("WGL_ARB_pixel_format")]
 			[ThreadStatic]
 			internal static wglChoosePixelFormatARB pwglChoosePixelFormatARB;
 

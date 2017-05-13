@@ -69,6 +69,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPolygonOffsetClampEXT(float factor, float units, float clamp);
 
+			[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glPolygonOffsetClampEXT pglPolygonOffsetClampEXT;
 

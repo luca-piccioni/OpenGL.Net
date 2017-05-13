@@ -143,6 +143,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDetailTexFuncSGIS(Int32 target, Int32 n, float* points);
 
+			[RequiredByFeature("GL_SGIS_detail_texture")]
 			[ThreadStatic]
 			internal static glDetailTexFuncSGIS pglDetailTexFuncSGIS;
 
@@ -150,6 +151,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetDetailTexFuncSGIS(Int32 target, float* points);
 
+			[RequiredByFeature("GL_SGIS_detail_texture")]
 			[ThreadStatic]
 			internal static glGetDetailTexFuncSGIS pglGetDetailTexFuncSGIS;
 

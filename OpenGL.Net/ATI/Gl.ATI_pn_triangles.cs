@@ -136,6 +136,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPNTrianglesiATI(Int32 pname, Int32 param);
 
+			[RequiredByFeature("GL_ATI_pn_triangles")]
 			[ThreadStatic]
 			internal static glPNTrianglesiATI pglPNTrianglesiATI;
 
@@ -143,6 +144,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPNTrianglesfATI(Int32 pname, float param);
 
+			[RequiredByFeature("GL_ATI_pn_triangles")]
 			[ThreadStatic]
 			internal static glPNTrianglesfATI pglPNTrianglesfATI;
 

@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFrameZoomSGIX(Int32 factor);
 
+			[RequiredByFeature("GL_SGIX_framezoom")]
 			[ThreadStatic]
 			internal static glFrameZoomSGIX pglFrameZoomSGIX;
 

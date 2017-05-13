@@ -57,6 +57,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindVertexArrayAPPLE(UInt32 array);
 
+			[RequiredByFeature("GL_APPLE_vertex_array_object")]
 			[ThreadStatic]
 			internal static glBindVertexArrayAPPLE pglBindVertexArrayAPPLE;
 

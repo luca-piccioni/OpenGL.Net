@@ -285,12 +285,14 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXBindTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer, int* attrib_list);
 
+			[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
 			internal static glXBindTexImageEXT pglXBindTexImageEXT;
 
 			[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glXReleaseTexImageEXT(IntPtr dpy, IntPtr drawable, int buffer);
 
+			[RequiredByFeature("GLX_EXT_texture_from_pixmap")]
 			internal static glXReleaseTexImageEXT pglXReleaseTexImageEXT;
 
 		}

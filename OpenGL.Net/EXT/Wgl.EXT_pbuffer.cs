@@ -198,6 +198,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[ThreadStatic]
 			internal static wglCreatePbufferEXT pwglCreatePbufferEXT;
 
@@ -205,6 +206,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[ThreadStatic]
 			internal static wglGetPbufferDCEXT pwglGetPbufferDCEXT;
 
@@ -212,6 +214,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[ThreadStatic]
 			internal static wglReleasePbufferDCEXT pwglReleasePbufferDCEXT;
 
@@ -219,6 +222,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglDestroyPbufferEXT(IntPtr hPbuffer);
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[ThreadStatic]
 			internal static wglDestroyPbufferEXT pwglDestroyPbufferEXT;
 
@@ -226,6 +230,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, int* piValue);
 
+			[RequiredByFeature("WGL_EXT_pbuffer")]
 			[ThreadStatic]
 			internal static wglQueryPbufferEXT pwglQueryPbufferEXT;
 

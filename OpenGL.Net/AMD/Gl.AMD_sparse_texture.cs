@@ -144,6 +144,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorageSparseAMD(Int32 target, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, UInt32 flags);
 
+			[RequiredByFeature("GL_AMD_sparse_texture")]
 			[ThreadStatic]
 			internal static glTexStorageSparseAMD pglTexStorageSparseAMD;
 
@@ -151,6 +152,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureStorageSparseAMD(UInt32 texture, Int32 target, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, Int32 layers, UInt32 flags);
 
+			[RequiredByFeature("GL_AMD_sparse_texture")]
 			[ThreadStatic]
 			internal static glTextureStorageSparseAMD pglTextureStorageSparseAMD;
 

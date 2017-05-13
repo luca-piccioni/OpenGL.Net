@@ -80,6 +80,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glStringMarkerGREMEDY(Int32 len, IntPtr @string);
 
+			[RequiredByFeature("GL_GREMEDY_string_marker")]
 			[ThreadStatic]
 			internal static glStringMarkerGREMEDY pglStringMarkerGREMEDY;
 

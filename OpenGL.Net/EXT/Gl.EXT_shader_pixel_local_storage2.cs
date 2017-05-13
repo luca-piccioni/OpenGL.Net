@@ -131,6 +131,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFramebufferPixelLocalStorageSizeEXT(UInt32 target, Int32 size);
 
+			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFramebufferPixelLocalStorageSizeEXT pglFramebufferPixelLocalStorageSizeEXT;
 
@@ -138,6 +139,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetFramebufferPixelLocalStorageSizeEXT(UInt32 target);
 
+			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetFramebufferPixelLocalStorageSizeEXT pglGetFramebufferPixelLocalStorageSizeEXT;
 
@@ -145,6 +147,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearPixelLocalStorageuiEXT(Int32 offset, Int32 n, UInt32* values);
 
+			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[ThreadStatic]
 			internal static glClearPixelLocalStorageuiEXT pglClearPixelLocalStorageuiEXT;
 

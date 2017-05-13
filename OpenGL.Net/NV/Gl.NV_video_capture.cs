@@ -572,6 +572,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBeginVideoCaptureNV(UInt32 video_capture_slot);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glBeginVideoCaptureNV pglBeginVideoCaptureNV;
 
@@ -579,6 +580,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBindVideoCaptureStreamBufferNV(UInt32 video_capture_slot, UInt32 stream, Int32 frame_region, IntPtr offset);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glBindVideoCaptureStreamBufferNV pglBindVideoCaptureStreamBufferNV;
 
@@ -586,6 +588,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindVideoCaptureStreamTextureNV(UInt32 video_capture_slot, UInt32 stream, Int32 frame_region, Int32 target, UInt32 texture);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glBindVideoCaptureStreamTextureNV pglBindVideoCaptureStreamTextureNV;
 
@@ -593,6 +596,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndVideoCaptureNV(UInt32 video_capture_slot);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glEndVideoCaptureNV pglEndVideoCaptureNV;
 
@@ -600,6 +604,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoCaptureivNV(UInt32 video_capture_slot, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glGetVideoCaptureivNV pglGetVideoCaptureivNV;
 
@@ -607,6 +612,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoCaptureStreamivNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glGetVideoCaptureStreamivNV pglGetVideoCaptureStreamivNV;
 
@@ -614,6 +620,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoCaptureStreamfvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glGetVideoCaptureStreamfvNV pglGetVideoCaptureStreamfvNV;
 
@@ -621,6 +628,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVideoCaptureStreamdvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, double* @params);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glGetVideoCaptureStreamdvNV pglGetVideoCaptureStreamdvNV;
 
@@ -628,6 +636,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Int32 glVideoCaptureNV(UInt32 video_capture_slot, UInt32* sequence_num, UInt64* capture_time);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glVideoCaptureNV pglVideoCaptureNV;
 
@@ -635,6 +644,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVideoCaptureStreamParameterivNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glVideoCaptureStreamParameterivNV pglVideoCaptureStreamParameterivNV;
 
@@ -642,6 +652,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVideoCaptureStreamParameterfvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, float* @params);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glVideoCaptureStreamParameterfvNV pglVideoCaptureStreamParameterfvNV;
 
@@ -649,6 +660,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVideoCaptureStreamParameterdvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, double* @params);
 
+			[RequiredByFeature("GL_NV_video_capture")]
 			[ThreadStatic]
 			internal static glVideoCaptureStreamParameterdvNV pglVideoCaptureStreamParameterdvNV;
 

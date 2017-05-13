@@ -287,6 +287,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexImage2DMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations);
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
 			internal static glTexImage2DMultisampleCoverageNV pglTexImage2DMultisampleCoverageNV;
 
@@ -294,6 +295,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexImage3DMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations);
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
 			internal static glTexImage3DMultisampleCoverageNV pglTexImage3DMultisampleCoverageNV;
 
@@ -301,6 +303,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureImage2DMultisampleNV(UInt32 texture, Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations);
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
 			internal static glTextureImage2DMultisampleNV pglTextureImage2DMultisampleNV;
 
@@ -308,6 +311,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureImage3DMultisampleNV(UInt32 texture, Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations);
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
 			internal static glTextureImage3DMultisampleNV pglTextureImage3DMultisampleNV;
 
@@ -315,6 +319,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureImage2DMultisampleCoverageNV(UInt32 texture, Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations);
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
 			internal static glTextureImage2DMultisampleCoverageNV pglTextureImage2DMultisampleCoverageNV;
 
@@ -322,6 +327,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureImage3DMultisampleCoverageNV(UInt32 texture, Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations);
 
+			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
 			internal static glTextureImage3DMultisampleCoverageNV pglTextureImage3DMultisampleCoverageNV;
 

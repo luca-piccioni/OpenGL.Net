@@ -121,6 +121,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate IntPtr eglGetCurrentContext();
 
+			[RequiredByFeature("EGL_VERSION_1_4")]
 			internal static eglGetCurrentContext peglGetCurrentContext;
 
 		}

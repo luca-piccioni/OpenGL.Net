@@ -181,6 +181,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetPixelFormatAttribivEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
 
+			[RequiredByFeature("WGL_EXT_pixel_format")]
 			[ThreadStatic]
 			internal static wglGetPixelFormatAttribivEXT pwglGetPixelFormatAttribivEXT;
 
@@ -188,6 +189,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetPixelFormatAttribfvEXT(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
 
+			[RequiredByFeature("WGL_EXT_pixel_format")]
 			[ThreadStatic]
 			internal static wglGetPixelFormatAttribfvEXT pwglGetPixelFormatAttribfvEXT;
 
@@ -195,6 +197,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglChoosePixelFormatEXT(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
 
+			[RequiredByFeature("WGL_EXT_pixel_format")]
 			[ThreadStatic]
 			internal static wglChoosePixelFormatEXT pwglChoosePixelFormatEXT;
 

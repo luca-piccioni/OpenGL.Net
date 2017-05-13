@@ -67,6 +67,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglStreamConsumerOutputEXT(IntPtr dpy, IntPtr stream, IntPtr layer);
 
+			[RequiredByFeature("EGL_EXT_stream_consumer_egloutput")]
 			internal static eglStreamConsumerOutputEXT peglStreamConsumerOutputEXT;
 
 		}

@@ -93,6 +93,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDepthRangeArrayfvOES(UInt32 first, Int32 count, float* v);
 
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDepthRangeArrayfvOES pglDepthRangeArrayfvOES;
 
@@ -100,6 +101,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthRangeIndexedfOES(UInt32 index, float n, float f);
 
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[ThreadStatic]
 			internal static glDepthRangeIndexedfOES pglDepthRangeIndexedfOES;
 

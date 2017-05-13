@@ -132,6 +132,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglGetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
 
+			[RequiredByFeature("WGL_I3D_digital_video_control")]
 			[ThreadStatic]
 			internal static wglGetDigitalVideoParametersI3D pwglGetDigitalVideoParametersI3D;
 
@@ -139,6 +140,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool wglSetDigitalVideoParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
 
+			[RequiredByFeature("WGL_I3D_digital_video_control")]
 			[ThreadStatic]
 			internal static wglSetDigitalVideoParametersI3D pwglSetDigitalVideoParametersI3D;
 

@@ -57,6 +57,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquationOES(Int32 mode);
 
+			[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
 			[ThreadStatic]
 			internal static glBlendEquationOES pglBlendEquationOES;
 

@@ -246,6 +246,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos4dMESA(double x, double y, double z, double w);
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
 			internal static glWindowPos4dMESA pglWindowPos4dMESA;
 
@@ -253,6 +254,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos4dvMESA(double* v);
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
 			internal static glWindowPos4dvMESA pglWindowPos4dvMESA;
 
@@ -260,6 +262,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos4fMESA(float x, float y, float z, float w);
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
 			internal static glWindowPos4fMESA pglWindowPos4fMESA;
 
@@ -267,6 +270,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos4fvMESA(float* v);
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
 			internal static glWindowPos4fvMESA pglWindowPos4fvMESA;
 
@@ -274,6 +278,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos4iMESA(Int32 x, Int32 y, Int32 z, Int32 w);
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
 			internal static glWindowPos4iMESA pglWindowPos4iMESA;
 
@@ -281,6 +286,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos4ivMESA(Int32* v);
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
 			internal static glWindowPos4ivMESA pglWindowPos4ivMESA;
 
@@ -288,6 +294,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glWindowPos4sMESA(Int16 x, Int16 y, Int16 z, Int16 w);
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
 			internal static glWindowPos4sMESA pglWindowPos4sMESA;
 
@@ -295,6 +302,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glWindowPos4svMESA(Int16* v);
 
+			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
 			internal static glWindowPos4svMESA pglWindowPos4svMESA;
 

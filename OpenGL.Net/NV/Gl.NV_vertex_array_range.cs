@@ -126,6 +126,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glFlushVertexArrayRangeNV();
 
+			[RequiredByFeature("GL_NV_vertex_array_range")]
 			[ThreadStatic]
 			internal static glFlushVertexArrayRangeNV pglFlushVertexArrayRangeNV;
 
@@ -133,6 +134,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexArrayRangeNV(Int32 length, IntPtr pointer);
 
+			[RequiredByFeature("GL_NV_vertex_array_range")]
 			[ThreadStatic]
 			internal static glVertexArrayRangeNV pglVertexArrayRangeNV;
 

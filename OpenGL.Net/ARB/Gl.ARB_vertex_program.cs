@@ -1169,6 +1169,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramStringARB(Int32 target, Int32 format, Int32 len, IntPtr @string);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramStringARB pglProgramStringARB;
 
@@ -1180,6 +1182,9 @@ namespace OpenGL
 
 			[AliasOf("glBindProgramARB")]
 			[AliasOf("glBindProgramNV")]
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glBindProgramARB pglBindProgramARB;
 
@@ -1191,6 +1196,9 @@ namespace OpenGL
 
 			[AliasOf("glDeleteProgramsARB")]
 			[AliasOf("glDeleteProgramsNV")]
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glDeleteProgramsARB pglDeleteProgramsARB;
 
@@ -1202,6 +1210,9 @@ namespace OpenGL
 
 			[AliasOf("glGenProgramsARB")]
 			[AliasOf("glGenProgramsNV")]
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glGenProgramsARB pglGenProgramsARB;
 
@@ -1210,6 +1221,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramEnvParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramEnvParameter4dARB pglProgramEnvParameter4dARB;
 
@@ -1218,6 +1231,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramEnvParameter4dvARB(Int32 target, UInt32 index, double* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramEnvParameter4dvARB pglProgramEnvParameter4dvARB;
 
@@ -1226,6 +1241,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramEnvParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramEnvParameter4fARB pglProgramEnvParameter4fARB;
 
@@ -1234,6 +1251,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramEnvParameter4fvARB(Int32 target, UInt32 index, float* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramEnvParameter4fvARB pglProgramEnvParameter4fvARB;
 
@@ -1242,6 +1261,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramLocalParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramLocalParameter4dARB pglProgramLocalParameter4dARB;
 
@@ -1250,6 +1271,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramLocalParameter4dvARB(Int32 target, UInt32 index, double* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramLocalParameter4dvARB pglProgramLocalParameter4dvARB;
 
@@ -1258,6 +1281,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramLocalParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramLocalParameter4fARB pglProgramLocalParameter4fARB;
 
@@ -1266,6 +1291,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramLocalParameter4fvARB(Int32 target, UInt32 index, float* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glProgramLocalParameter4fvARB pglProgramLocalParameter4fvARB;
 
@@ -1274,6 +1301,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramEnvParameterdvARB(Int32 target, UInt32 index, double* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glGetProgramEnvParameterdvARB pglGetProgramEnvParameterdvARB;
 
@@ -1282,6 +1311,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramEnvParameterfvARB(Int32 target, UInt32 index, float* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glGetProgramEnvParameterfvARB pglGetProgramEnvParameterfvARB;
 
@@ -1290,6 +1321,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramLocalParameterdvARB(Int32 target, UInt32 index, double* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glGetProgramLocalParameterdvARB pglGetProgramLocalParameterdvARB;
 
@@ -1298,6 +1331,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramLocalParameterfvARB(Int32 target, UInt32 index, float* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glGetProgramLocalParameterfvARB pglGetProgramLocalParameterfvARB;
 
@@ -1306,6 +1341,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramivARB(Int32 target, Int32 pname, Int32* @params);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glGetProgramivARB pglGetProgramivARB;
 
@@ -1314,6 +1351,8 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramStringARB(Int32 target, Int32 pname, IntPtr @string);
 
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
 			[ThreadStatic]
 			internal static glGetProgramStringARB pglGetProgramStringARB;
 
@@ -1325,6 +1364,9 @@ namespace OpenGL
 
 			[AliasOf("glIsProgramARB")]
 			[AliasOf("glIsProgramNV")]
+			[RequiredByFeature("GL_ARB_fragment_program")]
+			[RequiredByFeature("GL_ARB_vertex_program")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
 			internal static glIsProgramARB pglIsProgramARB;
 

@@ -117,6 +117,8 @@ namespace OpenGL
 
 			[AliasOf("glFramebufferTextureFaceARB")]
 			[AliasOf("glFramebufferTextureFaceEXT")]
+			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_geometry_program4")]
 			[ThreadStatic]
 			internal static glFramebufferTextureFaceARB pglFramebufferTextureFaceARB;
 

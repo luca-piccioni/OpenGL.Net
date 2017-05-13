@@ -87,6 +87,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSpecializeShaderARB(UInt32 shader, String pEntryPoint, UInt32 numSpecializationConstants, UInt32* pConstantIndex, UInt32* pConstantValue);
 
+			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glSpecializeShaderARB pglSpecializeShaderARB;
 

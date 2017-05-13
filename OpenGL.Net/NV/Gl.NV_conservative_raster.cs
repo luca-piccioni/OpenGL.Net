@@ -84,6 +84,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits);
 
+			[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glSubpixelPrecisionBiasNV pglSubpixelPrecisionBiasNV;
 

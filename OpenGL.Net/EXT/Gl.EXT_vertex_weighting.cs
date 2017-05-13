@@ -201,6 +201,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexWeightfEXT(float weight);
 
+			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[ThreadStatic]
 			internal static glVertexWeightfEXT pglVertexWeightfEXT;
 
@@ -208,6 +209,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexWeightfvEXT(float* weight);
 
+			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[ThreadStatic]
 			internal static glVertexWeightfvEXT pglVertexWeightfvEXT;
 
@@ -215,6 +217,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
+			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[ThreadStatic]
 			internal static glVertexWeightPointerEXT pglVertexWeightPointerEXT;
 

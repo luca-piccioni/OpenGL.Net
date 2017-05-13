@@ -92,6 +92,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlanefIMG(Int32 p, float* eqn);
 
+			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[ThreadStatic]
 			internal static glClipPlanefIMG pglClipPlanefIMG;
 
@@ -99,6 +100,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClipPlanexIMG(Int32 p, IntPtr* eqn);
 
+			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[ThreadStatic]
 			internal static glClipPlanexIMG pglClipPlanexIMG;
 

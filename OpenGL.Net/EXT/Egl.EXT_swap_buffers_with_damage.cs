@@ -75,6 +75,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglSwapBuffersWithDamageEXT(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
 
+			[RequiredByFeature("EGL_EXT_swap_buffers_with_damage")]
 			internal static eglSwapBuffersWithDamageEXT peglSwapBuffersWithDamageEXT;
 
 		}

@@ -312,6 +312,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glStartTilingQCOM(UInt32 x, UInt32 y, UInt32 width, UInt32 height, UInt32 preserveMask);
 
+			[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glStartTilingQCOM pglStartTilingQCOM;
 
@@ -319,6 +320,7 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glEndTilingQCOM(UInt32 preserveMask);
 
+			[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glEndTilingQCOM pglEndTilingQCOM;
 
