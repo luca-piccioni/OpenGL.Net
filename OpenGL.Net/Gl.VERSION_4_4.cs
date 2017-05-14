@@ -265,7 +265,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferStorageTarget target, UInt32 size, IntPtr data, UInt32 flags)
+		public static void BufferStorage(BufferTarget target, UInt32 size, IntPtr data, UInt32 flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
 			Delegates.pglBufferStorage((Int32)target, size, data, flags);
@@ -332,7 +332,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferStorageTarget target, UInt32 size, Object data, UInt32 flags)
+		public static void BufferStorage(BufferTarget target, UInt32 size, Object data, UInt32 flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -718,7 +718,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersBase(BufferTargetARB target, UInt32 first, Int32 count, UInt32[] buffers)
+		public static void BindBuffersBase(BufferTarget target, UInt32 first, Int32 count, UInt32[] buffers)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
@@ -766,7 +766,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersBase(BufferTargetARB target, UInt32 first, UInt32[] buffers)
+		public static void BindBuffersBase(BufferTarget target, UInt32 first, UInt32[] buffers)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
@@ -833,7 +833,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersRange(BufferTargetARB target, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
+		public static void BindBuffersRange(BufferTarget target, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
@@ -899,7 +899,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersRange(BufferTargetARB target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
+		public static void BindBuffersRange(BufferTarget target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)

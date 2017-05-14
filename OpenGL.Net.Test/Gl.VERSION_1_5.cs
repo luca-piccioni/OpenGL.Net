@@ -44,7 +44,7 @@ namespace OpenGL.Test
 				// It seems that on my system glIsBuffer returns true after glGenBuffer... anyone can confirm
 				// Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 
-				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, arrayBuffer);
+				Gl.BindBuffer(BufferTarget.ArrayBuffer, arrayBuffer);
 				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
 
 			} finally {
@@ -71,7 +71,7 @@ namespace OpenGL.Test
 				Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
 				// Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 
-				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, arrayBuffer);
+				Gl.BindBuffer(BufferTarget.ArrayBuffer, arrayBuffer);
 				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
 
 				Gl.Get(Gl.ARRAY_BUFFER_BINDING, out arrayBufferGet);
@@ -83,14 +83,14 @@ namespace OpenGL.Test
 					arrayBufferData[i] = (Byte)random.Next(Byte.MaxValue);
 
 				int arrayBufferDataParam;
-				Gl.BufferData(BufferTargetARB.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsageARB.StaticDraw);
-				Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_SIZE, out arrayBufferDataParam);
+				Gl.BufferData(BufferTarget.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsage.StaticDraw);
+				Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_SIZE, out arrayBufferDataParam);
 				Assert.AreEqual(arrayBufferData.Length, arrayBufferDataParam);
-				Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_USAGE, out arrayBufferDataParam);
-				Assert.AreEqual((int)BufferUsageARB.StaticDraw, arrayBufferDataParam);
+				Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_USAGE, out arrayBufferDataParam);
+				Assert.AreEqual((int)BufferUsage.StaticDraw, arrayBufferDataParam);
 
 				if (HasVersion(1, 5) || IsGlExtensionSupported("GL_ARB_vertex_buffer_object")) {
-					Gl.GetBufferSubData(BufferTargetARB.ArrayBuffer, IntPtr.Zero, (uint)arrayBufferData.Length, arrayBufferDataGet);
+					Gl.GetBufferSubData(BufferTarget.ArrayBuffer, IntPtr.Zero, (uint)arrayBufferData.Length, arrayBufferDataGet);
 					for (int i = 0; i < arrayBufferDataGet.Length; i++)
 						Assert.AreEqual(arrayBufferData[i], arrayBufferDataGet[i]);
 				}
@@ -123,7 +123,7 @@ namespace OpenGL.Test
 			try {
 				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 
-				Gl.BindBuffer(BufferTargetARB.ArrayBuffer, arrayBuffer);
+				Gl.BindBuffer(BufferTarget.ArrayBuffer, arrayBuffer);
 				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
 
 				Gl.Get(Gl.ARRAY_BUFFER_BINDING, out arrayBufferGet);
@@ -133,23 +133,23 @@ namespace OpenGL.Test
 				byte[] arrayBufferData = new byte[64], arrayBufferDataGet = new byte[64];
 				for (int i = 0; i < arrayBufferData.Length; i++)
 					arrayBufferData[i] = (Byte)random.Next(Byte.MaxValue);
-				Gl.BufferData(BufferTargetARB.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsageARB.StaticDraw);
+				Gl.BufferData(BufferTarget.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsage.StaticDraw);
 
-				IntPtr arrayBufferPtr = Gl.MapBuffer(BufferTargetARB.ArrayBuffer, BufferAccessARB.WriteOnly);
+				IntPtr arrayBufferPtr = Gl.MapBuffer(BufferTarget.ArrayBuffer, BufferAccess.WriteOnly);
 				Assert.AreNotEqual(IntPtr.Zero, arrayBufferPtr);
 				try {
 					IntPtr arrayBufferPtrGet;
 					int arrayBufferPtrParam;
 
-					Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_MAPPED, out arrayBufferPtrParam);
+					Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_MAPPED, out arrayBufferPtrParam);
 					Assert.AreEqual(Gl.TRUE, arrayBufferPtrParam);
-					Gl.GetBufferParameter(BufferTargetARB.ArrayBuffer, Gl.BUFFER_ACCESS, out arrayBufferPtrParam);
-					Assert.AreEqual((int)BufferAccessARB.WriteOnly, arrayBufferPtrParam);
+					Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_ACCESS, out arrayBufferPtrParam);
+					Assert.AreEqual((int)BufferAccess.WriteOnly, arrayBufferPtrParam);
 
-					Gl.GetBufferPointer(BufferTargetARB.ArrayBuffer, Gl.BUFFER_MAP_POINTER, out arrayBufferPtrGet);
+					Gl.GetBufferPointer(BufferTarget.ArrayBuffer, Gl.BUFFER_MAP_POINTER, out arrayBufferPtrGet);
 					Assert.AreEqual(arrayBufferPtr, arrayBufferPtrGet);
 				} finally {
-					Gl.UnmapBuffer(BufferTargetARB.ArrayBuffer);
+					Gl.UnmapBuffer(BufferTarget.ArrayBuffer);
 				}
 			} finally {
 				Gl.DeleteBuffers(arrayBuffer);

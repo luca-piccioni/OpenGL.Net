@@ -956,7 +956,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BindBuffer(BufferTargetARB target, UInt32 buffer)
+		public static void BindBuffer(BufferTarget target, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglBindBuffer != null, "pglBindBuffer not implemented");
 			Delegates.pglBindBuffer((Int32)target, buffer);
@@ -1122,7 +1122,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BufferData(BufferTargetARB target, UInt32 size, IntPtr data, BufferUsageARB usage)
+		public static void BufferData(BufferTarget target, UInt32 size, IntPtr data, BufferUsage usage)
 		{
 			Debug.Assert(Delegates.pglBufferData != null, "pglBufferData not implemented");
 			Delegates.pglBufferData((Int32)target, size, data, (Int32)usage);
@@ -1179,7 +1179,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BufferData(BufferTargetARB target, UInt32 size, Object data, BufferUsageARB usage)
+		public static void BufferData(BufferTarget target, UInt32 size, Object data, BufferUsage usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1238,7 +1238,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
+		public static void BufferSubData(BufferTarget target, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglBufferSubData != null, "pglBufferSubData not implemented");
 			Delegates.pglBufferSubData((Int32)target, offset, size, data);
@@ -1295,7 +1295,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
+		public static void BufferSubData(BufferTarget target, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1348,7 +1348,7 @@ namespace OpenGL
 		[AliasOf("glGetBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, IntPtr data)
+		public static void GetBufferSubData(BufferTarget target, IntPtr offset, UInt32 size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglGetBufferSubData != null, "pglGetBufferSubData not implemented");
 			Delegates.pglGetBufferSubData((Int32)target, offset, size, data);
@@ -1399,7 +1399,7 @@ namespace OpenGL
 		[AliasOf("glGetBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferSubData(BufferTargetARB target, IntPtr offset, UInt32 size, Object data)
+		public static void GetBufferSubData(BufferTarget target, IntPtr offset, UInt32 size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1455,7 +1455,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
-		public static IntPtr MapBuffer(BufferTargetARB target, BufferAccessARB access)
+		public static IntPtr MapBuffer(BufferTarget target, BufferAccess access)
 		{
 			IntPtr retValue;
 
@@ -1498,7 +1498,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
-		public static bool UnmapBuffer(BufferTargetARB target)
+		public static bool UnmapBuffer(BufferTarget target)
 		{
 			bool retValue;
 
@@ -1548,7 +1548,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferParameter(BufferTargetARB target, Int32 value, [Out] Int32[] data)
+		public static void GetBufferParameter(BufferTarget target, Int32 value, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_params = data)
@@ -1599,7 +1599,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferParameter(BufferTargetARB target, Int32 value, out Int32 data)
+		public static void GetBufferParameter(BufferTarget target, Int32 value, out Int32 data)
 		{
 			unsafe {
 				fixed (Int32* p_params = &data)
@@ -1644,7 +1644,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
-		public static void GetBufferPointer(BufferTargetARB target, Int32 pname, out IntPtr @params)
+		public static void GetBufferPointer(BufferTarget target, Int32 pname, out IntPtr @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
@@ -1689,7 +1689,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
-		public static void GetBufferPointer(BufferTargetARB target, Int32 pname, Object @params)
+		public static void GetBufferPointer(BufferTarget target, Int32 pname, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {

@@ -213,7 +213,7 @@ namespace OpenGL
 		/// Binding for glFogCoordPointerListIBM.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:FogPointerTypeIBM"/>.
+		/// A <see cref="T:FogCoordinatePointerType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -225,7 +225,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void FogCoordPointerListIBM(FogPointerTypeIBM type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
+		public static void FogCoordPointerListIBM(FogCoordinatePointerType type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)

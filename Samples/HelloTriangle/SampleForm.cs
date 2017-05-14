@@ -161,10 +161,10 @@ namespace HelloTriangle
 			using (MemoryLock arrayPosition = new MemoryLock(_ArrayPosition))
 			using (MemoryLock arrayColor = new MemoryLock(_ArrayColor))
 			{
-				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aPosition, 2, VertexAttribPointerType.Float, false, 0, arrayPosition.Address);
+				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aPosition, 2, VertexAttribType.Float, false, 0, arrayPosition.Address);
 				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aPosition);
 
-				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, VertexAttribPointerType.Float, false, 0, arrayColor.Address);
+				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, VertexAttribType.Float, false, 0, arrayColor.Address);
 				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aColor);
 
 				Gl.UniformMatrix4(_Es2_Program_Location_uMVP, 1, false, (projectionMatrix * modelMatrix).ToArray());

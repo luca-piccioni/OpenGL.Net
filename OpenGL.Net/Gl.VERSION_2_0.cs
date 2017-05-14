@@ -6217,7 +6217,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribPointerType type, bool normalized, Int32 stride, IntPtr pointer)
+		public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribType type, bool normalized, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
 			Delegates.pglVertexAttribPointer(index, size, (Int32)type, normalized, stride, pointer);
@@ -6301,7 +6301,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribPointerType type, bool normalized, Int32 stride, Object pointer)
+		public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribType type, bool normalized, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

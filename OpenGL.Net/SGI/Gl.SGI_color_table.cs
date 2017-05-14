@@ -32,7 +32,7 @@ namespace OpenGL
 		/// Binding for glGetColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ColorTableTargetSGI"/>.
+		/// A <see cref="T:ColorTableTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -44,7 +44,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableSGI(ColorTableTargetSGI target, PixelFormat format, PixelType type, IntPtr table)
+		public static void GetColorTableSGI(ColorTableTarget target, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetColorTableSGI != null, "pglGetColorTableSGI not implemented");
 			Delegates.pglGetColorTableSGI((Int32)target, (Int32)format, (Int32)type, table);
@@ -56,7 +56,7 @@ namespace OpenGL
 		/// Binding for glGetColorTableSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ColorTableTargetSGI"/>.
+		/// A <see cref="T:ColorTableTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -68,7 +68,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableSGI(ColorTableTargetSGI target, PixelFormat format, PixelType type, Object table)
+		public static void GetColorTableSGI(ColorTableTarget target, PixelFormat format, PixelType type, Object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
 			try {
@@ -82,7 +82,7 @@ namespace OpenGL
 		/// Binding for glGetColorTableParameterfvSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ColorTableTargetSGI"/>.
+		/// A <see cref="T:ColorTableTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetColorTableParameterPNameSGI"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableParameterSGI(ColorTableTargetSGI target, GetColorTableParameterPNameSGI pname, [Out] float[] @params)
+		public static void GetColorTableParameterSGI(ColorTableTarget target, GetColorTableParameterPNameSGI pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -108,7 +108,7 @@ namespace OpenGL
 		/// Binding for glGetColorTableParameterivSGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ColorTableTargetSGI"/>.
+		/// A <see cref="T:ColorTableTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetColorTableParameterPNameSGI"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableParameterSGI(ColorTableTargetSGI target, GetColorTableParameterPNameSGI pname, [Out] Int32[] @params)
+		public static void GetColorTableParameterSGI(ColorTableTarget target, GetColorTableParameterPNameSGI pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

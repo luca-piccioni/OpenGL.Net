@@ -952,7 +952,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
-		public static void CopyBufferSubData(CopyBufferSubDataTarget readTarget, CopyBufferSubDataTarget writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
+		public static void CopyBufferSubData(BufferTarget readTarget, BufferTarget writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglCopyBufferSubData != null, "pglCopyBufferSubData not implemented");
 			Delegates.pglCopyBufferSubData((Int32)readTarget, (Int32)writeTarget, readOffset, writeOffset, size);

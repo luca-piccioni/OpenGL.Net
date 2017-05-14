@@ -32,7 +32,7 @@ namespace OpenGL
 		/// Binding for glGetConvolutionFilterEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ConvolutionTargetEXT"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -44,7 +44,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionFilterEXT(ConvolutionTargetEXT target, PixelFormat format, PixelType type, IntPtr image)
+		public static void GetConvolutionFilterEXT(ConvolutionTarget target, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilterEXT != null, "pglGetConvolutionFilterEXT not implemented");
 			Delegates.pglGetConvolutionFilterEXT((Int32)target, (Int32)format, (Int32)type, image);
@@ -56,7 +56,7 @@ namespace OpenGL
 		/// Binding for glGetConvolutionFilterEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ConvolutionTargetEXT"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -68,7 +68,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionFilterEXT(ConvolutionTargetEXT target, PixelFormat format, PixelType type, Object image)
+		public static void GetConvolutionFilterEXT(ConvolutionTarget target, PixelFormat format, PixelType type, Object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -82,7 +82,7 @@ namespace OpenGL
 		/// Binding for glGetConvolutionParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ConvolutionTargetEXT"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ConvolutionParameterEXT"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionParameterEXT(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, [Out] float[] @params)
+		public static void GetConvolutionParameterEXT(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -108,7 +108,7 @@ namespace OpenGL
 		/// Binding for glGetConvolutionParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ConvolutionTargetEXT"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ConvolutionParameterEXT"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionParameterEXT(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, [Out] Int32[] @params)
+		public static void GetConvolutionParameterEXT(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -134,7 +134,7 @@ namespace OpenGL
 		/// Binding for glGetSeparableFilterEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:SeparableTargetEXT"/>.
+		/// A <see cref="T:SeparableTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -152,7 +152,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetSeparableFilterEXT(SeparableTargetEXT target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
+		public static void GetSeparableFilterEXT(SeparableTarget target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilterEXT != null, "pglGetSeparableFilterEXT not implemented");
 			Delegates.pglGetSeparableFilterEXT((Int32)target, (Int32)format, (Int32)type, row, column, span);
@@ -164,7 +164,7 @@ namespace OpenGL
 		/// Binding for glGetSeparableFilterEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:SeparableTargetEXT"/>.
+		/// A <see cref="T:SeparableTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -182,7 +182,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetSeparableFilterEXT(SeparableTargetEXT target, PixelFormat format, PixelType type, Object row, Object column, Object span)
+		public static void GetSeparableFilterEXT(SeparableTarget target, PixelFormat format, PixelType type, Object row, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);

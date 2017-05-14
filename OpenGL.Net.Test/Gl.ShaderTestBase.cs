@@ -123,8 +123,8 @@ namespace OpenGL.Test
 				Gl.GetActiveAttrib(shaderProgram, (uint)i, activeAttributeMaxLength, out activeAttributeNameLength, out activeAttributeSize, out activeAttributeType, activeAttributeName);
 
 				if (activeAttributeName.ToString() == attributeName) {
-					Gl.BindBuffer(BufferTargetARB.ArrayBuffer, buffer);
-					Gl.VertexAttribPointer((uint)i, activeAttributeSize, (VertexAttribPointerType)activeAttributeType, false, 0, IntPtr.Zero);
+					Gl.BindBuffer(BufferTarget.ArrayBuffer, buffer);
+					Gl.VertexAttribPointer((uint)i, activeAttributeSize, (VertexAttribType)activeAttributeType, false, 0, IntPtr.Zero);
 
 					return;
 				}

@@ -2602,7 +2602,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
-		public static void ClearBufferData(BufferStorageTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
+		public static void ClearBufferData(BufferTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearBufferData != null, "pglClearBufferData not implemented");
 			Delegates.pglClearBufferData((Int32)target, (Int32)internalformat, (Int32)format, (Int32)type, data);
@@ -2656,7 +2656,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
-		public static void ClearBufferData(BufferStorageTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
+		public static void ClearBufferData(BufferTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2955,7 +2955,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_copy_image", Api = "gles2")]
 		[RequiredByFeature("GL_OES_copy_image", Api = "gles2")]
-		public static void CopyImageSubData(UInt32 srcName, CopyBufferSubDataTarget srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, CopyBufferSubDataTarget dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth)
+		public static void CopyImageSubData(UInt32 srcName, BufferTarget srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, BufferTarget dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth)
 		{
 			Debug.Assert(Delegates.pglCopyImageSubData != null, "pglCopyImageSubData not implemented");
 			Delegates.pglCopyImageSubData(srcName, (Int32)srcTarget, srcLevel, srcX, srcY, srcZ, dstName, (Int32)dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);

@@ -1305,7 +1305,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static IntPtr MapNamedBuffer(UInt32 buffer, BufferAccessARB access)
+		public static IntPtr MapNamedBuffer(UInt32 buffer, BufferAccess access)
 		{
 			IntPtr retValue;
 
@@ -7147,10 +7147,10 @@ namespace OpenGL
 		/// Binding for glGetnMapdv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7159,7 +7159,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] double[] v)
+		public static void GetnMap(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -7176,10 +7176,10 @@ namespace OpenGL
 		/// Binding for glGetnMapfv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7188,7 +7188,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] float[] v)
+		public static void GetnMap(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -7205,10 +7205,10 @@ namespace OpenGL
 		/// Binding for glGetnMapiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7217,7 +7217,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] Int32[] v)
+		public static void GetnMap(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -7447,7 +7447,7 @@ namespace OpenGL
 		/// Binding for glGetnSeparableFilter.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:SeparableTargetEXT"/>.
+		/// A <see cref="T:SeparableTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -7471,7 +7471,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnSeparableFilter(SeparableTargetEXT target, PixelFormat format, PixelType type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
+		public static void GetnSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilter != null, "pglGetnSeparableFilter not implemented");
 			Delegates.pglGetnSeparableFilter((Int32)target, (Int32)format, (Int32)type, rowBufSize, row, columnBufSize, column, span);
@@ -7483,7 +7483,7 @@ namespace OpenGL
 		/// Binding for glGetnSeparableFilter.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:SeparableTargetEXT"/>.
+		/// A <see cref="T:SeparableTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -7507,7 +7507,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnSeparableFilter(SeparableTargetEXT target, PixelFormat format, PixelType type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
+		public static void GetnSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -7587,7 +7587,7 @@ namespace OpenGL
 		/// Binding for glGetnMinmax.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MinmaxTargetEXT"/>.
+		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -7605,7 +7605,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMinmax(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
+		public static void GetnMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnMinmax != null, "pglGetnMinmax not implemented");
 			Delegates.pglGetnMinmax((Int32)target, reset, (Int32)format, (Int32)type, bufSize, values);
@@ -7617,7 +7617,7 @@ namespace OpenGL
 		/// Binding for glGetnMinmax.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MinmaxTargetEXT"/>.
+		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -7635,7 +7635,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMinmax(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
+		public static void GetnMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

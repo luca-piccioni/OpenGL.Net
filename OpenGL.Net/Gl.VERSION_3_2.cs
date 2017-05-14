@@ -1165,7 +1165,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static Int32 FenceSync(SyncCondition condition, UInt32 flags)
+		public static Int32 FenceSync(FenceSyncCondition condition, UInt32 flags)
 		{
 			Int32 retValue;
 
@@ -1735,65 +1735,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		public static void Get(TypeEnum target, UInt32 index, [Out] Int64[] data)
-		{
-			unsafe {
-				fixed (Int64* p_data = data)
-				{
-					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
-					Delegates.pglGetInteger64i_v((Int32)target, index, p_data);
-					LogCommand("glGetInteger64i_v", null, target, index, data					);
-				}
-			}
-			DebugCheckErrors(null);
-		}
-
-		/// <summary>
-		/// return the value or values of a selected parameter
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
-		/// are accepted.
-		/// </param>
-		/// <param name="index">
-		/// Specifies the index of the particular element being queried.
-		/// </param>
-		/// <param name="data">
-		/// Returns the value or values of the specified parameter.
-		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
-		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
-		/// </exception>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void Get(Int32 target, UInt32 index, out Int64 data)
 		{
 			unsafe {
@@ -1801,65 +1742,6 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
-					LogCommand("glGetInteger64i_v", null, target, index, data					);
-				}
-			}
-			DebugCheckErrors(null);
-		}
-
-		/// <summary>
-		/// return the value or values of a selected parameter
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
-		/// are accepted.
-		/// </param>
-		/// <param name="index">
-		/// Specifies the index of the particular element being queried.
-		/// </param>
-		/// <param name="data">
-		/// Returns the value or values of the specified parameter.
-		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
-		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
-		/// </exception>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		public static void Get(TypeEnum target, UInt32 index, out Int64 data)
-		{
-			unsafe {
-				fixed (Int64* p_data = &data)
-				{
-					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
-					Delegates.pglGetInteger64i_v((Int32)target, index, p_data);
 					LogCommand("glGetInteger64i_v", null, target, index, data					);
 				}
 			}
@@ -1901,7 +1783,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		public static void GetBufferParameter(BufferTargetARB target, Int32 value, [Out] Int64[] data)
+		public static void GetBufferParameter(BufferTarget target, Int32 value, [Out] Int64[] data)
 		{
 			unsafe {
 				fixed (Int64* p_params = data)

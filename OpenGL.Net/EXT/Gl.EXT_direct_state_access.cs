@@ -2946,7 +2946,7 @@ namespace OpenGL
 		/// Binding for glGetPointerIndexedvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:TypeEnum"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -2955,13 +2955,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetPointerIndexedEXT(TypeEnum target, UInt32 index, out IntPtr data)
+		public static void GetPointerIndexedEXT(Int32 target, UInt32 index, out IntPtr data)
 		{
 			unsafe {
 				fixed (IntPtr* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetPointerIndexedvEXT != null, "pglGetPointerIndexedvEXT not implemented");
-					Delegates.pglGetPointerIndexedvEXT((Int32)target, index, p_data);
+					Delegates.pglGetPointerIndexedvEXT(target, index, p_data);
 					LogCommand("glGetPointerIndexedvEXT", null, target, index, data					);
 				}
 			}
@@ -2972,7 +2972,7 @@ namespace OpenGL
 		/// Binding for glGetPointerIndexedvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:TypeEnum"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -2981,7 +2981,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetPointerIndexedEXT(TypeEnum target, UInt32 index, Object data)
+		public static void GetPointerIndexedEXT(Int32 target, UInt32 index, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -4236,10 +4236,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:BufferAccessARB"/>.
+		/// A <see cref="T:BufferAccess"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static IntPtr MapNamedBufferEXT(UInt32 buffer, BufferAccessARB access)
+		public static IntPtr MapNamedBufferEXT(UInt32 buffer, BufferAccess access)
 		{
 			IntPtr retValue;
 
@@ -4429,16 +4429,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:TypeEnum"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexBufferEXT(TextureUnit texunit, TextureTarget target, TypeEnum internalformat, UInt32 buffer)
+		public static void MultiTexBufferEXT(TextureUnit texunit, TextureTarget target, Int32 internalformat, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglMultiTexBufferEXT != null, "pglMultiTexBufferEXT not implemented");
-			Delegates.pglMultiTexBufferEXT((Int32)texunit, (Int32)target, (Int32)internalformat, buffer);
+			Delegates.pglMultiTexBufferEXT((Int32)texunit, (Int32)target, internalformat, buffer);
 			LogCommand("glMultiTexBufferEXT", null, texunit, target, internalformat, buffer			);
 			DebugCheckErrors(null);
 		}
@@ -4993,7 +4993,7 @@ namespace OpenGL
 		/// Binding for glGetPointeri_vEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:TypeEnum"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -5002,13 +5002,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetPointerEXT(TypeEnum pname, UInt32 index, out IntPtr @params)
+		public static void GetPointerEXT(Int32 pname, UInt32 index, out IntPtr @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetPointeri_vEXT != null, "pglGetPointeri_vEXT not implemented");
-					Delegates.pglGetPointeri_vEXT((Int32)pname, index, p_params);
+					Delegates.pglGetPointeri_vEXT(pname, index, p_params);
 					LogCommand("glGetPointeri_vEXT", null, pname, index, @params					);
 				}
 			}
@@ -5019,7 +5019,7 @@ namespace OpenGL
 		/// Binding for glGetPointeri_vEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:TypeEnum"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -5028,7 +5028,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetPointerEXT(TypeEnum pname, UInt32 index, Object @params)
+		public static void GetPointerEXT(Int32 pname, UInt32 index, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {
@@ -6163,7 +6163,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribPointerType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -6175,7 +6175,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, VertexAttribPointerType type, bool normalized, Int32 stride, IntPtr offset)
+		public static void VertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, VertexAttribType type, bool normalized, Int32 stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribOffsetEXT != null, "pglVertexArrayVertexAttribOffsetEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribOffsetEXT(vaobj, buffer, index, size, (Int32)type, normalized, stride, offset);
@@ -6199,7 +6199,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribEnum"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -6208,7 +6208,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, VertexAttribEnum type, Int32 stride, IntPtr offset)
+		public static void VertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, VertexAttribType type, Int32 stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribIOffsetEXT != null, "pglVertexArrayVertexAttribIOffsetEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, (Int32)type, stride, offset);

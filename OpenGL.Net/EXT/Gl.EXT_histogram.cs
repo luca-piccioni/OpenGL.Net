@@ -140,7 +140,7 @@ namespace OpenGL
 		/// Binding for glGetMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MinmaxTargetEXT"/>.
+		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -155,7 +155,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetMinmaxEXT(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
+		public static void GetMinmaxEXT(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmaxEXT != null, "pglGetMinmaxEXT not implemented");
 			Delegates.pglGetMinmaxEXT((Int32)target, reset, (Int32)format, (Int32)type, values);
@@ -167,7 +167,7 @@ namespace OpenGL
 		/// Binding for glGetMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MinmaxTargetEXT"/>.
+		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -182,7 +182,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetMinmaxEXT(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Object values)
+		public static void GetMinmaxEXT(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -196,7 +196,7 @@ namespace OpenGL
 		/// Binding for glGetMinmaxParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MinmaxTargetEXT"/>.
+		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetMinmaxParameterPNameEXT"/>.
@@ -205,7 +205,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetMinmaxParameterEXT(MinmaxTargetEXT target, GetMinmaxParameterPNameEXT pname, [Out] float[] @params)
+		public static void GetMinmaxParameterEXT(MinmaxTarget target, GetMinmaxParameterPNameEXT pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -222,7 +222,7 @@ namespace OpenGL
 		/// Binding for glGetMinmaxParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MinmaxTargetEXT"/>.
+		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetMinmaxParameterPNameEXT"/>.
@@ -231,7 +231,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetMinmaxParameterEXT(MinmaxTargetEXT target, GetMinmaxParameterPNameEXT pname, [Out] Int32[] @params)
+		public static void GetMinmaxParameterEXT(MinmaxTarget target, GetMinmaxParameterPNameEXT pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

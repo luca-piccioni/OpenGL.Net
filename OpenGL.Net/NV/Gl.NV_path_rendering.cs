@@ -1764,16 +1764,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:PathFillMode"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathNV(UInt32 path, PathFillMode fillMode, UInt32 mask)
+		public static void StencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask)
 		{
 			Debug.Assert(Delegates.pglStencilFillPathNV != null, "pglStencilFillPathNV not implemented");
-			Delegates.pglStencilFillPathNV(path, (Int32)fillMode, mask);
+			Delegates.pglStencilFillPathNV(path, fillMode, mask);
 			LogCommand("glStencilFillPathNV", null, path, fillMode, mask			);
 			DebugCheckErrors(null);
 		}
@@ -1815,7 +1815,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:PathFillMode"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
@@ -1827,13 +1827,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, PathFillMode fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
 				{
 					Debug.Assert(Delegates.pglStencilFillPathInstancedNV != null, "pglStencilFillPathInstancedNV not implemented");
-					Delegates.pglStencilFillPathInstancedNV(numPaths, pathNameType, paths, pathBase, (Int32)fillMode, mask, transformType, p_transformValues);
+					Delegates.pglStencilFillPathInstancedNV(numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, p_transformValues);
 					LogCommand("glStencilFillPathInstancedNV", null, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues					);
 				}
 			}
@@ -1856,7 +1856,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:PathFillMode"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
@@ -1868,7 +1868,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, PathFillMode fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {

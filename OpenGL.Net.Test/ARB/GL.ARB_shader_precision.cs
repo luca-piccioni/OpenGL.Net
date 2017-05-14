@@ -139,17 +139,17 @@ namespace OpenGL.Test
 				try {
 					buffer = Gl.GenBuffer();
 
-					Gl.BindBuffer(BufferTargetARB.ArrayBuffer, buffer);
+					Gl.BindBuffer(BufferTarget.ArrayBuffer, buffer);
 
 					if (data != null) {
 						GCHandle dataHandle = GCHandle.Alloc(data, GCHandleType.Pinned);
 						try {
-							Gl.BufferData(BufferTargetARB.ArrayBuffer, size, dataHandle.AddrOfPinnedObject(), BufferUsageARB.StaticDraw);
+							Gl.BufferData(BufferTarget.ArrayBuffer, size, dataHandle.AddrOfPinnedObject(), BufferUsage.StaticDraw);
 						} finally {
 							dataHandle.Free();
 						}
 					} else
-						Gl.BufferData(BufferTargetARB.ArrayBuffer, size, IntPtr.Zero, BufferUsageARB.StaticDraw);
+						Gl.BufferData(BufferTarget.ArrayBuffer, size, IntPtr.Zero, BufferUsage.StaticDraw);
 
 					return (buffer);
 				} catch {
@@ -356,7 +356,7 @@ namespace OpenGL.Test
 			// Set program input
 			BindShaderProgramAttrib(ctx.Program, ctx.ProgramInput, "vertexIn");
 			// Set program output
-			Gl.BindBuffer(BufferTargetARB.TransformFeedbackBuffer, ctx.ProgramOutput);
+			Gl.BindBuffer(BufferTarget.TransformFeedbackBuffer, ctx.ProgramOutput);
 
 			// Draw on feedback buffer using program
 			Gl.UseProgram(ctx.Program);
@@ -368,7 +368,7 @@ namespace OpenGL.Test
 
 			// Get program computation result
 			float[] feedbackData = new float[ctx.ReferenceOutput.Length];
-			Gl.GetBufferSubData(BufferTargetARB.TransformFeedbackBuffer, IntPtr.Zero, (uint)feedbackData.Length, feedbackData);
+			Gl.GetBufferSubData(BufferTarget.TransformFeedbackBuffer, IntPtr.Zero, (uint)feedbackData.Length, feedbackData);
 
 			// Check precision
 

@@ -676,7 +676,7 @@ namespace OpenGL
 			[AliasOf("glMinmaxEXT")]
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			public static void Minmax(MinmaxTargetEXT target, InternalFormat internalformat, bool sink)
+			public static void Minmax(MinmaxTarget target, InternalFormat internalformat, bool sink)
 			{
 				Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
 				Delegates.pglMinmax((Int32)target, (Int32)internalformat, sink);

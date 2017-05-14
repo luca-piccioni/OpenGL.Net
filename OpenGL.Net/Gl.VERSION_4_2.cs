@@ -1438,7 +1438,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-		public static void BindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, BufferAccessARB access, InternalFormat format)
+		public static void BindImageTexture(UInt32 unit, UInt32 texture, Int32 level, bool layered, Int32 layer, BufferAccess access, InternalFormat format)
 		{
 			Debug.Assert(Delegates.pglBindImageTexture != null, "pglBindImageTexture not implemented");
 			Delegates.pglBindImageTexture(unit, texture, level, layered, layer, (Int32)access, (Int32)format);

@@ -2529,7 +2529,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-		public static void BindTransformFeedback(BindTransformFeedbackTarget target, UInt32 id)
+		public static void BindTransformFeedback(TransformFeedbackTarget target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedback != null, "pglBindTransformFeedback not implemented");
 			Delegates.pglBindTransformFeedback((Int32)target, id);
@@ -2931,13 +2931,13 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-		public static void GetQueryIndexed(Int32 target, UInt32 index, QueryParameterName pname, [Out] Int32[] @params)
+		public static void GetQueryIndexed(QueryTarget target, UInt32 index, QueryParameterName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryIndexediv != null, "pglGetQueryIndexediv not implemented");
-					Delegates.pglGetQueryIndexediv(target, index, (Int32)pname, p_params);
+					Delegates.pglGetQueryIndexediv((Int32)target, index, (Int32)pname, p_params);
 					LogCommand("glGetQueryIndexediv", null, target, index, pname, @params					);
 				}
 			}

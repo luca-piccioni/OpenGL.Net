@@ -264,10 +264,10 @@ namespace OpenGL
 		/// Binding for glGetnMapdvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -276,7 +276,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] double[] v)
+		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -293,16 +293,16 @@ namespace OpenGL
 		/// Binding for glGetnMapdvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] double[] v)
+		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -319,10 +319,10 @@ namespace OpenGL
 		/// Binding for glGetnMapfvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -331,7 +331,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] float[] v)
+		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -348,16 +348,16 @@ namespace OpenGL
 		/// Binding for glGetnMapfvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] float[] v)
+		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -374,10 +374,10 @@ namespace OpenGL
 		/// Binding for glGetnMapivARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -386,7 +386,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] Int32[] v)
+		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -403,16 +403,16 @@ namespace OpenGL
 		/// Binding for glGetnMapivARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:MapQuery"/>.
+		/// A <see cref="T:EvaluatorParameterName"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] Int32[] v)
+		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -708,7 +708,7 @@ namespace OpenGL
 		/// Binding for glGetnSeparableFilterARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:SeparableTargetEXT"/>.
+		/// A <see cref="T:SeparableTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -732,7 +732,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnSeparableFilterARB(SeparableTargetEXT target, PixelFormat format, PixelType type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
+		public static void GetnSeparableFilterARB(SeparableTarget target, PixelFormat format, PixelType type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetnSeparableFilterARB != null, "pglGetnSeparableFilterARB not implemented");
 			Delegates.pglGetnSeparableFilterARB((Int32)target, (Int32)format, (Int32)type, rowBufSize, row, columnBufSize, column, span);
@@ -744,7 +744,7 @@ namespace OpenGL
 		/// Binding for glGetnSeparableFilterARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:SeparableTargetEXT"/>.
+		/// A <see cref="T:SeparableTarget"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -768,7 +768,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnSeparableFilterARB(SeparableTargetEXT target, PixelFormat format, PixelType type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
+		public static void GetnSeparableFilterARB(SeparableTarget target, PixelFormat format, PixelType type, Int32 rowBufSize, Object row, Int32 columnBufSize, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -848,7 +848,7 @@ namespace OpenGL
 		/// Binding for glGetnMinmaxARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MinmaxTargetEXT"/>.
+		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -866,7 +866,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMinmaxARB(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
+		public static void GetnMinmaxARB(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnMinmaxARB != null, "pglGetnMinmaxARB not implemented");
 			Delegates.pglGetnMinmaxARB((Int32)target, reset, (Int32)format, (Int32)type, bufSize, values);
@@ -878,7 +878,7 @@ namespace OpenGL
 		/// Binding for glGetnMinmaxARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MinmaxTargetEXT"/>.
+		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -896,7 +896,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMinmaxARB(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
+		public static void GetnMinmaxARB(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

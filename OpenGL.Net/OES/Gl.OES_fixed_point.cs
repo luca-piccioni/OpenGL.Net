@@ -1060,7 +1060,7 @@ namespace OpenGL
 		/// Binding for glConvolutionParameterxOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ConvolutionTargetEXT"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ConvolutionParameterEXT"/>.
@@ -1069,7 +1069,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void ConvolutionParameterOES(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, IntPtr param)
+		public static void ConvolutionParameterOES(ConvolutionTarget target, ConvolutionParameterEXT pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterxOES != null, "pglConvolutionParameterxOES not implemented");
 			Delegates.pglConvolutionParameterxOES((Int32)target, (Int32)pname, param);
@@ -1081,7 +1081,7 @@ namespace OpenGL
 		/// Binding for glConvolutionParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ConvolutionTargetEXT"/>.
+		/// A <see cref="T:ConvolutionTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ConvolutionParameterEXT"/>.
@@ -1090,7 +1090,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void ConvolutionParameterOES(ConvolutionTargetEXT target, ConvolutionParameterEXT pname, IntPtr[] @params)
+		public static void ConvolutionParameterOES(ConvolutionTarget target, ConvolutionParameterEXT pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1281,7 +1281,7 @@ namespace OpenGL
 		/// Binding for glGetMapxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="query">
 		/// A <see cref="T:GetMapQuery"/>.
@@ -1290,7 +1290,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetMapOES(MapTarget target, GetMapQuery query, [Out] IntPtr[] v)
+		public static void GetMapOES(EvaluatorTarget target, GetMapQuery query, [Out] IntPtr[] v)
 		{
 			unsafe {
 				fixed (IntPtr* p_v = v)
@@ -1511,7 +1511,7 @@ namespace OpenGL
 		/// Binding for glMap1xOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:IntPtr"/>.
@@ -1529,7 +1529,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void Map1OES(MapTarget target, IntPtr u1, IntPtr u2, Int32 stride, Int32 order, IntPtr points)
+		public static void Map1OES(EvaluatorTarget target, IntPtr u1, IntPtr u2, Int32 stride, Int32 order, IntPtr points)
 		{
 			Debug.Assert(Delegates.pglMap1xOES != null, "pglMap1xOES not implemented");
 			Delegates.pglMap1xOES((Int32)target, u1, u2, stride, order, points);
@@ -1541,7 +1541,7 @@ namespace OpenGL
 		/// Binding for glMap2xOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:MapTarget"/>.
+		/// A <see cref="T:EvaluatorTarget"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:IntPtr"/>.
@@ -1571,7 +1571,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void Map2OES(MapTarget target, IntPtr u1, IntPtr u2, Int32 ustride, Int32 uorder, IntPtr v1, IntPtr v2, Int32 vstride, Int32 vorder, IntPtr points)
+		public static void Map2OES(EvaluatorTarget target, IntPtr u1, IntPtr u2, Int32 ustride, Int32 uorder, IntPtr v1, IntPtr v2, Int32 vstride, Int32 vorder, IntPtr points)
 		{
 			Debug.Assert(Delegates.pglMap2xOES != null, "pglMap2xOES not implemented");
 			Delegates.pglMap2xOES((Int32)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);

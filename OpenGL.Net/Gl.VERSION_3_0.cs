@@ -2611,7 +2611,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
-		public static void Get(BufferTargetARB target, UInt32 index, [Out] bool[] data)
+		public static void Get(BufferTarget target, UInt32 index, [Out] bool[] data)
 		{
 			unsafe {
 				fixed (bool* p_data = data)
@@ -2735,7 +2735,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
-		public static void Get(BufferTargetARB target, UInt32 index, out bool data)
+		public static void Get(BufferTarget target, UInt32 index, out bool data)
 		{
 			unsafe {
 				fixed (bool* p_data = &data)
@@ -2863,70 +2863,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
-		public static void Get(TypeEnum target, UInt32 index, [Out] Int32[] data)
-		{
-			unsafe {
-				fixed (Int32* p_data = data)
-				{
-					Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
-					Delegates.pglGetIntegeri_v((Int32)target, index, p_data);
-					LogCommand("glGetIntegeri_v", null, target, index, data					);
-				}
-			}
-			DebugCheckErrors(null);
-		}
-
-		/// <summary>
-		/// return the value or values of a selected parameter
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
-		/// are accepted.
-		/// </param>
-		/// <param name="index">
-		/// Specifies the index of the particular element being queried.
-		/// </param>
-		/// <param name="data">
-		/// Returns the value or values of the specified parameter.
-		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
-		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
-		/// </exception>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		[AliasOf("glGetIntegerIndexedvEXT")]
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_VERSION_3_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(Int32 target, UInt32 index, out Int32 data)
 		{
 			unsafe {
@@ -2934,70 +2870,6 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
 					Delegates.pglGetIntegeri_v(target, index, p_data);
-					LogCommand("glGetIntegeri_v", null, target, index, data					);
-				}
-			}
-			DebugCheckErrors(null);
-		}
-
-		/// <summary>
-		/// return the value or values of a selected parameter
-		/// </summary>
-		/// <param name="target">
-		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
-		/// are accepted.
-		/// </param>
-		/// <param name="index">
-		/// Specifies the index of the particular element being queried.
-		/// </param>
-		/// <param name="data">
-		/// Returns the value or values of the specified parameter.
-		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated on any of Gl.GetBooleani_v, Gl.GetIntegeri_v, or Gl.GetInteger64i_v if <paramref 
-		/// name="index"/> is outside of the valid range for the indexed state <paramref name="target"/>.
-		/// </exception>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		[AliasOf("glGetIntegerIndexedvEXT")]
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_VERSION_3_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_draw_buffers2")]
-		public static void Get(TypeEnum target, UInt32 index, out Int32 data)
-		{
-			unsafe {
-				fixed (Int32* p_data = &data)
-				{
-					Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
-					Delegates.pglGetIntegeri_v((Int32)target, index, p_data);
 					LogCommand("glGetIntegeri_v", null, target, index, data					);
 				}
 			}
@@ -3235,7 +3107,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void BindBufferRange(BufferTargetARB target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
+		public static void BindBufferRange(BufferTarget target, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
 		{
 			Debug.Assert(Delegates.pglBindBufferRange != null, "pglBindBufferRange not implemented");
 			Delegates.pglBindBufferRange((Int32)target, index, buffer, offset, size);
@@ -3282,7 +3154,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void BindBufferBase(BufferTargetARB target, UInt32 index, UInt32 buffer)
+		public static void BindBufferBase(BufferTarget target, UInt32 index, UInt32 buffer)
 		{
 			Debug.Assert(Delegates.pglBindBufferBase != null, "pglBindBufferBase not implemented");
 			Delegates.pglBindBufferBase((Int32)target, index, buffer);
@@ -3441,10 +3313,10 @@ namespace OpenGL
 		[AliasOf("glBeginConditionalRenderNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_conditional_render", Api = "gl|glcore|gles2")]
-		public static void BeginConditionalRender(UInt32 id, TypeEnum mode)
+		public static void BeginConditionalRender(UInt32 id, Int32 mode)
 		{
 			Debug.Assert(Delegates.pglBeginConditionalRender != null, "pglBeginConditionalRender not implemented");
-			Delegates.pglBeginConditionalRender(id, (Int32)mode);
+			Delegates.pglBeginConditionalRender(id, mode);
 			LogCommand("glBeginConditionalRender", null, id, mode			);
 			DebugCheckErrors(null);
 		}
@@ -3556,7 +3428,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribIPointer(UInt32 index, Int32 size, VertexAttribPointerType type, Int32 stride, IntPtr pointer)
+		public static void VertexAttribIPointer(UInt32 index, Int32 size, VertexAttribType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIPointer != null, "pglVertexAttribIPointer not implemented");
 			Delegates.pglVertexAttribIPointer(index, size, (Int32)type, stride, pointer);
@@ -3635,7 +3507,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribIPointer(UInt32 index, Int32 size, VertexAttribPointerType type, Int32 stride, Object pointer)
+		public static void VertexAttribIPointer(UInt32 index, Int32 size, VertexAttribType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -3684,7 +3556,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void GetVertexAttribI(UInt32 index, VertexAttribEnum pname, out Int32 @params)
+		public static void GetVertexAttribI(UInt32 index, VertexAttribPName pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -3736,7 +3608,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void GetVertexAttribI(UInt32 index, VertexAttribEnum pname, out UInt32 @params)
+		public static void GetVertexAttribI(UInt32 index, VertexAttribPName pname, out UInt32 @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = &@params)
@@ -6889,7 +6761,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
-		public static IntPtr MapBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length, UInt32 access)
+		public static IntPtr MapBufferRange(BufferTarget target, IntPtr offset, UInt32 length, UInt32 access)
 		{
 			IntPtr retValue;
 
@@ -6943,7 +6815,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
-		public static void FlushMappedBufferRange(BufferTargetARB target, IntPtr offset, UInt32 length)
+		public static void FlushMappedBufferRange(BufferTarget target, IntPtr offset, UInt32 length)
 		{
 			Debug.Assert(Delegates.pglFlushMappedBufferRange != null, "pglFlushMappedBufferRange not implemented");
 			Delegates.pglFlushMappedBufferRange((Int32)target, offset, length);

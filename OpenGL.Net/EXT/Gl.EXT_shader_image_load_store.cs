@@ -47,13 +47,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:BufferAccessARB"/>.
+		/// A <see cref="T:BufferAccess"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		public static void BindImageTextureEXT(UInt32 index, UInt32 texture, Int32 level, bool layered, Int32 layer, BufferAccessARB access, Int32 format)
+		public static void BindImageTextureEXT(UInt32 index, UInt32 texture, Int32 level, bool layered, Int32 layer, BufferAccess access, Int32 format)
 		{
 			Debug.Assert(Delegates.pglBindImageTextureEXT != null, "pglBindImageTextureEXT not implemented");
 			Delegates.pglBindImageTextureEXT(index, texture, level, layered, layer, (Int32)access, format);

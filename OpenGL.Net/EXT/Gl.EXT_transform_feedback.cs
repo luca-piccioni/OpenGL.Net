@@ -32,7 +32,7 @@ namespace OpenGL
 		/// Binding for glBindBufferOffsetEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:BufferTargetARB"/>.
+		/// A <see cref="T:BufferTarget"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -46,7 +46,7 @@ namespace OpenGL
 		[AliasOf("glBindBufferOffsetNV")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void BindBufferOffsetEXT(BufferTargetARB target, UInt32 index, UInt32 buffer, IntPtr offset)
+		public static void BindBufferOffsetEXT(BufferTarget target, UInt32 index, UInt32 buffer, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglBindBufferOffsetEXT != null, "pglBindBufferOffsetEXT not implemented");
 			Delegates.pglBindBufferOffsetEXT((Int32)target, index, buffer, offset);

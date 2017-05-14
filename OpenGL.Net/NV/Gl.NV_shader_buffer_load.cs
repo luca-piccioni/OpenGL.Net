@@ -154,7 +154,7 @@ namespace OpenGL
 		/// Binding for glGetBufferParameterui64vNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:BufferTargetARB"/>.
+		/// A <see cref="T:BufferTarget"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -163,7 +163,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-		public static void GetBufferParameterNV(BufferTargetARB target, Int32 pname, [Out] UInt64[] @params)
+		public static void GetBufferParameterNV(BufferTarget target, Int32 pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

@@ -92,7 +92,7 @@ namespace OpenGL
 		/// Binding for glGetIntegeri_vEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:TypeEnum"/>.
+		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -101,13 +101,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-		public static void GetIntegerEXT(TypeEnum target, UInt32 index, [Out] Int32[] data)
+		public static void GetIntegerEXT(Int32 target, UInt32 index, [Out] Int32[] data)
 		{
 			unsafe {
 				fixed (Int32* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetIntegeri_vEXT != null, "pglGetIntegeri_vEXT not implemented");
-					Delegates.pglGetIntegeri_vEXT((Int32)target, index, p_data);
+					Delegates.pglGetIntegeri_vEXT(target, index, p_data);
 					LogCommand("glGetIntegeri_vEXT", null, target, index, data					);
 				}
 			}

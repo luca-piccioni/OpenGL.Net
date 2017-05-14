@@ -819,7 +819,7 @@ namespace OpenGL
 		[AliasOf("glColorTableParameterfvSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTableParameter(ColorTableTarget target, ColorTableParameterPNameSGI pname, float[] @params)
+		public static void ColorTableParameter(ColorTableTarget target, ColorTableParameterPName pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -856,7 +856,7 @@ namespace OpenGL
 		[AliasOf("glColorTableParameterivSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTableParameter(ColorTableTarget target, ColorTableParameterPNameSGI pname, Int32[] @params)
+		public static void ColorTableParameter(ColorTableTarget target, ColorTableParameterPName pname, Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -2307,7 +2307,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetSeparableFilter(SeparableTargetEXT target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
+		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
 			Delegates.pglGetSeparableFilter((Int32)target, (Int32)format, (Int32)type, row, column, span);
@@ -2382,7 +2382,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetSeparableFilter(SeparableTargetEXT target, PixelFormat format, PixelType type, Object row, Object column, Object span)
+		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, Object row, Object column, Object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -2492,7 +2492,7 @@ namespace OpenGL
 		[AliasOf("glSeparableFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void SeparableFilter2D(SeparableTargetEXT target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
+		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
 			Delegates.pglSeparableFilter2D((Int32)target, (Int32)internalformat, width, height, (Int32)format, (Int32)type, row, column);
@@ -2596,7 +2596,7 @@ namespace OpenGL
 		[AliasOf("glSeparableFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void SeparableFilter2D(SeparableTargetEXT target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object row, Object column)
+		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object row, Object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -2894,7 +2894,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmax(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
+		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
 			Delegates.pglGetMinmax((Int32)target, reset, (Int32)format, (Int32)type, values);
@@ -2962,7 +2962,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmax(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, Object values)
+		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -2997,7 +2997,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmaxParameter(MinmaxTargetEXT target, GetMinmaxParameterPNameEXT pname, [Out] float[] @params)
+		public static void GetMinmaxParameter(MinmaxTarget target, GetMinmaxParameterPNameEXT pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -3035,7 +3035,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmaxParameter(MinmaxTargetEXT target, GetMinmaxParameterPNameEXT pname, [Out] Int32[] @params)
+		public static void GetMinmaxParameter(MinmaxTarget target, GetMinmaxParameterPNameEXT pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -3130,7 +3130,7 @@ namespace OpenGL
 		[AliasOf("glMinmaxEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void Minmax(MinmaxTargetEXT target, InternalFormat internalformat, bool sink)
+		public static void Minmax(MinmaxTarget target, InternalFormat internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
 			Delegates.pglMinmax((Int32)target, (Int32)internalformat, sink);
@@ -3180,7 +3180,7 @@ namespace OpenGL
 		[AliasOf("glResetMinmaxEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void ResetMinmax(MinmaxTargetEXT target)
+		public static void ResetMinmax(MinmaxTarget target)
 		{
 			Debug.Assert(Delegates.pglResetMinmax != null, "pglResetMinmax not implemented");
 			Delegates.pglResetMinmax((Int32)target);

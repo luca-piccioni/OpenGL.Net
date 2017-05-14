@@ -1048,7 +1048,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP1(UInt32 index, VertexAttribPointerType type, bool normalized, UInt32 value)
+		public static void VertexAttribP1(UInt32 index, VertexAttribType type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP1ui != null, "pglVertexAttribP1ui not implemented");
 			Delegates.pglVertexAttribP1ui(index, (Int32)type, normalized, value);
@@ -1063,7 +1063,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribPointerType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1073,7 +1073,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP1(UInt32 index, VertexAttribPointerType type, bool normalized, UInt32[] value)
+		public static void VertexAttribP1(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1119,7 +1119,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP2(UInt32 index, VertexAttribPointerType type, bool normalized, UInt32 value)
+		public static void VertexAttribP2(UInt32 index, VertexAttribType type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP2ui != null, "pglVertexAttribP2ui not implemented");
 			Delegates.pglVertexAttribP2ui(index, (Int32)type, normalized, value);
@@ -1134,7 +1134,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribPointerType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1144,7 +1144,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP2(UInt32 index, VertexAttribPointerType type, bool normalized, UInt32[] value)
+		public static void VertexAttribP2(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1190,7 +1190,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP3(UInt32 index, VertexAttribPointerType type, bool normalized, UInt32 value)
+		public static void VertexAttribP3(UInt32 index, VertexAttribType type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP3ui != null, "pglVertexAttribP3ui not implemented");
 			Delegates.pglVertexAttribP3ui(index, (Int32)type, normalized, value);
@@ -1205,7 +1205,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribPointerType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1215,7 +1215,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP3(UInt32 index, VertexAttribPointerType type, bool normalized, UInt32[] value)
+		public static void VertexAttribP3(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1261,7 +1261,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP4(UInt32 index, VertexAttribPointerType type, bool normalized, UInt32 value)
+		public static void VertexAttribP4(UInt32 index, VertexAttribType type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP4ui != null, "pglVertexAttribP4ui not implemented");
 			Delegates.pglVertexAttribP4ui(index, (Int32)type, normalized, value);
@@ -1276,7 +1276,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribPointerType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1286,7 +1286,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP4(UInt32 index, VertexAttribPointerType type, bool normalized, UInt32[] value)
+		public static void VertexAttribP4(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)

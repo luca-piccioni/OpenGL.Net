@@ -1121,7 +1121,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, IntPtr pointer)
+		public static void FogCoordPointer(FogCoordinatePointerType type, Int32 stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglFogCoordPointer != null, "pglFogCoordPointer not implemented");
 			Delegates.pglFogCoordPointer((Int32)type, stride, pointer);
@@ -1174,7 +1174,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void FogCoordPointer(FogPointerTypeEXT type, Int32 stride, Object pointer)
+		public static void FogCoordPointer(FogCoordinatePointerType type, Int32 stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
