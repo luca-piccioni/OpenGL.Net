@@ -32,13 +32,13 @@ namespace OpenGL
 		/// Binding for glBindTransformFeedbackNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:BufferTarget"/>.
+		/// A <see cref="T:TransformFeedbackTarget"/>.
 		/// </param>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback2")]
-		public static void BindTransformFeedbackNV(BufferTarget target, UInt32 id)
+		public static void BindTransformFeedbackNV(TransformFeedbackTarget target, UInt32 id)
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedbackNV != null, "pglBindTransformFeedbackNV not implemented");
 			Delegates.pglBindTransformFeedbackNV((Int32)target, id);

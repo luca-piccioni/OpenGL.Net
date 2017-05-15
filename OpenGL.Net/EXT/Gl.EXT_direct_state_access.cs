@@ -4192,10 +4192,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="usage">
-		/// A <see cref="T:VertexBufferObjectUsage"/>.
+		/// A <see cref="T:BufferUsage"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, VertexBufferObjectUsage usage)
+		public static void NamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, BufferUsage usage)
 		{
 			Debug.Assert(Delegates.pglNamedBufferDataEXT != null, "pglNamedBufferDataEXT not implemented");
 			Delegates.pglNamedBufferDataEXT(buffer, size, data, (Int32)usage);
@@ -4216,10 +4216,10 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="usage">
-		/// A <see cref="T:VertexBufferObjectUsage"/>.
+		/// A <see cref="T:BufferUsage"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferDataEXT(UInt32 buffer, UInt32 size, Object data, VertexBufferObjectUsage usage)
+		public static void NamedBufferDataEXT(UInt32 buffer, UInt32 size, Object data, BufferUsage usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -6533,7 +6533,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:UInt32"/>.
@@ -6551,10 +6551,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, Int32 internalformat, UInt32 offset, UInt32 size, PixelFormat format, PixelType type, IntPtr data)
+		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, InternalFormat internalformat, UInt32 offset, UInt32 size, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearNamedBufferSubDataEXT != null, "pglClearNamedBufferSubDataEXT not implemented");
-			Delegates.pglClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, (Int32)format, (Int32)type, data);
+			Delegates.pglClearNamedBufferSubDataEXT(buffer, (Int32)internalformat, offset, size, (Int32)format, (Int32)type, data);
 			LogCommand("glClearNamedBufferSubDataEXT", null, buffer, internalformat, offset, size, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -6566,7 +6566,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:UInt32"/>.
@@ -6584,7 +6584,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, Int32 internalformat, UInt32 offset, UInt32 size, PixelFormat format, PixelType type, Object data)
+		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, InternalFormat internalformat, UInt32 offset, UInt32 size, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

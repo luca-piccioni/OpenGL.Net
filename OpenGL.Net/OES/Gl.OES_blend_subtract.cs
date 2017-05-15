@@ -32,10 +32,10 @@ namespace OpenGL
 		/// Binding for glBlendEquationOES.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:BlendEquationModeEXT"/>.
+		/// A <see cref="T:BlendEquationMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
-		public static void BlendEquationOES(BlendEquationModeEXT mode)
+		public static void BlendEquationOES(BlendEquationMode mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationOES != null, "pglBlendEquationOES not implemented");
 			Delegates.pglBlendEquationOES((Int32)mode);

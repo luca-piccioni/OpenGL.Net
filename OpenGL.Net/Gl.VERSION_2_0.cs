@@ -1063,7 +1063,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_blend_equation_separate")]
-		public static void BlendEquationSeparate(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
+		public static void BlendEquationSeparate(BlendEquationMode modeRGB, BlendEquationMode modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparate != null, "pglBlendEquationSeparate not implemented");
 			Delegates.pglBlendEquationSeparate((Int32)modeRGB, (Int32)modeAlpha);

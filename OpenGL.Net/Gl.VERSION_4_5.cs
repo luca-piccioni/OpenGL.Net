@@ -775,7 +775,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, VertexBufferObjectUsage usage)
+		public static void NamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, BufferUsage usage)
 		{
 			Debug.Assert(Delegates.pglNamedBufferData != null, "pglNamedBufferData not implemented");
 			Delegates.pglNamedBufferData(buffer, size, data, (Int32)usage);
@@ -829,7 +829,7 @@ namespace OpenGL
 		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferData(UInt32 buffer, UInt32 size, Object data, VertexBufferObjectUsage usage)
+		public static void NamedBufferData(UInt32 buffer, UInt32 size, Object data, BufferUsage usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

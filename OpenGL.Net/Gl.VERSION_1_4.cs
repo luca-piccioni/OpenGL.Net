@@ -2428,7 +2428,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_minmax")]
-		public static void BlendEquation(BlendEquationModeEXT mode)
+		public static void BlendEquation(BlendEquationMode mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquation != null, "pglBlendEquation not implemented");
 			Delegates.pglBlendEquation((Int32)mode);

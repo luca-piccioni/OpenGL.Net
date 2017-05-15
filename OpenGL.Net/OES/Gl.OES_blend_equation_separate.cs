@@ -32,13 +32,13 @@ namespace OpenGL
 		/// Binding for glBlendEquationSeparateOES.
 		/// </summary>
 		/// <param name="modeRGB">
-		/// A <see cref="T:BlendEquationModeEXT"/>.
+		/// A <see cref="T:BlendEquationMode"/>.
 		/// </param>
 		/// <param name="modeAlpha">
-		/// A <see cref="T:BlendEquationModeEXT"/>.
+		/// A <see cref="T:BlendEquationMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_blend_equation_separate", Api = "gles1")]
-		public static void BlendEquationSeparateOES(BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
+		public static void BlendEquationSeparateOES(BlendEquationMode modeRGB, BlendEquationMode modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparateOES != null, "pglBlendEquationSeparateOES not implemented");
 			Delegates.pglBlendEquationSeparateOES((Int32)modeRGB, (Int32)modeAlpha);

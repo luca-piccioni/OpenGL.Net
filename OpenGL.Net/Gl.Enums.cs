@@ -615,9 +615,9 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration BlendEquationModeEXT.
+	/// Strongly typed enumeration BlendEquationMode.
 	/// </summary>
-	public enum BlendEquationModeEXT
+	public enum BlendEquationMode
 	{
 		/// <summary>
 		/// Strongly typed for value GL_ALPHA_MAX_SGIX.
@@ -13453,6 +13453,30 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration PackedVertexType.
+	/// </summary>
+	public enum PackedVertexType
+	{
+		/// <summary>
+		/// Strongly typed for value GL_INT_2_10_10_10_REV.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		Int2101010Rev = Gl.INT_2_10_10_10_REV,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNSIGNED_INT_2_10_10_10_REV.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_type_2_10_10_10_REV", Api = "gles2")]
+		UnsignedInt2101010Rev = Gl.UNSIGNED_INT_2_10_10_10_REV,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration PipelineParameterName.
 	/// </summary>
 	public enum PipelineParameterName
@@ -17098,87 +17122,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		BufferUsage = Gl.BUFFER_USAGE,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration VertexBufferObjectUsage.
-	/// </summary>
-	public enum VertexBufferObjectUsage
-	{
-		/// <summary>
-		/// Strongly typed for value GL_DYNAMIC_DRAW.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		DynamicDraw = Gl.DYNAMIC_DRAW,
-
-		/// <summary>
-		/// Strongly typed for value GL_DYNAMIC_READ.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		DynamicRead = Gl.DYNAMIC_READ,
-
-		/// <summary>
-		/// Strongly typed for value GL_DYNAMIC_COPY.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		DynamicCopy = Gl.DYNAMIC_COPY,
-
-		/// <summary>
-		/// Strongly typed for value GL_STATIC_DRAW.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		StaticDraw = Gl.STATIC_DRAW,
-
-		/// <summary>
-		/// Strongly typed for value GL_STATIC_READ.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		StaticRead = Gl.STATIC_READ,
-
-		/// <summary>
-		/// Strongly typed for value GL_STATIC_COPY.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		StaticCopy = Gl.STATIC_COPY,
-
-		/// <summary>
-		/// Strongly typed for value GL_STREAM_DRAW.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		StreamDraw = Gl.STREAM_DRAW,
-
-		/// <summary>
-		/// Strongly typed for value GL_STREAM_READ.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		StreamRead = Gl.STREAM_READ,
-
-		/// <summary>
-		/// Strongly typed for value GL_STREAM_COPY.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		StreamCopy = Gl.STREAM_COPY,
 
 	}
 

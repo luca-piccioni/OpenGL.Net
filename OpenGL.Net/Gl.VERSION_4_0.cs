@@ -905,7 +905,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:BlendEquationModeEXT"/>.
+		/// A <see cref="T:BlendEquationMode"/>.
 		/// </param>
 		[AliasOf("glBlendEquationIndexedAMD")]
 		[AliasOf("glBlendEquationiARB")]
@@ -917,7 +917,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendEquation(UInt32 buf, BlendEquationModeEXT mode)
+		public static void BlendEquation(UInt32 buf, BlendEquationMode mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationi != null, "pglBlendEquationi not implemented");
 			Delegates.pglBlendEquationi(buf, (Int32)mode);
@@ -932,10 +932,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="modeRGB">
-		/// A <see cref="T:BlendEquationModeEXT"/>.
+		/// A <see cref="T:BlendEquationMode"/>.
 		/// </param>
 		/// <param name="modeAlpha">
-		/// A <see cref="T:BlendEquationModeEXT"/>.
+		/// A <see cref="T:BlendEquationMode"/>.
 		/// </param>
 		[AliasOf("glBlendEquationSeparateIndexedAMD")]
 		[AliasOf("glBlendEquationSeparateiARB")]
@@ -947,7 +947,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendEquationSeparatei(UInt32 buf, BlendEquationModeEXT modeRGB, BlendEquationModeEXT modeAlpha)
+		public static void BlendEquationSeparatei(UInt32 buf, BlendEquationMode modeRGB, BlendEquationMode modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparatei != null, "pglBlendEquationSeparatei not implemented");
 			Delegates.pglBlendEquationSeparatei(buf, (Int32)modeRGB, (Int32)modeAlpha);

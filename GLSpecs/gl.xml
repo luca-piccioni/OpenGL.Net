@@ -267,7 +267,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_NOTEQUAL"/>
         </group>
 
-        <group name="BlendEquationModeEXT">
+        <group name="BlendEquationMode">
             <enum name="GL_ALPHA_MAX_SGIX"/>
             <enum name="GL_ALPHA_MIN_SGIX"/>
             <enum name="GL_FUNC_ADD_EXT"/>
@@ -2438,6 +2438,12 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD"/>
             <enum name="GL_QUERY_ALL_EVENT_BITS_AMD"/>
         </group>
+
+        <group name="PackedVertexType">
+            <enum name="GL_INT_2_10_10_10_REV"/>
+            <enum name="GL_UNSIGNED_INT_2_10_10_10_REV"/>
+
+        </group>
         
         <group name="PipelineParameterName">
             <enum name="GL_ACTIVE_PROGRAM"/>
@@ -2996,18 +3002,6 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_BUFFER_SIZE"/>
             <enum name="GL_BUFFER_STORAGE_FLAGS"/>
             <enum name="GL_BUFFER_USAGE"/>
-        </group>
-        
-        <group name="VertexBufferObjectUsage">
-            <enum name="GL_DYNAMIC_DRAW"/>
-            <enum name="GL_DYNAMIC_READ"/>
-            <enum name="GL_DYNAMIC_COPY"/>
-            <enum name="GL_STATIC_DRAW"/>
-            <enum name="GL_STATIC_READ"/>
-            <enum name="GL_STATIC_COPY"/>
-            <enum name="GL_STREAM_DRAW"/>
-            <enum name="GL_STREAM_READ"/>
-            <enum name="GL_STREAM_COPY"/>
         </group>
         
         <group name="VertexProvokingMode">
@@ -10088,7 +10082,7 @@ typedef unsigned int GLhandleARB;
             <param group="Boolean"><ptype>GLboolean</ptype> <name>layered</name></param>
             <param><ptype>GLint</ptype> <name>layer</name></param>
             <param group="BufferAccess"><ptype>GLenum</ptype> <name>access</name></param>
-            <param><ptype>GLint</ptype> <name>format</name></param>
+            <param group="InternalFormat"><ptype>GLint</ptype> <name>format</name></param>
         </command>
         <command>
             <proto>void <name>glBindImageTextures</name></proto>
@@ -10207,7 +10201,7 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glBindTransformFeedbackNV</name></proto>
-            <param group="BufferTarget"><ptype>GLenum</ptype> <name>target</name></param>
+            <param group="TransformFeedbackTarget"><ptype>GLenum</ptype> <name>target</name></param>
             <param><ptype>GLuint</ptype> <name>id</name></param>
         </command>
         <command>
@@ -10378,98 +10372,98 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glBlendEquation</name></proto>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>mode</name></param>
             <glx type="render" opcode="4097"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationEXT</name></proto>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>mode</name></param>
             <alias name="glBlendEquation"/>
             <glx type="render" opcode="4097"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationIndexedAMD</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>mode</name></param>
             <alias name="glBlendEquationi"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationOES</name></proto>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>mode</name></param>
         </command>
         <command>
             <proto>void <name>glBlendEquationSeparate</name></proto>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeRGB</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeRGB</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
             <glx type="render" opcode="4228"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationSeparateEXT</name></proto>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeRGB</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeRGB</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
             <alias name="glBlendEquationSeparate"/>
             <glx type="render" opcode="4228"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationSeparateIndexedAMD</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeRGB</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeRGB</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
             <alias name="glBlendEquationSeparatei"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationSeparateOES</name></proto>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeRGB</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeRGB</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
         </command>
         <command>
             <proto>void <name>glBlendEquationSeparatei</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeRGB</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeRGB</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
         </command>
         <command>
             <proto>void <name>glBlendEquationSeparateiARB</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeRGB</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeRGB</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
             <alias name="glBlendEquationSeparatei"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationSeparateiEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeRGB</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeRGB</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
             <alias name="glBlendEquationSeparatei"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationSeparateiOES</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeRGB</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeRGB</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>modeAlpha</name></param>
             <alias name="glBlendEquationSeparatei"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationi</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>mode</name></param>
         </command>
         <command>
             <proto>void <name>glBlendEquationiARB</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>mode</name></param>
             <alias name="glBlendEquationi"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationiEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>mode</name></param>
             <alias name="glBlendEquationi"/>
         </command>
         <command>
             <proto>void <name>glBlendEquationiOES</name></proto>
             <param><ptype>GLuint</ptype> <name>buf</name></param>
-            <param group="BlendEquationModeEXT"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="BlendEquationMode"><ptype>GLenum</ptype> <name>mode</name></param>
             <alias name="glBlendEquationi"/>
         </command>
         <command>
@@ -10947,7 +10941,7 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glClearNamedBufferSubDataEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
-            <param><ptype>GLenum</ptype> <name>internalformat</name></param>
+            <param group="InternalFormat"><ptype>GLenum</ptype> <name>internalformat</name></param>
             <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>offset</name></param>
             <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param group="PixelFormat"><ptype>GLenum</ptype> <name>format</name></param>
@@ -11523,22 +11517,22 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glColorP3ui</name></proto>
-            <param group="ColorPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>color</name></param>
         </command>
         <command>
             <proto>void <name>glColorP3uiv</name></proto>
-            <param group="ColorPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>color</name></param>
         </command>
         <command>
             <proto>void <name>glColorP4ui</name></proto>
-            <param group="ColorPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>color</name></param>
         </command>
         <command>
             <proto>void <name>glColorP4uiv</name></proto>
-            <param group="ColorPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>color</name></param>
         </command>
         <command>
@@ -20972,19 +20966,19 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glMultiTexCoordP1ui</name></proto>
             <param group="TextureUnit"><ptype>GLenum</ptype> <name>texture</name></param>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glMultiTexCoordP1uiv</name></proto>
             <param group="TextureUnit"><ptype>GLenum</ptype> <name>texture</name></param>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glMultiTexCoordP2ui</name></proto>
             <param group="TextureUnit"><ptype>GLenum</ptype> <name>texture</name></param>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
@@ -20996,25 +20990,25 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glMultiTexCoordP3ui</name></proto>
             <param group="TextureUnit"><ptype>GLenum</ptype> <name>texture</name></param>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glMultiTexCoordP3uiv</name></proto>
             <param group="TextureUnit"><ptype>GLenum</ptype> <name>texture</name></param>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glMultiTexCoordP4ui</name></proto>
             <param group="TextureUnit"><ptype>GLenum</ptype> <name>texture</name></param>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glMultiTexCoordP4uiv</name></proto>
             <param group="TextureUnit"><ptype>GLenum</ptype> <name>texture</name></param>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>coords</name></param>
         </command>
         <command>
@@ -21330,14 +21324,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param>const void *<name>data</name></param>
-            <param group="VertexBufferObjectUsage"><ptype>GLenum</ptype> <name>usage</name></param>
+            <param group="BufferUsage"><ptype>GLenum</ptype> <name>usage</name></param>
         </command>
         <command>
             <proto>void <name>glNamedBufferDataEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param len="COMPSIZE(size)">const void *<name>data</name></param>
-            <param group="VertexBufferObjectUsage"><ptype>GLenum</ptype> <name>usage</name></param>
+            <param group="BufferUsage"><ptype>GLenum</ptype> <name>usage</name></param>
         </command>
         <command>
             <proto>void <name>glNamedBufferPageCommitmentARB</name></proto>
@@ -21789,12 +21783,12 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glNormalP3ui</name></proto>
-            <param group="NormalPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glNormalP3uiv</name></proto>
-            <param group="NormalPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>coords</name></param>
         </command>
         <command>
@@ -25243,12 +25237,12 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glSecondaryColorP3ui</name></proto>
-            <param group="ColorPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>color</name></param>
         </command>
         <command>
             <proto>void <name>glSecondaryColorP3uiv</name></proto>
-            <param group="ColorPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>color</name></param>
         </command>
         <command>
@@ -26217,42 +26211,42 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glTexCoordP1ui</name></proto>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glTexCoordP1uiv</name></proto>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glTexCoordP2ui</name></proto>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glTexCoordP2uiv</name></proto>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glTexCoordP3ui</name></proto>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glTexCoordP3uiv</name></proto>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glTexCoordP4ui</name></proto>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>coords</name></param>
         </command>
         <command>
             <proto>void <name>glTexCoordP4uiv</name></proto>
-            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>coords</name></param>
         </command>
         <command>
@@ -26281,7 +26275,7 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glTexCoordPointervINTEL</name></proto>
             <param><ptype>GLint</ptype> <name>size</name></param>
-            <param group="VertexPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="TexCoordPointerType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="4">const void **<name>pointer</name></param>
         </command>
         <command>
@@ -30264,56 +30258,56 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glVertexAttribP1ui</name></proto>
             <param><ptype>GLuint</ptype> <name>index</name></param>
-            <param group="VertexAttribType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param><ptype>GLuint</ptype> <name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexAttribP1uiv</name></proto>
             <param><ptype>GLuint</ptype> <name>index</name></param>
-            <param group="VertexAttribType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexAttribP2ui</name></proto>
             <param><ptype>GLuint</ptype> <name>index</name></param>
-            <param group="VertexAttribType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param><ptype>GLuint</ptype> <name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexAttribP2uiv</name></proto>
             <param><ptype>GLuint</ptype> <name>index</name></param>
-            <param group="VertexAttribType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexAttribP3ui</name></proto>
             <param><ptype>GLuint</ptype> <name>index</name></param>
-            <param group="VertexAttribType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param><ptype>GLuint</ptype> <name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexAttribP3uiv</name></proto>
             <param><ptype>GLuint</ptype> <name>index</name></param>
-            <param group="VertexAttribType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexAttribP4ui</name></proto>
             <param><ptype>GLuint</ptype> <name>index</name></param>
-            <param group="VertexAttribType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param><ptype>GLuint</ptype> <name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexAttribP4uiv</name></proto>
             <param><ptype>GLuint</ptype> <name>index</name></param>
-            <param group="VertexAttribType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>value</name></param>
         </command>
@@ -30497,32 +30491,32 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glVertexP2ui</name></proto>
-            <param group="VertexPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexP2uiv</name></proto>
-            <param group="VertexPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexP3ui</name></proto>
-            <param group="VertexPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexP3uiv</name></proto>
-            <param group="VertexPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexP4ui</name></proto>
-            <param group="VertexPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLuint</ptype> <name>value</name></param>
         </command>
         <command>
             <proto>void <name>glVertexP4uiv</name></proto>
-            <param group="VertexPointerType"><ptype>GLenum</ptype> <name>type</name></param>
+            <param group="PackedVertexType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="1">const <ptype>GLuint</ptype> *<name>value</name></param>
         </command>
         <command>
