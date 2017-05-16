@@ -43,6 +43,18 @@ build:
   parallel: true
   project: OpenGL.Net_VC14.sln
   verbosity: minimal               # quiet|minimal|normal|detailed
+  publish_nuget: false
+  publish_nuget_symbols: false
 
 nuget:
   disable_publish_on_pr: true
+
+#deploy:
+#  - provider: NuGet
+#    name: nuget_release
+#    api_key:
+#      secure: 
+#    skip_symbols: true
+#    on:
+#      appveyor_repo_tag: true
+
