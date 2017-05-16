@@ -1,12 +1,13 @@
-# OpenGL.Net
+[![Build status](https://ci.appveyor.com/api/projects/status/0xf5kf47uj3q586j?svg=true)](https://ci.appveyor.com/project/luca-piccioni/opengl-net)
 
+# OpenGL.Net
 Modern OpenGL binding for C#.
 
 Generated from the lastest official XML specification, OpenGL.Net provides:
 - Strongly typed enumerants;
 - Function pointer wrappers, with safe and unsafe parameters, pinning managed memory when necessary;
 - OpenGL entry points overloading;
-- Automatic entry points aliasing management: loads different OpenGL subsets depending on the current OpenGL context;
+- Automatic entry points aliasing management: function loader is aware of the current OpenGL context;
 - Fully documented OpenGL entry points with the official manual pages;
 - Checking errors after each OpenGL command (Debug builds only);
 - Integrated entry points call logging (Debug builds only);
