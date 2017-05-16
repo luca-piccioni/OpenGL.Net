@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
 		<id>OpenGL.Net.CoreProfile</id>
-		<version>0.5.0-alpha</version>
+		<version>$version$</version>
 		<title>OpenGL for .Net - Core Profile</title>
 		<authors>Luca Piccioni</authors>
 		<owners>Luca Piccioni</owners>
@@ -15,10 +15,10 @@
 			Modern OpenGL bindings for C#.
 
 			It supports the following APIs:
-			- OpenGL 4.5 and relative extensions, updated by the specification of 29 Nov 2016 (rev 33312).
-			- OpenGL for Windows (WGL) with relative extensions, updated by the specification of 19 Dec 2016 (rev 33340)
-			- OpenGL for X11 1.4 (XGL) with relative extensions, updated by the specification of 7 Jun 2016 (rev 32941).
-			- Native Platform Interface 1.5 (EGL) with relative extensions, updated by the specification of 30 Nov 2016 (rev 33315)
+			- OpenGL 4.5 and relative extensions.
+			- OpenGL for Windows (WGL) with relative extensions.
+			- OpenGL for X11 1.4 (XGL) with relative extensions.
+			- Native Platform Interface 1.5 (EGL) with relative extensions.
 			- Support Broadcom VideoCore IV (Raspberry PI 2)
 
 			No user interface is included in this package. The following UI backends are supported in separated packages:
