@@ -69,17 +69,21 @@ namespace OpenGL.Test
 		}
 
 		/// <summary>
+		/// The device context.
+		/// </summary>
+		protected DeviceContext _DeviceContext;
+
+		#endregion
+
+		#region ES Testing
+
+		/// <summary>
 		/// Determine whether this test is testing OpenGL ES API.
 		/// </summary>
 		protected virtual bool IsEsTest
 		{
 			get { return (false); }
 		}
-
-		/// <summary>
-		/// The device context.
-		/// </summary>
-		protected DeviceContext _DeviceContext;
 
 		#endregion
 	}

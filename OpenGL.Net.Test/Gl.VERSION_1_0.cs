@@ -35,6 +35,9 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetString()
 		{
+			if (!HasVersion(1, 0) && !HasEsVersion(1, 0))
+				Assert.Inconclusive("OpenGL 1.0 or OpenGL ES 1.0");
+
 			#region Gl.VERSION
 
 			string vendor = Gl.GetString(StringName.Vendor);
@@ -92,6 +95,9 @@ namespace OpenGL.Test
 		[Test]
 		public void TestCullFace()
 		{
+			if (!HasVersion(1, 0) && !HasEsVersion(1, 0))
+				Assert.Inconclusive("OpenGL 1.0 or OpenGL ES 1.0");
+
 			foreach (CullFaceMode cullFaceMode in (CullFaceMode[])Enum.GetValues(typeof(CullFaceMode))) {
 				int getCullFaceMode;
 				int[] getCullFaceModev;
