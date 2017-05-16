@@ -1,8 +1,17 @@
+
 # Appveyor configuration file
+
+# Suggested by https://github.com/kf6kjg in https://github.com/luca-piccioni/OpenGL.Net/issues/44; great idea
+init:
+  - ps: if ($env:APPVEYOR_REPO_TAG -eq "true") { $env:TAG_VERSION = "$env:APPVEYOR_REPO_TAG_NAME.$env:APPVEYOR_BUILD_NUMBER" } else { $env:TAG_VERSION = "v0.5.0.$env:APPVEYOR_BUILD_NUMBER-alpha" }
+  - ps: $env:TAG_VERSION = $env:TAG_VERSION -replace 'v',''
+  - ps: Write-Host "Setting version to '$env:TAG_VERSION'"
+  - ps: Update-AppveyorBuild -Version "$env:TAG_VERSION"
 
 image: Visual Studio 2015
 
-version: 0.5.{build}
+pull_requests:
+  do_not_increment_build_number: true
 
 clone_folder: c:\OpenGL.Net
 
@@ -11,6 +20,7 @@ matrix:
 
 cache:
   - packages -> **\packages.config
+  - '%LocalAppData%\NuGet\Cache'
 
 assembly_info:
   patch: true
@@ -30,7 +40,10 @@ configuration:
 build:
   parallel: true
   project: OpenGL.Net_VC14.sln
-  verbosity: quiet
+  verbosity: detailed               # quiet|minimal|normal|detailed
 
 before_build:
   - nuget restore OpenGL.Net_VC14.sln
+
+nuget:
+  disable_publish_on_pr: true
