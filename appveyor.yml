@@ -36,13 +36,14 @@ configuration:
   - Debug
   - Release
 
+before_build:
+  - nuget restore OpenGL.Net_VC14.sln
+  - mkdir ANGLE
+
 build:
   parallel: true
   project: OpenGL.Net_VC14.sln
-  verbosity: normal               # quiet|minimal|normal|detailed
-
-before_build:
-  - nuget restore OpenGL.Net_VC14.sln
+  verbosity: minimal               # quiet|minimal|normal|detailed
 
 nuget:
   disable_publish_on_pr: true
