@@ -280,9 +280,9 @@ namespace OpenGL
 		/// <param name="nBytes"></param>
 		/// <param name="pixelFormatDescriptor"></param>
 		/// <returns></returns>
-		public static bool DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
+		public static int DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
 		{
-			bool retValue = UnsafeNativeMethods.DescribePixelFormat(hdc, iPixelFormat, nBytes, ref pixelFormatDescriptor);
+			int retValue = UnsafeNativeMethods.DescribePixelFormat(hdc, iPixelFormat, nBytes, ref pixelFormatDescriptor);
 
 			LogCommand("DescribePixelFormat", retValue, hdc, iPixelFormat, nBytes, pixelFormatDescriptor);
 			DebugCheckErrors(null);
@@ -358,8 +358,7 @@ namespace OpenGL
 			/// <param name="ppfd"></param>
 			/// <returns></returns>
 			[DllImport("gdi32.dll", EntryPoint = "DescribePixelFormat", ExactSpelling = true, SetLastError = true)]
-			[return : MarshalAs(UnmanagedType.Bool)]
-			public static extern bool DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR ppfd);
+			public static extern int DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR ppfd);
 
 			/// <summary>
 			/// 

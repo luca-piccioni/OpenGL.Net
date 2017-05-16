@@ -445,7 +445,7 @@ namespace OpenGL
 			Debug.Assert(pFormat != 0);
 
 			// Get exact description of the pixel format
-			res = Wgl.DescribePixelFormat(_DeviceContext, pFormat, (uint)pfd.nSize, ref pfd);
+			res = Wgl.DescribePixelFormat(_DeviceContext, pFormat, (uint)pfd.nSize, ref pfd) != 0;
 			Debug.Assert(res);
 
 			// Set pixel format before creating OpenGL context
@@ -801,10 +801,8 @@ namespace OpenGL
 				// Query pixel formats
 				if      (wglExtensions.PixelFormat_ARB)
 					_PixelFormatCache = GetPixelFormats_ARB_pixel_format(wglExtensions);
-				else if (wglExtensions.PixelFormat_EXT)
-					throw new NotSupportedException("WGL_EXT_pixel_format not supported");
 				else
-					throw new NotSupportedException("WGL_ARB_pixel_format required, but not supported");
+					_PixelFormatCache = GetPixelFormats_Win32();
 
 				return (_PixelFormatCache);
 			}
@@ -861,7 +859,7 @@ namespace OpenGL
 #endif
 
 			// Create pixel format collection
-			DevicePixelFormatCollection pixelFormatCache = new DevicePixelFormatCollection();
+			DevicePixelFormatCollection pixelFormats = new DevicePixelFormatCollection();
 
 			// Retrieve information about available pixel formats
 			int[] pixelFormatAttribValues = new int[pixelFormatAttribsCodes.Count];
@@ -937,10 +935,52 @@ namespace OpenGL
 				}
 #endif
 
-				pixelFormatCache.Add(pixelFormat);
+				pixelFormats.Add(pixelFormat);
 			}
 
-			return (pixelFormatCache);
+			return (pixelFormats);
+		}
+
+		private DevicePixelFormatCollection GetPixelFormats_Win32()
+		{
+			DevicePixelFormatCollection pixelFormats = new DevicePixelFormatCollection();
+			Wgl.PIXELFORMATDESCRIPTOR pixelDescr = new Wgl.PIXELFORMATDESCRIPTOR();
+			int pixelFormatsCount = Wgl.DescribePixelFormat(_DeviceContext, 0, 0, ref pixelDescr);
+
+			for (int i = 1; i <= pixelFormatsCount; i++) {
+				Wgl.DescribePixelFormat(_DeviceContext, i, (uint)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR)), ref pixelDescr);
+
+				if ((pixelDescr.dwFlags & Wgl.PixelFormatDescriptorFlags.SupportOpenGL) == 0)
+					continue;
+
+				DevicePixelFormat pixelFormat = new DevicePixelFormat();
+
+				pixelFormat.FormatIndex = i;
+
+				pixelFormat.RgbaUnsigned = true;
+				pixelFormat.RgbaFloat = false;
+
+				pixelFormat.RenderWindow = true;
+				pixelFormat.RenderBuffer = false;
+
+				pixelFormat.DoubleBuffer = (pixelDescr.dwFlags & Wgl.PixelFormatDescriptorFlags.Doublebuffer) != 0;
+				pixelFormat.SwapMethod = 0;
+				pixelFormat.StereoBuffer = (pixelDescr.dwFlags & Wgl.PixelFormatDescriptorFlags.Stereo) != 0;
+
+				pixelFormat.ColorBits = pixelDescr.cColorBits;
+				pixelFormat.DepthBits = pixelDescr.cDepthBits;
+				pixelFormat.StencilBits = pixelDescr.cStencilBits;
+
+				pixelFormat.MultisampleBits = 0;
+
+				pixelFormat.RenderPBuffer = false;
+
+				pixelFormat.SRGBCapable = false;
+
+				pixelFormats.Add(pixelFormat);
+			}
+
+			return (pixelFormats);
 		}
 
 		/// <summary>
@@ -1039,7 +1079,7 @@ namespace OpenGL
 				// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
 				// window's pixel format is set, it cannot be changed.
 
-				if (!Wgl.DescribePixelFormat(_DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor))
+				if (Wgl.DescribePixelFormat(_DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor) == 0)
 					throw new InvalidOperationException(String.Format("unable to describe pixel format {0}", pixelFormat.FormatIndex), GetPlatformException());
 
 				// Set choosen pixel format
