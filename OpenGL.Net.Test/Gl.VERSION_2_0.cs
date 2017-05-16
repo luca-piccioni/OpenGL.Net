@@ -34,6 +34,9 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetString()
 		{
+			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
+				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
+
 			#region Gl.SHADING_LANGUAGE_VERSION
 
 			string shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion);
