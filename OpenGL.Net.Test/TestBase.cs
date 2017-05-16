@@ -47,7 +47,9 @@ namespace OpenGL.Test
 
 				if (pixelFormats.Count == 0)
 					throw new NotSupportedException("unable to find suitable pixel format");
-			} catch {
+			} catch (Exception exception) {
+				Console.WriteLine("Unable to initialize base Fixture: " + exception.ToString());
+
 				// Release resources manually
 				FixtureTearDown();
 				throw;

@@ -67,10 +67,11 @@ namespace OpenGL.Test
 				if (nativeDeviceContext != null)
 					_EglExtensions.Query(nativeDeviceContext);
 				
-			} catch {
+			} catch (Exception exception) {
+				Console.WriteLine("Unable to initialize Fixture for OpenGL: " + exception.ToString());
+
 				// Release resources manually
 				FixtureTearDown();
-
 				throw;
 			}
 		}
