@@ -31,3 +31,6 @@ build:
   parallel: true
   project: OpenGL.Net_VC14.sln
   verbosity: quiet
+
+before_build:
+  - nuget restore OpenGL.Net_VC14.sln
