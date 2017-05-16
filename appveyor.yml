@@ -1,0 +1,33 @@
+# Appveyor configuration file
+
+image: Visual Studio 2015
+
+version: 0.5.{build}
+
+clone_folder: c:\OpenGL.Net
+
+matrix:
+  fast_finish: true
+
+cache:
+  - packages -> **\packages.config
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "{version}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}"
+
+platform:
+  - x86
+  - Any CPU
+
+configuration:
+  - Debug
+  - Release
+
+build:
+  parallel: true
+  project: OpenGL.Net_VC14.sln
+  verbosity: quiet
