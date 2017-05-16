@@ -30,7 +30,6 @@ assembly_info:
   assembly_informational_version: "{version}"
 
 platform:
-  - x86
   - Any CPU
 
 configuration:
