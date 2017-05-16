@@ -33,7 +33,6 @@ platform:
   - Any CPU
 
 configuration:
-  - Debug
   - Release
 
 before_build:

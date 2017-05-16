@@ -115,7 +115,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Number of repetitions for Min.
 		/// </summary>
-		private const int MinRepetitions = 10000;
+		private const int MinRepetitions = 100;
 
 		#endregion
 
@@ -215,7 +215,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Number of repetitions for Min.
 		/// </summary>
-		private const int MaxRepetitions = 10000;
+		private const int MaxRepetitions = 100;
 
 		#endregion
 	}

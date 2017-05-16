@@ -36,7 +36,7 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 
-			_MinArray = new Vertex3f[100000];
+			_MinArray = new Vertex3f[MaxArraySize];
 			for (int i = 0; i < _MinArray.Length; i++)
 				_MinArray[i] = new Vertex3f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble());
 		}
@@ -49,7 +49,7 @@ namespace OpenGL.Test
 		public void TestMinPerformance()
 		{
 			Stopwatch sw = Stopwatch.StartNew();
-			for (int i = 0; i < 10000; i++)
+			for (int i = 0; i < MaxRepetitions; i++)
 				Vertex3f.Min(_MinArray);
 			sw.Stop();
 
@@ -61,7 +61,7 @@ namespace OpenGL.Test
 		{
 			Stopwatch sw = Stopwatch.StartNew();
 
-			for (int r = 0; r < 10000; r++) {
+			for (int r = 0; r < MaxRepetitions; r++) {
 				unsafe
 				{
 					fixed (Vertex3f *v = _MinArray) {
@@ -89,7 +89,7 @@ namespace OpenGL.Test
 		{
 			Stopwatch sw = Stopwatch.StartNew();
 
-			for (int r = 0; r < 10000; r++) {
+			for (int r = 0; r < MaxRepetitions; r++) {
 				unsafe
 				{
 					Vector4 min = new Vector4(Single.MaxValue, Single.MaxValue, Single.MaxValue, Single.MaxValue);
@@ -111,7 +111,7 @@ namespace OpenGL.Test
 		{
 			Stopwatch sw = Stopwatch.StartNew();
 
-			for (int r = 0; r < 10000; r++) {
+			for (int r = 0; r < MaxRepetitions; r++) {
 				
 
 				Vector<float> minx = new Vector<float>(Single.MaxValue);
@@ -133,6 +133,16 @@ namespace OpenGL.Test
 #endif
 
 		private Vertex3f[] _MinArray;
+
+		/// <summary>
+		/// Size of the array used for testing: 50K vertices.
+		/// </summary>
+		private const uint MaxArraySize = 1024 * 50;
+
+		/// <summary>
+		/// Number of repetitions for Min.
+		/// </summary>
+		private const int MaxRepetitions = 100;
 
 		#endregion
 	}

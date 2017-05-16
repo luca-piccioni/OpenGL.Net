@@ -108,9 +108,9 @@ namespace OpenGL.Test
 		private static readonly Vertex4f[] _BenchmarkDataMemoryCopy, _BenchmarkDataMemoryCopyDst;
 
 		/// <summary>
-		/// Size of the array used for testing: 256 MB.
+		/// Size of the array used for testing: 16 MB.
 		/// </summary>
-		const uint MemoryCopySize = 1024 * 1024 * 256 / 12;
+		const uint MemoryCopySize = 1024 * 1024 * 16;
 
 		/// <summary>
 		/// Number of repetitions for MemoryCopy.
