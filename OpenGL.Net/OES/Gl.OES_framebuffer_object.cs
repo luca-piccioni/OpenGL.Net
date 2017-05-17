@@ -372,7 +372,7 @@ namespace OpenGL
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsRenderbufferOES", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsRenderbufferOES(UInt32 renderbuffer);
 
 			[SuppressUnmanagedCodeSecurity()]
@@ -397,7 +397,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsFramebufferOES", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsFramebufferOES(UInt32 framebuffer);
 
 			[SuppressUnmanagedCodeSecurity()]

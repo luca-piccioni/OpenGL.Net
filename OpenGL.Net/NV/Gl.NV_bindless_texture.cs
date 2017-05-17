@@ -337,12 +337,12 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsTextureHandleResidentNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsTextureHandleResidentNV(UInt64 handle);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsImageHandleResidentNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsImageHandleResidentNV(UInt64 handle);
 
 		}

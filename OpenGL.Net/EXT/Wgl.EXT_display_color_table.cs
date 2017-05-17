@@ -112,17 +112,17 @@ namespace OpenGL
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglCreateDisplayColorTableEXT", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool wglCreateDisplayColorTableEXT(UInt16 id);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglLoadDisplayColorTableEXT", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static unsafe bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "wglBindDisplayColorTableEXT", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool wglBindDisplayColorTableEXT(UInt16 id);
 
 			[SuppressUnmanagedCodeSecurity()]

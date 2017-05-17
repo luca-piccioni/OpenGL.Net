@@ -148,7 +148,7 @@ namespace OpenGL
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glAreTexturesResidentEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static unsafe bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, bool* residences);
 
 			[SuppressUnmanagedCodeSecurity()]
@@ -161,7 +161,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsTextureEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsTextureEXT(UInt32 texture);
 
 		}

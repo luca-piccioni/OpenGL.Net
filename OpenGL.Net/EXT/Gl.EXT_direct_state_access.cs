@@ -7974,7 +7974,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glUnmapNamedBufferEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glUnmapNamedBufferEXT(UInt32 buffer);
 
 			[SuppressUnmanagedCodeSecurity()]

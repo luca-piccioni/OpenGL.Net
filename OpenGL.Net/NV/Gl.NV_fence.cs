@@ -206,12 +206,12 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsFenceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsFenceNV(UInt32 fence);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glTestFenceNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glTestFenceNV(UInt32 fence);
 
 			[SuppressUnmanagedCodeSecurity()]

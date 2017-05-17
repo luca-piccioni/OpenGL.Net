@@ -213,7 +213,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsOcclusionQueryNV", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsOcclusionQueryNV(UInt32 id);
 
 			[SuppressUnmanagedCodeSecurity()]

@@ -334,7 +334,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsVertexAttribEnabledAPPLE", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsVertexAttribEnabledAPPLE(UInt32 index, Int32 pname);
 
 			[SuppressUnmanagedCodeSecurity()]

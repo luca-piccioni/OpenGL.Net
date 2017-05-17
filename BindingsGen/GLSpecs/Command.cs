@@ -243,7 +243,7 @@ namespace BindingsGen.GLSpecs
 
 			// GLboolean is mapped to 'unsigned char': instruct to marshal return value as 1 byte boolean
 			if (Prototype.Type == "GLboolean")
-				sw.WriteLine("[return: MarshalAs(UnmanagedType.I1)]");
+				sw.WriteLine("[return: MarshalAs(UnmanagedType.U1)]");
 			// BOOL is mapped to 'unsigned int': instruct to marshal return value as 4 byte boolean
 			if (Prototype.Type == "BOOL")
 				sw.WriteLine("[return: MarshalAs(UnmanagedType.Bool)]");

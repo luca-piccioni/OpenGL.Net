@@ -7163,7 +7163,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsProgramPipeline", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsProgramPipeline(UInt32 pipeline);
 
 			[SuppressUnmanagedCodeSecurity()]

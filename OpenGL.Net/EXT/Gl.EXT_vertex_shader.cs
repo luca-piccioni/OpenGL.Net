@@ -1835,7 +1835,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "glIsVariantEnabledEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.I1)]
+			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsVariantEnabledEXT(UInt32 id, Int32 cap);
 
 			[SuppressUnmanagedCodeSecurity()]
