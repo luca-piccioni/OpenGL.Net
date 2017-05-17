@@ -3,7 +3,7 @@
 
 # Suggested by https://github.com/kf6kjg in https://github.com/luca-piccioni/OpenGL.Net/issues/44; great idea
 init:
-  - ps: if ($env:APPVEYOR_REPO_TAG -eq "true") { $env:TAG_VERSION = "$env:APPVEYOR_REPO_TAG_NAME.$env:APPVEYOR_BUILD_NUMBER" } else { $env:TAG_VERSION = "v0.5.0.$env:APPVEYOR_BUILD_NUMBER-alpha" }
+  - ps: if ($env:APPVEYOR_REPO_TAG -eq "true") { $env:TAG_VERSION = "$env:APPVEYOR_REPO_TAG_NAME" } else { $env:TAG_VERSION = "v0.5.0.$env:APPVEYOR_BUILD_NUMBER-alpha" }
   - ps: $env:TAG_VERSION = $env:TAG_VERSION -replace 'v',''
   - ps: Write-Host "Setting version to '$env:TAG_VERSION'"
   - ps: Update-AppveyorBuild -Version "$env:TAG_VERSION"
