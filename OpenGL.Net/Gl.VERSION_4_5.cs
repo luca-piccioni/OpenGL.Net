@@ -6676,9 +6676,11 @@ namespace OpenGL
 		/// check if the rendering context has not been lost due to software or hardware issues
 		/// </summary>
 		/// <seealso cref="Gl.GetError"/>
+		[AliasOf("glGetGraphicsResetStatusEXT")]
 		[AliasOf("glGetGraphicsResetStatusKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 		public static GraphicsResetStatus GetGraphicsResetStatus()
@@ -9179,15 +9181,18 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetGraphicsResetStatus();
 
 			[AliasOf("glGetGraphicsResetStatus")]
+			[AliasOf("glGetGraphicsResetStatusEXT")]
 			[AliasOf("glGetGraphicsResetStatusKHR")]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[ThreadStatic]
