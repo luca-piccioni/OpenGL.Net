@@ -1,57 +1,66 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-		<id>OpenGL.Net.CoreProfile</id>
-		<version>$version$</version>
-		<title>OpenGL for .Net - Core Profile</title>
-		<authors>Luca Piccioni</authors>
-		<owners>Luca Piccioni</owners>
-		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
-		<projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
+        <id>OpenGL.Net.CoreProfile</id>
+        <version>$version$</version>
+        <title>OpenGL for .Net - Core Profile</title>
+        <authors>Luca Piccioni</authors>
+        <owners>Luca Piccioni</owners>
+        <licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
+        <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
     <!--<iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net.Logo.png</iconUrl>-->
-		<requireLicenseAcceptance>true</requireLicenseAcceptance>
-		<summary>Modern OpenGL bindings for C# - Core Profile.</summary>
-		<description>
-			Modern OpenGL bindings for C#.
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <summary>Modern OpenGL bindings for C# - Core Profile.</summary>
+        <description>
+            Modern OpenGL bindings for C#.
 
-			It supports the following APIs:
-			- OpenGL 4.5 and relative extensions.
-			- OpenGL for Windows (WGL) with relative extensions.
-			- OpenGL for X11 1.4 (XGL) with relative extensions.
-			- Native Platform Interface 1.5 (EGL) with relative extensions.
-			- Support Broadcom VideoCore IV (Raspberry PI 2)
+            It supports the following APIs:
+            - OpenGL 4.5 and relative extensions.
+            - OpenGL for Windows (WGL) with relative extensions.
+            - OpenGL for X11 1.4 (XGL) with relative extensions.
+            - Native Platform Interface 1.5 (EGL) with relative extensions.
+            - Support Broadcom VideoCore IV (Raspberry PI 2)
 
-			No user interface is included in this package. The following UI backends are supported in separated packages:
-			- System.Window.Forms (Windows, Linux) via OpenGL.Net.WinForms
-			- Xamarin.Forms (Android) via OpenGL.Net.Xamarin.Android
-			- Broadcom VideoCore IV (Raspberry PI 2) via OpenGL.Net.VideoCore
+            No user interface is included in this package. The following UI backends are supported in separated packages:
+            - System.Window.Forms (Windows, Linux) via OpenGL.Net.WinForms
+            - Xamarin.Forms (Android) via OpenGL.Net.Xamarin.Android
+            - Broadcom VideoCore IV (Raspberry PI 2) via OpenGL.Net.VideoCore
 
-			Note: this binary defines only a specific a subset of the OpenGL specification. The constants and commands removed are:
-			- Compatibility profile related symbols: make a favor to yourself.
-			- OpenGL ES related symbols. Only desktop environment.
-			- Extensions methods: no extension symbol is currently defined, you can request inclusion of extensions via github issue system.
-		</description>
-		<releaseNotes>
-			This package includes the targets:
-			- .NET 3.5
-			- .NET 4.6.1
-			- MonoAndroid target redirects to .NET 3.5
-		</releaseNotes>
-		<copyright>Copyright 2015-2017</copyright>
-		<tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
-		<dependencies>
-			<group targetFramework="net461">
-				<dependency id="System.Numerics.Vectors" version="4.3.0" />
-				<dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
-			</group>
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.dll" target="lib\net35" />
-		<!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\net35" />-->
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.dll" target="lib\net461" />
-		<!--<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.xml" target="lib\net461" />-->
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.dll" target="lib\MonoAndroid" />
-		<!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\MonoAndroid" />-->
-	</files>
+            Note: this binary defines only a specific a subset of the OpenGL specification. The constants and commands removed are:
+            - Compatibility profile related symbols: make a favor to yourself.
+            - OpenGL ES related symbols. Only desktop environment.
+            - Extensions methods: no extension symbol is currently defined, you can request inclusion of extensions via github issue system.
+        </description>
+        <releaseNotes>
+            "The little bear" - "It looks cute, but bites"
+            
+            - API:
+                - Added enumeration arguments and return types; (more will be)
+                - Renamed enumerations from ARB or EXT suffixes for core enumerations;
+                - Loads only the required commands for the current GL context; faster load times;
+                - Logging has a cleaner and extensible interface
+                - EGL initialization event for passing custom arguments; other APIs may have their own event;
+                - Optional library initialization via environment variables;
+                - Updated specification (but with strong customization due enums)
+            - Documentation:
+                - More documentation from GLES3.2 manual
+                - Commands and enumerations are documented with multiple manuals
+        </releaseNotes>
+        <copyright>Copyright 2015-2017</copyright>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
+        <dependencies>
+            <group targetFramework="net461">
+                <dependency id="System.Numerics.Vectors" version="4.3.0" />
+                <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.dll" target="lib\net35" />
+        <!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\net35" />-->
+        <file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.dll" target="lib\net461" />
+        <!--<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.xml" target="lib\net461" />-->
+        <file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.dll" target="lib\MonoAndroid" />
+        <!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\MonoAndroid" />-->
+    </files>
 </package>

@@ -1,55 +1,55 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-		<id>OpenGL.Net.Debug</id>
-		<version>$version$</version>
-		<title>OpenGL for .Net (Debug)</title>
-		<authors>Luca Piccioni</authors>
-		<owners>Luca Piccioni</owners>
-		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
-		<projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
+        <id>OpenGL.Net.Debug</id>
+        <version>$version$</version>
+        <title>OpenGL for .Net (Debug)</title>
+        <authors>Luca Piccioni</authors>
+        <owners>Luca Piccioni</owners>
+        <licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
+        <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
     <!--<iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net.Logo.png</iconUrl>-->
-		<requireLicenseAcceptance>true</requireLicenseAcceptance>
-		<summary>Modern OpenGL bindings for C#.</summary>
-		<description>
-			Modern OpenGL bindings for C#.
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <summary>Modern OpenGL bindings for C#.</summary>
+        <description>
+            Modern OpenGL bindings for C#.
 
-			It supports the following APIs:
-			- OpenGL 4.5 and OpenGL ES 3.2 with relative extensions, updated by the specification of 29 Nov 2016 (rev 33312).
-			- OpenGL for Windows (WGL) with relative extensions, updated by the specification of 19 Dec 2016 (rev 33340)
-			- OpenGL for X11 1.4 (XGL) with relative extensions, updated by the specification of 7 Jun 2016 (rev 32941).
-			- Native Platform Interface 1.5 (EGL) with relative extensions, updated by the specification of 30 Nov 2016 (rev 33315)
-			- Support Broadcom VideoCore IV (Raspberry PI 2)
+            It supports the following APIs:
+            - OpenGL 4.5 and OpenGL ES 3.2 with relative extensions, updated by the specification of 29 Nov 2016 (rev 33312).
+            - OpenGL for Windows (WGL) with relative extensions, updated by the specification of 19 Dec 2016 (rev 33340)
+            - OpenGL for X11 1.4 (XGL) with relative extensions, updated by the specification of 7 Jun 2016 (rev 32941).
+            - Native Platform Interface 1.5 (EGL) with relative extensions, updated by the specification of 30 Nov 2016 (rev 33315)
+            - Support Broadcom VideoCore IV (Raspberry PI 2)
 
-			No user interface is included in this package. The following UI backends are supported in separated packages:
-			- System.Window.Forms (Windows, Linux) via OpenGL.Net.WinForms
-			- Xamarin.Forms (Android) via OpenGL.Net.Xamarin.Android
-			- Broadcom VideoCore IV (Raspberry PI 2) via OpenGL.Net.VideoCore
-		</description>
-		<releaseNotes>
-			This package includes the targets:
-			- .NET 3.5
-			- .NET 4.6.1
-			- MonoAndroid target redirects to .NET 3.5
-		</releaseNotes>
-		<copyright>Copyright 2015-2017</copyright>
-		<tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
-		<dependencies>
-			<group targetFramework="net461">
-				<dependency id="System.Numerics.Vectors" version="4.3.0" />
-				<dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
-			</group>
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.dll" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.xml" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.pdb" target="lib\net35" />
-		<file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.dll" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.xml" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.pdb" target="lib\net461" />
-		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.dll" target="lib\MonoAndroid" />
-		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.xml" target="lib\MonoAndroid" />
-		<file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.pdb" target="lib\MonoAndroid" />
-	</files>
+            No user interface is included in this package. The following UI backends are supported in separated packages:
+            - System.Window.Forms (Windows, Linux) via OpenGL.Net.WinForms
+            - Xamarin.Forms (Android) via OpenGL.Net.Xamarin.Android
+            - Broadcom VideoCore IV (Raspberry PI 2) via OpenGL.Net.VideoCore
+        </description>
+        <releaseNotes>
+            This package includes the targets:
+            - .NET 3.5
+            - .NET 4.6.1
+            - MonoAndroid target redirects to .NET 3.5
+        </releaseNotes>
+        <copyright>Copyright 2015-2017</copyright>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
+        <dependencies>
+            <group targetFramework="net461">
+                <dependency id="System.Numerics.Vectors" version="4.3.0" />
+                <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.dll" target="lib\net35" />
+        <file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.xml" target="lib\net35" />
+        <file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.pdb" target="lib\net35" />
+        <file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.dll" target="lib\net461" />
+        <file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.xml" target="lib\net461" />
+        <file src="OpenGL.Net/bin/net461/Debug/OpenGL.Net.pdb" target="lib\net461" />
+        <file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.dll" target="lib\MonoAndroid" />
+        <file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.xml" target="lib\MonoAndroid" />
+        <file src="OpenGL.Net/bin/net35/Debug/OpenGL.Net.pdb" target="lib\MonoAndroid" />
+    </files>
 </package>

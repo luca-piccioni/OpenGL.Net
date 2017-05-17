@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-		<id>OpenGL.Net.ES2Profile</id>
-		<version>$version$</version>
-		<title>OpenGL for .Net - ES2 Profile</title>
-		<authors>Luca Piccioni</authors>
-		<owners>Luca Piccioni</owners>
-		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
-		<projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
+        <id>OpenGL.Net.ES2Profile</id>
+        <version>$version$</version>
+        <title>OpenGL for .Net - ES2 Profile</title>
+        <authors>Luca Piccioni</authors>
+        <owners>Luca Piccioni</owners>
+        <licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
+        <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
     <!--<iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net.Logo.png</iconUrl>-->
-		<requireLicenseAcceptance>true</requireLicenseAcceptance>
-		<summary>Modern OpenGL bindings for C# - OpenGL ES 2+.</summary>
-		<description>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <summary>Modern OpenGL bindings for C# - OpenGL ES 2+.</summary>
+        <description>
             Modern OpenGL bindings for C#.
 
             It supports the following APIs:
@@ -30,27 +30,36 @@
             - OpenGL ES related symbols: only OpenGL ES 2+ symbols are included.
             - No OpenGL API
         </description>
-		<releaseNotes>
-			This package includes the targets:
-			- .NET 3.5
-			- .NET 4.6.1
-			- MonoAndroid target redirects to .NET 3.5
-		</releaseNotes>
-		<copyright>Copyright 2015-2017</copyright>
-		<tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
-		<dependencies>
-			<group targetFramework="net461">
-				<dependency id="System.Numerics.Vectors" version="4.3.0" />
-				<dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
-			</group>
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll" target="lib\net35" />
-		<!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\net35" />-->
-		<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.dll" target="lib\net461" />
-		<!--<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.xml" target="lib\net461" />-->
-		<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll" target="lib\MonoAndroid" />
-		<!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\MonoAndroid" />-->
-	</files>
+        <releaseNotes>
+            "The little bear" - "It looks cute, but bites"
+            
+            - API:
+                - Added enumeration arguments and return types; (more will be)
+                - Renamed enumerations from ARB or EXT suffixes for core enumerations;
+                - Loads only the required commands for the current GL context; faster load times;
+                - Logging has a cleaner and extensible interface
+                - EGL initialization event for passing custom arguments; other APIs may have their own event;
+                - Optional library initialization via environment variables;
+                - Updated specification (but with strong customization due enums)
+            - Documentation:
+                - More documentation from GLES3.2 manual
+                - Commands and enumerations are documented with multiple manuals
+        </releaseNotes>
+        <copyright>Copyright 2015-2017</copyright>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
+        <dependencies>
+            <group targetFramework="net461">
+                <dependency id="System.Numerics.Vectors" version="4.3.0" />
+                <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll" target="lib\net35" />
+        <!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\net35" />-->
+        <file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.dll" target="lib\net461" />
+        <!--<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.xml" target="lib\net461" />-->
+        <file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.dll" target="lib\MonoAndroid" />
+        <!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-ES2Profile.xml" target="lib\MonoAndroid" />-->
+    </files>
 </package>
