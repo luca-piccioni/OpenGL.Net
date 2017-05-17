@@ -24,7 +24,7 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture]
-	class KhronosApiTest : GlTestBase
+	class KhronosApiTest : TestBaseGL
 	{
 		[Test]
 		public void TestBindAPIPerformance()

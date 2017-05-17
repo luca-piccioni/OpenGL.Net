@@ -24,6 +24,7 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture]
+	[Category("Math")]
 	class MatrixTest
 	{
 		#region Multiply

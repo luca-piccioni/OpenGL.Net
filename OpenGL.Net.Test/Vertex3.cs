@@ -28,7 +28,7 @@ using System.Numerics;
 namespace OpenGL.Test
 {
 	[TestFixture]
-	class Vertex3Test
+	class Vertex3Test : TestBaseBenchmark
 	{
 		#region Constructors
 

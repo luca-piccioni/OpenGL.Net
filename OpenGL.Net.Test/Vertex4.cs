@@ -24,7 +24,7 @@ using System.Numerics;
 
 namespace OpenGL.Test
 {
-	class Vertex4Test : BenchmarkBase
+	class Vertex4Test : TestBaseBenchmark
 	{
 		#region Constructors
 

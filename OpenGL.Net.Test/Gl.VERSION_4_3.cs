@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -26,7 +26,8 @@ namespace OpenGL.Test
 	/// Test OpenGL 4.3 API.
 	/// </summary>
 	[TestFixture]
-	class Gl_VERSION_4_3 : GlTestBase
+	[Category("GL_VERSION_4_3")]
+	class Gl_VERSION_4_3 : TestBaseGL
 	{
 		/// <summary>
 		/// Test Gl.GetString.

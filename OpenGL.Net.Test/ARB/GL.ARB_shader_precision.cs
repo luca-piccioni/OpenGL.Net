@@ -31,7 +31,7 @@ namespace OpenGL.Test
 	/// </summary>
 	[TestFixture]
 	// [Context(ContextRequired = ContextAttribute.ContextMode.CoreProfile)]
-	class Gl_ARB_shader_precision : GlShaderTestBase
+	class Gl_ARB_shader_precision : TestBaseGLSL
 	{
 		#region Setup & Tear Down
 

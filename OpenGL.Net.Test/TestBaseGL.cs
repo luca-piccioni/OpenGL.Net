@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -27,7 +27,8 @@ namespace OpenGL.Test
 	/// Abstract base test creating an OpenGL context used for testing.
 	/// </summary>
 	[TestFixture, RequiresSTA]
-	abstract class GlTestBase : TestBase
+	[Category("Graphics")]
+	abstract class TestBaseGL : TestBase
 	{
 		#region Setup & Tear Down
 

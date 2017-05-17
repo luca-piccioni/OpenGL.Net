@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -26,7 +26,8 @@ namespace OpenGL.Test
 	/// Test OpenGL 2.0 API.
 	/// </summary>
 	[TestFixture]
-	class Gl_VERSION_2_0 : GlTestBase
+	[Category("GL_VERSION_2_0")]
+	class Gl_VERSION_2_0 : TestBaseGL
 	{
 		/// <summary>
 		/// Test Gl.GetString.
@@ -94,7 +95,7 @@ namespace OpenGL.Test
 			} finally {
 				if (shader != 0) {
 					Gl.DeleteShader(shader);
-					// Assert.IsFalse(Gl.IsShader(shader), "Gl.DeleteShader failure");
+					Assert.IsFalse(Gl.IsShader(shader), "Gl.DeleteShader failure");
 				}
 			}
 		}

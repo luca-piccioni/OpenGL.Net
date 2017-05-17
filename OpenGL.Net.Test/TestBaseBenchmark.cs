@@ -28,9 +28,10 @@ namespace OpenGL.Test
 	/// Abstract base test creating benchmarking methods.
 	/// </summary>
 	[TestFixture, RequiresSTA]
-	public abstract class BenchmarkBase
+	[Category("Benchmark")]
+	public abstract class TestBaseBenchmark
 	{
-		protected static void RunBenchmarks<T>(string prefix) where T : BenchmarkBase
+		protected static void RunBenchmarks<T>(string prefix) where T : TestBaseBenchmark
 		{
 			foreach (MethodInfo method in typeof(T).GetMethods(BindingFlags.Static | BindingFlags.Public)) {
 				if (prefix != null && method.Name.StartsWith(prefix) == false)

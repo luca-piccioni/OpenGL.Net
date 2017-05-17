@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -27,6 +27,7 @@ namespace OpenGL.Test
 	/// Test OpenGL 1.0 API.
 	/// </summary>
 	[TestFixture]
+	[Category("GL_VERSION_2_0_ES")]
 	class Gl_VERSION_2_0_ES : Gl_VERSION_2_0
 	{
 		/// <summary>

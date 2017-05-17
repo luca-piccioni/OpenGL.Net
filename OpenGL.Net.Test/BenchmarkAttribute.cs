@@ -24,7 +24,7 @@ namespace OpenGL.Test
 	/// Attribute for marking benchmark methods.
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-	public class BenchmarkAttribute : Attribute
+	class BenchmarkAttribute : Attribute
 	{
 		#region Constructors
 

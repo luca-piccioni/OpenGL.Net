@@ -26,7 +26,7 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Class for testing WGL_ARB_extensions_string API.
 	/// </summary>
-	class WGL_ARB_extensions_string : GlTestBase
+	class WGL_ARB_extensions_string : TestBaseGL
 	{
 		/// <summary>
 		/// Test Wgl.GetExtensionsStringARB

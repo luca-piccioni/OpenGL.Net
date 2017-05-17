@@ -104,7 +104,7 @@
     <Compile Include="ARB\Wgl.ARB_pixel_format.cs" />
     <Compile Include="ARB\GL.ARB_shader_precision.cs" />
     <Compile Include="BenchmarkAttribute.cs" />
-    <Compile Include="BenchmarkBase.cs" />
+    <Compile Include="TestBaseBenchmark.cs" />
     <Compile Include="Gl.VERSION_3_0_ES.cs" />
     <Compile Include="Gl.VERSION_2_0_ES.cs" />
     <Compile Include="Gl.VERSION_1_5_ES.cs" />
@@ -114,7 +114,7 @@
     <Compile Include="Gl.VERSION_2_0.cs" />
     <Compile Include="Gl.VERSION_3_0.cs" />
     <Compile Include="Gl.VERSION_4_3.cs" />
-    <Compile Include="GlTestBase.cs" />
+    <Compile Include="TestBaseGL.cs" />
     <Compile Include="KhronosApi.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Matrix4x4.cs" />
@@ -128,7 +128,7 @@
   <ItemGroup>
     <EmbeddedResource Include="ARB\Gl.ARB_shader_precision.glvs" />
     <Compile Include="ContextAttribute.cs" />
-    <Compile Include="Gl.ShaderTestBase.cs" />
+    <Compile Include="TestBaseGLSL.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

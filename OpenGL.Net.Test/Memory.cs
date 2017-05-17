@@ -17,14 +17,13 @@
 // USA
 
 using System;
-using System.Diagnostics;
 
 using NUnit.Framework;
 
 namespace OpenGL.Test
 {
 	[TestFixture]
-	class TestMemory : BenchmarkBase
+	class TestMemory : TestBaseBenchmark
 	{
 		#region Constructors
 

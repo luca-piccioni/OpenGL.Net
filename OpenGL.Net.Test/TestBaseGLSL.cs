@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -28,8 +28,9 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating an OpenGL context used for testing.
 	/// </summary>
-	[TestFixture]
-	abstract class GlShaderTestBase : GlTestBase
+	[TestFixture, RequiresSTA]
+	[Category("Graphics")]
+	abstract class TestBaseGLSL : TestBaseGL
 	{
 		#region Shader Management
 

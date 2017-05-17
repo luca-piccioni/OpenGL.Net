@@ -21,6 +21,7 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture]
+	[Category("Math")]
 	class PlaneTest
 	{
 		[Test]

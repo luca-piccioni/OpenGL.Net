@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -26,7 +26,8 @@ namespace OpenGL.Test
 	/// Test OpenGL 1.5 API.
 	/// </summary>
 	[TestFixture]
-	class Gl_VERSION_1_5 : GlTestBase
+	[Category("GL_VERSION_1_5")]
+	class Gl_VERSION_1_5 : TestBaseGL
 	{
 		/// <summary>
 		/// Test Gl.GenBuffer.
@@ -108,9 +109,6 @@ namespace OpenGL.Test
 		[Test]
 		public void TestMapBuffer()
 		{
-			// Appveyor pass the Inconclusive condition
-			Assert.Inconclusive();
-
 			if (!HasVersion(1, 5) && !Gl.CurrentExtensions.VertexBufferObject_ARB && !Gl.CurrentExtensions.Mapbuffer_OES)
 				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object or GL_OES_mapbuffer not supported");
 

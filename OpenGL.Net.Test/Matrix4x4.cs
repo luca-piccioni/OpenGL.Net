@@ -30,7 +30,7 @@ using Mat4x4 = System.Numerics.Matrix4x4;
 namespace OpenGL.Test
 {
 	[TestFixture]
-	class Matrix4x4Test : BenchmarkBase
+	class Matrix4x4Test : TestBaseBenchmark
 	{
 		#region Constructors
 
