@@ -226,7 +226,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
 				}
 			} else
-				deviceContext = new DeviceContextEGL(windowHandle);
+				deviceContext = new DeviceContextEGL(display, windowHandle);
 
 			return (deviceContext);
 		}

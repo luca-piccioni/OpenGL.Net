@@ -41,8 +41,27 @@ namespace OpenGL
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
 		public DeviceContextEGL(IntPtr windowHandle)
+			: this(NativeWindow.DefaultDisplay, windowHandle)
 		{
-			_NativeSurface = new NativeWindow(windowHandle);
+
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DeviceContextEGL"/> class.
+		/// </summary>
+		/// <param name="display">
+		/// A <see cref="IntPtr"/> that specifies the display handle used to create <paramref name="windowHandle"/>.
+		/// </param>
+		/// <param name='windowHandle'>
+		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context. If it is <see cref="IntPtr.Zero"/>
+		/// the surface referenced by this NativeDeviceContext is a minimal PBuffer.
+		/// </param>
+		/// <exception cref='InvalidOperationException'>
+		/// Is thrown when an operation cannot be performed.
+		/// </exception>
+		public DeviceContextEGL(IntPtr display, IntPtr windowHandle)
+		{
+			_NativeSurface = new NativeWindow(display, windowHandle);
 		}
 
 		/// <summary>
@@ -141,10 +160,13 @@ namespace OpenGL
 			/// <summary>
 			/// Default constructor.
 			/// </summary>
-			protected NativeSurface()
+			/// <param name="display">
+			/// A <see cref="IntPtr"/> that specifies the display handle to be passed to <see cref="Egl.GetDisplay(IntPtr)"/>.
+			/// </param>
+			protected NativeSurface(IntPtr display)
 			{
 				try {
-					if ((_Display = Egl.GetDisplay(new IntPtr(Egl.DEFAULT_DISPLAY))) == IntPtr.Zero)
+					if ((_Display = Egl.GetDisplay(display)) == IntPtr.Zero)
 						throw new InvalidOperationException("unable to get display handle");
 
 					int[] major = new int[1], minor = new int[1];
@@ -162,6 +184,11 @@ namespace OpenGL
 			#endregion
 
 			#region Handles
+
+			/// <summary>
+			/// The default display handle.
+			/// </summary>
+			public static readonly IntPtr DefaultDisplay = new IntPtr(Egl.DEFAULT_DISPLAY);
 
 			/// <summary>
 			/// Get the native surface handle.
@@ -220,7 +247,10 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a NativeWindow.
 			/// </summary>
-			public NativeWindow() : this(Gl._NativeWindow.Handle)
+			/// <param name="display">
+			/// A <see cref="IntPtr"/> that specifies the display handle to be passed to <see cref="Egl.GetDisplay(IntPtr)"/>.
+			/// </param>
+			public NativeWindow(IntPtr display) : this(display, Gl._NativeWindow.Handle)
 			{
 
 			}
@@ -228,10 +258,13 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a NativeWindow on an OS window
 			/// </summary>
+			/// <param name="display">
+			/// A <see cref="IntPtr"/> that specifies the display handle to be passed to <see cref="Egl.GetDisplay(IntPtr)"/>.
+			/// </param>
 			/// <param name="windowHandle">
 			/// A <see cref="IntPtr"/> that specifies the handle of the OS window.
 			/// </param>
-			public NativeWindow(IntPtr windowHandle) : this(windowHandle, null)
+			public NativeWindow(IntPtr display, IntPtr windowHandle) : this(display, windowHandle, null)
 			{
 
 			}
@@ -239,6 +272,9 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a NativeWindow on an OS window.
 			/// </summary>
+			/// <param name="display">
+			/// A <see cref="IntPtr"/> that specifies the display handle to be passed to <see cref="Egl.GetDisplay(IntPtr)"/>.
+			/// </param>
 			/// <param name="windowHandle">
 			/// A <see cref="IntPtr"/> that specifies the handle of the OS window.
 			/// </param>
@@ -246,7 +282,8 @@ namespace OpenGL
 			/// A <see cref="DevicePixelFormat"/> used for choosing the NativeWindow pixel format configuration. It can
 			/// be null; in this case the pixel format will be set elsewhere.
 			/// </param>
-			public NativeWindow(IntPtr windowHandle, DevicePixelFormat pixelFormat)
+			public NativeWindow(IntPtr display, IntPtr windowHandle, DevicePixelFormat pixelFormat)
+				: base(display)
 			{
 				try {
 					// Hold the window handle in case pixel format will be set later
@@ -361,6 +398,21 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a NativePBuffer with a specific pixel format and size.
 			/// </summary>
+			/// <param name="width">
+			/// A <see cref="UInt32"/> that specifies the width of the P-Buffer, in pixels.
+			/// </param>
+			/// <param name="height">
+			/// A <see cref="UInt32"/> that specifies the height of the P-Buffer, in pixels.
+			/// </param>
+			public NativePBuffer(DevicePixelFormat pixelFormat, uint width, uint height)
+				: this(DefaultDisplay, pixelFormat, width, height)
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a NativePBuffer with a specific pixel format and size.
+			/// </summary>
 			/// <param name="pixelFormat">
 			/// A <see cref="DevicePixelFormat"/> that specifies the pixel format and the ancillary buffers required.
 			/// </param>
@@ -370,7 +422,8 @@ namespace OpenGL
 			/// <param name="height">
 			/// A <see cref="UInt32"/> that specifies the height of the P-Buffer, in pixels.
 			/// </param>
-			public NativePBuffer(DevicePixelFormat pixelFormat, uint width, uint height)
+			public NativePBuffer(IntPtr display, DevicePixelFormat pixelFormat, uint width, uint height)
+				: base(display)
 			{
 				if (pixelFormat == null)
 					throw new ArgumentNullException("pixelFormat");
