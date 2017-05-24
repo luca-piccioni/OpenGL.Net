@@ -21,7 +21,7 @@
             - .NET 3.5
         </releaseNotes>
         <dependencies>
-            <dependency id="OpenGL.Net" version="[0.4.2, 0.5.1)" />
+            <dependency id="OpenGL.Net" version="$version$" />
         </dependencies>
         <copyright>Copyright 2015-2017</copyright>
         <tags>RPi RaspberryPi OpenGL OpenGL-ES GLSL GLES EGL C# .Net Graphics 3D</tags>

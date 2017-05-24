@@ -27,24 +27,20 @@
             - Broadcom VideoCore IV (Raspberry PI 2) via OpenGL.Net.VideoCore
 
             Note: this binary defines only a specific a subset of the OpenGL specification. The constants and commands removed are:
-            - Compatibility profile related symbols: make a favor to yourself.
+            - Compatibility profile related symbols..
             - OpenGL ES related symbols. Only desktop environment.
-            - Extensions methods: no extension symbol is currently defined, you can request inclusion of extensions via github issue system.
+            - Extensions methods that affect only the core profile.
         </description>
         <releaseNotes>
-            "The little bear" - "It looks cute, but bites"
-            
-            - API:
-                - Added enumeration arguments and return types; (more will be)
-                - Renamed enumerations from ARB or EXT suffixes for core enumerations;
-                - Loads only the required commands for the current GL context; faster load times;
-                - Logging has a cleaner and extensible interface
-                - EGL initialization event for passing custom arguments; other APIs may have their own event;
-                - Optional library initialization via environment variables;
-                - Updated specification (but with strong customization due enums)
-            - Documentation:
-                - More documentation from GLES3.2 manual
-                - Commands and enumerations are documented with multiple manuals
+            - Added enumeration arguments and return types; (more will be)
+            - Renamed enumerations from ARB or EXT suffixes for core enumerations;
+            - Loads only the required commands for the current GL context; faster load times;
+            - Logging has a cleaner and extensible interface
+            - EGL initialization event for passing custom arguments; other APIs may have their own event;
+            - Optional library initialization via environment variables;
+            - Updated specification (but with strong customization due enums)
+            - More documentation from GLES3.2 manual
+            - Commands and enumerations are documented with multiple manuals
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
         <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
