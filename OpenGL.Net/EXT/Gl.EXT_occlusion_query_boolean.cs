@@ -165,6 +165,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetQueryivEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:QueryTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:QueryParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
+		public static void GetQueryEXT(QueryTarget target, QueryParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetQueryivEXT != null, "pglGetQueryivEXT not implemented");
+					Delegates.pglGetQueryivEXT((Int32)target, (Int32)pname, p_params);
+					LogCommand("glGetQueryivEXT", null, target, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glGetQueryObjectuivEXT.
 		/// </summary>
 		/// <param name="id">
@@ -182,6 +209,33 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetQueryObjectuivEXT != null, "pglGetQueryObjectuivEXT not implemented");
+					Delegates.pglGetQueryObjectuivEXT(id, (Int32)pname, p_params);
+					LogCommand("glGetQueryObjectuivEXT", null, id, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetQueryObjectuivEXT.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:QueryObjectParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
+		public static void GetQueryObjectuivEXT(UInt32 id, QueryObjectParameterName pname, out UInt32 @params)
+		{
+			unsafe {
+				fixed (UInt32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuivEXT != null, "pglGetQueryObjectuivEXT not implemented");
 					Delegates.pglGetQueryObjectuivEXT(id, (Int32)pname, p_params);

@@ -1129,6 +1129,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetTextureParameterivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:GetTextureParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
+					Delegates.pglGetTextureParameterivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					LogCommand("glGetTextureParameterivEXT", null, texture, target, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glGetTextureLevelParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
@@ -1183,6 +1212,38 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
+					Delegates.pglGetTextureLevelParameterivEXT(texture, (Int32)target, level, (Int32)pname, p_params);
+					LogCommand("glGetTextureLevelParameterivEXT", null, texture, target, level, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetTextureLevelParameterivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:GetTextureParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
 					Delegates.pglGetTextureLevelParameterivEXT(texture, (Int32)target, level, (Int32)pname, p_params);
@@ -4531,6 +4592,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Binding for glGetTextureParameterIivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:GetTextureParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
+					Delegates.pglGetTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					LogCommand("glGetTextureParameterIivEXT", null, texture, target, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// Binding for glGetTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
@@ -4550,6 +4640,35 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
+					Delegates.pglGetTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					LogCommand("glGetTextureParameterIuivEXT", null, texture, target, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glGetTextureParameterIuivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:GetTextureParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, out UInt32 @params)
+		{
+			unsafe {
+				fixed (UInt32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
 					Delegates.pglGetTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, p_params);
