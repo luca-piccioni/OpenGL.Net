@@ -21,22 +21,10 @@ using System;
 namespace OpenGL
 {
 	/// <summary>
-	/// Native window interface.
+	/// Native P-Buffer interface.
 	/// </summary>
-	internal interface INativeWindow : IDisposable
+	public interface INativePBuffer : IDisposable
 	{
-		#region Properties
 
-		/// <summary>
-		/// Get the display handle associated this instance.
-		/// </summary>
-		IntPtr Display { get; }
-
-		/// <summary>
-		/// Get the native window handle.
-		/// </summary>
-		IntPtr Handle { get; }
-
-		#endregion
 	}
 }

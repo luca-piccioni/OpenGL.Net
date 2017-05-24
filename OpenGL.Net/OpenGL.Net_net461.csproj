@@ -272,6 +272,7 @@
     <Compile Include="ColorRGBARef.cs" />
     <Compile Include="ColorSRGB.cs" />
     <Compile Include="EglEventArgs.cs" />
+    <Compile Include="INativePBuffer.cs" />
     <Compile Include="KhronosLogMap.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
     <Compile Include="DMP\Gl.DMP_shader_binary.cs" />
