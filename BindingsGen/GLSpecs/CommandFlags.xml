@@ -167,7 +167,7 @@
 
 	<!-- GL - Out Parameter -->
 
-	<command name="^glGet(Query(Object)?|Shader|Program|VertexAttrib|TexLevelParameter|ProgramInterface|TextureLevelParameter)u?i(64)?v(EXT)?$">
+	<command name="^glGet(Query(Object)?|Shader|Program|VertexAttrib|TexLevelParameter|ProgramInterface|TextureLevelParameter|TextureParameter(I)?)u?i(64)?v(EXT)?$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
