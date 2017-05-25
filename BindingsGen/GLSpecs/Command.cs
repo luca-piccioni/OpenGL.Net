@@ -1128,7 +1128,7 @@ namespace BindingsGen.GLSpecs
 
 			string implementationName = GetImplementationNameBase(ctx);
 
-			return (implementationName.StartsWith("Gen"));
+			return (implementationName.StartsWith("Gen") || implementationName.StartsWith("Create"));
 		}
 
 		/// <summary>
