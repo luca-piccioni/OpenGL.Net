@@ -273,9 +273,6 @@ namespace OpenGL
 		/// <summary>
 		/// create transform feedback objects
 		/// </summary>
-		/// <param name="n">
-		/// Number of transform feedback objects to create.
-		/// </param>
 		/// <param name="ids">
 		/// Specifies an array in which names of the new transform feedback objects are stored.
 		/// </param>
@@ -291,17 +288,39 @@ namespace OpenGL
 		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateTransformFeedbacks(Int32 n, UInt32[] ids)
+		public static void CreateTransformFeedbacks(UInt32[] ids)
 		{
 			unsafe {
 				fixed (UInt32* p_ids = ids)
 				{
 					Debug.Assert(Delegates.pglCreateTransformFeedbacks != null, "pglCreateTransformFeedbacks not implemented");
-					Delegates.pglCreateTransformFeedbacks(n, p_ids);
-					LogCommand("glCreateTransformFeedbacks", null, n, ids					);
+					Delegates.pglCreateTransformFeedbacks((Int32)ids.Length, p_ids);
+					LogCommand("glCreateTransformFeedbacks", null, ids.Length, ids					);
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create transform feedback objects
+		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BeginTransformFeedback"/>
+		/// <seealso cref="Gl.BindTransformFeedback"/>
+		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
+		/// <seealso cref="Gl.GenTransformFeedbacks"/>
+		/// <seealso cref="Gl.IsTransformFeedback"/>
+		/// <seealso cref="Gl.PauseTransformFeedback"/>
+		/// <seealso cref="Gl.ResumeTransformFeedback"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateTransformFeedback()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateTransformFeedbacks(retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -563,9 +582,6 @@ namespace OpenGL
 		/// <summary>
 		/// create buffer objects
 		/// </summary>
-		/// <param name="n">
-		/// Specifies the number of buffer objects to create.
-		/// </param>
 		/// <param name="buffers">
 		/// Specifies an array in which names of the new buffer objects are stored.
 		/// </param>
@@ -582,17 +598,40 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateBuffers(Int32 n, UInt32[] buffers)
+		public static void CreateBuffers(UInt32[] buffers)
 		{
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				{
 					Debug.Assert(Delegates.pglCreateBuffers != null, "pglCreateBuffers not implemented");
-					Delegates.pglCreateBuffers(n, p_buffers);
-					LogCommand("glCreateBuffers", null, n, buffers					);
+					Delegates.pglCreateBuffers((Int32)buffers.Length, p_buffers);
+					LogCommand("glCreateBuffers", null, buffers.Length, buffers					);
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create buffer objects
+		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.GenBuffers"/>
+		/// <seealso cref="Gl.BindBufferBase"/>
+		/// <seealso cref="Gl.BindBufferRange"/>
+		/// <seealso cref="Gl.MapBuffer"/>
+		/// <seealso cref="Gl.UnmapBuffer"/>
+		/// <seealso cref="Gl.DeleteBuffers"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.IsBuffer"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateBuffer()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateBuffers(retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -1697,9 +1736,6 @@ namespace OpenGL
 		/// <summary>
 		/// create framebuffer objects
 		/// </summary>
-		/// <param name="n">
-		/// Number of framebuffer objects to create.
-		/// </param>
 		/// <param name="framebuffers">
 		/// Specifies an array in which names of the new framebuffer objects are stored.
 		/// </param>
@@ -1715,17 +1751,39 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateFramebuffers(Int32 n, UInt32[] framebuffers)
+		public static void CreateFramebuffers(UInt32[] framebuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				{
 					Debug.Assert(Delegates.pglCreateFramebuffers != null, "pglCreateFramebuffers not implemented");
-					Delegates.pglCreateFramebuffers(n, p_framebuffers);
-					LogCommand("glCreateFramebuffers", null, n, framebuffers					);
+					Delegates.pglCreateFramebuffers((Int32)framebuffers.Length, p_framebuffers);
+					LogCommand("glCreateFramebuffers", null, framebuffers.Length, framebuffers					);
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create framebuffer objects
+		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.GenFramebuffers"/>
+		/// <seealso cref="Gl.BindFramebuffer"/>
+		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
+		/// <seealso cref="Gl.FramebufferTexture"/>
+		/// <seealso cref="Gl.FramebufferTextureLayer"/>
+		/// <seealso cref="Gl.DeleteFramebuffers"/>
+		/// <seealso cref="Gl.IsFramebuffer"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateFramebuffer()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateFramebuffers(retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -2703,9 +2761,6 @@ namespace OpenGL
 		/// <summary>
 		/// create renderbuffer objects
 		/// </summary>
-		/// <param name="n">
-		/// Number of renderbuffer objects to create.
-		/// </param>
 		/// <param name="renderbuffers">
 		/// Specifies an array in which names of the new renderbuffer objects are stored.
 		/// </param>
@@ -2720,17 +2775,38 @@ namespace OpenGL
 		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateRenderbuffers(Int32 n, UInt32[] renderbuffers)
+		public static void CreateRenderbuffers(UInt32[] renderbuffers)
 		{
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				{
 					Debug.Assert(Delegates.pglCreateRenderbuffers != null, "pglCreateRenderbuffers not implemented");
-					Delegates.pglCreateRenderbuffers(n, p_renderbuffers);
-					LogCommand("glCreateRenderbuffers", null, n, renderbuffers					);
+					Delegates.pglCreateRenderbuffers((Int32)renderbuffers.Length, p_renderbuffers);
+					LogCommand("glCreateRenderbuffers", null, renderbuffers.Length, renderbuffers					);
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create renderbuffer objects
+		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindRenderbuffer"/>
+		/// <seealso cref="Gl.DeleteRenderbuffers"/>
+		/// <seealso cref="Gl.GenRenderbuffers"/>
+		/// <seealso cref="Gl.IsRenderbuffer"/>
+		/// <seealso cref="Gl.RenderbufferStorage"/>
+		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateRenderbuffer()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateRenderbuffers(retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -2930,6 +3006,83 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create texture objects
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the effective texture target of each created texture.
+		/// </param>
+		/// <param name="textures">
+		/// Specifies an array in which names of the new texture objects are stored.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.DeleteTextures"/>
+		/// <seealso cref="Gl.GenTextures"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.IsTexture"/>
+		/// <seealso cref="Gl.TexBuffer"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2DMultisample"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexImage3DMultisample"/>
+		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void CreateTextures(TextureTarget target, UInt32[] textures)
+		{
+			unsafe {
+				fixed (UInt32* p_textures = textures)
+				{
+					Debug.Assert(Delegates.pglCreateTextures != null, "pglCreateTextures not implemented");
+					Delegates.pglCreateTextures((Int32)target, (Int32)textures.Length, p_textures);
+					LogCommand("glCreateTextures", null, target, textures.Length, textures					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create texture objects
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the effective texture target of each created texture.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.DeleteTextures"/>
+		/// <seealso cref="Gl.GenTextures"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetTexParameter"/>
+		/// <seealso cref="Gl.IsTexture"/>
+		/// <seealso cref="Gl.TexBuffer"/>
+		/// <seealso cref="Gl.TexImage1D"/>
+		/// <seealso cref="Gl.TexImage2D"/>
+		/// <seealso cref="Gl.TexImage2DMultisample"/>
+		/// <seealso cref="Gl.TexImage3D"/>
+		/// <seealso cref="Gl.TexImage3DMultisample"/>
+		/// <seealso cref="Gl.TexParameter"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateTexture(TextureTarget target)
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateTextures((Int32)target, retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -5629,9 +5782,6 @@ namespace OpenGL
 		/// <summary>
 		/// create vertex array objects
 		/// </summary>
-		/// <param name="n">
-		/// Number of vertex array objects to create.
-		/// </param>
 		/// <param name="arrays">
 		/// Specifies an array in which names of the new vertex array objects are stored.
 		/// </param>
@@ -5646,17 +5796,38 @@ namespace OpenGL
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateVertexArrays(Int32 n, UInt32[] arrays)
+		public static void CreateVertexArrays(UInt32[] arrays)
 		{
 			unsafe {
 				fixed (UInt32* p_arrays = arrays)
 				{
 					Debug.Assert(Delegates.pglCreateVertexArrays != null, "pglCreateVertexArrays not implemented");
-					Delegates.pglCreateVertexArrays(n, p_arrays);
-					LogCommand("glCreateVertexArrays", null, n, arrays					);
+					Delegates.pglCreateVertexArrays((Int32)arrays.Length, p_arrays);
+					LogCommand("glCreateVertexArrays", null, arrays.Length, arrays					);
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create vertex array objects
+		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindVertexArray"/>
+		/// <seealso cref="Gl.DeleteVertexArrays"/>
+		/// <seealso cref="Gl.EnableVertexAttribArray"/>
+		/// <seealso cref="Gl.GenVertexArrays"/>
+		/// <seealso cref="Gl.IsVertexArray"/>
+		/// <seealso cref="Gl.VertexAttribPointer"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateVertexArray()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateVertexArrays(retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -6282,9 +6453,6 @@ namespace OpenGL
 		/// <summary>
 		/// create sampler objects
 		/// </summary>
-		/// <param name="n">
-		/// Number of sampler objects to create.
-		/// </param>
 		/// <param name="samplers">
 		/// Specifies an array in which names of the new sampler objects are stored.
 		/// </param>
@@ -6302,25 +6470,46 @@ namespace OpenGL
 		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateSamplers(Int32 n, UInt32[] samplers)
+		public static void CreateSamplers(UInt32[] samplers)
 		{
 			unsafe {
 				fixed (UInt32* p_samplers = samplers)
 				{
 					Debug.Assert(Delegates.pglCreateSamplers != null, "pglCreateSamplers not implemented");
-					Delegates.pglCreateSamplers(n, p_samplers);
-					LogCommand("glCreateSamplers", null, n, samplers					);
+					Delegates.pglCreateSamplers((Int32)samplers.Length, p_samplers);
+					LogCommand("glCreateSamplers", null, samplers.Length, samplers					);
 				}
 			}
 			DebugCheckErrors(null);
 		}
 
 		/// <summary>
+		/// create sampler objects
+		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindSampler"/>
+		/// <seealso cref="Gl.BindTexture"/>
+		/// <seealso cref="Gl.DeleteSamplers"/>
+		/// <seealso cref="Gl.DeleteTextures"/>
+		/// <seealso cref="Gl.GenSamplers"/>
+		/// <seealso cref="Gl.GenTextures"/>
+		/// <seealso cref="Gl.Get"/>
+		/// <seealso cref="Gl.GetSamplerParameter"/>
+		/// <seealso cref="Gl.SamplerParameter"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateSampler()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateSamplers(retValue);
+			return (retValue[0]);
+		}
+
+		/// <summary>
 		/// create program pipeline objects
 		/// </summary>
-		/// <param name="n">
-		/// Number of program pipeline objects to create.
-		/// </param>
 		/// <param name="pipelines">
 		/// Specifies an array in which names of the new program pipeline objects are stored.
 		/// </param>
@@ -6337,17 +6526,40 @@ namespace OpenGL
 		/// <seealso cref="Gl.IsProgramPipeline"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CreateProgramPipelines(Int32 n, UInt32[] pipelines)
+		public static void CreateProgramPipelines(UInt32[] pipelines)
 		{
 			unsafe {
 				fixed (UInt32* p_pipelines = pipelines)
 				{
 					Debug.Assert(Delegates.pglCreateProgramPipelines != null, "pglCreateProgramPipelines not implemented");
-					Delegates.pglCreateProgramPipelines(n, p_pipelines);
-					LogCommand("glCreateProgramPipelines", null, n, pipelines					);
+					Delegates.pglCreateProgramPipelines((Int32)pipelines.Length, p_pipelines);
+					LogCommand("glCreateProgramPipelines", null, pipelines.Length, pipelines					);
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create program pipeline objects
+		/// </summary>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BindProgramPipeline"/>
+		/// <seealso cref="Gl.CreateShader"/>
+		/// <seealso cref="Gl.CreateProgram"/>
+		/// <seealso cref="Gl.CompileShader"/>
+		/// <seealso cref="Gl.LinkProgram"/>
+		/// <seealso cref="Gl.GenProgramPipelines"/>
+		/// <seealso cref="Gl.DeleteProgramPipelines"/>
+		/// <seealso cref="Gl.IsProgramPipeline"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateProgramPipeline()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateProgramPipelines(retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -6388,6 +6600,71 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create query objects
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target of each created query object.
+		/// </param>
+		/// <param name="ids">
+		/// Specifies an array in which names of the new query objects are stored.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.BeginQueryIndexed"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void CreateQueries(QueryTarget target, UInt32[] ids)
+		{
+			unsafe {
+				fixed (UInt32* p_ids = ids)
+				{
+					Debug.Assert(Delegates.pglCreateQueries != null, "pglCreateQueries not implemented");
+					Delegates.pglCreateQueries((Int32)target, (Int32)ids.Length, p_ids);
+					LogCommand("glCreateQueries", null, target, ids.Length, ids					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// create query objects
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target of each created query object.
+		/// </param>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not an accepted value.
+		/// </exception>
+		/// <exception cref="KhronosException">
+		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
+		/// </exception>
+		/// <seealso cref="Gl.BeginQuery"/>
+		/// <seealso cref="Gl.BeginQueryIndexed"/>
+		/// <seealso cref="Gl.DeleteQueries"/>
+		/// <seealso cref="Gl.GenQueries"/>
+		/// <seealso cref="Gl.GetQueryObject"/>
+		/// <seealso cref="Gl.GetQueryiv"/>
+		/// <seealso cref="Gl.IsQuery"/>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static UInt32 CreateQuery(QueryTarget target)
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateQueries((Int32)target, retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>

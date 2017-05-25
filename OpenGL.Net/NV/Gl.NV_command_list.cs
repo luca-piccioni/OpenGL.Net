@@ -145,24 +145,32 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glCreateStatesNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="states">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-		public static void CreateStateNV(Int32 n, UInt32[] states)
+		public static void CreateStateNV(UInt32[] states)
 		{
 			unsafe {
 				fixed (UInt32* p_states = states)
 				{
 					Debug.Assert(Delegates.pglCreateStatesNV != null, "pglCreateStatesNV not implemented");
-					Delegates.pglCreateStatesNV(n, p_states);
-					LogCommand("glCreateStatesNV", null, n, states					);
+					Delegates.pglCreateStatesNV((Int32)states.Length, p_states);
+					LogCommand("glCreateStatesNV", null, states.Length, states					);
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glCreateStatesNV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
+		public static UInt32 CreateStateNV()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateStateNV(retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
@@ -405,24 +413,32 @@ namespace OpenGL
 		/// <summary>
 		/// Binding for glCreateCommandListsNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="lists">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-		public static void CreateCommandListsNV(Int32 n, UInt32[] lists)
+		public static void CreateCommandListsNV(UInt32[] lists)
 		{
 			unsafe {
 				fixed (UInt32* p_lists = lists)
 				{
 					Debug.Assert(Delegates.pglCreateCommandListsNV != null, "pglCreateCommandListsNV not implemented");
-					Delegates.pglCreateCommandListsNV(n, p_lists);
-					LogCommand("glCreateCommandListsNV", null, n, lists					);
+					Delegates.pglCreateCommandListsNV((Int32)lists.Length, p_lists);
+					LogCommand("glCreateCommandListsNV", null, lists.Length, lists					);
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// Binding for glCreateCommandListsNV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
+		public static UInt32 CreateCommandListsNV()
+		{
+			UInt32[] retValue = new UInt32[1];
+			CreateCommandListsNV(retValue);
+			return (retValue[0]);
 		}
 
 		/// <summary>
