@@ -1017,10 +1017,12 @@ namespace BindingsGen.GLSpecs
 			for (int i = 0; i < commandParams.Count; i++) {
 				CommandParameter param = commandParams[i];
 
-				if        (CommandParameterArrayLength.IsArrayLengthParameter(param, ctx, this)) {
+				if      (CommandParameterArrayLength.IsArrayLengthParameter(param, ctx, this))
 					continue;
-				} else if (CommandParameterArrayLength.IsCompatible(ctx, this, param))
+				else if (CommandParameterArrayLength.IsCompatible(ctx, this, param))
 					sw.Write(ReturnVariableName);
+				else if (CommandParameterStrong.IsCompatible(ctx, this, param))
+					param.WriteImplementationParam(sw, ctx, this);
 				else
 					param.WriteDelegateParam(sw, ctx, this);
 

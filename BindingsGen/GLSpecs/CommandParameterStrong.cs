@@ -45,7 +45,7 @@ namespace BindingsGen.GLSpecs
 
 			if (IsCompatible(ctx, parentCommand, otherParam)) {
 				Type = otherParam.Group;
-				mIsStrong = true;
+				_IsStrong = true;
 			}
 		}
 
@@ -83,14 +83,14 @@ namespace BindingsGen.GLSpecs
 
 		public override void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			if (mIsStrong) {
+			if (_IsStrong) {
 				// Strongly typed enum must be casted to delegate call type (int or uint)
 				sw.Write("({0}){1}", OverridenParameter.ImportType, DelegateCallVarName);
 			} else
 				base.WriteDelegateParam(sw, ctx, parentCommand);
 		}
 
-		private bool mIsStrong;
+		private bool _IsStrong;
 
 		#endregion
 	}

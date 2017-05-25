@@ -463,11 +463,16 @@ namespace BindingsGen.GLSpecs
 			sw.WriteLine("fixed ({0} {1} = {2}{3})", ImportType, FixedLocalVarName, dereference, ImplementationName);
 		}
 
+		public virtual void WriteImplementationParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
+		{
+			sw.Write(DelegateCallVarName);
+		}
+
 		public virtual void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			if (IsFixed(ctx, parentCommand) == false) {
+			if (IsFixed(ctx, parentCommand) == false)
 				sw.Write(DelegateCallVarName);
-			} else
+			else
 				sw.Write(FixedLocalVarName);
 		}
 

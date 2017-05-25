@@ -3081,7 +3081,7 @@ namespace OpenGL
 		public static UInt32 CreateTexture(TextureTarget target)
 		{
 			UInt32[] retValue = new UInt32[1];
-			CreateTextures((Int32)target, retValue);
+			CreateTextures(target, retValue);
 			return (retValue[0]);
 		}
 
@@ -6663,7 +6663,7 @@ namespace OpenGL
 		public static UInt32 CreateQuery(QueryTarget target)
 		{
 			UInt32[] retValue = new UInt32[1];
-			CreateQueries((Int32)target, retValue);
+			CreateQueries(target, retValue);
 			return (retValue[0]);
 		}
 
