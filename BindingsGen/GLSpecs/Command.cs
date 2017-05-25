@@ -606,6 +606,11 @@ namespace BindingsGen.GLSpecs
 				sw.WriteLine();
 				GenerateImplementation_GenOneObject(sw, ctx);
 			}
+
+            if(IsCreateImplementation(ctx)) {
+                sw.WriteLine();
+                GenerateImplementation_CreateOneObject(sw, ctx);
+            }
 		}
 
 		/// <summary>
@@ -1039,16 +1044,109 @@ namespace BindingsGen.GLSpecs
 
 			sw.Unindent();
 			sw.WriteLine("}");
-		}
+        }
 
-		#endregion
+        /// <summary>
+        /// Generate the command implementation (create one object variant).
+        /// </summary>
+        /// <param name="sw">
+        /// The <see cref="SourceStreamWriter"/> used to write the source code.
+        /// </param>
+        /// <param name="ctx">
+        /// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+        /// </param>
+        /// <param name="commandParams">
+        /// A <see cref="T:List{CommandParameter}"/> determining the method overload.
+        /// </param>
+        private void GenerateImplementation_CreateOneObject(SourceStreamWriter sw, RegistryContext ctx)
+        {
+            List<CommandParameter> commandParams = new List<CommandParameter>();
+            string implementationName = GetImplementationName(ctx);
 
-		#region Code Generation - Common Information
+            if (implementationName.EndsWith("ies"))
+                implementationName = implementationName.Substring(0, implementationName.Length - 3) + "y";
+            else if (implementationName.EndsWith("s"))
+                implementationName = implementationName.Substring(0, implementationName.Length - 1);
 
-		/// <summary>
-		/// Flags controlling the code generation.
-		/// </summary>
-		public CommandFlags Flags { get { return (CommandFlagsDatabase.GetCommandFlags(this)); } }
+            foreach (CommandParameter commandParameter in Parameters)
+                commandParams.Add(new CommandParameterArrayLength(commandParameter, ctx, this));
+
+            List<CommandParameterArrayLength> arrayParameters = new List<CommandParameterArrayLength>();
+            List<CommandParameter> signatureParams = commandParams.FindAll(delegate (CommandParameter item) {
+                bool compatible = CommandParameterArrayLength.IsCompatible(ctx, this, item);
+                bool arrayLengthParam = CommandParameterArrayLength.IsArrayLengthParameter(item, ctx, this);
+
+                if (compatible)
+                    arrayParameters.Add((CommandParameterArrayLength)item);
+
+                return (!compatible && !arrayLengthParam);
+            });
+
+            Debug.Assert(arrayParameters.Count == 1);
+            CommandParameterArrayLength returnParameter = arrayParameters[0];
+            string returnParameterType = returnParameter.GetImplementationType(ctx, this);
+
+            // Remove []
+            returnParameterType = returnParameterType.Substring(0, returnParameterType.Length - 2);
+
+            // Signature
+            GenerateImplementation_Signature(sw, ctx, signatureParams, implementationName, returnParameterType);
+
+            // Implementation block
+            sw.WriteLine("{");
+            sw.Indent();
+
+            #region Local Variables
+
+            sw.WriteLine("{0}[] {1} = new {0}[1];", returnParameterType, ReturnVariableName);
+
+            #endregion
+
+            #region Implementation Call
+
+            sw.WriteIdentation();
+            sw.Write("{0}(", GetImplementationName(ctx));
+
+            #region Parameters
+
+            for (int i = 0; i < commandParams.Count; i++)
+            {
+                CommandParameter param = commandParams[i];
+
+                if (CommandParameterArrayLength.IsArrayLengthParameter(param, ctx, this))
+                {
+                    continue;
+                }
+                else if (CommandParameterArrayLength.IsCompatible(ctx, this, param))
+                    sw.Write(ReturnVariableName);
+                else
+                    sw.Write(param.Name); //param.WriteDelegateParam(sw, ctx, this);
+
+                if (i != commandParams.Count - 1)
+                    sw.Write(", ");
+            }
+
+            #endregion
+
+            sw.Write(");");
+            sw.WriteLine();
+
+            sw.WriteLine("return ({0}[0]);", ReturnVariableName);
+
+            #endregion
+
+            sw.Unindent();
+            sw.WriteLine("}");
+        }
+
+        #endregion
+
+        #region Code Generation - Common Information
+
+        /// <summary>
+        /// Flags controlling the code generation.
+        /// </summary>
+        public CommandFlags Flags { get { return (CommandFlagsDatabase.GetCommandFlags(this)); } }
 
 		/// <summary>
 		/// Get whether the command has a return value.
@@ -1120,28 +1218,47 @@ namespace BindingsGen.GLSpecs
 		/// It returns a boolean value indicating whether this Command is a Gen command.
 		/// </returns>
 		internal bool IsGenImplementation(RegistryContext ctx)
-		{
-			if (GetImplementationReturnType(ctx) != "void")
+        {
+            if (GetImplementationReturnType(ctx) != "void")
 				return (false);
 			if (!CommandParameterArrayLength.IsCompatible(ctx, this))
 				return (false);
 
-			string implementationName = GetImplementationNameBase(ctx);
+            string implementationName = GetImplementationNameBase(ctx);
 
-			return (implementationName.StartsWith("Gen"));
-		}
+            return (implementationName.StartsWith("Gen"));
+        }
 
-		/// <summary>
-		/// Determine the extension postfix of this command.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
-		/// </param>
-		/// <returns>
-		/// It returns the string that identifies the extension suffix of this method, if found; otherwise,
-		/// it returns an empty string.
-		/// </returns>
-		internal string GetExtensionPostfix(RegistryContext ctx)
+        /// <summary>
+        /// Determine whether this command is a "Create" command (that is, creates and initializes OpenGL objects).
+        /// </summary>
+        /// <param name="ctx">
+        /// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+        /// </param>
+        /// <returns>
+        /// It returns a boolean value indicating whether this Command is a Create command.
+        /// </returns>
+        internal bool IsCreateImplementation(RegistryContext ctx)
+        {
+            if (GetImplementationReturnType(ctx) != "void")
+                return (false);
+            if (!CommandParameterArrayLength.IsCompatible(ctx, this))
+                return (false);
+            string implementationName = GetImplementationNameBase(ctx);
+            return (implementationName.StartsWith("Create"));
+        }
+
+        /// <summary>
+        /// Determine the extension postfix of this command.
+        /// </summary>
+        /// <param name="ctx">
+        /// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+        /// </param>
+        /// <returns>
+        /// It returns the string that identifies the extension suffix of this method, if found; otherwise,
+        /// it returns an empty string.
+        /// </returns>
+        internal string GetExtensionPostfix(RegistryContext ctx)
 		{
 			string name = Prototype.Name;
 
