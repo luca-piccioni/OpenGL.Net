@@ -1,4 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/0xf5kf47uj3q586j?svg=true)](https://ci.appveyor.com/project/luca-piccioni/opengl-net)
+[![build](https://ci.appveyor.com/api/projects/status/0xf5kf47uj3q586j?svg=true)](https://ci.appveyor.com/project/luca-piccioni/opengl-net)
+[![nuget](https://img.shields.io/nuget/v/OpenGL.Net.svg)](https://www.nuget.org/packages/OpenGL.Net/)
+[![wiki](https://img.shields.io/badge/browse-the%20wiki-green.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
 
 # OpenGL.Net
 Modern OpenGL binding for C#.
