@@ -163,7 +163,6 @@
     <Compile Include="APPLE\Gl.APPLE_row_bytes.cs" />
     <Compile Include="APPLE\Gl.APPLE_specular_vector.cs" />
     <Compile Include="APPLE\Gl.APPLE_sync.cs" />
-    <Compile Include="APPLE\Gl.APPLE_texture_format_BGRA8888.cs" />
     <Compile Include="APPLE\Gl.APPLE_texture_range.cs" />
     <Compile Include="APPLE\Gl.APPLE_transform_hint.cs" />
     <Compile Include="APPLE\Gl.APPLE_vertex_array_object.cs" />
@@ -272,6 +271,7 @@
     <Compile Include="ColorRGBARef.cs" />
     <Compile Include="ColorSRGB.cs" />
     <Compile Include="EglEventArgs.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_storage.cs" />
     <Compile Include="INativePBuffer.cs" />
     <Compile Include="KhronosLogMap.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
