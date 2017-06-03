@@ -20063,15 +20063,15 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glMemoryBarrier</name></proto>
-            <param><ptype>GLbitfield</ptype> <name>barriers</name></param>
+            <param group="MemoryBarrierMask"><ptype>GLbitfield</ptype> <name>barriers</name></param>
         </command>
         <command>
             <proto>void <name>glMemoryBarrierByRegion</name></proto>
-            <param><ptype>GLbitfield</ptype> <name>barriers</name></param>
+            <param group="MemoryBarrierMask"><ptype>GLbitfield</ptype> <name>barriers</name></param>
         </command>
         <command>
             <proto>void <name>glMemoryBarrierEXT</name></proto>
-            <param><ptype>GLbitfield</ptype> <name>barriers</name></param>
+            <param group="MemoryBarrierMask"><ptype>GLbitfield</ptype> <name>barriers</name></param>
             <alias name="glMemoryBarrier"/>
         </command>
         <command>

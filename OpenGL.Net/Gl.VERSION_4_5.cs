@@ -6786,10 +6786,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_1_compatibility", Api = "gl|glcore")]
-		public static void MemoryBarrierByRegion(UInt32 barriers)
+		public static void MemoryBarrierByRegion(MemoryBarrierMask barriers)
 		{
 			Debug.Assert(Delegates.pglMemoryBarrierByRegion != null, "pglMemoryBarrierByRegion not implemented");
-			Delegates.pglMemoryBarrierByRegion(barriers);
+			Delegates.pglMemoryBarrierByRegion((UInt32)barriers);
 			LogCommand("glMemoryBarrierByRegion", null, barriers			);
 			DebugCheckErrors(null);
 		}

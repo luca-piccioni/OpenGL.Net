@@ -1467,10 +1467,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		public static void MemoryBarrier(UInt32 barriers)
+		public static void MemoryBarrier(MemoryBarrierMask barriers)
 		{
 			Debug.Assert(Delegates.pglMemoryBarrier != null, "pglMemoryBarrier not implemented");
-			Delegates.pglMemoryBarrier(barriers);
+			Delegates.pglMemoryBarrier((UInt32)barriers);
 			LogCommand("glMemoryBarrier", null, barriers			);
 			DebugCheckErrors(null);
 		}
