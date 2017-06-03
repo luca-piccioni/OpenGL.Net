@@ -26,7 +26,7 @@ namespace OpenGL
 		/// <summary>
 		/// Class collecting the OpenGL implementation limits.
 		/// </summary>
-		public sealed class Limits
+		public sealed partial class Limits
 		{
 			#region Query
 
@@ -670,6 +670,91 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 			public int MaxCombinedTessEvaluationUniformComponents = 0;
+
+			#endregion
+
+			#region OpenGL 4.3 Limits
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_VERTEX_SHADER_STORAGE_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxVertexShaderStorageBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_GEOMETRY_SHADER_STORAGE_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxGeometryShaderStorageBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxTessControlShaderStorageBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxTessEvaluationShaderStorageBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_FRAGMENT_SHADER_STORAGE_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxFragmentShaderStorageBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_COMPUTE_SHADER_STORAGE_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxComputeShaderStorageBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_COMBINED_SHADER_STORAGE_BLOCKS)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxCombinedShaderStorageBlocks = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_SHADER_STORAGE_BUFFER_BINDINGS)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxShaderStorageBufferBindings = 0;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			[Limit(MAX_SHADER_STORAGE_BLOCK_SIZE)]
+			[RequiredByFeature("GL_VERSION_4_3")]
+			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+			public int MaxShaderStorageBlockSize = 0;
 
 			#endregion
 
