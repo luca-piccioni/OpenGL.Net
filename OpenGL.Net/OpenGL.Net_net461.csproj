@@ -272,6 +272,7 @@
     <Compile Include="ColorSRGB.cs" />
     <Compile Include="EglEventArgs.cs" />
     <Compile Include="EXT\Gl.EXT_texture_storage.cs" />
+    <Compile Include="Gl.Limits.cs" />
     <Compile Include="INativePBuffer.cs" />
     <Compile Include="KhronosLogMap.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />

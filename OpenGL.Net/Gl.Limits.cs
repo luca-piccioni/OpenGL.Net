@@ -156,11 +156,11 @@ namespace OpenGL
 			/// [GL4|GLES3.2] Gl.Get: data returns two values: the maximum supported width and height of the viewport. These must be at 
 			/// least as large as the visible dimensions of the display being rendered to. See Gl.Viewport.
 			/// </summary>
-			[Limit(MAX_VIEWPORT_DIMS)]
+			[Limit(MAX_VIEWPORT_DIMS, ArrayLength=2)]
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-			public int MaxViewportDims = 0;
+			public int[] MaxViewportDims = new int[] {0, 0}
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value indicating the maximum supported depth of the client attribute stack. See 
@@ -170,22 +170,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
 			public int MaxClientAttribStackDepth = 0;
-
-			/// <summary>
-			/// [GL2.1] Gl.GetConvolutionParameter: The maximum acceptable filter image width.
-			/// </summary>
-			[Limit(MAX_CONVOLUTION_WIDTH)]
-			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_convolution")]
-			public int MaxConvolutionWidth = 0;
-
-			/// <summary>
-			/// [GL2.1] Gl.GetConvolutionParameter: The maximum acceptable filter image height.
-			/// </summary>
-			[Limit(MAX_CONVOLUTION_HEIGHT)]
-			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_convolution")]
-			public int MaxConvolutionHeight = 0;
 
 			/// <summary>
 			/// <para>
@@ -232,48 +216,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_draw_range_elements")]
 			public int MaxElementsIndices = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_FOG_FUNC_POINTS_SGIS symbol.
-			/// </summary>
-			[Limit(MAX_FOG_FUNC_POINTS_SGIS)]
-			[RequiredByFeature("GL_SGIS_fog_function")]
-			public int MaxFogFuncPointsSgis = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_4D_TEXTURE_SIZE_SGIS symbol.
-			/// </summary>
-			[Limit(MAX_4D_TEXTURE_SIZE_SGIS)]
-			[RequiredByFeature("GL_SGIS_texture4D")]
-			public int Max4dTextureSizeSgis = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_CLIPMAP_DEPTH_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_CLIPMAP_DEPTH_SGIX)]
-			[RequiredByFeature("GL_SGIX_clipmap")]
-			public int MaxClipmapDepthSgix = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_CLIPMAP_VIRTUAL_DEPTH_SGIX)]
-			[RequiredByFeature("GL_SGIX_clipmap")]
-			public int MaxClipmapVirtualDepthSgix = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_FRAMEZOOM_FACTOR_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_FRAMEZOOM_FACTOR_SGIX)]
-			[RequiredByFeature("GL_SGIX_framezoom")]
-			public int MaxFramezoomFactorSgix = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_DEFORMATION_ORDER_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_DEFORMATION_ORDER_SGIX)]
-			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-			public int MaxDeformationOrderSgix = 0;
 
 			/// <summary>
 			/// [GL4] Gl.Get: data returns one value, the maximum number of simultaneous viewports that are supported. The value must be 
@@ -356,46 +298,6 @@ namespace OpenGL
 			public int MaxUniformLocations = 0;
 
 			/// <summary>
-			/// [GL] Value of GL_MAX_WIDTH symbol.
-			/// </summary>
-			[Limit(MAX_WIDTH)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
-			public int MaxWidth = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_HEIGHT symbol.
-			/// </summary>
-			[Limit(MAX_HEIGHT)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
-			public int MaxHeight = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_DEPTH symbol.
-			/// </summary>
-			[Limit(MAX_DEPTH)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
-			public int MaxDepth = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_LAYERS symbol.
-			/// </summary>
-			[Limit(MAX_LAYERS)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
-			public int MaxLayers = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_COMBINED_DIMENSIONS symbol.
-			/// </summary>
-			[Limit(MAX_COMBINED_DIMENSIONS)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
-			public int MaxCombinedDimensions = 0;
-
-			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex 
 			/// binding offset.
 			/// </summary>
@@ -456,53 +358,11 @@ namespace OpenGL
 			public int MaxCombinedClipAndCullDistances = 0;
 
 			/// <summary>
-			/// [GL] Value of GL_MAX_ASYNC_HISTOGRAM_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_ASYNC_HISTOGRAM_SGIX)]
-			[RequiredByFeature("GL_SGIX_async_histogram")]
-			public int MaxAsyncHistogramSgix = 0;
-
-			/// <summary>
 			/// [GL] Value of GL_MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT symbol.
 			/// </summary>
 			[Limit(MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT)]
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			public int MaxPixelTransform2dStackDepthExt = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_ASYNC_TEX_IMAGE_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_ASYNC_TEX_IMAGE_SGIX)]
-			[RequiredByFeature("GL_SGIX_async_pixel")]
-			public int MaxAsyncTexImageSgix = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_ASYNC_DRAW_PIXELS_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_ASYNC_DRAW_PIXELS_SGIX)]
-			[RequiredByFeature("GL_SGIX_async_pixel")]
-			public int MaxAsyncDrawPixelsSgix = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_ASYNC_READ_PIXELS_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_ASYNC_READ_PIXELS_SGIX)]
-			[RequiredByFeature("GL_SGIX_async_pixel")]
-			public int MaxAsyncReadPixelsSgix = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_FRAGMENT_LIGHTS_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_FRAGMENT_LIGHTS_SGIX)]
-			[RequiredByFeature("GL_SGIX_fragment_lighting")]
-			public int MaxFragmentLightsSgix = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_ACTIVE_LIGHTS_SGIX symbol.
-			/// </summary>
-			[Limit(MAX_ACTIVE_LIGHTS_SGIX)]
-			[RequiredByFeature("GL_SGIX_fragment_lighting")]
-			public int MaxActiveLightsSgix = 0;
 
 			/// <summary>
 			/// <para>
@@ -2170,15 +2030,6 @@ namespace OpenGL
 			public int MaxColorTextureSamples = 0;
 
 			/// <summary>
-			/// [GL4] Gl.Get: data returns one value, the maximum number of samples in a multisample depth or depth-stencil texture.
-			/// </summary>
-			[Limit(MAX_DEPTH_TEXTURE_SAMPLES)]
-			[RequiredByFeature("GL_VERSION_3_2")]
-			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-			public int MaxDepthTextureSamples = 0;
-
-			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample 
 			/// buffers.
 			/// </summary>
@@ -2354,26 +2205,6 @@ namespace OpenGL
 			public int MaxComputeImageUniforms = 0;
 
 			/// <summary>
-			/// [GL4|GLES3.2] Gl.Get: Accepted by the indexed versions of glGet. data the maximum number of work groups that may be 
-			/// dispatched to a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
-			/// </summary>
-			[Limit(MAX_COMPUTE_WORK_GROUP_COUNT)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeWorkGroupCount = 0;
-
-			/// <summary>
-			/// [GL4|GLES3.2] Gl.Get: Accepted by the indexed versions of glGet. data the maximum size of a work groups that may be used 
-			/// during compilation of a compute shader. Indices 0, 1, and 2 correspond to the X, Y and Z dimensions, respectively.
-			/// </summary>
-			[Limit(MAX_COMPUTE_WORK_GROUP_SIZE)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeWorkGroupSize = 0;
-
-			/// <summary>
 			/// [GL] Value of GL_MAX_LGPU_GPUS_NVX symbol.
 			/// </summary>
 			[Limit(MAX_LGPU_GPUS_NVX)]
@@ -2533,32 +2364,6 @@ namespace OpenGL
 			public int MaxAtomicCounterBufferBindings = 0;
 
 			/// <summary>
-			/// [GL] Value of GL_MAX_NAME_LENGTH symbol.
-			/// </summary>
-			[Limit(MAX_NAME_LENGTH)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-			public int MaxNameLength = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_NUM_ACTIVE_VARIABLES symbol.
-			/// </summary>
-			[Limit(MAX_NUM_ACTIVE_VARIABLES)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-			public int MaxNumActiveVariables = 0;
-
-			/// <summary>
-			/// [GL] Value of GL_MAX_NUM_COMPATIBLE_SUBROUTINES symbol.
-			/// </summary>
-			[Limit(MAX_NUM_COMPATIBLE_SUBROUTINES)]
-			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-			public int MaxNumCompatibleSubroutines = 0;
-
-			/// <summary>
 			/// <para>
 			/// [GL4] Gl.Get: data returns one value, the maximum width for a framebuffer that has no attachments, which must be at 
 			/// least 16384. See glFramebufferParameter.
@@ -2681,6 +2486,42 @@ namespace OpenGL
 			[Limit(MAX_VERTEX_HINT_PGI)]
 			[RequiredByFeature("GL_PGI_vertex_hints")]
 			public int MaxVertexHintPgi = 0;
+
+			/// <summary>
+			/// [GL2.1] Gl.Get: params returns two values: the smallest and largest supported widths for antialiased lines. See 
+			/// Gl.LineWidth.
+			/// </summary>
+			[Limit(LINE_WIDTH_RANGE, ArrayLength=2)]
+			[RequiredByFeature("GL_VERSION_1_0")]
+			public float[] LineWidthRange = new float[] {0.0f, 0.0f}
+
+			/// <summary>
+			/// [GL2.1] Gl.Get: params returns one value, the width difference between adjacent supported widths for antialiased lines. 
+			/// See Gl.LineWidth.
+			/// </summary>
+			[Limit(LINE_WIDTH_GRANULARITY)]
+			[RequiredByFeature("GL_VERSION_1_0")]
+			public int LineWidthGranularity = 0;
+
+			/// <summary>
+			/// [GL4|GLES3.2] Gl.Get: data returns a pair of values indicating the range of widths supported for aliased lines. See 
+			/// Gl.LineWidth.
+			/// </summary>
+			[Limit(ALIASED_LINE_WIDTH_RANGE, ArrayLength=2)]
+			[RequiredByFeature("GL_VERSION_1_2")]
+			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			public float[] AliasedLineWidthRange = new float[] {0.0f, 0.0f}
+
+			/// <summary>
+			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the minimum required alignment for uniform buffer sizes and offset. 
+			/// The initial value is 1. See Gl.UniformBlockBinding.
+			/// </summary>
+			[Limit(UNIFORM_BUFFER_OFFSET_ALIGNMENT)]
+			[RequiredByFeature("GL_VERSION_3_1")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+			public int UniformBufferOffsetAlignment = 0;
 
 		}
 }
