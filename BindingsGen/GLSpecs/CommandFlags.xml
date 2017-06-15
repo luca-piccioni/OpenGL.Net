@@ -346,5 +346,24 @@
 	<command name="^wf(c|d)Get(Element)Attrib(f|i)v?$">
 		<flags>ReturnAsOutParam</flags>
 	</command>
-	
+    
+    <!-- GL Limits -->
+
+    <limit name="GL_LINE_WIDTH_RANGE" type="float" length="2" />
+    <limit name="GL_LINE_WIDTH_GRANULARITY" type="float" />
+    <limit name="GL_MAX_VIEWPORT_DIMS" type="int" length="2" />
+    <limit name="GL_ALIASED_LINE_WIDTH_RANGE" type="float" length="2" />
+    <limit name="GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT" />
+
+    <!-- Exlude SGI limits? -->
+    <exclude_limit name=".*(_SGIS|_SGIX)$" />
+    <!-- glGetConvolutionParameter -->
+    <exclude_limit name="GL_MAX_CONVOLUTION_WIDTH|GL_MAX_CONVOLUTION_HEIGHT" />
+    <!-- glGetInternalformativ -->
+    <exclude_limit name="GL_MAX_COMBINED_DIMENSIONS|GL_MAX_WIDTH|GL_MAX_HEIGHT|GL_MAX_DEPTH|GL_MAX_LAYERS" />
+    <!-- GetIntegeri_v -->
+    <exclude_limit name="GL_MAX_COMPUTE_WORK_GROUP_COUNT|GL_MAX_COMPUTE_WORK_GROUP_SIZE" />
+    <!-- glGetProgramInterfaceiv -->
+    <exclude_limit name="GL_MAX_NAME_LENGTH|GL_MAX_NUM_ACTIVE_VARIABLES|GL_MAX_NUM_COMPATIBLE_SUBROUTINES" />
+
 </command_overrides>

@@ -277,22 +277,12 @@ namespace BindingsGen.GLSpecs
 			if (sw == null)
 				throw new ArgumentNullException("sw");
 
-			if (ctx.RefPages.Count > 0)
-				ctx.RefPages.GenerateDocumentation(sw, ctx, this);
+			GenerateDocumentation(sw, ctx);
 
 			foreach (Enumerant aliasOf in AliasOf)
 				sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.Name);
 
-			string classDefaultApi = ctx.Class.ToLower();
-
-			foreach (IFeature feature in RequiredBy)
-				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
-			foreach (Enumerant aliasOf in AliasOf) {	// Note: not sure that Profile is considered here
-				foreach (IFeature feature in aliasOf.RequiredBy)
-					sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
-			}
-			foreach (IFeature feature in RemovedBy)
-				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
+			GenerateRequirements(sw, ctx);
 
 			// This metadata is used for procedure logging function
 			bool requiresLogAttribute = ParentEnumerantBlock.Type == "bitmask";
@@ -309,6 +299,26 @@ namespace BindingsGen.GLSpecs
 			//}
 
 			sw.WriteLine(Declaration);
+		}
+
+		internal void GenerateDocumentation(SourceStreamWriter sw, RegistryContext ctx)
+		{
+			if (ctx.RefPages.Count > 0)
+				ctx.RefPages.GenerateDocumentation(sw, ctx, this);
+		}
+
+		internal void GenerateRequirements(SourceStreamWriter sw, RegistryContext ctx)
+		{
+			string classDefaultApi = ctx.Class.ToLower();
+
+			foreach (IFeature feature in RequiredBy)
+				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+			foreach (Enumerant aliasOf in AliasOf) {	// Note: not sure that Profile is considered here
+				foreach (IFeature feature in aliasOf.RequiredBy)
+					sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+			}
+			foreach (IFeature feature in RemovedBy)
+				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
 		}
 
 		/// <summary>

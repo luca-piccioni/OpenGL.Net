@@ -34,7 +34,7 @@ namespace OpenGL
 			[Limit(MAX_LIST_NESTING)]
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxListNesting = 0;
+			public int MaxListNesting;
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value, the maximum equation order supported by 1D and 2D evaluators. The value must 
@@ -43,7 +43,7 @@ namespace OpenGL
 			[Limit(MAX_EVAL_ORDER)]
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxEvalOrder = 0;
+			public int MaxEvalOrder;
 
 			/// <summary>
 			/// [GL2.1|GLES1.1] Gl.Get: params returns one value, the maximum number of lights. The value must be at least 8. See 
@@ -53,7 +53,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxLights = 0;
+			public int MaxLights;
 
 			/// <summary>
 			/// <para>
@@ -70,7 +70,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxClipPlanes = 0;
+			public int MaxClipPlanes;
 
 			/// <summary>
 			/// <para>
@@ -87,7 +87,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-			public int MaxTextureSize = 0;
+			public int MaxTextureSize;
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value, the maximum supported size of a Gl.PixelMap lookup table. The value must be at 
@@ -96,7 +96,7 @@ namespace OpenGL
 			[Limit(MAX_PIXEL_MAP_TABLE)]
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxPixelMapTable = 0;
+			public int MaxPixelMapTable;
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value, the maximum supported depth of the attribute stack. The value must be at least 
@@ -105,7 +105,7 @@ namespace OpenGL
 			[Limit(MAX_ATTRIB_STACK_DEPTH)]
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxAttribStackDepth = 0;
+			public int MaxAttribStackDepth;
 
 			/// <summary>
 			/// <para>
@@ -121,7 +121,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxModelviewStackDepth = 0;
+			public int MaxModelviewStackDepth;
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value, the maximum supported depth of the selection name stack. The value must be at 
@@ -130,7 +130,7 @@ namespace OpenGL
 			[Limit(MAX_NAME_STACK_DEPTH)]
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxNameStackDepth = 0;
+			public int MaxNameStackDepth;
 
 			/// <summary>
 			/// [GL2.1|GLES1.1] Gl.Get: params returns one value, the maximum supported depth of the projection matrix stack. The value 
@@ -140,7 +140,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxProjectionStackDepth = 0;
+			public int MaxProjectionStackDepth;
 
 			/// <summary>
 			/// [GL2.1|GLES1.1] Gl.Get: params returns one value, the maximum supported depth of the texture matrix stack. The value 
@@ -150,17 +150,17 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxTextureStackDepth = 0;
+			public int MaxTextureStackDepth;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns two values: the maximum supported width and height of the viewport. These must be at 
 			/// least as large as the visible dimensions of the display being rendered to. See Gl.Viewport.
 			/// </summary>
-			[Limit(MAX_VIEWPORT_DIMS, ArrayLength=2)]
+			[Limit(MAX_VIEWPORT_DIMS, ArrayLength = 2)]
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-			public int[] MaxViewportDims = new int[] {0, 0}
+			public int[] MaxViewportDims = new int[] {0, 0 };
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value indicating the maximum supported depth of the client attribute stack. See 
@@ -169,7 +169,7 @@ namespace OpenGL
 			[Limit(MAX_CLIENT_ATTRIB_STACK_DEPTH)]
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxClientAttribStackDepth = 0;
+			public int MaxClientAttribStackDepth;
 
 			/// <summary>
 			/// <para>
@@ -186,7 +186,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			public int Max3dTextureSize = 0;
+			public int Max3dTextureSize;
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value, the maximum supported depth of the color matrix stack. The value must be at 
@@ -195,7 +195,7 @@ namespace OpenGL
 			[Limit(MAX_COLOR_MATRIX_STACK_DEPTH)]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_SGI_color_matrix")]
-			public int MaxColorMatrixStackDepth = 0;
+			public int MaxColorMatrixStackDepth;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the recommended maximum number of vertex array vertices. See 
@@ -205,7 +205,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_draw_range_elements")]
-			public int MaxElementsVertices = 0;
+			public int MaxElementsVertices;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the recommended maximum number of vertex array indices. See 
@@ -215,7 +215,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_draw_range_elements")]
-			public int MaxElementsIndices = 0;
+			public int MaxElementsIndices;
 
 			/// <summary>
 			/// [GL4] Gl.Get: data returns one value, the maximum number of simultaneous viewports that are supported. The value must be 
@@ -226,7 +226,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
-			public int MaxViewports = 0;
+			public int MaxViewports;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_COMPUTE_SHARED_MEMORY_SIZE symbol.
@@ -235,7 +235,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeSharedMemorySize = 0;
+			public int MaxComputeSharedMemorySize;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean 
@@ -246,7 +246,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeUniformComponents = 0;
+			public int MaxComputeUniformComponents;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by 
@@ -256,7 +256,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeAtomicCounterBuffers = 0;
+			public int MaxComputeAtomicCounterBuffers;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to compute shaders.
@@ -265,7 +265,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeAtomicCounters = 0;
+			public int MaxComputeAtomicCounters;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the number of words for compute shader uniform variables in all uniform 
@@ -275,7 +275,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxCombinedComputeUniformComponents = 0;
+			public int MaxCombinedComputeUniformComponents;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
@@ -285,7 +285,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-			public int MaxDebugGroupStackDepth = 0;
+			public int MaxDebugGroupStackDepth;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of explicitly assignable uniform locations, which must 
@@ -295,7 +295,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_explicit_uniform_location", Api = "gl|glcore")]
-			public int MaxUniformLocations = 0;
+			public int MaxUniformLocations;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single integer value containing the maximum offset that may be added to a vertex 
@@ -305,7 +305,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
-			public int MaxVertexAttribRelativeOffset = 0;
+			public int MaxVertexAttribRelativeOffset;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single integer value containing the maximum number of vertex buffers that may be 
@@ -315,7 +315,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
-			public int MaxVertexAttribBindings = 0;
+			public int MaxVertexAttribBindings;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_ATTRIB_STRIDE symbol.
@@ -323,7 +323,7 @@ namespace OpenGL
 			[Limit(MAX_VERTEX_ATTRIB_STRIDE)]
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-			public int MaxVertexAttribStride = 0;
+			public int MaxVertexAttribStride;
 
 			/// <summary>
 			/// <para>
@@ -339,7 +339,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-			public int MaxLabelLength = 0;
+			public int MaxLabelLength;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_CULL_DISTANCES symbol.
@@ -347,7 +347,7 @@ namespace OpenGL
 			[Limit(MAX_CULL_DISTANCES)]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_cull_distance", Api = "gl|glcore")]
-			public int MaxCullDistances = 0;
+			public int MaxCullDistances;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES symbol.
@@ -355,14 +355,14 @@ namespace OpenGL
 			[Limit(MAX_COMBINED_CLIP_AND_CULL_DISTANCES)]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_cull_distance", Api = "gl|glcore")]
-			public int MaxCombinedClipAndCullDistances = 0;
+			public int MaxCombinedClipAndCullDistances;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT symbol.
 			/// </summary>
 			[Limit(MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT)]
 			[RequiredByFeature("GL_EXT_pixel_transform")]
-			public int MaxPixelTransform2dStackDepthExt = 0;
+			public int MaxPixelTransform2dStackDepthExt;
 
 			/// <summary>
 			/// <para>
@@ -382,7 +382,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxTextureUnits = 0;
+			public int MaxTextureUnits;
 
 			/// <summary>
 			/// <para>
@@ -400,7 +400,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-			public int MaxRenderbufferSize = 0;
+			public int MaxRenderbufferSize;
 
 			/// <summary>
 			/// [GL4] Gl.Get: data returns one value. The value gives a rough estimate of the largest rectangular texture that the GL 
@@ -411,7 +411,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ARB_texture_rectangle")]
 			[RequiredByFeature("GL_NV_texture_rectangle")]
-			public int MaxRectangleTextureSize = 0;
+			public int MaxRectangleTextureSize;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum, absolute value of the texture level-of-detail bias. The value 
@@ -421,28 +421,28 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture_lod_bias", Api = "gl|gles1")]
-			public int MaxTextureLodBias = 0;
+			public int MaxTextureLodBias;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT symbol.
 			/// </summary>
 			[Limit(MAX_TEXTURE_MAX_ANISOTROPY_EXT)]
 			[RequiredByFeature("GL_EXT_texture_filter_anisotropic", Api = "gl|gles1|gles2")]
-			public int MaxTextureMaxAnisotropyExt = 0;
+			public int MaxTextureMaxAnisotropyExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SHININESS_NV symbol.
 			/// </summary>
 			[Limit(MAX_SHININESS_NV)]
 			[RequiredByFeature("GL_NV_light_max_exponent")]
-			public int MaxShininessNv = 0;
+			public int MaxShininessNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SPOT_EXPONENT_NV symbol.
 			/// </summary>
 			[Limit(MAX_SPOT_EXPONENT_NV)]
 			[RequiredByFeature("GL_NV_light_max_exponent")]
-			public int MaxSpotExponentNv = 0;
+			public int MaxSpotExponentNv;
 
 			/// <summary>
 			/// <para>
@@ -461,21 +461,21 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_texture_cube_map")]
 			[RequiredByFeature("GL_EXT_texture_cube_map")]
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
-			public int MaxCubeMapTextureSize = 0;
+			public int MaxCubeMapTextureSize;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_ARRAY_RANGE_ELEMENT_NV symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_ARRAY_RANGE_ELEMENT_NV)]
 			[RequiredByFeature("GL_NV_vertex_array_range")]
-			public int MaxVertexArrayRangeElementNv = 0;
+			public int MaxVertexArrayRangeElementNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_GENERAL_COMBINERS_NV symbol.
 			/// </summary>
 			[Limit(MAX_GENERAL_COMBINERS_NV)]
 			[RequiredByFeature("GL_NV_register_combiners")]
-			public int MaxGeneralCombinersNv = 0;
+			public int MaxGeneralCombinersNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_MATRIX_STACK_DEPTH_ARB symbol.
@@ -483,14 +483,14 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_MATRIX_STACK_DEPTH_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramMatrixStackDepthArb = 0;
+			public int MaxProgramMatrixStackDepthArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_TRACK_MATRIX_STACK_DEPTH_NV symbol.
 			/// </summary>
 			[Limit(MAX_TRACK_MATRIX_STACK_DEPTH_NV)]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			public int MaxTrackMatrixStackDepthNv = 0;
+			public int MaxTrackMatrixStackDepthNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_MATRICES_ARB symbol.
@@ -498,14 +498,14 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_MATRICES_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramMatricesArb = 0;
+			public int MaxProgramMatricesArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_TRACK_MATRICES_NV symbol.
 			/// </summary>
 			[Limit(MAX_TRACK_MATRICES_NV)]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			public int MaxTrackMatricesNv = 0;
+			public int MaxTrackMatricesNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_UNITS_ARB symbol.
@@ -513,154 +513,154 @@ namespace OpenGL
 			[Limit(MAX_VERTEX_UNITS_ARB)]
 			[RequiredByFeature("GL_ARB_vertex_blend")]
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-			public int MaxVertexUnitsArb = 0;
+			public int MaxVertexUnitsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_MAP_TESSELLATION_NV symbol.
 			/// </summary>
 			[Limit(MAX_MAP_TESSELLATION_NV)]
 			[RequiredByFeature("GL_NV_evaluators")]
-			public int MaxMapTessellationNv = 0;
+			public int MaxMapTessellationNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_RATIONAL_EVAL_ORDER_NV symbol.
 			/// </summary>
 			[Limit(MAX_RATIONAL_EVAL_ORDER_NV)]
 			[RequiredByFeature("GL_NV_evaluators")]
-			public int MaxRationalEvalOrderNv = 0;
+			public int MaxRationalEvalOrderNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_PATCH_ATTRIBS_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_PATCH_ATTRIBS_NV)]
 			[RequiredByFeature("GL_NV_tessellation_program5")]
-			public int MaxProgramPatchAttribsNv = 0;
+			public int MaxProgramPatchAttribsNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_STREAMS_ATI symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_STREAMS_ATI)]
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			public int MaxVertexStreamsAti = 0;
+			public int MaxVertexStreamsAti;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_SHADER_INSTRUCTIONS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_SHADER_INSTRUCTIONS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxVertexShaderInstructionsExt = 0;
+			public int MaxVertexShaderInstructionsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_SHADER_VARIANTS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_SHADER_VARIANTS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxVertexShaderVariantsExt = 0;
+			public int MaxVertexShaderVariantsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_SHADER_INVARIANTS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_SHADER_INVARIANTS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxVertexShaderInvariantsExt = 0;
+			public int MaxVertexShaderInvariantsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_SHADER_LOCAL_CONSTANTS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_SHADER_LOCAL_CONSTANTS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxVertexShaderLocalConstantsExt = 0;
+			public int MaxVertexShaderLocalConstantsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_SHADER_LOCALS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_SHADER_LOCALS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxVertexShaderLocalsExt = 0;
+			public int MaxVertexShaderLocalsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_INSTRUCTIONS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_OPTIMIZED_VERTEX_SHADER_INSTRUCTIONS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxOptimizedVertexShaderInstructionsExt = 0;
+			public int MaxOptimizedVertexShaderInstructionsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_VARIANTS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_OPTIMIZED_VERTEX_SHADER_VARIANTS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxOptimizedVertexShaderVariantsExt = 0;
+			public int MaxOptimizedVertexShaderVariantsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_LOCAL_CONSTANTS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_OPTIMIZED_VERTEX_SHADER_LOCAL_CONSTANTS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxOptimizedVertexShaderLocalConstantsExt = 0;
+			public int MaxOptimizedVertexShaderLocalConstantsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_INVARIANTS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_OPTIMIZED_VERTEX_SHADER_INVARIANTS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxOptimizedVertexShaderInvariantsExt = 0;
+			public int MaxOptimizedVertexShaderInvariantsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_OPTIMIZED_VERTEX_SHADER_LOCALS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_OPTIMIZED_VERTEX_SHADER_LOCALS_EXT)]
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			public int MaxOptimizedVertexShaderLocalsExt = 0;
+			public int MaxOptimizedVertexShaderLocalsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI symbol.
 			/// </summary>
 			[Limit(MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI)]
 			[RequiredByFeature("GL_ATI_pn_triangles")]
-			public int MaxPnTrianglesTesselationLevelAti = 0;
+			public int MaxPnTrianglesTesselationLevelAti;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_ALU_INSTRUCTIONS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_ALU_INSTRUCTIONS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
-			public int MaxProgramAluInstructionsArb = 0;
+			public int MaxProgramAluInstructionsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_TEX_INSTRUCTIONS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_TEX_INSTRUCTIONS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
-			public int MaxProgramTexInstructionsArb = 0;
+			public int MaxProgramTexInstructionsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_TEX_INDIRECTIONS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_TEX_INDIRECTIONS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
-			public int MaxProgramTexIndirectionsArb = 0;
+			public int MaxProgramTexIndirectionsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_NATIVE_ALU_INSTRUCTIONS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_NATIVE_ALU_INSTRUCTIONS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
-			public int MaxProgramNativeAluInstructionsArb = 0;
+			public int MaxProgramNativeAluInstructionsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_NATIVE_TEX_INSTRUCTIONS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_NATIVE_TEX_INSTRUCTIONS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
-			public int MaxProgramNativeTexInstructionsArb = 0;
+			public int MaxProgramNativeTexInstructionsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_NATIVE_TEX_INDIRECTIONS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_NATIVE_TEX_INDIRECTIONS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
-			public int MaxProgramNativeTexIndirectionsArb = 0;
+			public int MaxProgramNativeTexIndirectionsArb;
 
 			/// <summary>
 			/// <para>
@@ -679,14 +679,14 @@ namespace OpenGL
 			[RequiredByFeature("GL_ATI_draw_buffers")]
 			[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
 			[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
-			public int MaxDrawBuffers = 0;
+			public int MaxDrawBuffers;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_MATRIX_PALETTE_STACK_DEPTH_ARB symbol.
 			/// </summary>
 			[Limit(MAX_MATRIX_PALETTE_STACK_DEPTH_ARB)]
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			public int MaxMatrixPaletteStackDepthArb = 0;
+			public int MaxMatrixPaletteStackDepthArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PALETTE_MATRICES_ARB symbol.
@@ -694,14 +694,14 @@ namespace OpenGL
 			[Limit(MAX_PALETTE_MATRICES_ARB)]
 			[RequiredByFeature("GL_ARB_matrix_palette")]
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-			public int MaxPaletteMatricesArb = 0;
+			public int MaxPaletteMatricesArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_FRAGMENT_PROGRAM_LOCAL_PARAMETERS_NV symbol.
 			/// </summary>
 			[Limit(MAX_FRAGMENT_PROGRAM_LOCAL_PARAMETERS_NV)]
 			[RequiredByFeature("GL_NV_fragment_program")]
-			public int MaxFragmentProgramLocalParametersNv = 0;
+			public int MaxFragmentProgramLocalParametersNv;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of 4-component generic vertex attributes accessible to 
@@ -712,7 +712,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
-			public int MaxVertexAttribs = 0;
+			public int MaxVertexAttribs;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a tesselation control 
@@ -724,7 +724,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlInputComponents = 0;
+			public int MaxTessControlInputComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a tesselation evaluation 
@@ -736,7 +736,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationInputComponents = 0;
+			public int MaxTessEvaluationInputComponents;
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value, the maximum number of texture coordinate sets available to vertex and fragment 
@@ -748,7 +748,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[RemovedByFeature("GL_VERSION_3_2")]
-			public int MaxTextureCoords = 0;
+			public int MaxTextureCoords;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access 
@@ -760,7 +760,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_fragment_program")]
-			public int MaxTextureImageUnits = 0;
+			public int MaxTextureImageUnits;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_INSTRUCTIONS_ARB symbol.
@@ -768,7 +768,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_INSTRUCTIONS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramInstructionsArb = 0;
+			public int MaxProgramInstructionsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB symbol.
@@ -776,7 +776,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramNativeInstructionsArb = 0;
+			public int MaxProgramNativeInstructionsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_TEMPORARIES_ARB symbol.
@@ -784,7 +784,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_TEMPORARIES_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramTemporariesArb = 0;
+			public int MaxProgramTemporariesArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_NATIVE_TEMPORARIES_ARB symbol.
@@ -792,7 +792,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_NATIVE_TEMPORARIES_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramNativeTemporariesArb = 0;
+			public int MaxProgramNativeTemporariesArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_PARAMETERS_ARB symbol.
@@ -800,7 +800,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_PARAMETERS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramParametersArb = 0;
+			public int MaxProgramParametersArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_NATIVE_PARAMETERS_ARB symbol.
@@ -808,7 +808,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_NATIVE_PARAMETERS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramNativeParametersArb = 0;
+			public int MaxProgramNativeParametersArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_ATTRIBS_ARB symbol.
@@ -816,7 +816,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_ATTRIBS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramAttribsArb = 0;
+			public int MaxProgramAttribsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_NATIVE_ATTRIBS_ARB symbol.
@@ -824,21 +824,21 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_NATIVE_ATTRIBS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramNativeAttribsArb = 0;
+			public int MaxProgramNativeAttribsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_ADDRESS_REGISTERS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_ADDRESS_REGISTERS_ARB)]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramAddressRegistersArb = 0;
+			public int MaxProgramAddressRegistersArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB)]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramNativeAddressRegistersArb = 0;
+			public int MaxProgramNativeAddressRegistersArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_LOCAL_PARAMETERS_ARB symbol.
@@ -846,7 +846,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_LOCAL_PARAMETERS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramLocalParametersArb = 0;
+			public int MaxProgramLocalParametersArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_ENV_PARAMETERS_ARB symbol.
@@ -854,7 +854,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_ENV_PARAMETERS_ARB)]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			public int MaxProgramEnvParametersArb = 0;
+			public int MaxProgramEnvParametersArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_EXEC_INSTRUCTIONS_NV symbol.
@@ -862,7 +862,7 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_EXEC_INSTRUCTIONS_NV)]
 			[RequiredByFeature("GL_NV_fragment_program2")]
 			[RequiredByFeature("GL_NV_vertex_program2_option")]
-			public int MaxProgramExecInstructionsNv = 0;
+			public int MaxProgramExecInstructionsNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_CALL_DEPTH_NV symbol.
@@ -870,28 +870,28 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_CALL_DEPTH_NV)]
 			[RequiredByFeature("GL_NV_fragment_program2")]
 			[RequiredByFeature("GL_NV_vertex_program2_option")]
-			public int MaxProgramCallDepthNv = 0;
+			public int MaxProgramCallDepthNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_IF_DEPTH_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_IF_DEPTH_NV)]
 			[RequiredByFeature("GL_NV_fragment_program2")]
-			public int MaxProgramIfDepthNv = 0;
+			public int MaxProgramIfDepthNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_LOOP_DEPTH_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_LOOP_DEPTH_NV)]
 			[RequiredByFeature("GL_NV_fragment_program2")]
-			public int MaxProgramLoopDepthNv = 0;
+			public int MaxProgramLoopDepthNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_LOOP_COUNT_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_LOOP_COUNT_NV)]
 			[RequiredByFeature("GL_NV_fragment_program2")]
-			public int MaxProgramLoopCountNv = 0;
+			public int MaxProgramLoopCountNv;
 
 			/// <summary>
 			/// [GL4] Gl.Get: data returns one value, the maximum number of active draw buffers when using dual-source blending. The 
@@ -901,7 +901,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
-			public int MaxDualSourceDrawBuffers = 0;
+			public int MaxDualSourceDrawBuffers;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value. The value indicates the maximum number of layers allowed in an array 
@@ -911,7 +911,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture_array")]
-			public int MaxArrayTextureLayers = 0;
+			public int MaxArrayTextureLayers;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the minimum texel offset allowed in a texture lookup, which must be at 
@@ -922,7 +922,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_gpu_program4")]
-			public int MinProgramTexelOffset = 0;
+			public int MinProgramTexelOffset;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum texel offset allowed in a texture lookup, which must be at 
@@ -933,21 +933,21 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_gpu_program4")]
-			public int MaxProgramTexelOffset = 0;
+			public int MaxProgramTexelOffset;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_ATTRIB_COMPONENTS_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_ATTRIB_COMPONENTS_NV)]
 			[RequiredByFeature("GL_NV_gpu_program4")]
-			public int MaxProgramAttribComponentsNv = 0;
+			public int MaxProgramAttribComponentsNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_RESULT_COMPONENTS_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_RESULT_COMPONENTS_NV)]
 			[RequiredByFeature("GL_NV_gpu_program4")]
-			public int MaxProgramResultComponentsNv = 0;
+			public int MaxProgramResultComponentsNv;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per vertex shader. The value must be 
@@ -957,7 +957,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			public int MaxVertexUniformBlocks = 0;
+			public int MaxVertexUniformBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per geometry shader. The value must 
@@ -969,7 +969,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryUniformBlocks = 0;
+			public int MaxGeometryUniformBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per fragment shader. The value must 
@@ -979,7 +979,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			public int MaxFragmentUniformBlocks = 0;
+			public int MaxFragmentUniformBlocks;
 
 			/// <summary>
 			/// <para>
@@ -995,7 +995,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			public int MaxCombinedUniformBlocks = 0;
+			public int MaxCombinedUniformBlocks;
 
 			/// <summary>
 			/// <para>
@@ -1011,7 +1011,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			public int MaxUniformBufferBindings = 0;
+			public int MaxUniformBufferBindings;
 
 			/// <summary>
 			/// <para>
@@ -1027,7 +1027,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			public int MaxUniformBlockSize = 0;
+			public int MaxUniformBlockSize;
 
 			/// <summary>
 			/// <para>
@@ -1044,7 +1044,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			public int MaxCombinedVertexUniformComponents = 0;
+			public int MaxCombinedVertexUniformComponents;
 
 			/// <summary>
 			/// <para>
@@ -1063,7 +1063,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxCombinedGeometryUniformComponents = 0;
+			public int MaxCombinedGeometryUniformComponents;
 
 			/// <summary>
 			/// <para>
@@ -1080,7 +1080,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			public int MaxCombinedFragmentUniformComponents = 0;
+			public int MaxCombinedFragmentUniformComponents;
 
 			/// <summary>
 			/// <para>
@@ -1096,7 +1096,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_fragment_shader")]
-			public int MaxFragmentUniformComponents = 0;
+			public int MaxFragmentUniformComponents;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean 
@@ -1107,7 +1107,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
-			public int MaxVertexUniformComponents = 0;
+			public int MaxVertexUniformComponents;
 
 			/// <summary>
 			/// [GL4] Gl.Get: data returns one value, the maximum number of interpolators available for processing varying variables 
@@ -1118,7 +1118,7 @@ namespace OpenGL
 			[Limit(MAX_VARYING_FLOATS)]
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
-			public int MaxVaryingFloats = 0;
+			public int MaxVaryingFloats;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
@@ -1128,7 +1128,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader4")]
-			public int MaxVaryingComponents = 0;
+			public int MaxVaryingComponents;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access 
@@ -1139,7 +1139,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program3")]
-			public int MaxVertexTextureImageUnits = 0;
+			public int MaxVertexTextureImageUnits;
 
 			/// <summary>
 			/// <para>
@@ -1159,21 +1159,21 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
-			public int MaxCombinedTextureImageUnits = 0;
+			public int MaxCombinedTextureImageUnits;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_OUTPUT_VERTICES_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_OUTPUT_VERTICES_NV)]
 			[RequiredByFeature("GL_NV_geometry_program4")]
-			public int MaxProgramOutputVerticesNv = 0;
+			public int MaxProgramOutputVerticesNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_TOTAL_OUTPUT_COMPONENTS_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_TOTAL_OUTPUT_COMPONENTS_NV)]
 			[RequiredByFeature("GL_NV_geometry_program4")]
-			public int MaxProgramTotalOutputComponentsNv = 0;
+			public int MaxProgramTotalOutputComponentsNv;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access 
@@ -1187,7 +1187,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_geometry_shader4")]
 			[RequiredByFeature("GL_NV_geometry_program4")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryTextureImageUnits = 0;
+			public int MaxGeometryTextureImageUnits;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value. The value gives the maximum number of texels allowed in the texel array of 
@@ -1200,7 +1200,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture_buffer_object")]
 			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
-			public int MaxTextureBufferSize = 0;
+			public int MaxTextureBufferSize;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the minimum sample shading fraction. See 
@@ -1211,7 +1211,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_sample_shading", Api = "gles2")]
-			public int MinSampleShadingValue = 0;
+			public int MinSampleShadingValue;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components which can be written per attribute or output 
@@ -1222,7 +1222,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
-			public int MaxTransformFeedbackSeparateComponents = 0;
+			public int MaxTransformFeedbackSeparateComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components which can be written to a single transform 
@@ -1233,7 +1233,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
-			public int MaxTransformFeedbackInterleavedComponents = 0;
+			public int MaxTransformFeedbackInterleavedComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum separate attributes or outputs which can be captured in separate 
@@ -1244,7 +1244,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
-			public int MaxTransformFeedbackSeparateAttribs = 0;
+			public int MaxTransformFeedbackSeparateAttribs;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of color attachment points in a framebuffer object. The 
@@ -1257,7 +1257,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
-			public int MaxColorAttachments = 0;
+			public int MaxColorAttachments;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value. The value indicates the maximum supported number of samples for multisampling. 
@@ -1272,7 +1272,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_framebuffer_multisample")]
 			[RequiredByFeature("GL_EXT_multisampled_render_to_texture", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_NV_framebuffer_multisample", Api = "gles2")]
-			public int MaxSamples = 0;
+			public int MaxSamples;
 
 			/// <summary>
 			/// <para>
@@ -1288,35 +1288,35 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
-			public int MaxElementIndex = 0;
+			public int MaxElementIndex;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_PARAMETER_BUFFER_BINDINGS_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_PARAMETER_BUFFER_BINDINGS_NV)]
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
-			public int MaxProgramParameterBufferBindingsNv = 0;
+			public int MaxProgramParameterBufferBindingsNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_PARAMETER_BUFFER_SIZE_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_PARAMETER_BUFFER_SIZE_NV)]
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
-			public int MaxProgramParameterBufferSizeNv = 0;
+			public int MaxProgramParameterBufferSizeNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_GENERIC_ATTRIBS_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_GENERIC_ATTRIBS_NV)]
 			[RequiredByFeature("GL_NV_gpu_program4")]
-			public int MaxProgramGenericAttribsNv = 0;
+			public int MaxProgramGenericAttribsNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_GENERIC_RESULTS_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_GENERIC_RESULTS_NV)]
 			[RequiredByFeature("GL_NV_gpu_program4")]
-			public int MaxProgramGenericResultsNv = 0;
+			public int MaxProgramGenericResultsNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_GEOMETRY_VARYING_COMPONENTS_ARB symbol.
@@ -1324,7 +1324,7 @@ namespace OpenGL
 			[Limit(MAX_GEOMETRY_VARYING_COMPONENTS_ARB)]
 			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader4")]
-			public int MaxGeometryVaryingComponentsArb = 0;
+			public int MaxGeometryVaryingComponentsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_VARYING_COMPONENTS_ARB symbol.
@@ -1332,7 +1332,7 @@ namespace OpenGL
 			[Limit(MAX_VERTEX_VARYING_COMPONENTS_ARB)]
 			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader4")]
-			public int MaxVertexVaryingComponentsArb = 0;
+			public int MaxVertexVaryingComponentsArb;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean 
@@ -1346,7 +1346,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_geometry_shader4")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryUniformComponents = 0;
+			public int MaxGeometryUniformComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of vertices emit by a geometry shader, which must be at 
@@ -1359,7 +1359,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_geometry_shader4")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryOutputVertices = 0;
+			public int MaxGeometryOutputVertices;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices 
@@ -1372,28 +1372,28 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_geometry_shader4")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryTotalOutputComponents = 0;
+			public int MaxGeometryTotalOutputComponents;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_BINDABLE_UNIFORMS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_BINDABLE_UNIFORMS_EXT)]
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
-			public int MaxVertexBindableUniformsExt = 0;
+			public int MaxVertexBindableUniformsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT)]
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
-			public int MaxFragmentBindableUniformsExt = 0;
+			public int MaxFragmentBindableUniformsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT)]
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
-			public int MaxGeometryBindableUniformsExt = 0;
+			public int MaxGeometryBindableUniformsExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SUBROUTINES symbol.
@@ -1401,7 +1401,7 @@ namespace OpenGL
 			[Limit(MAX_SUBROUTINES)]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			public int MaxSubroutines = 0;
+			public int MaxSubroutines;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS symbol.
@@ -1409,14 +1409,14 @@ namespace OpenGL
 			[Limit(MAX_SUBROUTINE_UNIFORM_LOCATIONS)]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			public int MaxSubroutineUniformLocations = 0;
+			public int MaxSubroutineUniformLocations;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_BINDABLE_UNIFORM_SIZE_EXT symbol.
 			/// </summary>
 			[Limit(MAX_BINDABLE_UNIFORM_SIZE_EXT)]
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
-			public int MaxBindableUniformSizeExt = 0;
+			public int MaxBindableUniformSizeExt;
 
 			/// <summary>
 			/// <para>
@@ -1433,7 +1433,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-			public int MaxVertexUniformVectors = 0;
+			public int MaxVertexUniformVectors;
 
 			/// <summary>
 			/// <para>
@@ -1450,7 +1450,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-			public int MaxVaryingVectors = 0;
+			public int MaxVaryingVectors;
 
 			/// <summary>
 			/// <para>
@@ -1467,14 +1467,14 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-			public int MaxFragmentUniformVectors = 0;
+			public int MaxFragmentUniformVectors;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_MULTISAMPLE_COVERAGE_MODES_NV symbol.
 			/// </summary>
 			[Limit(MAX_MULTISAMPLE_COVERAGE_MODES_NV)]
 			[RequiredByFeature("GL_NV_framebuffer_multisample_coverage", Api = "gl|glcore")]
-			public int MaxMultisampleCoverageModesNv = 0;
+			public int MaxMultisampleCoverageModesNv;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the number of words for tesselation control shader uniform variables in all 
@@ -1487,7 +1487,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxCombinedTessControlUniformComponents = 0;
+			public int MaxCombinedTessControlUniformComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the number of words for tesselation evaluation shader uniform variables in all 
@@ -1500,7 +1500,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxCombinedTessEvaluationUniformComponents = 0;
+			public int MaxCombinedTessEvaluationUniformComponents;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of sample mask words.
@@ -1510,14 +1510,14 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_explicit_multisample")]
-			public int MaxSampleMaskWords = 0;
+			public int MaxSampleMaskWords;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV symbol.
 			/// </summary>
 			[Limit(MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV)]
 			[RequiredByFeature("GL_NV_gpu_program5")]
-			public int MaxGeometryProgramInvocationsNv = 0;
+			public int MaxGeometryProgramInvocationsNv;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of invocations per primitive of a geometry 
@@ -1529,7 +1529,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryShaderInvocations = 0;
+			public int MaxGeometryShaderInvocations;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the minimum valid offset for interpolation. See 
@@ -1541,7 +1541,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_shader_multisample_interpolation", Api = "gles2")]
 			[RequiredByFeature("GL_NV_gpu_program5")]
-			public int MinFragmentInterpolationOffset = 0;
+			public int MinFragmentInterpolationOffset;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the maximum valid offset for interpolation. See 
@@ -1553,7 +1553,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_shader_multisample_interpolation", Api = "gles2")]
 			[RequiredByFeature("GL_NV_gpu_program5")]
-			public int MaxFragmentInterpolationOffset = 0;
+			public int MaxFragmentInterpolationOffset;
 
 			/// <summary>
 			/// [GL] Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
@@ -1563,7 +1563,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_gather", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_gpu_program5")]
-			public int MinProgramTextureGatherOffset = 0;
+			public int MinProgramTextureGatherOffset;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
@@ -1573,7 +1573,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_gather", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_gpu_program5")]
-			public int MaxProgramTextureGatherOffset = 0;
+			public int MaxProgramTextureGatherOffset;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_TRANSFORM_FEEDBACK_BUFFERS symbol.
@@ -1581,7 +1581,7 @@ namespace OpenGL
 			[Limit(MAX_TRANSFORM_FEEDBACK_BUFFERS)]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-			public int MaxTransformFeedbackBuffers = 0;
+			public int MaxTransformFeedbackBuffers;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_STREAMS symbol.
@@ -1590,7 +1590,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
 			[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-			public int MaxVertexStreams = 0;
+			public int MaxVertexStreams;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PATCH_VERTICES symbol.
@@ -1601,7 +1601,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxPatchVertices = 0;
+			public int MaxPatchVertices;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single value, the maximum tessellation level supported by the tesselation primitive 
@@ -1613,7 +1613,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessGenLevel = 0;
+			public int MaxTessGenLevel;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values 
@@ -1626,7 +1626,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlUniformComponents = 0;
+			public int MaxTessControlUniformComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of individual floating-point, integer, or boolean values 
@@ -1639,7 +1639,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationUniformComponents = 0;
+			public int MaxTessEvaluationUniformComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
@@ -1651,7 +1651,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlTextureImageUnits = 0;
+			public int MaxTessControlTextureImageUnits;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
@@ -1663,7 +1663,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationTextureImageUnits = 0;
+			public int MaxTessEvaluationTextureImageUnits;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a tesselation control 
@@ -1675,7 +1675,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlOutputComponents = 0;
+			public int MaxTessControlOutputComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of per-patch outputs written by a tesselation 
@@ -1687,7 +1687,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessPatchComponents = 0;
+			public int MaxTessPatchComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices 
@@ -1699,7 +1699,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlTotalOutputComponents = 0;
+			public int MaxTessControlTotalOutputComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a tesselation 
@@ -1711,7 +1711,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationOutputComponents = 0;
+			public int MaxTessEvaluationOutputComponents;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per tesselation control shader. The value 
@@ -1723,7 +1723,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlUniformBlocks = 0;
+			public int MaxTessControlUniformBlocks;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per tesselation evaluation shader. The 
@@ -1735,21 +1735,21 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationUniformBlocks = 0;
+			public int MaxTessEvaluationUniformBlocks;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_WINDOW_RECTANGLES_EXT symbol.
 			/// </summary>
 			[Limit(MAX_WINDOW_RECTANGLES_EXT)]
 			[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
-			public int MaxWindowRectanglesExt = 0;
+			public int MaxWindowRectanglesExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SHADER_BUFFER_ADDRESS_NV symbol.
 			/// </summary>
 			[Limit(MAX_SHADER_BUFFER_ADDRESS_NV)]
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			public int MaxShaderBufferAddressNv = 0;
+			public int MaxShaderBufferAddressNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_IMAGE_UNITS symbol.
@@ -1759,7 +1759,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_shader_image_load_store")]
-			public int MaxImageUnits = 0;
+			public int MaxImageUnits;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS symbol.
@@ -1769,42 +1769,42 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_shader_image_load_store")]
-			public int MaxCombinedImageUnitsAndFragmentOutputs = 0;
+			public int MaxCombinedImageUnitsAndFragmentOutputs;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_SUBROUTINE_PARAMETERS_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_SUBROUTINE_PARAMETERS_NV)]
 			[RequiredByFeature("GL_NV_gpu_program5")]
-			public int MaxProgramSubroutineParametersNv = 0;
+			public int MaxProgramSubroutineParametersNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_SUBROUTINE_NUM_NV symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_SUBROUTINE_NUM_NV)]
 			[RequiredByFeature("GL_NV_gpu_program5")]
-			public int MaxProgramSubroutineNumNv = 0;
+			public int MaxProgramSubroutineNumNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT symbol.
 			/// </summary>
 			[Limit(MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT)]
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage", Api = "gles2")]
-			public int MaxShaderPixelLocalStorageFastSizeExt = 0;
+			public int MaxShaderPixelLocalStorageFastSizeExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT symbol.
 			/// </summary>
 			[Limit(MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT)]
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage", Api = "gles2")]
-			public int MaxShaderPixelLocalStorageSizeExt = 0;
+			public int MaxShaderPixelLocalStorageSizeExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB)]
 			[RequiredByFeature("GL_ARB_texture_gather", Api = "gl|glcore")]
-			public int MaxProgramTextureGatherComponentsArb = 0;
+			public int MaxProgramTextureGatherComponentsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_IMAGE_SAMPLES symbol.
@@ -1813,7 +1813,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_shader_image_load_store")]
-			public int MaxImageSamples = 0;
+			public int MaxImageSamples;
 
 			/// <summary>
 			/// [GL4] Gl.Get: data returns one value, the minimum alignment in basic machine units of pointers returned fromGl.MapBuffer 
@@ -1822,7 +1822,7 @@ namespace OpenGL
 			[Limit(MIN_MAP_BUFFER_ALIGNMENT)]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_map_buffer_alignment", Api = "gl|glcore")]
-			public int MinMapBufferAlignment = 0;
+			public int MinMapBufferAlignment;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in vertex shaders.
@@ -1831,7 +1831,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-			public int MaxVertexImageUniforms = 0;
+			public int MaxVertexImageUniforms;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in tesselation control 
@@ -1843,7 +1843,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlImageUniforms = 0;
+			public int MaxTessControlImageUniforms;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in tesselation evaluation 
@@ -1855,7 +1855,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationImageUniforms = 0;
+			public int MaxTessEvaluationImageUniforms;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in geometry shaders.
@@ -1866,7 +1866,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryImageUniforms = 0;
+			public int MaxGeometryImageUniforms;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in fragment shaders. In GL ES 
@@ -1876,7 +1876,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-			public int MaxFragmentImageUniforms = 0;
+			public int MaxFragmentImageUniforms;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_COMBINED_IMAGE_UNIFORMS symbol.
@@ -1885,21 +1885,21 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-			public int MaxCombinedImageUniforms = 0;
+			public int MaxCombinedImageUniforms;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV symbol.
 			/// </summary>
 			[Limit(MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV)]
 			[RequiredByFeature("GL_NV_deep_texture3D")]
-			public int MaxDeep3dTextureWidthHeightNv = 0;
+			public int MaxDeep3dTextureWidthHeightNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_DEEP_3D_TEXTURE_DEPTH_NV symbol.
 			/// </summary>
 			[Limit(MAX_DEEP_3D_TEXTURE_DEPTH_NV)]
 			[RequiredByFeature("GL_NV_deep_texture3D")]
-			public int MaxDeep3dTextureDepthNv = 0;
+			public int MaxDeep3dTextureDepthNv;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
@@ -1909,7 +1909,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
-			public int MaxVertexShaderStorageBlocks = 0;
+			public int MaxVertexShaderStorageBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
@@ -1921,7 +1921,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryShaderStorageBlocks = 0;
+			public int MaxGeometryShaderStorageBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
@@ -1933,7 +1933,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlShaderStorageBlocks = 0;
+			public int MaxTessControlShaderStorageBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
@@ -1945,7 +1945,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationShaderStorageBlocks = 0;
+			public int MaxTessEvaluationShaderStorageBlocks;
 
 			/// <summary>
 			/// <para>
@@ -1961,7 +1961,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
-			public int MaxFragmentShaderStorageBlocks = 0;
+			public int MaxFragmentShaderStorageBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
@@ -1971,7 +1971,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
-			public int MaxComputeShaderStorageBlocks = 0;
+			public int MaxComputeShaderStorageBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum total number of active shader storage blocks that may be 
@@ -1981,7 +1981,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
-			public int MaxCombinedShaderStorageBlocks = 0;
+			public int MaxCombinedShaderStorageBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of shader storage buffer binding points on the context, 
@@ -1991,7 +1991,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
-			public int MaxShaderStorageBufferBindings = 0;
+			public int MaxShaderStorageBufferBindings;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum size in basic machine units of a shader storage block. The value 
@@ -2001,7 +2001,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
-			public int MaxShaderStorageBlockSize = 0;
+			public int MaxShaderStorageBlockSize;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the number of invocations in a single local work group (i.e., the product 
@@ -2011,14 +2011,14 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeWorkGroupInvocations = 0;
+			public int MaxComputeWorkGroupInvocations;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_MULTIVIEW_BUFFERS_EXT symbol.
 			/// </summary>
 			[Limit(MAX_MULTIVIEW_BUFFERS_EXT)]
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-			public int MaxMultiviewBuffersExt = 0;
+			public int MaxMultiviewBuffersExt;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of samples in a color multisample texture.
@@ -2027,7 +2027,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-			public int MaxColorTextureSamples = 0;
+			public int MaxColorTextureSamples;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of samples supported in integer format multisample 
@@ -2037,7 +2037,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-			public int MaxIntegerSamples = 0;
+			public int MaxIntegerSamples;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
@@ -2047,7 +2047,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
-			public int MaxServerWaitTimeout = 0;
+			public int MaxServerWaitTimeout;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of components of output written by a vertex shader, 
@@ -2056,7 +2056,7 @@ namespace OpenGL
 			[Limit(MAX_VERTEX_OUTPUT_COMPONENTS)]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			public int MaxVertexOutputComponents = 0;
+			public int MaxVertexOutputComponents;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, 
@@ -2067,7 +2067,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryInputComponents = 0;
+			public int MaxGeometryInputComponents;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, 
@@ -2078,7 +2078,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryOutputComponents = 0;
+			public int MaxGeometryOutputComponents;
 
 			/// <summary>
 			/// <para>
@@ -2093,14 +2093,14 @@ namespace OpenGL
 			[Limit(MAX_FRAGMENT_INPUT_COMPONENTS)]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			public int MaxFragmentInputComponents = 0;
+			public int MaxFragmentInputComponents;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SAMPLES_IMG symbol.
 			/// </summary>
 			[Limit(MAX_SAMPLES_IMG)]
 			[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
-			public int MaxSamplesImg = 0;
+			public int MaxSamplesImg;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single value, the maximum length of a debug message string, including its null 
@@ -2113,7 +2113,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-			public int MaxDebugMessageLength = 0;
+			public int MaxDebugMessageLength;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of messages stored in the debug message log.
@@ -2125,7 +2125,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-			public int MaxDebugLoggedMessages = 0;
+			public int MaxDebugLoggedMessages;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SPARSE_TEXTURE_SIZE_ARB symbol.
@@ -2134,7 +2134,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 			[RequiredByFeature("GL_AMD_sparse_texture")]
-			public int MaxSparseTextureSizeArb = 0;
+			public int MaxSparseTextureSizeArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SPARSE_3D_TEXTURE_SIZE_ARB symbol.
@@ -2143,7 +2143,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 			[RequiredByFeature("GL_AMD_sparse_texture")]
-			public int MaxSparse3dTextureSizeArb = 0;
+			public int MaxSparse3dTextureSizeArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS symbol.
@@ -2152,28 +2152,28 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_sparse_texture")]
 			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
-			public int MaxSparseArrayTextureLayers = 0;
+			public int MaxSparseArrayTextureLayers;
 
 			/// <summary>
 			/// [GL] Value of GL_MIN_SPARSE_LEVEL_AMD symbol.
 			/// </summary>
 			[Limit(MIN_SPARSE_LEVEL_AMD)]
 			[RequiredByFeature("GL_AMD_sparse_texture")]
-			public int MinSparseLevelAmd = 0;
+			public int MinSparseLevelAmd;
 
 			/// <summary>
 			/// [GL] Value of GL_MIN_LOD_WARNING_AMD symbol.
 			/// </summary>
 			[Limit(MIN_LOD_WARNING_AMD)]
 			[RequiredByFeature("GL_AMD_sparse_texture")]
-			public int MinLodWarningAmd = 0;
+			public int MinLodWarningAmd;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SHADER_COMPILER_THREADS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_SHADER_COMPILER_THREADS_ARB)]
 			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
-			public int MaxShaderCompilerThreadsArb = 0;
+			public int MaxShaderCompilerThreadsArb;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be 
@@ -2183,7 +2183,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeUniformBlocks = 0;
+			public int MaxComputeUniformBlocks;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access 
@@ -2193,7 +2193,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeTextureImageUnits = 0;
+			public int MaxComputeTextureImageUnits;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in compute shaders.
@@ -2202,14 +2202,14 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
-			public int MaxComputeImageUniforms = 0;
+			public int MaxComputeImageUniforms;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_LGPU_GPUS_NVX symbol.
 			/// </summary>
 			[Limit(MAX_LGPU_GPUS_NVX)]
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
-			public int MaxLgpuGpusNvx = 0;
+			public int MaxLgpuGpusNvx;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_ATOMIC_COUNTER_BUFFERS symbol.
@@ -2218,7 +2218,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			public int MaxVertexAtomicCounterBuffers = 0;
+			public int MaxVertexAtomicCounterBuffers;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
@@ -2230,7 +2230,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlAtomicCounterBuffers = 0;
+			public int MaxTessControlAtomicCounterBuffers;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
@@ -2242,7 +2242,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationAtomicCounterBuffers = 0;
+			public int MaxTessEvaluationAtomicCounterBuffers;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
@@ -2254,7 +2254,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryAtomicCounterBuffers = 0;
+			public int MaxGeometryAtomicCounterBuffers;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
@@ -2264,7 +2264,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			public int MaxFragmentAtomicCounterBuffers = 0;
+			public int MaxFragmentAtomicCounterBuffers;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_COMBINED_ATOMIC_COUNTER_BUFFERS symbol.
@@ -2273,7 +2273,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			public int MaxCombinedAtomicCounterBuffers = 0;
+			public int MaxCombinedAtomicCounterBuffers;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to vertex shaders.
@@ -2282,7 +2282,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			public int MaxVertexAtomicCounters = 0;
+			public int MaxVertexAtomicCounters;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation 
@@ -2294,7 +2294,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessControlAtomicCounters = 0;
+			public int MaxTessControlAtomicCounters;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation 
@@ -2306,7 +2306,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-			public int MaxTessEvaluationAtomicCounters = 0;
+			public int MaxTessEvaluationAtomicCounters;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
@@ -2317,7 +2317,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxGeometryAtomicCounters = 0;
+			public int MaxGeometryAtomicCounters;
 
 			/// <summary>
 			/// <para>
@@ -2332,7 +2332,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			public int MaxFragmentAtomicCounters = 0;
+			public int MaxFragmentAtomicCounters;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to all active 
@@ -2342,7 +2342,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			public int MaxCombinedAtomicCounters = 0;
+			public int MaxCombinedAtomicCounters;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_ATOMIC_COUNTER_BUFFER_SIZE symbol.
@@ -2351,7 +2351,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			public int MaxAtomicCounterBufferSize = 0;
+			public int MaxAtomicCounterBufferSize;
 
 			/// <summary>
 			/// [GLES3.2] Gl.Get: data returns one value, the maximum number of atomic counter buffer binding points. The value must be 
@@ -2361,7 +2361,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			public int MaxAtomicCounterBufferBindings = 0;
+			public int MaxAtomicCounterBufferBindings;
 
 			/// <summary>
 			/// <para>
@@ -2377,7 +2377,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
-			public int MaxFramebufferWidth = 0;
+			public int MaxFramebufferWidth;
 
 			/// <summary>
 			/// <para>
@@ -2393,7 +2393,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
-			public int MaxFramebufferHeight = 0;
+			public int MaxFramebufferHeight;
 
 			/// <summary>
 			/// <para>
@@ -2411,7 +2411,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-			public int MaxFramebufferLayers = 0;
+			public int MaxFramebufferLayers;
 
 			/// <summary>
 			/// <para>
@@ -2427,7 +2427,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
-			public int MaxFramebufferSamples = 0;
+			public int MaxFramebufferSamples;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_RASTER_SAMPLES_EXT symbol.
@@ -2436,64 +2436,64 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
-			public int MaxRasterSamplesExt = 0;
+			public int MaxRasterSamplesExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB symbol.
 			/// </summary>
 			[Limit(MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB)]
 			[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
-			public int MaxComputeVariableGroupInvocationsArb = 0;
+			public int MaxComputeVariableGroupInvocationsArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB symbol.
 			/// </summary>
 			[Limit(MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB)]
 			[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
-			public int MaxComputeVariableGroupSizeArb = 0;
+			public int MaxComputeVariableGroupSizeArb;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV symbol.
 			/// </summary>
 			[Limit(MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV)]
 			[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
-			public int MaxSubpixelPrecisionBiasBitsNv = 0;
+			public int MaxSubpixelPrecisionBiasBitsNv;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VIEWS_OVR symbol.
 			/// </summary>
 			[Limit(MAX_VIEWS_OVR)]
 			[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
-			public int MaxViewsOvr = 0;
+			public int MaxViewsOvr;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT symbol.
 			/// </summary>
 			[Limit(MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT)]
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-			public int MaxShaderCombinedLocalStorageFastSizeExt = 0;
+			public int MaxShaderCombinedLocalStorageFastSizeExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT symbol.
 			/// </summary>
 			[Limit(MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT)]
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-			public int MaxShaderCombinedLocalStorageSizeExt = 0;
+			public int MaxShaderCombinedLocalStorageSizeExt;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VERTEX_HINT_PGI symbol.
 			/// </summary>
 			[Limit(MAX_VERTEX_HINT_PGI)]
 			[RequiredByFeature("GL_PGI_vertex_hints")]
-			public int MaxVertexHintPgi = 0;
+			public int MaxVertexHintPgi;
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns two values: the smallest and largest supported widths for antialiased lines. See 
 			/// Gl.LineWidth.
 			/// </summary>
-			[Limit(LINE_WIDTH_RANGE, ArrayLength=2)]
+			[Limit(LINE_WIDTH_RANGE, ArrayLength = 2)]
 			[RequiredByFeature("GL_VERSION_1_0")]
-			public float[] LineWidthRange = new float[] {0.0f, 0.0f}
+			public float[] LineWidthRange = new float[] {0.0f, 0.0f };
 
 			/// <summary>
 			/// [GL2.1] Gl.Get: params returns one value, the width difference between adjacent supported widths for antialiased lines. 
@@ -2501,17 +2501,17 @@ namespace OpenGL
 			/// </summary>
 			[Limit(LINE_WIDTH_GRANULARITY)]
 			[RequiredByFeature("GL_VERSION_1_0")]
-			public int LineWidthGranularity = 0;
+			public float LineWidthGranularity;
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a pair of values indicating the range of widths supported for aliased lines. See 
 			/// Gl.LineWidth.
 			/// </summary>
-			[Limit(ALIASED_LINE_WIDTH_RANGE, ArrayLength=2)]
+			[Limit(ALIASED_LINE_WIDTH_RANGE, ArrayLength = 2)]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-			public float[] AliasedLineWidthRange = new float[] {0.0f, 0.0f}
+			public float[] AliasedLineWidthRange = new float[] {0.0f, 0.0f };
 
 			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns a single value, the minimum required alignment for uniform buffer sizes and offset. 
@@ -2521,7 +2521,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-			public int UniformBufferOffsetAlignment = 0;
+			public int UniformBufferOffsetAlignment;
 
 		}
 }

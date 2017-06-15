@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 
 using BindingsGen.GLSpecs;
@@ -141,6 +142,7 @@ namespace BindingsGen
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				GenerateCommandsAndEnums(glRegistryProcessor, ctx);
 				GenerateExtensionsSupportClass(glRegistryProcessor, ctx);
+				GenerateLimitsSupportClass(glRegistryProcessor, ctx);
 				GenerateVersionsSupportClass(glRegistryProcessor, ctx);
 				GenerateVbCommands(glRegistryProcessor, ctx);
 				glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapGl.xml"));
@@ -665,6 +667,121 @@ namespace BindingsGen
 					}
 
 					sw.WriteLine("public bool {0};", extensionFieldName);
+					sw.WriteLine();
+				}
+
+				sw.Unindent();
+				sw.WriteLine("}");
+				sw.Unindent();
+
+				sw.Unindent();
+				sw.WriteLine("}");
+				sw.Unindent();
+
+				sw.WriteLine();
+				sw.WriteLine("}");
+			}
+		}
+
+		private static void GenerateLimitsSupportClass(RegistryProcessor glRegistryProcessor, RegistryContext ctx)
+		{
+			string path = String.Format("{0}/{1}.Limits.cs", _OutputBasePath, ctx.Class);
+
+			List<Enumerant> limitEnums = new List<Enumerant>();
+
+			foreach (Enumerant enumerant in ctx.Registry.Enumerants) {
+				// Skip enumeration with aliases
+				if (enumerant.EnumAlias != null)
+					continue;
+
+				bool maxLimit = enumerant.Name.StartsWith("GL_MAX_");
+				bool minLimit = enumerant.Name.StartsWith("GL_MIN_");
+
+				if (!maxLimit && !minLimit)
+					continue;
+
+				if (CommandFlagsDatabase.IsExcludedLimit(enumerant.Name))
+					continue;
+
+				limitEnums.Add(enumerant);
+			}
+
+			foreach (CommandFlagsDatabase.Limit limit in CommandFlagsDatabase.GetLimits()) {
+				if (limitEnums.Exists(delegate(Enumerant item) { return (item.Name == limit.Name); }))
+					continue;
+
+				Enumerant addedEnum = ctx.Registry.GetEnumerant(limit.Name);
+
+				Debug.Assert(addedEnum != null);
+				if (addedEnum == null)
+					continue;
+
+				limitEnums.Add(addedEnum);
+			}
+
+			Console.WriteLine("Generate API limits to {0}.", path);
+
+			using (SourceStreamWriter sw = new SourceStreamWriter(Path.Combine(BasePath, path), false)) {
+				RegistryProcessor.GenerateLicensePreamble(sw);
+
+				sw.WriteLine("using System;");
+				sw.WriteLine();
+
+				sw.WriteLine("namespace {0}", _Namespace);
+				sw.WriteLine("{");
+				sw.Indent();
+
+				sw.WriteLine("public partial class {0}", ctx.Class);
+				sw.WriteLine("{");
+				sw.Indent();
+
+				sw.WriteLine("/// <summary>");
+				sw.WriteLine("/// Limits support listing.");
+				sw.WriteLine("/// </summary>");
+				sw.WriteLine("public sealed partial class Limits");
+				sw.WriteLine("{");
+				sw.Indent();
+
+				foreach (Enumerant enumerant in limitEnums) {
+					// Filter enumerant
+					CommandFlagsDatabase.Limit limit = CommandFlagsDatabase.GetLimit(enumerant.Name);
+					string fieldName = SpecificationStyle.GetCamelCase(enumerant.ImplementationName);
+					string fieldType = "int";
+					int fieldLength = 1;
+
+					if (limit != null) {
+						fieldType = limit.Type;
+						fieldLength = limit.Length;
+					}
+
+					enumerant.GenerateDocumentation(sw, ctx);
+					if (fieldLength > 1) {
+						sw.WriteLine("[Limit({0}, ArrayLength = {1})]", enumerant.ImplementationName, fieldLength);
+						enumerant.GenerateRequirements(sw, ctx);
+
+						StringBuilder sb = new StringBuilder();
+						sb.AppendFormat("public {0}[] {1} = new {0}[] {{", fieldType, fieldName);
+						for (int i = 0; i < fieldLength; i++) {
+							switch (fieldType) {
+								case "int":
+									sb.Append("0");
+									break;
+								case "float":
+									sb.Append("0.0f");
+									break;
+							}
+							if (i < fieldLength - 1)
+								sb.Append(", ");
+						}
+						
+						sb.Append(" };");
+
+						sw.WriteLine(sb.ToString());
+					} else {
+						sw.WriteLine("[Limit({0})]", enumerant.ImplementationName);
+						enumerant.GenerateRequirements(sw, ctx);
+						sw.WriteLine("public {0} {1};", fieldType, fieldName);
+					}
 					sw.WriteLine();
 				}
 

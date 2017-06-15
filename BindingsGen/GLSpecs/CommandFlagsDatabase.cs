@@ -313,5 +313,58 @@ namespace BindingsGen.GLSpecs
 		public readonly List<CommandItem> Commands = new List<CommandItem>();
 
 		#endregion
+
+		#region Limits
+
+		public class Limit
+		{
+			[XmlAttribute("name")]
+			public string Name;
+
+			[XmlAttribute("type")]
+			public string Type = "int";
+
+			[XmlAttribute("length")]
+			public int Length = 1;
+		}
+
+		/// <summary>
+		/// Limits.
+		/// </summary>
+		[XmlElement("limit")]
+		public readonly List<Limit> Limits = new List<Limit>();
+
+		/// <summary>
+		/// Limits.
+		/// </summary>
+		[XmlElement("exclude_limit")]
+		public readonly List<Limit> ExcludedLimits = new List<Limit>();
+
+		public static List<Limit> GetLimits()
+		{
+			return (_CommandFlagsDatabase.Limits);
+		}
+
+		public static Limit GetLimit(string enumName)
+		{
+			foreach (Limit limit in _CommandFlagsDatabase.Limits) {
+				if (enumName == limit.Name)
+					return (limit);
+			}
+
+			return (null);
+		}
+
+		public static bool IsExcludedLimit(string enumName)
+		{
+			foreach (Limit limit in _CommandFlagsDatabase.ExcludedLimits) {
+				if (Regex.IsMatch(enumName, limit.Name))
+					return (true);
+			}
+
+			return (false);
+		}
+
+		#endregion
 	}
 }

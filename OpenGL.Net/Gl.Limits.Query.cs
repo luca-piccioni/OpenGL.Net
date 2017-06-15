@@ -91,7 +91,7 @@ namespace OpenGL
 							if (field.FieldType.IsArray == false)
 								obj = Activator.CreateInstance(field.FieldType);
 							else
-								obj = Array.CreateInstance(field.FieldType.GetElementType(), graphicsLimitAttribute.ArrayLenght);
+								obj = Array.CreateInstance(field.FieldType.GetElementType(), graphicsLimitAttribute.ArrayLength);
 
 							try {
 								object[] @params = new object[] { graphicsLimitAttribute.EnumValue, obj };

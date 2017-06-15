@@ -74,8 +74,8 @@ namespace OffscreenTriangle
 				deviceContext.MakeCurrent(glContext);
 
 				// Create framebuffer resources
-				int w = Math.Min(800, Gl.CurrentLimits.MaxRenderBufferSize);
-				int h = Math.Min(600, Gl.CurrentLimits.MaxRenderBufferSize);
+				int w = Math.Min(800, Gl.CurrentLimits.MaxRenderbufferSize);
+				int h = Math.Min(600, Gl.CurrentLimits.MaxRenderbufferSize);
 
 				renderbuffer = Gl.GenRenderbuffer();
 				Gl.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderbuffer);
