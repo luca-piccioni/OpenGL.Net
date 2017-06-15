@@ -191,6 +191,11 @@ namespace BindingsGen.GLSpecs
 			});
 
 			extensions.Sort(delegate(Extension x, Extension y) {
+				int xVendor = GetExtensionVendorPriority(x.Vendor), yVendor = GetExtensionVendorPriority(y.Vendor);
+
+				if (xVendor != yVendor)
+					return (GetExtensionVendorPriority(x.Vendor).CompareTo(GetExtensionVendorPriority(y.Vendor)));
+
 				int xIndex = ExtensionIndices.GetIndex(x.Name);
 				int yIndex = ExtensionIndices.GetIndex(y.Name);
 
@@ -202,6 +207,24 @@ namespace BindingsGen.GLSpecs
 
 			foreach (Extension extension in extensions)
 				yield return extension;
+		}
+
+		private static int GetExtensionVendorPriority(string vendor)
+		{
+			switch (vendor) {
+				case "ARB":
+					return (-1000);
+				case "EXT":
+					return (-500);
+				case "OES":
+					return (-1);
+				//case "NV":
+				//	return (-2);
+				//case "AMD":
+				//	return (-1);
+				default:
+					return (0);
+			}
 		}
 
 		#endregion

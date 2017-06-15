@@ -66,6 +66,11 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		List<Extension> Extensions { get; }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <returns></returns>
 		IEnumerable<IFeature> AllFeatures(RegistryContext ctx);
 
 		#endregion
