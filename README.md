@@ -1,11 +1,13 @@
 [![build](https://ci.appveyor.com/api/projects/status/0xf5kf47uj3q586j?svg=true)](https://ci.appveyor.com/project/luca-piccioni/opengl-net)
-[![nuget](https://img.shields.io/nuget/v/OpenGL.Net.svg)](https://www.nuget.org/packages/OpenGL.Net/)
-[![wiki](https://img.shields.io/badge/browse-the%20wiki-green.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
+[![nuget](https://img.shields.io/nuget/v/OpenGL.Net.svg?colorB=22CC22)](https://www.nuget.org/packages/OpenGL.Net/)
+[![NuGet](https://img.shields.io/nuget/dt/OpenGL.Net.svg?colorB=22CC22&label=nuget%20downloads)](https://www.nuget.org/packages/OpenGL.Net/)
+
+[![wiki](https://img.shields.io/badge/browse-the%20wiki-blue.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
 
 # OpenGL.Net
 Modern OpenGL binding for C#.
 
-Generated from the lastest official XML specification, OpenGL.Net provides:
+Generated from the lastest official XML specification, _OpenGL.Net_ provides:
 - Strongly typed enumerants;
 - Function pointer wrappers, with safe and unsafe parameters, pinning managed memory when necessary;
 - OpenGL entry points overloading;
