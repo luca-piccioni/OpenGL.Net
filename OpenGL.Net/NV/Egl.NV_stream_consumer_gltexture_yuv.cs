@@ -47,20 +47,6 @@ namespace OpenGL
 		public const int YUV_PLANE2_TEXTURE_UNIT_NV = 0x332E;
 
 		/// <summary>
-		/// [EGL] Value of EGL_YUV_NUMBER_OF_PLANES_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("EGL_EXT_yuv_surface")]
-		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
-		public const int YUV_NUMBER_OF_PLANES_EXT = 0x3311;
-
-		/// <summary>
-		/// [EGL] Value of EGL_YUV_BUFFER_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("EGL_EXT_yuv_surface")]
-		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
-		public const int YUV_BUFFER_EXT = 0x3300;
-
-		/// <summary>
 		/// Binding for eglStreamConsumerGLTextureExternalAttribsNV.
 		/// </summary>
 		/// <param name="dpy">

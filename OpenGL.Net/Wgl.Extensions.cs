@@ -127,6 +127,13 @@ namespace OpenGL
 			public bool ContextFlushControl_ARB;
 
 			/// <summary>
+			/// Support for extension WGL_ARB_create_context_no_error.
+			/// </summary>
+			[Extension("WGL_ARB_create_context_no_error")]
+			[ExtensionSupport("wgl")]
+			public bool CreateContextNoError_ARB;
+
+			/// <summary>
 			/// Support for extension WGL_EXT_display_color_table.
 			/// </summary>
 			[Extension("WGL_EXT_display_color_table")]
@@ -344,16 +351,16 @@ namespace OpenGL
 			public bool MultisampleCoverage_NV;
 
 			/// <summary>
-			/// Support for extension WGL_EXT_colorspace.
-			/// </summary>
-			[Extension("WGL_EXT_colorspace")]
-			public bool Colorspace_EXT;
-
-			/// <summary>
 			/// Support for extension WGL_NV_vertex_array_range.
 			/// </summary>
 			[Extension("WGL_NV_vertex_array_range")]
 			public bool VertexArrayRange_NV;
+
+			/// <summary>
+			/// Support for extension WGL_EXT_colorspace.
+			/// </summary>
+			[Extension("WGL_EXT_colorspace")]
+			public bool Colorspace_EXT;
 
 		}
 }

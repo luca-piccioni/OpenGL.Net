@@ -557,6 +557,12 @@
     <param name="data" />
     <param name="flags" />
   </command>
+  <command name="glBufferStorageMemEXT">
+    <param name="target" flags="enum" />
+    <param name="size" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
   <command name="glBufferSubData">
     <param name="target" flags="enum" />
     <param name="offset" />
@@ -3598,6 +3604,11 @@
     <param name="pname" flags="enum" />
     <param name="params" />
   </command>
+  <command name="glGetMemoryObjectParameterivEXT">
+    <param name="memoryObject" />
+    <param name="pname" flags="enum" />
+    <param name="params" />
+  </command>
   <command name="glGetMinmax">
     <param name="target" flags="enum" />
     <param name="reset" />
@@ -4323,6 +4334,11 @@
     <param name="pname" flags="enum" />
     <param name="params" />
   </command>
+  <command name="glGetSemaphoreParameterui64vEXT">
+    <param name="semaphore" />
+    <param name="pname" flags="enum" />
+    <param name="params" />
+  </command>
   <command name="glGetSeparableFilter">
     <param name="target" flags="enum" />
     <param name="format" flags="enum" />
@@ -4676,6 +4692,15 @@
     <param name="shadertype" flags="enum" />
     <param name="location" />
     <param name="params" />
+  </command>
+  <command name="glGetUnsignedBytevEXT">
+    <param name="pname" flags="enum" />
+    <param name="data" />
+  </command>
+  <command name="glGetUnsignedBytei_vEXT">
+    <param name="target" flags="enum" />
+    <param name="index" />
+    <param name="data" />
   </command>
   <command name="glGetVariantArrayObjectfvATI">
     <param name="id" />
@@ -5121,6 +5146,39 @@
     <param name="target" flags="enum" />
     <param name="pname" flags="enum" />
     <param name="params" />
+  </command>
+  <command name="glImportMemoryFdEXT">
+    <param name="memory" />
+    <param name="size" />
+    <param name="handleType" flags="enum" />
+    <param name="fd" />
+  </command>
+  <command name="glImportMemoryWin32HandleEXT">
+    <param name="memory" />
+    <param name="size" />
+    <param name="handleType" flags="enum" />
+    <param name="handle" />
+  </command>
+  <command name="glImportMemoryWin32NameEXT">
+    <param name="memory" />
+    <param name="size" />
+    <param name="handleType" flags="enum" />
+    <param name="name" />
+  </command>
+  <command name="glImportSemaphoreFdEXT">
+    <param name="semaphore" />
+    <param name="handleType" flags="enum" />
+    <param name="fd" />
+  </command>
+  <command name="glImportSemaphoreWin32HandleEXT">
+    <param name="semaphore" />
+    <param name="handleType" flags="enum" />
+    <param name="handle" />
+  </command>
+  <command name="glImportSemaphoreWin32NameEXT">
+    <param name="semaphore" />
+    <param name="handleType" flags="enum" />
+    <param name="name" />
   </command>
   <command name="glImportSyncEXT">
     <param name="external_sync_type" flags="enum" />
@@ -5671,6 +5729,11 @@
     <param name="x" />
     <param name="y" />
     <param name="z" />
+  </command>
+  <command name="glMemoryObjectParameterivEXT">
+    <param name="memoryObject" />
+    <param name="pname" flags="enum" />
+    <param name="params" />
   </command>
   <command name="glMinmax">
     <param name="target" flags="enum" />
@@ -7774,6 +7837,11 @@
     <param name="pointer" />
     <param name="ptrstride" />
   </command>
+  <command name="glSemaphoreParameterui64vEXT">
+    <param name="semaphore" />
+    <param name="pname" flags="enum" />
+    <param name="params" />
+  </command>
   <command name="glSeparableFilter2D">
     <param name="target" flags="enum" />
     <param name="internalformat" flags="enum" />
@@ -7845,6 +7913,14 @@
     <param name="target" flags="enum" />
     <param name="n" />
     <param name="points" />
+  </command>
+  <command name="glSignalSemaphoreEXT">
+    <param name="semaphore" />
+    <param name="numBufferBarriers" />
+    <param name="buffers" />
+    <param name="numTextureBarriers" />
+    <param name="textures" />
+    <param name="dstLayouts" flags="enum" />
   </command>
   <command name="glSpriteParameterfSGIX">
     <param name="pname" flags="enum" />
@@ -8474,6 +8550,54 @@
     <param name="depth" />
     <param name="fixedsamplelocations" />
   </command>
+  <command name="glTexStorageMem1DEXT">
+    <param name="target" flags="enum" />
+    <param name="levels" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
+  <command name="glTexStorageMem2DEXT">
+    <param name="target" flags="enum" />
+    <param name="levels" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
+  <command name="glTexStorageMem2DMultisampleEXT">
+    <param name="target" flags="enum" />
+    <param name="samples" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="fixedSampleLocations" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
+  <command name="glTexStorageMem3DEXT">
+    <param name="target" flags="enum" />
+    <param name="levels" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="depth" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
+  <command name="glTexStorageMem3DMultisampleEXT">
+    <param name="target" flags="enum" />
+    <param name="samples" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="depth" />
+    <param name="fixedSampleLocations" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
   <command name="glTexStorageSparseAMD">
     <param name="target" flags="enum" />
     <param name="internalFormat" flags="enum" />
@@ -8845,6 +8969,54 @@
     <param name="height" />
     <param name="depth" />
     <param name="fixedsamplelocations" />
+  </command>
+  <command name="glTextureStorageMem1DEXT">
+    <param name="texture" />
+    <param name="levels" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
+  <command name="glTextureStorageMem2DEXT">
+    <param name="texture" />
+    <param name="levels" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
+  <command name="glTextureStorageMem2DMultisampleEXT">
+    <param name="texture" />
+    <param name="samples" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="fixedSampleLocations" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
+  <command name="glTextureStorageMem3DEXT">
+    <param name="texture" />
+    <param name="levels" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="depth" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
+  <command name="glTextureStorageMem3DMultisampleEXT">
+    <param name="texture" />
+    <param name="samples" />
+    <param name="internalFormat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="depth" />
+    <param name="fixedSampleLocations" />
+    <param name="memory" />
+    <param name="offset" />
   </command>
   <command name="glTextureStorageSparseAMD">
     <param name="texture" />
@@ -9591,6 +9763,14 @@
     <param name="swizzley" flags="enum" />
     <param name="swizzlez" flags="enum" />
     <param name="swizzlew" flags="enum" />
+  </command>
+  <command name="glWaitSemaphoreEXT">
+    <param name="semaphore" />
+    <param name="numBufferBarriers" />
+    <param name="buffers" />
+    <param name="numTextureBarriers" />
+    <param name="textures" />
+    <param name="srcLayouts" flags="enum" />
   </command>
   <command name="glWeightPointerARB">
     <param name="size" />

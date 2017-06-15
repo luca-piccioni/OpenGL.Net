@@ -35,6 +35,13 @@ namespace OpenGL
 		public const int YUV_ORDER_EXT = 0x3301;
 
 		/// <summary>
+		/// [EGL] Value of EGL_YUV_NUMBER_OF_PLANES_EXT symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_EXT_yuv_surface")]
+		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
+		public const int YUV_NUMBER_OF_PLANES_EXT = 0x3311;
+
+		/// <summary>
 		/// [EGL] Value of EGL_YUV_SUBSAMPLE_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_yuv_surface")]
@@ -57,6 +64,13 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("EGL_EXT_yuv_surface")]
 		public const int YUV_PLANE_BPP_EXT = 0x331A;
+
+		/// <summary>
+		/// [EGL] Value of EGL_YUV_BUFFER_EXT symbol.
+		/// </summary>
+		[RequiredByFeature("EGL_EXT_yuv_surface")]
+		[RequiredByFeature("EGL_NV_stream_consumer_gltexture_yuv")]
+		public const int YUV_BUFFER_EXT = 0x3300;
 
 		/// <summary>
 		/// [EGL] Value of EGL_YUV_ORDER_YUV_EXT symbol.

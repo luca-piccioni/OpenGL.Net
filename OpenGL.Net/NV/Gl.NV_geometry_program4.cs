@@ -47,27 +47,6 @@ namespace OpenGL
 		public const int MAX_PROGRAM_TOTAL_OUTPUT_COMPONENTS_NV = 0x8C28;
 
 		/// <summary>
-		/// [GL] Value of GL_GEOMETRY_VERTICES_OUT_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		[RequiredByFeature("GL_NV_geometry_program4")]
-		public const int GEOMETRY_VERTICES_OUT_EXT = 0x8DDA;
-
-		/// <summary>
-		/// [GL] Value of GL_GEOMETRY_INPUT_TYPE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		[RequiredByFeature("GL_NV_geometry_program4")]
-		public const int GEOMETRY_INPUT_TYPE_EXT = 0x8DDB;
-
-		/// <summary>
-		/// [GL] Value of GL_GEOMETRY_OUTPUT_TYPE_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		[RequiredByFeature("GL_NV_geometry_program4")]
-		public const int GEOMETRY_OUTPUT_TYPE_EXT = 0x8DDC;
-
-		/// <summary>
 		/// Binding for glProgramVertexLimitNV.
 		/// </summary>
 		/// <param name="target">

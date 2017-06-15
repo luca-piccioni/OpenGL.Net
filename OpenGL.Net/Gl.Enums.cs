@@ -3713,6 +3713,64 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration ExternalHandleType.
+	/// </summary>
+	public enum ExternalHandleType
+	{
+		/// <summary>
+		/// Strongly typed for value GL_HANDLE_TYPE_OPAQUE_FD_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_fd", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_semaphore_fd", Api = "gl|gles2")]
+		HandleTypeOpaqueFdExt = Gl.HANDLE_TYPE_OPAQUE_FD_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_HANDLE_TYPE_OPAQUE_WIN32_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
+		HandleTypeOpaqueWin32Ext = Gl.HANDLE_TYPE_OPAQUE_WIN32_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
+		HandleTypeOpaqueWin32KmtExt = Gl.HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_HANDLE_TYPE_D3D12_TILEPOOL_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+		HandleTypeD3d12TilepoolExt = Gl.HANDLE_TYPE_D3D12_TILEPOOL_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_HANDLE_TYPE_D3D12_RESOURCE_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+		HandleTypeD3d12ResourceExt = Gl.HANDLE_TYPE_D3D12_RESOURCE_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_HANDLE_TYPE_D3D11_IMAGE_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+		HandleTypeD3d11ImageExt = Gl.HANDLE_TYPE_D3D11_IMAGE_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_HANDLE_TYPE_D3D11_IMAGE_KMT_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+		HandleTypeD3d11ImageKmtExt = Gl.HANDLE_TYPE_D3D11_IMAGE_KMT_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_HANDLE_TYPE_D3D12_FENCE_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
+		HandleTypeD3d12FenceExt = Gl.HANDLE_TYPE_D3D12_FENCE_EXT,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration FeedbackType.
 	/// </summary>
 	public enum FeedbackType
@@ -5849,6 +5907,27 @@ namespace OpenGL
 		DetailTexture2dBindingSgis = Gl.DETAIL_TEXTURE_2D_BINDING_SGIS,
 
 		/// <summary>
+		/// Strongly typed for value GL_DEVICE_LUID_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
+		DeviceLuidExt = Gl.DEVICE_LUID_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEVICE_NODE_MASK_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
+		DeviceNodeMaskExt = Gl.DEVICE_NODE_MASK_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEVICE_UUID_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		DeviceUuidExt = Gl.DEVICE_UUID_EXT,
+
+		/// <summary>
 		/// Strongly typed for value GL_DISTANCE_ATTENUATION_SGIS.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_point_parameters")]
@@ -5875,6 +5954,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 		DrawBuffer = Gl.DRAW_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DRIVER_UUID_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		DriverUuidExt = Gl.DRIVER_UUID_EXT,
 
 		/// <summary>
 		/// Strongly typed for value GL_EDGE_FLAG.
@@ -11656,6 +11742,25 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration MemoryObjectParameterName.
+	/// </summary>
+	public enum MemoryObjectParameterName
+	{
+		/// <summary>
+		/// Strongly typed for value GL_DEDICATED_MEMORY_OBJECT_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
+		DedicatedMemoryObjectExt = Gl.DEDICATED_MEMORY_OBJECT_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROTECTED_MEMORY_OBJECT_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
+		ProtectedMemoryObjectExt = Gl.PROTECTED_MEMORY_OBJECT_EXT,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration MeshMode1.
 	/// </summary>
 	public enum MeshMode1
@@ -14470,6 +14575,19 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration SemaphoreParameterName.
+	/// </summary>
+	public enum SemaphoreParameterName
+	{
+		/// <summary>
+		/// Strongly typed for value GL_D3D12_FENCE_VALUE_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
+		D3d12FenceValueExt = Gl.D3D12_FENCE_VALUE_EXT,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration SeparableTarget.
 	/// </summary>
 	public enum SeparableTarget
@@ -15241,6 +15359,55 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration TextureLayout.
+	/// </summary>
+	public enum TextureLayout
+	{
+		/// <summary>
+		/// Strongly typed for value GL_LAYOUT_GENERAL_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		LayoutGeneralExt = Gl.LAYOUT_GENERAL_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_LAYOUT_COLOR_ATTACHMENT_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		LayoutColorAttachmentExt = Gl.LAYOUT_COLOR_ATTACHMENT_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_LAYOUT_DEPTH_STENCIL_ATTACHMENT_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		LayoutDepthStencilAttachmentExt = Gl.LAYOUT_DEPTH_STENCIL_ATTACHMENT_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_LAYOUT_DEPTH_STENCIL_READ_ONLY_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		LayoutDepthStencilReadOnlyExt = Gl.LAYOUT_DEPTH_STENCIL_READ_ONLY_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_LAYOUT_SHADER_READ_ONLY_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		LayoutShaderReadOnlyExt = Gl.LAYOUT_SHADER_READ_ONLY_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_LAYOUT_TRANSFER_SRC_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		LayoutTransferSrcExt = Gl.LAYOUT_TRANSFER_SRC_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_LAYOUT_TRANSFER_DST_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		LayoutTransferDstExt = Gl.LAYOUT_TRANSFER_DST_EXT,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration TextureMagFilter.
 	/// </summary>
 	public enum TextureMagFilter
@@ -15690,6 +15857,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_swizzle")]
 		TextureSwizzleRgba = Gl.TEXTURE_SWIZZLE_RGBA,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_TILING_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
+		TextureTilingExt = Gl.TEXTURE_TILING_EXT,
 
 		/// <summary>
 		/// Strongly typed for value GL_DEPTH_STENCIL_TEXTURE_MODE.

@@ -26,13 +26,13 @@ using System.Text;
 
 namespace OpenGL
 {
-	public partial class Gl
+	public partial class Wgl
 	{
 		/// <summary>
-		/// [GL] Value of GL_SAMPLER_EXTERNAL_OES symbol.
+		/// [WGL] Value of WGL_CONTEXT_OPENGL_NO_ERROR_ARB symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_EGL_image_external", Api = "gles1|gles2")]
-		public const int SAMPLER_EXTERNAL_OES = 0x8D66;
+		[RequiredByFeature("WGL_ARB_create_context_no_error")]
+		public const int CONTEXT_OPENGL_NO_ERROR_ARB = 0x31B3;
 
 	}
 

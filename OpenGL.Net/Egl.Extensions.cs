@@ -566,82 +566,82 @@ namespace OpenGL
 			public bool Clientpixmap_HI;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_yuv_surface.
+			/// Support for extension EGL_ANDROID_framebuffer_target.
 			/// </summary>
-			[Extension("EGL_EXT_yuv_surface")]
-			public bool YuvSurface_EXT;
+			[Extension("EGL_ANDROID_framebuffer_target")]
+			public bool FramebufferTarget_ANDROID;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_swap_buffers_with_damage.
+			/// Support for extension EGL_ANDROID_front_buffer_auto_refresh.
 			/// </summary>
-			[Extension("EGL_EXT_swap_buffers_with_damage")]
-			public bool SwapBuffersWithDamage_EXT;
+			[Extension("EGL_ANDROID_front_buffer_auto_refresh")]
+			public bool FrontBufferAutoRefresh_ANDROID;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_surface_SMPTE2086_metadata.
+			/// Support for extension EGL_ANDROID_image_native_buffer.
 			/// </summary>
-			[Extension("EGL_EXT_surface_SMPTE2086_metadata")]
-			public bool SurfaceSMPTE2086Metadata_EXT;
+			[Extension("EGL_ANDROID_image_native_buffer")]
+			public bool ImageNativeBuffer_ANDROID;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_stream_consumer_egloutput.
+			/// Support for extension EGL_ANDROID_native_fence_sync.
 			/// </summary>
-			[Extension("EGL_EXT_stream_consumer_egloutput")]
-			public bool StreamConsumerEgloutput_EXT;
+			[Extension("EGL_ANDROID_native_fence_sync")]
+			public bool NativeFenceSync_ANDROID;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_protected_surface.
+			/// Support for extension EGL_ANDROID_presentation_time.
 			/// </summary>
-			[Extension("EGL_EXT_protected_surface")]
-			public bool ProtectedSurface_EXT;
+			[Extension("EGL_ANDROID_presentation_time")]
+			public bool PresentationTime_ANDROID;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_protected_content.
+			/// Support for extension EGL_ANDROID_recordable.
 			/// </summary>
-			[Extension("EGL_EXT_protected_content")]
-			public bool ProtectedContent_EXT;
+			[Extension("EGL_ANDROID_recordable")]
+			public bool Recordable_ANDROID;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_platform_x11.
+			/// Support for extension EGL_ANGLE_d3d_share_handle_client_buffer.
 			/// </summary>
-			[Extension("EGL_EXT_platform_x11")]
-			public bool PlatformX11_EXT;
+			[Extension("EGL_ANGLE_d3d_share_handle_client_buffer")]
+			public bool D3dShareHandleClientBuffer_ANGLE;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_platform_wayland.
+			/// Support for extension EGL_ANGLE_device_d3d.
 			/// </summary>
-			[Extension("EGL_EXT_platform_wayland")]
-			public bool PlatformWayland_EXT;
+			[Extension("EGL_ANGLE_device_d3d")]
+			public bool DeviceD3d_ANGLE;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_platform_device.
+			/// Support for extension EGL_ANGLE_query_surface_pointer.
 			/// </summary>
-			[Extension("EGL_EXT_platform_device")]
-			public bool PlatformDevice_EXT;
+			[Extension("EGL_ANGLE_query_surface_pointer")]
+			public bool QuerySurfacePointer_ANGLE;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_platform_base.
+			/// Support for extension EGL_ANGLE_surface_d3d_texture_2d_share_handle.
 			/// </summary>
-			[Extension("EGL_EXT_platform_base")]
-			public bool PlatformBase_EXT;
+			[Extension("EGL_ANGLE_surface_d3d_texture_2d_share_handle")]
+			public bool SurfaceD3dTexture2dShareHandle_ANGLE;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_pixel_format_float.
+			/// Support for extension EGL_ANGLE_window_fixed_size.
 			/// </summary>
-			[Extension("EGL_EXT_pixel_format_float")]
-			public bool PixelFormatFloat_EXT;
+			[Extension("EGL_ANGLE_window_fixed_size")]
+			public bool WindowFixedSize_ANGLE;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_output_openwf.
+			/// Support for extension EGL_ARM_implicit_external_sync.
 			/// </summary>
-			[Extension("EGL_EXT_output_openwf")]
-			public bool OutputOpenwf_EXT;
+			[Extension("EGL_ARM_implicit_external_sync")]
+			public bool ImplicitExternalSync_ARM;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_output_drm.
+			/// Support for extension EGL_ARM_pixmap_multisample_discard.
 			/// </summary>
-			[Extension("EGL_EXT_output_drm")]
-			public bool OutputDrm_EXT;
+			[Extension("EGL_ARM_pixmap_multisample_discard")]
+			public bool PixmapMultisampleDiscard_ARM;
 
 			/// <summary>
 			/// Support for extension EGL_EXT_output_base.
@@ -656,10 +656,10 @@ namespace OpenGL
 			public bool MultiviewWindow_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_image_dma_buf_import_modifiers.
+			/// Support for extension EGL_EXT_yuv_surface.
 			/// </summary>
-			[Extension("EGL_EXT_image_dma_buf_import_modifiers")]
-			public bool ImageDmaBufImportModifiers_EXT;
+			[Extension("EGL_EXT_yuv_surface")]
+			public bool YuvSurface_EXT;
 
 			/// <summary>
 			/// Support for extension EGL_EXT_image_dma_buf_import.
@@ -734,82 +734,82 @@ namespace OpenGL
 			public bool BufferAge_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ARM_pixmap_multisample_discard.
+			/// Support for extension EGL_EXT_image_dma_buf_import_modifiers.
 			/// </summary>
-			[Extension("EGL_ARM_pixmap_multisample_discard")]
-			public bool PixmapMultisampleDiscard_ARM;
+			[Extension("EGL_EXT_image_dma_buf_import_modifiers")]
+			public bool ImageDmaBufImportModifiers_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ARM_implicit_external_sync.
+			/// Support for extension EGL_EXT_output_drm.
 			/// </summary>
-			[Extension("EGL_ARM_implicit_external_sync")]
-			public bool ImplicitExternalSync_ARM;
+			[Extension("EGL_EXT_output_drm")]
+			public bool OutputDrm_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANGLE_window_fixed_size.
+			/// Support for extension EGL_EXT_output_openwf.
 			/// </summary>
-			[Extension("EGL_ANGLE_window_fixed_size")]
-			public bool WindowFixedSize_ANGLE;
+			[Extension("EGL_EXT_output_openwf")]
+			public bool OutputOpenwf_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANGLE_surface_d3d_texture_2d_share_handle.
+			/// Support for extension EGL_EXT_pixel_format_float.
 			/// </summary>
-			[Extension("EGL_ANGLE_surface_d3d_texture_2d_share_handle")]
-			public bool SurfaceD3dTexture2dShareHandle_ANGLE;
+			[Extension("EGL_EXT_pixel_format_float")]
+			public bool PixelFormatFloat_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANGLE_query_surface_pointer.
+			/// Support for extension EGL_EXT_platform_base.
 			/// </summary>
-			[Extension("EGL_ANGLE_query_surface_pointer")]
-			public bool QuerySurfacePointer_ANGLE;
+			[Extension("EGL_EXT_platform_base")]
+			public bool PlatformBase_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANGLE_device_d3d.
+			/// Support for extension EGL_EXT_platform_device.
 			/// </summary>
-			[Extension("EGL_ANGLE_device_d3d")]
-			public bool DeviceD3d_ANGLE;
+			[Extension("EGL_EXT_platform_device")]
+			public bool PlatformDevice_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANGLE_d3d_share_handle_client_buffer.
+			/// Support for extension EGL_EXT_platform_wayland.
 			/// </summary>
-			[Extension("EGL_ANGLE_d3d_share_handle_client_buffer")]
-			public bool D3dShareHandleClientBuffer_ANGLE;
+			[Extension("EGL_EXT_platform_wayland")]
+			public bool PlatformWayland_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANDROID_recordable.
+			/// Support for extension EGL_EXT_platform_x11.
 			/// </summary>
-			[Extension("EGL_ANDROID_recordable")]
-			public bool Recordable_ANDROID;
+			[Extension("EGL_EXT_platform_x11")]
+			public bool PlatformX11_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANDROID_presentation_time.
+			/// Support for extension EGL_EXT_protected_content.
 			/// </summary>
-			[Extension("EGL_ANDROID_presentation_time")]
-			public bool PresentationTime_ANDROID;
+			[Extension("EGL_EXT_protected_content")]
+			public bool ProtectedContent_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANDROID_native_fence_sync.
+			/// Support for extension EGL_EXT_protected_surface.
 			/// </summary>
-			[Extension("EGL_ANDROID_native_fence_sync")]
-			public bool NativeFenceSync_ANDROID;
+			[Extension("EGL_EXT_protected_surface")]
+			public bool ProtectedSurface_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANDROID_image_native_buffer.
+			/// Support for extension EGL_EXT_stream_consumer_egloutput.
 			/// </summary>
-			[Extension("EGL_ANDROID_image_native_buffer")]
-			public bool ImageNativeBuffer_ANDROID;
+			[Extension("EGL_EXT_stream_consumer_egloutput")]
+			public bool StreamConsumerEgloutput_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANDROID_front_buffer_auto_refresh.
+			/// Support for extension EGL_EXT_surface_SMPTE2086_metadata.
 			/// </summary>
-			[Extension("EGL_ANDROID_front_buffer_auto_refresh")]
-			public bool FrontBufferAutoRefresh_ANDROID;
+			[Extension("EGL_EXT_surface_SMPTE2086_metadata")]
+			public bool SurfaceSMPTE2086Metadata_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_ANDROID_framebuffer_target.
+			/// Support for extension EGL_EXT_swap_buffers_with_damage.
 			/// </summary>
-			[Extension("EGL_ANDROID_framebuffer_target")]
-			public bool FramebufferTarget_ANDROID;
+			[Extension("EGL_EXT_swap_buffers_with_damage")]
+			public bool SwapBuffersWithDamage_EXT;
 
 		}
 }

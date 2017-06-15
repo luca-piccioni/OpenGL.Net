@@ -141,8 +141,8 @@
     <Compile Include="ANDROID\Egl.ANDROID_presentation_time.cs" />
     <Compile Include="ANDROID\Egl.ANDROID_recordable.cs" />
     <Compile Include="Angle.cs" />
+    <Compile Include="ANGLE\Egl.ANGLE_d3d_share_handle_client_buffer.cs" />
     <Compile Include="ANGLE\Egl.ANGLE_query_surface_pointer.cs" />
-    <Compile Include="ANGLE\Egl.ANGLE_surface_d3d_texture_2d_share_handle.cs" />
     <Compile Include="ANGLE\Egl.ANGLE_window_fixed_size.cs" />
     <Compile Include="ANGLE\Gl.ANGLE_framebuffer_blit.cs" />
     <Compile Include="ANGLE\Gl.ANGLE_framebuffer_multisample.cs" />
@@ -200,6 +200,7 @@
     <Compile Include="ARB\Gl.ARB_vertex_shader.cs" />
     <Compile Include="ARB\Glx.ARB_context_flush_control.cs" />
     <Compile Include="ARB\Glx.ARB_create_context.cs" />
+    <Compile Include="ARB\Glx.ARB_create_context_no_error.cs" />
     <Compile Include="ARB\Glx.ARB_create_context_profile.cs" />
     <Compile Include="ARB\Glx.ARB_create_context_robustness.cs" />
     <Compile Include="ARB\Glx.ARB_fbconfig_float.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="ARB\Wgl.ARB_buffer_region.cs" />
     <Compile Include="ARB\Wgl.ARB_context_flush_control.cs" />
     <Compile Include="ARB\Wgl.ARB_create_context.cs" />
+    <Compile Include="ARB\Wgl.ARB_create_context_no_error.cs" />
     <Compile Include="ARB\Wgl.ARB_create_context_profile.cs" />
     <Compile Include="ARB\Wgl.ARB_create_context_robustness.cs" />
     <Compile Include="ARB\Wgl.ARB_extensions_string.cs" />
@@ -271,7 +273,16 @@
     <Compile Include="ColorRGBARef.cs" />
     <Compile Include="ColorSRGB.cs" />
     <Compile Include="EglEventArgs.cs" />
+    <Compile Include="EXT\Egl.EXT_protected_content.cs" />
+    <Compile Include="EXT\Gl.EXT_geometry_shader4.cs" />
+    <Compile Include="EXT\Gl.EXT_memory_object.cs" />
+    <Compile Include="EXT\Gl.EXT_memory_object_fd.cs" />
+    <Compile Include="EXT\Gl.EXT_memory_object_win32.cs" />
+    <Compile Include="EXT\Gl.EXT_semaphore.cs" />
+    <Compile Include="EXT\Gl.EXT_semaphore_fd.cs" />
+    <Compile Include="EXT\Gl.EXT_semaphore_win32.cs" />
     <Compile Include="EXT\Gl.EXT_texture_storage.cs" />
+    <Compile Include="EXT\Gl.EXT_win32_keyed_mutex.cs" />
     <Compile Include="Gl.Limits.cs" />
     <Compile Include="INativePBuffer.cs" />
     <Compile Include="KhronosLogMap.cs" />
@@ -365,7 +376,6 @@
     <Compile Include="EXT\Egl.EXT_output_openwf.cs" />
     <Compile Include="EXT\Egl.EXT_platform_base.cs" />
     <Compile Include="EXT\Egl.EXT_platform_device.cs" />
-    <Compile Include="EXT\Egl.EXT_protected_surface.cs" />
     <Compile Include="EXT\Egl.EXT_stream_consumer_egloutput.cs" />
     <Compile Include="EXT\Gl.EXT_422_pixels.cs" />
     <Compile Include="EXT\Gl.EXT_abgr.cs" />

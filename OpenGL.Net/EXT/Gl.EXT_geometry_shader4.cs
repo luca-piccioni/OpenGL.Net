@@ -29,10 +29,25 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Value of GL_SAMPLER_EXTERNAL_OES symbol.
+		/// [GL] Value of GL_GEOMETRY_VERTICES_OUT_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_OES_EGL_image_external", Api = "gles1|gles2")]
-		public const int SAMPLER_EXTERNAL_OES = 0x8D66;
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		public const int GEOMETRY_VERTICES_OUT_EXT = 0x8DDA;
+
+		/// <summary>
+		/// [GL] Value of GL_GEOMETRY_INPUT_TYPE_EXT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		public const int GEOMETRY_INPUT_TYPE_EXT = 0x8DDB;
+
+		/// <summary>
+		/// [GL] Value of GL_GEOMETRY_OUTPUT_TYPE_EXT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		public const int GEOMETRY_OUTPUT_TYPE_EXT = 0x8DDC;
 
 	}
 

@@ -21,6 +21,8 @@
             - Native Platform Interface 1.5 (EGL) with relative extensions.
             - Support Broadcom VideoCore IV (Raspberry PI 2).
 
+            Specifications updated to Jun 13, 2017.
+
             No user interface is included in this package. The following UI backends are supported in separated packages:
             - System.Window.Forms (Windows, Linux) via OpenGL.Net.WinForms
             - Xamarin.Forms (Android) via OpenGL.Net.Xamarin.Android

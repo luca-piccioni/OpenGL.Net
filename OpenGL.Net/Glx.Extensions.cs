@@ -99,6 +99,13 @@ namespace OpenGL
 			public bool ContextFlushControl_ARB;
 
 			/// <summary>
+			/// Support for extension GLX_ARB_create_context_no_error.
+			/// </summary>
+			[Extension("GLX_ARB_create_context_no_error")]
+			[ExtensionSupport("glx")]
+			public bool CreateContextNoError_ARB;
+
+			/// <summary>
 			/// Support for extension GLX_SGIS_multisample.
 			/// </summary>
 			[Extension("GLX_SGIS_multisample")]
@@ -352,24 +359,6 @@ namespace OpenGL
 			public bool Multisample_3DFX;
 
 			/// <summary>
-			/// Support for extension GLX_EXT_libglvnd.
-			/// </summary>
-			[Extension("GLX_EXT_libglvnd")]
-			public bool Libglvnd_EXT;
-
-			/// <summary>
-			/// Support for extension GLX_EXT_stereo_tree.
-			/// </summary>
-			[Extension("GLX_EXT_stereo_tree")]
-			public bool StereoTree_EXT;
-
-			/// <summary>
-			/// Support for extension GLX_EXT_swap_control.
-			/// </summary>
-			[Extension("GLX_EXT_swap_control")]
-			public bool SwapControl_EXT;
-
-			/// <summary>
 			/// Support for extension GLX_NV_float_buffer.
 			/// </summary>
 			[Extension("GLX_NV_float_buffer")]
@@ -398,6 +387,24 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GLX_SGIX_dmbuffer")]
 			public bool Dmbuffer_SGIX;
+
+			/// <summary>
+			/// Support for extension GLX_EXT_libglvnd.
+			/// </summary>
+			[Extension("GLX_EXT_libglvnd")]
+			public bool Libglvnd_EXT;
+
+			/// <summary>
+			/// Support for extension GLX_EXT_stereo_tree.
+			/// </summary>
+			[Extension("GLX_EXT_stereo_tree")]
+			public bool StereoTree_EXT;
+
+			/// <summary>
+			/// Support for extension GLX_EXT_swap_control.
+			/// </summary>
+			[Extension("GLX_EXT_swap_control")]
+			public bool SwapControl_EXT;
 
 		}
 }

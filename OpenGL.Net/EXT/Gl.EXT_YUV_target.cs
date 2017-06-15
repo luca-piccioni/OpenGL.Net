@@ -34,6 +34,27 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_YUV_target", Api = "gles2")]
 		public const int SAMPLER_EXTERNAL_2D_Y2Y_EXT = 0x8BE7;
 
+		/// <summary>
+		/// [GL] Value of GL_TEXTURE_EXTERNAL_OES symbol.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_YUV_target", Api = "gles2")]
+		[RequiredByFeature("GL_OES_EGL_image_external", Api = "gles1|gles2")]
+		public const int TEXTURE_EXTERNAL_OES = 0x8D65;
+
+		/// <summary>
+		/// [GL] Value of GL_TEXTURE_BINDING_EXTERNAL_OES symbol.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_YUV_target", Api = "gles2")]
+		[RequiredByFeature("GL_OES_EGL_image_external", Api = "gles1|gles2")]
+		public const int TEXTURE_BINDING_EXTERNAL_OES = 0x8D67;
+
+		/// <summary>
+		/// [GL] Value of GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES symbol.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_YUV_target", Api = "gles2")]
+		[RequiredByFeature("GL_OES_EGL_image_external", Api = "gles1|gles2")]
+		public const int REQUIRED_TEXTURE_IMAGE_UNITS_OES = 0x8D68;
+
 	}
 
 }
