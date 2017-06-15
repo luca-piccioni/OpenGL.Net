@@ -179,10 +179,28 @@ namespace BindingsGen.GLSpecs
 
 		public IEnumerable<IFeature> AllFeatures(RegistryContext ctx)
 		{
-			foreach (Feature feature in Features) {
-				if (ctx.IsSupportedApi(feature.Api))
-					yield return feature;
-			}
+			List<Feature> features = Features.FindAll(delegate(Feature item) {
+				return (ctx.IsSupportedApi(item.Api));
+			});
+
+			features.Sort(delegate(Feature x, Feature y) {
+				OpenGL.KhronosVersion xVersion = OpenGL.KhronosVersion.ParseFeature(x.Name, false);
+				OpenGL.KhronosVersion yVersion = OpenGL.KhronosVersion.ParseFeature(y.Name, false);
+
+				if (xVersion.Api != yVersion.Api) {
+					int xPriority = GetVersionApiPriority(xVersion.Api);
+					int yPriority = GetVersionApiPriority(yVersion.Api);
+
+					if (xPriority != yPriority)
+						return (xPriority.CompareTo(yPriority));
+					else
+						return (x.Name.CompareTo(y.Name));
+				} else
+					return (xVersion.CompareTo(yVersion));
+			});
+
+			foreach (Feature feature in features)
+				yield return feature;
 
 			List<Extension> extensions = new List<Extension>(Extensions);
 
@@ -207,6 +225,20 @@ namespace BindingsGen.GLSpecs
 
 			foreach (Extension extension in extensions)
 				yield return extension;
+		}
+
+		private static int GetVersionApiPriority(string api)
+		{
+			switch (api) {
+				case OpenGL.KhronosVersion.ApiGl:
+					return (-1000);
+				case OpenGL.KhronosVersion.ApiGles1:
+					return (-501);
+				case OpenGL.KhronosVersion.ApiGles2:
+					return (-500);
+				default:
+					return (0);
+			}
 		}
 
 		private static int GetExtensionVendorPriority(string vendor)
