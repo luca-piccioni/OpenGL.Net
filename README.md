@@ -4,7 +4,7 @@
 
 [![wiki](https://img.shields.io/badge/browse-the%20wiki-brown.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
 
-[![Donate](https://img.shields.io/badge/paypal-me-blue.svg)](paypal.me/openglnet)
+[![Donate](https://img.shields.io/badge/paypal-me-blue.svg)](http://paypal.me/openglnet)
 
 # OpenGL.Net
 Modern OpenGL bindings for C#.
