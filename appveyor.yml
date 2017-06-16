@@ -18,6 +18,9 @@ clone_folder: c:\OpenGL.Net
 matrix:
   fast_finish: true
 
+skip_commits:
+  message: /Create README.md/
+
 cache:
   - packages -> **\packages.config
   - '%LocalAppData%\NuGet\Cache'
