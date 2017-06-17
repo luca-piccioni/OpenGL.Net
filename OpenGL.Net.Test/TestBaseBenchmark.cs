@@ -29,9 +29,9 @@ namespace OpenGL.Test
 	/// </summary>
 	[TestFixture, RequiresSTA]
 	[Category("Benchmark")]
-	public abstract class TestBaseBenchmark
+	abstract class TestBaseBenchmark
 	{
-		protected static void RunBenchmarks<T>(string prefix) where T : TestBaseBenchmark
+		public static void RunBenchmarks<T>(string prefix) where T : class
 		{
 			foreach (MethodInfo method in typeof(T).GetMethods(BindingFlags.Static | BindingFlags.Public)) {
 				if (prefix != null && method.Name.StartsWith(prefix) == false)

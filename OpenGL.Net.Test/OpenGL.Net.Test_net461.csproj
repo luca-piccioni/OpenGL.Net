@@ -104,6 +104,7 @@
     <Compile Include="ARB\Wgl.ARB_pixel_format.cs" />
     <Compile Include="ARB\GL.ARB_shader_precision.cs" />
     <Compile Include="BenchmarkAttribute.cs" />
+    <Compile Include="BenchmarkPInvoke.cs" />
     <Compile Include="TestBaseBenchmark.cs" />
     <Compile Include="Gl.VERSION_3_0_ES.cs" />
     <Compile Include="Gl.VERSION_2_0_ES.cs" />
