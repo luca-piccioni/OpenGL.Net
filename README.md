@@ -2,10 +2,12 @@
 [![nuget](https://img.shields.io/nuget/v/OpenGL.Net.svg?colorB=22CC22)](https://www.nuget.org/packages/OpenGL.Net/)
 [![NuGet](https://img.shields.io/nuget/dt/OpenGL.Net.svg?colorB=22CC22&label=nuget%20downloads)](https://www.nuget.org/packages/OpenGL.Net/)
 
-[![wiki](https://img.shields.io/badge/browse-the%20wiki-blue.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
+[![wiki](https://img.shields.io/badge/browse-the%20wiki-brown.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
+
+[![Donate](https://img.shields.io/badge/paypal-me-blue.svg)](http://paypal.me/openglnet)
 
 # OpenGL.Net
-Modern OpenGL binding for C#.
+Modern OpenGL bindings for C#.
 
 Generated from the lastest official XML specification, _OpenGL.Net_ provides:
 - Strongly typed enumerants;
