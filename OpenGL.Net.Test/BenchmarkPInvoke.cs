@@ -16,6 +16,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
+#undef ENABLE_ENABLE
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -62,9 +64,11 @@ namespace OpenGL.Test
 			for (int i = 0; i < PInvokeRepetitionsInternal; i++) {
 				glFlush();
 			}
+#if ENABLE_ENABLE
 			for (int i = 0; i < PInvokeRepetitionsInternal; i++) {
 				glEnable(Gl.CULL_FACE);
 			}
+#endif
 		}
 
 		/// <summary>
@@ -124,9 +128,11 @@ namespace OpenGL.Test
 			for (int i = 0; i < PInvokeRepetitionsInternal; i++) {
 				pglFlush();
 			}
+#if ENABLE_ENABLE
 			for (int i = 0; i < PInvokeRepetitionsInternal; i++) {
 				pglEnable(Gl.TEXTURE_2D);
 			}
+#endif
 		}
 
 		/// <summary>
@@ -140,13 +146,13 @@ namespace OpenGL.Test
 		internal static glFlushDelegate pglFlush;
 
 		[ThreadStatic]
-		private static IntPtr pglFlushHandle;
+		public static IntPtr pglFlushHandle;
 
 		[ThreadStatic]
 		internal static glEnableDelegate pglEnable;
 
 		[ThreadStatic]
-		private static IntPtr pglEnableHandle;
+		public static IntPtr pglEnableHandle;
 
 		#endregion
 
@@ -161,7 +167,7 @@ namespace OpenGL.Test
 
 			gen = glFlushMethod.GetILGenerator();
 			// gen.Emit(OpCodes.Ldc_I8, (long)pglFlushHandle);
-			gen.Emit(OpCodes.Ldsfld, typeof(BenchmarkPInvoke).GetField("pglFlushHandle", BindingFlags.NonPublic | BindingFlags.Static));
+			gen.Emit(OpCodes.Ldsfld, typeof(BenchmarkPInvoke).GetField("pglFlushHandle", BindingFlags.Public | BindingFlags.Static));
 			gen.Emit(OpCodes.Conv_I);
 			gen.EmitCalli(OpCodes.Calli, CallingConvention.StdCall, null, new Type[0]);
 			gen.Emit(OpCodes.Ret);
@@ -174,7 +180,7 @@ namespace OpenGL.Test
 			gen = glEnableMethod.GetILGenerator();
 			gen.Emit(OpCodes.Ldarg_0);
 			// gen.Emit(OpCodes.Ldc_I8, (long)pglEnableHandle);
-			gen.Emit(OpCodes.Ldsfld, typeof(BenchmarkPInvoke).GetField("pglEnableHandle", BindingFlags.NonPublic | BindingFlags.Static));
+			gen.Emit(OpCodes.Ldsfld, typeof(BenchmarkPInvoke).GetField("pglEnableHandle", BindingFlags.Public | BindingFlags.Static));
 			gen.Emit(OpCodes.Conv_I);
 			gen.EmitCalli(OpCodes.Calli, CallingConvention.StdCall, null, new Type[] { typeof(int) });
 			gen.Emit(OpCodes.Ret);
@@ -188,9 +194,11 @@ namespace OpenGL.Test
 			for (int i = 0; i < PInvokeRepetitionsInternal; i++) {
 				pglFlushEmit();
 			}
+#if ENABLE_ENABLE
 			for (int i = 0; i < PInvokeRepetitionsInternal; i++) {
 				pglEnableEmit(Gl.TEXTURE_2D);
 			}
+#endif
 		}
 
 		[ThreadStatic]
@@ -230,6 +238,6 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Number of repetitions.
 		/// </summary>
-		private const int PInvokeRepetitionsInternal = 1 << 17;
+		private const int PInvokeRepetitionsInternal = 1 << 20;
 	}
 }
