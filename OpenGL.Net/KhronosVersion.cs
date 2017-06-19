@@ -17,7 +17,10 @@
 // US
 
 using System;
+using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
 using System.Diagnostics;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -26,7 +29,8 @@ namespace OpenGL
 	/// <summary>
 	/// Version abstraction for Khrono APIs.
 	/// </summary>
-	[DebuggerDisplay("KhronosVersion: Version={Major}.{Minor}.{Revision} (API='{Api}')")]
+	[DebuggerDisplay("KhronosVersion: Version={Major}.{Minor}.{Revision} API='{Api}' Profile={Profile}")]
+	[TypeConverter(typeof(KhronosVersionConverter))]
 	public class KhronosVersion : IEquatable<KhronosVersion>, IComparable<KhronosVersion>
 	{
 		#region Constructors
@@ -151,7 +155,7 @@ namespace OpenGL
 		/// The other <see cref="KhronosVersion"/> to be copied.
 		/// </param>
 		/// <param name="profile">
-		/// A <see cref="String"/> that specifies the API profile.
+		/// A <see cref="String"/> that specifies the API profile. It can be null to indicate the default profile.
 		/// </param>
 		public KhronosVersion(KhronosVersion other, string profile) :
 			this(other)
@@ -266,17 +270,17 @@ namespace OpenGL
 		/// <summary>
 		/// Specific to GL API: Core profile.
 		/// </summary>
-		public static readonly string ProfileCore = "core";
+		public const string ProfileCore = "core";
 
 		/// <summary>
 		/// Specific to GL API: Compatibility profile.
 		/// </summary>
-		public static readonly string ProfileCompatibility = "compatibility";
+		public const string ProfileCompatibility = "compatibility";
 
 		/// <summary>
 		/// Specific to GLES1 API: Common profile.
 		/// </summary>
-		public static readonly string ProfileCommon = "common";
+		public const string ProfileCommon = "common";
 
 		/// <summary>
 		/// API profile. In the case of null profile, the meaning is determined by the specific method.
@@ -565,12 +569,14 @@ namespace OpenGL
 		{
 			StringBuilder sb = new StringBuilder();
 
-			if (String.IsNullOrEmpty(Api) == false)
-				sb.AppendFormat("API={0}, ", Api);
 			sb.AppendFormat("Version={0}.{1}", Major, Minor);
 			if (Revision != 0)
 				sb.AppendFormat("{0}", Revision);
+			if (String.IsNullOrEmpty(Api) == false)
+				sb.AppendFormat(" API={0}", Api);
 			
+			if (Profile != null)
+				sb.AppendFormat(" Profile={0}", Profile);
 
 			return (sb.ToString());
 		}
@@ -595,7 +601,20 @@ namespace OpenGL
 			if (ReferenceEquals(this, other))
 				return (true);
 
-			return ((Api == other.Api) && (Major == other.Major) && (Minor == other.Minor && (Revision == other.Revision)));
+			if (Api != other.Api)
+				return (false);
+			if (Major != other.Major)
+				return (false);
+			if (Minor != other.Minor)
+				return (false);
+			if (Revision != other.Revision)
+				return (false);
+
+			// Note: any null profile match any other profile, and viceversa
+			if (Profile != null && other.Profile != null && Profile != other.Profile)
+				return (false);
+
+			return (true);
 		}
 
 		/// <summary>
@@ -635,6 +654,8 @@ namespace OpenGL
 				result = (result * 397) ^ Major.GetHashCode();
 				result = (result * 397) ^ Minor.GetHashCode();
 				result = (result * 397) ^ Revision.GetHashCode();
+				if (Profile != null)
+					result = (result * 397) ^ Profile.GetHashCode();
 
 				return result;
 			}
@@ -683,5 +704,72 @@ namespace OpenGL
 		}
 
 		#endregion
+	}
+
+	/// <summary>
+	/// Designer converter for <see cref="KhronosVersion"/> properties.
+	/// </summary>
+	public class KhronosVersionConverter : TypeConverter
+	{
+		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+		{
+			return (sourceType == typeof(string) || base.CanConvertFrom(context, sourceType));
+		}
+
+		public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
+		{
+			if (Object.ReferenceEquals(value, null))
+				return base.ConvertFrom(context, culture, value);
+			
+			Type valueType = value.GetType();
+
+			if (valueType == typeof(string)) {
+				string valueString = (string)value;
+
+				if (valueString == String.Empty)
+					return (null);
+
+				return (KhronosVersion.Parse(valueString));
+			}
+
+			// Base implementation
+			return (base.ConvertFrom(context, culture, value));
+		}
+
+		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+		{
+			if (destinationType == typeof(string)) 
+				return (true);
+			if (destinationType == typeof(InstanceDescriptor)) 
+				return (true);
+
+			// Base implementation
+			return (base.CanConvertTo(context, destinationType));
+		}
+
+		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
+		{
+			KhronosVersion version = value as KhronosVersion;
+
+			if (version != null) {
+				if (destinationType == typeof(string)) {
+					return (version.ToString());
+				} else if (destinationType == typeof(InstanceDescriptor)) {
+					ConstructorInfo ctor = typeof(KhronosVersion).GetConstructor(new Type[] {
+						typeof(int), typeof(int), typeof(int), typeof(string), typeof(string)
+					});
+					if (ctor != null) 
+						return new InstanceDescriptor(ctor, new object[] {
+							version.Major, version.Minor, version.Revision, version.Api, version.Profile
+						});
+				}
+			} else {
+				if (destinationType == typeof(string))
+					return ("Current");
+			}
+
+			// Base implementation
+			return (base.ConvertTo(context, culture, value, destinationType));
+		}
 	}
 }

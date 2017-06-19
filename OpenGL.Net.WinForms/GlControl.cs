@@ -68,16 +68,7 @@ namespace OpenGL
 		)]
 		[DefaultValue(null)]
 		[TypeConverter(typeof(KhronosVersionConverter))]
-		public KhronosVersion Version
-		{
-			get { return (_Version); }
-			set { _Version = value; }
-		}
-
-		/// <summary>
-		/// Version to be requested to the OpenGL driver.
-		/// </summary>
-		private KhronosVersion _Version;
+		public KhronosVersion ContextVersion { get; set; }
 
 		/// <summary>
 		/// Profile permission.
@@ -728,10 +719,10 @@ namespace OpenGL
 				// (e.g. 3.0, 3.1 + GL_ARB_compatibility, or 3.2 compatibility profile) [from WGL_ARB_create_context spec]
 				Debug.Assert(Wgl.CONTEXT_MAJOR_VERSION_ARB == Glx.CONTEXT_MAJOR_VERSION_ARB);
 				Debug.Assert(Wgl.CONTEXT_MINOR_VERSION_ARB == Glx.CONTEXT_MINOR_VERSION_ARB);
-				if (Version != null) {
+				if (ContextVersion != null) {
 					attributes.AddRange(new int[] {
-						Wgl.CONTEXT_MAJOR_VERSION_ARB, Version.Major,
-						Wgl.CONTEXT_MINOR_VERSION_ARB, Version.Minor
+						Wgl.CONTEXT_MAJOR_VERSION_ARB, ContextVersion.Major,
+						Wgl.CONTEXT_MINOR_VERSION_ARB, ContextVersion.Minor
 					});
 				} else {
 					// Note: this shouldn't be necessary since defaults are defined. However, on certains drivers this arguments are
@@ -996,7 +987,7 @@ namespace OpenGL
 			if (_ContextCreated != null) {
 				GlControlEventArgs glControlEventArgs = new GlControlEventArgs(_DeviceContext, _RenderContext);
 
-				foreach(EventHandler<GlControlEventArgs> handler in _ContextCreated.GetInvocationList()) {
+				foreach (EventHandler<GlControlEventArgs> handler in _ContextCreated.GetInvocationList()) {
 					try {
 						handler(this, glControlEventArgs);
 					} catch (Exception exception) {
@@ -1276,60 +1267,5 @@ namespace OpenGL
 		public readonly IntPtr RenderContext;
 
 		#endregion
-	}
-
-	/// <summary>
-	/// Designer converter for <see cref="KhronosVersion"/> properties.
-	/// </summary>
-	internal class KhronosVersionConverter : TypeConverter
-	{
-		public override bool CanConvertFrom(ITypeDescriptorContext context, Type destinationType)
-		{
-			return (destinationType == typeof(string) || base.CanConvertTo(context, destinationType));
-		}
-
-		public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
-		{
-			if (Object.ReferenceEquals(value, null))
-				return base.ConvertFrom(context, culture, value);
-			
-			Type valueType = value.GetType();
-
-			if (valueType == typeof(string)) {
-				try {
-					string valueString = (string)value;
-
-					if (valueString == String.Empty)
-						return (null);
-
-					return (KhronosVersion.Parse(valueString));
-				} catch (Exception exception) {
-					throw new NotSupportedException("unable to parse the value", exception);
-				}
-			}
-
-			// Base implementation
-			return base.ConvertFrom(context, culture, value);
-		}
-
-		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
-		{
-			return (destinationType == typeof(string) || base.CanConvertTo(context, destinationType));
-		}
-
-		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
-		{
-			if (destinationType == typeof(string)) {
-				KhronosVersion version = (KhronosVersion)value;
-
-				if (version == null)
-					return ("Current");
-
-				return (version.ToString());
-			}
-
-			// Base implementation
-			return base.ConvertTo(context, culture, value, destinationType);
-		}
 	}
 }
