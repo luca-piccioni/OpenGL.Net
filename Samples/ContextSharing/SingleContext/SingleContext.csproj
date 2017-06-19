@@ -91,7 +91,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms_net35.csproj">
       <Project>{B65D2A92-28FB-400C-990A-C805A8586B60}</Project>
-      <Name>OpenGL.Net.WinForms</Name>
+      <Name>OpenGL.Net.WinForms_net35</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\OpenGL.Net\OpenGL.Net_net35.csproj">
       <Project>{abb8dfa8-473a-4fc1-85c0-e21680772a58}</Project>
