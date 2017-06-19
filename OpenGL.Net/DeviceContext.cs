@@ -105,39 +105,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get or set the default API, driving device context creation using <see cref="Create"/>,
-		/// <see cref="Create(IntPtr, IntPtr)"/> or <see cref="Create(INativePBuffer)"/>.
-		/// </summary>
-		public static string DefaultApi
-		{
-			get { return (_DefaultApi); }
-			set
-			{
-				switch (value) {
-					case KhronosVersion.ApiGl:
-					case KhronosVersion.ApiGles1:
-					case KhronosVersion.ApiGles2:
-					case KhronosVersion.ApiVg:
-						// Allowed values
-						break;
-					default:
-						throw new InvalidOperationException("unsupported API");
-				}
-				_DefaultApi = value;
-			}
-		}
-
-		/// <summary>
-		/// The default API driving device context creation.
-		/// </summary>
-		private static string _DefaultApi = KhronosVersion.ApiGl;
-
-		/// <summary>
-		/// The default API driving device context creation.
-		/// </summary>
-		protected string _Api = _DefaultApi;
-
-		/// <summary>
 		/// Create a device context without a specific window.
 		/// </summary>
 		/// <exception cref='NotSupportedException'>
@@ -375,6 +342,43 @@ namespace OpenGL
 
 		#endregion
 
+		#region Default API
+
+		/// <summary>
+		/// Get or set the default API, driving device context creation using <see cref="Create"/>,
+		/// <see cref="Create(IntPtr, IntPtr)"/> or <see cref="Create(INativePBuffer)"/>.
+		/// </summary>
+		public static string DefaultApi
+		{
+			get { return (_DefaultApi); }
+			set
+			{
+				switch (value) {
+					case KhronosVersion.ApiGl:
+					case KhronosVersion.ApiGles1:
+					case KhronosVersion.ApiGles2:
+					case KhronosVersion.ApiVg:
+						// Allowed values
+						break;
+					default:
+						throw new InvalidOperationException("unsupported API");
+				}
+				_DefaultApi = value;
+			}
+		}
+
+		/// <summary>
+		/// The default API driving device context creation.
+		/// </summary>
+		private static string _DefaultApi = KhronosVersion.ApiGl;
+
+		/// <summary>
+		/// The default API driving device context creation.
+		/// </summary>
+		protected string _Api = _DefaultApi;
+
+		#endregion
+
 		#region Platform Methods
 
 		/// <summary>
@@ -416,14 +420,15 @@ namespace OpenGL
 		public abstract IntPtr CreateContext(IntPtr sharedContext);
 
 		/// <summary>
-		/// Creates a context, specifying attributes.
+		/// Creates a context, specifying attributes, using the default API (see <see cref="DefaultApi"/>).
 		/// </summary>
 		/// <param name="sharedContext">
 		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
 		/// it is IntPtr.Zero, no sharing is performed.
 		/// </param>
 		/// <param name="attribsList">
-		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list. The attribute list is dependent on the actual
+		/// platform and the GL version and extension support.
 		/// </param>
 		/// <returns>
 		/// A <see cref="IntPtr"/> that represents the handle of the created context. If the context cannot be
@@ -446,7 +451,8 @@ namespace OpenGL
 		/// it is IntPtr.Zero, no sharing is performed.
 		/// </param>
 		/// <param name="attribsList">
-		/// A <see cref="T:Int32[]"/> that specifies the attributes list.
+		/// A <see cref="T:Int32[]"/> that specifies the attributes list. The attribute list is dependent on the actual
+		/// platform and the GL version and extension support.
 		/// </param>
 		/// <param name="api">
 		/// A <see cref="KhronosVersion"/> that specifies the API to be implemented by the returned context. It can be null indicating the

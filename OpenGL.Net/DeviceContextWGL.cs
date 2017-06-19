@@ -550,7 +550,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _Api)));
+			return (CreateContextAttrib(sharedContext, attribsList, null));
 		}
 
 		/// <summary>
@@ -580,16 +580,24 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList, KhronosVersion api)
 		{
+			if (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContext_ARB == false)
+				throw new InvalidOperationException("WGL_ARB_create_context not supported");
 			if ((attribsList != null) && (attribsList.Length == 0))
 				throw new ArgumentException("zero length array", "attribsList");
-			if ((attribsList != null) && (attribsList[attribsList.Length - 1] != 0))
+			if ((attribsList != null) && (attribsList[attribsList.Length - 1] != Gl.NONE))
 				throw new ArgumentException("not zero-terminated array", "attribsList");
 
-			if (api != null && api.Api != KhronosVersion.ApiGl) {
+			// Defaults null attributes
+			if (attribsList == null)
+				attribsList = new int[] { Gl.NONE };
+
+			if (api != null) {
 				List<int> adulteredAttribs = new List<int>(attribsList);
 
 				// Support check
 				switch (api.Api) {
+					case KhronosVersion.ApiGl:
+						break;
 					case KhronosVersion.ApiGles1:
 					case KhronosVersion.ApiGles2:
 						if (Wgl.CurrentExtensions.CreateContextEsProfile_EXT == false)
@@ -604,42 +612,61 @@ namespace OpenGL
 					adulteredAttribs.RemoveAt(adulteredAttribs.Count - 1);
 
 				// Add required attributes
-				int majorVersionIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Wgl.CONTEXT_MAJOR_VERSION_ARB); });
-				int minorVersionIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Wgl.CONTEXT_MINOR_VERSION_ARB); });
-				int profileMaskIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Wgl.CONTEXT_PROFILE_MASK_ARB); });
-
-				if (majorVersionIndex < 0) {
-					adulteredAttribs.AddRange(new int[] { Gl.MAJOR_VERSION, api.Major });
-					majorVersionIndex = adulteredAttribs.Count - 2;
-				}
-						
-				if (minorVersionIndex < 0) {
-					adulteredAttribs.AddRange(new int[] { Gl.MINOR_VERSION, api.Minor });
-					minorVersionIndex = adulteredAttribs.Count - 2;
-				}
-					
-				if (profileMaskIndex < 0) {
-					adulteredAttribs.AddRange(new int[] { Gl.CONTEXT_PROFILE_MASK, 0 });
-					profileMaskIndex = adulteredAttribs.Count - 2;
-				}
+				int major = api.Major, minor = api.Minor, profileMask = 0;
 
 				switch (api.Api) {
+					case KhronosVersion.ApiGl:
+						switch (api.Profile) {
+							case KhronosVersion.ProfileCompatibility:
+								profileMask |= (int)Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB;
+								break;
+							case KhronosVersion.ProfileCore:
+								profileMask |= (int)Wgl.CONTEXT_CORE_PROFILE_BIT_ARB;
+								break;
+							case null:
+								// No specific profile required, leaving the default (core profile)
+								break;
+							default:
+								throw new NotSupportedException(String.Format("'{0}' Profile not supported", api.Profile));
+						}
+						break;
 					case KhronosVersion.ApiGles1:
 						// Ignore API version: force always to 1.0
-						adulteredAttribs[majorVersionIndex + 1] = 1;
-						adulteredAttribs[minorVersionIndex + 1] = 0;
-						adulteredAttribs[profileMaskIndex + 1] |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
+						major = 1;
+						minor = 0;
+						profileMask |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
 						break;
 					case KhronosVersion.ApiGles2:
-						// Uses API version: it may be greater than 2.0(?)
-						adulteredAttribs[majorVersionIndex + 1] = 2;
-						adulteredAttribs[minorVersionIndex + 1] = 0;
-						adulteredAttribs[profileMaskIndex + 1] |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
+						profileMask |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
 						break;
 					default:
 						Debug.Fail("API not implemented");
 						throw new NotSupportedException(String.Format("'{0}' API not supported", api.Api));
 				}
+
+				// Add/Replace attributes
+				int majorVersionIndex, minorVersionIndex, profileMaskIndex;
+
+				if ((majorVersionIndex = adulteredAttribs.FindIndex(delegate (int item) {
+					return (item == Wgl.CONTEXT_MAJOR_VERSION_ARB);
+				})) >= 0)
+					adulteredAttribs[majorVersionIndex + 1] = major;
+				else
+					adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_MAJOR_VERSION_ARB, major });
+
+				if ((minorVersionIndex = adulteredAttribs.FindIndex(delegate (int item) {
+					return (item == Wgl.CONTEXT_MINOR_VERSION_ARB);
+				})) >= 0)
+					adulteredAttribs[minorVersionIndex + 1] = minor;
+				else
+					adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_MINOR_VERSION_ARB, api.Minor });
+
+				if ((profileMaskIndex = adulteredAttribs.FindIndex(delegate (int item) {
+					return (item == Wgl.CONTEXT_PROFILE_MASK_ARB);
+				})) >= 0)
+					adulteredAttribs[profileMaskIndex + 1] = profileMask;
+				else
+					adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_PROFILE_MASK_ARB, profileMask });
 
 				// Restore trailing 0
 				adulteredAttribs.Add(Gl.NONE);
