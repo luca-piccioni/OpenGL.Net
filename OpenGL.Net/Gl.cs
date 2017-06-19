@@ -284,7 +284,7 @@ namespace OpenGL
 		/// </summary>
 		public static void BindAPI()
 		{
-			BindAPI(QueryContextVersion(), Gl.CurrentExtensions, GetProcAddress.GetProcAddressGL);
+			BindAPI(QueryContextVersionCore(), Gl.CurrentExtensions, GetProcAddress.GetProcAddressGL);
 		}
 
 		/// <summary>
@@ -293,24 +293,14 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
 		/// </returns>
-		private static KhronosVersion QueryContextVersion()
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no GL context is current on the calling thread.
+		/// </exception>
+		public static KhronosVersion QueryContextVersion()
 		{
 			IntPtr ctx = DeviceContext.GetCurrentContext();
 			if (ctx == null)
 				throw new InvalidOperationException("no current context");
-
-			// Load minimal Gl functions for querying information
-			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressGL;
-
-			if (Egl.IsRequired == false) {
-				Gl.BindAPIFunction(Gl.Version_100, null, "glGetError", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_100, null, "glGetString", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_100, null, "glGetIntegerv", getProcAddress);
-			} else {
-				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetError", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetString", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetIntegerv", getProcAddress);
-			}
 
 			// Parse version string (effective for detecting Desktop and ES contextes)
 			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
@@ -332,6 +322,30 @@ namespace OpenGL
 				return (new KhronosVersion(glversion, glProfile));
 			} else
 				return (new KhronosVersion(glversion, KhronosVersion.ProfileCompatibility));
+		}
+
+		/// <summary>
+		/// Query the version of the current OpenGL context.
+		/// </summary>
+		/// <returns>
+		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
+		/// </returns>
+		private static KhronosVersion QueryContextVersionCore()
+		{
+			// Load minimal Gl functions for querying information
+			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressGL;
+
+			if (Egl.IsRequired == false) {
+				Gl.BindAPIFunction(Gl.Version_100, null, "glGetError", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_100, null, "glGetString", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_100, null, "glGetIntegerv", getProcAddress);
+			} else {
+				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetError", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetString", getProcAddress);
+				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetIntegerv", getProcAddress);
+			}
+
+			return (QueryContextVersion());
 		}
 
 		/// <summary>
