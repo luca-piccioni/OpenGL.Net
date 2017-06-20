@@ -80,21 +80,6 @@ namespace OpenGL
 		/// <param name="version">
 		/// The <see cref="KhronosVersion"/> that specifies the API version.
 		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Boolean"/> that specifies whether this feature is removed by the
-		/// API having the version <paramref name="version"/>.
-		/// </returns>
-		public bool IsRemoved(KhronosVersion version)
-		{
-			return (IsRemoved(version, null));
-		}
-
-		/// <summary>
-		///  Determine whether an API implementation removes this feature.
-		/// </summary>
-		/// <param name="version">
-		/// The <see cref="KhronosVersion"/> that specifies the API version.
-		/// </param>
 		/// <param name="extensions">
 		/// The <see cref="ExtensionsCollection"/> that specifies the API extensions registry. It can be null.
 		/// </param>
