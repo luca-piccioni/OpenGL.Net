@@ -74,7 +74,7 @@ namespace OpenGL
 
 		#region Support Detection
 
-		public bool IsSupportedApi(string api)
+		internal bool IsSupportedApi(string api)
 		{
 			if (api == null)
 				throw new ArgumentNullException("api");
@@ -83,21 +83,6 @@ namespace OpenGL
 				return (false);
 
 			return (Regex.IsMatch(api, Api));
-		}
-
-		/// <summary>
-		/// Determine whether an API implementation supports this feature.
-		/// </summary>
-		/// <param name="version">
-		/// The <see cref="KhronosVersion"/> that specifies the API version.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Boolean"/> that specifies whether this feature is supported by the
-		/// API having the version <paramref name="version"/>.
-		/// </returns>
-		public bool IsSupported(KhronosVersion version)
-		{
-			return (IsSupported(version, null));
 		}
 
 		/// <summary>
