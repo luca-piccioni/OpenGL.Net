@@ -320,7 +320,7 @@ namespace OpenGL
 		/// It returns a <see cref="Boolean"/> that specifies whether <paramref name="function"/> is supported by the
 		/// API having the version <paramref name="version"/> and the extensions registry <paramref name="extensions"/>.
 		/// </returns>
-		private static bool IsCompatibleField(FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
+		internal static bool IsCompatibleField(FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (function == null)
 				throw new ArgumentNullException("function");
