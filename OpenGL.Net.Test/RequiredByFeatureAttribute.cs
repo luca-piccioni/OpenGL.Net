@@ -21,7 +21,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture(Category = "Framework/RequiredByFeatureAttribute")]
+	[TestFixture(Category = "Framework_RequiredByFeatureAttribute")]
 	class RequiredByFeatureAttributeTest
 	{
 		[Test(Description = "Test RequiredByFeatureAttribute(string featureName)")]

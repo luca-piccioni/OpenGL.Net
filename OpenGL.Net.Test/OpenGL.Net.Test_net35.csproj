@@ -110,6 +110,8 @@
     <Compile Include="Matrix.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Plane.cs" />
+    <Compile Include="RemovedByFeatureAttribute.cs" />
+    <Compile Include="RequiredByFeatureAttribute.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBaseBenchmark.cs" />

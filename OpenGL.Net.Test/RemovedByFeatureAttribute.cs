@@ -21,7 +21,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture(Category = "Framework/RemovedByFeatureAttribute")]
+	[TestFixture(Category = "Framework_RemovedByFeatureAttribute")]
 	class RemovedByFeatureAttributeTest
 	{
 		[Test(Description = "Test RemovedByFeatureAttribute(string featureName)")]

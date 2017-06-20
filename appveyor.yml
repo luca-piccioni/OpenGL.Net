@@ -56,9 +56,10 @@ test:
     only:
       - GL_VERSION_1_0
       - Math
-      - Framework/KhronosVersion
-      - Framework/RequiredByFeatureAttribute
-      - Framework/RemovedByFeatureAttribute
+      - Framework_KhronosApi
+      - Framework_KhronosVersion
+      - Framework_RemovedByFeatureAttribute
+      - Framework_RequiredByFeatureAttribute
 
 after_test:
   - nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%

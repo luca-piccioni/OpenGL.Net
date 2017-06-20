@@ -23,7 +23,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture(Category = "Framework/KhronosVersion")]
+	[TestFixture(Category = "Framework_KhronosVersion")]
 	class KhronosVersionTest
 	{
 		[Test(Description = "Test KhronosVersion(int major, int minor, string api)")]
