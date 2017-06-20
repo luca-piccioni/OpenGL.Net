@@ -648,7 +648,7 @@ namespace OpenGL
 		public override int GetHashCode()
 		{
 			unchecked {
-				int result = base.GetHashCode();
+				int result = 0;
 
 				result = (result * 397) ^ Api.GetHashCode();
 				result = (result * 397) ^ Major.GetHashCode();
@@ -657,7 +657,7 @@ namespace OpenGL
 				if (Profile != null)
 					result = (result * 397) ^ Profile.GetHashCode();
 
-				return result;
+				return (result);
 			}
 		}
 

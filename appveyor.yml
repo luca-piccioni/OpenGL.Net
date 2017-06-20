@@ -49,12 +49,14 @@ build:
   publish_nuget: true
   publish_nuget_symbols: false
 
+# Happy to have a GL 1.1 software driver ^^
 test: 
   assemblies: OpenGL.Net.Test\bin\**\Release\OpenGL.Net.Test.dll
   categories:
     only:
       - GL_VERSION_1_0
       - Math
+	  - Framework/KhronosVersion
 
 after_test:
   - nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%

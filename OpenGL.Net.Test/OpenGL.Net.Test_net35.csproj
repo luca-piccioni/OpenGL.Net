@@ -106,6 +106,7 @@
     <Compile Include="Gl.VERSION_3_0.cs" />
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="KhronosApi.cs" />
+    <Compile Include="KhronosVersion.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Plane.cs" />
