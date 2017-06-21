@@ -70,7 +70,7 @@ namespace OpenGL.Test
 			uint arrayBuffer = Gl.GenBuffer();
 			try {
 				Assert.AreNotEqual(0, arrayBuffer, "Gl.GenBuffer failure");
-				// Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
+				Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 
 				Gl.BindBuffer(BufferTarget.ArrayBuffer, arrayBuffer);
 				Assert.IsTrue(Gl.IsBuffer(arrayBuffer));
@@ -84,9 +84,12 @@ namespace OpenGL.Test
 					arrayBufferData[i] = (Byte)random.Next(Byte.MaxValue);
 
 				int arrayBufferDataParam;
+
 				Gl.BufferData(BufferTarget.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsage.StaticDraw);
+
 				Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_SIZE, out arrayBufferDataParam);
 				Assert.AreEqual(arrayBufferData.Length, arrayBufferDataParam);
+
 				Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_USAGE, out arrayBufferDataParam);
 				Assert.AreEqual((int)BufferUsage.StaticDraw, arrayBufferDataParam);
 
@@ -95,9 +98,14 @@ namespace OpenGL.Test
 					for (int i = 0; i < arrayBufferDataGet.Length; i++)
 						Assert.AreEqual(arrayBufferData[i], arrayBufferDataGet[i]);
 				}
+
+				Gl.BindBuffer(BufferTarget.ArrayBuffer, 0);
+				Gl.Get(Gl.ARRAY_BUFFER_BINDING, out arrayBufferGet);
+				Assert.AreEqual(0, arrayBufferGet);
+
 			} finally {
 				if (arrayBuffer != 0) {
-					Gl.DeleteBuffers(arrayBuffer);
+					Gl.DeleteBuffers(new UInt32[] {  arrayBuffer });
 					Assert.IsFalse(Gl.IsBuffer(arrayBuffer));
 				}
 			}
