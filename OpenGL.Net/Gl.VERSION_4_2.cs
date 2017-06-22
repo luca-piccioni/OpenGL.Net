@@ -1247,7 +1247,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve information about implementation-dependent support for internal formats
+		/// <para>
+		/// [GL4|GLES3.2] retrieve information about implementation-dependent support for internal formats
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Indicates the usage of the internal format. <paramref name="target"/> must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, 
@@ -1298,7 +1300,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve information about implementation-dependent support for internal formats
+		/// <para>
+		/// [GL4|GLES3.2] retrieve information about implementation-dependent support for internal formats
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Indicates the usage of the internal format. <paramref name="target"/> must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, 
@@ -1390,7 +1394,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind a level of a texture to an image unit
+		/// <para>
+		/// [GL4|GLES3.2] bind a level of a texture to an image unit
+		/// </para>
 		/// </summary>
 		/// <param name="unit">
 		/// Specifies the index of the image unit to which to bind the texture
@@ -1447,7 +1453,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// defines a barrier ordering memory transactions
+		/// <para>
+		/// [GL4|GLES3.2] defines a barrier ordering memory transactions
+		/// </para>
 		/// </summary>
 		/// <param name="barriers">
 		/// Specifies the barriers to insert.

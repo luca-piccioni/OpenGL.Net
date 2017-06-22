@@ -265,7 +265,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate sampler object names
+		/// <para>
+		/// [GL4|GLES3.2] generate sampler object names
+		/// </para>
 		/// </summary>
 		/// <param name="samplers">
 		/// Specifies an array in which the generated sampler object names are stored.
@@ -293,7 +295,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate sampler object names
+		/// <para>
+		/// [GL4|GLES3.2] generate sampler object names
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -312,7 +316,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delete named sampler objects
+		/// <para>
+		/// [GL4|GLES3.2] delete named sampler objects
+		/// </para>
 		/// </summary>
 		/// <param name="samplers">
 		/// Specifies an array of sampler objects to be deleted.
@@ -341,7 +347,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if a name corresponds to a sampler object
+		/// <para>
+		/// [GL4|GLES3.2] determine if a name corresponds to a sampler object
+		/// </para>
 		/// </summary>
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
@@ -365,7 +373,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind a named sampler to a texturing target
+		/// <para>
+		/// [GL4|GLES3.2] bind a named sampler to a texturing target
+		/// </para>
 		/// </summary>
 		/// <param name="unit">
 		/// Specifies the index of the texture unit to which the sampler is bound.
@@ -567,7 +577,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return sampler parameter values
+		/// <para>
+		/// [GL4|GLES3.2] return sampler parameter values
+		/// </para>
 		/// </summary>
 		/// <param name="sampler">
 		/// Specifies name of the sampler object from which to retrieve parameters.
@@ -608,7 +620,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return sampler parameter values
+		/// <para>
+		/// [GL4|GLES3.2] return sampler parameter values
+		/// </para>
 		/// </summary>
 		/// <param name="sampler">
 		/// Specifies name of the sampler object from which to retrieve parameters.
@@ -653,7 +667,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return sampler parameter values
+		/// <para>
+		/// [GL4|GLES3.2] return sampler parameter values
+		/// </para>
 		/// </summary>
 		/// <param name="sampler">
 		/// Specifies name of the sampler object from which to retrieve parameters.
@@ -694,7 +710,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return sampler parameter values
+		/// <para>
+		/// [GL4|GLES3.2] return sampler parameter values
+		/// </para>
 		/// </summary>
 		/// <param name="sampler">
 		/// Specifies name of the sampler object from which to retrieve parameters.
@@ -982,7 +1000,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// modify the rate at which generic vertex attributes advance during instanced rendering
+		/// <para>
+		/// [GL4|GLES3.2] modify the rate at which generic vertex attributes advance during instanced rendering
+		/// </para>
 		/// </summary>
 		/// <param name="index">
 		/// Specify the index of the generic vertex attribute.

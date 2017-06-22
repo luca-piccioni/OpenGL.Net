@@ -259,7 +259,9 @@ namespace OpenGL
 		public const int COMPRESSED_SLUMINANCE_ALPHA = 0x8C4B;
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -330,7 +332,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -396,7 +400,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -467,7 +473,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -533,7 +541,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -604,7 +614,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -670,7 +682,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -741,7 +755,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -807,7 +823,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -878,7 +896,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -944,7 +964,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
@@ -1015,7 +1037,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for the current program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// </para>
 		/// </summary>
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.

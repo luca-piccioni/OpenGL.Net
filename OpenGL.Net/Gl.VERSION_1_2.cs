@@ -512,7 +512,9 @@ namespace OpenGL
 		public const int ALIASED_POINT_SIZE_RANGE = 0x846D;
 
 		/// <summary>
-		/// render primitives from array data
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -572,7 +574,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render primitives from array data
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -942,7 +946,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a three-dimensional texture subimage
+		/// <para>
+		/// [GL4|GLES3.2] specify a three-dimensional texture subimage
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexSubImage3D. Must be Gl.TEXTURE_3D or Gl.TEXTURE_2D_ARRAY.
@@ -1073,7 +1079,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a three-dimensional texture subimage
+		/// <para>
+		/// [GL4|GLES3.2] specify a three-dimensional texture subimage
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexSubImage3D. Must be Gl.TEXTURE_3D or Gl.TEXTURE_2D_ARRAY.

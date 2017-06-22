@@ -34,7 +34,9 @@ namespace OpenGL
 		public static class VB
 		{
 			/// <summary>
-			/// clear buffers to preset values
+			/// <para>
+			/// [GL4|GLES3.2] clear buffers to preset values
+			/// </para>
 			/// </summary>
 			/// <param name="mask">
 			/// Bitwise OR of masks that indicate the buffers to be cleared. The three masks are Gl.COLOR_BUFFER_BIT, 
@@ -60,7 +62,9 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the viewport
+			/// <para>
+			/// [GL2.1|GLES1.1] set the viewport
+			/// </para>
 			/// </summary>
 			/// <param name="x">
 			/// Specify the lower left corner of the viewport rectangle, in pixels. The initial value is (0,0).
@@ -318,7 +322,9 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// specify fog parameters
+			/// <para>
+			/// [GL2.1|GLES1.1] specify fog parameters
+			/// </para>
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -351,7 +357,9 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// specify fog parameters
+			/// <para>
+			/// [GL2.1|GLES1.1] specify fog parameters
+			/// </para>
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 

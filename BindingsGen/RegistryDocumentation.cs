@@ -43,6 +43,8 @@ namespace BindingsGen
 
 		List<RegistryDocumentationHandler> GetDocumentationHandlers(Enumerant enumerant);
 
+		List<RegistryDocumentationHandler> GetDocumentationHandlers(Command command);
+
 		/// <summary>
 		/// Generate a <see cref="Command"/> documentation using the Khronos reference pages.
 		/// </summary>
@@ -144,13 +146,27 @@ namespace BindingsGen
 			foreach (RegistryDocumentationHandler docHandler in docHandlers)
 				docHandler.Load();
 
+			string defaultApi = ctx.Class.ToUpperInvariant();
+
 			#region Summary
 
 			sw.WriteLine("/// <summary>");
 			if (docHandlers.Count > 1) {
-				foreach (RegistryDocumentationHandler docHandler in docHandlers) {
+				List<KeyValuePair<string, string>> docHandlersDoc = new List<KeyValuePair<string, string>>();
+				foreach (RegistryDocumentationHandler docHandler in docHandlers)
+					docHandlersDoc.Add(new KeyValuePair<string, string>(docHandler.Api ?? defaultApi, docHandler.QueryCommandSummary(ctx, command)));
+
+				if (docHandlersDoc.Count == 2 && docHandlersDoc[0].Value == docHandlersDoc[1].Value) {
+					string api = (docHandlersDoc[0].Key) + "|" + (docHandlersDoc[1].Key);
+					string doc = docHandlersDoc[0].Value;
+
+					docHandlersDoc.Clear();
+					docHandlersDoc.Add(new KeyValuePair<string, string>(api, doc));
+				}
+
+				foreach (KeyValuePair<string, string> docHandler in docHandlersDoc) {
 					sw.WriteLine("/// <para>");
-					sw.WriteLine("/// {0}", SplitDocumentationLines(docHandler.QueryCommandSummary(ctx, command)));
+					sw.WriteLine("/// {0}", SplitDocumentationLines(String.Format("[{0}] {1}", docHandler.Key, docHandler.Value)));
 					sw.WriteLine("/// </para>");
 				}
 			} else {
@@ -168,7 +184,7 @@ namespace BindingsGen
 					continue;
 
 				sw.WriteLine("/// <param name=\"{0}\">", param.ImplementationNameRaw);
-				if (docHandlers.Count > 1) {
+				if (docHandlers.Count > 1 && false) {
 					foreach (RegistryDocumentationHandler docHandler in docHandlers) {
 						List<string> paramDoc = SplitDocumentationLines(docHandler.QueryCommandParamSummary(ctx, command, param));
 						sw.WriteLine("/// <para>");
@@ -347,6 +363,16 @@ namespace BindingsGen
 			return (null);
 		}
 
+		public List<RegistryDocumentationHandler> GetDocumentationHandlers(Command command)
+		{
+			List<T> handlers;
+
+			if (_DocMapCommands.TryGetValue(command.Prototype.Name, out handlers))
+				return (handlers.ConvertAll(delegate(T item) { return ((RegistryDocumentationHandler)item); }));
+
+			return (null);
+		}
+
 		/// <summary>
 		/// Generate a <see cref="Command"/> documentation using the Khronos reference pages.
 		/// </summary>
@@ -479,9 +505,20 @@ namespace BindingsGen
 
 			List<IRegistryDocumentation> validDocs = GetDocRegistries(docs, command);
 
-			if (validDocs.Count > 0)
-				validDocs[0].GenerateDocumentation(sw, ctx, command, fail, commandParams);
-			else {
+			if (validDocs.Count > 0) {
+				if (validDocs.Count > 1) {
+					List<RegistryDocumentationHandler> handlers = new List<RegistryDocumentationHandler>();
+
+					foreach (IRegistryDocumentation docRegistry in validDocs) {
+						List<RegistryDocumentationHandler> registryHandlers = docRegistry.GetDocumentationHandlers(command);
+
+						if (registryHandlers != null)
+							handlers.AddRange(registryHandlers);
+					}
+					RegistryDocumentation.GenerateDocumentation(sw, ctx, command, fail, commandParams, handlers);
+				} else
+					validDocs[0].GenerateDocumentation(sw, ctx, command, fail, commandParams);
+			} else {
 				RegistryDocumentation.GenerateDocumentation(sw, ctx, command, fail, commandParams, new List<RegistryDocumentationHandler>(new RegistryDocumentationHandler[] {
 					new RegistryDocumentationHandler_Default()
 				}));

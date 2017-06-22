@@ -5348,7 +5348,12 @@ namespace OpenGL
 		public const int LIGHT7 = 0x4007;
 
 		/// <summary>
-		/// specify whether front- or back-facing facets can be culled
+		/// <para>
+		/// [GL4] specify whether front- or back-facing facets can be culled
+		/// </para>
+		/// <para>
+		/// [GLES3.2] specify whether front- or back-facing polygons can be culled
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies whether front- or back-facing facets are candidates for culling. Symbolic constants Gl.FRONT, Gl.BACK, and 
@@ -5371,7 +5376,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define front- and back-facing polygons
+		/// <para>
+		/// [GL4|GLES3.2] define front- and back-facing polygons
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies the orientation of front-facing polygons. Gl.CW and Gl.CCW are accepted. The initial value is Gl.CCW.
@@ -5392,7 +5399,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify implementation-specific hints
+		/// <para>
+		/// [GL4|GLES3.2] specify implementation-specific hints
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a symbolic constant indicating the behavior to be controlled. Gl.LINE_SMOOTH_HINT, Gl.POLYGON_SMOOTH_HINT, 
@@ -5416,7 +5425,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the width of rasterized lines
+		/// <para>
+		/// [GL4|GLES1.1] specify the width of rasterized lines
+		/// </para>
 		/// </summary>
 		/// <param name="width">
 		/// Specifies the width of rasterized lines. The initial value is 1.
@@ -5437,7 +5448,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the diameter of rasterized points
+		/// <para>
+		/// [GL4|GLES1.1] specify the diameter of rasterized points
+		/// </para>
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the diameter of rasterized points. The initial value is 1.
@@ -5485,7 +5498,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define the scissor box
+		/// <para>
+		/// [GL4|GLES3.2] define the scissor box
+		/// </para>
 		/// </summary>
 		/// <param name="x">
 		/// Specify the lower left corner of the scissor box. Initially (0, 0).
@@ -5518,7 +5533,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set texture parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be either Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP.
@@ -5576,7 +5593,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set texture parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be either Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP.
@@ -5639,7 +5658,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set texture parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be either Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP.
@@ -5697,7 +5718,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set texture parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be either Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP.
@@ -6032,7 +6055,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a two-dimensional texture image
+		/// <para>
+		/// [GL2.1|GLES1.1] specify a two-dimensional texture image
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
@@ -6189,7 +6214,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a two-dimensional texture image
+		/// <para>
+		/// [GL2.1|GLES1.1] specify a two-dimensional texture image
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
@@ -6387,7 +6414,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// clear buffers to preset values
+		/// <para>
+		/// [GL4|GLES3.2] clear buffers to preset values
+		/// </para>
 		/// </summary>
 		/// <param name="mask">
 		/// Bitwise OR of masks that indicate the buffers to be cleared. The three masks are Gl.COLOR_BUFFER_BIT, 
@@ -6413,7 +6442,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify clear values for the color buffers
+		/// <para>
+		/// [GL4|GLES3.2] specify clear values for the color buffers
+		/// </para>
 		/// </summary>
 		/// <param name="red">
 		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
@@ -6441,7 +6472,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the clear value for the stencil buffer
+		/// <para>
+		/// [GL4|GLES3.2] specify the clear value for the stencil buffer
+		/// </para>
 		/// </summary>
 		/// <param name="s">
 		/// Specifies the index used when the stencil buffer is cleared. The initial value is 0.
@@ -6482,7 +6515,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// control the front and back writing of individual bits in the stencil planes
+		/// <para>
+		/// [GL4|GLES3.2] control the front and back writing of individual bits in the stencil planes
+		/// </para>
 		/// </summary>
 		/// <param name="mask">
 		/// Specifies a bit mask to enable and disable writing of individual bits in the stencil planes. Initially, the mask is all 
@@ -6507,7 +6542,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// enable and disable writing of frame buffer color components
+		/// <para>
+		/// [GL4|GLES3.2] enable and disable writing of frame buffer color components
+		/// </para>
 		/// </summary>
 		/// <param name="red">
 		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
@@ -6540,7 +6577,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// enable or disable writing into the depth buffer
+		/// <para>
+		/// [GL4|GLES3.2] enable or disable writing into the depth buffer
+		/// </para>
 		/// </summary>
 		/// <param name="flag">
 		/// Specifies whether the depth buffer is enabled for writing. If <paramref name="flag"/> is Gl.FALSE, depth buffer writing 
@@ -6562,7 +6601,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// enable or disable server-side GL capabilities
+		/// <para>
+		/// [GL2.1|GLES1.1] enable or disable server-side GL capabilities
+		/// </para>
 		/// </summary>
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
@@ -6620,7 +6661,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// enable or disable server-side GL capabilities
+		/// <para>
+		/// [GL2.1|GLES1.1] enable or disable server-side GL capabilities
+		/// </para>
 		/// </summary>
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
@@ -6678,7 +6721,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// block until all GL execution is complete
+		/// <para>
+		/// [GL4|GLES3.2] block until all GL execution is complete
+		/// </para>
 		/// </summary>
 		/// <seealso cref="Gl.Flush"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -6693,7 +6738,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// force execution of GL commands in finite time
+		/// <para>
+		/// [GL4|GLES3.2] force execution of GL commands in finite time
+		/// </para>
 		/// </summary>
 		/// <seealso cref="Gl.Finish"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -6708,7 +6755,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify pixel arithmetic
+		/// <para>
+		/// [GL2.1|GLES1.1] specify pixel arithmetic
+		/// </para>
 		/// </summary>
 		/// <param name="sfactor">
 		/// Specifies how the red, green, blue, and alpha source blending factors are computed. The following symbolic constants are 
@@ -6751,7 +6800,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a logical pixel operation for rendering
+		/// <para>
+		/// [GL4] specify a logical pixel operation for rendering
+		/// </para>
+		/// <para>
+		/// [GLES1.1] specify a logical pixel operation
+		/// </para>
 		/// </summary>
 		/// <param name="opcode">
 		/// Specifies a symbolic constant that selects a logical operation. The following symbols are accepted: Gl.CLEAR, Gl.SET, 
@@ -6776,7 +6830,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set front and back function and reference value for stencil testing
+		/// <para>
+		/// [GL4|GLES3.2] set front and back function and reference value for stencil testing
+		/// </para>
 		/// </summary>
 		/// <param name="func">
 		/// Specifies the test function. Eight symbolic constants are valid: Gl.NEVER, Gl.LESS, Gl.LEQUAL, Gl.GREATER, Gl.GEQUAL, 
@@ -6814,7 +6870,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set front and back stencil test actions
+		/// <para>
+		/// [GL4|GLES3.2] set front and back stencil test actions
+		/// </para>
 		/// </summary>
 		/// <param name="sfail">
 		/// Specifies the action to take when the stencil test fails. Eight symbolic constants are accepted: Gl.KEEP, Gl.ZERO, 
@@ -6854,7 +6912,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the value used for depth buffer comparisons
+		/// <para>
+		/// [GL4|GLES3.2] specify the value used for depth buffer comparisons
+		/// </para>
 		/// </summary>
 		/// <param name="func">
 		/// Specifies the depth comparison function. Symbolic constants Gl.NEVER, Gl.LESS, Gl.EQUAL, Gl.LEQUAL, Gl.GREATER, 
@@ -6932,7 +6992,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set pixel storage modes
+		/// <para>
+		/// [GL2.1|GLES1.1] set pixel storage modes
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the symbolic name of the parameter to be set. Six values affect the packing of pixel data into memory: 
@@ -6988,7 +7050,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// select a color buffer source for pixels
+		/// <para>
+		/// [GL4|GLES3.2] select a color buffer source for pixels
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies a color buffer. Accepted values are Gl.FRONT_LEFT, Gl.FRONT_RIGHT, Gl.BACK_LEFT, Gl.BACK_RIGHT, Gl.FRONT, 
@@ -7022,7 +7086,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// read a block of pixels from the frame buffer
+		/// <para>
+		/// [GL2.1] read a block of pixels from the frame buffer
+		/// </para>
+		/// <para>
+		/// [GLES1.1] read a block of pixels from the color buffer
+		/// </para>
 		/// </summary>
 		/// <param name="x">
 		/// Specify the window coordinates of the first pixel that is read from the frame buffer. This location is the lower left 
@@ -7127,7 +7196,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7184,7 +7255,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7241,7 +7314,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7298,7 +7373,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7575,7 +7652,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return error information
+		/// <para>
+		/// [GL4|GLES3.2] return error information
+		/// </para>
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -7592,7 +7671,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7649,7 +7730,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7706,7 +7789,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7763,7 +7848,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7820,7 +7907,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7877,7 +7966,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7934,7 +8025,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7991,7 +8084,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -8048,7 +8143,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a string describing the current GL connection
+		/// <para>
+		/// [GL4|GLES3.2] return a string describing the current GL connection
+		/// </para>
 		/// </summary>
 		/// <param name="name">
 		/// Specifies a symbolic constant, one of Gl.VENDOR, Gl.RENDERER, Gl.VERSION, or Gl.SHADING_LANGUAGE_VERSION. Additionally, 
@@ -8251,7 +8348,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture parameter values
+		/// <para>
+		/// [GL4|GLES3.2] return texture parameter values
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
@@ -8304,7 +8403,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture parameter values
+		/// <para>
+		/// [GL4|GLES3.2] return texture parameter values
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
@@ -8357,7 +8458,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture parameter values
+		/// <para>
+		/// [GL4|GLES3.2] return texture parameter values
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
@@ -8410,7 +8513,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture parameter values for a specific level of detail
+		/// <para>
+		/// [GL4|GLES3.2] return texture parameter values for a specific level of detail
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetTexLevelParameterfv and Gl.GetTexLevelParameteriv 
@@ -8488,7 +8593,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture parameter values for a specific level of detail
+		/// <para>
+		/// [GL4|GLES3.2] return texture parameter values for a specific level of detail
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetTexLevelParameterfv and Gl.GetTexLevelParameteriv 
@@ -8566,7 +8673,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture parameter values for a specific level of detail
+		/// <para>
+		/// [GL4|GLES3.2] return texture parameter values for a specific level of detail
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetTexLevelParameterfv and Gl.GetTexLevelParameteriv 
@@ -8644,7 +8753,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// test whether a capability is enabled
+		/// <para>
+		/// [GL4|GLES3.2] test whether a capability is enabled
+		/// </para>
 		/// </summary>
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
@@ -8696,7 +8807,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the viewport
+		/// <para>
+		/// [GL2.1|GLES1.1] set the viewport
+		/// </para>
 		/// </summary>
 		/// <param name="x">
 		/// Specify the lower left corner of the viewport rectangle, in pixels. The initial value is (0,0).
@@ -9573,7 +9686,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// <para>
+		/// [GL2.1|GLES1.1] set the current color
+		/// </para>
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9721,7 +9836,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// <para>
+		/// [GL2.1|GLES1.1] set the current color
+		/// </para>
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -10237,7 +10354,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// <para>
+		/// [GL2.1|GLES1.1] set the current normal vector
+		/// </para>
 		/// </summary>
 		/// <param name="nx">
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
@@ -13138,7 +13257,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify fog parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] specify fog parameters
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -13171,7 +13292,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify fog parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] specify fog parameters
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -13278,7 +13401,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set light source parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set light source parameters
+		/// </para>
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
@@ -13317,7 +13442,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set light source parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set light source parameters
+		/// </para>
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
@@ -13442,7 +13569,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the lighting model parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set the lighting model parameters
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued lighting model parameter. Gl.LIGHT_MODEL_LOCAL_VIEWER, Gl.LIGHT_MODEL_COLOR_CONTROL, and 
@@ -13476,7 +13605,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the lighting model parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set the lighting model parameters
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued lighting model parameter. Gl.LIGHT_MODEL_LOCAL_VIEWER, Gl.LIGHT_MODEL_COLOR_CONTROL, and 
@@ -13614,7 +13745,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify material parameters for the lighting model
+		/// <para>
+		/// [GL2.1|GLES1.1] specify material parameters for the lighting model
+		/// </para>
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which face or faces are being updated. Must be one of Gl.FRONT, Gl.BACK, or Gl.FRONT_AND_BACK.
@@ -13645,7 +13778,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify material parameters for the lighting model
+		/// <para>
+		/// [GL2.1|GLES1.1] specify material parameters for the lighting model
+		/// </para>
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which face or faces are being updated. Must be one of Gl.FRONT, Gl.BACK, or Gl.FRONT_AND_BACK.
@@ -13785,7 +13920,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// select flat or smooth shading
+		/// <para>
+		/// [GL2.1|GLES1.1] select flat or smooth shading
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies a symbolic value representing a shading technique. Accepted values are Gl.FLAT and Gl.SMOOTH. The initial 
@@ -13814,7 +13951,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture environment parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set texture environment parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV, Gl.TEXTURE_FILTER_CONTROL or Gl.POINT_SPRITE.
@@ -13871,7 +14010,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture environment parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set texture environment parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV, Gl.TEXTURE_FILTER_CONTROL or Gl.POINT_SPRITE.
@@ -13929,7 +14070,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture environment parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set texture environment parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV, Gl.TEXTURE_FILTER_CONTROL or Gl.POINT_SPRITE.
@@ -13986,7 +14129,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture environment parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] set texture environment parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV, Gl.TEXTURE_FILTER_CONTROL or Gl.POINT_SPRITE.
@@ -15724,7 +15869,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the alpha test function
+		/// <para>
+		/// [GL2.1|GLES1.1] specify the alpha test function
+		/// </para>
 		/// </summary>
 		/// <param name="func">
 		/// Specifies the alpha comparison function. Symbolic constants Gl.NEVER, Gl.LESS, Gl.EQUAL, Gl.LEQUAL, Gl.GREATER, 
@@ -16692,7 +16839,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return light source parameter values
+		/// <para>
+		/// [GL2.1|GLES1.1] return light source parameter values
+		/// </para>
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
@@ -16891,7 +17040,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return material parameters
+		/// <para>
+		/// [GL2.1] return material parameters
+		/// </para>
+		/// <para>
+		/// [GLES1.1] return material parameters values
+		/// </para>
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which of the two materials is being queried. Gl.FRONT or Gl.BACK are accepted, representing the front and back 
@@ -17255,7 +17409,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture environment parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] return texture environment parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV, Gl.TEXTURE_FILTER_CONTROL, or Gl.POINT_SPRITE.
@@ -17295,7 +17451,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture environment parameters
+		/// <para>
+		/// [GL2.1|GLES1.1] return texture environment parameters
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV, Gl.TEXTURE_FILTER_CONTROL, or Gl.POINT_SPRITE.
@@ -17520,7 +17678,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// replace the current matrix with the identity matrix
+		/// <para>
+		/// [GL2.1|GLES1.1] replace the current matrix with the identity matrix
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.LoadIdentity is executed between the execution of Gl\.Begin and the 
@@ -17544,7 +17704,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// replace the current matrix with the specified matrix
+		/// <para>
+		/// [GL2.1|GLES1.1] replace the current matrix with the specified matrix
+		/// </para>
 		/// </summary>
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
@@ -17605,7 +17767,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify which matrix is the current matrix
+		/// <para>
+		/// [GL2.1|GLES1.1] specify which matrix is the current matrix
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies which matrix stack is the target for subsequent matrix operations. Three values are accepted: Gl.MODELVIEW, 
@@ -17637,7 +17801,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix with the specified matrix
+		/// <para>
+		/// [GL2.1|GLES1.1] multiply the current matrix with the specified matrix
+		/// </para>
 		/// </summary>
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
@@ -17744,7 +17910,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// push and pop the current matrix stack
+		/// <para>
+		/// [GL2.1|GLES1.1] push and pop the current matrix stack
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushMatrix is called while the current matrix stack is full.
@@ -17780,7 +17948,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// push and pop the current matrix stack
+		/// <para>
+		/// [GL2.1|GLES1.1] push and pop the current matrix stack
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushMatrix is called while the current matrix stack is full.
@@ -17850,7 +18020,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a rotation matrix
+		/// <para>
+		/// [GL2.1|GLES1.1] multiply the current matrix by a rotation matrix
+		/// </para>
 		/// </summary>
 		/// <param name="angle">
 		/// Specifies the angle of rotation, in degrees.
@@ -17916,7 +18088,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a general scaling matrix
+		/// <para>
+		/// [GL2.1|GLES1.1] multiply the current matrix by a general scaling matrix
+		/// </para>
 		/// </summary>
 		/// <param name="x">
 		/// Specify scale factors along the x, y, and z axes, respectively.
@@ -17979,7 +18153,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a translation matrix
+		/// <para>
+		/// [GL2.1|GLES1.1] multiply the current matrix by a translation matrix
+		/// </para>
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, and z coordinates of a translation vector.

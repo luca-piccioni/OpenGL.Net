@@ -1173,7 +1173,9 @@ namespace OpenGL
 		public const int T4F_C4F_N3F_V4F = 0x2A2D;
 
 		/// <summary>
-		/// render primitives from array data
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1217,7 +1219,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render primitives from array data
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1264,7 +1268,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render primitives from array data
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1313,7 +1319,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the address of the specified pointer
+		/// <para>
+		/// [GL4|GLES3.2] return the address of the specified pointer
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the pointer to be returned. Must be one of Gl.DEBUG_CALLBACK_FUNCTION or Gl.DEBUG_CALLBACK_USER_PARAM.
@@ -1350,7 +1358,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the address of the specified pointer
+		/// <para>
+		/// [GL4|GLES3.2] return the address of the specified pointer
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the pointer to be returned. Must be one of Gl.DEBUG_CALLBACK_FUNCTION or Gl.DEBUG_CALLBACK_USER_PARAM.
@@ -1384,7 +1394,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the scale and units used to calculate depth values
+		/// <para>
+		/// [GL2.1|GLES1.1] set the scale and units used to calculate depth values
+		/// </para>
 		/// </summary>
 		/// <param name="factor">
 		/// Specifies a scale factor that is used to create a variable depth offset for each polygon. The initial value is 0.
@@ -1500,7 +1512,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy pixels into a 2D texture image
+		/// <para>
+		/// [GL2.1] copy pixels into a 2D texture image
+		/// </para>
+		/// <para>
+		/// [GLES1.1] specify a two-dimensional texture image with pixels from the color buffer
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
@@ -1664,7 +1681,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy a two-dimensional texture subimage
+		/// <para>
+		/// [GL2.1] copy a two-dimensional texture subimage
+		/// </para>
+		/// <para>
+		/// [GLES1.1] specify a two-dimensional texture subimage with pixels from the color buffer
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, 
@@ -1973,7 +1995,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a two-dimensional texture subimage
+		/// <para>
+		/// [GL4|GLES3.2] specify a two-dimensional texture subimage
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexSubImage2D. Must be Gl.TEXTURE_2D, 
@@ -2097,7 +2121,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a two-dimensional texture subimage
+		/// <para>
+		/// [GL4|GLES3.2] specify a two-dimensional texture subimage
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexSubImage2D. Must be Gl.TEXTURE_2D, 
@@ -2223,7 +2249,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind a named texture to a texturing target
+		/// <para>
+		/// [GL4|GLES3.2] bind a named texture to a texturing target
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound. Must be one of Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, 
@@ -2270,7 +2298,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delete named textures
+		/// <para>
+		/// [GL4|GLES3.2] delete named textures
+		/// </para>
 		/// </summary>
 		/// <param name="textures">
 		/// Specifies an array of textures to be deleted.
@@ -2304,7 +2334,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate texture names
+		/// <para>
+		/// [GL4|GLES3.2] generate texture names
+		/// </para>
 		/// </summary>
 		/// <param name="textures">
 		/// Specifies an array in which the generated texture names are stored.
@@ -2339,7 +2371,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate texture names
+		/// <para>
+		/// [GL4|GLES3.2] generate texture names
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -2365,7 +2399,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if a name corresponds to a texture
+		/// <para>
+		/// [GL4|GLES3.2] determine if a name corresponds to a texture
+		/// </para>
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies a value that may be the name of a texture.
@@ -2433,7 +2469,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of colors
+		/// <para>
+		/// [GL2.1|GLES1.1] define an array of colors
+		/// </para>
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of components per color. Must be 3 or 4. The initial value is 4.
@@ -2491,7 +2529,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of colors
+		/// <para>
+		/// [GL2.1|GLES1.1] define an array of colors
+		/// </para>
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of components per color. Must be 3 or 4. The initial value is 4.
@@ -2551,7 +2591,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// enable or disable client-side capability
+		/// <para>
+		/// [GL2.1|GLES1.1] enable or disable client-side capability
+		/// </para>
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -2680,7 +2722,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// enable or disable client-side capability
+		/// <para>
+		/// [GL2.1|GLES1.1] enable or disable client-side capability
+		/// </para>
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -2911,7 +2955,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of normals
+		/// <para>
+		/// [GL2.1|GLES1.1] define an array of normals
+		/// </para>
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each coordinate in the array. Symbolic constants Gl.BYTE, Gl.SHORT, Gl.INT, Gl.FLOAT, and 
@@ -2963,7 +3009,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of normals
+		/// <para>
+		/// [GL2.1|GLES1.1] define an array of normals
+		/// </para>
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each coordinate in the array. Symbolic constants Gl.BYTE, Gl.SHORT, Gl.INT, Gl.FLOAT, and 
@@ -3017,7 +3065,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of texture coordinates
+		/// <para>
+		/// [GL2.1|GLES1.1] define an array of texture coordinates
+		/// </para>
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of coordinates per array element. Must be 1, 2, 3, or 4. The initial value is 4.
@@ -3077,7 +3127,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of texture coordinates
+		/// <para>
+		/// [GL2.1|GLES1.1] define an array of texture coordinates
+		/// </para>
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of coordinates per array element. Must be 1, 2, 3, or 4. The initial value is 4.
@@ -3139,7 +3191,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of vertex data
+		/// <para>
+		/// [GL2.1] define an array of vertex data
+		/// </para>
+		/// <para>
+		/// [GLES1.1] define an array of vertex coordinates
+		/// </para>
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of coordinates per vertex. Must be 2, 3, or 4. The initial value is 4.
@@ -3197,7 +3254,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of vertex data
+		/// <para>
+		/// [GL2.1] define an array of vertex data
+		/// </para>
+		/// <para>
+		/// [GLES1.1] define an array of vertex coordinates
+		/// </para>
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of coordinates per vertex. Must be 2, 3, or 4. The initial value is 4.

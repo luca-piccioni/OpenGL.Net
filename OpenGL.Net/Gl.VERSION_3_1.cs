@@ -652,7 +652,9 @@ namespace OpenGL
 		public const uint INVALID_INDEX = 0xFFFFFFFF;
 
 		/// <summary>
-		/// draw multiple instances of a range of elements
+		/// <para>
+		/// [GL4|GLES3.2] draw multiple instances of a range of elements
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -704,7 +706,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw multiple instances of a set of elements
+		/// <para>
+		/// [GL4|GLES3.2] draw multiple instances of a set of elements
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -761,7 +765,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw multiple instances of a set of elements
+		/// <para>
+		/// [GL4|GLES3.2] draw multiple instances of a set of elements
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -820,7 +826,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach a buffer object's data store to a buffer texture object
+		/// <para>
+		/// [GL4|GLES3.2] attach a buffer object's data store to a buffer texture object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexBuffer. Must be Gl.TEXTURE_BUFFER.
@@ -894,7 +902,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy all or part of the data store of a buffer object to the data store of another buffer object
+		/// <para>
+		/// [GL4] copy all or part of the data store of a buffer object to the data store of another buffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] copy part of the data store of a buffer object to the data store of another buffer object
+		/// </para>
 		/// </summary>
 		/// <param name="readTarget">
 		/// Specifies the target to which the source buffer object is bound for Gl.CopyBufferSubData
@@ -961,7 +974,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve the index of a named uniform block
+		/// <para>
+		/// [GL4|GLES3.2] retrieve the index of a named uniform block
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program containing uniforms whose indices to query.
@@ -999,7 +1014,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Returns information about several active uniform variables for the specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Returns information about several active uniform variables for the specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.
@@ -1057,7 +1074,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Returns information about several active uniform variables for the specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Returns information about several active uniform variables for the specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.
@@ -1162,7 +1181,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve the index of a named uniform block
+		/// <para>
+		/// [GL4|GLES3.2] retrieve the index of a named uniform block
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program containing the uniform block.
@@ -1193,7 +1214,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// query information about an active uniform block
+		/// <para>
+		/// [GL4|GLES3.2] query information about an active uniform block
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program containing the uniform block.
@@ -1238,7 +1261,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve the name of an active uniform block
+		/// <para>
+		/// [GL4|GLES3.2] retrieve the name of an active uniform block
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program containing the uniform block.
@@ -1284,7 +1309,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// assign a binding point to an active uniform block
+		/// <para>
+		/// [GL4|GLES3.2] assign a binding point to an active uniform block
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// The name of a program object containing the active uniform block whose binding to assign.

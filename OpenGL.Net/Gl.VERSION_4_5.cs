@@ -6768,7 +6768,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// defines a barrier ordering memory transactions
+		/// <para>
+		/// [GL4|GLES3.2] defines a barrier ordering memory transactions
+		/// </para>
 		/// </summary>
 		/// <param name="barriers">
 		/// Specifies the barriers to insert.
@@ -7171,7 +7173,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// check if the rendering context has not been lost due to software or hardware issues
+		/// <para>
+		/// [GL4|GLES3.2] check if the rendering context has not been lost due to software or hardware issues
+		/// </para>
 		/// </summary>
 		/// <seealso cref="Gl.GetError"/>
 		[AliasOf("glGetGraphicsResetStatusEXT")]
@@ -7437,7 +7441,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Returns the value of a uniform variable
+		/// <para>
+		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.
@@ -7492,7 +7498,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Returns the value of a uniform variable
+		/// <para>
+		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.
@@ -7547,7 +7555,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Returns the value of a uniform variable
+		/// <para>
+		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.

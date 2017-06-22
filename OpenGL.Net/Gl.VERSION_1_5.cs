@@ -452,7 +452,9 @@ namespace OpenGL
 		public const int WEIGHT_ARRAY_BUFFER_BINDING = 0x889E;
 
 		/// <summary>
-		/// generate query object names
+		/// <para>
+		/// [GL4|GLES3.2] generate query object names
+		/// </para>
 		/// </summary>
 		/// <param name="ids">
 		/// Specifies an array in which the generated query object names are stored.
@@ -480,7 +482,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate query object names
+		/// <para>
+		/// [GL4|GLES3.2] generate query object names
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -499,7 +503,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delete named query objects
+		/// <para>
+		/// [GL4|GLES3.2] delete named query objects
+		/// </para>
 		/// </summary>
 		/// <param name="ids">
 		/// Specifies an array of query objects to be deleted.
@@ -529,7 +535,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if a name corresponds to a query object
+		/// <para>
+		/// [GL4|GLES3.2] determine if a name corresponds to a query object
+		/// </para>
 		/// </summary>
 		/// <param name="id">
 		/// Specifies a value that may be the name of a query object.
@@ -554,7 +562,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delimit the boundaries of a query object
+		/// <para>
+		/// [GL4|GLES3.2] delimit the boundaries of a query object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target type of query object established between Gl.BeginQuery and the subsequent Gl.EndQuery. The symbolic 
@@ -604,7 +614,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delimit the boundaries of a query object
+		/// <para>
+		/// [GL4|GLES3.2] delimit the boundaries of a query object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target type of query object established between Gl.BeginQuery and the subsequent Gl.EndQuery. The symbolic 
@@ -651,7 +663,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object target
+		/// <para>
+		/// [GL4|GLES3.2] return parameters of a query object target
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a query object target. Must be Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, 
@@ -688,7 +702,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object target
+		/// <para>
+		/// [GL4|GLES3.2] return parameters of a query object target
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a query object target. Must be Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, 
@@ -827,7 +843,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object
+		/// <para>
+		/// [GL4|GLES3.2] return parameters of a query object
+		/// </para>
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -877,7 +895,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object
+		/// <para>
+		/// [GL4|GLES3.2] return parameters of a query object
+		/// </para>
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -927,7 +947,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind a named buffer object
+		/// <para>
+		/// [GL4|GLES3.2] bind a named buffer object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound, which must be one of the buffer binding targets in the 
@@ -965,7 +987,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delete named buffer objects
+		/// <para>
+		/// [GL4|GLES3.2] delete named buffer objects
+		/// </para>
 		/// </summary>
 		/// <param name="buffers">
 		/// Specifies an array of buffer objects to be deleted.
@@ -995,7 +1019,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate buffer object names
+		/// <para>
+		/// [GL4|GLES3.2] generate buffer object names
+		/// </para>
 		/// </summary>
 		/// <param name="buffers">
 		/// Specifies an array in which the generated buffer object names are stored.
@@ -1025,7 +1051,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate buffer object names
+		/// <para>
+		/// [GL4|GLES3.2] generate buffer object names
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -1046,7 +1074,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if a name corresponds to a buffer object
+		/// <para>
+		/// [GL4|GLES3.2] determine if a name corresponds to a buffer object
+		/// </para>
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies a value that may be the name of a buffer object.
@@ -1073,7 +1103,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// creates and initializes a buffer object's data store
+		/// <para>
+		/// [GL4|GLES3.2] creates and initializes a buffer object's data store
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.BufferData, which must be one of the buffer binding 
@@ -1130,7 +1162,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// creates and initializes a buffer object's data store
+		/// <para>
+		/// [GL4|GLES3.2] creates and initializes a buffer object's data store
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.BufferData, which must be one of the buffer binding 
@@ -1190,7 +1224,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// updates a subset of a buffer object's data store
+		/// <para>
+		/// [GL4|GLES3.2] updates a subset of a buffer object's data store
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.BufferSubData, which must be one of the buffer binding 
@@ -1247,7 +1283,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// updates a subset of a buffer object's data store
+		/// <para>
+		/// [GL4|GLES3.2] updates a subset of a buffer object's data store
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.BufferSubData, which must be one of the buffer binding 
@@ -1468,7 +1506,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// release the mapping of a buffer object's data store into the client's address space
+		/// <para>
+		/// [GL4] release the mapping of a buffer object's data store into the client's address space
+		/// </para>
+		/// <para>
+		/// [GLES3.2] map a section of a buffer object's data store
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.UnmapBuffer, which must be one of the buffer binding 
@@ -1511,7 +1554,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a buffer object
+		/// <para>
+		/// [GL4|GLES3.2] return parameters of a buffer object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
@@ -1562,7 +1607,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a buffer object
+		/// <para>
+		/// [GL4|GLES3.2] return parameters of a buffer object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
@@ -1613,7 +1660,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the pointer to a mapped buffer object's data store
+		/// <para>
+		/// [GL4|GLES3.2] return the pointer to a mapped buffer object's data store
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferPointerv, which must be one of the buffer 
@@ -1658,7 +1707,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the pointer to a mapped buffer object's data store
+		/// <para>
+		/// [GL4|GLES3.2] return the pointer to a mapped buffer object's data store
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferPointerv, which must be one of the buffer 

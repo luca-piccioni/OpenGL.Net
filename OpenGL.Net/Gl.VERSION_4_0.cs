@@ -875,7 +875,12 @@ namespace OpenGL
 		public const int MAX_TRANSFORM_FEEDBACK_BUFFERS = 0x8E70;
 
 		/// <summary>
-		/// specifies minimum rate at which sample shaing takes place
+		/// <para>
+		/// [GL4] specifies minimum rate at which sample shaing takes place
+		/// </para>
+		/// <para>
+		/// [GLES3.2] specifies minimum rate at which sample shading takes place
+		/// </para>
 		/// </summary>
 		/// <param name="value">
 		/// Specifies the rate at which samples are shaded within each covered pixel.
@@ -1022,7 +1027,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render primitives from array data, taking parameters from memory
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data, taking parameters from memory
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1062,7 +1069,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render primitives from array data, taking parameters from memory
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data, taking parameters from memory
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1104,7 +1113,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render indexed primitives from array data, taking parameters from memory
+		/// <para>
+		/// [GL4|GLES3.2] render indexed primitives from array data, taking parameters from memory
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1152,7 +1163,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render indexed primitives from array data, taking parameters from memory
+		/// <para>
+		/// [GL4|GLES3.2] render indexed primitives from array data, taking parameters from memory
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -2427,7 +2440,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specifies the parameters for patch primitives
+		/// <para>
+		/// [GL4|GLES3.2] specifies the parameters for patch primitives
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the name of the parameter to set. The symbolc constants Gl.PATCH_VERTICES, Gl.PATCH_DEFAULT_OUTER_LEVEL, and 
@@ -2499,7 +2514,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind a transform feedback object
+		/// <para>
+		/// [GL4|GLES3.2] bind a transform feedback object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which to bind the transform feedback object <paramref name="id"/>. <paramref name="target"/> 
@@ -2538,7 +2555,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delete transform feedback objects
+		/// <para>
+		/// [GL4|GLES3.2] delete transform feedback objects
+		/// </para>
 		/// </summary>
 		/// <param name="ids">
 		/// Specifies an array of names of transform feedback objects to delete.
@@ -2568,7 +2587,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// reserve transform feedback object names
+		/// <para>
+		/// [GL4|GLES3.2] reserve transform feedback object names
+		/// </para>
 		/// </summary>
 		/// <param name="ids">
 		/// Specifies an array of into which the reserved names will be written.
@@ -2598,7 +2619,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// reserve transform feedback object names
+		/// <para>
+		/// [GL4|GLES3.2] reserve transform feedback object names
+		/// </para>
 		/// </summary>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		/// <seealso cref="Gl.BindTransformFeedback"/>
@@ -2619,7 +2642,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if a name corresponds to a transform feedback object
+		/// <para>
+		/// [GL4|GLES3.2] determine if a name corresponds to a transform feedback object
+		/// </para>
 		/// </summary>
 		/// <param name="id">
 		/// Specifies a value that may be the name of a transform feedback object.
@@ -2645,7 +2670,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// pause transform feedback operations
+		/// <para>
+		/// [GL4|GLES3.2] pause transform feedback operations
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is paused.
@@ -2669,7 +2696,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// resume transform feedback operations
+		/// <para>
+		/// [GL4|GLES3.2] resume transform feedback operations
+		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if the currently bound transform feedback object is not active or is not paused.

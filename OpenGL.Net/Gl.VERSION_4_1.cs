@@ -481,7 +481,9 @@ namespace OpenGL
 		public const int UNDEFINED_VERTEX = 0x8260;
 
 		/// <summary>
-		/// release resources consumed by the implementation's shader compiler
+		/// <para>
+		/// [GL4|GLES3.2] release resources consumed by the implementation's shader compiler
+		/// </para>
 		/// </summary>
 		/// <seealso cref="Gl.CompileShader"/>
 		/// <seealso cref="Gl.LinkProgram"/>
@@ -497,7 +499,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// load pre-compiled shader binaries
+		/// <para>
+		/// [GL4|GLES3.2] load pre-compiled shader binaries
+		/// </para>
 		/// </summary>
 		/// <param name="count">
 		/// Specifies the number of shader object handles contained in <paramref name="shaders"/>.
@@ -542,7 +546,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// load pre-compiled shader binaries
+		/// <para>
+		/// [GL4|GLES3.2] load pre-compiled shader binaries
+		/// </para>
 		/// </summary>
 		/// <param name="shaders">
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
@@ -587,7 +593,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve the range and precision for numeric formats supported by the shader compiler
+		/// <para>
+		/// [GL4|GLES3.2] retrieve the range and precision for numeric formats supported by the shader compiler
+		/// </para>
 		/// </summary>
 		/// <param name="shadertype">
 		/// A <see cref="T:ShaderType"/>.
@@ -623,7 +631,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve the range and precision for numeric formats supported by the shader compiler
+		/// <para>
+		/// [GL4|GLES3.2] retrieve the range and precision for numeric formats supported by the shader compiler
+		/// </para>
 		/// </summary>
 		/// <param name="shadertype">
 		/// A <see cref="T:ShaderType"/>.
@@ -659,7 +669,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify mapping of depth values from normalized device coordinates to window coordinates
+		/// <para>
+		/// [GL4|GLES3.2] specify mapping of depth values from normalized device coordinates to window coordinates
+		/// </para>
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:float"/>.
@@ -686,7 +698,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the clear value for the depth buffer
+		/// <para>
+		/// [GL4|GLES3.2] specify the clear value for the depth buffer
+		/// </para>
 		/// </summary>
 		/// <param name="d">
 		/// A <see cref="T:float"/>.
@@ -708,7 +722,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a binary representation of a program object's compiled and linked executable source
+		/// <para>
+		/// [GL4|GLES3.2] return a binary representation of a program object's compiled and linked executable source
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program object whose binary representation to retrieve.
@@ -754,7 +770,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a binary representation of a program object's compiled and linked executable source
+		/// <para>
+		/// [GL4|GLES3.2] return a binary representation of a program object's compiled and linked executable source
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program object whose binary representation to retrieve.
@@ -796,7 +814,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// load a program object with a program binary
+		/// <para>
+		/// [GL4|GLES3.2] load a program object with a program binary
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program object into which to load a program binary.
@@ -832,7 +852,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// load a program object with a program binary
+		/// <para>
+		/// [GL4|GLES3.2] load a program object with a program binary
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program object into which to load a program binary.
@@ -870,7 +892,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a parameter for a program object
+		/// <para>
+		/// [GL4|GLES3.2] specify a parameter for a program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of a program object whose parameter to modify.
@@ -913,7 +937,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind stages of a program object to a program pipeline
+		/// <para>
+		/// [GL4|GLES3.2] bind stages of a program object to a program pipeline
+		/// </para>
 		/// </summary>
 		/// <param name="pipeline">
 		/// Specifies the program pipeline object to which to bind stages from <paramref name="program"/>.
@@ -955,7 +981,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the active program object for a program pipeline object
+		/// <para>
+		/// [GL4|GLES3.2] set the active program object for a program pipeline object
+		/// </para>
 		/// </summary>
 		/// <param name="pipeline">
 		/// Specifies the program pipeline object to set the active program object for.
@@ -988,7 +1016,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a stand-alone program from an array of null-terminated source code strings
+		/// <para>
+		/// [GL4|GLES3.2] create a stand-alone program from an array of null-terminated source code strings
+		/// </para>
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the type of shader to create.
@@ -1030,7 +1060,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a stand-alone program from an array of null-terminated source code strings
+		/// <para>
+		/// [GL4|GLES3.2] create a stand-alone program from an array of null-terminated source code strings
+		/// </para>
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the type of shader to create.
@@ -1068,7 +1100,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind a program pipeline to the current context
+		/// <para>
+		/// [GL4|GLES3.2] bind a program pipeline to the current context
+		/// </para>
 		/// </summary>
 		/// <param name="pipeline">
 		/// Specifies the name of the pipeline object to bind to the context.
@@ -1096,7 +1130,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delete program pipeline objects
+		/// <para>
+		/// [GL4|GLES3.2] delete program pipeline objects
+		/// </para>
 		/// </summary>
 		/// <param name="pipelines">
 		/// Specifies an array of names of program pipeline objects to delete.
@@ -1123,7 +1159,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// reserve program pipeline object names
+		/// <para>
+		/// [GL4|GLES3.2] reserve program pipeline object names
+		/// </para>
 		/// </summary>
 		/// <param name="pipelines">
 		/// Specifies an array of into which the reserved names will be written.
@@ -1150,7 +1188,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// reserve program pipeline object names
+		/// <para>
+		/// [GL4|GLES3.2] reserve program pipeline object names
+		/// </para>
 		/// </summary>
 		/// <seealso cref="Gl.DeleteProgramPipelines"/>
 		/// <seealso cref="Gl.BindProgramPipeline"/>
@@ -1168,7 +1208,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if a name corresponds to a program pipeline object
+		/// <para>
+		/// [GL4|GLES3.2] determine if a name corresponds to a program pipeline object
+		/// </para>
 		/// </summary>
 		/// <param name="pipeline">
 		/// Specifies a value that may be the name of a program pipeline object.
@@ -1192,7 +1234,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve properties of a program pipeline object
+		/// <para>
+		/// [GL4|GLES3.2] retrieve properties of a program pipeline object
+		/// </para>
 		/// </summary>
 		/// <param name="pipeline">
 		/// Specifies the name of a program pipeline object whose parameter retrieve.
@@ -1231,7 +1275,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1295,7 +1341,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1365,7 +1413,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1434,7 +1484,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1498,7 +1550,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1568,7 +1622,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1711,7 +1767,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1775,7 +1833,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1845,7 +1905,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1914,7 +1976,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -1981,7 +2045,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2055,7 +2121,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2124,7 +2192,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2191,7 +2261,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2265,7 +2337,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2414,7 +2488,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2481,7 +2557,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2555,7 +2633,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2624,7 +2704,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2694,7 +2776,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2768,7 +2852,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2837,7 +2923,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2907,7 +2995,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -2981,7 +3071,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3133,7 +3225,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3203,7 +3297,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3277,7 +3373,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3346,7 +3444,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3419,7 +3519,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3493,7 +3595,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3562,7 +3666,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3635,7 +3741,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3709,7 +3817,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3864,7 +3974,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -3937,7 +4049,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4011,7 +4125,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4080,7 +4196,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4157,7 +4275,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4229,7 +4349,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4306,7 +4428,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4378,7 +4502,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4456,7 +4582,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4712,7 +4840,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4789,7 +4919,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4861,7 +4993,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -4938,7 +5072,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5010,7 +5146,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5087,7 +5225,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5159,7 +5299,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5236,7 +5378,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5308,7 +5452,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5385,7 +5531,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5457,7 +5605,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5534,7 +5684,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specify the value of a uniform variable for a specified program object
+		/// <para>
+		/// [GL4|GLES3.2] Specify the value of a uniform variable for a specified program object
+		/// </para>
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the handle of the program containing the uniform variable to be modified.
@@ -5972,7 +6124,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// validate a program pipeline object against current GL state
+		/// <para>
+		/// [GL4|GLES3.2] validate a program pipeline object against current GL state
+		/// </para>
 		/// </summary>
 		/// <param name="pipeline">
 		/// Specifies the name of a program pipeline object to validate.
@@ -5996,7 +6150,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve the info log string from a program pipeline object
+		/// <para>
+		/// [GL4|GLES3.2] retrieve the info log string from a program pipeline object
+		/// </para>
 		/// </summary>
 		/// <param name="pipeline">
 		/// Specifies the name of a program pipeline object from which to retrieve the info log.

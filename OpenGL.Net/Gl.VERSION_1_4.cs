@@ -851,7 +851,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify point parameters
+		/// <para>
+		/// [GL4] specify point parameters
+		/// </para>
+		/// <para>
+		/// [GLES1.1] specify parameters for point rasterization
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued point parameter. Gl.POINT_FADE_THRESHOLD_SIZE, and Gl.POINT_SPRITE_COORD_ORIGIN are accepted.
@@ -884,7 +889,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify point parameters
+		/// <para>
+		/// [GL4] specify point parameters
+		/// </para>
+		/// <para>
+		/// [GLES1.1] specify parameters for point rasterization
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued point parameter. Gl.POINT_FADE_THRESHOLD_SIZE, and Gl.POINT_SPRITE_COORD_ORIGIN are accepted.
@@ -2373,7 +2383,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the blend color
+		/// <para>
+		/// [GL4|GLES3.2] set the blend color
+		/// </para>
 		/// </summary>
 		/// <param name="red">
 		/// specify the components of Gl.BLEND_COLOR

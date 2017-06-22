@@ -696,7 +696,9 @@ namespace OpenGL
 		public const int MAX_INTEGER_SAMPLES = 0x9110;
 
 		/// <summary>
-		/// render primitives from array data with a per-element offset
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data with a per-element offset
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -751,7 +753,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render primitives from array data with a per-element offset
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data with a per-element offset
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -808,7 +812,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render primitives from array data with a per-element offset
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data with a per-element offset
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -872,7 +878,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render primitives from array data with a per-element offset
+		/// <para>
+		/// [GL4|GLES3.2] render primitives from array data with a per-element offset
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -938,7 +946,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render multiple instances of a set of primitives from array data with a per-element offset
+		/// <para>
+		/// [GL4|GLES3.2] render multiple instances of a set of primitives from array data with a per-element offset
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -996,7 +1006,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render multiple instances of a set of primitives from array data with a per-element offset
+		/// <para>
+		/// [GL4|GLES3.2] render multiple instances of a set of primitives from array data with a per-element offset
+		/// </para>
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1136,7 +1148,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new sync object and insert it into the GL command stream
+		/// <para>
+		/// [GL4|GLES3.2] create a new sync object and insert it into the GL command stream
+		/// </para>
 		/// </summary>
 		/// <param name="condition">
 		/// Specifies the condition that must be met to set the sync object's state to signaled. <paramref name="condition"/> must 
@@ -1178,7 +1192,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if a name corresponds to a sync object
+		/// <para>
+		/// [GL4|GLES3.2] determine if a name corresponds to a sync object
+		/// </para>
 		/// </summary>
 		/// <param name="sync">
 		/// Specifies a value that may be the name of a sync object.
@@ -1205,7 +1221,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delete a sync object
+		/// <para>
+		/// [GL4|GLES3.2] delete a sync object
+		/// </para>
 		/// </summary>
 		/// <param name="sync">
 		/// The sync object to be deleted.
@@ -1230,7 +1248,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// block and wait for a sync object to become signaled
+		/// <para>
+		/// [GL4|GLES3.2] block and wait for a sync object to become signaled
+		/// </para>
 		/// </summary>
 		/// <param name="sync">
 		/// The sync object whose status to wait on.
@@ -1269,7 +1289,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// instruct the GL server to block until the specified sync object becomes signaled
+		/// <para>
+		/// [GL4|GLES3.2] instruct the GL server to block until the specified sync object becomes signaled
+		/// </para>
 		/// </summary>
 		/// <param name="sync">
 		/// Specifies the sync object whose status to wait on.
@@ -1306,7 +1328,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -1365,7 +1389,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -1424,7 +1450,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -1483,7 +1511,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -1542,7 +1572,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// query the properties of a sync object
+		/// <para>
+		/// [GL4|GLES3.2] query the properties of a sync object
+		/// </para>
 		/// </summary>
 		/// <param name="sync">
 		/// Specifies the sync object whose properties to query.
@@ -1588,7 +1620,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// query the properties of a sync object
+		/// <para>
+		/// [GL4|GLES3.2] query the properties of a sync object
+		/// </para>
 		/// </summary>
 		/// <param name="sync">
 		/// Specifies the sync object whose properties to query.
@@ -1631,7 +1665,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
@@ -1690,7 +1726,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// <para>
+		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
@@ -1749,7 +1787,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a buffer object
+		/// <para>
+		/// [GL4|GLES3.2] return parameters of a buffer object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
@@ -1797,7 +1837,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach a level of a texture object as a logical buffer of a framebuffer object
+		/// <para>
+		/// [GL4|GLES3.2] attach a level of a texture object as a logical buffer of a framebuffer object
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.
@@ -1991,7 +2033,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve the location of a sample
+		/// <para>
+		/// [GL4|GLES3.2] retrieve the location of a sample
+		/// </para>
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the sample parameter name. <paramref name="pname"/> must be Gl.SAMPLE_POSITION.
@@ -2029,7 +2073,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the value of a sub-word of the sample mask
+		/// <para>
+		/// [GL4|GLES3.2] set the value of a sub-word of the sample mask
+		/// </para>
 		/// </summary>
 		/// <param name="maskNumber">
 		/// Specifies which 32-bit sub-word of the sample mask to update.

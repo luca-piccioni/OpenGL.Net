@@ -1214,7 +1214,9 @@ namespace OpenGL
 		public const int DOT3_RGBA = 0x86AF;
 
 		/// <summary>
-		/// select active texture unit
+		/// <para>
+		/// [GL4|GLES3.2] select active texture unit
+		/// </para>
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies which texture unit to make active. The number of texture units is implementation dependent, but must be at 
@@ -1263,7 +1265,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify multisample coverage parameters
+		/// <para>
+		/// [GL4|GLES3.2] specify multisample coverage parameters
+		/// </para>
 		/// </summary>
 		/// <param name="value">
 		/// Specify a single floating-point sample coverage value. The value is clamped to the range 01. The initial value is 1.0.
@@ -1288,7 +1292,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a three-dimensional texture image in a compressed format
+		/// <para>
+		/// [GL2.1|GLES3.2] specify a three-dimensional texture image in a compressed format
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
@@ -1392,7 +1398,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a three-dimensional texture image in a compressed format
+		/// <para>
+		/// [GL2.1|GLES3.2] specify a three-dimensional texture image in a compressed format
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
@@ -1498,7 +1506,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a two-dimensional texture image in a compressed format
+		/// <para>
+		/// [GL2.1|GLES3.2] specify a two-dimensional texture image in a compressed format
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
@@ -1598,7 +1608,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a two-dimensional texture image in a compressed format
+		/// <para>
+		/// [GL2.1|GLES3.2] specify a two-dimensional texture image in a compressed format
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_2D, Gl.PROXY_TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
@@ -1886,7 +1898,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a three-dimensional texture subimage in a compressed format
+		/// <para>
+		/// [GL4|GLES3.2] specify a three-dimensional texture subimage in a compressed format
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.CompressedTexSubImage3D function. Must be Gl.TEXTURE_2D_ARRAY, 
@@ -1988,7 +2002,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a three-dimensional texture subimage in a compressed format
+		/// <para>
+		/// [GL4|GLES3.2] specify a three-dimensional texture subimage in a compressed format
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.CompressedTexSubImage3D function. Must be Gl.TEXTURE_2D_ARRAY, 
@@ -2092,7 +2108,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a two-dimensional texture subimage in a compressed format
+		/// <para>
+		/// [GL4|GLES3.2] specify a two-dimensional texture subimage in a compressed format
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.CompressedTexSubImage2D function. Must be Gl.TEXTURE_1D_ARRAY, 
@@ -2191,7 +2209,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a two-dimensional texture subimage in a compressed format
+		/// <para>
+		/// [GL4|GLES3.2] specify a two-dimensional texture subimage in a compressed format
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.CompressedTexSubImage2D function. Must be Gl.TEXTURE_1D_ARRAY, 
@@ -2588,7 +2608,12 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// select active texture unit
+		/// <para>
+		/// [GL2.1] select active texture unit
+		/// </para>
+		/// <para>
+		/// [GLES1.1] select client-side active texture unit
+		/// </para>
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies which texture unit to make active. The number of texture units is implementation dependent, but must be at 
@@ -3471,7 +3496,9 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// <para>
+		/// [GL2.1|GLES1.1] set the current texture coordinates
+		/// </para>
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
