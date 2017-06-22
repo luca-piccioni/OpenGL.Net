@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int GAMMA_EXCLUDE_DESKTOP_I3D = 0x204F;
 
 		/// <summary>
-		/// Binding for wglGetGammaTableParametersI3D.
+		/// [WGL] Binding for wglGetGammaTableParametersI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -71,7 +71,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSetGammaTableParametersI3D.
+		/// [WGL] Binding for wglSetGammaTableParametersI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -101,7 +101,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetGammaTableI3D.
+		/// [WGL] Binding for wglGetGammaTableI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -139,7 +139,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSetGammaTableI3D.
+		/// [WGL] Binding for wglSetGammaTableI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

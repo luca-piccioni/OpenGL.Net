@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glRenderbufferStorageMultisampleAPPLE.
+		/// [GL] Binding for glRenderbufferStorageMultisampleAPPLE.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:RenderbufferTarget"/>.
@@ -56,7 +56,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glResolveMultisampleFramebufferAPPLE.
+		/// [GL] Binding for glResolveMultisampleFramebufferAPPLE.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
 		public static void ResolveMultisampleFramebufferAPPLE()

@@ -203,7 +203,7 @@ namespace OpenGL
 		public const int VIDEO_CAPTURE_SURFACE_ORIGIN_NV = 0x903C;
 
 		/// <summary>
-		/// Binding for glBeginVideoCaptureNV.
+		/// [GL] Binding for glBeginVideoCaptureNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -218,7 +218,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindVideoCaptureStreamBufferNV.
+		/// [GL] Binding for glBindVideoCaptureStreamBufferNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -242,7 +242,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindVideoCaptureStreamTextureNV.
+		/// [GL] Binding for glBindVideoCaptureStreamTextureNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -269,7 +269,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEndVideoCaptureNV.
+		/// [GL] Binding for glEndVideoCaptureNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -284,7 +284,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVideoCaptureivNV.
+		/// [GL] Binding for glGetVideoCaptureivNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -310,7 +310,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVideoCaptureStreamivNV.
+		/// [GL] Binding for glGetVideoCaptureStreamivNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -339,7 +339,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVideoCaptureStreamfvNV.
+		/// [GL] Binding for glGetVideoCaptureStreamfvNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -368,7 +368,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVideoCaptureStreamdvNV.
+		/// [GL] Binding for glGetVideoCaptureStreamdvNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -397,7 +397,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVideoCaptureNV.
+		/// [GL] Binding for glVideoCaptureNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -428,7 +428,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVideoCaptureStreamParameterivNV.
+		/// [GL] Binding for glVideoCaptureStreamParameterivNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -457,7 +457,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVideoCaptureStreamParameterfvNV.
+		/// [GL] Binding for glVideoCaptureStreamParameterfvNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -486,7 +486,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVideoCaptureStreamParameterdvNV.
+		/// [GL] Binding for glVideoCaptureStreamParameterdvNV.
 		/// </summary>
 		/// <param name="video_capture_slot">
 		/// A <see cref="T:UInt32"/>.

@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int NUM_VIDEO_CAPTURE_SLOTS_NV = 0x20CF;
 
 		/// <summary>
-		/// Binding for wglBindVideoCaptureDeviceNV.
+		/// [WGL] Binding for wglBindVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="uVideoSlot">
 		/// A <see cref="T:UInt32"/>.
@@ -63,7 +63,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglEnumerateVideoCaptureDevicesNV.
+		/// [WGL] Binding for wglEnumerateVideoCaptureDevicesNV.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -90,7 +90,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglLockVideoCaptureDeviceNV.
+		/// [WGL] Binding for wglLockVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglQueryVideoCaptureDeviceNV.
+		/// [WGL] Binding for wglQueryVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -145,7 +145,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglReleaseVideoCaptureDeviceNV.
+		/// [WGL] Binding for wglReleaseVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.

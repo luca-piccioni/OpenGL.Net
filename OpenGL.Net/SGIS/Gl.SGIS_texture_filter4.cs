@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int TEXTURE_FILTER4_SIZE_SGIS = 0x8147;
 
 		/// <summary>
-		/// Binding for glGetTexFilterFuncSGIS.
+		/// [GL] Binding for glGetTexFilterFuncSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -67,7 +67,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexFilterFuncSGIS.
+		/// [GL] Binding for glTexFilterFuncSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -96,7 +96,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexFilterFuncSGIS.
+		/// [GL] Binding for glTexFilterFuncSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.

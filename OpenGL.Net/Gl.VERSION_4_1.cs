@@ -1693,7 +1693,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform1d.
+		/// [GL] Binding for glProgramUniform1d.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -1715,7 +1715,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform1dv.
+		/// [GL] Binding for glProgramUniform1dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -1742,7 +1742,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform1dv.
+		/// [GL] Binding for glProgramUniform1dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -2408,7 +2408,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform2d.
+		/// [GL] Binding for glProgramUniform2d.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -2433,7 +2433,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform2dv.
+		/// [GL] Binding for glProgramUniform2dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -2463,7 +2463,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform2dv.
+		/// [GL] Binding for glProgramUniform2dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -3142,7 +3142,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform3d.
+		/// [GL] Binding for glProgramUniform3d.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -3170,7 +3170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform3dv.
+		/// [GL] Binding for glProgramUniform3dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -3200,7 +3200,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform3dv.
+		/// [GL] Binding for glProgramUniform3dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -3888,7 +3888,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform4d.
+		/// [GL] Binding for glProgramUniform4d.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -3919,7 +3919,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform4dv.
+		/// [GL] Binding for glProgramUniform4dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -3949,7 +3949,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform4dv.
+		/// [GL] Binding for glProgramUniform4dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4657,7 +4657,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix2dv.
+		/// [GL] Binding for glProgramUniformMatrix2dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4690,7 +4690,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix2dv.
+		/// [GL] Binding for glProgramUniformMatrix2dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4718,7 +4718,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix3dv.
+		/// [GL] Binding for glProgramUniformMatrix3dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4751,7 +4751,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix3dv.
+		/// [GL] Binding for glProgramUniformMatrix3dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4779,7 +4779,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix4dv.
+		/// [GL] Binding for glProgramUniformMatrix4dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4812,7 +4812,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix4dv.
+		/// [GL] Binding for glProgramUniformMatrix4dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5758,7 +5758,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix2x3dv.
+		/// [GL] Binding for glProgramUniformMatrix2x3dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5791,7 +5791,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix2x3dv.
+		/// [GL] Binding for glProgramUniformMatrix2x3dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5819,7 +5819,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix3x2dv.
+		/// [GL] Binding for glProgramUniformMatrix3x2dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5852,7 +5852,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix3x2dv.
+		/// [GL] Binding for glProgramUniformMatrix3x2dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5880,7 +5880,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix2x4dv.
+		/// [GL] Binding for glProgramUniformMatrix2x4dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5913,7 +5913,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix2x4dv.
+		/// [GL] Binding for glProgramUniformMatrix2x4dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5941,7 +5941,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix4x2dv.
+		/// [GL] Binding for glProgramUniformMatrix4x2dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5974,7 +5974,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix4x2dv.
+		/// [GL] Binding for glProgramUniformMatrix4x2dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6002,7 +6002,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix3x4dv.
+		/// [GL] Binding for glProgramUniformMatrix3x4dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6035,7 +6035,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix3x4dv.
+		/// [GL] Binding for glProgramUniformMatrix3x4dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6063,7 +6063,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix4x3dv.
+		/// [GL] Binding for glProgramUniformMatrix4x3dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6096,7 +6096,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformMatrix4x3dv.
+		/// [GL] Binding for glProgramUniformMatrix4x3dv.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6193,7 +6193,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6226,7 +6226,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6262,7 +6262,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6301,7 +6301,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6343,7 +6343,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6382,7 +6382,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6421,7 +6421,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6460,7 +6460,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6499,7 +6499,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of generic vertex attribute data
+		/// [GL4] define an array of generic vertex attribute data
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6578,7 +6578,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of generic vertex attribute data
+		/// [GL4] define an array of generic vertex attribute data
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6659,7 +6659,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Return a generic vertex attribute parameter
+		/// [GL4] Return a generic vertex attribute parameter
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the generic vertex attribute parameter to be queried.
@@ -6711,7 +6711,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glViewportArrayv.
+		/// [GL] Binding for glViewportArrayv.
 		/// </summary>
 		/// <param name="first">
 		/// A <see cref="T:UInt32"/>.
@@ -6742,7 +6742,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glViewportIndexedf.
+		/// [GL] Binding for glViewportIndexedf.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -6774,7 +6774,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glViewportIndexedfv.
+		/// [GL] Binding for glViewportIndexedfv.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -6802,7 +6802,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define the scissor box for multiple viewports
+		/// [GL4] define the scissor box for multiple viewports
 		/// </summary>
 		/// <param name="first">
 		/// Specifies the index of the first viewport whose scissor box to modify.
@@ -6847,7 +6847,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define the scissor box for a specific viewport
+		/// [GL4] define the scissor box for a specific viewport
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the viewport whose scissor box to modify.
@@ -6888,7 +6888,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define the scissor box for a specific viewport
+		/// [GL4] define the scissor box for a specific viewport
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the viewport whose scissor box to modify.
@@ -6926,7 +6926,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify mapping of depth values from normalized device coordinates to window coordinates for a specified set of 
+		/// [GL4] specify mapping of depth values from normalized device coordinates to window coordinates for a specified set of 
 		/// viewports
 		/// </summary>
 		/// <param name="first">
@@ -6968,7 +6968,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify mapping of depth values from normalized device coordinates to window coordinates for a specified viewport
+		/// [GL4] specify mapping of depth values from normalized device coordinates to window coordinates for a specified viewport
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the viewport whose depth range to update.
@@ -7000,7 +7000,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GL4] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
@@ -7067,7 +7067,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GL4] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
@@ -7134,7 +7134,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GL4] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
@@ -7197,7 +7197,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GL4] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 

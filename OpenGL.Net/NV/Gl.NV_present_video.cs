@@ -65,7 +65,7 @@ namespace OpenGL
 		public const int PRESENT_DURATION_NV = 0x8E2B;
 
 		/// <summary>
-		/// Binding for glPresentFrameKeyedNV.
+		/// [GL] Binding for glPresentFrameKeyedNV.
 		/// </summary>
 		/// <param name="video_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -110,7 +110,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPresentFrameDualFillNV.
+		/// [GL] Binding for glPresentFrameDualFillNV.
 		/// </summary>
 		/// <param name="video_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -161,7 +161,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVideoivNV.
+		/// [GL] Binding for glGetVideoivNV.
 		/// </summary>
 		/// <param name="video_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -187,7 +187,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVideouivNV.
+		/// [GL] Binding for glGetVideouivNV.
 		/// </summary>
 		/// <param name="video_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -213,7 +213,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVideoi64vNV.
+		/// [GL] Binding for glGetVideoi64vNV.
 		/// </summary>
 		/// <param name="video_slot">
 		/// A <see cref="T:UInt32"/>.
@@ -239,7 +239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVideoui64vNV.
+		/// [GL] Binding for glGetVideoui64vNV.
 		/// </summary>
 		/// <param name="video_slot">
 		/// A <see cref="T:UInt32"/>.

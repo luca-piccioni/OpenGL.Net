@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Binding for eglWaitSyncKHR.
+		/// [EGL] Binding for eglWaitSyncKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

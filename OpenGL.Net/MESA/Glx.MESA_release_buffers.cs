@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Binding for glXReleaseBuffersMESA.
+		/// [GLX] Binding for glXReleaseBuffersMESA.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

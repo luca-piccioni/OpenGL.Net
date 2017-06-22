@@ -65,7 +65,7 @@ namespace OpenGL
 		public const int UNIFORM_BUFFER_BINDING_EXT = 0x8DEF;
 
 		/// <summary>
-		/// Binding for glUniformBufferEXT.
+		/// [GL] Binding for glUniformBufferEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetUniformBufferSizeEXT.
+		/// [GL] Binding for glGetUniformBufferSizeEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -108,7 +108,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetUniformOffsetEXT.
+		/// [GL] Binding for glGetUniformOffsetEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.

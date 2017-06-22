@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// get display for current context
+		/// [GL2.1] get display for current context
 		/// </summary>
 		/// <seealso cref="Glx.GetCurrentContext"/>
 		/// <seealso cref="Glx.GetCurrentDrawable"/>

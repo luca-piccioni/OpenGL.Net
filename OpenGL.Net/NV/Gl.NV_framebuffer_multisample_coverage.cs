@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int MULTISAMPLE_COVERAGE_MODES_NV = 0x8E12;
 
 		/// <summary>
-		/// Binding for glRenderbufferStorageMultisampleCoverageNV.
+		/// [GL] Binding for glRenderbufferStorageMultisampleCoverageNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:RenderbufferTarget"/>.

@@ -625,7 +625,7 @@ namespace OpenGL
 		public const int PBUFFER_WIDTH = 0x8041;
 
 		/// <summary>
-		/// list all GLX frame buffer configurations for a given screen
+		/// [GL2.1] list all GLX frame buffer configurations for a given screen
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -658,7 +658,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// list all GLX frame buffer configurations for a given screen
+		/// [GL2.1] list all GLX frame buffer configurations for a given screen
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -691,7 +691,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a list of GLX frame buffer configurations that match the specified attributes
+		/// [GL2.1] return a list of GLX frame buffer configurations that match the specified attributes
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -732,7 +732,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return information about a GLX frame buffer configuration
+		/// [GL2.1] return information about a GLX frame buffer configuration
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -773,7 +773,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return information about a GLX frame buffer configuration
+		/// [GL2.1] return information about a GLX frame buffer configuration
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -814,7 +814,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return visual that is associated with the frame buffer configuration
+		/// [GL2.1] return visual that is associated with the frame buffer configuration
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -843,7 +843,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create an on-screen rendering area
+		/// [GL2.1] create an on-screen rendering area
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -901,7 +901,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy an on-screen rendering area
+		/// [GL2.1] destroy an on-screen rendering area
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -925,7 +925,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create an off-screen rendering area
+		/// [GL2.1] create an off-screen rendering area
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -982,7 +982,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy an off-screen rendering area
+		/// [GL2.1] destroy an off-screen rendering area
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -1007,7 +1007,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create an off-screen rendering area
+		/// [GL2.1] create an off-screen rendering area
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -1051,7 +1051,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy an off-screen rendering area
+		/// [GL2.1] destroy an off-screen rendering area
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -1075,7 +1075,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// returns an attribute assoicated with a GLX drawable
+		/// [GL2.1] returns an attribute assoicated with a GLX drawable
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -1113,7 +1113,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new GLX rendering context
+		/// [GL2.1] create a new GLX rendering context
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -1171,7 +1171,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach a GLX context to a GLX drawable
+		/// [GL2.1] attach a GLX context to a GLX drawable
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1254,7 +1254,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the current drawable
+		/// [GL2.1] return the current drawable
 		/// </summary>
 		/// <seealso cref="Glx.GetCurrentContext"/>
 		/// <seealso cref="Glx.GetCurrentDisplay"/>
@@ -1274,7 +1274,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// query context information
+		/// [GL2.1] query context information
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -1314,7 +1314,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// select GLX events for a window or a GLX pixel buffer
+		/// [GL2.1] select GLX events for a window or a GLX pixel buffer
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -1339,7 +1339,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// returns GLX events that are selected for a window or a GLX pixel buffer
+		/// [GL2.1] returns GLX events that are selected for a window or a GLX pixel buffer
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.

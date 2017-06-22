@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Binding for glXCopyBufferSubDataNV.
+		/// [GLX] Binding for glXCopyBufferSubDataNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -65,7 +65,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXNamedCopyBufferSubDataNV.
+		/// [GLX] Binding for glXNamedCopyBufferSubDataNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

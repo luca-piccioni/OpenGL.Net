@@ -73,50 +73,45 @@ namespace BindingsGen
 			foreach (RegistryDocumentationHandler docHandler in docHandlers)
 				docHandler.Load();
 
-			List<string> docHandlersDoc = new List<string>();
+			string defaultApi = ctx.Class.ToUpperInvariant();
+
+			List<KeyValuePair<string, string>> docHandlersDoc = new List<KeyValuePair<string, string>>();
 			foreach (RegistryDocumentationHandler docHandler in docHandlers)
-				docHandlersDoc.Add(String.Format("[{0}] {1}", docHandler.Api ?? ctx.Class.ToUpperInvariant(), docHandler.QueryEnumSummary(ctx, enumerant)));
+				docHandlersDoc.Add(new KeyValuePair<string, string>(docHandler.Api ?? defaultApi, docHandler.QueryEnumSummary(ctx, enumerant)));
 
-			if (docHandlers.Count == 2 && docHandlers[0].QueryEnumSummary(ctx, enumerant) == docHandlers[1].QueryEnumSummary(ctx, enumerant)) {
-				docHandlersDoc.Clear();
-
-				string defaultApi = ctx.Class.ToUpperInvariant();
+			if (docHandlersDoc.Count == 2 && docHandlersDoc[0].Value == docHandlersDoc[1].Value) {
 				string api = (docHandlers[0].Api ?? defaultApi) + "|" + (docHandlers[1].Api ?? defaultApi);
-
-				docHandlersDoc.Add(String.Format("[{0}] {1}", api, docHandlers[0].QueryEnumSummary(ctx, enumerant)));
+				string doc = docHandlersDoc[0].Value;
+				
+				docHandlersDoc.Clear();
+				docHandlersDoc.Add(new KeyValuePair<string, string>(api, doc));
 			}
 
-			if (docHandlers.Count == 4) {
-				bool func1 = docHandlers[0].QueryEnumSummary(ctx, enumerant) == docHandlers[2].QueryEnumSummary(ctx, enumerant);
-				bool func2 = docHandlers[1].QueryEnumSummary(ctx, enumerant) == docHandlers[3].QueryEnumSummary(ctx, enumerant);
+			if (docHandlersDoc.Count == 4) {
+				bool func1 = docHandlersDoc[0].Value == docHandlersDoc[2].Value;
+				bool func2 = docHandlersDoc[1].Value == docHandlersDoc[3].Value;
 
 				if (func1 && func2) {
+					string api1 = (docHandlers[0].Api ?? defaultApi) + "|" + (docHandlers[2].Api ?? defaultApi);
+					string doc1 = docHandlersDoc[0].Value;
+					string api2 = (docHandlers[1].Api ?? defaultApi) + "|" + (docHandlers[3].Api ?? defaultApi);
+					string doc2 = docHandlersDoc[1].Value;
+
 					docHandlersDoc.Clear();
-
-					string defaultApi = ctx.Class.ToUpperInvariant();
-
-					{
-						string api = (docHandlers[0].Api ?? defaultApi) + "|" + (docHandlers[2].Api ?? defaultApi);
-						docHandlersDoc.Add(String.Format("[{0}] {1}", api, docHandlers[0].QueryEnumSummary(ctx, enumerant)));
-					}
-
-					{
-						string api = (docHandlers[1].Api ?? defaultApi) + "|" + (docHandlers[3].Api ?? defaultApi);
-						docHandlersDoc.Add(String.Format("[{0}] {1}", api, docHandlers[1].QueryEnumSummary(ctx, enumerant)));
-					}
+					docHandlersDoc.Add(new KeyValuePair<string, string>(api1, doc1));
+					docHandlersDoc.Add(new KeyValuePair<string, string>(api2, doc2));
 				}
-				
 			}
 
 			sw.WriteLine("/// <summary>");
 			if (docHandlersDoc.Count > 1) {
-				foreach (string doc in docHandlersDoc) {
+				foreach (KeyValuePair<string, string> doc in docHandlersDoc) {
 					sw.WriteLine("/// <para>");
-					sw.WriteLine("/// {0}", SplitDocumentationLines(doc));
+					sw.WriteLine("/// {0}", SplitDocumentationLines(String.Format("[{0}] {1}", doc.Key, doc.Value)));
 					sw.WriteLine("/// </para>");
 				}
 			} else {
-				sw.WriteLine("/// {0}", SplitDocumentationLines(docHandlersDoc[0]));
+				sw.WriteLine("/// {0}", SplitDocumentationLines(String.Format("[{0}] {1}", docHandlersDoc[0].Key, docHandlersDoc[0].Value)));
 			}
 			sw.WriteLine("/// </summary>");
 
@@ -170,7 +165,7 @@ namespace BindingsGen
 					sw.WriteLine("/// </para>");
 				}
 			} else {
-				sw.WriteLine("/// {0}", SplitDocumentationLines(docHandlers[0].QueryCommandSummary(ctx, command)));
+				sw.WriteLine("/// {0}", SplitDocumentationLines(String.Format("[{0}] {1}", docHandlers[0].Api ?? defaultApi, docHandlers[0].QueryCommandSummary(ctx, command))));
 			}
 			sw.WriteLine("/// </summary>");
 

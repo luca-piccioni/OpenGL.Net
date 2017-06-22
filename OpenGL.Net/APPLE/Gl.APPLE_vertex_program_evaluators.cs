@@ -89,7 +89,7 @@ namespace OpenGL
 		public const int VERTEX_ATTRIB_MAP2_DOMAIN_APPLE = 0x8A09;
 
 		/// <summary>
-		/// Binding for glEnableVertexAttribAPPLE.
+		/// [GL] Binding for glEnableVertexAttribAPPLE.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -107,7 +107,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDisableVertexAttribAPPLE.
+		/// [GL] Binding for glDisableVertexAttribAPPLE.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -125,7 +125,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsVertexAttribEnabledAPPLE.
+		/// [GL] Binding for glIsVertexAttribEnabledAPPLE.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -147,7 +147,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMapVertexAttrib1dAPPLE.
+		/// [GL] Binding for glMapVertexAttrib1dAPPLE.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -185,7 +185,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMapVertexAttrib1fAPPLE.
+		/// [GL] Binding for glMapVertexAttrib1fAPPLE.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -223,7 +223,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMapVertexAttrib2dAPPLE.
+		/// [GL] Binding for glMapVertexAttrib2dAPPLE.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -273,7 +273,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMapVertexAttrib2fAPPLE.
+		/// [GL] Binding for glMapVertexAttrib2fAPPLE.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

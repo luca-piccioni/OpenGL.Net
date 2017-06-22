@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int MAX_PROGRAM_TOTAL_OUTPUT_COMPONENTS_NV = 0x8C28;
 
 		/// <summary>
-		/// Binding for glProgramVertexLimitNV.
+		/// [GL] Binding for glProgramVertexLimitNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

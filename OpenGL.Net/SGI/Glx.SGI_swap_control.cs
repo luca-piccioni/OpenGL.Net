@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Binding for glXSwapIntervalSGI.
+		/// [GLX] Binding for glXSwapIntervalSGI.
 		/// </summary>
 		/// <param name="interval">
 		/// A <see cref="T:int"/>.

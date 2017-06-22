@@ -151,7 +151,7 @@ namespace OpenGL
 		public const int PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL = 0x9500;
 
 		/// <summary>
-		/// Binding for glBeginPerfQueryINTEL.
+		/// [GL] Binding for glBeginPerfQueryINTEL.
 		/// </summary>
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
@@ -166,7 +166,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCreatePerfQueryINTEL.
+		/// [GL] Binding for glCreatePerfQueryINTEL.
 		/// </summary>
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32"/>.
@@ -189,7 +189,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeletePerfQueryINTEL.
+		/// [GL] Binding for glDeletePerfQueryINTEL.
 		/// </summary>
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
@@ -204,7 +204,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEndPerfQueryINTEL.
+		/// [GL] Binding for glEndPerfQueryINTEL.
 		/// </summary>
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
@@ -219,7 +219,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetFirstPerfQueryIdINTEL.
+		/// [GL] Binding for glGetFirstPerfQueryIdINTEL.
 		/// </summary>
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32[]"/>.
@@ -239,7 +239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetNextPerfQueryIdINTEL.
+		/// [GL] Binding for glGetNextPerfQueryIdINTEL.
 		/// </summary>
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32"/>.
@@ -262,7 +262,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPerfCounterInfoINTEL.
+		/// [GL] Binding for glGetPerfCounterInfoINTEL.
 		/// </summary>
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32"/>.
@@ -316,7 +316,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPerfQueryDataINTEL.
+		/// [GL] Binding for glGetPerfQueryDataINTEL.
 		/// </summary>
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
@@ -348,7 +348,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPerfQueryDataINTEL.
+		/// [GL] Binding for glGetPerfQueryDataINTEL.
 		/// </summary>
 		/// <param name="queryHandle">
 		/// A <see cref="T:UInt32"/>.
@@ -377,7 +377,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPerfQueryIdByNameINTEL.
+		/// [GL] Binding for glGetPerfQueryIdByNameINTEL.
 		/// </summary>
 		/// <param name="queryName">
 		/// A <see cref="T:String"/>.
@@ -400,7 +400,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPerfQueryInfoINTEL.
+		/// [GL] Binding for glGetPerfQueryInfoINTEL.
 		/// </summary>
 		/// <param name="queryId">
 		/// A <see cref="T:UInt32"/>.

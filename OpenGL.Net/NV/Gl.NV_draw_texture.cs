@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glDrawTextureNV.
+		/// [GL] Binding for glDrawTextureNV.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.

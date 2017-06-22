@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int LIST_PRIORITY_SGIX = 0x8182;
 
 		/// <summary>
-		/// Binding for glGetListParameterfvSGIX.
+		/// [GL] Binding for glGetListParameterfvSGIX.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -61,7 +61,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetListParameterivSGIX.
+		/// [GL] Binding for glGetListParameterivSGIX.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -87,7 +87,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glListParameterfSGIX.
+		/// [GL] Binding for glListParameterfSGIX.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -108,7 +108,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glListParameterfvSGIX.
+		/// [GL] Binding for glListParameterfvSGIX.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -134,7 +134,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glListParameteriSGIX.
+		/// [GL] Binding for glListParameteriSGIX.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -155,7 +155,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glListParameterivSGIX.
+		/// [GL] Binding for glListParameterivSGIX.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.

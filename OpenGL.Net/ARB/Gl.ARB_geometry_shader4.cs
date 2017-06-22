@@ -72,7 +72,7 @@ namespace OpenGL
 		public const int MAX_VERTEX_VARYING_COMPONENTS_ARB = 0x8DDE;
 
 		/// <summary>
-		/// Binding for glFramebufferTextureFaceARB.
+		/// [GL] Binding for glFramebufferTextureFaceARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.

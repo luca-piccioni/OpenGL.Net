@@ -258,7 +258,7 @@ namespace OpenGL
 		public const uint SWAP_UNDERLAY15 = 0x40000000;
 
 		/// <summary>
-		/// Binding for wglCopyContext.
+		/// [WGL] Binding for wglCopyContext.
 		/// </summary>
 		/// <param name="hglrcSrc">
 		/// A <see cref="T:IntPtr"/>.
@@ -283,7 +283,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglCreateContext.
+		/// [WGL] Binding for wglCreateContext.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -302,7 +302,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglCreateLayerContext.
+		/// [WGL] Binding for wglCreateLayerContext.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -324,7 +324,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDeleteContext.
+		/// [WGL] Binding for wglDeleteContext.
 		/// </summary>
 		/// <param name="oldContext">
 		/// A <see cref="T:IntPtr"/>.
@@ -343,7 +343,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDescribeLayerPlane.
+		/// [WGL] Binding for wglDescribeLayerPlane.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -379,7 +379,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetCurrentContext.
+		/// [WGL] Binding for wglGetCurrentContext.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static IntPtr GetCurrentContext()
@@ -395,7 +395,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetCurrentDC.
+		/// [WGL] Binding for wglGetCurrentDC.
 		/// </summary>
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		public static IntPtr GetCurrentDC()
@@ -411,7 +411,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetLayerPaletteEntries.
+		/// [WGL] Binding for wglGetLayerPaletteEntries.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -442,7 +442,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetProcAddress.
+		/// [WGL] Binding for wglGetProcAddress.
 		/// </summary>
 		/// <param name="lpszProc">
 		/// A <see cref="T:String"/>.
@@ -461,7 +461,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglMakeCurrent.
+		/// [WGL] Binding for wglMakeCurrent.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -482,7 +482,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglRealizeLayerPalette.
+		/// [WGL] Binding for wglRealizeLayerPalette.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -507,7 +507,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSetLayerPaletteEntries.
+		/// [WGL] Binding for wglSetLayerPaletteEntries.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -538,7 +538,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglShareLists.
+		/// [WGL] Binding for wglShareLists.
 		/// </summary>
 		/// <param name="hrcSrvShare">
 		/// A <see cref="T:IntPtr"/>.
@@ -560,7 +560,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSwapLayerBuffers.
+		/// [WGL] Binding for wglSwapLayerBuffers.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -582,7 +582,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglUseFontBitmaps.
+		/// [WGL] Binding for wglUseFontBitmaps.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -610,7 +610,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglUseFontBitmapsA.
+		/// [WGL] Binding for wglUseFontBitmapsA.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -638,7 +638,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglUseFontBitmapsW.
+		/// [WGL] Binding for wglUseFontBitmapsW.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -666,7 +666,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglUseFontOutlines.
+		/// [WGL] Binding for wglUseFontOutlines.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -706,7 +706,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglUseFontOutlinesA.
+		/// [WGL] Binding for wglUseFontOutlinesA.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -746,7 +746,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglUseFontOutlinesW.
+		/// [WGL] Binding for wglUseFontOutlinesW.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Binding for eglSwapBuffersWithDamageEXT.
+		/// [EGL] Binding for eglSwapBuffersWithDamageEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

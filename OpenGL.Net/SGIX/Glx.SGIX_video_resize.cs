@@ -43,7 +43,7 @@ namespace OpenGL
 		public const int SYNC_SWAP_SGIX = 0x00000001;
 
 		/// <summary>
-		/// Binding for glXBindChannelToWindowSGIX.
+		/// [GLX] Binding for glXBindChannelToWindowSGIX.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="T:IntPtr"/>.
@@ -71,7 +71,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXChannelRectSGIX.
+		/// [GLX] Binding for glXChannelRectSGIX.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="T:IntPtr"/>.
@@ -108,7 +108,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXQueryChannelRectSGIX.
+		/// [GLX] Binding for glXQueryChannelRectSGIX.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="T:IntPtr"/>.
@@ -153,7 +153,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXQueryChannelDeltasSGIX.
+		/// [GLX] Binding for glXQueryChannelDeltasSGIX.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="T:IntPtr"/>.
@@ -198,7 +198,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXChannelRectSyncSGIX.
+		/// [GLX] Binding for glXChannelRectSyncSGIX.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="T:IntPtr"/>.

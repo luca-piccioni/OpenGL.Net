@@ -250,7 +250,7 @@ namespace OpenGL
 		public const int VERTICAL_RESOLUTION = 0x3091;
 
 		/// <summary>
-		/// Set the current rendering API
+		/// [EGL] Set the current rendering API
 		/// </summary>
 		/// <param name="api">
 		/// Specifies the client API to bind, one of Egl.OPENGL_API, Egl.OPENGL_ES_API, or Egl.OPENVG_API.
@@ -284,7 +284,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Query the current rendering API
+		/// [EGL] Query the current rendering API
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// None.
@@ -311,7 +311,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL pixel buffer surface bound to an OpenVG image
+		/// [EGL] create a new EGL pixel buffer surface bound to an OpenVG image
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -411,7 +411,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Release EGL per-thread state
+		/// [EGL] Release EGL per-thread state
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. There are no defined conditions under which failure will occur. 
@@ -439,7 +439,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Complete client API execution prior to subsequent native rendering calls
+		/// [EGL] Complete client API execution prior to subsequent native rendering calls
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Egl.FALSE is returned if Egl.WaitClient fails, Egl.TRUE otherwise.

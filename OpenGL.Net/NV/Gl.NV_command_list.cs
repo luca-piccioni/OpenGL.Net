@@ -143,7 +143,7 @@ namespace OpenGL
 		public const int FRONT_FACE_COMMAND_NV = 0x0012;
 
 		/// <summary>
-		/// Binding for glCreateStatesNV.
+		/// [GL] Binding for glCreateStatesNV.
 		/// </summary>
 		/// <param name="states">
 		/// A <see cref="T:UInt32[]"/>.
@@ -163,7 +163,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCreateStatesNV.
+		/// [GL] Binding for glCreateStatesNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static UInt32 CreateStateNV()
@@ -174,7 +174,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteStatesNV.
+		/// [GL] Binding for glDeleteStatesNV.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -197,7 +197,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsStateNV.
+		/// [GL] Binding for glIsStateNV.
 		/// </summary>
 		/// <param name="state">
 		/// A <see cref="T:UInt32"/>.
@@ -216,7 +216,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStateCaptureNV.
+		/// [GL] Binding for glStateCaptureNV.
 		/// </summary>
 		/// <param name="state">
 		/// A <see cref="T:UInt32"/>.
@@ -234,7 +234,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetCommandHeaderNV.
+		/// [GL] Binding for glGetCommandHeaderNV.
 		/// </summary>
 		/// <param name="tokenID">
 		/// A <see cref="T:Int32"/>.
@@ -256,7 +256,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetStageIndexNV.
+		/// [GL] Binding for glGetStageIndexNV.
 		/// </summary>
 		/// <param name="shadertype">
 		/// A <see cref="T:ShaderType"/>.
@@ -275,7 +275,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawCommandsNV.
+		/// [GL] Binding for glDrawCommandsNV.
 		/// </summary>
 		/// <param name="primitiveMode">
 		/// A <see cref="T:Int32"/>.
@@ -308,7 +308,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawCommandsAddressNV.
+		/// [GL] Binding for glDrawCommandsAddressNV.
 		/// </summary>
 		/// <param name="primitiveMode">
 		/// A <see cref="T:Int32"/>.
@@ -338,7 +338,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawCommandsStatesNV.
+		/// [GL] Binding for glDrawCommandsStatesNV.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -376,7 +376,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawCommandsStatesAddressNV.
+		/// [GL] Binding for glDrawCommandsStatesAddressNV.
 		/// </summary>
 		/// <param name="indirects">
 		/// A <see cref="T:UInt64[]"/>.
@@ -411,7 +411,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCreateCommandListsNV.
+		/// [GL] Binding for glCreateCommandListsNV.
 		/// </summary>
 		/// <param name="lists">
 		/// A <see cref="T:UInt32[]"/>.
@@ -431,7 +431,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCreateCommandListsNV.
+		/// [GL] Binding for glCreateCommandListsNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static UInt32 CreateCommandListsNV()
@@ -442,7 +442,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteCommandListsNV.
+		/// [GL] Binding for glDeleteCommandListsNV.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -465,7 +465,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsCommandListNV.
+		/// [GL] Binding for glIsCommandListNV.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -484,7 +484,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glListDrawCommandsStatesClientNV.
+		/// [GL] Binding for glListDrawCommandsStatesClientNV.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -525,7 +525,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCommandListSegmentsNV.
+		/// [GL] Binding for glCommandListSegmentsNV.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -543,7 +543,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCompileCommandListNV.
+		/// [GL] Binding for glCompileCommandListNV.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.
@@ -558,7 +558,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCallCommandListNV.
+		/// [GL] Binding for glCallCommandListNV.
 		/// </summary>
 		/// <param name="list">
 		/// A <see cref="T:UInt32"/>.

@@ -71,7 +71,7 @@ namespace OpenGL
 		public const int LINEAR_TILING_EXT = 0x9585;
 
 		/// <summary>
-		/// Binding for glDeleteMemoryObjectsEXT.
+		/// [GL] Binding for glDeleteMemoryObjectsEXT.
 		/// </summary>
 		/// <param name="memoryObjects">
 		/// A <see cref="T:UInt32[]"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsMemoryObjectEXT.
+		/// [GL] Binding for glIsMemoryObjectEXT.
 		/// </summary>
 		/// <param name="memoryObject">
 		/// A <see cref="T:UInt32"/>.
@@ -110,7 +110,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCreateMemoryObjectsEXT.
+		/// [GL] Binding for glCreateMemoryObjectsEXT.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -133,7 +133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMemoryObjectParameterivEXT.
+		/// [GL] Binding for glMemoryObjectParameterivEXT.
 		/// </summary>
 		/// <param name="memoryObject">
 		/// A <see cref="T:UInt32"/>.
@@ -159,7 +159,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMemoryObjectParameterivEXT.
+		/// [GL] Binding for glGetMemoryObjectParameterivEXT.
 		/// </summary>
 		/// <param name="memoryObject">
 		/// A <see cref="T:UInt32"/>.
@@ -185,7 +185,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorageMem2DEXT.
+		/// [GL] Binding for glTexStorageMem2DEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -218,7 +218,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorageMem2DMultisampleEXT.
+		/// [GL] Binding for glTexStorageMem2DMultisampleEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -254,7 +254,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorageMem3DEXT.
+		/// [GL] Binding for glTexStorageMem3DEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -290,7 +290,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorageMem3DMultisampleEXT.
+		/// [GL] Binding for glTexStorageMem3DMultisampleEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -329,7 +329,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBufferStorageMemEXT.
+		/// [GL] Binding for glBufferStorageMemEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -353,7 +353,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTextureStorageMem2DEXT.
+		/// [GL] Binding for glTextureStorageMem2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -386,7 +386,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTextureStorageMem2DMultisampleEXT.
+		/// [GL] Binding for glTextureStorageMem2DMultisampleEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -422,7 +422,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTextureStorageMem3DEXT.
+		/// [GL] Binding for glTextureStorageMem3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -458,7 +458,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTextureStorageMem3DMultisampleEXT.
+		/// [GL] Binding for glTextureStorageMem3DMultisampleEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -497,7 +497,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNamedBufferStorageMemEXT.
+		/// [GL] Binding for glNamedBufferStorageMemEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -521,7 +521,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorageMem1DEXT.
+		/// [GL] Binding for glTexStorageMem1DEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -551,7 +551,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTextureStorageMem1DEXT.
+		/// [GL] Binding for glTextureStorageMem1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.

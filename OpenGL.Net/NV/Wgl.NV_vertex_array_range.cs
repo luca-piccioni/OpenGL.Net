@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Binding for wglAllocateMemoryNV.
+		/// [WGL] Binding for wglAllocateMemoryNV.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -57,7 +57,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglFreeMemoryNV.
+		/// [WGL] Binding for wglFreeMemoryNV.
 		/// </summary>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.

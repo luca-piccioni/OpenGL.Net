@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Binding for glXGetSyncValuesOML.
+		/// [GLX] Binding for glXGetSyncValuesOML.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -67,7 +67,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXGetMscRateOML.
+		/// [GLX] Binding for glXGetMscRateOML.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -101,7 +101,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXSwapBuffersMscOML.
+		/// [GLX] Binding for glXSwapBuffersMscOML.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -132,7 +132,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXWaitForMscOML.
+		/// [GLX] Binding for glXWaitForMscOML.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -179,7 +179,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXWaitForSbcOML.
+		/// [GLX] Binding for glXWaitForSbcOML.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

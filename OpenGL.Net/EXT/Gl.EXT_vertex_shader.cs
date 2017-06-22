@@ -689,7 +689,7 @@ namespace OpenGL
 		public const int LOCAL_CONSTANT_DATATYPE_EXT = 0x87ED;
 
 		/// <summary>
-		/// Binding for glBeginVertexShaderEXT.
+		/// [GL] Binding for glBeginVertexShaderEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public static void BeginVertexShaderEXT()
@@ -701,7 +701,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEndVertexShaderEXT.
+		/// [GL] Binding for glEndVertexShaderEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
 		public static void EndVertexShaderEXT()
@@ -713,7 +713,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindVertexShaderEXT.
+		/// [GL] Binding for glBindVertexShaderEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -728,7 +728,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenVertexShadersEXT.
+		/// [GL] Binding for glGenVertexShadersEXT.
 		/// </summary>
 		/// <param name="range">
 		/// A <see cref="T:UInt32"/>.
@@ -747,7 +747,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteVertexShaderEXT.
+		/// [GL] Binding for glDeleteVertexShaderEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -762,7 +762,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glShaderOp1EXT.
+		/// [GL] Binding for glShaderOp1EXT.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:Int32"/>.
@@ -783,7 +783,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glShaderOp2EXT.
+		/// [GL] Binding for glShaderOp2EXT.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:Int32"/>.
@@ -807,7 +807,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glShaderOp3EXT.
+		/// [GL] Binding for glShaderOp3EXT.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:Int32"/>.
@@ -834,7 +834,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSwizzleEXT.
+		/// [GL] Binding for glSwizzleEXT.
 		/// </summary>
 		/// <param name="res">
 		/// A <see cref="T:UInt32"/>.
@@ -864,7 +864,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glWriteMaskEXT.
+		/// [GL] Binding for glWriteMaskEXT.
 		/// </summary>
 		/// <param name="res">
 		/// A <see cref="T:UInt32"/>.
@@ -894,7 +894,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glInsertComponentEXT.
+		/// [GL] Binding for glInsertComponentEXT.
 		/// </summary>
 		/// <param name="res">
 		/// A <see cref="T:UInt32"/>.
@@ -915,7 +915,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtractComponentEXT.
+		/// [GL] Binding for glExtractComponentEXT.
 		/// </summary>
 		/// <param name="res">
 		/// A <see cref="T:UInt32"/>.
@@ -936,7 +936,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenSymbolsEXT.
+		/// [GL] Binding for glGenSymbolsEXT.
 		/// </summary>
 		/// <param name="datatype">
 		/// A <see cref="T:Int32"/>.
@@ -964,7 +964,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSetInvariantEXT.
+		/// [GL] Binding for glSetInvariantEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -985,7 +985,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSetInvariantEXT.
+		/// [GL] Binding for glSetInvariantEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1008,7 +1008,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSetLocalConstantEXT.
+		/// [GL] Binding for glSetLocalConstantEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1029,7 +1029,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSetLocalConstantEXT.
+		/// [GL] Binding for glSetLocalConstantEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1052,7 +1052,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantbvEXT.
+		/// [GL] Binding for glVariantbvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1075,7 +1075,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantsvEXT.
+		/// [GL] Binding for glVariantsvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1098,7 +1098,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantivEXT.
+		/// [GL] Binding for glVariantivEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1121,7 +1121,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantfvEXT.
+		/// [GL] Binding for glVariantfvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1144,7 +1144,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantdvEXT.
+		/// [GL] Binding for glVariantdvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1167,7 +1167,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantubvEXT.
+		/// [GL] Binding for glVariantubvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1190,7 +1190,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantusvEXT.
+		/// [GL] Binding for glVariantusvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1213,7 +1213,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantuivEXT.
+		/// [GL] Binding for glVariantuivEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1236,7 +1236,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantPointerEXT.
+		/// [GL] Binding for glVariantPointerEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1260,7 +1260,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVariantPointerEXT.
+		/// [GL] Binding for glVariantPointerEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1286,7 +1286,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEnableVariantClientStateEXT.
+		/// [GL] Binding for glEnableVariantClientStateEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1301,7 +1301,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDisableVariantClientStateEXT.
+		/// [GL] Binding for glDisableVariantClientStateEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1316,7 +1316,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindLightParameterEXT.
+		/// [GL] Binding for glBindLightParameterEXT.
 		/// </summary>
 		/// <param name="light">
 		/// A <see cref="T:LightName"/>.
@@ -1338,7 +1338,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindMaterialParameterEXT.
+		/// [GL] Binding for glBindMaterialParameterEXT.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
@@ -1360,7 +1360,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindTexGenParameterEXT.
+		/// [GL] Binding for glBindTexGenParameterEXT.
 		/// </summary>
 		/// <param name="unit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1385,7 +1385,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindTextureUnitParameterEXT.
+		/// [GL] Binding for glBindTextureUnitParameterEXT.
 		/// </summary>
 		/// <param name="unit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1407,7 +1407,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindParameterEXT.
+		/// [GL] Binding for glBindParameterEXT.
 		/// </summary>
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
@@ -1426,7 +1426,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsVariantEnabledEXT.
+		/// [GL] Binding for glIsVariantEnabledEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1448,7 +1448,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVariantBooleanvEXT.
+		/// [GL] Binding for glGetVariantBooleanvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1474,7 +1474,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVariantIntegervEXT.
+		/// [GL] Binding for glGetVariantIntegervEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1500,7 +1500,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVariantFloatvEXT.
+		/// [GL] Binding for glGetVariantFloatvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1526,7 +1526,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVariantPointervEXT.
+		/// [GL] Binding for glGetVariantPointervEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1552,7 +1552,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetInvariantBooleanvEXT.
+		/// [GL] Binding for glGetInvariantBooleanvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1578,7 +1578,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetInvariantIntegervEXT.
+		/// [GL] Binding for glGetInvariantIntegervEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1604,7 +1604,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetInvariantFloatvEXT.
+		/// [GL] Binding for glGetInvariantFloatvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1630,7 +1630,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetLocalConstantBooleanvEXT.
+		/// [GL] Binding for glGetLocalConstantBooleanvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1656,7 +1656,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetLocalConstantIntegervEXT.
+		/// [GL] Binding for glGetLocalConstantIntegervEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -1682,7 +1682,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetLocalConstantFloatvEXT.
+		/// [GL] Binding for glGetLocalConstantFloatvEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.

@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int STENCIL_CLEAR_TAG_VALUE_EXT = 0x88F3;
 
 		/// <summary>
-		/// Binding for glStencilClearTagEXT.
+		/// [GL] Binding for glStencilClearTagEXT.
 		/// </summary>
 		/// <param name="stencilTagBits">
 		/// A <see cref="T:Int32"/>.

@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int REFERENCE_PLANE_EQUATION_SGIX = 0x817E;
 
 		/// <summary>
-		/// Binding for glReferencePlaneSGIX.
+		/// [GL] Binding for glReferencePlaneSGIX.
 		/// </summary>
 		/// <param name="equation">
 		/// A <see cref="T:double[]"/>.

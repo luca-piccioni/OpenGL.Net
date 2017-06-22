@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glInsertEventMarkerEXT.
+		/// [GL] Binding for glInsertEventMarkerEXT.
 		/// </summary>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -47,7 +47,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPushGroupMarkerEXT.
+		/// [GL] Binding for glPushGroupMarkerEXT.
 		/// </summary>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -65,7 +65,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPopGroupMarkerEXT.
+		/// [GL] Binding for glPopGroupMarkerEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 		public static void PopGroupMarkerEXT()

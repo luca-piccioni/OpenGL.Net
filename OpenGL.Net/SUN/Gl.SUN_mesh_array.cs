@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int TRIANGLE_MESH_SUN = 0x8615;
 
 		/// <summary>
-		/// Binding for glDrawMeshArraysSUN.
+		/// [GL] Binding for glDrawMeshArraysSUN.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.

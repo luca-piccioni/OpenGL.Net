@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glIsRenderbufferOES.
+		/// [GL] Binding for glIsRenderbufferOES.
 		/// </summary>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -48,7 +48,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindRenderbufferOES.
+		/// [GL] Binding for glBindRenderbufferOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:RenderbufferTarget"/>.
@@ -66,7 +66,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteRenderbuffersOES.
+		/// [GL] Binding for glDeleteRenderbuffersOES.
 		/// </summary>
 		/// <param name="renderbuffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenRenderbuffersOES.
+		/// [GL] Binding for glGenRenderbuffersOES.
 		/// </summary>
 		/// <param name="renderbuffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -106,7 +106,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenRenderbuffersOES.
+		/// [GL] Binding for glGenRenderbuffersOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		public static UInt32 GenRenderbuffersOES()
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRenderbufferStorageOES.
+		/// [GL] Binding for glRenderbufferStorageOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:RenderbufferTarget"/>.
@@ -141,7 +141,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetRenderbufferParameterivOES.
+		/// [GL] Binding for glGetRenderbufferParameterivOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:RenderbufferTarget"/>.
@@ -167,7 +167,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsFramebufferOES.
+		/// [GL] Binding for glIsFramebufferOES.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -186,7 +186,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindFramebufferOES.
+		/// [GL] Binding for glBindFramebufferOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -204,7 +204,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteFramebuffersOES.
+		/// [GL] Binding for glDeleteFramebuffersOES.
 		/// </summary>
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -224,7 +224,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenFramebuffersOES.
+		/// [GL] Binding for glGenFramebuffersOES.
 		/// </summary>
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -244,7 +244,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenFramebuffersOES.
+		/// [GL] Binding for glGenFramebuffersOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		public static UInt32 GenFramebuffersOES()
@@ -255,7 +255,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCheckFramebufferStatusOES.
+		/// [GL] Binding for glCheckFramebufferStatusOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -274,7 +274,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFramebufferRenderbufferOES.
+		/// [GL] Binding for glFramebufferRenderbufferOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -298,7 +298,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFramebufferTexture2DOES.
+		/// [GL] Binding for glFramebufferTexture2DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -325,7 +325,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetFramebufferAttachmentParameterivOES.
+		/// [GL] Binding for glGetFramebufferAttachmentParameterivOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -354,7 +354,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenerateMipmapOES.
+		/// [GL] Binding for glGenerateMipmapOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.

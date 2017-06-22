@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int SUPPORT_REUSE_NV = 0x3335;
 
 		/// <summary>
-		/// Binding for eglResetStreamNV.
+		/// [EGL] Binding for eglResetStreamNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

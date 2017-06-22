@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int MAX_MULTIVIEW_BUFFERS_EXT = 0x90F2;
 
 		/// <summary>
-		/// Binding for glReadBufferIndexedEXT.
+		/// [GL] Binding for glReadBufferIndexedEXT.
 		/// </summary>
 		/// <param name="src">
 		/// A <see cref="T:ReadBufferMode"/>.
@@ -65,7 +65,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawBuffersIndexedEXT.
+		/// [GL] Binding for glDrawBuffersIndexedEXT.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32[]"/>.
@@ -89,7 +89,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetIntegeri_vEXT.
+		/// [GL] Binding for glGetIntegeri_vEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

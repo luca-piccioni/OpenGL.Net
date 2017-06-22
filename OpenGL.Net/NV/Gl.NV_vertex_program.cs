@@ -479,7 +479,7 @@ namespace OpenGL
 		public const int MAP2_VERTEX_ATTRIB15_4_NV = 0x867F;
 
 		/// <summary>
-		/// Binding for glAreProgramsResidentNV.
+		/// [GL] Binding for glAreProgramsResidentNV.
 		/// </summary>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
@@ -507,7 +507,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExecuteProgramNV.
+		/// [GL] Binding for glExecuteProgramNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -533,7 +533,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramParameterdvNV.
+		/// [GL] Binding for glGetProgramParameterdvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -562,7 +562,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramParameterfvNV.
+		/// [GL] Binding for glGetProgramParameterfvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -591,7 +591,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramivNV.
+		/// [GL] Binding for glGetProgramivNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -617,7 +617,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramStringNV.
+		/// [GL] Binding for glGetProgramStringNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -643,7 +643,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTrackMatrixivNV.
+		/// [GL] Binding for glGetTrackMatrixivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -672,7 +672,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glLoadProgramNV.
+		/// [GL] Binding for glLoadProgramNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -698,7 +698,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramParameter4dNV.
+		/// [GL] Binding for glProgramParameter4dNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -728,7 +728,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramParameter4dvNV.
+		/// [GL] Binding for glProgramParameter4dvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -754,7 +754,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramParameter4fNV.
+		/// [GL] Binding for glProgramParameter4fNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -784,7 +784,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramParameter4fvNV.
+		/// [GL] Binding for glProgramParameter4fvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -810,7 +810,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramParameters4dvNV.
+		/// [GL] Binding for glProgramParameters4dvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -839,7 +839,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramParameters4fvNV.
+		/// [GL] Binding for glProgramParameters4fvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -868,7 +868,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glRequestResidentProgramsNV.
+		/// [GL] Binding for glRequestResidentProgramsNV.
 		/// </summary>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
@@ -888,7 +888,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTrackMatrixNV.
+		/// [GL] Binding for glTrackMatrixNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -912,7 +912,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribPointerNV.
+		/// [GL] Binding for glVertexAttribPointerNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -939,7 +939,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribPointerNV.
+		/// [GL] Binding for glVertexAttribPointerNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -968,7 +968,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs1dvNV.
+		/// [GL] Binding for glVertexAttribs1dvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -991,7 +991,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs1fvNV.
+		/// [GL] Binding for glVertexAttribs1fvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1014,7 +1014,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs1svNV.
+		/// [GL] Binding for glVertexAttribs1svNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1037,7 +1037,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs2dvNV.
+		/// [GL] Binding for glVertexAttribs2dvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1063,7 +1063,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs2fvNV.
+		/// [GL] Binding for glVertexAttribs2fvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1089,7 +1089,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs2svNV.
+		/// [GL] Binding for glVertexAttribs2svNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1115,7 +1115,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs3dvNV.
+		/// [GL] Binding for glVertexAttribs3dvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1141,7 +1141,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs3fvNV.
+		/// [GL] Binding for glVertexAttribs3fvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1167,7 +1167,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs3svNV.
+		/// [GL] Binding for glVertexAttribs3svNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1193,7 +1193,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs4dvNV.
+		/// [GL] Binding for glVertexAttribs4dvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1219,7 +1219,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs4fvNV.
+		/// [GL] Binding for glVertexAttribs4fvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1245,7 +1245,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs4svNV.
+		/// [GL] Binding for glVertexAttribs4svNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1271,7 +1271,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribs4ubvNV.
+		/// [GL] Binding for glVertexAttribs4ubvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

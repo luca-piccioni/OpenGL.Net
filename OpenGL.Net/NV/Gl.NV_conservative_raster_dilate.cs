@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV = 0x937B;
 
 		/// <summary>
-		/// Binding for glConservativeRasterParameterfNV.
+		/// [GL] Binding for glConservativeRasterParameterfNV.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

@@ -185,7 +185,7 @@ namespace OpenGL
 		public const int INT_2_10_10_10_REV = 0x8D9F;
 
 		/// <summary>
-		/// bind a user-defined varying out variable to a fragment shader color number and index
+		/// [GL4] bind a user-defined varying out variable to a fragment shader color number and index
 		/// </summary>
 		/// <param name="program">
 		/// The name of the program containing varying out variable whose binding to modify
@@ -233,7 +233,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// query the bindings of color indices to user-defined varying out variables
+		/// [GL4] query the bindings of color indices to user-defined varying out variables
 		/// </summary>
 		/// <param name="program">
 		/// The name of the program containing varying out variable whose binding to query
@@ -411,7 +411,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameteri.
+		/// [GL] Binding for glSamplerParameteri.
 		/// </summary>
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
@@ -434,7 +434,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameteriv.
+		/// [GL] Binding for glSamplerParameteriv.
 		/// </summary>
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
@@ -462,7 +462,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameterf.
+		/// [GL] Binding for glSamplerParameterf.
 		/// </summary>
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
@@ -485,7 +485,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameterfv.
+		/// [GL] Binding for glSamplerParameterfv.
 		/// </summary>
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
@@ -513,7 +513,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameterIiv.
+		/// [GL] Binding for glSamplerParameterIiv.
 		/// </summary>
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
@@ -545,7 +545,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplerParameterIuiv.
+		/// [GL] Binding for glSamplerParameterIuiv.
 		/// </summary>
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
@@ -757,7 +757,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// record the GL time into a query object after all previous commands have reached the GL server but have not yet 
+		/// [GL4] record the GL time into a query object after all previous commands have reached the GL server but have not yet 
 		/// necessarily executed.
 		/// </summary>
 		/// <param name="id">
@@ -796,7 +796,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object
+		/// [GL4] return parameters of a query object
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -847,7 +847,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object
+		/// [GL4] return parameters of a query object
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -898,7 +898,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object
+		/// [GL4] return parameters of a query object
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -949,7 +949,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object
+		/// [GL4] return parameters of a query object
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -1036,7 +1036,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -1077,7 +1077,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribP1uiv.
+		/// [GL] Binding for glVertexAttribP1uiv.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1107,7 +1107,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -1148,7 +1148,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribP2uiv.
+		/// [GL] Binding for glVertexAttribP2uiv.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1178,7 +1178,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -1219,7 +1219,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribP3uiv.
+		/// [GL] Binding for glVertexAttribP3uiv.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1249,7 +1249,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -1290,7 +1290,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribP4uiv.
+		/// [GL] Binding for glVertexAttribP4uiv.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -1320,7 +1320,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexP2ui.
+		/// [GL] Binding for glVertexP2ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1339,7 +1339,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexP2uiv.
+		/// [GL] Binding for glVertexP2uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1363,7 +1363,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexP3ui.
+		/// [GL] Binding for glVertexP3ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1382,7 +1382,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexP3uiv.
+		/// [GL] Binding for glVertexP3uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1406,7 +1406,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexP4ui.
+		/// [GL] Binding for glVertexP4ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1425,7 +1425,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexP4uiv.
+		/// [GL] Binding for glVertexP4uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1449,7 +1449,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordP1ui.
+		/// [GL] Binding for glTexCoordP1ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1468,7 +1468,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordP1uiv.
+		/// [GL] Binding for glTexCoordP1uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1492,7 +1492,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordP2ui.
+		/// [GL] Binding for glTexCoordP2ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1511,7 +1511,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordP2uiv.
+		/// [GL] Binding for glTexCoordP2uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1535,7 +1535,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordP3ui.
+		/// [GL] Binding for glTexCoordP3ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1554,7 +1554,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordP3uiv.
+		/// [GL] Binding for glTexCoordP3uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1578,7 +1578,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordP4ui.
+		/// [GL] Binding for glTexCoordP4ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1597,7 +1597,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordP4uiv.
+		/// [GL] Binding for glTexCoordP4uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1621,7 +1621,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoordP1ui.
+		/// [GL] Binding for glMultiTexCoordP1ui.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1643,7 +1643,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoordP1uiv.
+		/// [GL] Binding for glMultiTexCoordP1uiv.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1670,7 +1670,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoordP2ui.
+		/// [GL] Binding for glMultiTexCoordP2ui.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1692,7 +1692,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoordP2uiv.
+		/// [GL] Binding for glMultiTexCoordP2uiv.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1719,7 +1719,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoordP3ui.
+		/// [GL] Binding for glMultiTexCoordP3ui.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1741,7 +1741,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoordP3uiv.
+		/// [GL] Binding for glMultiTexCoordP3uiv.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1768,7 +1768,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoordP4ui.
+		/// [GL] Binding for glMultiTexCoordP4ui.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1790,7 +1790,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoordP4uiv.
+		/// [GL] Binding for glMultiTexCoordP4uiv.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1817,7 +1817,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormalP3ui.
+		/// [GL] Binding for glNormalP3ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1836,7 +1836,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormalP3uiv.
+		/// [GL] Binding for glNormalP3uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1860,7 +1860,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorP3ui.
+		/// [GL] Binding for glColorP3ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1879,7 +1879,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorP3uiv.
+		/// [GL] Binding for glColorP3uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1903,7 +1903,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorP4ui.
+		/// [GL] Binding for glColorP4ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1922,7 +1922,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorP4uiv.
+		/// [GL] Binding for glColorP4uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1946,7 +1946,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColorP3ui.
+		/// [GL] Binding for glSecondaryColorP3ui.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.
@@ -1965,7 +1965,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColorP3uiv.
+		/// [GL] Binding for glSecondaryColorP3uiv.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:PackedVertexType"/>.

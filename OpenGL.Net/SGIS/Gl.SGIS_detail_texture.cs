@@ -77,7 +77,7 @@ namespace OpenGL
 		public const int DETAIL_TEXTURE_FUNC_POINTS_SGIS = 0x809C;
 
 		/// <summary>
-		/// Binding for glDetailTexFuncSGIS.
+		/// [GL] Binding for glDetailTexFuncSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -103,7 +103,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetDetailTexFuncSGIS.
+		/// [GL] Binding for glGetDetailTexFuncSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.

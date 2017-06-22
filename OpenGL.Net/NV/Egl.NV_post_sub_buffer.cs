@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int POST_SUB_BUFFER_SUPPORTED_NV = 0x30BE;
 
 		/// <summary>
-		/// Binding for eglPostSubBufferNV.
+		/// [EGL] Binding for eglPostSubBufferNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

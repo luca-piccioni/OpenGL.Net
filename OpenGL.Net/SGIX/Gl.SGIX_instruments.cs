@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int INSTRUMENT_MEASUREMENTS_SGIX = 0x8181;
 
 		/// <summary>
-		/// Binding for glGetInstrumentsSGIX.
+		/// [GL] Binding for glGetInstrumentsSGIX.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_instruments")]
 		public static Int32 GetInstrumentsSGIX()
@@ -57,7 +57,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glInstrumentsBufferSGIX.
+		/// [GL] Binding for glInstrumentsBufferSGIX.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:Int32[]"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPollInstrumentsSGIX.
+		/// [GL] Binding for glPollInstrumentsSGIX.
 		/// </summary>
 		/// <param name="marker_p">
 		/// A <see cref="T:Int32[]"/>.
@@ -101,7 +101,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReadInstrumentsSGIX.
+		/// [GL] Binding for glReadInstrumentsSGIX.
 		/// </summary>
 		/// <param name="marker">
 		/// A <see cref="T:Int32"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStartInstrumentsSGIX.
+		/// [GL] Binding for glStartInstrumentsSGIX.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_instruments")]
 		public static void StartInstrumentsSGIX()
@@ -128,7 +128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStopInstrumentsSGIX.
+		/// [GL] Binding for glStopInstrumentsSGIX.
 		/// </summary>
 		/// <param name="marker">
 		/// A <see cref="T:Int32"/>.

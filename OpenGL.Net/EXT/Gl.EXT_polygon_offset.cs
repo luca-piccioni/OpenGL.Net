@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_BIAS_EXT = 0x8039;
 
 		/// <summary>
-		/// Binding for glPolygonOffsetEXT.
+		/// [GL] Binding for glPolygonOffsetEXT.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.

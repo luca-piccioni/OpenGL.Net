@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Binding for glXBindSwapBarrierSGIX.
+		/// [GLX] Binding for glXBindSwapBarrierSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -50,7 +50,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXQueryMaxSwapBarriersSGIX.
+		/// [GLX] Binding for glXQueryMaxSwapBarriersSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

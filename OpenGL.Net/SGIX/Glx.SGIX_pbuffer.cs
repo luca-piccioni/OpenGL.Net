@@ -55,7 +55,7 @@ namespace OpenGL
 		public const int OPTIMAL_PBUFFER_HEIGHT_SGIX = 0x801A;
 
 		/// <summary>
-		/// Binding for glXCreateGLXPbufferSGIX.
+		/// [GLX] Binding for glXCreateGLXPbufferSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXDestroyGLXPbufferSGIX.
+		/// [GLX] Binding for glXDestroyGLXPbufferSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -109,7 +109,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXQueryGLXPbufferSGIX.
+		/// [GLX] Binding for glXQueryGLXPbufferSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -142,7 +142,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXSelectEventSGIX.
+		/// [GLX] Binding for glXSelectEventSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -163,7 +163,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXGetSelectedEventSGIX.
+		/// [GLX] Binding for glXGetSelectedEventSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

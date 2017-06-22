@@ -43,7 +43,7 @@ namespace OpenGL
 		public const int IMAGE_BUFFER_LOCK_I3D = 0x00000002;
 
 		/// <summary>
-		/// Binding for wglCreateImageBufferI3D.
+		/// [WGL] Binding for wglCreateImageBufferI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -68,7 +68,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDestroyImageBufferI3D.
+		/// [WGL] Binding for wglDestroyImageBufferI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -90,7 +90,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglAssociateImageBufferEventsI3D.
+		/// [WGL] Binding for wglAssociateImageBufferEventsI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -128,7 +128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglReleaseImageBufferEventsI3D.
+		/// [WGL] Binding for wglReleaseImageBufferEventsI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

@@ -227,7 +227,7 @@ namespace OpenGL
 		public const int AUX9_ARB = 0x2090;
 
 		/// <summary>
-		/// Binding for wglBindTexImageARB.
+		/// [WGL] Binding for wglBindTexImageARB.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -249,7 +249,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglReleaseTexImageARB.
+		/// [WGL] Binding for wglReleaseTexImageARB.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -271,7 +271,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSetPbufferAttribARB.
+		/// [WGL] Binding for wglSetPbufferAttribARB.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.

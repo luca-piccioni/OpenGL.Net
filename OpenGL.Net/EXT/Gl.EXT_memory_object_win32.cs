@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int HANDLE_TYPE_D3D11_IMAGE_KMT_EXT = 0x958C;
 
 		/// <summary>
-		/// Binding for glImportMemoryWin32HandleEXT.
+		/// [GL] Binding for glImportMemoryWin32HandleEXT.
 		/// </summary>
 		/// <param name="memory">
 		/// A <see cref="T:UInt32"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glImportMemoryWin32NameEXT.
+		/// [GL] Binding for glImportMemoryWin32NameEXT.
 		/// </summary>
 		/// <param name="memory">
 		/// A <see cref="T:UInt32"/>.
@@ -101,7 +101,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glImportMemoryWin32NameEXT.
+		/// [GL] Binding for glImportMemoryWin32NameEXT.
 		/// </summary>
 		/// <param name="memory">
 		/// A <see cref="T:UInt32"/>.

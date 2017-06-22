@@ -95,7 +95,7 @@ namespace OpenGL
 		public const int HYPERPIPE_ID_SGIX = 0x8030;
 
 		/// <summary>
-		/// Binding for glXQueryHyperpipeNetworkSGIX.
+		/// [GLX] Binding for glXQueryHyperpipeNetworkSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -122,7 +122,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXHyperpipeConfigSGIX.
+		/// [GLX] Binding for glXHyperpipeConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -158,7 +158,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXQueryHyperpipeConfigSGIX.
+		/// [GLX] Binding for glXQueryHyperpipeConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -188,7 +188,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXDestroyHyperpipeConfigSGIX.
+		/// [GLX] Binding for glXDestroyHyperpipeConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -210,7 +210,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXBindHyperpipeSGIX.
+		/// [GLX] Binding for glXBindHyperpipeSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -232,7 +232,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXQueryHyperpipeBestAttribSGIX.
+		/// [GLX] Binding for glXQueryHyperpipeBestAttribSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -266,7 +266,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXHyperpipeAttribSGIX.
+		/// [GLX] Binding for glXHyperpipeAttribSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -297,7 +297,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXQueryHyperpipeAttribSGIX.
+		/// [GLX] Binding for glXQueryHyperpipeAttribSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

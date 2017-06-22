@@ -105,7 +105,7 @@ namespace OpenGL
 		public const int MATRIX_INDEX_ARRAY_POINTER_ARB = 0x8849;
 
 		/// <summary>
-		/// Binding for glCurrentPaletteMatrixARB.
+		/// [GL] Binding for glCurrentPaletteMatrixARB.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:Int32"/>.
@@ -120,7 +120,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixIndexubvARB.
+		/// [GL] Binding for glMatrixIndexubvARB.
 		/// </summary>
 		/// <param name="indices">
 		/// A <see cref="T:byte[]"/>.
@@ -140,7 +140,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixIndexusvARB.
+		/// [GL] Binding for glMatrixIndexusvARB.
 		/// </summary>
 		/// <param name="indices">
 		/// A <see cref="T:UInt16[]"/>.
@@ -160,7 +160,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixIndexuivARB.
+		/// [GL] Binding for glMatrixIndexuivARB.
 		/// </summary>
 		/// <param name="indices">
 		/// A <see cref="T:UInt32[]"/>.
@@ -180,7 +180,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixIndexPointerARB.
+		/// [GL] Binding for glMatrixIndexPointerARB.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -204,7 +204,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixIndexPointerARB.
+		/// [GL] Binding for glMatrixIndexPointerARB.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.

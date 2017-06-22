@@ -183,7 +183,7 @@ namespace OpenGL
 		public const int TEXTURE_TARGET = 0x3081;
 
 		/// <summary>
-		/// Defines a two-dimensional texture image
+		/// [EGL] Defines a two-dimensional texture image
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -223,7 +223,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Releases a color buffer that is being used as a texture
+		/// [EGL] Releases a color buffer that is being used as a texture
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -259,7 +259,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set an EGL surface attribute
+		/// [EGL] set an EGL surface attribute
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -316,7 +316,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specifies the minimum number of video frame periods per buffer swap for the window associated with the current context.
+		/// [EGL] specifies the minimum number of video frame periods per buffer swap for the window associated with the current 
+		/// context.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

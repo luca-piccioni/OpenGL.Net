@@ -2891,7 +2891,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEnablei.
+		/// [GL] Binding for glEnablei.
 		/// </summary>
 		/// <param name="cap">
 		/// A <see cref="T:EnableCap"/>.
@@ -2920,7 +2920,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDisablei.
+		/// [GL] Binding for glDisablei.
 		/// </summary>
 		/// <param name="cap">
 		/// A <see cref="T:EnableCap"/>.
@@ -3283,7 +3283,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify whether data read via glReadPixels should be clamped
+		/// [GL4] specify whether data read via glReadPixels should be clamped
 		/// </summary>
 		/// <param name="target">
 		/// Target for color clamping. <paramref name="target"/> must be Gl.CLAMP_READ_COLOR.
@@ -3309,7 +3309,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// start conditional rendering
+		/// [GL4] start conditional rendering
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of an occlusion query object whose results are used to determine if the rendering commands are 
@@ -3350,7 +3350,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// start conditional rendering
+		/// [GL4] start conditional rendering
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of an existing query object.
@@ -3658,7 +3658,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3690,7 +3690,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3725,7 +3725,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3807,7 +3807,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3839,7 +3839,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3874,7 +3874,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3956,7 +3956,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3994,7 +3994,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4032,7 +4032,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4111,7 +4111,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4149,7 +4149,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4187,7 +4187,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4266,7 +4266,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4304,7 +4304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4342,7 +4342,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4380,7 +4380,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Specifies the value of a generic vertex attribute
+		/// [GL4] Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4469,7 +4469,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind a user-defined varying out variable to a fragment shader color number
+		/// [GL4] bind a user-defined varying out variable to a fragment shader color number
 		/// </summary>
 		/// <param name="program">
 		/// The name of the program containing varying out variable whose binding to modify
@@ -5334,7 +5334,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexParameterIiv.
+		/// [GL] Binding for glTexParameterIiv.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5366,7 +5366,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexParameterIuiv.
+		/// [GL] Binding for glTexParameterIuiv.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -6363,7 +6363,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach a level of a texture object as a logical buffer of a framebuffer object
+		/// [GL4] attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.
@@ -6507,7 +6507,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach a level of a texture object as a logical buffer of a framebuffer object
+		/// [GL4] attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.

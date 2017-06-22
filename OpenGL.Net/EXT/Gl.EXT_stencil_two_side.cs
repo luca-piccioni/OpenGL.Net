@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int ACTIVE_STENCIL_FACE_EXT = 0x8911;
 
 		/// <summary>
-		/// Binding for glActiveStencilFaceEXT.
+		/// [GL] Binding for glActiveStencilFaceEXT.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:StencilFaceDirection"/>.

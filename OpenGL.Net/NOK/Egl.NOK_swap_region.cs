@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Binding for eglSwapBuffersRegionNOK.
+		/// [EGL] Binding for eglSwapBuffersRegionNOK.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

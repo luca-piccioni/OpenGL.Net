@@ -50,7 +50,7 @@ namespace OpenGL
 		public const int DEVICE_EXT = 0x322C;
 
 		/// <summary>
-		/// Binding for eglQueryDeviceAttribEXT.
+		/// [EGL] Binding for eglQueryDeviceAttribEXT.
 		/// </summary>
 		/// <param name="device">
 		/// A <see cref="T:IntPtr"/>.
@@ -81,7 +81,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryDeviceStringEXT.
+		/// [EGL] Binding for eglQueryDeviceStringEXT.
 		/// </summary>
 		/// <param name="device">
 		/// A <see cref="T:IntPtr"/>.
@@ -104,7 +104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryDisplayAttribEXT.
+		/// [EGL] Binding for eglQueryDisplayAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

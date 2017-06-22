@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int PIXEL_GROUP_COLOR_SGIS = 0x8356;
 
 		/// <summary>
-		/// Binding for glPixelTexGenParameteriSGIS.
+		/// [GL] Binding for glPixelTexGenParameteriSGIS.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
@@ -71,7 +71,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelTexGenParameterivSGIS.
+		/// [GL] Binding for glPixelTexGenParameterivSGIS.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
@@ -94,7 +94,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelTexGenParameterfSGIS.
+		/// [GL] Binding for glPixelTexGenParameterfSGIS.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPixelTexGenParameterfvSGIS.
+		/// [GL] Binding for glPixelTexGenParameterfvSGIS.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
@@ -135,7 +135,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPixelTexGenParameterivSGIS.
+		/// [GL] Binding for glGetPixelTexGenParameterivSGIS.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.
@@ -158,7 +158,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPixelTexGenParameterfvSGIS.
+		/// [GL] Binding for glGetPixelTexGenParameterfvSGIS.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:PixelTexGenParameterNameSGIS"/>.

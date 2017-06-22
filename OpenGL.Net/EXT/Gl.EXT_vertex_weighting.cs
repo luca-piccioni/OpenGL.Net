@@ -95,7 +95,7 @@ namespace OpenGL
 		public const int VERTEX_WEIGHT_ARRAY_POINTER_EXT = 0x8510;
 
 		/// <summary>
-		/// Binding for glVertexWeightfEXT.
+		/// [GL] Binding for glVertexWeightfEXT.
 		/// </summary>
 		/// <param name="weight">
 		/// A <see cref="T:float"/>.
@@ -110,7 +110,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexWeightfvEXT.
+		/// [GL] Binding for glVertexWeightfvEXT.
 		/// </summary>
 		/// <param name="weight">
 		/// A <see cref="T:float[]"/>.
@@ -130,7 +130,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexWeightPointerEXT.
+		/// [GL] Binding for glVertexWeightPointerEXT.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexWeightPointerEXT.
+		/// [GL] Binding for glVertexWeightPointerEXT.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.

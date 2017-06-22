@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int SYNC_CL_EVENT_COMPLETE_ARB = 0x8241;
 
 		/// <summary>
-		/// Binding for glCreateSyncFromCLeventARB.
+		/// [GL] Binding for glCreateSyncFromCLeventARB.
 		/// </summary>
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.

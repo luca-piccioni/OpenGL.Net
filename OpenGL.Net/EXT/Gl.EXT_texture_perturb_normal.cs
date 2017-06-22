@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int TEXTURE_NORMAL_EXT = 0x85AF;
 
 		/// <summary>
-		/// Binding for glTextureNormalEXT.
+		/// [GL] Binding for glTextureNormalEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.

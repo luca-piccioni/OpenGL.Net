@@ -99,7 +99,7 @@ namespace OpenGL
 		public const int LAYOUT_TRANSFER_DST_EXT = 0x9593;
 
 		/// <summary>
-		/// Binding for glGetUnsignedBytevEXT.
+		/// [GL] Binding for glGetUnsignedBytevEXT.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:GetPName"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetUnsignedBytei_vEXT.
+		/// [GL] Binding for glGetUnsignedBytei_vEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -150,7 +150,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenSemaphoresEXT.
+		/// [GL] Binding for glGenSemaphoresEXT.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -173,7 +173,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteSemaphoresEXT.
+		/// [GL] Binding for glDeleteSemaphoresEXT.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -196,7 +196,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsSemaphoreEXT.
+		/// [GL] Binding for glIsSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -215,7 +215,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSemaphoreParameterui64vEXT.
+		/// [GL] Binding for glSemaphoreParameterui64vEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -241,7 +241,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetSemaphoreParameterui64vEXT.
+		/// [GL] Binding for glGetSemaphoreParameterui64vEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -267,7 +267,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glWaitSemaphoreEXT.
+		/// [GL] Binding for glWaitSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -304,7 +304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSignalSemaphoreEXT.
+		/// [GL] Binding for glSignalSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.

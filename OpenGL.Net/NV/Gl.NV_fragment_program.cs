@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int FRAGMENT_PROGRAM_BINDING_NV = 0x8873;
 
 		/// <summary>
-		/// Binding for glProgramNamedParameter4fNV.
+		/// [GL] Binding for glProgramNamedParameter4fNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -85,7 +85,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramNamedParameter4fvNV.
+		/// [GL] Binding for glProgramNamedParameter4fvNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -115,7 +115,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramNamedParameter4dNV.
+		/// [GL] Binding for glProgramNamedParameter4dNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -153,7 +153,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramNamedParameter4dvNV.
+		/// [GL] Binding for glProgramNamedParameter4dvNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -183,7 +183,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramNamedParameterfvNV.
+		/// [GL] Binding for glGetProgramNamedParameterfvNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -213,7 +213,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramNamedParameterdvNV.
+		/// [GL] Binding for glGetProgramNamedParameterdvNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.

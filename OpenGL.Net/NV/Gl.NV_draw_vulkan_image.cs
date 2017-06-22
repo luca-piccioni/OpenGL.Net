@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glDrawVkImageNV.
+		/// [GL] Binding for glDrawVkImageNV.
 		/// </summary>
 		/// <param name="vkImage">
 		/// A <see cref="T:UInt64"/>.
@@ -74,7 +74,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVkProcAddrNV.
+		/// [GL] Binding for glGetVkProcAddrNV.
 		/// </summary>
 		/// <param name="name">
 		/// A <see cref="T:String"/>.
@@ -93,7 +93,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glWaitVkSemaphoreNV.
+		/// [GL] Binding for glWaitVkSemaphoreNV.
 		/// </summary>
 		/// <param name="vkSemaphore">
 		/// A <see cref="T:UInt64"/>.
@@ -108,7 +108,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSignalVkSemaphoreNV.
+		/// [GL] Binding for glSignalVkSemaphoreNV.
 		/// </summary>
 		/// <param name="vkSemaphore">
 		/// A <see cref="T:UInt64"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSignalVkFenceNV.
+		/// [GL] Binding for glSignalVkFenceNV.
 		/// </summary>
 		/// <param name="vkFence">
 		/// A <see cref="T:UInt64"/>.

@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int TRANSPARENT_VALUE_EXT = 0x200B;
 
 		/// <summary>
-		/// Binding for wglGetPixelFormatAttribivEXT.
+		/// [WGL] Binding for wglGetPixelFormatAttribivEXT.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -75,7 +75,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetPixelFormatAttribfvEXT.
+		/// [WGL] Binding for wglGetPixelFormatAttribfvEXT.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -115,7 +115,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglChoosePixelFormatEXT.
+		/// [WGL] Binding for wglChoosePixelFormatEXT.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.

@@ -95,7 +95,7 @@ namespace OpenGL
 		public const int STATE_RESTORE = 0x8BDC;
 
 		/// <summary>
-		/// Binding for glExtGetTexturesQCOM.
+		/// [GL] Binding for glExtGetTexturesQCOM.
 		/// </summary>
 		/// <param name="textures">
 		/// A <see cref="T:UInt32[]"/>.
@@ -122,7 +122,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtGetBuffersQCOM.
+		/// [GL] Binding for glExtGetBuffersQCOM.
 		/// </summary>
 		/// <param name="buffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -146,7 +146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtGetRenderbuffersQCOM.
+		/// [GL] Binding for glExtGetRenderbuffersQCOM.
 		/// </summary>
 		/// <param name="renderbuffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -170,7 +170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtGetFramebuffersQCOM.
+		/// [GL] Binding for glExtGetFramebuffersQCOM.
 		/// </summary>
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -194,7 +194,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtGetTexLevelParameterivQCOM.
+		/// [GL] Binding for glExtGetTexLevelParameterivQCOM.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -226,7 +226,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtTexObjectStateOverrideiQCOM.
+		/// [GL] Binding for glExtTexObjectStateOverrideiQCOM.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -247,7 +247,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtGetTexSubImageQCOM.
+		/// [GL] Binding for glExtGetTexSubImageQCOM.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -292,7 +292,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtGetBufferPointervQCOM.
+		/// [GL] Binding for glExtGetBufferPointervQCOM.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

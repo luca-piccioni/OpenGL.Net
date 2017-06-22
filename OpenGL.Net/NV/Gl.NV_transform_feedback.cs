@@ -131,7 +131,7 @@ namespace OpenGL
 		public const int SKIP_COMPONENTS1_NV = -6;
 
 		/// <summary>
-		/// Binding for glTransformFeedbackAttribsNV.
+		/// [GL] Binding for glTransformFeedbackAttribsNV.
 		/// </summary>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.
@@ -157,7 +157,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTransformFeedbackVaryingsNV.
+		/// [GL] Binding for glTransformFeedbackVaryingsNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -183,7 +183,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glActiveVaryingNV.
+		/// [GL] Binding for glActiveVaryingNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -201,7 +201,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVaryingLocationNV.
+		/// [GL] Binding for glGetVaryingLocationNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -223,7 +223,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetActiveVaryingNV.
+		/// [GL] Binding for glGetActiveVaryingNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -263,7 +263,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTransformFeedbackVaryingNV.
+		/// [GL] Binding for glGetTransformFeedbackVaryingNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -289,7 +289,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTransformFeedbackStreamAttribsNV.
+		/// [GL] Binding for glTransformFeedbackStreamAttribsNV.
 		/// </summary>
 		/// <param name="attribs">
 		/// A <see cref="T:Int32[]"/>.

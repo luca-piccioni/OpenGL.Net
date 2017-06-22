@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glColor4ubVertex2fSUN.
+		/// [GL] Binding for glColor4ubVertex2fSUN.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="T:byte"/>.
@@ -59,7 +59,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4ubVertex2fvSUN.
+		/// [GL] Binding for glColor4ubVertex2fvSUN.
 		/// </summary>
 		/// <param name="c">
 		/// A <see cref="T:byte[]"/>.
@@ -83,7 +83,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4ubVertex3fSUN.
+		/// [GL] Binding for glColor4ubVertex3fSUN.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="T:byte"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4ubVertex3fvSUN.
+		/// [GL] Binding for glColor4ubVertex3fvSUN.
 		/// </summary>
 		/// <param name="c">
 		/// A <see cref="T:byte[]"/>.
@@ -140,7 +140,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3fVertex3fSUN.
+		/// [GL] Binding for glColor3fVertex3fSUN.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="T:float"/>.
@@ -170,7 +170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor3fVertex3fvSUN.
+		/// [GL] Binding for glColor3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="c">
 		/// A <see cref="T:float[]"/>.
@@ -194,7 +194,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3fVertex3fSUN.
+		/// [GL] Binding for glNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="nx">
 		/// A <see cref="T:float"/>.
@@ -224,7 +224,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormal3fVertex3fvSUN.
+		/// [GL] Binding for glNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:float[]"/>.
@@ -248,7 +248,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4fNormal3fVertex3fSUN.
+		/// [GL] Binding for glColor4fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="T:float"/>.
@@ -290,7 +290,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColor4fNormal3fVertex3fvSUN.
+		/// [GL] Binding for glColor4fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="c">
 		/// A <see cref="T:float[]"/>.
@@ -318,7 +318,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fVertex3fSUN.
+		/// [GL] Binding for glTexCoord2fVertex3fSUN.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -345,7 +345,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fVertex3fvSUN.
+		/// [GL] Binding for glTexCoord2fVertex3fvSUN.
 		/// </summary>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -369,7 +369,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4fVertex4fSUN.
+		/// [GL] Binding for glTexCoord4fVertex4fSUN.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -405,7 +405,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4fVertex4fvSUN.
+		/// [GL] Binding for glTexCoord4fVertex4fvSUN.
 		/// </summary>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -429,7 +429,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fColor4ubVertex3fSUN.
+		/// [GL] Binding for glTexCoord2fColor4ubVertex3fSUN.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -468,7 +468,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fColor4ubVertex3fvSUN.
+		/// [GL] Binding for glTexCoord2fColor4ubVertex3fvSUN.
 		/// </summary>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -496,7 +496,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fColor3fVertex3fSUN.
+		/// [GL] Binding for glTexCoord2fColor3fVertex3fSUN.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -532,7 +532,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fColor3fVertex3fvSUN.
+		/// [GL] Binding for glTexCoord2fColor3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -560,7 +560,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fNormal3fVertex3fSUN.
+		/// [GL] Binding for glTexCoord2fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -596,7 +596,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fNormal3fVertex3fvSUN.
+		/// [GL] Binding for glTexCoord2fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -624,7 +624,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fColor4fNormal3fVertex3fSUN.
+		/// [GL] Binding for glTexCoord2fColor4fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -672,7 +672,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2fColor4fNormal3fVertex3fvSUN.
+		/// [GL] Binding for glTexCoord2fColor4fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -704,7 +704,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4fColor4fNormal3fVertex4fSUN.
+		/// [GL] Binding for glTexCoord4fColor4fNormal3fVertex4fSUN.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -761,7 +761,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4fColor4fNormal3fVertex4fvSUN.
+		/// [GL] Binding for glTexCoord4fColor4fNormal3fVertex4fvSUN.
 		/// </summary>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -793,7 +793,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiVertex3fSUN.
+		/// [GL] Binding for glReplacementCodeuiVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32"/>.
@@ -817,7 +817,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiVertex3fvSUN.
+		/// [GL] Binding for glReplacementCodeuiVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32[]"/>.
@@ -841,7 +841,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiColor4ubVertex3fSUN.
+		/// [GL] Binding for glReplacementCodeuiColor4ubVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32"/>.
@@ -877,7 +877,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiColor4ubVertex3fvSUN.
+		/// [GL] Binding for glReplacementCodeuiColor4ubVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32[]"/>.
@@ -905,7 +905,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiColor3fVertex3fSUN.
+		/// [GL] Binding for glReplacementCodeuiColor3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32"/>.
@@ -938,7 +938,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiColor3fVertex3fvSUN.
+		/// [GL] Binding for glReplacementCodeuiColor3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32[]"/>.
@@ -966,7 +966,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiNormal3fVertex3fSUN.
+		/// [GL] Binding for glReplacementCodeuiNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32"/>.
@@ -999,7 +999,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiNormal3fVertex3fvSUN.
+		/// [GL] Binding for glReplacementCodeuiNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32[]"/>.
@@ -1027,7 +1027,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiColor4fNormal3fVertex3fSUN.
+		/// [GL] Binding for glReplacementCodeuiColor4fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32"/>.
@@ -1072,7 +1072,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiColor4fNormal3fVertex3fvSUN.
+		/// [GL] Binding for glReplacementCodeuiColor4fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32[]"/>.
@@ -1104,7 +1104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiTexCoord2fVertex3fSUN.
+		/// [GL] Binding for glReplacementCodeuiTexCoord2fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32"/>.
@@ -1134,7 +1134,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiTexCoord2fVertex3fvSUN.
+		/// [GL] Binding for glReplacementCodeuiTexCoord2fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32[]"/>.
@@ -1162,7 +1162,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN.
+		/// [GL] Binding for glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32"/>.
@@ -1201,7 +1201,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN.
+		/// [GL] Binding for glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32[]"/>.
@@ -1233,7 +1233,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN.
+		/// [GL] Binding for glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32"/>.
@@ -1284,7 +1284,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN.
+		/// [GL] Binding for glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
 		/// A <see cref="T:UInt32[]"/>.

@@ -113,7 +113,7 @@ namespace OpenGL
 		public const int METADATA3_TYPE_NV = 0x325C;
 
 		/// <summary>
-		/// Binding for eglSetStreamMetadataNV.
+		/// [EGL] Binding for eglSetStreamMetadataNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -147,7 +147,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryStreamMetadataNV.
+		/// [EGL] Binding for eglQueryStreamMetadataNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

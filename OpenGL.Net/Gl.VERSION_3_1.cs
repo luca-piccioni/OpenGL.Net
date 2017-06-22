@@ -883,7 +883,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the primitive restart index
+		/// [GL4] specify the primitive restart index
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the value to be interpreted as the primitive restart index.
@@ -1130,7 +1130,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// query the name of an active uniform
+		/// [GL4] query the name of an active uniform
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program containing the active uniform index <paramref name="uniformIndex"/>.

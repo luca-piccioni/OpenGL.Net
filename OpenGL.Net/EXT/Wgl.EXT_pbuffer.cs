@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int OPTIMAL_PBUFFER_HEIGHT_EXT = 0x2032;
 
 		/// <summary>
-		/// Binding for wglCreatePbufferEXT.
+		/// [WGL] Binding for wglCreatePbufferEXT.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetPbufferDCEXT.
+		/// [WGL] Binding for wglGetPbufferDCEXT.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -96,7 +96,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglReleasePbufferDCEXT.
+		/// [WGL] Binding for wglReleasePbufferDCEXT.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -118,7 +118,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDestroyPbufferEXT.
+		/// [WGL] Binding for wglDestroyPbufferEXT.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -137,7 +137,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglQueryPbufferEXT.
+		/// [WGL] Binding for wglQueryPbufferEXT.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.

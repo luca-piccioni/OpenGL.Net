@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int _3DFX_FULLSCREEN_MODE_MESA = 0x2;
 
 		/// <summary>
-		/// Binding for glXSet3DfxModeMESA.
+		/// [GLX] Binding for glXSet3DfxModeMESA.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:int"/>.

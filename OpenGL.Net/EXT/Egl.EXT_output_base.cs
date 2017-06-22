@@ -59,7 +59,7 @@ namespace OpenGL
 		public const int SWAP_INTERVAL_EXT = 0x322F;
 
 		/// <summary>
-		/// Binding for eglGetOutputLayersEXT.
+		/// [EGL] Binding for eglGetOutputLayersEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -97,7 +97,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetOutputPortsEXT.
+		/// [EGL] Binding for eglGetOutputPortsEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -135,7 +135,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglOutputLayerAttribEXT.
+		/// [EGL] Binding for eglOutputLayerAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -163,7 +163,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryOutputLayerAttribEXT.
+		/// [EGL] Binding for eglQueryOutputLayerAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -196,7 +196,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryOutputLayerStringEXT.
+		/// [EGL] Binding for eglQueryOutputLayerStringEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -221,7 +221,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglOutputPortAttribEXT.
+		/// [EGL] Binding for eglOutputPortAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -249,7 +249,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryOutputPortAttribEXT.
+		/// [EGL] Binding for eglQueryOutputPortAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -282,7 +282,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryOutputPortStringEXT.
+		/// [EGL] Binding for eglQueryOutputPortStringEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

@@ -2557,7 +2557,7 @@ namespace OpenGL
 		public const int DISPLAY_LIST = 0x82E7;
 
 		/// <summary>
-		/// fill a buffer object's data store with a fixed value
+		/// [GL4] fill a buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.ClearBufferData, which must must be one of the buffer 
@@ -2611,7 +2611,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// fill a buffer object's data store with a fixed value
+		/// [GL4] fill a buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.ClearBufferData, which must must be one of the buffer 
@@ -2667,7 +2667,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// fill all or part of buffer object's data store with a fixed value
+		/// [GL4] fill all or part of buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.ClearBufferSubData, which must be one of the buffer 
@@ -2737,7 +2737,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// fill all or part of buffer object's data store with a fixed value
+		/// [GL4] fill all or part of buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.ClearBufferSubData, which must be one of the buffer 
@@ -3083,7 +3083,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve information about implementation-dependent support for internal formats
+		/// [GL4] retrieve information about implementation-dependent support for internal formats
 		/// </summary>
 		/// <param name="target">
 		/// Indicates the usage of the internal format. <paramref name="target"/> must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, 
@@ -3133,7 +3133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve information about implementation-dependent support for internal formats
+		/// [GL4] retrieve information about implementation-dependent support for internal formats
 		/// </summary>
 		/// <param name="target">
 		/// Indicates the usage of the internal format. <paramref name="target"/> must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, 
@@ -3179,7 +3179,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// invalidate a region of a texture image
+		/// [GL4] invalidate a region of a texture image
 		/// </summary>
 		/// <param name="texture">
 		/// The name of a texture object a subregion of which to invalidate.
@@ -3237,7 +3237,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// invalidate the entirety a texture image
+		/// [GL4] invalidate the entirety a texture image
 		/// </summary>
 		/// <param name="texture">
 		/// The name of a texture object to invalidate.
@@ -3273,7 +3273,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// invalidate a region of a buffer object's data store
+		/// [GL4] invalidate a region of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// The name of a buffer object, a subrange of whose data store to invalidate.
@@ -3310,7 +3310,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// invalidate the content of a buffer object's data store
+		/// [GL4] invalidate the content of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// The name of a buffer object whose data store to invalidate.
@@ -3515,7 +3515,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render multiple sets of primitives from array data, taking parameters from memory
+		/// [GL4] render multiple sets of primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -3572,7 +3572,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render multiple sets of primitives from array data, taking parameters from memory
+		/// [GL4] render multiple sets of primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -3631,7 +3631,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render indexed primitives from array data, taking parameters from memory
+		/// [GL4] render indexed primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -3696,7 +3696,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render indexed primitives from array data, taking parameters from memory
+		/// [GL4] render indexed primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -4154,7 +4154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// query the fragment color index of a named variable within a program
+		/// [GL4] query the fragment color index of a named variable within a program
 		/// </summary>
 		/// <param name="program">
 		/// The name of a program object whose resources to query.
@@ -4194,7 +4194,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// change an active shader storage block binding
+		/// [GL4] change an active shader storage block binding
 		/// </summary>
 		/// <param name="program">
 		/// The name of the program containing the block whose binding to change.
@@ -4447,7 +4447,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// initialize a texture as a data alias of another texture's data store
+		/// [GL4] initialize a texture as a data alias of another texture's data store
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object to be initialized as a view.
@@ -4722,7 +4722,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the organization of vertex arrays
+		/// [GL4] specify the organization of vertex arrays
 		/// </summary>
 		/// <param name="attribindex">
 		/// The generic vertex attribute array being described.

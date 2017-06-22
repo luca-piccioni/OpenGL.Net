@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Binding for glXGetAGPOffsetMESA.
+		/// [GLX] Binding for glXGetAGPOffsetMESA.
 		/// </summary>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glFramebufferSampleLocationsfvNV.
+		/// [GL] Binding for glFramebufferSampleLocationsfvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -58,7 +58,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNamedFramebufferSampleLocationsfvNV.
+		/// [GL] Binding for glNamedFramebufferSampleLocationsfvNV.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -87,7 +87,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glResolveDepthValuesNV.
+		/// [GL] Binding for glResolveDepthValuesNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 		public static void ResolveDepthValuesNV()

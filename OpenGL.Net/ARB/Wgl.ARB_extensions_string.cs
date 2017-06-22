@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Binding for wglGetExtensionsStringARB.
+		/// [WGL] Binding for wglGetExtensionsStringARB.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.

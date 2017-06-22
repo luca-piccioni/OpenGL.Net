@@ -83,7 +83,7 @@ namespace OpenGL
 		public const int PN_TRIANGLES_NORMAL_MODE_QUADRATIC_ATI = 0x87F8;
 
 		/// <summary>
-		/// Binding for glPNTrianglesiATI.
+		/// [GL] Binding for glPNTrianglesiATI.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -101,7 +101,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPNTrianglesfATI.
+		/// [GL] Binding for glPNTrianglesfATI.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

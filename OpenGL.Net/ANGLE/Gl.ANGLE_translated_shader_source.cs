@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE = 0x93A0;
 
 		/// <summary>
-		/// Binding for glGetTranslatedShaderSourceANGLE.
+		/// [GL] Binding for glGetTranslatedShaderSourceANGLE.
 		/// </summary>
 		/// <param name="shader">
 		/// A <see cref="T:UInt32"/>.

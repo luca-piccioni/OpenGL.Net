@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Binding for eglQueryNativeDisplayNV.
+		/// [EGL] Binding for eglQueryNativeDisplayNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -56,7 +56,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryNativeWindowNV.
+		/// [EGL] Binding for eglQueryNativeWindowNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglQueryNativePixmapNV.
+		/// [EGL] Binding for eglQueryNativePixmapNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

@@ -100,7 +100,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// draw a bitmap
+			/// [GL2.1] draw a bitmap
 			/// </summary>
 			/// <param name="width">
 			/// Specify the pixel width and height of the bitmap image.
@@ -162,7 +162,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -179,7 +179,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -202,7 +202,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -219,7 +219,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -242,7 +242,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -259,7 +259,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -282,7 +282,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -299,7 +299,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -397,7 +397,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// specify fog parameters
+			/// [GL2.1] specify fog parameters
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -429,7 +429,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// specify fog parameters
+			/// [GL2.1] specify fog parameters
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -466,7 +466,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// operate on the accumulation buffer
+			/// [GL2.1] operate on the accumulation buffer
 			/// </summary>
 			/// <param name="op">
 			/// Specifies the accumulation buffer operation. Symbolic constants Gl.ACCUM, Gl.LOAD, Gl.ADD, Gl.MULT, and Gl.RETURN are 
@@ -506,7 +506,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -523,7 +523,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// set the current color index
+			/// [GL2.1] set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -546,7 +546,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// specify fog parameters
+			/// [GLES1.1] specify fog parameters
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
@@ -572,7 +572,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// specify fog parameters
+			/// [GLES1.1] specify fog parameters
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
@@ -603,7 +603,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// define histogram table
+			/// [GL2.1] define histogram table
 			/// </summary>
 			/// <param name="target">
 			/// The histogram whose parameters are to be set. Must be one of Gl.HISTOGRAM or Gl.PROXY_HISTOGRAM.
@@ -653,7 +653,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// define minmax table
+			/// [GL2.1] define minmax table
 			/// </summary>
 			/// <param name="target">
 			/// The minmax table whose parameters are to be set. Must be Gl.MINMAX.

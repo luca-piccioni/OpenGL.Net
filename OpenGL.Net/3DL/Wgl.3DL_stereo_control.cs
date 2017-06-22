@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int STEREO_POLARITY_INVERT_3DL = 0x2058;
 
 		/// <summary>
-		/// Binding for wglSetStereoEmitterState3DL.
+		/// [WGL] Binding for wglSetStereoEmitterState3DL.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

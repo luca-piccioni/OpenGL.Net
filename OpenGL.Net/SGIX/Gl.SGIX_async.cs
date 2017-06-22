@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int ASYNC_MARKER_SGIX = 0x8329;
 
 		/// <summary>
-		/// Binding for glAsyncMarkerSGIX.
+		/// [GL] Binding for glAsyncMarkerSGIX.
 		/// </summary>
 		/// <param name="marker">
 		/// A <see cref="T:UInt32"/>.
@@ -50,7 +50,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFinishAsyncSGIX.
+		/// [GL] Binding for glFinishAsyncSGIX.
 		/// </summary>
 		/// <param name="markerp">
 		/// A <see cref="T:UInt32[]"/>.
@@ -74,7 +74,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPollAsyncSGIX.
+		/// [GL] Binding for glPollAsyncSGIX.
 		/// </summary>
 		/// <param name="markerp">
 		/// A <see cref="T:UInt32[]"/>.
@@ -98,7 +98,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenAsyncMarkersSGIX.
+		/// [GL] Binding for glGenAsyncMarkersSGIX.
 		/// </summary>
 		/// <param name="range">
 		/// A <see cref="T:Int32"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteAsyncMarkersSGIX.
+		/// [GL] Binding for glDeleteAsyncMarkersSGIX.
 		/// </summary>
 		/// <param name="marker">
 		/// A <see cref="T:UInt32"/>.
@@ -135,7 +135,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsAsyncMarkerSGIX.
+		/// [GL] Binding for glIsAsyncMarkerSGIX.
 		/// </summary>
 		/// <param name="marker">
 		/// A <see cref="T:UInt32"/>.

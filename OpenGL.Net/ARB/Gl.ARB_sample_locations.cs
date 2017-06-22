@@ -85,7 +85,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB = 0x9343;
 
 		/// <summary>
-		/// Binding for glFramebufferSampleLocationsfvARB.
+		/// [GL] Binding for glFramebufferSampleLocationsfvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -114,7 +114,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNamedFramebufferSampleLocationsfvARB.
+		/// [GL] Binding for glNamedFramebufferSampleLocationsfvARB.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -143,7 +143,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEvaluateDepthValuesARB.
+		/// [GL] Binding for glEvaluateDepthValuesARB.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 		public static void EvaluateDepthValuesARB()

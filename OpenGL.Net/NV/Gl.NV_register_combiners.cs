@@ -337,7 +337,7 @@ namespace OpenGL
 		public const int COMBINER7_NV = 0x8557;
 
 		/// <summary>
-		/// Binding for glCombinerParameterfvNV.
+		/// [GL] Binding for glCombinerParameterfvNV.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -360,7 +360,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCombinerParameterfNV.
+		/// [GL] Binding for glCombinerParameterfNV.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -378,7 +378,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCombinerParameterivNV.
+		/// [GL] Binding for glCombinerParameterivNV.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -401,7 +401,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCombinerParameteriNV.
+		/// [GL] Binding for glCombinerParameteriNV.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -419,7 +419,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCombinerInputNV.
+		/// [GL] Binding for glCombinerInputNV.
 		/// </summary>
 		/// <param name="stage">
 		/// A <see cref="T:Int32"/>.
@@ -449,7 +449,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCombinerOutputNV.
+		/// [GL] Binding for glCombinerOutputNV.
 		/// </summary>
 		/// <param name="stage">
 		/// A <see cref="T:Int32"/>.
@@ -491,7 +491,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFinalCombinerInputNV.
+		/// [GL] Binding for glFinalCombinerInputNV.
 		/// </summary>
 		/// <param name="variable">
 		/// A <see cref="T:Int32"/>.
@@ -515,7 +515,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetCombinerInputParameterfvNV.
+		/// [GL] Binding for glGetCombinerInputParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
 		/// A <see cref="T:Int32"/>.
@@ -547,7 +547,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetCombinerInputParameterivNV.
+		/// [GL] Binding for glGetCombinerInputParameterivNV.
 		/// </summary>
 		/// <param name="stage">
 		/// A <see cref="T:Int32"/>.
@@ -579,7 +579,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetCombinerOutputParameterfvNV.
+		/// [GL] Binding for glGetCombinerOutputParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
 		/// A <see cref="T:Int32"/>.
@@ -608,7 +608,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetCombinerOutputParameterivNV.
+		/// [GL] Binding for glGetCombinerOutputParameterivNV.
 		/// </summary>
 		/// <param name="stage">
 		/// A <see cref="T:Int32"/>.
@@ -637,7 +637,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetFinalCombinerInputParameterfvNV.
+		/// [GL] Binding for glGetFinalCombinerInputParameterfvNV.
 		/// </summary>
 		/// <param name="variable">
 		/// A <see cref="T:Int32"/>.
@@ -663,7 +663,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetFinalCombinerInputParameterivNV.
+		/// [GL] Binding for glGetFinalCombinerInputParameterivNV.
 		/// </summary>
 		/// <param name="variable">
 		/// A <see cref="T:Int32"/>.

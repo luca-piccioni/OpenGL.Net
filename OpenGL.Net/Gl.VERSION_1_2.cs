@@ -638,7 +638,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a three-dimensional texture image
+		/// [GL2.1] specify a three-dimensional texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
@@ -791,7 +791,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a three-dimensional texture image
+		/// [GL2.1] specify a three-dimensional texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
@@ -1214,7 +1214,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy a three-dimensional texture subimage
+		/// [GL2.1] copy a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_3D

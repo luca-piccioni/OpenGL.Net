@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
 
 		/// <summary>
-		/// Binding for glFramebufferTextureMultiviewOVR.
+		/// [GL] Binding for glFramebufferTextureMultiviewOVR.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.

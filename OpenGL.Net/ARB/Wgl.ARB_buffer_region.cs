@@ -57,7 +57,7 @@ namespace OpenGL
 		public const uint STENCIL_BUFFER_BIT_ARB = 0x00000008;
 
 		/// <summary>
-		/// Binding for wglCreateBufferRegionARB.
+		/// [WGL] Binding for wglCreateBufferRegionARB.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -82,7 +82,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDeleteBufferRegionARB.
+		/// [WGL] Binding for wglDeleteBufferRegionARB.
 		/// </summary>
 		/// <param name="hRegion">
 		/// A <see cref="T:IntPtr"/>.
@@ -97,7 +97,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSaveBufferRegionARB.
+		/// [WGL] Binding for wglSaveBufferRegionARB.
 		/// </summary>
 		/// <param name="hRegion">
 		/// A <see cref="T:IntPtr"/>.
@@ -128,7 +128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglRestoreBufferRegionARB.
+		/// [WGL] Binding for wglRestoreBufferRegionARB.
 		/// </summary>
 		/// <param name="hRegion">
 		/// A <see cref="T:IntPtr"/>.

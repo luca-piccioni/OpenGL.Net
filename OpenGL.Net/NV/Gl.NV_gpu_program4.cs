@@ -65,7 +65,7 @@ namespace OpenGL
 		public const int MAX_PROGRAM_GENERIC_RESULTS_NV = 0x8DA6;
 
 		/// <summary>
-		/// Binding for glProgramLocalParameterI4iNV.
+		/// [GL] Binding for glProgramLocalParameterI4iNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -95,7 +95,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParameterI4ivNV.
+		/// [GL] Binding for glProgramLocalParameterI4ivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -121,7 +121,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParametersI4ivNV.
+		/// [GL] Binding for glProgramLocalParametersI4ivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -150,7 +150,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParameterI4uiNV.
+		/// [GL] Binding for glProgramLocalParameterI4uiNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -180,7 +180,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParameterI4uivNV.
+		/// [GL] Binding for glProgramLocalParameterI4uivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -206,7 +206,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParametersI4uivNV.
+		/// [GL] Binding for glProgramLocalParametersI4uivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -235,7 +235,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParameterI4iNV.
+		/// [GL] Binding for glProgramEnvParameterI4iNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -265,7 +265,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParameterI4ivNV.
+		/// [GL] Binding for glProgramEnvParameterI4ivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -291,7 +291,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParametersI4ivNV.
+		/// [GL] Binding for glProgramEnvParametersI4ivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -320,7 +320,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParameterI4uiNV.
+		/// [GL] Binding for glProgramEnvParameterI4uiNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -350,7 +350,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParameterI4uivNV.
+		/// [GL] Binding for glProgramEnvParameterI4uivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -376,7 +376,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParametersI4uivNV.
+		/// [GL] Binding for glProgramEnvParametersI4uivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -405,7 +405,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramLocalParameterIivNV.
+		/// [GL] Binding for glGetProgramLocalParameterIivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -431,7 +431,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramLocalParameterIuivNV.
+		/// [GL] Binding for glGetProgramLocalParameterIuivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -457,7 +457,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramEnvParameterIivNV.
+		/// [GL] Binding for glGetProgramEnvParameterIivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -483,7 +483,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramEnvParameterIuivNV.
+		/// [GL] Binding for glGetProgramEnvParameterIuivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

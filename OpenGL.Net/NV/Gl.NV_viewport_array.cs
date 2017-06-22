@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glDepthRangeArrayfvNV.
+		/// [GL] Binding for glDepthRangeArrayfvNV.
 		/// </summary>
 		/// <param name="first">
 		/// A <see cref="T:UInt32"/>.
@@ -55,7 +55,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDepthRangeIndexedfNV.
+		/// [GL] Binding for glDepthRangeIndexedfNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int TEXTURE_SAMPLES_IMG = 0x9136;
 
 		/// <summary>
-		/// Binding for glRenderbufferStorageMultisampleIMG.
+		/// [GL] Binding for glRenderbufferStorageMultisampleIMG.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:RenderbufferTarget"/>.
@@ -80,7 +80,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFramebufferTexture2DMultisampleIMG.
+		/// [GL] Binding for glFramebufferTexture2DMultisampleIMG.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.

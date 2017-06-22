@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int GLOBAL_ALPHA_FACTOR_SUN = 0x81DA;
 
 		/// <summary>
-		/// Binding for glGlobalAlphaFactorbSUN.
+		/// [GL] Binding for glGlobalAlphaFactorbSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:sbyte"/>.
@@ -56,7 +56,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGlobalAlphaFactorsSUN.
+		/// [GL] Binding for glGlobalAlphaFactorsSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:Int16"/>.
@@ -71,7 +71,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGlobalAlphaFactoriSUN.
+		/// [GL] Binding for glGlobalAlphaFactoriSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:Int32"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGlobalAlphaFactorfSUN.
+		/// [GL] Binding for glGlobalAlphaFactorfSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.
@@ -101,7 +101,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGlobalAlphaFactordSUN.
+		/// [GL] Binding for glGlobalAlphaFactordSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:double"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGlobalAlphaFactorubSUN.
+		/// [GL] Binding for glGlobalAlphaFactorubSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:byte"/>.
@@ -131,7 +131,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGlobalAlphaFactorusSUN.
+		/// [GL] Binding for glGlobalAlphaFactorusSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:UInt16"/>.
@@ -146,7 +146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGlobalAlphaFactoruiSUN.
+		/// [GL] Binding for glGlobalAlphaFactoruiSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:UInt32"/>.

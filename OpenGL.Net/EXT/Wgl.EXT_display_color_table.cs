@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Binding for wglCreateDisplayColorTableEXT.
+		/// [WGL] Binding for wglCreateDisplayColorTableEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt16"/>.
@@ -48,7 +48,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglLoadDisplayColorTableEXT.
+		/// [WGL] Binding for wglLoadDisplayColorTableEXT.
 		/// </summary>
 		/// <param name="table">
 		/// A <see cref="T:UInt16[]"/>.
@@ -75,7 +75,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglBindDisplayColorTableEXT.
+		/// [WGL] Binding for wglBindDisplayColorTableEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt16"/>.
@@ -94,7 +94,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDestroyDisplayColorTableEXT.
+		/// [WGL] Binding for wglDestroyDisplayColorTableEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt16"/>.

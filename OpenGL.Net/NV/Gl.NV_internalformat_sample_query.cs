@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int CONFORMANT_NV = 0x9374;
 
 		/// <summary>
-		/// Binding for glGetInternalformatSampleivNV.
+		/// [GL] Binding for glGetInternalformatSampleivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -88,7 +88,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetInternalformatSampleivNV.
+		/// [GL] Binding for glGetInternalformatSampleivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.

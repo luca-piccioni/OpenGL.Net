@@ -84,7 +84,7 @@ namespace OpenGL
 		public const uint COVERAGE_BUFFER_BIT_NV = 0x00008000;
 
 		/// <summary>
-		/// Binding for glCoverageMaskNV.
+		/// [GL] Binding for glCoverageMaskNV.
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:bool"/>.
@@ -99,7 +99,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCoverageOperationNV.
+		/// [GL] Binding for glCoverageOperationNV.
 		/// </summary>
 		/// <param name="operation">
 		/// A <see cref="T:Int32"/>.

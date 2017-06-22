@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glFramebufferTextureMultisampleMultiviewOVR.
+		/// [GL] Binding for glFramebufferTextureMultisampleMultiviewOVR.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.

@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int ELEMENT_ARRAY_POINTER_ATI = 0x876A;
 
 		/// <summary>
-		/// Binding for glElementPointerATI.
+		/// [GL] Binding for glElementPointerATI.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -65,7 +65,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glElementPointerATI.
+		/// [GL] Binding for glElementPointerATI.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -85,7 +85,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementArrayATI.
+		/// [GL] Binding for glDrawElementArrayATI.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -103,7 +103,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawRangeElementArrayATI.
+		/// [GL] Binding for glDrawRangeElementArrayATI.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.

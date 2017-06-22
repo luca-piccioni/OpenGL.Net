@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int COMPLETION_STATUS_ARB = 0x91B1;
 
 		/// <summary>
-		/// Binding for glMaxShaderCompilerThreadsARB.
+		/// [GL] Binding for glMaxShaderCompilerThreadsARB.
 		/// </summary>
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.

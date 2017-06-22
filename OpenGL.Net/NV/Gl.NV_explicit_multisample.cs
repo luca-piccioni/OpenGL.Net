@@ -65,7 +65,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV = 0x8E58;
 
 		/// <summary>
-		/// Binding for glSampleMaskIndexedNV.
+		/// [GL] Binding for glSampleMaskIndexedNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -83,7 +83,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexRenderbufferNV.
+		/// [GL] Binding for glTexRenderbufferNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glExtGetShadersQCOM.
+		/// [GL] Binding for glExtGetShadersQCOM.
 		/// </summary>
 		/// <param name="shaders">
 		/// A <see cref="T:UInt32[]"/>.
@@ -53,7 +53,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtGetProgramsQCOM.
+		/// [GL] Binding for glExtGetProgramsQCOM.
 		/// </summary>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtIsProgramBinaryQCOM.
+		/// [GL] Binding for glExtIsProgramBinaryQCOM.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -96,7 +96,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glExtGetProgramBinarySourceQCOM.
+		/// [GL] Binding for glExtGetProgramBinarySourceQCOM.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.

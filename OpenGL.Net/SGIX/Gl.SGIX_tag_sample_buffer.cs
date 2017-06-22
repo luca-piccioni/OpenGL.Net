@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glTagSampleBufferSGIX.
+		/// [GL] Binding for glTagSampleBufferSGIX.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_tag_sample_buffer")]
 		public static void TagSampleBufferSGIX()

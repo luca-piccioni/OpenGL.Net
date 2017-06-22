@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glGenQueriesEXT.
+		/// [GL] Binding for glGenQueriesEXT.
 		/// </summary>
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
@@ -50,7 +50,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenQueriesEXT.
+		/// [GL] Binding for glGenQueriesEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -62,7 +62,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteQueriesEXT.
+		/// [GL] Binding for glDeleteQueriesEXT.
 		/// </summary>
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
@@ -83,7 +83,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsQueryEXT.
+		/// [GL] Binding for glIsQueryEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -103,7 +103,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBeginQueryEXT.
+		/// [GL] Binding for glBeginQueryEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:QueryTarget"/>.
@@ -122,7 +122,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEndQueryEXT.
+		/// [GL] Binding for glEndQueryEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:QueryTarget"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetQueryivEXT.
+		/// [GL] Binding for glGetQueryivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:QueryTarget"/>.
@@ -165,7 +165,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetQueryivEXT.
+		/// [GL] Binding for glGetQueryivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:QueryTarget"/>.
@@ -192,7 +192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetQueryObjectuivEXT.
+		/// [GL] Binding for glGetQueryObjectuivEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -219,7 +219,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetQueryObjectuivEXT.
+		/// [GL] Binding for glGetQueryObjectuivEXT.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.

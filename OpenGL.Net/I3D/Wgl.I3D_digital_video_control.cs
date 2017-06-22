@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int DIGITAL_VIDEO_GAMMA_CORRECTED_I3D = 0x2053;
 
 		/// <summary>
-		/// Binding for wglGetDigitalVideoParametersI3D.
+		/// [WGL] Binding for wglGetDigitalVideoParametersI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -83,7 +83,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSetDigitalVideoParametersI3D.
+		/// [WGL] Binding for wglSetDigitalVideoParametersI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

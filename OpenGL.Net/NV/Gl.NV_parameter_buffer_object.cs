@@ -59,7 +59,7 @@ namespace OpenGL
 		public const int FRAGMENT_PROGRAM_PARAMETER_BUFFER_NV = 0x8DA4;
 
 		/// <summary>
-		/// Binding for glProgramBufferParametersfvNV.
+		/// [GL] Binding for glProgramBufferParametersfvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -88,7 +88,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramBufferParametersIivNV.
+		/// [GL] Binding for glProgramBufferParametersIivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramBufferParametersIuivNV.
+		/// [GL] Binding for glProgramBufferParametersIuivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

@@ -65,7 +65,7 @@ namespace OpenGL
 		public const int PURGEABLE_APPLE = 0x8A1D;
 
 		/// <summary>
-		/// Binding for glObjectPurgeableAPPLE.
+		/// [GL] Binding for glObjectPurgeableAPPLE.
 		/// </summary>
 		/// <param name="objectType">
 		/// A <see cref="T:Int32"/>.
@@ -90,7 +90,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glObjectUnpurgeableAPPLE.
+		/// [GL] Binding for glObjectUnpurgeableAPPLE.
 		/// </summary>
 		/// <param name="objectType">
 		/// A <see cref="T:Int32"/>.
@@ -115,7 +115,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetObjectParameterivAPPLE.
+		/// [GL] Binding for glGetObjectParameterivAPPLE.
 		/// </summary>
 		/// <param name="objectType">
 		/// A <see cref="T:Int32"/>.

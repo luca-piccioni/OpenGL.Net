@@ -40,7 +40,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT64_ARB = 0x140F;
 
 		/// <summary>
-		/// Binding for glGetTextureHandleARB.
+		/// [GL] Binding for glGetTextureHandleARB.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -61,7 +61,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTextureSamplerHandleARB.
+		/// [GL] Binding for glGetTextureSamplerHandleARB.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -85,7 +85,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMakeTextureHandleResidentARB.
+		/// [GL] Binding for glMakeTextureHandleResidentARB.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -100,7 +100,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMakeTextureHandleNonResidentARB.
+		/// [GL] Binding for glMakeTextureHandleNonResidentARB.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -115,7 +115,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetImageHandleARB.
+		/// [GL] Binding for glGetImageHandleARB.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -146,7 +146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMakeImageHandleResidentARB.
+		/// [GL] Binding for glMakeImageHandleResidentARB.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -164,7 +164,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMakeImageHandleNonResidentARB.
+		/// [GL] Binding for glMakeImageHandleNonResidentARB.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -179,7 +179,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniformHandleui64ARB.
+		/// [GL] Binding for glUniformHandleui64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -199,7 +199,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniformHandleui64vARB.
+		/// [GL] Binding for glUniformHandleui64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -224,7 +224,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformHandleui64ARB.
+		/// [GL] Binding for glProgramUniformHandleui64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -247,7 +247,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniformHandleui64vARB.
+		/// [GL] Binding for glProgramUniformHandleui64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -275,7 +275,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsTextureHandleResidentARB.
+		/// [GL] Binding for glIsTextureHandleResidentARB.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -294,7 +294,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsImageHandleResidentARB.
+		/// [GL] Binding for glIsImageHandleResidentARB.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -313,7 +313,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribL1ui64ARB.
+		/// [GL] Binding for glVertexAttribL1ui64ARB.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -331,7 +331,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribL1ui64vARB.
+		/// [GL] Binding for glVertexAttribL1ui64vARB.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -354,7 +354,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetVertexAttribLui64vARB.
+		/// [GL] Binding for glGetVertexAttribLui64vARB.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

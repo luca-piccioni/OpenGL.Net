@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
 
 		/// <summary>
-		/// Binding for wglEnumGpusNV.
+		/// [WGL] Binding for wglEnumGpusNV.
 		/// </summary>
 		/// <param name="iGpuIndex">
 		/// A <see cref="T:UInt32"/>.
@@ -68,7 +68,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglEnumGpuDevicesNV.
+		/// [WGL] Binding for wglEnumGpuDevicesNV.
 		/// </summary>
 		/// <param name="hGpu">
 		/// A <see cref="T:IntPtr"/>.
@@ -93,7 +93,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglCreateAffinityDCNV.
+		/// [WGL] Binding for wglCreateAffinityDCNV.
 		/// </summary>
 		/// <param name="phGpuList">
 		/// A <see cref="T:IntPtr[]"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglEnumGpusFromAffinityDCNV.
+		/// [WGL] Binding for wglEnumGpusFromAffinityDCNV.
 		/// </summary>
 		/// <param name="hAffinityDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -147,7 +147,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDeleteDCNV.
+		/// [WGL] Binding for wglDeleteDCNV.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.

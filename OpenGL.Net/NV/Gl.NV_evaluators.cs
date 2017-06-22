@@ -173,7 +173,7 @@ namespace OpenGL
 		public const int MAX_RATIONAL_EVAL_ORDER_NV = 0x86D7;
 
 		/// <summary>
-		/// Binding for glMapControlPointsNV.
+		/// [GL] Binding for glMapControlPointsNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -212,7 +212,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMapControlPointsNV.
+		/// [GL] Binding for glMapControlPointsNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -253,7 +253,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMapParameterivNV.
+		/// [GL] Binding for glMapParameterivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -279,7 +279,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMapParameterfvNV.
+		/// [GL] Binding for glMapParameterfvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -305,7 +305,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMapControlPointsNV.
+		/// [GL] Binding for glGetMapControlPointsNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -338,7 +338,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMapControlPointsNV.
+		/// [GL] Binding for glGetMapControlPointsNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -373,7 +373,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMapParameterivNV.
+		/// [GL] Binding for glGetMapParameterivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -399,7 +399,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMapParameterfvNV.
+		/// [GL] Binding for glGetMapParameterfvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -425,7 +425,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMapAttribParameterivNV.
+		/// [GL] Binding for glGetMapAttribParameterivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -454,7 +454,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMapAttribParameterfvNV.
+		/// [GL] Binding for glGetMapAttribParameterfvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -483,7 +483,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEvalMapsNV.
+		/// [GL] Binding for glEvalMapsNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

@@ -578,7 +578,7 @@ namespace OpenGL
 		public const int WINDOW_BIT = 0x0004;
 
 		/// <summary>
-		/// return a list of EGL frame buffer configurations that match specified attributes
+		/// [EGL] return a list of EGL frame buffer configurations that match specified attributes
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -641,7 +641,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy EGL surface color buffer to a native pixmap
+		/// [EGL] copy EGL surface color buffer to a native pixmap
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -694,7 +694,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL rendering context
+		/// [EGL] create a new EGL rendering context
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -770,7 +770,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL pixel buffer surface
+		/// [EGL] create a new EGL pixel buffer surface
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -851,7 +851,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL pixmap surface
+		/// [EGL] create a new EGL pixmap surface
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -923,7 +923,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new EGL window surface
+		/// [EGL] create a new EGL window surface
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -995,7 +995,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy an EGL rendering context
+		/// [EGL] destroy an EGL rendering context
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1031,7 +1031,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy an EGL surface
+		/// [EGL] destroy an EGL surface
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1069,7 +1069,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return information about an EGL frame buffer configuration
+		/// [EGL] return information about an EGL frame buffer configuration
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1120,7 +1120,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return information about an EGL frame buffer configuration
+		/// [EGL] return information about an EGL frame buffer configuration
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1171,7 +1171,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a list of all EGL frame buffer configurations for a display
+		/// [EGL] return a list of all EGL frame buffer configurations for a display
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1224,7 +1224,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a list of all EGL frame buffer configurations for a display
+		/// [EGL] return a list of all EGL frame buffer configurations for a display
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1277,7 +1277,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the display for the current EGL rendering context
+		/// [EGL] return the display for the current EGL rendering context
 		/// </summary>
 		/// <seealso cref="Egl.GetDisplay"/>
 		/// <seealso cref="Egl.Initialize"/>
@@ -1296,7 +1296,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the read or draw surface for the current EGL rendering context
+		/// [EGL] return the read or draw surface for the current EGL rendering context
 		/// </summary>
 		/// <param name="readdraw">
 		/// Specifies whether the EGL read or draw surface is to be returned.
@@ -1319,7 +1319,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return an EGL display connection
+		/// [EGL] return an EGL display connection
 		/// </summary>
 		/// <param name="display_id">
 		/// A <see cref="T:IntPtr"/>.
@@ -1338,7 +1338,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return error information
+		/// [EGL] return error information
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// A call to Egl.GetError sets the error to Egl.SUCCESS.
@@ -1356,7 +1356,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a GL or an EGL extension function
+		/// [EGL] return a GL or an EGL extension function
 		/// </summary>
 		/// <param name="procname">
 		/// Specifies the name of the function to return.
@@ -1377,7 +1377,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// initialize an EGL display connection
+		/// [EGL] initialize an EGL display connection
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1420,7 +1420,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach an EGL rendering context to EGL surfaces
+		/// [EGL] attach an EGL rendering context to EGL surfaces
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1505,7 +1505,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return EGL rendering context information
+		/// [EGL] return EGL rendering context information
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1555,7 +1555,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a string describing an EGL display connection
+		/// [EGL] return a string describing an EGL display connection
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1592,7 +1592,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return EGL surface information
+		/// [EGL] return EGL surface information
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1646,7 +1646,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// post EGL surface color buffer to a native window
+		/// [EGL] post EGL surface color buffer to a native window
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1686,7 +1686,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// terminate an EGL display connection
+		/// [EGL] terminate an EGL display connection
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -1713,7 +1713,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Complete GL execution prior to subsequent native rendering calls
+		/// [EGL] Complete GL execution prior to subsequent native rendering calls
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Egl.FALSE is returned if Egl.WaitGL fails, Egl.TRUE otherwise.
@@ -1739,7 +1739,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// complete native execution prior to subsequent GL rendering calls
+		/// [EGL] complete native execution prior to subsequent GL rendering calls
 		/// </summary>
 		/// <param name="engine">
 		/// Specifies a particular marking engine to be waited on. Must be Egl.CORE_NATIVE_ENGINE.

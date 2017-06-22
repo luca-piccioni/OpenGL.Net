@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Binding for wglEnableFrameLockI3D.
+		/// [WGL] Binding for wglEnableFrameLockI3D.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 		public static bool EnableFrameLockI3D()
@@ -45,7 +45,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDisableFrameLockI3D.
+		/// [WGL] Binding for wglDisableFrameLockI3D.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 		public static bool DisableFrameLockI3D()
@@ -61,7 +61,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglIsEnabledFrameLockI3D.
+		/// [WGL] Binding for wglIsEnabledFrameLockI3D.
 		/// </summary>
 		/// <param name="pFlag">
 		/// A <see cref="T:bool[]"/>.
@@ -85,7 +85,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglQueryFrameLockMasterI3D.
+		/// [WGL] Binding for wglQueryFrameLockMasterI3D.
 		/// </summary>
 		/// <param name="pFlag">
 		/// A <see cref="T:bool[]"/>.

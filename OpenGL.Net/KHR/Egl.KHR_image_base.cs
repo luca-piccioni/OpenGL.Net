@@ -36,7 +36,7 @@ namespace OpenGL
 		public const int NO_IMAGE_KHR = 0;
 
 		/// <summary>
-		/// Binding for eglCreateImageKHR.
+		/// [EGL] Binding for eglCreateImageKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

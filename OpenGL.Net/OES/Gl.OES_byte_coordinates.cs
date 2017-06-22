@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glMultiTexCoord1bOES.
+		/// [GL] Binding for glMultiTexCoord1bOES.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -47,7 +47,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord1bvOES.
+		/// [GL] Binding for glMultiTexCoord1bvOES.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -70,7 +70,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2bOES.
+		/// [GL] Binding for glMultiTexCoord2bOES.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord2bvOES.
+		/// [GL] Binding for glMultiTexCoord2bvOES.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -114,7 +114,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3bOES.
+		/// [GL] Binding for glMultiTexCoord3bOES.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord3bvOES.
+		/// [GL] Binding for glMultiTexCoord3bvOES.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -161,7 +161,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4bOES.
+		/// [GL] Binding for glMultiTexCoord4bOES.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -188,7 +188,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiTexCoord4bvOES.
+		/// [GL] Binding for glMultiTexCoord4bvOES.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -211,7 +211,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1bOES.
+		/// [GL] Binding for glTexCoord1bOES.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
@@ -226,7 +226,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord1bvOES.
+		/// [GL] Binding for glTexCoord1bvOES.
 		/// </summary>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
@@ -246,7 +246,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2bOES.
+		/// [GL] Binding for glTexCoord2bOES.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
@@ -264,7 +264,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord2bvOES.
+		/// [GL] Binding for glTexCoord2bvOES.
 		/// </summary>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
@@ -284,7 +284,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3bOES.
+		/// [GL] Binding for glTexCoord3bOES.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
@@ -305,7 +305,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord3bvOES.
+		/// [GL] Binding for glTexCoord3bvOES.
 		/// </summary>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
@@ -325,7 +325,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4bOES.
+		/// [GL] Binding for glTexCoord4bOES.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:sbyte"/>.
@@ -349,7 +349,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoord4bvOES.
+		/// [GL] Binding for glTexCoord4bvOES.
 		/// </summary>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
@@ -369,7 +369,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2bOES.
+		/// [GL] Binding for glVertex2bOES.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:sbyte"/>.
@@ -387,7 +387,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex2bvOES.
+		/// [GL] Binding for glVertex2bvOES.
 		/// </summary>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
@@ -407,7 +407,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3bOES.
+		/// [GL] Binding for glVertex3bOES.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:sbyte"/>.
@@ -428,7 +428,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex3bvOES.
+		/// [GL] Binding for glVertex3bvOES.
 		/// </summary>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
@@ -448,7 +448,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4bOES.
+		/// [GL] Binding for glVertex4bOES.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:sbyte"/>.
@@ -472,7 +472,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertex4bvOES.
+		/// [GL] Binding for glVertex4bvOES.
 		/// </summary>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.

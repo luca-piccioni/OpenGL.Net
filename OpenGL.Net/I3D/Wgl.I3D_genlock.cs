@@ -83,7 +83,7 @@ namespace OpenGL
 		public const int GENLOCK_SOURCE_EDGE_BOTH_I3D = 0x204C;
 
 		/// <summary>
-		/// Binding for wglEnableGenlockI3D.
+		/// [WGL] Binding for wglEnableGenlockI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -102,7 +102,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDisableGenlockI3D.
+		/// [WGL] Binding for wglDisableGenlockI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -121,7 +121,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglIsEnabledGenlockI3D.
+		/// [WGL] Binding for wglIsEnabledGenlockI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -148,7 +148,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGenlockSourceI3D.
+		/// [WGL] Binding for wglGenlockSourceI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -170,7 +170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetGenlockSourceI3D.
+		/// [WGL] Binding for wglGetGenlockSourceI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -197,7 +197,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGenlockSourceEdgeI3D.
+		/// [WGL] Binding for wglGenlockSourceEdgeI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -219,7 +219,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetGenlockSourceEdgeI3D.
+		/// [WGL] Binding for wglGetGenlockSourceEdgeI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -246,7 +246,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGenlockSampleRateI3D.
+		/// [WGL] Binding for wglGenlockSampleRateI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -268,7 +268,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetGenlockSampleRateI3D.
+		/// [WGL] Binding for wglGetGenlockSampleRateI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -295,7 +295,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGenlockSourceDelayI3D.
+		/// [WGL] Binding for wglGenlockSourceDelayI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -317,7 +317,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetGenlockSourceDelayI3D.
+		/// [WGL] Binding for wglGetGenlockSourceDelayI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -344,7 +344,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglQueryGenlockMaxSourceDelayI3D.
+		/// [WGL] Binding for wglQueryGenlockMaxSourceDelayI3D.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

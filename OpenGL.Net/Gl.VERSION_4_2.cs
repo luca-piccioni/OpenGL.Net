@@ -1075,7 +1075,7 @@ namespace OpenGL
 		public const int TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
 		/// <summary>
-		/// Binding for glDrawArraysInstancedBaseInstance.
+		/// [GL] Binding for glDrawArraysInstancedBaseInstance.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -1105,7 +1105,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseInstance.
+		/// [GL] Binding for glDrawElementsInstancedBaseInstance.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -1138,7 +1138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseInstance.
+		/// [GL] Binding for glDrawElementsInstancedBaseInstance.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -1173,7 +1173,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexBaseInstance.
+		/// [GL] Binding for glDrawElementsInstancedBaseVertexBaseInstance.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -1209,7 +1209,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementsInstancedBaseVertexBaseInstance.
+		/// [GL] Binding for glDrawElementsInstancedBaseVertexBaseInstance.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -1349,7 +1349,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// retrieve information about the set of active atomic counter buffers for a program
+		/// [GL4] retrieve information about the set of active atomic counter buffers for a program
 		/// </summary>
 		/// <param name="program">
 		/// The name of a program object from which to retrieve information.
@@ -1484,7 +1484,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorage1D.
+		/// [GL] Binding for glTexStorage1D.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1511,7 +1511,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorage2D.
+		/// [GL] Binding for glTexStorage2D.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1542,7 +1542,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexStorage3D.
+		/// [GL] Binding for glTexStorage3D.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1576,7 +1576,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render multiple instances of primitives using a count derived from a transform feedback object
+		/// [GL4] render multiple instances of primitives using a count derived from a transform feedback object
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1633,7 +1633,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render multiple instances of primitives using a count derived from a specifed stream of a transform feedback object
+		/// [GL4] render multiple instances of primitives using a count derived from a specifed stream of a transform feedback 
+		/// object
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 

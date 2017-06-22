@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// Binding for glXGetFBConfigAttribSGIX.
+		/// [GLX] Binding for glXGetFBConfigAttribSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -62,7 +62,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXChooseFBConfigSGIX.
+		/// [GLX] Binding for glXChooseFBConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -96,7 +96,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXCreateGLXPixmapWithConfigSGIX.
+		/// [GLX] Binding for glXCreateGLXPixmapWithConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -121,7 +121,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXCreateContextWithConfigSGIX.
+		/// [GLX] Binding for glXCreateContextWithConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -152,7 +152,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXGetVisualFromFBConfigSGIX.
+		/// [GLX] Binding for glXGetVisualFromFBConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -174,7 +174,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXGetFBConfigFromVisualSGIX.
+		/// [GLX] Binding for glXGetFBConfigFromVisualSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

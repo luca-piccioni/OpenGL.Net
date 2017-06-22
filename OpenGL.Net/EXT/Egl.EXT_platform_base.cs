@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Binding for eglGetPlatformDisplayEXT.
+		/// [EGL] Binding for eglGetPlatformDisplayEXT.
 		/// </summary>
 		/// <param name="platform">
 		/// A <see cref="T:uint"/>.
@@ -59,7 +59,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCreatePlatformWindowSurfaceEXT.
+		/// [EGL] Binding for eglCreatePlatformWindowSurfaceEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -92,7 +92,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCreatePlatformPixmapSurfaceEXT.
+		/// [EGL] Binding for eglCreatePlatformPixmapSurfaceEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

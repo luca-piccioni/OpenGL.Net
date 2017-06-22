@@ -61,7 +61,7 @@ namespace OpenGL
 		public const int CONTEXT_FLAGS_ARB = 0x2094;
 
 		/// <summary>
-		/// Binding for glXCreateContextAttribsARB.
+		/// [GLX] Binding for glXCreateContextAttribsARB.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

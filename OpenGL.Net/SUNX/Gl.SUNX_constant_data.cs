@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int TEXTURE_CONSTANT_DATA_SUNX = 0x81D6;
 
 		/// <summary>
-		/// Binding for glFinishTextureSUNX.
+		/// [GL] Binding for glFinishTextureSUNX.
 		/// </summary>
 		[RequiredByFeature("GL_SUNX_constant_data")]
 		public static void FinishTextureSUNX()

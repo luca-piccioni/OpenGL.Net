@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV = 0x9549;
 
 		/// <summary>
-		/// Binding for glRenderGpuMaskNV.
+		/// [GL] Binding for glRenderGpuMaskNV.
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.
@@ -75,7 +75,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastBufferSubDataNV.
+		/// [GL] Binding for glMulticastBufferSubDataNV.
 		/// </summary>
 		/// <param name="gpuMask">
 		/// A <see cref="T:UInt32"/>.
@@ -106,7 +106,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastBufferSubDataNV.
+		/// [GL] Binding for glMulticastBufferSubDataNV.
 		/// </summary>
 		/// <param name="gpuMask">
 		/// A <see cref="T:UInt32"/>.
@@ -135,7 +135,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastCopyBufferSubDataNV.
+		/// [GL] Binding for glMulticastCopyBufferSubDataNV.
 		/// </summary>
 		/// <param name="readGpu">
 		/// A <see cref="T:UInt32"/>.
@@ -168,7 +168,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastCopyImageSubDataNV.
+		/// [GL] Binding for glMulticastCopyImageSubDataNV.
 		/// </summary>
 		/// <param name="srcGpu">
 		/// A <see cref="T:UInt32"/>.
@@ -231,7 +231,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastBlitFramebufferNV.
+		/// [GL] Binding for glMulticastBlitFramebufferNV.
 		/// </summary>
 		/// <param name="srcGpu">
 		/// A <see cref="T:UInt32"/>.
@@ -279,7 +279,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastFramebufferSampleLocationsfvNV.
+		/// [GL] Binding for glMulticastFramebufferSampleLocationsfvNV.
 		/// </summary>
 		/// <param name="gpu">
 		/// A <see cref="T:UInt32"/>.
@@ -311,7 +311,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastBarrierNV.
+		/// [GL] Binding for glMulticastBarrierNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
 		public static void MulticastBarrierNV()
@@ -323,7 +323,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastWaitSyncNV.
+		/// [GL] Binding for glMulticastWaitSyncNV.
 		/// </summary>
 		/// <param name="signalGpu">
 		/// A <see cref="T:UInt32"/>.
@@ -341,7 +341,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastGetQueryObjectivNV.
+		/// [GL] Binding for glMulticastGetQueryObjectivNV.
 		/// </summary>
 		/// <param name="gpu">
 		/// A <see cref="T:UInt32"/>.
@@ -370,7 +370,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastGetQueryObjectuivNV.
+		/// [GL] Binding for glMulticastGetQueryObjectuivNV.
 		/// </summary>
 		/// <param name="gpu">
 		/// A <see cref="T:UInt32"/>.
@@ -399,7 +399,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastGetQueryObjecti64vNV.
+		/// [GL] Binding for glMulticastGetQueryObjecti64vNV.
 		/// </summary>
 		/// <param name="gpu">
 		/// A <see cref="T:UInt32"/>.
@@ -428,7 +428,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMulticastGetQueryObjectui64vNV.
+		/// [GL] Binding for glMulticastGetQueryObjectui64vNV.
 		/// </summary>
 		/// <param name="gpu">
 		/// A <see cref="T:UInt32"/>.

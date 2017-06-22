@@ -207,7 +207,7 @@ namespace OpenGL
 		public const int MIRROR_CLAMP_TO_EDGE = 0x8743;
 
 		/// <summary>
-		/// creates and initializes a buffer object's immutable data store
+		/// [GL4] creates and initializes a buffer object's immutable data store
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.BufferStorage, which must be one of the buffer binding 
@@ -274,7 +274,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// creates and initializes a buffer object's immutable data store
+		/// [GL4] creates and initializes a buffer object's immutable data store
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.BufferStorage, which must be one of the buffer binding 
@@ -343,7 +343,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// fills all a texture image with a constant value
+		/// [GL4] fills all a texture image with a constant value
 		/// </summary>
 		/// <param name="texture">
 		/// The name of an existing texture object containing the image to be cleared.
@@ -417,7 +417,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// fills all a texture image with a constant value
+		/// [GL4] fills all a texture image with a constant value
 		/// </summary>
 		/// <param name="texture">
 		/// The name of an existing texture object containing the image to be cleared.
@@ -493,7 +493,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// fills all or part of a texture image with a constant value
+		/// [GL4] fills all or part of a texture image with a constant value
 		/// </summary>
 		/// <param name="texture">
 		/// The name of an existing texture object containing the image to be cleared.
@@ -586,7 +586,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// fills all or part of a texture image with a constant value
+		/// [GL4] fills all or part of a texture image with a constant value
 		/// </summary>
 		/// <param name="texture">
 		/// The name of an existing texture object containing the image to be cleared.
@@ -681,7 +681,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind one or more buffer objects to a sequence of indexed buffer targets
+		/// [GL4] bind one or more buffer objects to a sequence of indexed buffer targets
 		/// </summary>
 		/// <param name="target">
 		/// Specify the target of the bind operation. <paramref name="target"/> must be one of Gl.ATOMIC_COUNTER_BUFFER, 
@@ -732,7 +732,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind one or more buffer objects to a sequence of indexed buffer targets
+		/// [GL4] bind one or more buffer objects to a sequence of indexed buffer targets
 		/// </summary>
 		/// <param name="target">
 		/// Specify the target of the bind operation. <paramref name="target"/> must be one of Gl.ATOMIC_COUNTER_BUFFER, 
@@ -780,7 +780,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind ranges of one or more buffer objects to a sequence of indexed buffer targets
+		/// [GL4] bind ranges of one or more buffer objects to a sequence of indexed buffer targets
 		/// </summary>
 		/// <param name="target">
 		/// Specify the target of the bind operation. <paramref name="target"/> must be one of Gl.ATOMIC_COUNTER_BUFFER, 
@@ -849,7 +849,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind ranges of one or more buffer objects to a sequence of indexed buffer targets
+		/// [GL4] bind ranges of one or more buffer objects to a sequence of indexed buffer targets
 		/// </summary>
 		/// <param name="target">
 		/// Specify the target of the bind operation. <paramref name="target"/> must be one of Gl.ATOMIC_COUNTER_BUFFER, 
@@ -915,7 +915,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind one or more named textures to a sequence of consecutive texture units
+		/// [GL4] bind one or more named textures to a sequence of consecutive texture units
 		/// </summary>
 		/// <param name="first">
 		/// Specifies the first texture unit to which a texture is to be bound.
@@ -959,7 +959,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind one or more named sampler objects to a sequence of consecutive sampler units
+		/// [GL4] bind one or more named sampler objects to a sequence of consecutive sampler units
 		/// </summary>
 		/// <param name="first">
 		/// Specifies the first sampler unit to which a sampler object is to be bound.
@@ -1000,7 +1000,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// bind one or more named texture images to a sequence of consecutive image units
+		/// [GL4] bind one or more named texture images to a sequence of consecutive image units
 		/// </summary>
 		/// <param name="first">
 		/// Specifies the first image unit to which a texture is to be bound.
@@ -1054,7 +1054,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach multiple buffer objects to a vertex array object
+		/// [GL4] attach multiple buffer objects to a vertex array object
 		/// </summary>
 		/// <param name="first">
 		/// Specifies the first vertex buffer binding point to which a buffer object is to be bound.

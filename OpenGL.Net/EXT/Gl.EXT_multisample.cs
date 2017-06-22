@@ -121,7 +121,7 @@ namespace OpenGL
 		public const int SAMPLE_PATTERN_EXT = 0x80AC;
 
 		/// <summary>
-		/// Binding for glSampleMaskEXT.
+		/// [GL] Binding for glSampleMaskEXT.
 		/// </summary>
 		/// <param name="value">
 		/// A <see cref="T:float"/>.
@@ -141,7 +141,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSamplePatternEXT.
+		/// [GL] Binding for glSamplePatternEXT.
 		/// </summary>
 		/// <param name="pattern">
 		/// A <see cref="T:Int32"/>.

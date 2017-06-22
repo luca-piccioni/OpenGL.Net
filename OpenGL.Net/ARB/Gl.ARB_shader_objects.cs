@@ -111,7 +111,7 @@ namespace OpenGL
 		public const int OBJECT_SHADER_SOURCE_LENGTH_ARB = 0x8B88;
 
 		/// <summary>
-		/// Binding for glDeleteObjectARB.
+		/// [GL] Binding for glDeleteObjectARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -126,7 +126,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetHandleARB.
+		/// [GL] Binding for glGetHandleARB.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -145,7 +145,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetObjectParameterfvARB.
+		/// [GL] Binding for glGetObjectParameterfvARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -171,7 +171,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetObjectParameterfvARB.
+		/// [GL] Binding for glGetObjectParameterfvARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -197,7 +197,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetObjectParameterivARB.
+		/// [GL] Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -223,7 +223,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetObjectParameterivARB.
+		/// [GL] Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -249,7 +249,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetInfoLogARB.
+		/// [GL] Binding for glGetInfoLogARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -278,7 +278,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetAttachedObjectsARB.
+		/// [GL] Binding for glGetAttachedObjectsARB.
 		/// </summary>
 		/// <param name="containerObj">
 		/// A <see cref="T:UInt32"/>.

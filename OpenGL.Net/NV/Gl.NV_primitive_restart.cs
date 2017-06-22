@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int PRIMITIVE_RESTART_INDEX_NV = 0x8559;
 
 		/// <summary>
-		/// Binding for glPrimitiveRestartNV.
+		/// [GL] Binding for glPrimitiveRestartNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_primitive_restart")]
 		public static void PrimitiveRestartNV()
@@ -53,7 +53,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPrimitiveRestartIndexNV.
+		/// [GL] Binding for glPrimitiveRestartIndexNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

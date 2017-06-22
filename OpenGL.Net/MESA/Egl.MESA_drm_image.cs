@@ -73,7 +73,7 @@ namespace OpenGL
 		public const int DRM_BUFFER_USE_SHARE_MESA = 0x00000002;
 
 		/// <summary>
-		/// Binding for eglCreateDRMImageMESA.
+		/// [EGL] Binding for eglCreateDRMImageMESA.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -100,7 +100,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglExportDRMImageMESA.
+		/// [EGL] Binding for eglExportDRMImageMESA.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

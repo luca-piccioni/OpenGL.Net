@@ -1068,7 +1068,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render multiple sets of primitives by specifying indices of array data elements and an index to apply to each index
+		/// [GL4] render multiple sets of primitives by specifying indices of array data elements and an index to apply to each 
+		/// index
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1127,7 +1128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specifiy the vertex to be used as the source of data for flat shaded varyings
+		/// [GL4] specifiy the vertex to be used as the source of data for flat shaded varyings
 		/// </summary>
 		/// <param name="provokeMode">
 		/// Specifies the vertex to be used as the source of data for flat shaded varyings.
@@ -1909,7 +1910,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// establish the data storage, format, dimensions, and number of samples of a multisample texture's image
+		/// [GL4] establish the data storage, format, dimensions, and number of samples of a multisample texture's image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target of the operation. <paramref name="target"/> must be Gl.TEXTURE_2D_MULTISAMPLE or 
@@ -1968,7 +1969,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// establish the data storage, format, dimensions, and number of samples of a multisample texture's image
+		/// [GL4] establish the data storage, format, dimensions, and number of samples of a multisample texture's image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target of the operation. <paramref name="target"/> must be Gl.TEXTURE_2D_MULTISAMPLE_ARRAY or 

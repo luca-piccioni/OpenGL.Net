@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// Binding for wglGetSyncValuesOML.
+		/// [WGL] Binding for wglGetSyncValuesOML.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -64,7 +64,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetMscRateOML.
+		/// [WGL] Binding for wglGetMscRateOML.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -95,7 +95,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSwapBuffersMscOML.
+		/// [WGL] Binding for wglSwapBuffersMscOML.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSwapLayerBuffersMscOML.
+		/// [WGL] Binding for wglSwapLayerBuffersMscOML.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglWaitForMscOML.
+		/// [WGL] Binding for wglWaitForMscOML.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -198,7 +198,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglWaitForSbcOML.
+		/// [WGL] Binding for wglWaitForSbcOML.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.

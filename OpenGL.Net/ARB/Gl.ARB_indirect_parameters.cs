@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int PARAMETER_BUFFER_BINDING_ARB = 0x80EF;
 
 		/// <summary>
-		/// Binding for glMultiDrawArraysIndirectCountARB.
+		/// [GL] Binding for glMultiDrawArraysIndirectCountARB.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -68,7 +68,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiDrawElementsIndirectCountARB.
+		/// [GL] Binding for glMultiDrawElementsIndirectCountARB.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.

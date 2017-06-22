@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glClipPlanefIMG.
+		/// [GL] Binding for glClipPlanefIMG.
 		/// </summary>
 		/// <param name="p">
 		/// A <see cref="T:ClipPlaneName"/>.
@@ -52,7 +52,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glClipPlanexIMG.
+		/// [GL] Binding for glClipPlanexIMG.
 		/// </summary>
 		/// <param name="p">
 		/// A <see cref="T:ClipPlaneName"/>.

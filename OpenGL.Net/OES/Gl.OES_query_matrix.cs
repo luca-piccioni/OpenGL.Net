@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// return the values of the current matrix
+		/// [GLES1.1] return the values of the current matrix
 		/// </summary>
 		/// <param name="mantissa">
 		/// Returns the mantissa values of the current matrix.

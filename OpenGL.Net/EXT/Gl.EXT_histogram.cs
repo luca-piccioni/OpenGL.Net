@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glGetHistogramEXT.
+		/// [GL] Binding for glGetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -56,7 +56,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetHistogramEXT.
+		/// [GL] Binding for glGetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -85,7 +85,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetHistogramParameterfvEXT.
+		/// [GL] Binding for glGetHistogramParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -111,7 +111,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetHistogramParameterivEXT.
+		/// [GL] Binding for glGetHistogramParameterivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -137,7 +137,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMinmaxEXT.
+		/// [GL] Binding for glGetMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -164,7 +164,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMinmaxEXT.
+		/// [GL] Binding for glGetMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -193,7 +193,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMinmaxParameterfvEXT.
+		/// [GL] Binding for glGetMinmaxParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -219,7 +219,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetMinmaxParameterivEXT.
+		/// [GL] Binding for glGetMinmaxParameterivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.

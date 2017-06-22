@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV = 0x937E;
 
 		/// <summary>
-		/// Binding for glViewportPositionWScaleNV.
+		/// [GL] Binding for glViewportPositionWScaleNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

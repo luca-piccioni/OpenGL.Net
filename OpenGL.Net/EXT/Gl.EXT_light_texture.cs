@@ -83,7 +83,7 @@ namespace OpenGL
 		public const int TEXTURE_MATERIAL_PARAMETER_EXT = 0x8352;
 
 		/// <summary>
-		/// Binding for glApplyTextureEXT.
+		/// [GL] Binding for glApplyTextureEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.
@@ -98,7 +98,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTextureLightEXT.
+		/// [GL] Binding for glTextureLightEXT.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -113,7 +113,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTextureMaterialEXT.
+		/// [GL] Binding for glTextureMaterialEXT.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.

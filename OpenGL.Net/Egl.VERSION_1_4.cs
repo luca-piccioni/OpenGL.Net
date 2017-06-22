@@ -90,7 +90,7 @@ namespace OpenGL
 		public const int SWAP_BEHAVIOR_PRESERVED_BIT = 0x0400;
 
 		/// <summary>
-		/// return the current EGL rendering context
+		/// [EGL] return the current EGL rendering context
 		/// </summary>
 		/// <seealso cref="Egl.CreateContext"/>
 		/// <seealso cref="Egl.MakeCurrent"/>

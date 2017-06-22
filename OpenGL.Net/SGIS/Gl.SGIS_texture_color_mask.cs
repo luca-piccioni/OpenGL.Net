@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int TEXTURE_COLOR_WRITEMASK_SGIS = 0x81EF;
 
 		/// <summary>
-		/// Binding for glTextureColorMaskSGIS.
+		/// [GL] Binding for glTextureColorMaskSGIS.
 		/// </summary>
 		/// <param name="red">
 		/// A <see cref="T:bool"/>.

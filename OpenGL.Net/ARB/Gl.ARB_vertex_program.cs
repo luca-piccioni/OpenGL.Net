@@ -514,7 +514,7 @@ namespace OpenGL
 		public const int MATRIX31_ARB = 0x88DF;
 
 		/// <summary>
-		/// Binding for glProgramStringARB.
+		/// [GL] Binding for glProgramStringARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -539,7 +539,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramStringARB.
+		/// [GL] Binding for glProgramStringARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -566,7 +566,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindProgramARB.
+		/// [GL] Binding for glBindProgramARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -587,7 +587,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteProgramsARB.
+		/// [GL] Binding for glDeleteProgramsARB.
 		/// </summary>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
@@ -610,7 +610,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenProgramsARB.
+		/// [GL] Binding for glGenProgramsARB.
 		/// </summary>
 		/// <param name="programs">
 		/// A <see cref="T:UInt32[]"/>.
@@ -633,7 +633,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenProgramsARB.
+		/// [GL] Binding for glGenProgramsARB.
 		/// </summary>
 		[AliasOf("glGenProgramsNV")]
 		[RequiredByFeature("GL_ARB_fragment_program")]
@@ -647,7 +647,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParameter4dARB.
+		/// [GL] Binding for glProgramEnvParameter4dARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -678,7 +678,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParameter4dvARB.
+		/// [GL] Binding for glProgramEnvParameter4dvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -705,7 +705,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParameter4fARB.
+		/// [GL] Binding for glProgramEnvParameter4fARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -736,7 +736,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramEnvParameter4fvARB.
+		/// [GL] Binding for glProgramEnvParameter4fvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -763,7 +763,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParameter4dARB.
+		/// [GL] Binding for glProgramLocalParameter4dARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -794,7 +794,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParameter4dvARB.
+		/// [GL] Binding for glProgramLocalParameter4dvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -821,7 +821,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParameter4fARB.
+		/// [GL] Binding for glProgramLocalParameter4fARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -852,7 +852,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramLocalParameter4fvARB.
+		/// [GL] Binding for glProgramLocalParameter4fvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -879,7 +879,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramEnvParameterdvARB.
+		/// [GL] Binding for glGetProgramEnvParameterdvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -906,7 +906,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramEnvParameterfvARB.
+		/// [GL] Binding for glGetProgramEnvParameterfvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -933,7 +933,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramLocalParameterdvARB.
+		/// [GL] Binding for glGetProgramLocalParameterdvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -960,7 +960,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramLocalParameterfvARB.
+		/// [GL] Binding for glGetProgramLocalParameterfvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -987,7 +987,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramivARB.
+		/// [GL] Binding for glGetProgramivARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -1014,7 +1014,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramStringARB.
+		/// [GL] Binding for glGetProgramStringARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -1036,7 +1036,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramStringARB.
+		/// [GL] Binding for glGetProgramStringARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -1060,7 +1060,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsProgramARB.
+		/// [GL] Binding for glIsProgramARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.

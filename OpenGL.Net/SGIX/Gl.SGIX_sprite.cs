@@ -71,7 +71,7 @@ namespace OpenGL
 		public const int SPRITE_EYE_ALIGNED_SGIX = 0x814E;
 
 		/// <summary>
-		/// Binding for glSpriteParameterfSGIX.
+		/// [GL] Binding for glSpriteParameterfSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -89,7 +89,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSpriteParameterfvSGIX.
+		/// [GL] Binding for glSpriteParameterfvSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSpriteParameteriSGIX.
+		/// [GL] Binding for glSpriteParameteriSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -130,7 +130,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSpriteParameterivSGIX.
+		/// [GL] Binding for glSpriteParameterivSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

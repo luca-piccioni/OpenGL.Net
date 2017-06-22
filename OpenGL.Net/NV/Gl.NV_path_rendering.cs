@@ -984,7 +984,7 @@ namespace OpenGL
 		public const int FRAGMENT_INPUT_NV = 0x936D;
 
 		/// <summary>
-		/// Binding for glGenPathsNV.
+		/// [GL] Binding for glGenPathsNV.
 		/// </summary>
 		/// <param name="range">
 		/// A <see cref="T:Int32"/>.
@@ -1003,7 +1003,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeletePathsNV.
+		/// [GL] Binding for glDeletePathsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1021,7 +1021,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsPathNV.
+		/// [GL] Binding for glIsPathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1040,7 +1040,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathCommandsNV.
+		/// [GL] Binding for glPathCommandsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1072,7 +1072,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathCommandsNV.
+		/// [GL] Binding for glPathCommandsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1104,7 +1104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathCoordsNV.
+		/// [GL] Binding for glPathCoordsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1128,7 +1128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathCoordsNV.
+		/// [GL] Binding for glPathCoordsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1154,7 +1154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathSubCommandsNV.
+		/// [GL] Binding for glPathSubCommandsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1192,7 +1192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathSubCommandsNV.
+		/// [GL] Binding for glPathSubCommandsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1230,7 +1230,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathSubCoordsNV.
+		/// [GL] Binding for glPathSubCoordsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1257,7 +1257,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathSubCoordsNV.
+		/// [GL] Binding for glPathSubCoordsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1286,7 +1286,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathStringNV.
+		/// [GL] Binding for glPathStringNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1310,7 +1310,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathStringNV.
+		/// [GL] Binding for glPathStringNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1336,7 +1336,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathGlyphsNV.
+		/// [GL] Binding for glPathGlyphsNV.
 		/// </summary>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -1378,7 +1378,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathGlyphsNV.
+		/// [GL] Binding for glPathGlyphsNV.
 		/// </summary>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -1424,7 +1424,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathGlyphRangeNV.
+		/// [GL] Binding for glPathGlyphRangeNV.
 		/// </summary>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -1463,7 +1463,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathGlyphRangeNV.
+		/// [GL] Binding for glPathGlyphRangeNV.
 		/// </summary>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -1504,7 +1504,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glWeightPathsNV.
+		/// [GL] Binding for glWeightPathsNV.
 		/// </summary>
 		/// <param name="resultPath">
 		/// A <see cref="T:UInt32"/>.
@@ -1531,7 +1531,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCopyPathNV.
+		/// [GL] Binding for glCopyPathNV.
 		/// </summary>
 		/// <param name="resultPath">
 		/// A <see cref="T:UInt32"/>.
@@ -1549,7 +1549,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glInterpolatePathsNV.
+		/// [GL] Binding for glInterpolatePathsNV.
 		/// </summary>
 		/// <param name="resultPath">
 		/// A <see cref="T:UInt32"/>.
@@ -1573,7 +1573,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTransformPathNV.
+		/// [GL] Binding for glTransformPathNV.
 		/// </summary>
 		/// <param name="resultPath">
 		/// A <see cref="T:UInt32"/>.
@@ -1602,7 +1602,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathParameterivNV.
+		/// [GL] Binding for glPathParameterivNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1628,7 +1628,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathParameteriNV.
+		/// [GL] Binding for glPathParameteriNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1649,7 +1649,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathParameterfvNV.
+		/// [GL] Binding for glPathParameterfvNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1675,7 +1675,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathParameterfNV.
+		/// [GL] Binding for glPathParameterfNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1696,7 +1696,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathDashArrayNV.
+		/// [GL] Binding for glPathDashArrayNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1719,7 +1719,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathStencilFuncNV.
+		/// [GL] Binding for glPathStencilFuncNV.
 		/// </summary>
 		/// <param name="func">
 		/// A <see cref="T:StencilFunction"/>.
@@ -1740,7 +1740,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathStencilDepthOffsetNV.
+		/// [GL] Binding for glPathStencilDepthOffsetNV.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.
@@ -1758,7 +1758,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilFillPathNV.
+		/// [GL] Binding for glStencilFillPathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1779,7 +1779,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilStrokePathNV.
+		/// [GL] Binding for glStencilStrokePathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1800,7 +1800,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilFillPathInstancedNV.
+		/// [GL] Binding for glStencilFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -1841,7 +1841,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilFillPathInstancedNV.
+		/// [GL] Binding for glStencilFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -1879,7 +1879,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilStrokePathInstancedNV.
+		/// [GL] Binding for glStencilStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -1920,7 +1920,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilStrokePathInstancedNV.
+		/// [GL] Binding for glStencilStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -1958,7 +1958,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathCoverDepthFuncNV.
+		/// [GL] Binding for glPathCoverDepthFuncNV.
 		/// </summary>
 		/// <param name="func">
 		/// A <see cref="T:DepthFunction"/>.
@@ -1973,7 +1973,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCoverFillPathNV.
+		/// [GL] Binding for glCoverFillPathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -1991,7 +1991,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCoverStrokePathNV.
+		/// [GL] Binding for glCoverStrokePathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2009,7 +2009,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCoverFillPathInstancedNV.
+		/// [GL] Binding for glCoverFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -2047,7 +2047,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCoverFillPathInstancedNV.
+		/// [GL] Binding for glCoverFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -2082,7 +2082,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCoverStrokePathInstancedNV.
+		/// [GL] Binding for glCoverStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -2120,7 +2120,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCoverStrokePathInstancedNV.
+		/// [GL] Binding for glCoverStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -2155,7 +2155,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathParameterivNV.
+		/// [GL] Binding for glGetPathParameterivNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2181,7 +2181,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathParameterfvNV.
+		/// [GL] Binding for glGetPathParameterfvNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2207,7 +2207,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathCommandsNV.
+		/// [GL] Binding for glGetPathCommandsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2230,7 +2230,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathCoordsNV.
+		/// [GL] Binding for glGetPathCoordsNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2253,7 +2253,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathDashArrayNV.
+		/// [GL] Binding for glGetPathDashArrayNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2276,7 +2276,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathMetricsNV.
+		/// [GL] Binding for glGetPathMetricsNV.
 		/// </summary>
 		/// <param name="metricQueryMask">
 		/// A <see cref="T:UInt32"/>.
@@ -2314,7 +2314,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathMetricsNV.
+		/// [GL] Binding for glGetPathMetricsNV.
 		/// </summary>
 		/// <param name="metricQueryMask">
 		/// A <see cref="T:UInt32"/>.
@@ -2349,7 +2349,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathMetricRangeNV.
+		/// [GL] Binding for glGetPathMetricRangeNV.
 		/// </summary>
 		/// <param name="metricQueryMask">
 		/// A <see cref="T:UInt32"/>.
@@ -2381,7 +2381,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathSpacingNV.
+		/// [GL] Binding for glGetPathSpacingNV.
 		/// </summary>
 		/// <param name="pathListMode">
 		/// A <see cref="T:Int32"/>.
@@ -2425,7 +2425,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathSpacingNV.
+		/// [GL] Binding for glGetPathSpacingNV.
 		/// </summary>
 		/// <param name="pathListMode">
 		/// A <see cref="T:Int32"/>.
@@ -2466,7 +2466,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsPointInFillPathNV.
+		/// [GL] Binding for glIsPointInFillPathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2494,7 +2494,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsPointInStrokePathNV.
+		/// [GL] Binding for glIsPointInStrokePathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2519,7 +2519,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathLengthNV.
+		/// [GL] Binding for glGetPathLengthNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2544,7 +2544,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPointAlongPathNV.
+		/// [GL] Binding for glPointAlongPathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2592,7 +2592,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixLoad3x2fNV.
+		/// [GL] Binding for glMatrixLoad3x2fNV.
 		/// </summary>
 		/// <param name="matrixMode">
 		/// A <see cref="T:Int32"/>.
@@ -2615,7 +2615,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixLoad3x3fNV.
+		/// [GL] Binding for glMatrixLoad3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
 		/// A <see cref="T:Int32"/>.
@@ -2638,7 +2638,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixLoadTranspose3x3fNV.
+		/// [GL] Binding for glMatrixLoadTranspose3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
 		/// A <see cref="T:Int32"/>.
@@ -2661,7 +2661,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixMult3x2fNV.
+		/// [GL] Binding for glMatrixMult3x2fNV.
 		/// </summary>
 		/// <param name="matrixMode">
 		/// A <see cref="T:Int32"/>.
@@ -2684,7 +2684,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixMult3x3fNV.
+		/// [GL] Binding for glMatrixMult3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
 		/// A <see cref="T:Int32"/>.
@@ -2707,7 +2707,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMatrixMultTranspose3x3fNV.
+		/// [GL] Binding for glMatrixMultTranspose3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
 		/// A <see cref="T:Int32"/>.
@@ -2730,7 +2730,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilThenCoverFillPathNV.
+		/// [GL] Binding for glStencilThenCoverFillPathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2754,7 +2754,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilThenCoverStrokePathNV.
+		/// [GL] Binding for glStencilThenCoverStrokePathNV.
 		/// </summary>
 		/// <param name="path">
 		/// A <see cref="T:UInt32"/>.
@@ -2778,7 +2778,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilThenCoverFillPathInstancedNV.
+		/// [GL] Binding for glStencilThenCoverFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -2822,7 +2822,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilThenCoverFillPathInstancedNV.
+		/// [GL] Binding for glStencilThenCoverFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -2863,7 +2863,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilThenCoverStrokePathInstancedNV.
+		/// [GL] Binding for glStencilThenCoverStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -2907,7 +2907,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStencilThenCoverStrokePathInstancedNV.
+		/// [GL] Binding for glStencilThenCoverStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
 		/// A <see cref="T:Int32"/>.
@@ -2948,7 +2948,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathGlyphIndexRangeNV.
+		/// [GL] Binding for glPathGlyphIndexRangeNV.
 		/// </summary>
 		/// <param name="fontTarget">
 		/// A <see cref="T:Int32"/>.
@@ -2987,7 +2987,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathGlyphIndexRangeNV.
+		/// [GL] Binding for glPathGlyphIndexRangeNV.
 		/// </summary>
 		/// <param name="fontTarget">
 		/// A <see cref="T:Int32"/>.
@@ -3019,7 +3019,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathGlyphIndexArrayNV.
+		/// [GL] Binding for glPathGlyphIndexArrayNV.
 		/// </summary>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -3059,7 +3059,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathGlyphIndexArrayNV.
+		/// [GL] Binding for glPathGlyphIndexArrayNV.
 		/// </summary>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -3097,7 +3097,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathMemoryGlyphIndexArrayNV.
+		/// [GL] Binding for glPathMemoryGlyphIndexArrayNV.
 		/// </summary>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -3140,7 +3140,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathMemoryGlyphIndexArrayNV.
+		/// [GL] Binding for glPathMemoryGlyphIndexArrayNV.
 		/// </summary>
 		/// <param name="firstPathName">
 		/// A <see cref="T:UInt32"/>.
@@ -3181,7 +3181,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramPathFragmentInputGenNV.
+		/// [GL] Binding for glProgramPathFragmentInputGenNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -3213,7 +3213,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramResourcefvNV.
+		/// [GL] Binding for glGetProgramResourcefvNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -3256,7 +3256,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathColorGenNV.
+		/// [GL] Binding for glPathColorGenNV.
 		/// </summary>
 		/// <param name="color">
 		/// A <see cref="T:Int32"/>.
@@ -3285,7 +3285,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathTexGenNV.
+		/// [GL] Binding for glPathTexGenNV.
 		/// </summary>
 		/// <param name="texCoordSet">
 		/// A <see cref="T:Int32"/>.
@@ -3314,7 +3314,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glPathFogGenNV.
+		/// [GL] Binding for glPathFogGenNV.
 		/// </summary>
 		/// <param name="genMode">
 		/// A <see cref="T:Int32"/>.
@@ -3329,7 +3329,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathColorGenivNV.
+		/// [GL] Binding for glGetPathColorGenivNV.
 		/// </summary>
 		/// <param name="color">
 		/// A <see cref="T:Int32"/>.
@@ -3355,7 +3355,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathColorGenfvNV.
+		/// [GL] Binding for glGetPathColorGenfvNV.
 		/// </summary>
 		/// <param name="color">
 		/// A <see cref="T:Int32"/>.
@@ -3381,7 +3381,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathTexGenivNV.
+		/// [GL] Binding for glGetPathTexGenivNV.
 		/// </summary>
 		/// <param name="texCoordSet">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3407,7 +3407,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetPathTexGenfvNV.
+		/// [GL] Binding for glGetPathTexGenfvNV.
 		/// </summary>
 		/// <param name="texCoordSet">
 		/// A <see cref="T:TextureUnit"/>.

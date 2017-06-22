@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int PER_STAGE_CONSTANTS_NV = 0x8535;
 
 		/// <summary>
-		/// Binding for glCombinerStageParameterfvNV.
+		/// [GL] Binding for glCombinerStageParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
 		/// A <see cref="T:Int32"/>.
@@ -61,7 +61,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetCombinerStageParameterfvNV.
+		/// [GL] Binding for glGetCombinerStageParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
 		/// A <see cref="T:Int32"/>.

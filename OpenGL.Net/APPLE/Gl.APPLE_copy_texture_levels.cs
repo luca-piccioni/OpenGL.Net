@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glCopyTextureLevelsAPPLE.
+		/// [GL] Binding for glCopyTextureLevelsAPPLE.
 		/// </summary>
 		/// <param name="destinationTexture">
 		/// A <see cref="T:UInt32"/>.

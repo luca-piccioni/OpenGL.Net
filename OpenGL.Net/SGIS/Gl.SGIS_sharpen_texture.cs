@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int SHARPEN_TEXTURE_FUNC_POINTS_SGIS = 0x80B0;
 
 		/// <summary>
-		/// Binding for glSharpenTexFuncSGIS.
+		/// [GL] Binding for glSharpenTexFuncSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -79,7 +79,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetSharpenTexFuncSGIS.
+		/// [GL] Binding for glGetSharpenTexFuncSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.

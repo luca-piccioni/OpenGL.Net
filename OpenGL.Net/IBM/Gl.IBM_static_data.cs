@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int STATIC_VERTEX_ARRAY_IBM = 103061;
 
 		/// <summary>
-		/// Binding for glFlushStaticDataIBM.
+		/// [GL] Binding for glFlushStaticDataIBM.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

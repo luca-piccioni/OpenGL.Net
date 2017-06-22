@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int STORAGE_PRIVATE_APPLE = 0x85BD;
 
 		/// <summary>
-		/// Binding for glTextureRangeAPPLE.
+		/// [GL] Binding for glTextureRangeAPPLE.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -74,7 +74,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTextureRangeAPPLE.
+		/// [GL] Binding for glTextureRangeAPPLE.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -97,7 +97,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexParameterPointervAPPLE.
+		/// [GL] Binding for glGetTexParameterPointervAPPLE.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetTexParameterPointervAPPLE.
+		/// [GL] Binding for glGetTexParameterPointervAPPLE.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int ALPHA_TO_COVERAGE_DITHER_MODE_NV = 0x92BF;
 
 		/// <summary>
-		/// Binding for glAlphaToCoverageDitherControlNV.
+		/// [GL] Binding for glAlphaToCoverageDitherControlNV.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.

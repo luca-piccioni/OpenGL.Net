@@ -89,7 +89,7 @@ namespace OpenGL
 		public const int GPU_NUM_SPI_AMD = 0x21A8;
 
 		/// <summary>
-		/// Binding for wglGetGPUIDsAMD.
+		/// [WGL] Binding for wglGetGPUIDsAMD.
 		/// </summary>
 		/// <param name="maxCount">
 		/// A <see cref="T:UInt32"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetGPUInfoAMD.
+		/// [WGL] Binding for wglGetGPUInfoAMD.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -147,7 +147,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetContextGPUIDAMD.
+		/// [WGL] Binding for wglGetContextGPUIDAMD.
 		/// </summary>
 		/// <param name="hglrc">
 		/// A <see cref="T:IntPtr"/>.
@@ -166,7 +166,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglCreateAssociatedContextAMD.
+		/// [WGL] Binding for wglCreateAssociatedContextAMD.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -185,7 +185,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglCreateAssociatedContextAttribsAMD.
+		/// [WGL] Binding for wglCreateAssociatedContextAttribsAMD.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -215,7 +215,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDeleteAssociatedContextAMD.
+		/// [WGL] Binding for wglDeleteAssociatedContextAMD.
 		/// </summary>
 		/// <param name="hglrc">
 		/// A <see cref="T:IntPtr"/>.
@@ -234,7 +234,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglMakeAssociatedContextCurrentAMD.
+		/// [WGL] Binding for wglMakeAssociatedContextCurrentAMD.
 		/// </summary>
 		/// <param name="hglrc">
 		/// A <see cref="T:IntPtr"/>.
@@ -253,7 +253,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetCurrentAssociatedContextAMD.
+		/// [WGL] Binding for wglGetCurrentAssociatedContextAMD.
 		/// </summary>
 		[RequiredByFeature("WGL_AMD_gpu_association")]
 		public static IntPtr GetCurrentAssociatedContextAMD()
@@ -269,7 +269,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglBlitContextFramebufferAMD.
+		/// [WGL] Binding for wglBlitContextFramebufferAMD.
 		/// </summary>
 		/// <param name="dstCtx">
 		/// A <see cref="T:IntPtr"/>.

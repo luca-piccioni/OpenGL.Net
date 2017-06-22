@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int SPIR_V_BINARY_ARB = 0x9552;
 
 		/// <summary>
-		/// Binding for glSpecializeShaderARB.
+		/// [GL] Binding for glSpecializeShaderARB.
 		/// </summary>
 		/// <param name="shader">
 		/// A <see cref="T:UInt32"/>.

@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int YUV_PLANE2_TEXTURE_UNIT_NV = 0x332E;
 
 		/// <summary>
-		/// Binding for eglStreamConsumerGLTextureExternalAttribsNV.
+		/// [EGL] Binding for eglStreamConsumerGLTextureExternalAttribsNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

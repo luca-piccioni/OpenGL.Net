@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int ELEMENT_ARRAY_POINTER_APPLE = 0x8A0E;
 
 		/// <summary>
-		/// Binding for glElementPointerAPPLE.
+		/// [GL] Binding for glElementPointerAPPLE.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -65,7 +65,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glElementPointerAPPLE.
+		/// [GL] Binding for glElementPointerAPPLE.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -85,7 +85,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawElementArrayAPPLE.
+		/// [GL] Binding for glDrawElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -106,7 +106,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDrawRangeElementArrayAPPLE.
+		/// [GL] Binding for glDrawRangeElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -133,7 +133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiDrawElementArrayAPPLE.
+		/// [GL] Binding for glMultiDrawElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -163,7 +163,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiDrawElementArrayAPPLE.
+		/// [GL] Binding for glMultiDrawElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -190,7 +190,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiDrawRangeElementArrayAPPLE.
+		/// [GL] Binding for glMultiDrawRangeElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -226,7 +226,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiDrawRangeElementArrayAPPLE.
+		/// [GL] Binding for glMultiDrawRangeElementArrayAPPLE.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.

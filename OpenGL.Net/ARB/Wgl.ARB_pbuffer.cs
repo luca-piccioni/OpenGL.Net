@@ -91,7 +91,7 @@ namespace OpenGL
 		public const int PBUFFER_LOST_ARB = 0x2036;
 
 		/// <summary>
-		/// Binding for wglCreatePbufferARB.
+		/// [WGL] Binding for wglCreatePbufferARB.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -127,7 +127,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetPbufferDCARB.
+		/// [WGL] Binding for wglGetPbufferDCARB.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -146,7 +146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglReleasePbufferDCARB.
+		/// [WGL] Binding for wglReleasePbufferDCARB.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -168,7 +168,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDestroyPbufferARB.
+		/// [WGL] Binding for wglDestroyPbufferARB.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -187,7 +187,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglQueryPbufferARB.
+		/// [WGL] Binding for wglQueryPbufferARB.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.

@@ -433,7 +433,7 @@ namespace OpenGL
 		public const int ACCUM_ALPHA_SIZE = 17;
 
 		/// <summary>
-		/// return a visual that matches specified attributes
+		/// [GL2.1] return a visual that matches specified attributes
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -468,7 +468,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create a new GLX rendering context
+		/// [GL2.1] create a new GLX rendering context
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -519,7 +519,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy a GLX context
+		/// [GL2.1] destroy a GLX context
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -543,7 +543,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// attach a GLX context to a window or a GLX pixmap
+		/// [GL2.1] attach a GLX context to a window or a GLX pixmap
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -604,7 +604,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy state from one rendering context to another
+		/// [GL2.1] copy state from one rendering context to another
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -646,7 +646,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// exchange front and back buffers
+		/// [GL2.1] exchange front and back buffers
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -673,7 +673,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create an off-screen GLX rendering area
+		/// [GL2.1] create an off-screen GLX rendering area
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -718,7 +718,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// destroy a GLX pixmap
+		/// [GL2.1] destroy a GLX pixmap
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -742,7 +742,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// indicate whether the GLX extension is supported
+		/// [GL2.1] indicate whether the GLX extension is supported
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -774,7 +774,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the version numbers of the GLX extension
+		/// [GL2.1] return the version numbers of the GLX extension
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -812,7 +812,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// indicate whether direct rendering is enabled
+		/// [GL2.1] indicate whether direct rendering is enabled
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -839,7 +839,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return information about GLX visuals
+		/// [GL2.1] return information about GLX visuals
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -887,7 +887,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the current context
+		/// [GL2.1] return the current context
 		/// </summary>
 		/// <seealso cref="Glx.CreateContext"/>
 		/// <seealso cref="Glx.GetCurrentDisplay"/>
@@ -907,7 +907,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the current drawable
+		/// [GL2.1] return the current drawable
 		/// </summary>
 		/// <seealso cref="Glx.CreateGLXPixmap"/>
 		/// <seealso cref="Glx.GetCurrentContext"/>
@@ -928,7 +928,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// complete GL execution prior to subsequent X calls
+		/// [GL2.1] complete GL execution prior to subsequent X calls
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
@@ -947,7 +947,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// complete X execution prior to subsequent GL calls
+		/// [GL2.1] complete X execution prior to subsequent GL calls
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Glx.adCurrentWindow is generated if the drawable associated with the current context of the calling thread is a window, 
@@ -966,7 +966,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create bitmap display lists from an X font
+		/// [GL2.1] create bitmap display lists from an X font
 		/// </summary>
 		/// <param name="font">
 		/// Specifies the font from which character glyphs are to be taken.

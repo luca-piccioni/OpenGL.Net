@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int VERSION_ES_CL_1_1 = 1;
 
 		/// <summary>
-		/// specify a plane against which all geometry is clipped
+		/// [GLES1.1] specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="p">
 		/// A <see cref="T:ClipPlaneName"/>.
@@ -76,7 +76,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a perspective matrix
+		/// [GLES1.1] multiply the current matrix by a perspective matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:float"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the coefficients of the specified clipping plane
+		/// [GLES1.1] return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
 		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
@@ -146,7 +146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix with an orthographic matrix
+		/// [GLES1.1] multiply the current matrix with an orthographic matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:float"/>.
@@ -185,7 +185,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the alpha test function
+		/// [GLES1.1] specify the alpha test function
 		/// </summary>
 		/// <param name="func">
 		/// Specifies the alpha comparison function. Symbolic constants Gl.NEVER, Gl.LESS, Gl.EQUAL, Gl.LEQUAL, Gl.GREATER, 
@@ -213,7 +213,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify clear values for the color buffer
+		/// [GLES1.1] specify clear values for the color buffer
 		/// </summary>
 		/// <param name="red">
 		/// Specify the red, green, blue, and alpha values used when the color buffer is cleared. The initial values are all 0.
@@ -241,7 +241,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the clear value for the depth buffer
+		/// [GLES1.1] specify the clear value for the depth buffer
 		/// </summary>
 		/// <param name="depth">
 		/// Specifies the depth value used when the depth buffer is cleared. The initial value is 1.
@@ -261,7 +261,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a plane against which all geometry is clipped
+		/// [GLES1.1] specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="plane">
 		/// Specifies which clipping plane is being positioned. Symbolic names of the form Gl.CLIP_PLANEi, where i is an integer 
@@ -292,7 +292,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GLES1.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, blue, and alpha values for the current color.
@@ -319,7 +319,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify mapping of depth values from normalized device coordinates to window coordinates
+		/// [GLES1.1] specify mapping of depth values from normalized device coordinates to window coordinates
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:IntPtr"/>.
@@ -340,7 +340,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify fog parameters
+		/// [GLES1.1] specify fog parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
@@ -366,7 +366,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify fog parameters
+		/// [GLES1.1] specify fog parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
@@ -397,7 +397,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a perspective matrix
+		/// [GLES1.1] multiply the current matrix by a perspective matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:IntPtr"/>.
@@ -437,7 +437,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the coefficients of the specified clipping plane
+		/// [GLES1.1] return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
 		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
@@ -467,7 +467,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GLES1.1] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned. The symbolic constants in the list below are accepted.
@@ -495,7 +495,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return light source parameter values
+		/// [GLES1.1] return light source parameter values
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
@@ -528,7 +528,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return material parameters values
+		/// [GLES1.1] return material parameters values
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which of the two materials is being queried. Gl.FRONT or Gl.BACK are accepted, representing the front and back 
@@ -560,7 +560,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture environment parameters
+		/// [GLES1.1] return texture environment parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
@@ -594,7 +594,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture parameter values
+		/// [GLES1.1] return texture parameter values
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
@@ -626,7 +626,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the lighting model parameters
+		/// [GLES1.1] set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued lighting model parameter. Must be Gl.LIGHT_MODEL_TWO_SIDE.
@@ -649,7 +649,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the lighting model parameters
+		/// [GLES1.1] set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued lighting model parameter. Must be Gl.LIGHT_MODEL_TWO_SIDE.
@@ -677,7 +677,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set light source parameters
+		/// [GLES1.1] set light source parameters
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
@@ -711,7 +711,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set light source parameters
+		/// [GLES1.1] set light source parameters
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
@@ -750,7 +750,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the width of rasterized lines
+		/// [GLES1.1] specify the width of rasterized lines
 		/// </summary>
 		/// <param name="width">
 		/// Specifies the width of rasterized lines. The initial value is 1.
@@ -770,7 +770,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// replace the current matrix with the specified matrix
+		/// [GLES1.1] replace the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4x4 column-major matrix.
@@ -794,7 +794,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify material parameters for the lighting model
+		/// [GLES1.1] specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which face or faces are being updated. Must be Gl.FRONT_AND_BACK.
@@ -824,7 +824,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify material parameters for the lighting model
+		/// [GLES1.1] specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which face or faces are being updated. Must be Gl.FRONT_AND_BACK.
@@ -859,7 +859,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix with the specified matrix
+		/// [GLES1.1] multiply the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4x4 column-major matrix.
@@ -883,7 +883,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GLES1.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -920,7 +920,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GLES1.1] set the current normal vector
 		/// </summary>
 		/// <param name="nx">
 		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of the new current normal. 
@@ -948,7 +948,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix with an orthographic matrix
+		/// [GLES1.1] multiply the current matrix with an orthographic matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:IntPtr"/>.
@@ -987,7 +987,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify parameters for point rasterization
+		/// [GLES1.1] specify parameters for point rasterization
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the single-valued parameter to be updated. Can be either Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
@@ -1017,7 +1017,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify parameters for point rasterization
+		/// [GLES1.1] specify parameters for point rasterization
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the single-valued parameter to be updated. Can be either Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
@@ -1052,7 +1052,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the diameter of rasterized points
+		/// [GLES1.1] specify the diameter of rasterized points
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the diameter of rasterized points. The initial value is 1.
@@ -1072,7 +1072,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the scale and units used to calculate depth values
+		/// [GLES1.1] set the scale and units used to calculate depth values
 		/// </summary>
 		/// <param name="factor">
 		/// Specifies a scale factor that is used to create a variable depth offset for each polygon. The initial value is 0.
@@ -1092,7 +1092,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a rotation matrix
+		/// [GLES1.1] multiply the current matrix by a rotation matrix
 		/// </summary>
 		/// <param name="angle">
 		/// Specifies the angle of rotation, in degrees.
@@ -1121,7 +1121,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify mask to modify multisampled pixel fragments
+		/// [GLES1.1] specify mask to modify multisampled pixel fragments
 		/// </summary>
 		/// <param name="value">
 		/// Specifies the coverage of the modification mask. The value is clamped to the range [0, 1], where 0 represents no 
@@ -1142,7 +1142,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a general scaling matrix
+		/// [GLES1.1] multiply the current matrix by a general scaling matrix
 		/// </summary>
 		/// <param name="x">
 		/// Specify scale factors along the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> axes, respectively.
@@ -1169,7 +1169,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture environment parameters
+		/// [GLES1.1] set texture environment parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
@@ -1213,7 +1213,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture environment parameters
+		/// [GLES1.1] set texture environment parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
@@ -1259,7 +1259,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture parameters
+		/// [GLES1.1] set texture parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
@@ -1298,7 +1298,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture parameters
+		/// [GLES1.1] set texture parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
@@ -1342,7 +1342,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a translation matrix
+		/// [GLES1.1] multiply the current matrix by a translation matrix
 		/// </summary>
 		/// <param name="x">
 		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a translation vector.

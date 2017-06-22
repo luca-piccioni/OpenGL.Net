@@ -59,7 +59,7 @@ namespace OpenGL
 		public const int TEXTURE_COORD_ARRAY_PARALLEL_POINTERS_INTEL = 0x83F8;
 
 		/// <summary>
-		/// Binding for glVertexPointervINTEL.
+		/// [GL] Binding for glVertexPointervINTEL.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -85,7 +85,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormalPointervINTEL.
+		/// [GL] Binding for glNormalPointervINTEL.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:NormalPointerType"/>.
@@ -108,7 +108,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorPointervINTEL.
+		/// [GL] Binding for glColorPointervINTEL.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -134,7 +134,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordPointervINTEL.
+		/// [GL] Binding for glTexCoordPointervINTEL.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.

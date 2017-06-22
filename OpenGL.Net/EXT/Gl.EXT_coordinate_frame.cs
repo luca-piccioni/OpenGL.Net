@@ -113,7 +113,7 @@ namespace OpenGL
 		public const int MAP2_BINORMAL_EXT = 0x8447;
 
 		/// <summary>
-		/// Binding for glTangent3bEXT.
+		/// [GL] Binding for glTangent3bEXT.
 		/// </summary>
 		/// <param name="tx">
 		/// A <see cref="T:sbyte"/>.
@@ -134,7 +134,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3bvEXT.
+		/// [GL] Binding for glTangent3bvEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3dEXT.
+		/// [GL] Binding for glTangent3dEXT.
 		/// </summary>
 		/// <param name="tx">
 		/// A <see cref="T:double"/>.
@@ -175,7 +175,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3dvEXT.
+		/// [GL] Binding for glTangent3dvEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -195,7 +195,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3fEXT.
+		/// [GL] Binding for glTangent3fEXT.
 		/// </summary>
 		/// <param name="tx">
 		/// A <see cref="T:float"/>.
@@ -216,7 +216,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3fvEXT.
+		/// [GL] Binding for glTangent3fvEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -236,7 +236,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3iEXT.
+		/// [GL] Binding for glTangent3iEXT.
 		/// </summary>
 		/// <param name="tx">
 		/// A <see cref="T:Int32"/>.
@@ -257,7 +257,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3ivEXT.
+		/// [GL] Binding for glTangent3ivEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -277,7 +277,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3sEXT.
+		/// [GL] Binding for glTangent3sEXT.
 		/// </summary>
 		/// <param name="tx">
 		/// A <see cref="T:Int16"/>.
@@ -298,7 +298,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangent3svEXT.
+		/// [GL] Binding for glTangent3svEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -318,7 +318,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3bEXT.
+		/// [GL] Binding for glBinormal3bEXT.
 		/// </summary>
 		/// <param name="bx">
 		/// A <see cref="T:sbyte"/>.
@@ -339,7 +339,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3bvEXT.
+		/// [GL] Binding for glBinormal3bvEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
@@ -359,7 +359,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3dEXT.
+		/// [GL] Binding for glBinormal3dEXT.
 		/// </summary>
 		/// <param name="bx">
 		/// A <see cref="T:double"/>.
@@ -380,7 +380,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3dvEXT.
+		/// [GL] Binding for glBinormal3dvEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -400,7 +400,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3fEXT.
+		/// [GL] Binding for glBinormal3fEXT.
 		/// </summary>
 		/// <param name="bx">
 		/// A <see cref="T:float"/>.
@@ -421,7 +421,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3fvEXT.
+		/// [GL] Binding for glBinormal3fvEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -441,7 +441,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3iEXT.
+		/// [GL] Binding for glBinormal3iEXT.
 		/// </summary>
 		/// <param name="bx">
 		/// A <see cref="T:Int32"/>.
@@ -462,7 +462,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3ivEXT.
+		/// [GL] Binding for glBinormal3ivEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -482,7 +482,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3sEXT.
+		/// [GL] Binding for glBinormal3sEXT.
 		/// </summary>
 		/// <param name="bx">
 		/// A <see cref="T:Int16"/>.
@@ -503,7 +503,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormal3svEXT.
+		/// [GL] Binding for glBinormal3svEXT.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -523,7 +523,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangentPointerEXT.
+		/// [GL] Binding for glTangentPointerEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -544,7 +544,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTangentPointerEXT.
+		/// [GL] Binding for glTangentPointerEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -567,7 +567,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormalPointerEXT.
+		/// [GL] Binding for glBinormalPointerEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -588,7 +588,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBinormalPointerEXT.
+		/// [GL] Binding for glBinormalPointerEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.

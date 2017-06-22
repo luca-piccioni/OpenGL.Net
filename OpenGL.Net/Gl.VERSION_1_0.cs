@@ -5471,7 +5471,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// select a polygon rasterization mode
+		/// [GL4] select a polygon rasterization mode
 		/// </summary>
 		/// <param name="face">
 		/// Specifies the polygons that <paramref name="mode"/> applies to. Must be Gl.FRONT_AND_BACK for front- and back-facing 
@@ -5783,7 +5783,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a one-dimensional texture image
+		/// [GL2.1] specify a one-dimensional texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_1D or Gl.PROXY_TEXTURE_1D.
@@ -5918,7 +5918,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a one-dimensional texture image
+		/// [GL2.1] specify a one-dimensional texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_1D or Gl.PROXY_TEXTURE_1D.
@@ -6375,7 +6375,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify which color buffers are to be drawn into
+		/// [GL4] specify which color buffers are to be drawn into
 		/// </summary>
 		/// <param name="buf">
 		/// For default framebuffer, the argument specifies up to four color buffers to be drawn into. Symbolic constants Gl.NONE, 
@@ -6498,7 +6498,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the clear value for the depth buffer
+		/// [GL4] specify the clear value for the depth buffer
 		/// </summary>
 		/// <param name="depth">
 		/// Specifies the depth value used when the depth buffer is cleared. The initial value is 1.
@@ -6938,7 +6938,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set pixel storage modes
+		/// [GL2.1] set pixel storage modes
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the symbolic name of the parameter to be set. Six values affect the packing of pixel data into memory: 
@@ -7432,7 +7432,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GL4] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7487,7 +7487,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GL4] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7542,7 +7542,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GL4] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -7597,7 +7597,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the value or values of a selected parameter
+		/// [GL4] return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
@@ -8174,7 +8174,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a texture image
+		/// [GL2.1] return a texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies which texture is to be obtained. Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
@@ -8260,7 +8260,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a texture image
+		/// [GL2.1] return a texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies which texture is to be obtained. Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
@@ -8785,7 +8785,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify mapping of depth values from normalized device coordinates to window coordinates
+		/// [GL4] specify mapping of depth values from normalized device coordinates to window coordinates
 		/// </summary>
 		/// <param name="nearVal">
 		/// Specifies the mapping of the near clipping plane to window coordinates. The initial value is 0.
@@ -8845,7 +8845,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create or replace a display list
+		/// [GL2.1] create or replace a display list
 		/// </summary>
 		/// <param name="list">
 		/// Specifies the display-list name.
@@ -8887,7 +8887,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// create or replace a display list
+		/// [GL2.1] create or replace a display list
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="list"/> is 0.
@@ -8923,7 +8923,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// execute a display list
+		/// [GL2.1] execute a display list
 		/// </summary>
 		/// <param name="list">
 		/// Specifies the integer name of the display list to be executed.
@@ -8943,7 +8943,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// execute a list of display lists
+		/// [GL2.1] execute a list of display lists
 		/// </summary>
 		/// <param name="n">
 		/// Specifies the number of display lists to be executed.
@@ -8980,7 +8980,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// execute a list of display lists
+		/// [GL2.1] execute a list of display lists
 		/// </summary>
 		/// <param name="n">
 		/// Specifies the number of display lists to be executed.
@@ -9020,7 +9020,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delete a contiguous group of display lists
+		/// [GL2.1] delete a contiguous group of display lists
 		/// </summary>
 		/// <param name="list">
 		/// Specifies the integer name of the first display list to delete.
@@ -9051,7 +9051,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate a contiguous set of empty display lists
+		/// [GL2.1] generate a contiguous set of empty display lists
 		/// </summary>
 		/// <param name="range">
 		/// Specifies the number of contiguous empty display lists to be generated.
@@ -9082,7 +9082,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the display-list base for glCallLists
+		/// [GL2.1] set the display-list base for glCallLists
 		/// </summary>
 		/// <param name="base">
 		/// Specifies an integer offset that will be added to Gl\.CallLists offsets to generate display-list names. The initial 
@@ -9104,7 +9104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delimit the vertices of a primitive or a group of like primitives
+		/// [GL2.1] delimit the vertices of a primitive or a group of like primitives
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies the primitive or primitives that will be created from vertices presented between Gl.Begin and the subsequent 
@@ -9158,7 +9158,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a bitmap
+		/// [GL2.1] draw a bitmap
 		/// </summary>
 		/// <param name="width">
 		/// Specify the pixel width and height of the bitmap image.
@@ -9220,7 +9220,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9243,7 +9243,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
@@ -9266,7 +9266,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9289,7 +9289,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -9312,7 +9312,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9335,7 +9335,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -9358,7 +9358,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9381,7 +9381,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -9404,7 +9404,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9427,7 +9427,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -9450,7 +9450,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9473,7 +9473,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
@@ -9496,7 +9496,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9519,7 +9519,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
@@ -9542,7 +9542,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9565,7 +9565,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -9588,7 +9588,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9614,7 +9614,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
@@ -9637,7 +9637,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9663,7 +9663,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -9715,7 +9715,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -9738,7 +9738,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9764,7 +9764,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -9787,7 +9787,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9813,7 +9813,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -9865,7 +9865,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
@@ -9888,7 +9888,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9914,7 +9914,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
@@ -9937,7 +9937,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current color.
@@ -9963,7 +9963,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color
+		/// [GL2.1] set the current color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -9986,7 +9986,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// flag edges as either boundary or nonboundary
+		/// [GL2.1] flag edges as either boundary or nonboundary
 		/// </summary>
 		/// <param name="flag">
 		/// Specifies the current edge flag value, either Gl.TRUE or Gl.FALSE. The initial value is Gl.TRUE.
@@ -10003,7 +10003,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// flag edges as either boundary or nonboundary
+		/// [GL2.1] flag edges as either boundary or nonboundary
 		/// </summary>
 		/// <param name="flag">
 		/// Specifies the current edge flag value, either Gl.TRUE or Gl.FALSE. The initial value is Gl.TRUE.
@@ -10026,7 +10026,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// delimit the vertices of a primitive or a group of like primitives
+		/// [GL2.1] delimit the vertices of a primitive or a group of like primitives
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is set to an unaccepted value.
@@ -10076,7 +10076,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -10093,7 +10093,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -10116,7 +10116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -10133,7 +10133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -10156,7 +10156,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -10173,7 +10173,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -10196,7 +10196,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -10213,7 +10213,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -10236,7 +10236,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="nx">
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
@@ -10267,7 +10267,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
@@ -10295,7 +10295,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="nx">
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
@@ -10326,7 +10326,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -10388,7 +10388,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -10416,7 +10416,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="nx">
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
@@ -10447,7 +10447,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -10475,7 +10475,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="nx">
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
@@ -10506,7 +10506,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current normal vector
+		/// [GL2.1] set the current normal vector
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -10534,7 +10534,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -10568,7 +10568,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -10604,7 +10604,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -10638,7 +10638,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -10674,7 +10674,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -10708,7 +10708,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -10744,7 +10744,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -10778,7 +10778,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -10814,7 +10814,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -10851,7 +10851,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -10887,7 +10887,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -10924,7 +10924,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -10960,7 +10960,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -10997,7 +10997,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -11033,7 +11033,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -11070,7 +11070,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -11106,7 +11106,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -11146,7 +11146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -11182,7 +11182,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -11222,7 +11222,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -11258,7 +11258,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -11298,7 +11298,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -11334,7 +11334,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
@@ -11374,7 +11374,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the raster position for pixel operations
+		/// [GL2.1] specify the raster position for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -11410,7 +11410,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a rectangle
+		/// [GL2.1] draw a rectangle
 		/// </summary>
 		/// <param name="x1">
 		/// Specify one vertex of a rectangle.
@@ -11441,7 +11441,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a rectangle
+		/// [GL2.1] draw a rectangle
 		/// </summary>
 		/// <param name="v1">
 		/// A <see cref="T:double[]"/>.
@@ -11472,7 +11472,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a rectangle
+		/// [GL2.1] draw a rectangle
 		/// </summary>
 		/// <param name="x1">
 		/// Specify one vertex of a rectangle.
@@ -11503,7 +11503,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a rectangle
+		/// [GL2.1] draw a rectangle
 		/// </summary>
 		/// <param name="v1">
 		/// A <see cref="T:float[]"/>.
@@ -11534,7 +11534,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a rectangle
+		/// [GL2.1] draw a rectangle
 		/// </summary>
 		/// <param name="x1">
 		/// Specify one vertex of a rectangle.
@@ -11565,7 +11565,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a rectangle
+		/// [GL2.1] draw a rectangle
 		/// </summary>
 		/// <param name="v1">
 		/// A <see cref="T:Int32[]"/>.
@@ -11596,7 +11596,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a rectangle
+		/// [GL2.1] draw a rectangle
 		/// </summary>
 		/// <param name="x1">
 		/// Specify one vertex of a rectangle.
@@ -11627,7 +11627,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// draw a rectangle
+		/// [GL2.1] draw a rectangle
 		/// </summary>
 		/// <param name="v1">
 		/// A <see cref="T:Int16[]"/>.
@@ -11658,7 +11658,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -11675,7 +11675,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -11698,7 +11698,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -11715,7 +11715,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -11738,7 +11738,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -11755,7 +11755,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -11778,7 +11778,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -11795,7 +11795,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -11818,7 +11818,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -11838,7 +11838,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -11861,7 +11861,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -11881,7 +11881,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -11904,7 +11904,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -11924,7 +11924,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -11947,7 +11947,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -11967,7 +11967,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -11990,7 +11990,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -12013,7 +12013,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -12036,7 +12036,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -12059,7 +12059,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -12082,7 +12082,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -12105,7 +12105,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -12128,7 +12128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -12151,7 +12151,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -12174,7 +12174,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -12200,7 +12200,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -12223,7 +12223,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -12249,7 +12249,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -12272,7 +12272,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -12298,7 +12298,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -12321,7 +12321,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
@@ -12347,7 +12347,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -12370,7 +12370,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12401,7 +12401,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -12435,7 +12435,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12466,7 +12466,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -12500,7 +12500,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12531,7 +12531,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -12565,7 +12565,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12596,7 +12596,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -12630,7 +12630,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12664,7 +12664,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -12698,7 +12698,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12732,7 +12732,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -12766,7 +12766,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12800,7 +12800,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -12834,7 +12834,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12868,7 +12868,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -12902,7 +12902,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -12939,7 +12939,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -12973,7 +12973,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -13010,7 +13010,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -13044,7 +13044,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -13081,7 +13081,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -13115,7 +13115,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="x">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
@@ -13152,7 +13152,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a vertex
+		/// [GL2.1] specify a vertex
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -13186,7 +13186,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a plane against which all geometry is clipped
+		/// [GL2.1] specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="plane">
 		/// Specifies which clipping plane is being positioned. Symbolic names of the form Gl.CLIP_PLANEi, where i is an integer 
@@ -13220,7 +13220,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// cause a material color to track the current color
+		/// [GL2.1] cause a material color to track the current color
 		/// </summary>
 		/// <param name="face">
 		/// Specifies whether front, back, or both front and back material parameters should track the current color. Accepted 
@@ -13332,7 +13332,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify fog parameters
+		/// [GL2.1] specify fog parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -13364,7 +13364,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify fog parameters
+		/// [GL2.1] specify fog parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -13488,7 +13488,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set light source parameters
+		/// [GL2.1] set light source parameters
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
@@ -13526,7 +13526,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set light source parameters
+		/// [GL2.1] set light source parameters
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
@@ -13646,7 +13646,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the lighting model parameters
+		/// [GL2.1] set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued lighting model parameter. Gl.LIGHT_MODEL_LOCAL_VIEWER, Gl.LIGHT_MODEL_COLOR_CONTROL, and 
@@ -13679,7 +13679,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the lighting model parameters
+		/// [GL2.1] set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued lighting model parameter. Gl.LIGHT_MODEL_LOCAL_VIEWER, Gl.LIGHT_MODEL_COLOR_CONTROL, and 
@@ -13717,7 +13717,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the line stipple pattern
+		/// [GL2.1] specify the line stipple pattern
 		/// </summary>
 		/// <param name="factor">
 		/// Specifies a multiplier for each bit in the line stipple pattern. If <paramref name="factor"/> is 3, for example, each 
@@ -13817,7 +13817,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify material parameters for the lighting model
+		/// [GL2.1] specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which face or faces are being updated. Must be one of Gl.FRONT, Gl.BACK, or Gl.FRONT_AND_BACK.
@@ -13847,7 +13847,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify material parameters for the lighting model
+		/// [GL2.1] specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which face or faces are being updated. Must be one of Gl.FRONT, Gl.BACK, or Gl.FRONT_AND_BACK.
@@ -13883,7 +13883,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the polygon stippling pattern
+		/// [GL2.1] set the polygon stippling pattern
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:byte[]"/>.
@@ -14189,7 +14189,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// control the generation of texture coordinates
+		/// [GL2.1] control the generation of texture coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be one of Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -14238,7 +14238,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// control the generation of texture coordinates
+		/// [GL2.1] control the generation of texture coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be one of Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -14291,7 +14291,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// control the generation of texture coordinates
+		/// [GL2.1] control the generation of texture coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be one of Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -14340,7 +14340,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// control the generation of texture coordinates
+		/// [GL2.1] control the generation of texture coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be one of Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -14393,7 +14393,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// control the generation of texture coordinates
+		/// [GL2.1] control the generation of texture coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be one of Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -14442,7 +14442,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// control the generation of texture coordinates
+		/// [GL2.1] control the generation of texture coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be one of Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -14495,7 +14495,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// controls feedback mode
+		/// [GL2.1] controls feedback mode
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the maximum number of values that can be written into <paramref name="buffer"/>.
@@ -14543,7 +14543,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// controls feedback mode
+		/// [GL2.1] controls feedback mode
 		/// </summary>
 		/// <param name="type">
 		/// Specifies a symbolic constant that describes the information that will be returned for each vertex. Gl.2D, Gl.3D, 
@@ -14588,7 +14588,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// establish a buffer for selection mode values
+		/// [GL2.1] establish a buffer for selection mode values
 		/// </summary>
 		/// <param name="buffer">
 		/// Returns the selection data.
@@ -14625,7 +14625,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set rasterization mode
+		/// [GL2.1] set rasterization mode
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies the rasterization mode. Three values are accepted: Gl.RENDER, Gl.SELECT, and Gl.FEEDBACK. The initial value is 
@@ -14667,7 +14667,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// initialize the name stack
+		/// [GL2.1] initialize the name stack
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_OPERATION is generated if Gl.InitNames is executed between the execution of Gl\.Begin and the corresponding 
@@ -14688,7 +14688,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// load a name onto the name stack
+		/// [GL2.1] load a name onto the name stack
 		/// </summary>
 		/// <param name="name">
 		/// Specifies a name that will replace the top value on the name stack.
@@ -14715,7 +14715,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// place a marker in the feedback buffer
+		/// [GL2.1] place a marker in the feedback buffer
 		/// </summary>
 		/// <param name="token">
 		/// Specifies a marker value to be placed in the feedback buffer following a Gl.PASS_THROUGH_TOKEN.
@@ -14737,7 +14737,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// push and pop the name stack
+		/// [GL2.1] push and pop the name stack
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushName is called while the name stack is full.
@@ -14764,7 +14764,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// push and pop the name stack
+		/// [GL2.1] push and pop the name stack
 		/// </summary>
 		/// <param name="name">
 		/// Specifies a name that will be pushed onto the name stack.
@@ -14794,7 +14794,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify clear values for the accumulation buffer
+		/// [GL2.1] specify clear values for the accumulation buffer
 		/// </summary>
 		/// <param name="red">
 		/// Specify the red, green, blue, and alpha values used when the accumulation buffer is cleared. The initial values are all 
@@ -14829,7 +14829,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the clear value for the color index buffers
+		/// [GL2.1] specify the clear value for the color index buffers
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the index used when the color index buffers are cleared. The initial value is 0.
@@ -14850,7 +14850,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// control the writing of individual bits in the color index buffers
+		/// [GL2.1] control the writing of individual bits in the color index buffers
 		/// </summary>
 		/// <param name="mask">
 		/// Specifies a bit mask to enable and disable the writing of individual bits in the color index buffers. Initially, the 
@@ -14877,7 +14877,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// operate on the accumulation buffer
+		/// [GL2.1] operate on the accumulation buffer
 		/// </summary>
 		/// <param name="op">
 		/// Specifies the accumulation buffer operation. Symbolic constants Gl.ACCUM, Gl.LOAD, Gl.ADD, Gl.MULT, and Gl.RETURN are 
@@ -14917,7 +14917,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// push and pop the server attribute stack
+		/// [GL2.1] push and pop the server attribute stack
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushAttrib is called while the attribute stack is full.
@@ -14956,7 +14956,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// push and pop the server attribute stack
+		/// [GL2.1] push and pop the server attribute stack
 		/// </summary>
 		/// <param name="mask">
 		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.
@@ -14998,7 +14998,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define a one-dimensional evaluator
+		/// [GL2.1] define a one-dimensional evaluator
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the kind of values that are generated by the evaluator. Symbolic constants Gl.MAP1_VERTEX_3, Gl.MAP1_VERTEX_4, 
@@ -15072,7 +15072,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define a one-dimensional evaluator
+		/// [GL2.1] define a one-dimensional evaluator
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the kind of values that are generated by the evaluator. Symbolic constants Gl.MAP1_VERTEX_3, Gl.MAP1_VERTEX_4, 
@@ -15146,7 +15146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define a two-dimensional evaluator
+		/// [GL2.1] define a two-dimensional evaluator
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the kind of values that are generated by the evaluator. Symbolic constants Gl.MAP2_VERTEX_3, Gl.MAP2_VERTEX_4, 
@@ -15239,7 +15239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define a two-dimensional evaluator
+		/// [GL2.1] define a two-dimensional evaluator
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the kind of values that are generated by the evaluator. Symbolic constants Gl.MAP2_VERTEX_3, Gl.MAP2_VERTEX_4, 
@@ -15332,7 +15332,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define a one- or two-dimensional mesh
+		/// [GL2.1] define a one- or two-dimensional mesh
 		/// </summary>
 		/// <param name="un">
 		/// Specifies the number of partitions in the grid range interval [<paramref name="u1"/>, <paramref name="u2"/>]. Must be 
@@ -15367,7 +15367,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define a one- or two-dimensional mesh
+		/// [GL2.1] define a one- or two-dimensional mesh
 		/// </summary>
 		/// <param name="un">
 		/// Specifies the number of partitions in the grid range interval [<paramref name="u1"/>, <paramref name="u2"/>]. Must be 
@@ -15402,7 +15402,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define a one- or two-dimensional mesh
+		/// [GL2.1] define a one- or two-dimensional mesh
 		/// </summary>
 		/// <param name="un">
 		/// Specifies the number of partitions in the grid range interval [<paramref name="u1"/>, <paramref name="u2"/>]. Must be 
@@ -15447,7 +15447,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define a one- or two-dimensional mesh
+		/// [GL2.1] define a one- or two-dimensional mesh
 		/// </summary>
 		/// <param name="un">
 		/// Specifies the number of partitions in the grid range interval [<paramref name="u1"/>, <paramref name="u2"/>]. Must be 
@@ -15492,7 +15492,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// evaluate enabled one- and two-dimensional maps
+		/// [GL2.1] evaluate enabled one- and two-dimensional maps
 		/// </summary>
 		/// <param name="u">
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
@@ -15520,7 +15520,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// evaluate enabled one- and two-dimensional maps
+		/// [GL2.1] evaluate enabled one- and two-dimensional maps
 		/// </summary>
 		/// <param name="u">
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
@@ -15554,7 +15554,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// evaluate enabled one- and two-dimensional maps
+		/// [GL2.1] evaluate enabled one- and two-dimensional maps
 		/// </summary>
 		/// <param name="u">
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
@@ -15582,7 +15582,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// evaluate enabled one- and two-dimensional maps
+		/// [GL2.1] evaluate enabled one- and two-dimensional maps
 		/// </summary>
 		/// <param name="u">
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
@@ -15616,7 +15616,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// evaluate enabled one- and two-dimensional maps
+		/// [GL2.1] evaluate enabled one- and two-dimensional maps
 		/// </summary>
 		/// <param name="u">
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
@@ -15648,7 +15648,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// evaluate enabled one- and two-dimensional maps
+		/// [GL2.1] evaluate enabled one- and two-dimensional maps
 		/// </summary>
 		/// <param name="u">
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
@@ -15682,7 +15682,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// evaluate enabled one- and two-dimensional maps
+		/// [GL2.1] evaluate enabled one- and two-dimensional maps
 		/// </summary>
 		/// <param name="u">
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
@@ -15714,7 +15714,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// evaluate enabled one- and two-dimensional maps
+		/// [GL2.1] evaluate enabled one- and two-dimensional maps
 		/// </summary>
 		/// <param name="u">
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
@@ -15748,7 +15748,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// compute a one- or two-dimensional grid of points or lines
+		/// [GL2.1] compute a one- or two-dimensional grid of points or lines
 		/// </summary>
 		/// <param name="mode">
 		/// In Gl.EvalMesh1, specifies whether to compute a one-dimensional mesh of points or lines. Symbolic constants Gl.POINT and 
@@ -15784,7 +15784,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate and evaluate a single point in a mesh
+		/// [GL2.1] generate and evaluate a single point in a mesh
 		/// </summary>
 		/// <param name="i">
 		/// Specifies the integer value for grid domain variable i.
@@ -15804,7 +15804,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// compute a one- or two-dimensional grid of points or lines
+		/// [GL2.1] compute a one- or two-dimensional grid of points or lines
 		/// </summary>
 		/// <param name="mode">
 		/// In Gl.EvalMesh1, specifies whether to compute a one-dimensional mesh of points or lines. Symbolic constants Gl.POINT and 
@@ -15846,7 +15846,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// generate and evaluate a single point in a mesh
+		/// [GL2.1] generate and evaluate a single point in a mesh
 		/// </summary>
 		/// <param name="i">
 		/// Specifies the integer value for grid domain variable i.
@@ -15905,7 +15905,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify the pixel zoom factors
+		/// [GL2.1] specify the pixel zoom factors
 		/// </summary>
 		/// <param name="xfactor">
 		/// Specify the x and y zoom factors for pixel write operations.
@@ -15930,7 +15930,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set pixel transfer modes
+		/// [GL2.1] set pixel transfer modes
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the symbolic name of the pixel transfer parameter to be set. Must be one of the following: Gl.MAP_COLOR, 
@@ -15981,7 +15981,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set pixel transfer modes
+		/// [GL2.1] set pixel transfer modes
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the symbolic name of the pixel transfer parameter to be set. Must be one of the following: Gl.MAP_COLOR, 
@@ -16032,7 +16032,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set up pixel transfer maps
+		/// [GL2.1] set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
 		/// Specifies a symbolic map name. Must be one of the following: Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -16121,7 +16121,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set up pixel transfer maps
+		/// [GL2.1] set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
 		/// Specifies a symbolic map name. Must be one of the following: Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -16207,7 +16207,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set up pixel transfer maps
+		/// [GL2.1] set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
 		/// Specifies a symbolic map name. Must be one of the following: Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -16296,7 +16296,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set up pixel transfer maps
+		/// [GL2.1] set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
 		/// Specifies a symbolic map name. Must be one of the following: Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -16382,7 +16382,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set up pixel transfer maps
+		/// [GL2.1] set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
 		/// Specifies a symbolic map name. Must be one of the following: Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -16471,7 +16471,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set up pixel transfer maps
+		/// [GL2.1] set up pixel transfer maps
 		/// </summary>
 		/// <param name="map">
 		/// Specifies a symbolic map name. Must be one of the following: Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -16557,7 +16557,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy pixels in the frame buffer
+		/// [GL2.1] copy pixels in the frame buffer
 		/// </summary>
 		/// <param name="x">
 		/// Specify the window coordinates of the lower left corner of the rectangular region of pixels to be copied.
@@ -16618,7 +16618,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// write a block of pixels to the frame buffer
+		/// [GL2.1] write a block of pixels to the frame buffer
 		/// </summary>
 		/// <param name="width">
 		/// Specify the dimensions of the pixel rectangle to be written into the frame buffer.
@@ -16710,7 +16710,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// write a block of pixels to the frame buffer
+		/// [GL2.1] write a block of pixels to the frame buffer
 		/// </summary>
 		/// <param name="width">
 		/// Specify the dimensions of the pixel rectangle to be written into the frame buffer.
@@ -16804,7 +16804,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the coefficients of the specified clipping plane
+		/// [GL2.1] return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
 		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
@@ -16881,7 +16881,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return light source parameter values
+		/// [GL2.1] return light source parameter values
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
@@ -16920,7 +16920,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return evaluator parameters
+		/// [GL2.1] return evaluator parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the symbolic name of a map. Accepted values are Gl.MAP1_COLOR_4, Gl.MAP1_INDEX, Gl.MAP1_NORMAL, 
@@ -16960,7 +16960,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return evaluator parameters
+		/// [GL2.1] return evaluator parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the symbolic name of a map. Accepted values are Gl.MAP1_COLOR_4, Gl.MAP1_INDEX, Gl.MAP1_NORMAL, 
@@ -17000,7 +17000,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return evaluator parameters
+		/// [GL2.1] return evaluator parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the symbolic name of a map. Accepted values are Gl.MAP1_COLOR_4, Gl.MAP1_INDEX, Gl.MAP1_NORMAL, 
@@ -17083,7 +17083,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return material parameters
+		/// [GL2.1] return material parameters
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which of the two materials is being queried. Gl.FRONT or Gl.BACK are accepted, representing the front and back 
@@ -17120,7 +17120,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the specified pixel map
+		/// [GL2.1] return the specified pixel map
 		/// </summary>
 		/// <param name="map">
 		/// Specifies the name of the pixel map to return. Accepted values are Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -17204,7 +17204,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the specified pixel map
+		/// [GL2.1] return the specified pixel map
 		/// </summary>
 		/// <param name="map">
 		/// Specifies the name of the pixel map to return. Accepted values are Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -17288,7 +17288,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the specified pixel map
+		/// [GL2.1] return the specified pixel map
 		/// </summary>
 		/// <param name="map">
 		/// Specifies the name of the pixel map to return. Accepted values are Gl.PIXEL_MAP_I_TO_I, Gl.PIXEL_MAP_S_TO_S, 
@@ -17372,7 +17372,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return the polygon stipple pattern
+		/// [GL2.1] return the polygon stipple pattern
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:byte[]"/>.
@@ -17493,7 +17493,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture coordinate generation parameters
+		/// [GL2.1] return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -17530,7 +17530,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture coordinate generation parameters
+		/// [GL2.1] return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -17567,7 +17567,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return texture coordinate generation parameters
+		/// [GL2.1] return texture coordinate generation parameters
 		/// </summary>
 		/// <param name="coord">
 		/// Specifies a texture coordinate. Must be Gl.S, Gl.T, Gl.R, or Gl.Q.
@@ -17604,7 +17604,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if a name corresponds to a display list
+		/// [GL2.1] determine if a name corresponds to a display list
 		/// </summary>
 		/// <param name="list">
 		/// Specifies a potential display list name.
@@ -17633,7 +17633,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a perspective matrix
+		/// [GL2.1] multiply the current matrix by a perspective matrix
 		/// </summary>
 		/// <param name="left">
 		/// Specify the coordinates for the left and right vertical clipping planes.
@@ -17737,7 +17737,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// replace the current matrix with the specified matrix
+		/// [GL2.1] replace the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
@@ -17835,7 +17835,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix with the specified matrix
+		/// [GL2.1] multiply the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
@@ -17866,7 +17866,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix with an orthographic matrix
+		/// [GL2.1] multiply the current matrix with an orthographic matrix
 		/// </summary>
 		/// <param name="left">
 		/// Specify the coordinates for the left and right vertical clipping planes.
@@ -17986,7 +17986,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a rotation matrix
+		/// [GL2.1] multiply the current matrix by a rotation matrix
 		/// </summary>
 		/// <param name="angle">
 		/// Specifies the angle of rotation, in degrees.
@@ -18057,7 +18057,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a general scaling matrix
+		/// [GL2.1] multiply the current matrix by a general scaling matrix
 		/// </summary>
 		/// <param name="x">
 		/// Specify scale factors along the x, y, and z axes, respectively.
@@ -18122,7 +18122,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix by a translation matrix
+		/// [GL2.1] multiply the current matrix by a translation matrix
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, and z coordinates of a translation vector.

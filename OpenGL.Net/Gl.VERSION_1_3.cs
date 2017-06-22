@@ -1712,7 +1712,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a one-dimensional texture image in a compressed format
+		/// [GL2.1] specify a one-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_1D or Gl.PROXY_TEXTURE_1D.
@@ -1804,7 +1804,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a one-dimensional texture image in a compressed format
+		/// [GL2.1] specify a one-dimensional texture image in a compressed format
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_1D or Gl.PROXY_TEXTURE_1D.
@@ -2312,7 +2312,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a one-dimensional texture subimage in a compressed format
+		/// [GL4] specify a one-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target, to which the texture is bound, for Gl.CompressedTexSubImage1D function. Must be Gl.TEXTURE_1D.
@@ -2394,7 +2394,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a one-dimensional texture subimage in a compressed format
+		/// [GL4] specify a one-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target, to which the texture is bound, for Gl.CompressedTexSubImage1D function. Must be Gl.TEXTURE_1D.
@@ -2478,7 +2478,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a compressed texture image
+		/// [GL4] return a compressed texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetCompressedTexImage and Gl.GetnCompressedTexImage functions. 
@@ -2542,7 +2542,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return a compressed texture image
+		/// [GL4] return a compressed texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetCompressedTexImage and Gl.GetnCompressedTexImage functions. 
@@ -2643,7 +2643,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2671,7 +2671,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2704,7 +2704,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2732,7 +2732,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2765,7 +2765,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2793,7 +2793,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2826,7 +2826,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2854,7 +2854,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2887,7 +2887,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2919,7 +2919,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2952,7 +2952,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -2984,7 +2984,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3017,7 +3017,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3049,7 +3049,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3082,7 +3082,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3114,7 +3114,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3147,7 +3147,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3183,7 +3183,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3216,7 +3216,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3252,7 +3252,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3285,7 +3285,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3321,7 +3321,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3354,7 +3354,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3390,7 +3390,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3423,7 +3423,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3463,7 +3463,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3539,7 +3539,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3572,7 +3572,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3612,7 +3612,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3645,7 +3645,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3685,7 +3685,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current texture coordinates
+		/// [GL2.1] set the current texture coordinates
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the texture unit whose coordinates should be modified. The number of texture units is implementation 
@@ -3718,7 +3718,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// replace the current matrix with the specified row-major ordered matrix
+		/// [GL2.1] replace the current matrix with the specified row-major ordered matrix
 		/// </summary>
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
@@ -3751,7 +3751,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// replace the current matrix with the specified row-major ordered matrix
+		/// [GL2.1] replace the current matrix with the specified row-major ordered matrix
 		/// </summary>
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
@@ -3784,7 +3784,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix with the specified row-major ordered matrix
+		/// [GL2.1] multiply the current matrix with the specified row-major ordered matrix
 		/// </summary>
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
@@ -3816,7 +3816,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// multiply the current matrix with the specified row-major ordered matrix
+		/// [GL2.1] multiply the current matrix with the specified row-major ordered matrix
 		/// </summary>
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.

@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int NO_FILE_DESCRIPTOR_KHR = -1;
 
 		/// <summary>
-		/// Binding for eglGetStreamFileDescriptorKHR.
+		/// [EGL] Binding for eglGetStreamFileDescriptorKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -57,7 +57,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglCreateStreamFromFileDescriptorKHR.
+		/// [EGL] Binding for eglCreateStreamFromFileDescriptorKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

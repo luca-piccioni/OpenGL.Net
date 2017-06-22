@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glFlushRasterSGIX.
+		/// [GL] Binding for glFlushRasterSGIX.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_flush_raster")]
 		public static void FlushRasterSGIX()

@@ -173,7 +173,7 @@ namespace OpenGL
 		public const int FLOAT16_VEC4_NV = 0x8FFB;
 
 		/// <summary>
-		/// Binding for glUniform1i64NV.
+		/// [GL] Binding for glUniform1i64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -192,7 +192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform2i64NV.
+		/// [GL] Binding for glUniform2i64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -214,7 +214,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform3i64NV.
+		/// [GL] Binding for glUniform3i64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -239,7 +239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform4i64NV.
+		/// [GL] Binding for glUniform4i64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -267,7 +267,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform1i64vNV.
+		/// [GL] Binding for glUniform1i64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -294,7 +294,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform2i64vNV.
+		/// [GL] Binding for glUniform2i64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -321,7 +321,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform3i64vNV.
+		/// [GL] Binding for glUniform3i64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -348,7 +348,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform4i64vNV.
+		/// [GL] Binding for glUniform4i64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -375,7 +375,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform1ui64NV.
+		/// [GL] Binding for glUniform1ui64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -394,7 +394,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform2ui64NV.
+		/// [GL] Binding for glUniform2ui64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -416,7 +416,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform3ui64NV.
+		/// [GL] Binding for glUniform3ui64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -441,7 +441,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform4ui64NV.
+		/// [GL] Binding for glUniform4ui64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -469,7 +469,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform1ui64vNV.
+		/// [GL] Binding for glUniform1ui64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -496,7 +496,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform2ui64vNV.
+		/// [GL] Binding for glUniform2ui64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -523,7 +523,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform3ui64vNV.
+		/// [GL] Binding for glUniform3ui64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -550,7 +550,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUniform4ui64vNV.
+		/// [GL] Binding for glUniform4ui64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -577,7 +577,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetUniformi64vNV.
+		/// [GL] Binding for glGetUniformi64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -604,7 +604,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform1i64NV.
+		/// [GL] Binding for glProgramUniform1i64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -626,7 +626,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform2i64NV.
+		/// [GL] Binding for glProgramUniform2i64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -651,7 +651,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform3i64NV.
+		/// [GL] Binding for glProgramUniform3i64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -679,7 +679,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform4i64NV.
+		/// [GL] Binding for glProgramUniform4i64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -710,7 +710,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform1i64vNV.
+		/// [GL] Binding for glProgramUniform1i64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -737,7 +737,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform2i64vNV.
+		/// [GL] Binding for glProgramUniform2i64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -767,7 +767,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform3i64vNV.
+		/// [GL] Binding for glProgramUniform3i64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -797,7 +797,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform4i64vNV.
+		/// [GL] Binding for glProgramUniform4i64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -827,7 +827,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform1ui64NV.
+		/// [GL] Binding for glProgramUniform1ui64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -849,7 +849,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform2ui64NV.
+		/// [GL] Binding for glProgramUniform2ui64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -874,7 +874,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform3ui64NV.
+		/// [GL] Binding for glProgramUniform3ui64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -902,7 +902,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform4ui64NV.
+		/// [GL] Binding for glProgramUniform4ui64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -933,7 +933,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform1ui64vNV.
+		/// [GL] Binding for glProgramUniform1ui64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -960,7 +960,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform2ui64vNV.
+		/// [GL] Binding for glProgramUniform2ui64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -990,7 +990,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform3ui64vNV.
+		/// [GL] Binding for glProgramUniform3ui64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -1020,7 +1020,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glProgramUniform4ui64vNV.
+		/// [GL] Binding for glProgramUniform4ui64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.

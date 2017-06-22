@@ -50,7 +50,7 @@ namespace OpenGL
 		public const int ACCESS_WRITE_DISCARD_NV = 0x00000002;
 
 		/// <summary>
-		/// Binding for wglDXSetResourceShareHandleNV.
+		/// [WGL] Binding for wglDXSetResourceShareHandleNV.
 		/// </summary>
 		/// <param name="dxObject">
 		/// A <see cref="T:IntPtr"/>.
@@ -72,7 +72,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDXOpenDeviceNV.
+		/// [WGL] Binding for wglDXOpenDeviceNV.
 		/// </summary>
 		/// <param name="dxDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDXCloseDeviceNV.
+		/// [WGL] Binding for wglDXCloseDeviceNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -110,7 +110,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDXRegisterObjectNV.
+		/// [WGL] Binding for wglDXRegisterObjectNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -141,7 +141,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDXUnregisterObjectNV.
+		/// [WGL] Binding for wglDXUnregisterObjectNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -163,7 +163,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDXObjectAccessNV.
+		/// [WGL] Binding for wglDXObjectAccessNV.
 		/// </summary>
 		/// <param name="hObject">
 		/// A <see cref="T:IntPtr"/>.
@@ -185,7 +185,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDXLockObjectsNV.
+		/// [WGL] Binding for wglDXLockObjectsNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -215,7 +215,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglDXUnlockObjectsNV.
+		/// [WGL] Binding for wglDXUnlockObjectsNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.

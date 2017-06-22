@@ -179,7 +179,7 @@ namespace OpenGL
 		public const int DRAW_INDIRECT_LENGTH_NV = 0x8F42;
 
 		/// <summary>
-		/// Binding for glBufferAddressRangeNV.
+		/// [GL] Binding for glBufferAddressRangeNV.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -203,7 +203,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexFormatNV.
+		/// [GL] Binding for glVertexFormatNV.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -224,7 +224,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glNormalFormatNV.
+		/// [GL] Binding for glNormalFormatNV.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -242,7 +242,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glColorFormatNV.
+		/// [GL] Binding for glColorFormatNV.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -263,7 +263,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIndexFormatNV.
+		/// [GL] Binding for glIndexFormatNV.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -281,7 +281,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTexCoordFormatNV.
+		/// [GL] Binding for glTexCoordFormatNV.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -302,7 +302,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glEdgeFlagFormatNV.
+		/// [GL] Binding for glEdgeFlagFormatNV.
 		/// </summary>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -317,7 +317,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSecondaryColorFormatNV.
+		/// [GL] Binding for glSecondaryColorFormatNV.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -338,7 +338,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFogCoordFormatNV.
+		/// [GL] Binding for glFogCoordFormatNV.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -356,7 +356,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribFormatNV.
+		/// [GL] Binding for glVertexAttribFormatNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -383,7 +383,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glVertexAttribIFormatNV.
+		/// [GL] Binding for glVertexAttribIFormatNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -407,7 +407,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetIntegerui64i_vNV.
+		/// [GL] Binding for glGetIntegerui64i_vNV.
 		/// </summary>
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.

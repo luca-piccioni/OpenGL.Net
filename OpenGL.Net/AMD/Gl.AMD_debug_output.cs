@@ -77,7 +77,7 @@ namespace OpenGL
 		public const int DEBUG_CATEGORY_OTHER_AMD = 0x9150;
 
 		/// <summary>
-		/// Binding for glDebugMessageEnableAMD.
+		/// [GL] Binding for glDebugMessageEnableAMD.
 		/// </summary>
 		/// <param name="category">
 		/// A <see cref="T:Int32"/>.
@@ -109,7 +109,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDebugMessageEnableAMD.
+		/// [GL] Binding for glDebugMessageEnableAMD.
 		/// </summary>
 		/// <param name="category">
 		/// A <see cref="T:Int32"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDebugMessageInsertAMD.
+		/// [GL] Binding for glDebugMessageInsertAMD.
 		/// </summary>
 		/// <param name="category">
 		/// A <see cref="T:Int32"/>.
@@ -165,7 +165,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDebugMessageCallbackAMD.
+		/// [GL] Binding for glDebugMessageCallbackAMD.
 		/// </summary>
 		/// <param name="callback">
 		/// A <see cref="T:Gl.DebugProc"/>.
@@ -183,7 +183,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetDebugMessageLogAMD.
+		/// [GL] Binding for glGetDebugMessageLogAMD.
 		/// </summary>
 		/// <param name="bufsize">
 		/// A <see cref="T:Int32"/>.

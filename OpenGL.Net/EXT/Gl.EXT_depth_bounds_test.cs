@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int DEPTH_BOUNDS_EXT = 0x8891;
 
 		/// <summary>
-		/// Binding for glDepthBoundsEXT.
+		/// [GL] Binding for glDepthBoundsEXT.
 		/// </summary>
 		/// <param name="zmin">
 		/// A <see cref="T:double"/>.

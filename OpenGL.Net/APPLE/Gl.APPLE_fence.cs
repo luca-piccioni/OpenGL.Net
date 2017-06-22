@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int FENCE_APPLE = 0x8A0B;
 
 		/// <summary>
-		/// Binding for glGenFencesAPPLE.
+		/// [GL] Binding for glGenFencesAPPLE.
 		/// </summary>
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
@@ -61,7 +61,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenFencesAPPLE.
+		/// [GL] Binding for glGenFencesAPPLE.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_fence")]
 		public static UInt32 GenFencesAPPLE()
@@ -72,7 +72,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteFencesAPPLE.
+		/// [GL] Binding for glDeleteFencesAPPLE.
 		/// </summary>
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
@@ -92,7 +92,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSetFenceAPPLE.
+		/// [GL] Binding for glSetFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -107,7 +107,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsFenceAPPLE.
+		/// [GL] Binding for glIsFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -126,7 +126,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTestFenceAPPLE.
+		/// [GL] Binding for glTestFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -145,7 +145,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFinishFenceAPPLE.
+		/// [GL] Binding for glFinishFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -160,7 +160,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTestObjectAPPLE.
+		/// [GL] Binding for glTestObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
 		/// A <see cref="T:Int32"/>.
@@ -182,7 +182,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFinishObjectAPPLE.
+		/// [GL] Binding for glFinishObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
 		/// A <see cref="T:Int32"/>.

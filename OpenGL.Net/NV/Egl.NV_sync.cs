@@ -89,7 +89,7 @@ namespace OpenGL
 		public const int SYNC_FENCE_NV = 0x30EF;
 
 		/// <summary>
-		/// Binding for eglCreateFenceSyncNV.
+		/// [EGL] Binding for eglCreateFenceSyncNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -119,7 +119,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglDestroySyncNV.
+		/// [EGL] Binding for eglDestroySyncNV.
 		/// </summary>
 		/// <param name="sync">
 		/// A <see cref="T:IntPtr"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglFenceNV.
+		/// [EGL] Binding for eglFenceNV.
 		/// </summary>
 		/// <param name="sync">
 		/// A <see cref="T:IntPtr"/>.
@@ -157,7 +157,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglClientWaitSyncNV.
+		/// [EGL] Binding for eglClientWaitSyncNV.
 		/// </summary>
 		/// <param name="sync">
 		/// A <see cref="T:IntPtr"/>.
@@ -182,7 +182,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglSignalSyncNV.
+		/// [EGL] Binding for eglSignalSyncNV.
 		/// </summary>
 		/// <param name="sync">
 		/// A <see cref="T:IntPtr"/>.
@@ -204,7 +204,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetSyncAttribNV.
+		/// [EGL] Binding for eglGetSyncAttribNV.
 		/// </summary>
 		/// <param name="sync">
 		/// A <see cref="T:IntPtr"/>.

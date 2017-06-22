@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT = 0x8D6C;
 
 		/// <summary>
-		/// Binding for glFramebufferTexture2DMultisampleEXT.
+		/// [GL] Binding for glFramebufferTexture2DMultisampleEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.

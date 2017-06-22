@@ -35,7 +35,7 @@ namespace OpenGL
 		public const int POLYGON_OFFSET_CLAMP_EXT = 0x8E1B;
 
 		/// <summary>
-		/// Binding for glPolygonOffsetClampEXT.
+		/// [GL] Binding for glPolygonOffsetClampEXT.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.

@@ -89,7 +89,7 @@ namespace OpenGL
 		public const int VIDEO_OUT_STACKED_FIELDS_2_1_NV = 0x20CC;
 
 		/// <summary>
-		/// Binding for glXGetVideoDeviceNV.
+		/// [GLX] Binding for glXGetVideoDeviceNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXReleaseVideoDeviceNV.
+		/// [GLX] Binding for glXReleaseVideoDeviceNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -142,7 +142,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXBindVideoImageNV.
+		/// [GLX] Binding for glXBindVideoImageNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -170,7 +170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXReleaseVideoImageNV.
+		/// [GLX] Binding for glXReleaseVideoImageNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -192,7 +192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXSendPbufferToVideoNV.
+		/// [GLX] Binding for glXSendPbufferToVideoNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -228,7 +228,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXGetVideoInfoNV.
+		/// [GLX] Binding for glXGetVideoInfoNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

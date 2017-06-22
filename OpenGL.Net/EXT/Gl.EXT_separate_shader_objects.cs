@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glUseShaderProgramEXT.
+		/// [GL] Binding for glUseShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -47,7 +47,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glActiveProgramEXT.
+		/// [GL] Binding for glActiveProgramEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -62,7 +62,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCreateShaderProgramEXT.
+		/// [GL] Binding for glCreateShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:ShaderType"/>.
@@ -84,7 +84,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glActiveShaderProgramEXT.
+		/// [GL] Binding for glActiveShaderProgramEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -102,7 +102,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glBindProgramPipelineEXT.
+		/// [GL] Binding for glBindProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCreateShaderProgramvEXT.
+		/// [GL] Binding for glCreateShaderProgramvEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:ShaderType"/>.
@@ -143,7 +143,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glCreateShaderProgramvEXT.
+		/// [GL] Binding for glCreateShaderProgramvEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:ShaderType"/>.
@@ -165,7 +165,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteProgramPipelinesEXT.
+		/// [GL] Binding for glDeleteProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="pipelines">
 		/// A <see cref="T:UInt32[]"/>.
@@ -185,7 +185,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenProgramPipelinesEXT.
+		/// [GL] Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="pipelines">
 		/// A <see cref="T:UInt32[]"/>.
@@ -205,7 +205,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenProgramPipelinesEXT.
+		/// [GL] Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static UInt32 GenProgramPipelinesEXT()
@@ -216,7 +216,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramPipelineInfoLogEXT.
+		/// [GL] Binding for glGetProgramPipelineInfoLogEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -245,7 +245,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramPipelineivEXT.
+		/// [GL] Binding for glGetProgramPipelineivEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -271,7 +271,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsProgramPipelineEXT.
+		/// [GL] Binding for glIsProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -290,7 +290,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glUseProgramStagesEXT.
+		/// [GL] Binding for glUseProgramStagesEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -311,7 +311,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glValidateProgramPipelineEXT.
+		/// [GL] Binding for glValidateProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.

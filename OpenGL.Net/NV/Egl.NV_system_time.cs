@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// Binding for eglGetSystemTimeFrequencyNV.
+		/// [EGL] Binding for eglGetSystemTimeFrequencyNV.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_system_time")]
 		public static UInt64 GetSystemTimeFrequencyNV()
@@ -45,7 +45,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for eglGetSystemTimeNV.
+		/// [EGL] Binding for eglGetSystemTimeNV.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_system_time")]
 		public static UInt64 GetSystemTimeNV()

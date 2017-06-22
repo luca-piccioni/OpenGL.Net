@@ -73,7 +73,7 @@ namespace OpenGL
 		public const int ERROR_INVALID_VERSION_ARB = 0x2095;
 
 		/// <summary>
-		/// Binding for wglCreateContextAttribsARB.
+		/// [WGL] Binding for wglCreateContextAttribsARB.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

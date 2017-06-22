@@ -41,7 +41,7 @@ namespace OpenGL
 		public const int FRAGMENT_COVERAGE_COLOR_NV = 0x92DE;
 
 		/// <summary>
-		/// Binding for glFragmentCoverageColorNV.
+		/// [GL] Binding for glFragmentCoverageColorNV.
 		/// </summary>
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.

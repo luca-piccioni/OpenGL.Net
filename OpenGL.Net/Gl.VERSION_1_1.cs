@@ -1424,7 +1424,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy pixels into a 1D texture image
+		/// [GL2.1] copy pixels into a 1D texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_1D.
@@ -1613,7 +1613,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// copy a one-dimensional texture subimage
+		/// [GL2.1] copy a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_1D.
@@ -1769,7 +1769,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a one-dimensional texture subimage
+		/// [GL4] specify a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexSubImage1D. Must be Gl.TEXTURE_1D.
@@ -1881,7 +1881,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// specify a one-dimensional texture subimage
+		/// [GL4] specify a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexSubImage1D. Must be Gl.TEXTURE_1D.
@@ -2433,7 +2433,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// render a vertex using the specified vertex array element
+		/// [GL2.1] render a vertex using the specified vertex array element
 		/// </summary>
 		/// <param name="i">
 		/// Specifies an index into the enabled vertex data arrays.
@@ -2632,7 +2632,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of edge flags
+		/// [GL2.1] define an array of edge flags
 		/// </summary>
 		/// <param name="stride">
 		/// Specifies the byte offset between consecutive edge flags. If <paramref name="stride"/> is 0, the edge flags are 
@@ -2676,7 +2676,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of edge flags
+		/// [GL2.1] define an array of edge flags
 		/// </summary>
 		/// <param name="stride">
 		/// Specifies the byte offset between consecutive edge flags. If <paramref name="stride"/> is 0, the edge flags are 
@@ -2763,7 +2763,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of color indexes
+		/// [GL2.1] define an array of color indexes
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each color index in the array. Symbolic constants Gl.UNSIGNED_BYTE, Gl.SHORT, Gl.INT, 
@@ -2814,7 +2814,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// define an array of color indexes
+		/// [GL2.1] define an array of color indexes
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each color index in the array. Symbolic constants Gl.UNSIGNED_BYTE, Gl.SHORT, Gl.INT, 
@@ -2867,7 +2867,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// simultaneously specify and enable several interleaved arrays
+		/// [GL2.1] simultaneously specify and enable several interleaved arrays
 		/// </summary>
 		/// <param name="format">
 		/// Specifies the type of array to enable. Symbolic constants Gl.V2F, Gl.V3F, Gl.C4UB_V2F, Gl.C4UB_V3F, Gl.C3F_V3F, 
@@ -2910,7 +2910,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// simultaneously specify and enable several interleaved arrays
+		/// [GL2.1] simultaneously specify and enable several interleaved arrays
 		/// </summary>
 		/// <param name="format">
 		/// Specifies the type of array to enable. Symbolic constants Gl.V2F, Gl.V3F, Gl.C4UB_V2F, Gl.C4UB_V3F, Gl.C3F_V3F, 
@@ -3319,7 +3319,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// determine if textures are loaded in texture memory
+		/// [GL2.1] determine if textures are loaded in texture memory
 		/// </summary>
 		/// <param name="textures">
 		/// Specifies an array containing the names of the textures to be queried.
@@ -3367,7 +3367,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set texture residence priority
+		/// [GL2.1] set texture residence priority
 		/// </summary>
 		/// <param name="textures">
 		/// Specifies an array containing the names of the textures to be prioritized.
@@ -3410,7 +3410,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -3427,7 +3427,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// set the current color index
+		/// [GL2.1] set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -3450,7 +3450,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// push and pop the client attribute stack
+		/// [GL2.1] push and pop the client attribute stack
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushClientAttrib is called while the attribute stack is full.
@@ -3483,7 +3483,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// push and pop the client attribute stack
+		/// [GL2.1] push and pop the client attribute stack
 		/// </summary>
 		/// <param name="mask">
 		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.

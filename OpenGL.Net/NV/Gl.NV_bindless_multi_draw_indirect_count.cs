@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glMultiDrawArraysIndirectBindlessCountNV.
+		/// [GL] Binding for glMultiDrawArraysIndirectBindlessCountNV.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -59,7 +59,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiDrawArraysIndirectBindlessCountNV.
+		/// [GL] Binding for glMultiDrawArraysIndirectBindlessCountNV.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiDrawElementsIndirectBindlessCountNV.
+		/// [GL] Binding for glMultiDrawElementsIndirectBindlessCountNV.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -124,7 +124,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glMultiDrawElementsIndirectBindlessCountNV.
+		/// [GL] Binding for glMultiDrawElementsIndirectBindlessCountNV.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.

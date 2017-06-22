@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int FENCE_CONDITION_NV = 0x84F4;
 
 		/// <summary>
-		/// Binding for glDeleteFencesNV.
+		/// [GL] Binding for glDeleteFencesNV.
 		/// </summary>
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
@@ -67,7 +67,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenFencesNV.
+		/// [GL] Binding for glGenFencesNV.
 		/// </summary>
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
@@ -87,7 +87,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenFencesNV.
+		/// [GL] Binding for glGenFencesNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 		public static UInt32 GenFencesNV()
@@ -98,7 +98,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsFenceNV.
+		/// [GL] Binding for glIsFenceNV.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glTestFenceNV.
+		/// [GL] Binding for glTestFenceNV.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -136,7 +136,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetFenceivNV.
+		/// [GL] Binding for glGetFenceivNV.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -162,7 +162,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glFinishFenceNV.
+		/// [GL] Binding for glFinishFenceNV.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -177,7 +177,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glSetFenceNV.
+		/// [GL] Binding for glSetFenceNV.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.

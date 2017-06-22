@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int SAMPLER_OBJECT_AMD = 0x9155;
 
 		/// <summary>
-		/// Binding for glGenNamesAMD.
+		/// [GL] Binding for glGenNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
 		/// A <see cref="T:Int32"/>.
@@ -70,7 +70,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGenNamesAMD.
+		/// [GL] Binding for glGenNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
 		/// A <see cref="T:Int32"/>.
@@ -84,7 +84,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glDeleteNamesAMD.
+		/// [GL] Binding for glDeleteNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
 		/// A <see cref="T:Int32"/>.
@@ -107,7 +107,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glIsNameAMD.
+		/// [GL] Binding for glIsNameAMD.
 		/// </summary>
 		/// <param name="identifier">
 		/// A <see cref="T:Int32"/>.

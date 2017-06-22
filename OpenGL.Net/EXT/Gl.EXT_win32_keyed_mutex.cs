@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glAcquireKeyedMutexWin32EXT.
+		/// [GL] Binding for glAcquireKeyedMutexWin32EXT.
 		/// </summary>
 		/// <param name="memory">
 		/// A <see cref="T:UInt32"/>.
@@ -54,7 +54,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glReleaseKeyedMutexWin32EXT.
+		/// [GL] Binding for glReleaseKeyedMutexWin32EXT.
 		/// </summary>
 		/// <param name="memory">
 		/// A <see cref="T:UInt32"/>.

@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glBlendFuncSeparateOES.
+		/// [GL] Binding for glBlendFuncSeparateOES.
 		/// </summary>
 		/// <param name="srcRGB">
 		/// A <see cref="T:BlendingFactor"/>.

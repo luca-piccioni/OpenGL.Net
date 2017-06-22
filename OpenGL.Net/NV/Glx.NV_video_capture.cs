@@ -47,7 +47,7 @@ namespace OpenGL
 		public const int NUM_VIDEO_CAPTURE_SLOTS_NV = 0x20CF;
 
 		/// <summary>
-		/// Binding for glXBindVideoCaptureDeviceNV.
+		/// [GLX] Binding for glXBindVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -72,7 +72,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXEnumerateVideoCaptureDevicesNV.
+		/// [GLX] Binding for glXEnumerateVideoCaptureDevicesNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -102,7 +102,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXLockVideoCaptureDeviceNV.
+		/// [GLX] Binding for glXLockVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -120,7 +120,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXQueryVideoCaptureDeviceNV.
+		/// [GLX] Binding for glXQueryVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -153,7 +153,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glXReleaseVideoCaptureDeviceNV.
+		/// [GLX] Binding for glXReleaseVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

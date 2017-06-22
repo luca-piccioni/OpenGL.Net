@@ -741,7 +741,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object
+		/// [GL4] return parameters of a query object
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -792,7 +792,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// return parameters of a query object
+		/// [GL4] return parameters of a query object
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -1344,7 +1344,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// returns a subset of a buffer object's data store
+		/// [GL4] returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferSubData, which must be one of the buffer 
@@ -1395,7 +1395,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// returns a subset of a buffer object's data store
+		/// [GL4] returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferSubData, which must be one of the buffer 
@@ -1448,7 +1448,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// map all of a buffer object's data store into the client's address space
+		/// [GL4] map all of a buffer object's data store into the client's address space
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.MapBuffer, which must be one of the buffer binding 

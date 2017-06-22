@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glCopyImageSubDataNV.
+		/// [GL] Binding for glCopyImageSubDataNV.
 		/// </summary>
 		/// <param name="srcName">
 		/// A <see cref="T:UInt32"/>.

@@ -36,6 +36,7 @@
         <releaseNotes>
             * v0.5.2
             - Completed GL limits support class, automatically generated with gl.xml information;
+            - Documentation tagged with source reference page, for each member.
 
             * v0.5.1
             - Added enumeration arguments and return types; (more will be);

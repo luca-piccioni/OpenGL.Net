@@ -107,7 +107,7 @@ namespace OpenGL
 		public const int VIDEO_OUT_STACKED_FIELDS_2_1 = 0x20CC;
 
 		/// <summary>
-		/// Binding for wglGetVideoDeviceNV.
+		/// [WGL] Binding for wglGetVideoDeviceNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -137,7 +137,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglReleaseVideoDeviceNV.
+		/// [WGL] Binding for wglReleaseVideoDeviceNV.
 		/// </summary>
 		/// <param name="hVideoDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -156,7 +156,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglBindVideoImageNV.
+		/// [WGL] Binding for wglBindVideoImageNV.
 		/// </summary>
 		/// <param name="hVideoDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -181,7 +181,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglReleaseVideoImageNV.
+		/// [WGL] Binding for wglReleaseVideoImageNV.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -203,7 +203,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglSendPbufferToVideoNV.
+		/// [WGL] Binding for wglSendPbufferToVideoNV.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -236,7 +236,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for wglGetVideoInfoNV.
+		/// [WGL] Binding for wglGetVideoInfoNV.
 		/// </summary>
 		/// <param name="hpVideoDevice">
 		/// A <see cref="T:IntPtr"/>.

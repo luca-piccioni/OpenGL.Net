@@ -149,7 +149,7 @@ namespace OpenGL
 		public const int BACK_NORMALS_HINT_PGI = 0x1A223;
 
 		/// <summary>
-		/// Binding for glHintPGI.
+		/// [GL] Binding for glHintPGI.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

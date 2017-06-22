@@ -53,7 +53,7 @@ namespace OpenGL
 		public const int MAX_PROGRAM_SUBROUTINE_NUM_NV = 0x8F45;
 
 		/// <summary>
-		/// Binding for glProgramSubroutineParametersuivNV.
+		/// [GL] Binding for glProgramSubroutineParametersuivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -76,7 +76,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glGetProgramSubroutineParameteruivNV.
+		/// [GL] Binding for glGetProgramSubroutineParameteruivNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

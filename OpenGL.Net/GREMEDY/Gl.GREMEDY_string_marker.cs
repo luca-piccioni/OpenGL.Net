@@ -29,7 +29,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// Binding for glStringMarkerGREMEDY.
+		/// [GL] Binding for glStringMarkerGREMEDY.
 		/// </summary>
 		/// <param name="len">
 		/// A <see cref="T:Int32"/>.
@@ -47,7 +47,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Binding for glStringMarkerGREMEDY.
+		/// [GL] Binding for glStringMarkerGREMEDY.
 		/// </summary>
 		/// <param name="len">
 		/// A <see cref="T:Int32"/>.
