@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RegistryAssemblyConfiguration Name="SC2Profile">
+    <!-- Include glsc2 API only -->
+    <Feature Api="glsc2" />
+</RegistryAssemblyConfiguration>

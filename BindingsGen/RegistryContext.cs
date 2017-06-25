@@ -61,6 +61,7 @@ namespace BindingsGen
 				// Support GS ES 1/2
 				apis.Add("gles1");
 				apis.Add("gles2");
+				apis.Add("glsc2");
 			}
 
 			SupportedApi = apis.ToArray();

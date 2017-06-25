@@ -47,7 +47,7 @@ namespace OpenGL.Test
 		[TestCase("GL_ES_VERSION_3_0", 3, 0, 0, KhronosVersion.ApiGles2)]
 		[TestCase("GL_ES_VERSION_3_1", 3, 1, 0, KhronosVersion.ApiGles2)]
 		[TestCase("GL_ES_VERSION_3_2", 3, 2, 0, KhronosVersion.ApiGles2)]
-		// [TestCase("GL_SC_VERSION_2_0", 2, 0, 0, KhronosVersion.ApiSc2)]
+		[TestCase("GL_SC_VERSION_2_0", 2, 0, 0, KhronosVersion.ApiGlsc2)]
 		public void TestConstructor1(string feature, int major, int minor, int revision, string api)
 		{
 			RemovedByFeatureAttribute a = new RemovedByFeatureAttribute(feature);

@@ -54,12 +54,13 @@ namespace BindingsGen
 
 				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.CoreProfile.xml"));
 				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.ES2Profile.xml"));
+				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.SC2Profile.xml"));
 
 				foreach (RegistryAssemblyConfiguration cfg in cfgs) {
 					try {
 						RegistryAssembly.CleanAssembly(assemblyPath, cfg);
 					} catch (Exception exception) {
-						Console.WriteLine("Unable to process assembly: {0}.", exception.ToString());
+						Console.WriteLine("Unable to process assembly: {0}.", exception.Message);
 					}
 				}
 

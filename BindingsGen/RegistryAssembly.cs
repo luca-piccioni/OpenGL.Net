@@ -208,6 +208,13 @@ namespace BindingsGen
 
 		private static bool IsCompatibleMethod(RegistryAssemblyConfiguration cfg, MethodDefinition method)
 		{
+			// Methods required by OpenGL.Net
+			// Note: code should test actual method existence, since  they may not loaded for specific profiles
+			switch (method.Name) {
+				case "GetString":
+					return (true);
+			}
+
 			bool compatible = false;
 			int featureAttribCount = 0;
 
