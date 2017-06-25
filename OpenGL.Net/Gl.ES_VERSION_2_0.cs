@@ -34,6 +34,7 @@ namespace OpenGL
 		[AliasOf("GL_BLEND_EQUATION_EXT")]
 		[AliasOf("GL_BLEND_EQUATION_OES")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
 		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
@@ -45,6 +46,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_BLEND_COLOR_EXT")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_color")]
 		public const int BLEND_COLOR = 0x8005;
@@ -55,6 +57,7 @@ namespace OpenGL
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT")]
 		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_OES")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		public const int FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0x8CD9;

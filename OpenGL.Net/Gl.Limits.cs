@@ -87,6 +87,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			public int MaxTextureSize;
 
 			/// <summary>
@@ -160,6 +161,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			public int[] MaxViewportDims = new int[] {0, 0 };
 
 			/// <summary>
@@ -397,6 +399,7 @@ namespace OpenGL
 			[Limit(MAX_RENDERBUFFER_SIZE)]
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
@@ -710,6 +713,7 @@ namespace OpenGL
 			[Limit(MAX_VERTEX_ATTRIBS)]
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			public int MaxVertexAttribs;
@@ -757,6 +761,7 @@ namespace OpenGL
 			[Limit(MAX_TEXTURE_IMAGE_UNITS)]
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_fragment_program")]
@@ -1137,6 +1142,7 @@ namespace OpenGL
 			[Limit(MAX_VERTEX_TEXTURE_IMAGE_UNITS)]
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program3")]
 			public int MaxVertexTextureImageUnits;
@@ -1158,6 +1164,7 @@ namespace OpenGL
 			[Limit(MAX_COMBINED_TEXTURE_IMAGE_UNITS)]
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			public int MaxCombinedTextureImageUnits;
 
@@ -1432,6 +1439,7 @@ namespace OpenGL
 			[Limit(MAX_VERTEX_UNIFORM_VECTORS)]
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			public int MaxVertexUniformVectors;
 
@@ -1449,6 +1457,7 @@ namespace OpenGL
 			[Limit(MAX_VARYING_VECTORS)]
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			public int MaxVaryingVectors;
 
@@ -1466,6 +1475,7 @@ namespace OpenGL
 			[Limit(MAX_FRAGMENT_UNIFORM_VECTORS)]
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			public int MaxFragmentUniformVectors;
 
@@ -2511,6 +2521,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			public float[] AliasedLineWidthRange = new float[] {0.0f, 0.0f };
 
 			/// <summary>

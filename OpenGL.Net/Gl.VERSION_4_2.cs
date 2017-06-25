@@ -1070,6 +1070,7 @@ namespace OpenGL
 		[AliasOf("GL_TEXTURE_IMMUTABLE_FORMAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public const int TEXTURE_IMMUTABLE_FORMAT = 0x912F;
@@ -1531,6 +1532,7 @@ namespace OpenGL
 		[AliasOf("glTexStorage2DEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public static void TexStorage2D(TextureTarget target, Int32 levels, InternalFormat internalformat, Int32 width, Int32 height)
@@ -1853,6 +1855,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
@@ -1862,6 +1865,7 @@ namespace OpenGL
 			[AliasOf("glTexStorage2DEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[ThreadStatic]

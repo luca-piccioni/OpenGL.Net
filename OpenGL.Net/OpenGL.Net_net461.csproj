@@ -284,6 +284,7 @@
     <Compile Include="EXT\Gl.EXT_texture_storage.cs" />
     <Compile Include="EXT\Gl.EXT_win32_keyed_mutex.cs" />
     <Compile Include="Gl.Limits.cs" />
+    <Compile Include="Gl.SC_VERSION_2_0.cs" />
     <Compile Include="INativePBuffer.cs" />
     <Compile Include="KhronosLogMap.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
@@ -538,7 +539,6 @@
     <Compile Include="KHR\Egl.KHR_wait_sync.cs" />
     <Compile Include="KHR\Gl.KHR_blend_equation_advanced_coherent.cs" />
     <Compile Include="KHR\Gl.KHR_no_error.cs" />
-    <Compile Include="KHR\Gl.KHR_robustness.cs" />
     <Compile Include="MatrixBase.cs" />
     <Compile Include="Matrix3x3.cs" />
     <Compile Include="Matrix.cs">

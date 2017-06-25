@@ -53,6 +53,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			public static void Clear(ClearBufferMask mask)
 			{
 				Debug.Assert(Delegates.pglClear != null, "pglClear not implemented");
@@ -91,6 +92,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			public static void Viewport(Int32 x, Int32 y, Int32 width, Int32 height)
 			{
 				Debug.Assert(Delegates.pglViewport != null, "pglViewport not implemented");
@@ -722,6 +724,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]

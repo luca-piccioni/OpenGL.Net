@@ -36,6 +36,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int BUFFER_SIZE = 0x8764;
 
@@ -51,6 +52,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int BUFFER_USAGE = 0x8765;
 
@@ -120,6 +122,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int ARRAY_BUFFER = 0x8892;
 
@@ -130,6 +133,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int ELEMENT_ARRAY_BUFFER = 0x8893;
 
@@ -141,6 +145,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int ARRAY_BUFFER_BINDING = 0x8894;
 
@@ -153,6 +158,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int ELEMENT_ARRAY_BUFFER_BINDING = 0x8895;
 
@@ -164,6 +170,7 @@ namespace OpenGL
 		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0x889F;
 
@@ -240,6 +247,7 @@ namespace OpenGL
 		[AliasOf("GL_STREAM_DRAW_ARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int STREAM_DRAW = 0x88E0;
 
@@ -268,6 +276,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int STATIC_DRAW = 0x88E4;
 
@@ -296,6 +305,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public const int DYNAMIC_DRAW = 0x88E8;
 
@@ -977,6 +987,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BindBuffer(BufferTarget target, UInt32 buffer)
 		{
@@ -1036,6 +1047,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void GenBuffers(UInt32[] buffers)
 		{
@@ -1065,6 +1077,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static UInt32 GenBuffer()
 		{
@@ -1153,6 +1166,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BufferData(BufferTarget target, UInt32 size, IntPtr data, BufferUsage usage)
 		{
@@ -1212,6 +1226,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BufferData(BufferTarget target, UInt32 size, Object data, BufferUsage usage)
 		{
@@ -1273,6 +1288,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BufferSubData(BufferTarget target, IntPtr offset, UInt32 size, IntPtr data)
 		{
@@ -1332,6 +1348,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void BufferSubData(BufferTarget target, IntPtr offset, UInt32 size, Object data)
 		{
@@ -1592,6 +1609,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void GetBufferParameter(BufferTarget target, Int32 value, [Out] Int32[] data)
 		{
@@ -1645,6 +1663,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static void GetBufferParameter(BufferTarget target, Int32 value, out Int32 data)
 		{
@@ -1951,6 +1970,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindBuffer(Int32 target, UInt32 buffer);
@@ -1960,6 +1980,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glBindBuffer pglBindBuffer;
@@ -1983,6 +2004,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenBuffers(Int32 n, UInt32* buffers);
@@ -1992,6 +2014,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glGenBuffers pglGenBuffers;
@@ -2015,6 +2038,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBufferData(Int32 target, UInt32 size, IntPtr data, Int32 usage);
@@ -2024,6 +2048,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glBufferData pglBufferData;
@@ -2031,6 +2056,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
@@ -2040,6 +2066,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glBufferSubData pglBufferSubData;
@@ -2091,6 +2118,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetBufferParameteriv(Int32 target, Int32 pname, Int32* @params);
@@ -2100,6 +2128,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[ThreadStatic]
 			internal static glGetBufferParameteriv pglGetBufferParameteriv;

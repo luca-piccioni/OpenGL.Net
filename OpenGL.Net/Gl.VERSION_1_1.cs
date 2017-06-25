@@ -54,6 +54,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		public const int POLYGON_OFFSET_UNITS = 0x2A00;
 
 		/// <summary>
@@ -87,6 +88,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		public const int POLYGON_OFFSET_FILL = 0x8037;
 
 		/// <summary>
@@ -97,6 +99,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_polygon_offset")]
 		public const int POLYGON_OFFSET_FACTOR = 0x8038;
 
@@ -117,6 +120,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public const int TEXTURE_BINDING_2D = 0x8069;
 
@@ -223,6 +227,7 @@ namespace OpenGL
 		[AliasOf("GL_RGB8_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2|glsc2")]
@@ -270,6 +275,7 @@ namespace OpenGL
 		[AliasOf("GL_RGBA4_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
@@ -282,6 +288,7 @@ namespace OpenGL
 		[AliasOf("GL_RGB5_A1_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
@@ -294,6 +301,7 @@ namespace OpenGL
 		[AliasOf("GL_RGBA8_OES")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_texture")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_OES_rgb8_rgba8", Api = "gles1|gles2|glsc2")]
@@ -1209,6 +1217,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		public static void DrawArrays(PrimitiveType mode, Int32 first, Int32 count)
 		{
@@ -1415,6 +1424,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		public static void PolygonOffset(float factor, float units)
 		{
 			Debug.Assert(Delegates.pglPolygonOffset != null, "pglPolygonOffset not implemented");
@@ -2111,6 +2121,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_subtexture")]
 		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
@@ -2237,6 +2248,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_subtexture")]
 		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
 		{
@@ -2288,6 +2300,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_texture_object")]
 		public static void BindTexture(TextureTarget target, UInt32 texture)
 		{
@@ -2357,6 +2370,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		public static void GenTextures(UInt32[] textures)
 		{
 			unsafe {
@@ -2391,6 +2405,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		public static UInt32 GenTexture()
 		{
 			UInt32[] retValue = new UInt32[1];
@@ -3649,6 +3664,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawArrays(Int32 mode, Int32 first, Int32 count);
@@ -3658,6 +3674,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[ThreadStatic]
 			internal static glDrawArrays pglDrawArrays;
@@ -3704,12 +3721,14 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPolygonOffset(float factor, float units);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[ThreadStatic]
 			internal static glPolygonOffset pglPolygonOffset;
 
@@ -3784,6 +3803,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_subtexture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
@@ -3793,6 +3813,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_subtexture")]
 			[ThreadStatic]
 			internal static glTexSubImage2D pglTexSubImage2D;
@@ -3800,6 +3821,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindTexture(Int32 target, UInt32 texture);
@@ -3809,6 +3831,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]
 			internal static glBindTexture pglBindTexture;
@@ -3828,12 +3851,14 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenTextures(Int32 n, UInt32* textures);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[ThreadStatic]
 			internal static glGenTextures pglGenTextures;
 

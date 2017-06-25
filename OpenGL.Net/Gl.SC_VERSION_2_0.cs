@@ -34,6 +34,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CONTEXT_ROBUST_ACCESS_EXT")]
 		[AliasOf("GL_CONTEXT_ROBUST_ACCESS_KHR")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]

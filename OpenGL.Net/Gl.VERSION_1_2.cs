@@ -43,6 +43,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_packed_pixels")]
 		public const int UNSIGNED_SHORT_4_4_4_4 = 0x8033;
 
@@ -53,6 +54,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_packed_pixels")]
 		public const int UNSIGNED_SHORT_5_5_5_1 = 0x8034;
 
@@ -220,6 +222,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		public const int UNSIGNED_SHORT_5_6_5 = 0x8363;
 
 		/// <summary>
@@ -366,6 +369,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_SGIS_texture_edge_clamp")]
 		public const int CLAMP_TO_EDGE = 0x812F;
 
@@ -429,6 +433,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		public const int ALIASED_LINE_WIDTH_RANGE = 0x846E;
 
 		/// <summary>
@@ -508,6 +513,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int ALIASED_POINT_SIZE_RANGE = 0x846D;
 
@@ -564,6 +570,7 @@ namespace OpenGL
 		[AliasOf("glDrawRangeElementsEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
 		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices)
 		{
@@ -626,6 +633,7 @@ namespace OpenGL
 		[AliasOf("glDrawRangeElementsEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
 		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices)
 		{
@@ -1320,6 +1328,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_draw_range_elements")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawRangeElements(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices);
@@ -1328,6 +1337,7 @@ namespace OpenGL
 			[AliasOf("glDrawRangeElementsEXT")]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_draw_range_elements")]
 			[ThreadStatic]
 			internal static glDrawRangeElements pglDrawRangeElements;

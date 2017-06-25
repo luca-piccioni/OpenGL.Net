@@ -57,6 +57,7 @@ namespace OpenGL
 		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_TYPE_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_read_format", Api = "gl|gles1")]
 		public const int IMPLEMENTATION_COLOR_READ_TYPE = 0x8B9A;
@@ -79,6 +80,7 @@ namespace OpenGL
 		[AliasOf("GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_read_format", Api = "gl|gles1")]
 		public const int IMPLEMENTATION_COLOR_READ_FORMAT = 0x8B9B;
@@ -88,6 +90,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int LOW_FLOAT = 0x8DF0;
 
@@ -96,6 +99,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int MEDIUM_FLOAT = 0x8DF1;
 
@@ -104,6 +108,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int HIGH_FLOAT = 0x8DF2;
 
@@ -112,6 +117,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int LOW_INT = 0x8DF3;
 
@@ -120,6 +126,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int MEDIUM_INT = 0x8DF4;
 
@@ -128,6 +135,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int HIGH_INT = 0x8DF5;
 
@@ -185,6 +193,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int MAX_VERTEX_UNIFORM_VECTORS = 0x8DFB;
 
@@ -201,6 +210,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int MAX_VARYING_VECTORS = 0x8DFC;
 
@@ -217,6 +227,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public const int MAX_FRAGMENT_UNIFORM_VECTORS = 0x8DFD;
 
@@ -226,6 +237,7 @@ namespace OpenGL
 		[AliasOf("GL_RGB565_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
@@ -262,6 +274,7 @@ namespace OpenGL
 		[AliasOf("GL_NUM_PROGRAM_BINARY_FORMATS_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
 		public const int NUM_PROGRAM_BINARY_FORMATS = 0x87FE;
@@ -279,6 +292,7 @@ namespace OpenGL
 		[AliasOf("GL_PROGRAM_BINARY_FORMATS_OES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
 		public const int PROGRAM_BINARY_FORMATS = 0x87FF;
@@ -687,6 +701,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 		public static void DepthRange(float n, float f)
@@ -711,6 +726,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 		public static void ClearDepth(float d)
@@ -841,6 +857,7 @@ namespace OpenGL
 		[AliasOf("glProgramBinaryOES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
 		public static void ProgramBinary(UInt32 program, Int32 binaryFormat, IntPtr binary, Int32 length)
@@ -879,6 +896,7 @@ namespace OpenGL
 		[AliasOf("glProgramBinaryOES")]
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
 		public static void ProgramBinary(UInt32 program, Int32 binaryFormat, Object binary, Int32 length)
@@ -7657,6 +7675,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
@@ -7667,6 +7686,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]
@@ -7675,6 +7695,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
@@ -7685,6 +7706,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]
@@ -7708,6 +7730,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
@@ -7717,6 +7740,7 @@ namespace OpenGL
 			[AliasOf("glProgramBinaryOES")]
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
 			[ThreadStatic]

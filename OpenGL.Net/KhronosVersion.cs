@@ -447,6 +447,9 @@ namespace OpenGL
 			// Shortcut for ES1
 			if (featureName == "GL_VERSION_ES_CM_1_0")
 				return (new KhronosVersion(1, 0, 0, ApiGles1));
+			// Shortcut for SC2
+			if (featureName == "GL_SC_VERSION_2_0")
+				return (new KhronosVersion(2, 0, 0, ApiGlsc2));
 
 			// Match GL|GLES|GLSC|WGL|GLX|EGL versions
 			Match versionMatch = Regex.Match(featureName, @"(?<Api>GL|GL_ES|GL_SC|WGL|GLX|EGL)_VERSION_(?<Major>\d+)_(?<Minor>\d+)");

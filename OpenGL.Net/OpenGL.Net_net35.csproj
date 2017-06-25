@@ -302,6 +302,7 @@
     <Compile Include="Gl.Limits.cs" />
     <Compile Include="Gl.Limits.Query.cs" />
     <Compile Include="Gl.PlatformExtensions.cs" />
+    <Compile Include="Gl.SC_VERSION_2_0.cs" />
     <Compile Include="Gl.Vb.cs" />
     <Compile Include="Gl.VERSION_ES_CM_1_0.cs" />
     <Compile Include="Glu.cs" />
@@ -524,7 +525,6 @@
     <Compile Include="KHR\Egl.KHR_wait_sync.cs" />
     <Compile Include="KHR\Gl.KHR_blend_equation_advanced_coherent.cs" />
     <Compile Include="KHR\Gl.KHR_no_error.cs" />
-    <Compile Include="KHR\Gl.KHR_robustness.cs" />
     <Compile Include="MatrixBase.cs" />
     <Compile Include="Matrix3x3.cs" />
     <Compile Include="Matrix.cs">
