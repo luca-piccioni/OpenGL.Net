@@ -89,6 +89,11 @@ namespace OpenGL
 			/// Embedded profile (OpenGL ES).
 			/// </summary>
 			Embedded,
+
+			/// <summary>
+			/// Security Critical (OpenGL SC 2).
+			/// </summary>
+			SecurityCritical2,
 		}
 
 		/// <summary>
@@ -536,10 +541,16 @@ namespace OpenGL
 		/// </summary>
 		private void CreateDeviceContext(DevicePixelFormat controlReqFormat)
 		{
-			#region Support ES API
+			#region Support ES/SC API
 
-			if (_ProfileType == ProfileType.Embedded)
-				DeviceContext.DefaultApi = KhronosVersion.ApiGles2;
+			switch (_ProfileType) {
+				case ProfileType.Embedded:
+					DeviceContext.DefaultApi = KhronosVersion.ApiGles2;
+					break;
+				case ProfileType.SecurityCritical2:
+					DeviceContext.DefaultApi = KhronosVersion.ApiGlsc2;
+					break;
+			}
 
 			#endregion
 
