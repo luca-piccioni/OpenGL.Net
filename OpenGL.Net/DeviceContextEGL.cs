@@ -578,14 +578,19 @@ namespace OpenGL
 		{
 			get
 			{
+				List<string> clientApis = new List<string>();
+
 				if (Version >= Egl.Version_120) {
 					string clientApisString = Egl.QueryString(Display, Egl.CLIENT_APIS);
-					string[] clientApis = Regex.Split(clientApisString, " ");
+					string[] clientApiTokens = Regex.Split(clientApisString, " ");
 
-					return (ConvertApiNames(clientApis));
-				} else {
-					return (null);
+					foreach (string api in ConvertApiNames(clientApis))
+						clientApis.Add(api);
 				}
+
+				clientApis.Add(KhronosVersion.ApiGlsc2);
+
+				return (clientApis);
 			}
 		}
 
@@ -598,7 +603,7 @@ namespace OpenGL
 			return (ConvertApiNames(Egl._AvailableApis));
 		}
 
-		private static string[] ConvertApiNames(string[] clientApis)
+		internal static string[] ConvertApiNames(IEnumerable<string> clientApis)
 		{
 			List<string> deviceApi = new List<string>();
 

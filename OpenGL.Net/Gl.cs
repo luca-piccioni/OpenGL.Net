@@ -288,10 +288,24 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Bind the OpenGL delegates for the API corresponding to the specified OpenGL API.
+		/// </summary>
+		/// <param name="version">
+		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
+		/// </param>
+		/// <param name="extensions">
+		/// A <see cref="ExtensionsCollection"/> that specifies the extensions supported. It can be null.
+		/// </param>
+		public static void BindAPI(KhronosVersion version, ExtensionsCollection extensions)
+		{
+			BindAPI(version, extensions, GetProcAddress.GetProcAddressGL);
+		}
+
+		/// <summary>
 		/// Query the version of the current OpenGL context.
 		/// </summary>
 		/// <returns>
-		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
+		/// It returns the <see cref="KhronosVersion"/> specifying the actual version of <paramref name="ctx"/>.
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if no GL context is current on the calling thread.
@@ -336,13 +350,13 @@ namespace OpenGL
 			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressGL;
 
 			if (Egl.IsRequired == false) {
-				Gl.BindAPIFunction(Gl.Version_100, null, "glGetError", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_100, null, "glGetString", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_100, null, "glGetIntegerv", getProcAddress);
+				BindAPIFunction(Gl.Version_100, null, "glGetError", getProcAddress);
+				BindAPIFunction(Gl.Version_100, null, "glGetString", getProcAddress);
+				BindAPIFunction(Gl.Version_100, null, "glGetIntegerv", getProcAddress);
 			} else {
-				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetError", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetString", getProcAddress);
-				Gl.BindAPIFunction(Gl.Version_320_ES, null, "glGetIntegerv", getProcAddress);
+				BindAPIFunction(Gl.Version_320_ES, null, "glGetError", getProcAddress);
+				BindAPIFunction(Gl.Version_320_ES, null, "glGetString", getProcAddress);
+				BindAPIFunction(Gl.Version_320_ES, null, "glGetIntegerv", getProcAddress);
 			}
 
 			return (QueryContextVersion());
@@ -353,6 +367,9 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="version">
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
+		/// </param>
+		/// <param name="extensions">
+		/// A <see cref="ExtensionsCollection"/> that specifies the extensions supported. It can be null.
 		/// </param>
 		/// <param name="getProcAddress">
 		/// The <see cref="IGetProcAddress"/> used for loading function pointers.
@@ -400,6 +417,7 @@ namespace OpenGL
 		{
 			switch (version.Api) {
 				case KhronosVersion.ApiGl:
+				case KhronosVersion.ApiGlsc2:
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.Linux:
 							return ("libGL.so.1");

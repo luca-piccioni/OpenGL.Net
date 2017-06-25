@@ -119,10 +119,17 @@ namespace OpenGL
 				// Query EGL vendor
 				_Vendor = QueryString(eglDisplay, VENDOR);
 				// Client APIs
+				List<string> clientApis = new List<string>();
+
 				if (_CurrentVersion >= Version_120) {
 					string clientApisString = QueryString(eglDisplay, CLIENT_APIS);
-					_AvailableApis = System.Text.RegularExpressions.Regex.Split(clientApisString, " ");
+					string[] clientApiTokens = System.Text.RegularExpressions.Regex.Split(clientApisString, " ");
+
+					foreach (string api in DeviceContextEGL.ConvertApiNames(clientApiTokens))
+						clientApis.Add(api);
 				}
+
+				_AvailableApis = clientApis.ToArray();
 			} finally {
 				Terminate(eglDisplay);
 			}

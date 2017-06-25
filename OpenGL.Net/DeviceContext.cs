@@ -357,6 +357,7 @@ namespace OpenGL
 					case KhronosVersion.ApiGl:
 					case KhronosVersion.ApiGles1:
 					case KhronosVersion.ApiGles2:
+					case KhronosVersion.ApiGlsc2:
 					case KhronosVersion.ApiVg:
 						// Allowed values
 						break;
@@ -490,8 +491,17 @@ namespace OpenGL
 			bool current = MakeCurrentCore(ctx);
 
 			// Link OpenGL procedures on Gl
-			if ((ctx != IntPtr.Zero) && (current == true))
-				Gl.BindAPI();
+			if ((ctx != IntPtr.Zero) && (current == true)) {
+				switch (DefaultApi) {
+					case KhronosVersion.ApiGlsc2:
+						// Special OpenGL SC2 management: loads only SC2 requirements
+						Gl.BindAPI(Gl.Version_200_SC, null);
+						break;
+					default:
+						Gl.BindAPI();
+						break;
+				}
+			}
 
 			return (current);
 		}
