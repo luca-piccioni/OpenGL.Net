@@ -153,6 +153,9 @@ namespace OpenGL
 				if (procAddress == IntPtr.Zero)
 					return (GetProcAddress.GetProcAddressOS.GetProcAddress(libpath, function));
 
+				if (procAddress == IntPtr.Zero)
+					LogComment("Warning: no address for command {0}.", function);
+
 				return (procAddress);
 			}, version, extensions);
 		}
