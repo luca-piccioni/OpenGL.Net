@@ -19,7 +19,7 @@ matrix:
   fast_finish: true
 
 skip_commits:
-  message: /Create README.md/
+  message: /Update README.md/
 
 cache:
   - packages -> **\packages.config
