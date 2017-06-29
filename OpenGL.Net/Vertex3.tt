@@ -36,8 +36,10 @@ namespace OpenGL
 <#
 	string[] underlyingType =	new[] { "byte", "sbyte", "ushort", "short", "uint", "int", "float", "double", "HalfFloat" };
 	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
-	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     null };
-	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     "1.0f" };
+	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     "new HalfFloat(0.0f)" };
+	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     "new HalfFloat(1.0f)" };
+	string[] mins =				new[] { null,    null,    null,     null,    null,   null,   null,  null,      "new HalfFloat(HalfFloat.MinValue)" };
+	string[] maxs =				new[] { null,    null,    null,     null,    null,   null,   null,  null,      "new HalfFloat(HalfFloat.MaxValue)" };
 	int[] signedType =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        1 };
 	int[] integerType =			new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
 	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
@@ -48,6 +50,7 @@ namespace OpenGL
 		string baseType = underlyingType[i];
 		int structSize = structSizes[i];
 		string zero = zeroes[i], one = ones[i];
+		string min = mins[i], max = maxs[i];
 #>
 	/// <summary>
 	/// Vertex value type (<#= baseType #> coordinates).
@@ -555,11 +558,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -788,6 +802,21 @@ namespace OpenGL
 		/// </summary>
 		public static readonly <#= className #> UnitZ = new <#= className #>(<#= zero #>, <#= zero #>, <#= one #>);
 
+<#
+		if (min != null && max != null) {
+#>
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly <#= className #> Minimum = new <#= className #>(<#= min #>);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly <#= className #> Maximum = new <#= className #>(<#= max #>);
+<#
+		} else {
+#>
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -797,6 +826,9 @@ namespace OpenGL
 		/// Vertex with highest values.
 		/// </summary>
 		public static readonly <#= className #> Maximum = new <#= className #>(<#= baseType #>.MaxValue);
+<#
+		}
+#>
 
 		#endregion
 

@@ -1,0 +1,461 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Runtime.InteropServices" #>
+
+// Copyright (C) 2017 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
+
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
+using NUnit.Framework;
+
+#if HAVE_NUMERICS
+using System.Numerics;
+#endif
+
+namespace OpenGL.Test
+{
+	class Vertex3TestBase
+	{
+		protected static double Next(Random random, double minValue, double maxValue)
+		{
+			return (random.NextDouble() * (maxValue - minValue) + minValue);
+		}
+	}
+
+<#
+	string[] underlyingType =	new[] { "byte", "sbyte", "ushort", "short", "uint", "int", "float", "double", "HalfFloat" };
+	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
+	int[] signedTypes =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        1 };
+	int[] integerTypes =		new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
+	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
+	int[] structSizes =			new[] {  3,      3,       6,        6,       12,      12,    12,      24,        6 };
+
+	for (int i = 0; i < underlyingType.Length; i++) {
+		string className = String.Format("Vertex3{0}", postfixes[i]);
+		string baseType = underlyingType[i];
+		int signedType = signedTypes[i];
+		int integerType = integerTypes[i];
+#>
+	[TestFixture]
+	[Category("Math")]
+	class <#= className #>Test : Vertex3TestBase
+	{
+		#region Constructors
+
+		[Test(Description = "Test <#= className #>(<#= baseType #>)")]
+		public void <#= className #>_TestConstructor1()
+		{
+			Random random = new Random();
+			<#= baseType #> randomValue = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			
+			<#= className #> v = new <#= className #>(randomValue);
+
+			Assert.AreEqual(randomValue, v.x);
+			Assert.AreEqual(randomValue, v.y);
+			Assert.AreEqual(randomValue, v.z);
+		}
+
+		[Test(Description = "Test <#= className #>(<#= baseType #>[])")]
+		public void <#= className #>_TestConstructor2()
+		{
+			Random random = new Random();
+			<#= baseType #> randomValueX = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueY = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+
+			<#= className #> v = new <#= className #>(new <#= baseType #>[] {
+				randomValueX, randomValueY, randomValueZ
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+		}
+
+		[Test(Description = "Test <#= className #>(<#= baseType #>, <#= baseType #>, <#= baseType #>)")]
+		public void <#= className #>_TestConstructor3()
+		{
+			Random random = new Random();
+			<#= baseType #> randomValueX = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueY = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+
+			<#= className #> v = new <#= className #>(
+				randomValueX, randomValueY, randomValueZ
+			);
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+		}
+
+		[Test(Description = "Test <#= className #>(<#= className #>)")]
+		public void <#= className #>_TestConstructor4()
+		{
+			Random random = new Random();
+			<#= baseType #> randomValueX = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueY = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+
+			<#= className #> v1 = new <#= className #>(
+				randomValueX, randomValueY, randomValueZ
+			);
+			<#= className #> v2 = new <#= className #>(v1);
+
+			Assert.AreEqual(v1.x, v2.x);
+			Assert.AreEqual(v1.y, v2.y);
+			Assert.AreEqual(v1.z, v2.z);
+		}
+
+		#endregion
+
+		#region Properties
+
+		[Test(Description = "Test <#= className #>.Size against Marshal.SizeOf")]
+		public void <#= className #>_TestMarshalSize()
+		{
+			Assert.AreEqual(Marshal.SizeOf(typeof(<#= className #>)), <#= className #>.Size);
+		}
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		[Test(Description = "Test <#= className #>.operator+(<#= className #>, <#= className #>)")]
+		public void <#= className #>_TestOperatorAdd()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+
+			<#= className #> v1 = new <#= className #>(x1, y1, z1);
+
+			<#= baseType #> x2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> y2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> z2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+
+			<#= className #> v2 = new <#= className #>(x2, y2, z2);
+
+			<#= className #> v = v1 + v2;
+
+			Assert.AreEqual((<#= baseType #>)(x1 + x2), v.x);
+			Assert.AreEqual((<#= baseType #>)(y1 + y2), v.y);
+			Assert.AreEqual((<#= baseType #>)(z1 + z2), v.z);
+		}
+
+		[Test(Description = "Test <#= className #>.operator-(<#= className #>, <#= className #>)")]
+		public void <#= className #>_TestOperatorSub()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+
+			<#= className #> v1 = new <#= className #>(x1, y1, z1);
+
+			<#= baseType #> x2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> y2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> z2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+
+			<#= className #> v2 = new <#= className #>(x2, y2, z2);
+
+			<#= className #> v = v1 - v2;
+
+			Assert.AreEqual((<#= baseType #>)(x1 - x2), v.x);
+			Assert.AreEqual((<#= baseType #>)(y1 - y2), v.y);
+			Assert.AreEqual((<#= baseType #>)(z1 - z2), v.z);
+		}
+
+		[Test(Description = "Test <#= className #>.operator*(<#= className #>, Single)")]
+		public void <#= className #>_TestOperatorMultiplySingle()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			double s = Next(random, 0.0, 32.0);
+
+			<#= className #> v1 = new <#= className #>(x1, y1, z1);
+
+			<#= className #> v = v1 * (float)s;
+
+			Assert.AreEqual((<#= baseType #>)(x1 * (float)s), v.x);
+			Assert.AreEqual((<#= baseType #>)(y1 * (float)s), v.y);
+			Assert.AreEqual((<#= baseType #>)(z1 * (float)s), v.z);
+		}
+
+		[Test(Description = "Test <#= className #>.operator*(<#= className #>, Double)")]
+		public void <#= className #>_TestOperatorMultiplyDouble()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			double s = Next(random, 0.0, 32.0);
+
+			<#= className #> v1 = new <#= className #>(x1, y1, z1);
+
+			<#= className #> v = v1 * s;
+
+			Assert.AreEqual((<#= baseType #>)(x1 * s), v.x);
+			Assert.AreEqual((<#= baseType #>)(y1 * s), v.y);
+			Assert.AreEqual((<#= baseType #>)(z1 * s), v.z);
+		}
+
+		[Test(Description = "Test <#= className #>.operator/(<#= className #>, Single)")]
+		public void <#= className #>_TestOperatorDivideSingle()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			double s = Next(random, 0.0, 32.0);
+
+			<#= className #> v1 = new <#= className #>(x1, y1, z1);
+
+			<#= className #> v = v1 / (float)s;
+
+			Assert.AreEqual((<#= baseType #>)(x1 / (float)s), v.x);
+			Assert.AreEqual((<#= baseType #>)(y1 / (float)s), v.y);
+			Assert.AreEqual((<#= baseType #>)(z1 / (float)s), v.z);
+		}
+
+		[Test(Description = "Test <#= className #>.operator/(<#= className #>, Double)")]
+		public void <#= className #>_TestOperatorDivideDouble()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			double s = Next(random, 0.0, 32.0);
+
+			<#= className #> v1 = new <#= className #>(x1, y1, z1);
+
+			<#= className #> v = v1 / s;
+
+			Assert.AreEqual((<#= baseType #>)(x1 / s), v.x);
+			Assert.AreEqual((<#= baseType #>)(y1 / s), v.y);
+			Assert.AreEqual((<#= baseType #>)(z1 / s), v.z);
+		}
+
+		[Test(Description = "Test <#= className #>.operator*(<#= className #>, <#= className #>)")]
+		public void <#= className #>_TestOperatorDotProduct()
+		{
+			<#= className #> a, b;
+			float d;
+
+			a = <#= className #>.UnitX;
+			b = <#= className #>.UnitY;
+			d = a * b;
+			Assert.AreEqual(0.0, d);
+
+			a = <#= className #>.UnitY;
+			b = <#= className #>.UnitZ;
+			d = a * b;
+			Assert.AreEqual(0.0, d);
+
+			a = <#= className #>.UnitX;
+			b = <#= className #>.UnitZ;
+			d = a * b;
+			Assert.AreEqual(0.0, d);
+
+			a = <#= className #>.UnitX;
+			b = <#= className #>.UnitX;
+			d = a * b;
+			Assert.AreEqual(1.0, d);
+
+			a = <#= className #>.UnitY;
+			b = <#= className #>.UnitY;
+			d = a * b;
+			Assert.AreEqual(1.0, d);
+
+			a = <#= className #>.UnitZ;
+			b = <#= className #>.UnitZ;
+			d = a * b;
+			Assert.AreEqual(1.0, d);
+		}
+
+		[Test(Description = "Test <#= className #>.operator^(<#= className #>, <#= className #>)")]
+		public void <#= className #>_TestOperatorCrossProduct()
+		{
+			<#= className #> a, b;
+			Vertex3f c;
+
+			a = <#= className #>.UnitX;
+			b = <#= className #>.UnitY;
+			c = a ^ b;
+			Assert.AreEqual(Vertex3f.UnitZ, c);
+		}
+
+		[Test(Description = "Test <#= className #>.operator*(<#= className #>, Matrix4x4)")]
+		public void <#= className #>_TestOperatorMatrixProduct()
+		{
+			Assert.Inconclusive("not implemented yet");
+		}
+
+		#endregion
+
+		#region Equality Operators
+
+		[Test(Description = "Test <#= className #>.operator==(<#= className #>, <#= className #>)")]
+		public void <#= className #>_TestOperatorEquality()
+		{
+			Assert.Inconclusive("not implemented yet");
+		}
+
+		[Test(Description = "Test <#= className #>.operator!=(<#= className #>, <#= className #>)")]
+		public void <#= className #>_TestOperatorInequality()
+		{
+			Assert.Inconclusive("not implemented yet");
+		}
+
+		#endregion
+
+		#region Cast Operators
+
+		[Test(Description = "Test <#= className #>.operator float[](<#= className #>)")]
+		public void <#= className #>_TestCastToArray()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+
+			<#= className #> v = new <#= className #>(x, y, z);
+			<#= baseType #>[] vArray = (<#= baseType #>[])v;
+
+			Assert.AreEqual(v.x, vArray[0]);
+			Assert.AreEqual(v.y, vArray[1]);
+			Assert.AreEqual(v.z, vArray[2]);
+		}
+
+		[Test(Description = "Test <#= className #>.operator Vertex2f(<#= className #>)")]
+		public void <#= className #>_TestCastToVertex2f()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+
+			<#= className #> v = new <#= className #>(x, y, z);
+			Vertex2f v2f = (Vertex2f)v;
+
+			Assert.AreEqual(v.X, v2f.x);
+			Assert.AreEqual(v.Y, v2f.y);
+		}
+
+		[Test(Description = "Test <#= className #>.operator Vertex3f(<#= className #>)")]
+		public void <#= className #>_TestCastToVertex3f()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+
+			<#= className #> v = new <#= className #>(x, y, z);
+			Vertex3f v3f = (Vertex3f)v;
+
+			Assert.AreEqual(v.X, v3f.x);
+			Assert.AreEqual(v.Y, v3f.y);
+			Assert.AreEqual(v.Z, v3f.z);
+		}
+
+		[Test(Description = "Test <#= className #>.operator Vertex3d(<#= className #>)")]
+		public void <#= className #>_TestCastToVertex3d()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+
+			<#= className #> v = new <#= className #>(x, y, z);
+			Vertex3d v3d = (Vertex3d)v;
+
+			Assert.AreEqual(v.X, (float)v3d.x);
+			Assert.AreEqual(v.Y, (float)v3d.y);
+			Assert.AreEqual(v.Z, (float)v3d.z);
+		}
+
+		[Test(Description = "Test <#= className #>.operator Vertex4d(<#= className #>)")]
+		public void <#= className #>_TestCastToVertex4d()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+
+			<#= className #> v = new <#= className #>(x, y, z);
+			Vertex4d v4d = (Vertex4d)v;
+
+			Assert.AreEqual(v.X, (float)v4d.x);
+			Assert.AreEqual(v.Y, (float)v4d.y);
+			Assert.AreEqual(v.Z, (float)v4d.z);
+			Assert.AreEqual(1.0f, (float)v4d.w);
+		}
+
+		#endregion
+
+		#region Vertex Methods
+
+<#
+		float moduleT1 = (float)Math.Sqrt(1.0 +  4.0 +  9.0);
+		float moduleT2 = (float)Math.Sqrt(4.0 + 25.0 + 49.0);
+#>
+		[Test(Description = "Test <#= className #>.Module()")]
+		public void <#= className #>_TestModule()
+		{
+			Assert.AreEqual(<#= moduleT1 #>f, new <#= className #>((<#= baseType #>)1.0, (<#= baseType #>)2.0, (<#= baseType #>)3.0).Module(), 1e-4f);
+			Assert.AreEqual(<#= moduleT2 #>f, new <#= className #>((<#= baseType #>)2.0, (<#= baseType #>)5.0, (<#= baseType #>)7.0).Module(), 1e-4f);
+		}
+
+<#
+		float moduleSquaredT1 = (float)(1.0 +  4.0 +  9.0);
+		float moduleSquaredT2 = (float)(4.0 + 25.0 + 49.0);
+#>
+		[Test(Description = "Test <#= className #>.ModuleSquared()")]
+		public void <#= className #>_TestModuleSquared()
+		{
+			Assert.AreEqual(<#= moduleSquaredT1 #>f, new <#= className #>((<#= baseType #>)1.0, (<#= baseType #>)2.0, (<#= baseType #>)3.0).ModuleSquared(), 1e-4f);
+			Assert.AreEqual(<#= moduleSquaredT2 #>f, new <#= className #>((<#= baseType #>)2.0, (<#= baseType #>)5.0, (<#= baseType #>)7.0).ModuleSquared(), 1e-4f);
+		}
+
+		#endregion
+	}
+
+<#
+	}
+#>
+}

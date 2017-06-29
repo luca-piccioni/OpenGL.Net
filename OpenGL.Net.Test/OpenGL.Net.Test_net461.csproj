@@ -126,8 +126,13 @@
     <Compile Include="Plane.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vertex3.cs" />
-    <Compile Include="Vertex4.cs" />
+    <Compile Include="Vertex3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vertex3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_Vertex3.cs" />
+    <Compile Include="_Vertex4.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ARB\Gl.ARB_shader_precision.glvs" />
@@ -135,6 +140,7 @@
     <Compile Include="TestBaseGLSL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +151,12 @@
       <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
       <Name>OpenGL.Net_net461</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Vertex3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Vertex3.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

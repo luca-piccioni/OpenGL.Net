@@ -488,11 +488,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -1381,11 +1392,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -2260,11 +2282,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -3153,11 +3186,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -4032,11 +4076,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -4925,11 +4980,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -5759,11 +5825,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -6578,11 +6655,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -7411,11 +7499,22 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 			float z2 = (float)(z * z);
 
-			return ((float)Math.Sqrt(x2 + y2 + z2));
+			return (x2 + y2 + z2);
 		}
 
 		/// <summary>
@@ -7613,6 +7712,46 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region Notable Vertex
+
+		/// <summary>
+		/// Origin vertex.
+		/// </summary>
+		public static readonly Vertex3hf Zero = new Vertex3hf(new HalfFloat(0.0f));
+
+		/// <summary>
+		/// Unit vertex along all axes.
+		/// </summary>
+		public static readonly Vertex3hf One = new Vertex3hf(new HalfFloat(1.0f));
+
+		/// <summary>
+		/// Unit vertex along X axis.
+		/// </summary>
+		public static readonly Vertex3hf UnitX = new Vertex3hf(new HalfFloat(1.0f), new HalfFloat(0.0f), new HalfFloat(0.0f));
+
+		/// <summary>
+		/// Unit vertex along Y axis.
+		/// </summary>
+		public static readonly Vertex3hf UnitY = new Vertex3hf(new HalfFloat(0.0f), new HalfFloat(1.0f), new HalfFloat(0.0f));
+
+		/// <summary>
+		/// Unit vertex along Z axis.
+		/// </summary>
+		public static readonly Vertex3hf UnitZ = new Vertex3hf(new HalfFloat(0.0f), new HalfFloat(0.0f), new HalfFloat(1.0f));
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex3hf Minimum = new Vertex3hf(new HalfFloat(HalfFloat.MinValue));
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex3hf Maximum = new Vertex3hf(new HalfFloat(HalfFloat.MaxValue));
+
+		#endregion
+
 		#region IVertex3 Implementation
 
 		/// <summary>

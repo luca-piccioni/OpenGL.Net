@@ -24,11 +24,11 @@ using System.Numerics;
 
 namespace OpenGL.Test
 {
-	class Vertex4Test : TestBaseBenchmark
+	class Vertex4 : TestBaseBenchmark
 	{
 		#region Constructors
 
-		public Vertex4Test()
+		public Vertex4()
 		{
 			Random random = new Random();
 
@@ -48,7 +48,7 @@ namespace OpenGL.Test
 		[Test]
 		public void BenchmarkVertex4Min()
 		{
-			RunBenchmarks<Vertex4Test>("BenchmarkVector4Min");
+			RunBenchmarks<Vertex4>("BenchmarkVector4Min");
 		}
 
 		[Benchmark("BenchmarkMinManaged", Repetitions = MinRepetitions)]
@@ -124,7 +124,7 @@ namespace OpenGL.Test
 		[Test]
 		public void BenchmarkVertex4Max()
 		{
-			RunBenchmarks<Vertex4Test>("BenchmarkVector4Max");
+			RunBenchmarks<Vertex4>("BenchmarkVector4Max");
 		}
 
 		[Benchmark("BenchmarkMaxManaged", Repetitions = MaxRepetitions)]
