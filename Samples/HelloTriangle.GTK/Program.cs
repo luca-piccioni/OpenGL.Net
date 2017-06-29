@@ -1,70 +1,31 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-using System.Security;
+﻿
+// Copyright (C) 2017 Luca Piccioni
+// 
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either
+// version 2.1 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public
+// License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
+// USA
 
-using Cairo;
+using System;
+
 using Gtk;
-using OpenGL;
+using OpenGL.GTK3;
 
 namespace HelloTriangle.GTK
 {
-	[ToolboxItem(true)]
-	class GlWidget : DrawingArea
-	{
-		public GlWidget()
-		{
-			DoubleBuffered = false;
-		}
-
-		protected override void OnRealized()
-		{
-			// Base implementation
-			base.OnRealized();
-
-			IntPtr winHandle = GetWindowHandle();
-
-			if (winHandle != IntPtr.Zero) {
-				_DeviceContext = DeviceContext.Create(IntPtr.Zero, GetWindowHandle());
-				_DeviceContext.ChoosePixelFormat(new DevicePixelFormat(24));
-
-				_GraphicsContext = _DeviceContext.CreateContext(IntPtr.Zero);
-			}
-		}
-
-		protected override bool OnDrawn(Context cr)
-		{
-			// Base implementation
-			//bool ret = base.OnDrawn(cr);
-
-			_DeviceContext.MakeCurrent(_GraphicsContext);
-
-			Gl.ClearColor(1.0f, 0.0f, 0.0f, 0.0f);
-
-			Gl.Viewport(0, 0, 100, 100);
-			Gl.Clear(ClearBufferMask.ColorBufferBit);
-
-			_DeviceContext.SwapBuffers();
-
-			return (true);
-		}
-
-		private IntPtr GetWindowHandle()
-		{
-			return (gdk_win32_window_get_handle(Window.Handle));
-		}
-
-		[SuppressUnmanagedCodeSecurity, DllImport("libgdk-3-0.dll", CallingConvention = CallingConvention.Cdecl)]
-		public static extern IntPtr gdk_win32_window_get_handle(IntPtr d);
-
-		private DeviceContext _DeviceContext;
-
-		private IntPtr _GraphicsContext;
-	}
-
 	class ExampleWindow : Window
 	{
-		public ExampleWindow() : base("Hello Triangle (GTK#)")
+		public ExampleWindow() : base("Hello Triangle (GTK# 3)")
 		{
 			SetDefaultSize(800, 600);
 			SetPosition(WindowPosition.Center);

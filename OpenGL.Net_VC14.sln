@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle.GTK", "Sample
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{BAF8E731-4A3E-4AC9-A979-D08234CB09DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.GTK3_net461", "OpenGL.Net.GTK3\OpenGL.Net.GTK3_net461.csproj", "{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -283,6 +285,14 @@ Global
 		{CABD7C7F-6A40-45F6-A396-BFFDB8DA985D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CABD7C7F-6A40-45F6-A396-BFFDB8DA985D}.Release|x86.ActiveCfg = Release|x86
 		{CABD7C7F-6A40-45F6-A396-BFFDB8DA985D}.Release|x86.Build.0 = Release|x86
+		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}.Debug|x86.Build.0 = Debug|Any CPU
+		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
