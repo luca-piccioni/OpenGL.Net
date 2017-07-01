@@ -319,7 +319,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_OUTPUT_SYNCHRONOUS = 0x8242;
 
 		/// <summary>
@@ -332,7 +331,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_NEXT_LOGGED_MESSAGE_LENGTH = 0x8243;
 
 		/// <summary>
@@ -345,7 +343,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_CALLBACK_FUNCTION = 0x8244;
 
 		/// <summary>
@@ -358,7 +355,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_CALLBACK_USER_PARAM = 0x8245;
 
 		/// <summary>
@@ -370,7 +366,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_API = 0x8246;
 
 		/// <summary>
@@ -382,7 +377,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_WINDOW_SYSTEM = 0x8247;
 
 		/// <summary>
@@ -394,7 +388,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_SHADER_COMPILER = 0x8248;
 
 		/// <summary>
@@ -406,7 +399,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_THIRD_PARTY = 0x8249;
 
 		/// <summary>
@@ -418,7 +410,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_APPLICATION = 0x824A;
 
 		/// <summary>
@@ -430,7 +421,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SOURCE_OTHER = 0x824B;
 
 		/// <summary>
@@ -442,7 +432,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_ERROR = 0x824C;
 
 		/// <summary>
@@ -454,7 +443,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_DEPRECATED_BEHAVIOR = 0x824D;
 
 		/// <summary>
@@ -466,7 +454,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_UNDEFINED_BEHAVIOR = 0x824E;
 
 		/// <summary>
@@ -478,7 +465,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_PORTABILITY = 0x824F;
 
 		/// <summary>
@@ -490,7 +476,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_PERFORMANCE = 0x8250;
 
 		/// <summary>
@@ -502,7 +487,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_OTHER = 0x8251;
 
 		/// <summary>
@@ -517,7 +501,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int MAX_DEBUG_MESSAGE_LENGTH = 0x9143;
 
 		/// <summary>
@@ -531,7 +514,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int MAX_DEBUG_LOGGED_MESSAGES = 0x9144;
 
 		/// <summary>
@@ -545,7 +527,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_LOGGED_MESSAGES = 0x9145;
 
 		/// <summary>
@@ -559,7 +540,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SEVERITY_HIGH = 0x9146;
 
 		/// <summary>
@@ -573,7 +553,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SEVERITY_MEDIUM = 0x9147;
 
 		/// <summary>
@@ -587,7 +566,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_debug_output")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SEVERITY_LOW = 0x9148;
 
 		/// <summary>
@@ -596,7 +574,6 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_TYPE_MARKER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_MARKER = 0x8268;
 
@@ -607,7 +584,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_PUSH_GROUP = 0x8269;
 
 		/// <summary>
@@ -616,7 +592,6 @@ namespace OpenGL
 		[AliasOf("GL_DEBUG_TYPE_POP_GROUP_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_TYPE_POP_GROUP = 0x826A;
 
@@ -627,7 +602,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_SEVERITY_NOTIFICATION = 0x826B;
 
 		/// <summary>
@@ -636,7 +610,6 @@ namespace OpenGL
 		[AliasOf("GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int MAX_DEBUG_GROUP_STACK_DEPTH = 0x826C;
 
@@ -647,7 +620,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_GROUP_STACK_DEPTH = 0x826D;
 
 		/// <summary>
@@ -656,7 +628,6 @@ namespace OpenGL
 		[AliasOf("GL_BUFFER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int BUFFER = 0x82E0;
 
@@ -667,7 +638,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int SHADER = 0x82E1;
 
 		/// <summary>
@@ -676,7 +646,6 @@ namespace OpenGL
 		[AliasOf("GL_PROGRAM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int PROGRAM = 0x82E2;
 
@@ -687,7 +656,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int QUERY = 0x82E3;
 
 		/// <summary>
@@ -696,7 +664,6 @@ namespace OpenGL
 		[AliasOf("GL_PROGRAM_PIPELINE_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int PROGRAM_PIPELINE = 0x82E4;
 
@@ -707,7 +674,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int SAMPLER = 0x82E6;
 
@@ -724,7 +690,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int MAX_LABEL_LENGTH = 0x82E8;
 
 		/// <summary>
@@ -734,7 +699,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		public const int DEBUG_OUTPUT = 0x92E0;
 
 		/// <summary>
@@ -743,7 +707,6 @@ namespace OpenGL
 		[AliasOf("GL_CONTEXT_FLAG_DEBUG_BIT_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint CONTEXT_FLAG_DEBUG_BIT = 0x00000002;

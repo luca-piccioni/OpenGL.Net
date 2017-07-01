@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
@@ -311,12 +312,13 @@ namespace BindingsGen.GLSpecs
 		{
 			string classDefaultApi = ctx.Class.ToLower();
 
-			foreach (IFeature feature in RequiredBy)
+			List<IFeature> requiredByFeatures = RequiredBy;
+			foreach (Enumerant aliasOf in AliasOf)
+				requiredByFeatures = requiredByFeatures.Union(aliasOf.RequiredBy).ToList();
+
+			foreach (IFeature feature in requiredByFeatures)
 				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
-			foreach (Enumerant aliasOf in AliasOf) {	// Note: not sure that Profile is considered here
-				foreach (IFeature feature in aliasOf.RequiredBy)
-					sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
-			}
+			
 			foreach (IFeature feature in RemovedBy)
 				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
 		}

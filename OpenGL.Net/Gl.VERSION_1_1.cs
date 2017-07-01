@@ -509,7 +509,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int VERTEX_ARRAY = 0x8074;
 

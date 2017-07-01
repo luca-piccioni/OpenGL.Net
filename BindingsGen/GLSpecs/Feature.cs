@@ -129,6 +129,52 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (Requirements); } }
 
+		public bool Equals(IFeature other)
+		{
+			if (ReferenceEquals(this, other))
+				return (true);
+
+			IFeature thisFeature = (IFeature)this;
+
+			if (thisFeature.Name != other.Name)
+				return (false);
+			if (thisFeature.Api != other.Api)
+				return (false);
+			if (thisFeature.Profile != other.Profile)
+				return (false);
+
+			return (true);
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		public override bool Equals(object obj)
+		{
+			IFeature objFeature = obj as IFeature;
+
+			if (objFeature != null)
+				return (Equals(objFeature));
+
+			// Base implementation
+			return base.Equals(obj);
+		}
+
+		public override int GetHashCode()
+		{
+			IFeature thisFeature = (IFeature)this;
+
+			int result = thisFeature.Name.GetHashCode();
+
+			if (thisFeature.Api != null)
+				result = (result * 397) ^ thisFeature.Api.GetHashCode();
+			if (thisFeature.Profile != null)
+				result = (result * 397) ^ thisFeature.Profile.GetHashCode();
+
+			return base.GetHashCode();
+		}
+
 		#endregion
 	}
 
@@ -186,6 +232,52 @@ namespace BindingsGen.GLSpecs
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
 		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (_Feature.Requirements); } }
+
+		public bool Equals(IFeature other)
+		{
+			if (ReferenceEquals(this, other))
+				return (true);
+
+			IFeature thisFeature = (IFeature)this;
+
+			if (thisFeature.Name != other.Name)
+				return (false);
+			if (thisFeature.Api != other.Api)
+				return (false);
+			if (thisFeature.Profile != other.Profile)
+				return (false);
+
+			return (true);
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		public override bool Equals(object obj)
+		{
+			IFeature objFeature = obj as IFeature;
+
+			if (objFeature != null)
+				return (Equals(objFeature));
+
+			// Base implementation
+			return base.Equals(obj);
+		}
+
+		public override int GetHashCode()
+		{
+			IFeature thisFeature = (IFeature)this;
+
+			int result = thisFeature.Name.GetHashCode();
+
+			if (thisFeature.Api != null)
+				result = (result * 397) ^ thisFeature.Api.GetHashCode();
+			if (thisFeature.Profile != null)
+				result = (result * 397) ^ thisFeature.Profile.GetHashCode();
+
+			return base.GetHashCode();
+		}
 
 		#endregion
 	}

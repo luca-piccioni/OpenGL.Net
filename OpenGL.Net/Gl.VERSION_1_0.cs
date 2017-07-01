@@ -1608,7 +1608,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int STACK_OVERFLOW = 0x0503;
 
@@ -1626,7 +1625,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int STACK_UNDERFLOW = 0x0504;

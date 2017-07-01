@@ -37,7 +37,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_ROBUST_ACCESS = 0x90F3;
 
 	}

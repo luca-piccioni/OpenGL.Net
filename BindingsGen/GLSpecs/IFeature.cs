@@ -22,7 +22,7 @@ namespace BindingsGen.GLSpecs
 	/// <summary>
 	/// OpenGL feature interface.
 	/// </summary>
-	public interface IFeature
+	public interface IFeature : IEquatable<IFeature>
 	{
 		/// <summary>
 		/// Get the name of the feature.

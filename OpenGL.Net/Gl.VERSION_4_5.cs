@@ -36,7 +36,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_LOST = 0x0507;
 
 		/// <summary>
@@ -138,7 +137,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int GUILTY_CONTEXT_RESET = 0x8253;
 
 		/// <summary>
@@ -154,7 +152,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int INNOCENT_CONTEXT_RESET = 0x8254;
 
 		/// <summary>
@@ -169,7 +166,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int UNKNOWN_CONTEXT_RESET = 0x8255;
 
 		/// <summary>
@@ -187,7 +183,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int RESET_NOTIFICATION_STRATEGY = 0x8256;
 
 		/// <summary>
@@ -202,7 +197,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int LOSE_CONTEXT_ON_RESET = 0x8252;
 
 		/// <summary>
@@ -216,7 +210,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
 		public const int NO_RESET_NOTIFICATION = 0x8261;
 
 		/// <summary>
@@ -235,7 +228,6 @@ namespace OpenGL
 		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_RELEASE_BEHAVIOR = 0x82FB;
 
 		/// <summary>
@@ -243,7 +235,6 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x82FC;
 
