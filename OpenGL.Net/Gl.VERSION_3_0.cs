@@ -29,6 +29,54 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
+		/// [GL] Value of GL_CLIP_DISTANCE0 symbol.
+		/// </summary>
+		[AliasOf("GL_CLIP_DISTANCE0_APPLE")]
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		public const int CLIP_DISTANCE0 = 0x3000;
+
+		/// <summary>
+		/// [GL] Value of GL_CLIP_DISTANCE1 symbol.
+		/// </summary>
+		[AliasOf("GL_CLIP_DISTANCE1_APPLE")]
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		public const int CLIP_DISTANCE1 = 0x3001;
+
+		/// <summary>
+		/// [GL] Value of GL_CLIP_DISTANCE2 symbol.
+		/// </summary>
+		[AliasOf("GL_CLIP_DISTANCE2_APPLE")]
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		public const int CLIP_DISTANCE2 = 0x3002;
+
+		/// <summary>
+		/// [GL] Value of GL_CLIP_DISTANCE3 symbol.
+		/// </summary>
+		[AliasOf("GL_CLIP_DISTANCE3_APPLE")]
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		public const int CLIP_DISTANCE3 = 0x3003;
+
+		/// <summary>
+		/// [GL] Value of GL_CLIP_DISTANCE4 symbol.
+		/// </summary>
+		[AliasOf("GL_CLIP_DISTANCE4_APPLE")]
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		public const int CLIP_DISTANCE4 = 0x3004;
+
+		/// <summary>
+		/// [GL] Value of GL_CLIP_DISTANCE5 symbol.
+		/// </summary>
+		[AliasOf("GL_CLIP_DISTANCE5_APPLE")]
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		public const int CLIP_DISTANCE5 = 0x3005;
+
+		/// <summary>
 		/// [GL] Value of GL_CLIP_DISTANCE6 symbol.
 		/// </summary>
 		[AliasOf("GL_CLIP_DISTANCE6_APPLE")]
@@ -43,6 +91,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
 		public const int CLIP_DISTANCE7 = 0x3007;
+
+		/// <summary>
+		/// [GL4] Gl.Get: data returns one value, the maximum number of application-defined clipping distances. The value must be at 
+		/// least 8.
+		/// </summary>
+		[AliasOf("GL_MAX_CLIP_DISTANCES_APPLE")]
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		public const int MAX_CLIP_DISTANCES = 0x0D32;
 
 		/// <summary>
 		/// <para>

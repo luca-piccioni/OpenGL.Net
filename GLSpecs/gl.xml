@@ -611,6 +611,14 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_CLIP_PLANE3"/>
             <enum name="GL_CLIP_PLANE4"/>
             <enum name="GL_CLIP_PLANE5"/>
+            <enum name="GL_CLIP_DISTANCE0"/>
+            <enum name="GL_CLIP_DISTANCE1"/>
+            <enum name="GL_CLIP_DISTANCE2"/>
+            <enum name="GL_CLIP_DISTANCE3"/>
+            <enum name="GL_CLIP_DISTANCE4"/>
+            <enum name="GL_CLIP_DISTANCE5"/>
+            <enum name="GL_CLIP_DISTANCE6"/>
+            <enum name="GL_CLIP_DISTANCE7"/>
             <enum name="GL_COLOR_ARRAY"/>
             <enum name="GL_COLOR_LOGIC_OP"/>
             <enum name="GL_COLOR_MATERIAL"/>
@@ -1121,6 +1129,14 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_CLIP_PLANE3"/>
             <enum name="GL_CLIP_PLANE4"/>
             <enum name="GL_CLIP_PLANE5"/>
+            <enum name="GL_CLIP_DISTANCE0"/>
+            <enum name="GL_CLIP_DISTANCE1"/>
+            <enum name="GL_CLIP_DISTANCE2"/>
+            <enum name="GL_CLIP_DISTANCE3"/>
+            <enum name="GL_CLIP_DISTANCE4"/>
+            <enum name="GL_CLIP_DISTANCE5"/>
+            <enum name="GL_CLIP_DISTANCE6"/>
+            <enum name="GL_CLIP_DISTANCE7"/>
             <enum name="GL_COLOR_ARRAY"/>
             <enum name="GL_COLOR_ARRAY_COUNT_EXT"/>
             <enum name="GL_COLOR_ARRAY_SIZE"/>
@@ -1828,14 +1844,15 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_DEPTH_COMPONENT16_ARB"/>
             <enum name="GL_DEPTH_COMPONENT16_OES"/>
             <enum name="GL_DEPTH_COMPONENT16_SGIX"/>
+            <enum name="GL_DEPTH_COMPONENT24"/>
             <enum name="GL_DEPTH_COMPONENT24_ARB"/>
             <enum name="GL_DEPTH_COMPONENT24_OES"/>
             <enum name="GL_DEPTH_COMPONENT24_SGIX"/>
+            <enum name="GL_DEPTH_COMPONENT32"/>
             <enum name="GL_DEPTH_COMPONENT32_ARB"/>
             <enum name="GL_DEPTH_COMPONENT32_OES"/>
             <enum name="GL_DEPTH_COMPONENT32_SGIX"/>
             <enum name="GL_DEPTH_COMPONENT32F"/>
-            <enum name="GL_DEPTH_COMPONENT32F_NV"/>
             <enum name="GL_DEPTH_COMPONENT32F_NV"/>
             <!-- Base internal format: GL_DEPTH_STENCIL -->
             <enum name="GL_DEPTH_STENCIL"/>
@@ -3785,7 +3802,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x0D31" name="GL_MAX_LIGHTS"/>
         <enum value="0x0D32" name="GL_MAX_CLIP_PLANES"/>
         <enum value="0x0D32" name="GL_MAX_CLIP_PLANES_IMG"/>
-        <enum value="0x0D32" name="GL_MAX_CLIP_DISTANCES" alias="GL_MAX_CLIP_PLANES"/>
+        <enum value="0x0D32" name="GL_MAX_CLIP_DISTANCES"/>
         <enum value="0x0D32" name="GL_MAX_CLIP_DISTANCES_EXT" alias="GL_MAX_CLIP_PLANES"/>
         <enum value="0x0D32" name="GL_MAX_CLIP_DISTANCES_APPLE"/>
         <enum value="0x0D33" name="GL_MAX_TEXTURE_SIZE"/>
@@ -4053,33 +4070,33 @@ typedef unsigned int GLhandleARB;
             <unused start="0x2A2E" end="0x2FFF" comment="Unused for InterleavedArrayFormat"/>
         <enum value="0x3000" name="GL_CLIP_PLANE0"/>
         <enum value="0x3000" name="GL_CLIP_PLANE0_IMG"/>
-        <enum value="0x3000" name="GL_CLIP_DISTANCE0" alias="GL_CLIP_PLANE0"/>
-        <enum value="0x3000" name="GL_CLIP_DISTANCE0_EXT" alias="GL_CLIP_PLANE0"/>
+        <enum value="0x3000" name="GL_CLIP_DISTANCE0"/>
+        <enum value="0x3000" name="GL_CLIP_DISTANCE0_EXT" alias="GL_CLIP_DISTANCE0"/>
         <enum value="0x3000" name="GL_CLIP_DISTANCE0_APPLE"/>
         <enum value="0x3001" name="GL_CLIP_PLANE1"/>
         <enum value="0x3001" name="GL_CLIP_PLANE1_IMG"/>
-        <enum value="0x3001" name="GL_CLIP_DISTANCE1" alias="GL_CLIP_PLANE1"/>
-        <enum value="0x3001" name="GL_CLIP_DISTANCE1_EXT" alias="GL_CLIP_PLANE1"/>
+        <enum value="0x3001" name="GL_CLIP_DISTANCE1"/>
+        <enum value="0x3001" name="GL_CLIP_DISTANCE1_EXT" alias="GL_CLIP_DISTANCE1"/>
         <enum value="0x3001" name="GL_CLIP_DISTANCE1_APPLE"/>
         <enum value="0x3002" name="GL_CLIP_PLANE2"/>
         <enum value="0x3002" name="GL_CLIP_PLANE2_IMG"/>
-        <enum value="0x3002" name="GL_CLIP_DISTANCE2" alias="GL_CLIP_PLANE2"/>
-        <enum value="0x3002" name="GL_CLIP_DISTANCE2_EXT" alias="GL_CLIP_PLANE2"/>
+        <enum value="0x3002" name="GL_CLIP_DISTANCE2"/>
+        <enum value="0x3002" name="GL_CLIP_DISTANCE2_EXT" alias="GL_CLIP_DISTANCE2"/>
         <enum value="0x3002" name="GL_CLIP_DISTANCE2_APPLE"/>
         <enum value="0x3003" name="GL_CLIP_PLANE3"/>
         <enum value="0x3003" name="GL_CLIP_PLANE3_IMG"/>
-        <enum value="0x3003" name="GL_CLIP_DISTANCE3" alias="GL_CLIP_PLANE3"/>
-        <enum value="0x3003" name="GL_CLIP_DISTANCE3_EXT" alias="GL_CLIP_PLANE3"/>
+        <enum value="0x3003" name="GL_CLIP_DISTANCE3"/>
+        <enum value="0x3003" name="GL_CLIP_DISTANCE3_EXT" alias="GL_CLIP_DISTANCE3"/>
         <enum value="0x3003" name="GL_CLIP_DISTANCE3_APPLE"/>
         <enum value="0x3004" name="GL_CLIP_PLANE4"/>
         <enum value="0x3004" name="GL_CLIP_PLANE4_IMG"/>
-        <enum value="0x3004" name="GL_CLIP_DISTANCE4" alias="GL_CLIP_PLANE4"/>
-        <enum value="0x3004" name="GL_CLIP_DISTANCE4_EXT" alias="GL_CLIP_PLANE4"/>
+        <enum value="0x3004" name="GL_CLIP_DISTANCE4"/>
+        <enum value="0x3004" name="GL_CLIP_DISTANCE4_EXT" alias="GL_CLIP_DISTANCE4"/>
         <enum value="0x3004" name="GL_CLIP_DISTANCE4_APPLE"/>
         <enum value="0x3005" name="GL_CLIP_PLANE5"/>
         <enum value="0x3005" name="GL_CLIP_PLANE5_IMG"/>
-        <enum value="0x3005" name="GL_CLIP_DISTANCE5" alias="GL_CLIP_PLANE5"/>
-        <enum value="0x3005" name="GL_CLIP_DISTANCE5_EXT" alias="GL_CLIP_PLANE5"/>
+        <enum value="0x3005" name="GL_CLIP_DISTANCE5"/>
+        <enum value="0x3005" name="GL_CLIP_DISTANCE5_EXT" alias="GL_CLIP_DISTANCE5"/>
         <enum value="0x3005" name="GL_CLIP_DISTANCE5_APPLE"/>
         <enum value="0x3006" name="GL_CLIP_DISTANCE6"/>
         <enum value="0x3006" name="GL_CLIP_DISTANCE6_EXT" alias="GL_CLIP_DISTANCE6"/>

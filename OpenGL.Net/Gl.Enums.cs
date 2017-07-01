@@ -1372,11 +1372,25 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_CLIP_DISTANCE0, GL_CLIP_PLANE0.
 		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance0 = Gl.CLIP_DISTANCE0,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE0, GL_CLIP_PLANE0.
+		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane0 = Gl.CLIP_PLANE0,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE1, GL_CLIP_PLANE1.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance1 = Gl.CLIP_DISTANCE1,
 
 		/// <summary>
 		/// Strongly typed for value GL_CLIP_DISTANCE1, GL_CLIP_PLANE1.
@@ -1390,11 +1404,25 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_CLIP_DISTANCE2, GL_CLIP_PLANE2.
 		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance2 = Gl.CLIP_DISTANCE2,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE2, GL_CLIP_PLANE2.
+		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane2 = Gl.CLIP_PLANE2,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE3, GL_CLIP_PLANE3.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance3 = Gl.CLIP_DISTANCE3,
 
 		/// <summary>
 		/// Strongly typed for value GL_CLIP_DISTANCE3, GL_CLIP_PLANE3.
@@ -1408,11 +1436,25 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_CLIP_DISTANCE4, GL_CLIP_PLANE4.
 		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance4 = Gl.CLIP_DISTANCE4,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE4, GL_CLIP_PLANE4.
+		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane4 = Gl.CLIP_PLANE4,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE5, GL_CLIP_PLANE5.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance5 = Gl.CLIP_DISTANCE5,
 
 		/// <summary>
 		/// Strongly typed for value GL_CLIP_DISTANCE5, GL_CLIP_PLANE5.
@@ -2758,7 +2800,7 @@ namespace OpenGL
 		CalligraphicFragmentSgix = Gl.CALLIGRAPHIC_FRAGMENT_SGIX,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE0.
+		/// Strongly typed for value GL_CLIP_PLANE0, GL_CLIP_DISTANCE0.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2767,7 +2809,14 @@ namespace OpenGL
 		ClipPlane0 = Gl.CLIP_PLANE0,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE1.
+		/// Strongly typed for value GL_CLIP_PLANE0, GL_CLIP_DISTANCE0.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance0 = Gl.CLIP_DISTANCE0,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE1, GL_CLIP_DISTANCE1.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2776,7 +2825,14 @@ namespace OpenGL
 		ClipPlane1 = Gl.CLIP_PLANE1,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE2.
+		/// Strongly typed for value GL_CLIP_PLANE1, GL_CLIP_DISTANCE1.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance1 = Gl.CLIP_DISTANCE1,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE2, GL_CLIP_DISTANCE2.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2785,7 +2841,14 @@ namespace OpenGL
 		ClipPlane2 = Gl.CLIP_PLANE2,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE3.
+		/// Strongly typed for value GL_CLIP_PLANE2, GL_CLIP_DISTANCE2.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance2 = Gl.CLIP_DISTANCE2,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE3, GL_CLIP_DISTANCE3.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2794,7 +2857,14 @@ namespace OpenGL
 		ClipPlane3 = Gl.CLIP_PLANE3,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE4.
+		/// Strongly typed for value GL_CLIP_PLANE3, GL_CLIP_DISTANCE3.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance3 = Gl.CLIP_DISTANCE3,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE4, GL_CLIP_DISTANCE4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2803,13 +2873,41 @@ namespace OpenGL
 		ClipPlane4 = Gl.CLIP_PLANE4,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE5.
+		/// Strongly typed for value GL_CLIP_PLANE4, GL_CLIP_DISTANCE4.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance4 = Gl.CLIP_DISTANCE4,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE5, GL_CLIP_DISTANCE5.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane5 = Gl.CLIP_PLANE5,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE5, GL_CLIP_DISTANCE5.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance5 = Gl.CLIP_DISTANCE5,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE6.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance6 = Gl.CLIP_DISTANCE6,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE7.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance7 = Gl.CLIP_DISTANCE7,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_ARRAY.
@@ -5673,7 +5771,7 @@ namespace OpenGL
 		ClientAttribStackDepth = Gl.CLIENT_ATTRIB_STACK_DEPTH,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE0.
+		/// Strongly typed for value GL_CLIP_PLANE0, GL_CLIP_DISTANCE0.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5682,7 +5780,14 @@ namespace OpenGL
 		ClipPlane0 = Gl.CLIP_PLANE0,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE1.
+		/// Strongly typed for value GL_CLIP_PLANE0, GL_CLIP_DISTANCE0.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance0 = Gl.CLIP_DISTANCE0,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE1, GL_CLIP_DISTANCE1.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5691,7 +5796,14 @@ namespace OpenGL
 		ClipPlane1 = Gl.CLIP_PLANE1,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE2.
+		/// Strongly typed for value GL_CLIP_PLANE1, GL_CLIP_DISTANCE1.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance1 = Gl.CLIP_DISTANCE1,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE2, GL_CLIP_DISTANCE2.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5700,7 +5812,14 @@ namespace OpenGL
 		ClipPlane2 = Gl.CLIP_PLANE2,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE3.
+		/// Strongly typed for value GL_CLIP_PLANE2, GL_CLIP_DISTANCE2.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance2 = Gl.CLIP_DISTANCE2,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE3, GL_CLIP_DISTANCE3.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5709,7 +5828,14 @@ namespace OpenGL
 		ClipPlane3 = Gl.CLIP_PLANE3,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE4.
+		/// Strongly typed for value GL_CLIP_PLANE3, GL_CLIP_DISTANCE3.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance3 = Gl.CLIP_DISTANCE3,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE4, GL_CLIP_DISTANCE4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5718,13 +5844,41 @@ namespace OpenGL
 		ClipPlane4 = Gl.CLIP_PLANE4,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE5.
+		/// Strongly typed for value GL_CLIP_PLANE4, GL_CLIP_DISTANCE4.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance4 = Gl.CLIP_DISTANCE4,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE5, GL_CLIP_DISTANCE5.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane5 = Gl.CLIP_PLANE5,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_PLANE5, GL_CLIP_DISTANCE5.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance5 = Gl.CLIP_DISTANCE5,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE6.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance6 = Gl.CLIP_DISTANCE6,
+
+		/// <summary>
+		/// Strongly typed for value GL_CLIP_DISTANCE7.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		ClipDistance7 = Gl.CLIP_DISTANCE7,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_ARRAY.
@@ -6379,6 +6533,13 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_INDEX_LOGIC_OP, GL_LOGIC_OP.
 		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		IndexLogicOp = Gl.INDEX_LOGIC_OP,
+
+		/// <summary>
+		/// Strongly typed for value GL_INDEX_LOGIC_OP, GL_LOGIC_OP.
+		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		LogicOp = Gl.LOGIC_OP,
@@ -6872,6 +7033,13 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_MAX_CLIP_DISTANCES, GL_MAX_CLIP_PLANES.
 		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+		MaxClipDistances = Gl.MAX_CLIP_DISTANCES,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAX_CLIP_DISTANCES, GL_MAX_CLIP_PLANES.
+		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -6991,10 +7159,22 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_MODELVIEW0_MATRIX_EXT, GL_MODELVIEW_MATRIX.
 		/// </summary>
+		[RequiredByFeature("GL_EXT_vertex_weighting")]
+		Modelview0MatrixExt = Gl.MODELVIEW0_MATRIX_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_MODELVIEW0_MATRIX_EXT, GL_MODELVIEW_MATRIX.
+		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ModelviewMatrix = Gl.MODELVIEW_MATRIX,
+
+		/// <summary>
+		/// Strongly typed for value GL_MODELVIEW0_STACK_DEPTH_EXT, GL_MODELVIEW_STACK_DEPTH.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_vertex_weighting")]
+		Modelview0StackDepthExt = Gl.MODELVIEW0_STACK_DEPTH_EXT,
 
 		/// <summary>
 		/// Strongly typed for value GL_MODELVIEW0_STACK_DEPTH_EXT, GL_MODELVIEW_STACK_DEPTH.
@@ -7929,6 +8109,12 @@ namespace OpenGL
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_3D_BINDING_EXT, GL_TEXTURE_BINDING_3D.
 		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_object")]
+		Texture3dBindingExt = Gl.TEXTURE_3D_BINDING_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_3D_BINDING_EXT, GL_TEXTURE_BINDING_3D.
+		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -8528,6 +8714,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureComponents = Gl.TEXTURE_COMPONENTS,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_COMPONENTS, GL_TEXTURE_INTERNAL_FORMAT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		TextureInternalFormat = Gl.TEXTURE_INTERNAL_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_DEPTH_EXT.
@@ -10185,7 +10378,8 @@ namespace OpenGL
 		DepthComponent16 = Gl.DEPTH_COMPONENT16,
 
 		/// <summary>
-		/// Strongly typed for value GL_DEPTH_COMPONENT24_ARB, GL_DEPTH_COMPONENT24_OES, GL_DEPTH_COMPONENT24_SGIX.
+		/// Strongly typed for value GL_DEPTH_COMPONENT24, GL_DEPTH_COMPONENT24_ARB, GL_DEPTH_COMPONENT24_OES, 
+		/// GL_DEPTH_COMPONENT24_SGIX.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -10196,7 +10390,8 @@ namespace OpenGL
 		DepthComponent24 = Gl.DEPTH_COMPONENT24,
 
 		/// <summary>
-		/// Strongly typed for value GL_DEPTH_COMPONENT32_ARB, GL_DEPTH_COMPONENT32_OES, GL_DEPTH_COMPONENT32_SGIX.
+		/// Strongly typed for value GL_DEPTH_COMPONENT32, GL_DEPTH_COMPONENT32_ARB, GL_DEPTH_COMPONENT32_OES, 
+		/// GL_DEPTH_COMPONENT32_SGIX.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_depth_texture")]
@@ -10215,7 +10410,7 @@ namespace OpenGL
 		DepthComponent32f = Gl.DEPTH_COMPONENT32F,
 
 		/// <summary>
-		/// Strongly typed for value GL_DEPTH_COMPONENT32F_NV, GL_DEPTH_COMPONENT32F_NV.
+		/// Strongly typed for value GL_DEPTH_COMPONENT32F_NV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_depth_buffer_float")]
 		DepthComponent32fNv = Gl.DEPTH_COMPONENT32F_NV,
@@ -13205,6 +13400,16 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
 		DistanceAttenuationExt = Gl.DISTANCE_ATTENUATION_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_DISTANCE_ATTENUATION_EXT, GL_DISTANCE_ATTENUATION_SGIS, GL_POINT_DISTANCE_ATTENUATION, 
+		/// GL_POINT_DISTANCE_ATTENUATION_ARB.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_point_parameters")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		PointDistanceAttenuation = Gl.POINT_DISTANCE_ATTENUATION,
 
 		/// <summary>
 		/// Strongly typed for value GL_POINT_FADE_THRESHOLD_SIZE, GL_POINT_FADE_THRESHOLD_SIZE_ARB, 
@@ -16220,6 +16425,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		TextureComponents = Gl.TEXTURE_COMPONENTS,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_COMPONENTS, GL_TEXTURE_INTERNAL_FORMAT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		TextureInternalFormat = Gl.TEXTURE_INTERNAL_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_DEPTH_EXT.

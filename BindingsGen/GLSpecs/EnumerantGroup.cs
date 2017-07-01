@@ -115,16 +115,25 @@ namespace BindingsGen.GLSpecs
 
 			foreach (KeyValuePair<string, List<Enumerant>> pair in groupEnums) {
 				if (pair.Value.Count > 1) {
-					Enumerant shorterNameEnum = null;
+					List<Enumerant> uniqueNames = new List<Enumerant>();
 
 					foreach (Enumerant item in pair.Value) {
-						if ((shorterNameEnum == null) || (shorterNameEnum.Name.Length > item.Name.Length))
-							shorterNameEnum = item;
+						if (item.Alias != null)
+							continue;
+						if (item.EnumAlias != null)
+							continue;
+						if (uniqueNames.FindIndex(delegate(Enumerant item1) { return (item.Name.StartsWith(item1.Name)); }) >= 0)
+							continue;
+
+						if (uniqueNames.FindIndex(delegate(Enumerant item1) { return (item1.Name.StartsWith(item.Name)); }) >= 0)
+							uniqueNames.RemoveAll(delegate(Enumerant item1) { return (item1.Name.StartsWith(item.Name)); });
+
+						uniqueNames.Add(item);
 					}
 
-					uniqueEnums.Add(shorterNameEnum);
+					uniqueEnums.AddRange(uniqueNames);
 				} else
-					uniqueEnums.Add(pair.Value[0]);
+					uniqueEnums.AddRange(pair.Value);
 			}
 
 			sw.WriteLine("/// <summary>");

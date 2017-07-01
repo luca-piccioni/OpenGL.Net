@@ -73,6 +73,15 @@ namespace OpenGL
 			public int MaxClipPlanes;
 
 			/// <summary>
+			/// [GL4] Gl.Get: data returns one value, the maximum number of application-defined clipping distances. The value must be at 
+			/// least 8.
+			/// </summary>
+			[Limit(MAX_CLIP_DISTANCES)]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
+			public int MaxClipDistances;
+
+			/// <summary>
 			/// <para>
 			/// [GL4] Gl.Get: data returns one value. The value gives a rough estimate of the largest texture that the GL can handle. 
 			/// The value must be at least 1024. Use a proxy texture target such as Gl.PROXY_TEXTURE_1D or Gl.PROXY_TEXTURE_2D to 
