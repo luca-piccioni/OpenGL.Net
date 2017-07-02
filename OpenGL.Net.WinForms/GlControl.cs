@@ -704,8 +704,6 @@ namespace OpenGL
 			if (_RenderContext != IntPtr.Zero)
 				throw new InvalidOperationException("context already created");
 
-			KhronosVersion currentVersion = Gl.CurrentVersion;
-			
 			IntPtr sharingContext = IntPtr.Zero;
 			bool shareResources = ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null;
 
@@ -1166,7 +1164,6 @@ namespace OpenGL
 
 						// Update
 						OnContextUpdate();
-
 
 						// Swap
 						_DeviceContext.SwapBuffers();
