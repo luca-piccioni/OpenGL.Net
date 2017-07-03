@@ -24,7 +24,9 @@
 
 using System;
 using System.Diagnostics;
+#if HAVE_SYSTEM_DRAWING
 using System.Drawing;
+#endif
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -183,6 +185,9 @@ namespace OpenGL
 			return (new Vertex3<#= castSuffix #>(a.r, a.g, a.b));
 		}
 <#		} #>
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -202,6 +207,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 

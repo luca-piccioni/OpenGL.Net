@@ -24,7 +24,9 @@
 
 using System;
 using System.Diagnostics;
+#if HAVE_SYSTEM_DRAWING
 using System.Drawing;
+#endif
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -181,6 +183,8 @@ if (structMembersCount[i] == 1) { #>
 			return (new Vertex4<#= castSuffix #>(a.r, a.g, a.b, a.a));
 		}
 
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -201,6 +205,8 @@ if (structMembersCount[i] == 1) { #>
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 

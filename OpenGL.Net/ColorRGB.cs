@@ -17,7 +17,9 @@
 
 using System;
 using System.Diagnostics;
+#if HAVE_SYSTEM_DRAWING
 using System.Drawing;
+#endif
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -63,6 +65,9 @@ namespace OpenGL
 
 		#region Cast Operators
 
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -82,6 +87,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -249,6 +256,9 @@ namespace OpenGL
 
 		#region Cast Operators
 
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -268,6 +278,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -435,6 +447,9 @@ namespace OpenGL
 
 		#region Cast Operators
 
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -454,6 +469,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -676,6 +693,9 @@ namespace OpenGL
 		{
 			return (new Vertex3ub(a.r, a.g, a.b));
 		}
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -695,6 +715,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -917,6 +939,9 @@ namespace OpenGL
 		{
 			return (new Vertex3us(a.r, a.g, a.b));
 		}
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -936,6 +961,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -1145,6 +1172,9 @@ namespace OpenGL
 		{
 			return (new Vertex3ui(a.r, a.g, a.b));
 		}
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -1164,6 +1194,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -1386,6 +1418,9 @@ namespace OpenGL
 		{
 			return (new Vertex3f(a.r, a.g, a.b));
 		}
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -1405,6 +1440,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -1614,6 +1651,9 @@ namespace OpenGL
 		{
 			return (new Vertex3d(a.r, a.g, a.b));
 		}
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -1633,6 +1673,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -1855,6 +1897,9 @@ namespace OpenGL
 		{
 			return (new Vertex3hf(a.r, a.g, a.b));
 		}
+
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -1874,6 +1919,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 

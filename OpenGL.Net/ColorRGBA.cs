@@ -24,7 +24,9 @@
 
 using System;
 using System.Diagnostics;
+#if HAVE_SYSTEM_DRAWING
 using System.Drawing;
+#endif
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -143,6 +145,8 @@ namespace OpenGL
 			return (new Vertex4ub(a.r, a.g, a.b, a.a));
 		}
 
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -163,6 +167,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -444,6 +450,8 @@ namespace OpenGL
 			return (new Vertex4us(a.r, a.g, a.b, a.a));
 		}
 
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -464,6 +472,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -745,6 +755,8 @@ namespace OpenGL
 			return (new Vertex4f(a.r, a.g, a.b, a.a));
 		}
 
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -765,6 +777,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
@@ -1046,6 +1060,8 @@ namespace OpenGL
 			return (new Vertex4hf(a.r, a.g, a.b, a.a));
 		}
 
+#if HAVE_SYSTEM_DRAWING
+
 		/// <summary>
 		/// Cast from Color operator.
 		/// </summary>
@@ -1066,6 +1082,8 @@ namespace OpenGL
 
 			return (c);
 		}
+
+#endif
 
 		#endregion
 
