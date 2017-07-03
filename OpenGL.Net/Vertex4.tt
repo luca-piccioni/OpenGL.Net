@@ -153,10 +153,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
-<#
-		if (signedType[i] != 0) {
-#>
+<# if (signedType[i] != 0) { #>
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -170,11 +167,7 @@ namespace OpenGL
 		{
 			return (new <#= className #>((<#= baseType #>)(-v.x), (<#= baseType #>)(-v.y), (<#= baseType #>)(-v.z), (<#= baseType #>)(-v.w)));
 		}
-
-<#
-		}
-#>
-
+<# } #>
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -393,8 +386,29 @@ namespace OpenGL
 
 			return (v);
 		}
+<# if (baseType != "double") { #>
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](<#= className #> a)
+		{
+			double[] v = new double[4];
 
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+			v[3] = a.w;
+
+			return (v);
+		}
 <#
+		}
 		if (className != "Vertex4d") {
 #>
 		/// <summary>

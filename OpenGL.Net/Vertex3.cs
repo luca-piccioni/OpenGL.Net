@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
@@ -26,6 +33,7 @@ using System.Numerics;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// Vertex value type (byte coordinates).
 	/// </summary>
@@ -106,6 +114,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		/// <summary>
 		/// Add operator.
@@ -310,6 +319,7 @@ namespace OpenGL
 			return (r);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -355,6 +365,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -407,6 +418,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3ub"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex3ub a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -419,6 +450,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -434,6 +466,7 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -447,6 +480,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -702,6 +736,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -729,6 +764,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3ub UnitZ = new Vertex3ub(0, 0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -739,9 +775,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3ub Maximum = new Vertex3ub(byte.MaxValue);
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [0.0, 1.0].
@@ -784,6 +823,7 @@ namespace OpenGL
 				z = (byte)(value * (float)byte.MaxValue);
 			}
 		}
+
 
 		#endregion
 
@@ -902,6 +942,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3ub.
 		/// </summary>
@@ -913,8 +954,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (sbyte coordinates).
@@ -997,6 +1040,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -1010,6 +1054,7 @@ namespace OpenGL
 		{
 			return (new Vertex3b((sbyte)(-v.x), (sbyte)(-v.y), (sbyte)(-v.z)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -1214,6 +1259,7 @@ namespace OpenGL
 			return (r);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -1259,6 +1305,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -1311,6 +1358,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3b"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex3b a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -1323,6 +1390,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -1338,6 +1406,7 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -1351,6 +1420,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -1606,6 +1676,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -1633,6 +1704,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3b UnitZ = new Vertex3b(0, 0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -1643,9 +1715,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3b Maximum = new Vertex3b(sbyte.MaxValue);
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
@@ -1688,6 +1763,7 @@ namespace OpenGL
 				z = (sbyte)((value * 0.5f + 0.5f) * ((long)sbyte.MaxValue - (long)sbyte.MinValue) + sbyte.MinValue);
 			}
 		}
+
 
 		#endregion
 
@@ -1806,6 +1882,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3b.
 		/// </summary>
@@ -1817,8 +1894,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (ushort coordinates).
@@ -1900,6 +1979,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		/// <summary>
 		/// Add operator.
@@ -2104,6 +2184,7 @@ namespace OpenGL
 			return (r);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -2149,6 +2230,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -2201,6 +2283,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3us"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex3us a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -2213,6 +2315,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -2228,6 +2331,7 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -2241,6 +2345,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -2496,6 +2601,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -2523,6 +2629,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3us UnitZ = new Vertex3us(0, 0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -2533,9 +2640,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3us Maximum = new Vertex3us(ushort.MaxValue);
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [0.0, 1.0].
@@ -2578,6 +2688,7 @@ namespace OpenGL
 				z = (ushort)(value * (float)ushort.MaxValue);
 			}
 		}
+
 
 		#endregion
 
@@ -2696,6 +2807,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3us.
 		/// </summary>
@@ -2707,8 +2819,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (short coordinates).
@@ -2791,6 +2905,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -2804,6 +2919,7 @@ namespace OpenGL
 		{
 			return (new Vertex3s((short)(-v.x), (short)(-v.y), (short)(-v.z)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -3008,6 +3124,7 @@ namespace OpenGL
 			return (r);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -3053,6 +3170,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -3105,6 +3223,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3s"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex3s a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -3117,6 +3255,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -3132,6 +3271,7 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -3145,6 +3285,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -3400,6 +3541,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -3427,6 +3569,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3s UnitZ = new Vertex3s(0, 0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -3437,9 +3580,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3s Maximum = new Vertex3s(short.MaxValue);
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
@@ -3482,6 +3628,7 @@ namespace OpenGL
 				z = (short)((value * 0.5f + 0.5f) * ((long)short.MaxValue - (long)short.MinValue) + short.MinValue);
 			}
 		}
+
 
 		#endregion
 
@@ -3600,6 +3747,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3s.
 		/// </summary>
@@ -3611,8 +3759,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (uint coordinates).
@@ -3694,6 +3844,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		/// <summary>
 		/// Add operator.
@@ -3898,6 +4049,7 @@ namespace OpenGL
 			return (r);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -3943,6 +4095,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -3995,6 +4148,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3ui"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex3ui a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -4007,6 +4180,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -4022,6 +4196,7 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -4035,6 +4210,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -4290,6 +4466,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -4317,6 +4494,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3ui UnitZ = new Vertex3ui(0, 0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -4327,9 +4505,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3ui Maximum = new Vertex3ui(uint.MaxValue);
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [0.0, 1.0].
@@ -4372,6 +4553,7 @@ namespace OpenGL
 				z = (uint)(value * (float)uint.MaxValue);
 			}
 		}
+
 
 		#endregion
 
@@ -4490,6 +4672,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3ui.
 		/// </summary>
@@ -4501,8 +4684,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (int coordinates).
@@ -4585,6 +4770,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -4598,6 +4784,7 @@ namespace OpenGL
 		{
 			return (new Vertex3i((int)(-v.x), (int)(-v.y), (int)(-v.z)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -4802,6 +4989,7 @@ namespace OpenGL
 			return (r);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -4847,6 +5035,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -4899,6 +5088,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3i"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex3i a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -4911,6 +5120,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -4926,6 +5136,7 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -4939,6 +5150,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -5194,6 +5406,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -5221,6 +5434,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3i UnitZ = new Vertex3i(0, 0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -5231,9 +5445,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3i Maximum = new Vertex3i(int.MaxValue);
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
@@ -5276,6 +5493,7 @@ namespace OpenGL
 				z = (int)((value * 0.5f + 0.5f) * ((long)int.MaxValue - (long)int.MinValue) + int.MinValue);
 			}
 		}
+
 
 		#endregion
 
@@ -5394,6 +5612,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3i.
 		/// </summary>
@@ -5405,8 +5624,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (float coordinates).
@@ -5489,6 +5710,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -5502,6 +5724,7 @@ namespace OpenGL
 		{
 			return (new Vertex3f((float)(-v.x), (float)(-v.y), (float)(-v.z)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -5707,6 +5930,7 @@ namespace OpenGL
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -5758,6 +5982,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3f"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex3f a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -5770,6 +6014,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -5784,6 +6029,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -6039,6 +6285,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -6066,6 +6313,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3f UnitZ = new Vertex3f(0.0f, 0.0f, 1.0f);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -6076,9 +6324,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3f Maximum = new Vertex3f(float.MaxValue);
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, unclamped range.
@@ -6106,6 +6357,7 @@ namespace OpenGL
 			get { return ((float)z); }
 			set { z = (float)value; }
 		}
+
 
 		#endregion
 
@@ -6224,6 +6476,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3f.
 		/// </summary>
@@ -6235,8 +6488,10 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (double coordinates).
@@ -6319,6 +6574,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -6332,6 +6588,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d((double)(-v.x), (double)(-v.y), (double)(-v.z)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -6537,6 +6794,7 @@ namespace OpenGL
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -6601,6 +6859,7 @@ namespace OpenGL
 			return (new Vertex2f(v.X, v.Y));
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
@@ -6614,6 +6873,7 @@ namespace OpenGL
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -6869,6 +7129,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -6896,6 +7157,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3d UnitZ = new Vertex3d(0.0, 0.0, 1.0);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -6906,9 +7168,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3d Maximum = new Vertex3d(double.MaxValue);
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, unclamped range.
@@ -6936,6 +7201,7 @@ namespace OpenGL
 			get { return ((float)z); }
 			set { z = (double)value; }
 		}
+
 
 		#endregion
 
@@ -7054,6 +7320,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3d.
 		/// </summary>
@@ -7065,8 +7332,10 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (HalfFloat coordinates).
@@ -7149,6 +7418,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -7162,6 +7432,7 @@ namespace OpenGL
 		{
 			return (new Vertex3hf((HalfFloat)(-v.x), (HalfFloat)(-v.y), (HalfFloat)(-v.z)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -7367,6 +7638,7 @@ namespace OpenGL
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -7418,6 +7690,26 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex3hf"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex3hf a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -7430,6 +7722,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -7445,6 +7738,7 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -7458,6 +7752,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -7713,6 +8008,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -7740,6 +8036,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3hf UnitZ = new Vertex3hf(new HalfFloat(0.0f), new HalfFloat(0.0f), new HalfFloat(1.0f));
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -7750,9 +8047,12 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3hf Maximum = new Vertex3hf(new HalfFloat(HalfFloat.MaxValue));
 
+
 		#endregion
 
+
 		#region IVertex3 Implementation
+
 
 		/// <summary>
 		/// Vertex coordinate X, unclamped range.
@@ -7780,6 +8080,7 @@ namespace OpenGL
 			get { return ((float)z); }
 			set { z = (HalfFloat)value; }
 		}
+
 
 		#endregion
 
@@ -7898,6 +8199,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex3hf.
 		/// </summary>
@@ -7909,7 +8211,9 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
 		}
 
+
 		#endregion
 	}
+
 
 }

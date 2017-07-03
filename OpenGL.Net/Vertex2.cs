@@ -394,6 +394,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2ub"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex2ub a)
+		{
+			double[] v = new double[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -1263,6 +1282,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2b"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex2b a)
+		{
+			double[] v = new double[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -2110,6 +2148,25 @@ namespace OpenGL
 		public static explicit operator ushort[](Vertex2us a)
 		{
 			ushort[] v = new ushort[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2us"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex2us a)
+		{
+			double[] v = new double[2];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -2987,6 +3044,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2s"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex2s a)
+		{
+			double[] v = new double[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -3834,6 +3910,25 @@ namespace OpenGL
 		public static explicit operator uint[](Vertex2ui a)
 		{
 			uint[] v = new uint[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2ui"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex2ui a)
+		{
+			double[] v = new double[2];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -4711,6 +4806,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2i"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex2i a)
+		{
+			double[] v = new double[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
 		/// <param name="v">
@@ -5537,6 +5651,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2f"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex2f a)
+		{
+			double[] v = new double[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2d operator.
 		/// </summary>
 		/// <param name="v">
@@ -6337,7 +6470,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -7134,6 +7266,25 @@ namespace OpenGL
 		public static explicit operator HalfFloat[](Vertex2hf a)
 		{
 			HalfFloat[] v = new HalfFloat[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2hf"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](Vertex2hf a)
+		{
+			double[] v = new double[2];
 
 			v[0] = a.x;
 			v[1] = a.y;

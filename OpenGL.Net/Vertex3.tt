@@ -457,8 +457,30 @@ namespace OpenGL
 
 			return (v);
 		}
-
 <#
+		if (baseType != "double") {
+#>
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](<#= className #> a)
+		{
+			double[] v = new double[3];
+
+			v[0] = a.x;
+			v[1] = a.y;
+			v[2] = a.z;
+
+			return (v);
+		}
+<#
+		}
 		string castModifier_f = "implicit";
 
 		// Vertex3f from Vertex3d/Vertex3i/Vertex3ui requires explicit cast

@@ -440,7 +440,28 @@ namespace OpenGL
 
 			return (v);
 		}
+<# if (baseType != "double") { #>
 
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator double[](<#= className #> a)
+		{
+			double[] v = new double[2];
+
+			v[0] = a.x;
+			v[1] = a.y;
+
+			return (v);
+		}
+
+<# } #>
 <#
 		string castModifier_f = "implicit";
 
