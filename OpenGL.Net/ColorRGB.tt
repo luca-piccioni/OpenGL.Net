@@ -24,6 +24,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -61,7 +62,9 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]<#
 	if (vertexBaseType[i] != null) {
 #>
-	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 3)]<# } #>
+	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 3)]
+<# } #>
+
 	public struct <#= className #> : IColorRGB<<#= interfaceType #>>
 	{
 		#region Constructors
@@ -80,6 +83,7 @@ namespace OpenGL
 		/// </param><#
 		if (structMembersCount[i] == 1) {
 #>
+
 		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b)
 		{
 			// Reset structure
@@ -87,7 +91,9 @@ namespace OpenGL
 			// Setup RGB components
 			Red = r; Green = g; Blue = b;
 		}
+
 <#		} else { #>
+
 		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b)
 		{
 			// Setup RGB components
@@ -100,11 +106,14 @@ namespace OpenGL
 
 		#region Structure
 <# if (structMembersCount[i] == 1) { #>
+
 		/// <summary>
 		/// RGB color components (packed).
 		/// </summary>
 		public <#= componentType #> rgb;
+
 <# } else { #>
+
 		/// <summary>
 		/// Red color components.
 		/// </summary>
@@ -123,6 +132,7 @@ namespace OpenGL
 		#endregion
 
 		#region Cast Operators
+
 <#		if (colorSuffix != null) { #>
 		/// <summary>
 		/// Cast to ColorRGBA<#= colorSuffix #> operator.
@@ -173,7 +183,28 @@ namespace OpenGL
 			return (new Vertex3<#= castSuffix #>(a.r, a.g, a.b));
 		}
 <#		} #>
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:<#= className #>"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator <#= className #>(Color a)
+		{
+			<#= className #> c = new <#= className #>();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
+		}
+
 		#endregion
+
 <#
 		string zero = zeroes[i], one = ones[i];
 
@@ -222,8 +253,10 @@ namespace OpenGL
 		public static readonly <#= className #> ColorCyan = new <#= className #>(<#= zero #>, <#= one #>, <#= one #>);
 
 		#endregion
+
 <# } #>
 		#region IColorRGB<<#= interfaceType #>> Implementation
+
 <# if (structMembersCount[i] == 1) {
 	int rOffset = bits[0], rWidth = bits[1];
 	int rMask = 1;								for (int b = 1; b < rWidth; b++) rMask = (rMask << 1) | 1;
@@ -237,6 +270,7 @@ namespace OpenGL
 			get { return (<#= interfaceType #>)(((rgb >> <#= rOffset #>) & 0x<#= rMask.ToString("X2") #>) << <#= 8 - rWidth #>); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= rResetMask.ToString("X2") #>) | (value >> <#= 8 - rWidth #>) << <#= rOffset #>); }
 		}
+
 <# } else { #>
 		/// <summary>
 		/// Get or set the red component.
@@ -246,6 +280,7 @@ namespace OpenGL
 			get { return (r); }
 			set { r = value; }
 		}
+
 <# }
 
 if (structMembersCount[i] == 1) {
@@ -261,6 +296,7 @@ if (structMembersCount[i] == 1) {
 			get { return (<#= interfaceType #>)(((rgb >> <#= gOffset #>) & 0x<#= gMask.ToString("X2") #>) << <#= 8 - gWidth #>); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= gResetMask.ToString("X2") #>) | (value >> <#= 8 - gWidth #>) << <#= gOffset #>); }
 		}
+
 <# } else { #>
 		/// <summary>
 		/// Get or set the green component.
@@ -270,6 +306,7 @@ if (structMembersCount[i] == 1) {
 			get { return (g); }
 			set { g = value; }
 		}
+
 <# }
 
 if (structMembersCount[i] == 1) {
@@ -286,6 +323,7 @@ if (structMembersCount[i] == 1) {
 			get { return (<#= interfaceType #>)(((rgb >> <#= bOffset #>) & 0x<#= bMask.ToString("X2") #>) << <#= 8 - bWidth #>); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= bResetMask.ToString("X2") #>) | (value >> <#= 8 - bWidth #>)); }
 		}
+
 <# } else { #>
 		/// <summary>
 		/// Get or set the blue component.
@@ -295,6 +333,7 @@ if (structMembersCount[i] == 1) {
 			get { return (b); }
 			set { b = value; }
 		}
+
 <# } #>
 		#endregion
 
@@ -375,6 +414,7 @@ if (structMembersCount[i] == 1) {
 
 		#endregion
 	}
+
 <#
 }
 #>

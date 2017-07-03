@@ -24,6 +24,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -140,6 +141,27 @@ namespace OpenGL
 		public static implicit operator Vertex4ub(ColorRGBA32 a)
 		{
 			return (new Vertex4ub(a.r, a.g, a.b, a.a));
+		}
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGBA32"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGBA32(Color a)
+		{
+			ColorRGBA32 c = new ColorRGBA32();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+			c[3] = (float)a.A / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion
@@ -422,6 +444,27 @@ namespace OpenGL
 			return (new Vertex4us(a.r, a.g, a.b, a.a));
 		}
 
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGBA64"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGBA64(Color a)
+		{
+			ColorRGBA64 c = new ColorRGBA64();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+			c[3] = (float)a.A / Byte.MaxValue;
+
+			return (c);
+		}
+
 		#endregion
 
 		#region Arithmetic Operators
@@ -702,6 +745,27 @@ namespace OpenGL
 			return (new Vertex4f(a.r, a.g, a.b, a.a));
 		}
 
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGBAF"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGBAF(Color a)
+		{
+			ColorRGBAF c = new ColorRGBAF();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+			c[3] = (float)a.A / Byte.MaxValue;
+
+			return (c);
+		}
+
 		#endregion
 
 		#region Arithmetic Operators
@@ -980,6 +1044,27 @@ namespace OpenGL
 		public static implicit operator Vertex4hf(ColorRGBAHF a)
 		{
 			return (new Vertex4hf(a.r, a.g, a.b, a.a));
+		}
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGBAHF"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGBAHF(Color a)
+		{
+			ColorRGBAHF c = new ColorRGBAHF();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+			c[3] = (float)a.A / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion

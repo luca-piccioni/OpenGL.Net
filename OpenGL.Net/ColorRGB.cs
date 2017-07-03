@@ -1,5 +1,4 @@
-﻿
-// Copyright (C) 2009-2017 Luca Piccioni
+﻿// Copyright (C) 2009-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -18,11 +17,11 @@
 
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
-
 	/// <summary>
 	/// RGB color.
 	/// </summary>
@@ -63,6 +62,26 @@ namespace OpenGL
 		#endregion
 
 		#region Cast Operators
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGB8"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGB8(Color a)
+		{
+			ColorRGB8 c = new ColorRGB8();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
+		}
 
 		#endregion
 
@@ -162,7 +181,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -185,7 +203,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
@@ -231,6 +248,26 @@ namespace OpenGL
 		#endregion
 
 		#region Cast Operators
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGB15"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGB15(Color a)
+		{
+			ColorRGB15 c = new ColorRGB15();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
+		}
 
 		#endregion
 
@@ -330,7 +367,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -353,7 +389,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
@@ -399,6 +434,26 @@ namespace OpenGL
 		#endregion
 
 		#region Cast Operators
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGB16"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGB16(Color a)
+		{
+			ColorRGB16 c = new ColorRGB16();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
+		}
 
 		#endregion
 
@@ -498,7 +553,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -521,7 +575,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
@@ -530,8 +583,8 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Byte, 3)]
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.Byte, 3)]
+
 	public struct ColorRGB24 : IColorRGB<byte>
 	{
 		#region Constructors
@@ -555,7 +608,6 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
-
 		#endregion
 
 		#region Structure
@@ -574,7 +626,6 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public byte b;
-
 		#endregion
 
 		#region Cast Operators
@@ -592,7 +643,6 @@ namespace OpenGL
 		{
 			return (new ColorRGBA32(a.r, a.g, a.b, Byte.MaxValue));
 		}
-
 		/// <summary>
 		/// Cast to byte[] operator.
 		/// </summary>
@@ -625,6 +675,25 @@ namespace OpenGL
 		public static implicit operator Vertex3ub(ColorRGB24 a)
 		{
 			return (new Vertex3ub(a.r, a.g, a.b));
+		}
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGB24"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGB24(Color a)
+		{
+			ColorRGB24 c = new ColorRGB24();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion
@@ -725,7 +794,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -748,7 +816,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
@@ -757,8 +824,8 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UShort, 3)]
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.UShort, 3)]
+
 	public struct ColorRGB48 : IColorRGB<ushort>
 	{
 		#region Constructors
@@ -782,7 +849,6 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
-
 		#endregion
 
 		#region Structure
@@ -801,7 +867,6 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public ushort b;
-
 		#endregion
 
 		#region Cast Operators
@@ -819,7 +884,6 @@ namespace OpenGL
 		{
 			return (new ColorRGBA64(a.r, a.g, a.b, UInt16.MaxValue));
 		}
-
 		/// <summary>
 		/// Cast to ushort[] operator.
 		/// </summary>
@@ -852,6 +916,25 @@ namespace OpenGL
 		public static implicit operator Vertex3us(ColorRGB48 a)
 		{
 			return (new Vertex3us(a.r, a.g, a.b));
+		}
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGB48"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGB48(Color a)
+		{
+			ColorRGB48 c = new ColorRGB48();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion
@@ -952,7 +1035,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -975,7 +1057,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
@@ -984,8 +1065,8 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UInt, 3)]
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.UInt, 3)]
+
 	public struct ColorRGB96 : IColorRGB<uint>
 	{
 		#region Constructors
@@ -1009,7 +1090,6 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
-
 		#endregion
 
 		#region Structure
@@ -1028,7 +1108,6 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public uint b;
-
 		#endregion
 
 		#region Cast Operators
@@ -1065,6 +1144,25 @@ namespace OpenGL
 		public static implicit operator Vertex3ui(ColorRGB96 a)
 		{
 			return (new Vertex3ui(a.r, a.g, a.b));
+		}
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGB96"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGB96(Color a)
+		{
+			ColorRGB96 c = new ColorRGB96();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion
@@ -1165,7 +1263,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -1188,7 +1285,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
@@ -1197,8 +1293,8 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Float, 3)]
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.Float, 3)]
+
 	public struct ColorRGBF : IColorRGB<float>
 	{
 		#region Constructors
@@ -1222,7 +1318,6 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
-
 		#endregion
 
 		#region Structure
@@ -1241,7 +1336,6 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public float b;
-
 		#endregion
 
 		#region Cast Operators
@@ -1259,7 +1353,6 @@ namespace OpenGL
 		{
 			return (new ColorRGBAF(a.r, a.g, a.b, 1.0f));
 		}
-
 		/// <summary>
 		/// Cast to float[] operator.
 		/// </summary>
@@ -1292,6 +1385,25 @@ namespace OpenGL
 		public static implicit operator Vertex3f(ColorRGBF a)
 		{
 			return (new Vertex3f(a.r, a.g, a.b));
+		}
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGBF"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGBF(Color a)
+		{
+			ColorRGBF c = new ColorRGBF();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion
@@ -1392,7 +1504,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -1415,7 +1526,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
@@ -1424,8 +1534,8 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Double, 3)]
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.Double, 3)]
+
 	public struct ColorRGBD : IColorRGB<double>
 	{
 		#region Constructors
@@ -1449,7 +1559,6 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
-
 		#endregion
 
 		#region Structure
@@ -1468,7 +1577,6 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public double b;
-
 		#endregion
 
 		#region Cast Operators
@@ -1505,6 +1613,25 @@ namespace OpenGL
 		public static implicit operator Vertex3d(ColorRGBD a)
 		{
 			return (new Vertex3d(a.r, a.g, a.b));
+		}
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGBD"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGBD(Color a)
+		{
+			ColorRGBD c = new ColorRGBD();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion
@@ -1605,7 +1732,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -1628,7 +1754,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
@@ -1637,8 +1762,8 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Half, 3)]
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.Half, 3)]
+
 	public struct ColorRGBHF : IColorRGB<HalfFloat>
 	{
 		#region Constructors
@@ -1662,7 +1787,6 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
-
 		#endregion
 
 		#region Structure
@@ -1681,7 +1805,6 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public HalfFloat b;
-
 		#endregion
 
 		#region Cast Operators
@@ -1699,7 +1822,6 @@ namespace OpenGL
 		{
 			return (new ColorRGBAHF(a.r, a.g, a.b, (HalfFloat)1.0f));
 		}
-
 		/// <summary>
 		/// Cast to HalfFloat[] operator.
 		/// </summary>
@@ -1732,6 +1854,25 @@ namespace OpenGL
 		public static implicit operator Vertex3hf(ColorRGBHF a)
 		{
 			return (new Vertex3hf(a.r, a.g, a.b));
+		}
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorRGBHF"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorRGBHF(Color a)
+		{
+			ColorRGBHF c = new ColorRGBHF();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion
@@ -1788,7 +1929,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -1811,7 +1951,6 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion

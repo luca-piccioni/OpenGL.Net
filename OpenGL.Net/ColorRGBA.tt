@@ -24,6 +24,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -178,6 +179,27 @@ if (structMembersCount[i] == 1) { #>
 		public static implicit operator Vertex4<#= castSuffix #>(<#= className #> a)
 		{
 			return (new Vertex4<#= castSuffix #>(a.r, a.g, a.b, a.a));
+		}
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:<#= className #>"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator <#= className #>(Color a)
+		{
+			<#= className #> c = new <#= className #>();
+
+			c[0] = (float)a.R / Byte.MaxValue;
+			c[1] = (float)a.G / Byte.MaxValue;
+			c[2] = (float)a.B / Byte.MaxValue;
+			c[3] = (float)a.A / Byte.MaxValue;
+
+			return (c);
 		}
 
 		#endregion
