@@ -88,3 +88,5 @@ packages
 /Samples/HelloObjects/obj
 /nuget.exe
 /nuget-push.bat
+/OpenGL.Net.GTK3/bin
+/OpenGL.Net.GTK3/obj
