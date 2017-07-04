@@ -920,6 +920,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_DEPTH_ATTACHMENT"/>
             <enum name="GL_DEPTH_ATTACHMENT_EXT"/>
             <enum name="GL_DEPTH_ATTACHMENT_OES"/>
+            <enum name="GL_DEPTH_STENCIL_ATTACHMENT"/>
             <enum name="GL_MAX_COLOR_ATTACHMENTS"/>
             <enum name="GL_MAX_COLOR_ATTACHMENTS_EXT"/>
             <enum name="GL_MAX_COLOR_ATTACHMENTS_NV"/>

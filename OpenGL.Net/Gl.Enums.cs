@@ -4704,6 +4704,14 @@ namespace OpenGL
 		DepthAttachment = Gl.DEPTH_ATTACHMENT,
 
 		/// <summary>
+		/// Strongly typed for value GL_DEPTH_STENCIL_ATTACHMENT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		DepthStencilAttachment = Gl.DEPTH_STENCIL_ATTACHMENT,
+
+		/// <summary>
 		/// Strongly typed for value GL_MAX_COLOR_ATTACHMENTS, GL_MAX_COLOR_ATTACHMENTS_EXT, GL_MAX_COLOR_ATTACHMENTS_NV.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
