@@ -9,10 +9,8 @@
         Title="MainWindow" Height="458.074" Width="525">
 	<Grid>
 		<WindowsFormsHost x:Name="HostControl" Loaded="HostControl_Loaded" Margin="0,20,0,0">
-			<WindowsFormsHost.Child>
-				<opengl:GlControl Dock="Fill" Enabled="False"/>
-			</WindowsFormsHost.Child>
-		</WindowsFormsHost>
+            <opengl:GlControl ContextCreated="GlControl_ContextCreated" Render="GlControl_Render"/>
+        </WindowsFormsHost>
 		<Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="517">
 			<MenuItem Header="File">
 				<MenuItem Header="Quit" HorizontalAlignment="Left" Width="145" Click="MenuItem_Click"/>

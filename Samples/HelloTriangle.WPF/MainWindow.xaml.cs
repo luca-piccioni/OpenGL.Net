@@ -18,11 +18,7 @@ namespace HelloTriangle.WPF
 		}
 
 		private void HostControl_Loaded(object sender, RoutedEventArgs e)
-		{
-			OpenGL.GlControl glControl = (OpenGL.GlControl)HostControl.Child;
-
-			glControl.ContextCreated += GlControl_ContextCreated;
-			glControl.Render += GlControl_Render;
+		{			
 		}
 
 		private void GlControl_ContextCreated(object sender, OpenGL.GlControlEventArgs e)
@@ -37,13 +33,12 @@ namespace HelloTriangle.WPF
 
 		private void GlControl_Render(object sender, OpenGL.GlControlEventArgs e)
 		{
-			Control senderControl = (Control)sender;
-
-			// FIXME I wonder why the viewport is affected when the GlControl is hosted in WPF windows.
-			int vpx = -senderControl.ClientSize.Width;
-			int vpy = -senderControl.ClientSize.Height;
-			int vpw = senderControl.ClientSize.Width * 2;
-			int vph = senderControl.ClientSize.Height * 2;
+            var senderControl = sender as GlControl;
+			
+			int vpx = 0;
+			int vpy = 0;
+			int vpw = senderControl.ClientSize.Width;
+			int vph = senderControl.ClientSize.Height;
 
 			Gl.Viewport(vpx, vpy, vpw, vph);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
