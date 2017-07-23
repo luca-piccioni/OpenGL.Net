@@ -43,6 +43,9 @@ namespace OpenGL
 		/// </summary>
 		public DeviceContextGLX()
 		{
+			if (Gl._NativeWindow == null)
+				throw new InvalidOperationException("no underlying native window", Gl._InitializationException);
+
 			_Display = Gl._NativeWindow.Display;
 			_WindowHandle = Gl._NativeWindow.Handle;
 

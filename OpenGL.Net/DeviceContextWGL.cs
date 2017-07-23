@@ -59,6 +59,9 @@ namespace OpenGL
 		/// </remarks>
 		public DeviceContextWGL()
 		{
+			if (Gl._NativeWindow == null)
+				throw new InvalidOperationException("no underlying native window", Gl._InitializationException);
+
 			_WindowHandle = Gl._NativeWindow.Handle;
 			_PixelFormatSet = true;		// We do not want to reset pixel format
 
@@ -257,7 +260,11 @@ namespace OpenGL
 				[DllImport("user32.dll", EntryPoint = "UnregisterClass", SetLastError = true)]
 				public static extern bool UnregisterClass(UInt16 lpClassAtom, IntPtr hInstance);
 
+#if !NETCORE
+				[DllImport("user32.dll", EntryPoint = "CreateWindowExW", SetLastError = true, CharSet = CharSet.Auto)]
+#else
 				[DllImport("user32.dll", EntryPoint = "CreateWindowExW", SetLastError = true)]
+#endif
 				internal static extern IntPtr CreateWindowEx(uint dwExStyle, string lpClassName, string lpWindowName, uint dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
 
 				[DllImport("user32.dll", SetLastError = true)]
@@ -340,6 +347,8 @@ namespace OpenGL
 
 				if (!Wgl.CurrentExtensions.Pbuffer_ARB && !Wgl.CurrentExtensions.Pbuffer_EXT)
 					throw new NotSupportedException("WGL_(ARB|EXT)_pbuffer not implemented");
+				if (Gl._NativeWindow == null)
+					throw new InvalidOperationException("no underlying native window", Gl._InitializationException);
 
 				try {
 					// Uses screen device context

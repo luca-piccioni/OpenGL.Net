@@ -135,7 +135,8 @@ namespace OpenGL
 
 				LogComment("OpenGL.Net has been initialized");
 			} catch (Exception excepton) {
-				LogComment("Unable to initialize OpenGL.Net: {0}", excepton.ToString());
+				_InitializationException = excepton;
+				LogComment("Unable to initialize OpenGL.Net: {0}", _InitializationException.ToString());
 			}
 		}
 
@@ -143,6 +144,11 @@ namespace OpenGL
 		/// Flag indicating whether <see cref="Gl"/> has been initialized.
 		/// </summary>
 		private static bool _Initialized;
+
+		/// <summary>
+		/// Eventual exception raised during Gl initialization.
+		/// </summary>
+		internal static Exception _InitializationException;
 
 		/// <summary>
 		/// The native window used for initializing the OpenGL.Net state.
