@@ -77,11 +77,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDepthRangeArrayfvOES", ExactSpelling = true)]
 			internal extern static unsafe void glDepthRangeArrayfvOES(UInt32 first, Int32 count, float* v);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDepthRangeIndexedfOES", ExactSpelling = true)]
 			internal extern static void glDepthRangeIndexedfOES(UInt32 index, float n, float f);
 
@@ -90,7 +94,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDepthRangeArrayfvOES(UInt32 first, Int32 count, float* v);
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
@@ -98,7 +104,9 @@ namespace OpenGL
 			internal static glDepthRangeArrayfvOES pglDepthRangeArrayfvOES;
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDepthRangeIndexedfOES(UInt32 index, float n, float f);
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]

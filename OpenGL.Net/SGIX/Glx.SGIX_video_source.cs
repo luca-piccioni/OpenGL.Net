@@ -82,11 +82,15 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXCreateGLXVideoSourceSGIX", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreateGLXVideoSourceSGIX(IntPtr display, int screen, IntPtr server, IntPtr path, int nodeClass, IntPtr drainNode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXDestroyGLXVideoSourceSGIX", ExactSpelling = true)]
 			internal extern static unsafe void glXDestroyGLXVideoSourceSGIX(IntPtr dpy, IntPtr glxvideosource);
 
@@ -95,14 +99,18 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGIX_video_source")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr glXCreateGLXVideoSourceSGIX(IntPtr display, int screen, IntPtr server, IntPtr path, int nodeClass, IntPtr drainNode);
 
 			[RequiredByFeature("GLX_SGIX_video_source")]
 			internal static glXCreateGLXVideoSourceSGIX pglXCreateGLXVideoSourceSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_source")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glXDestroyGLXVideoSourceSGIX(IntPtr dpy, IntPtr glxvideosource);
 
 			[RequiredByFeature("GLX_SGIX_video_source")]

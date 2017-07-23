@@ -57,7 +57,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glActiveStencilFaceEXT", ExactSpelling = true)]
 			internal extern static void glActiveStencilFaceEXT(Int32 face);
 
@@ -66,7 +68,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_stencil_two_side")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glActiveStencilFaceEXT(Int32 face);
 
 			[RequiredByFeature("GL_EXT_stencil_two_side")]

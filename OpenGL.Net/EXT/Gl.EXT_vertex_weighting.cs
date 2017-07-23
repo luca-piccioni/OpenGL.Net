@@ -181,15 +181,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexWeightfEXT", ExactSpelling = true)]
 			internal extern static void glVertexWeightfEXT(float weight);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexWeightfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexWeightfvEXT(float* weight);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexWeightPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
@@ -198,7 +204,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glVertexWeightfEXT(float weight);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
@@ -206,7 +214,9 @@ namespace OpenGL
 			internal static glVertexWeightfEXT pglVertexWeightfEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexWeightfvEXT(float* weight);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
@@ -214,7 +224,9 @@ namespace OpenGL
 			internal static glVertexWeightfvEXT pglVertexWeightfvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]

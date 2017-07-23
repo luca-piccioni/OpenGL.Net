@@ -109,7 +109,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglGetCurrentContext", ExactSpelling = true)]
 			internal extern static IntPtr eglGetCurrentContext();
 
@@ -118,7 +120,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_VERSION_1_4")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr eglGetCurrentContext();
 
 			[RequiredByFeature("EGL_VERSION_1_4")]

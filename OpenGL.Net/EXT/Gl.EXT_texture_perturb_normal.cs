@@ -57,7 +57,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureNormalEXT", ExactSpelling = true)]
 			internal extern static void glTextureNormalEXT(Int32 mode);
 
@@ -66,7 +68,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_texture_perturb_normal")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureNormalEXT(Int32 mode);
 
 			[RequiredByFeature("GL_EXT_texture_perturb_normal")]

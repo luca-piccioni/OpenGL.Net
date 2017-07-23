@@ -66,7 +66,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIndexFuncEXT", ExactSpelling = true)]
 			internal extern static void glIndexFuncEXT(Int32 func, float @ref);
 
@@ -75,7 +77,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_index_func")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glIndexFuncEXT(Int32 func, float @ref);
 
 			[RequiredByFeature("GL_EXT_index_func")]

@@ -85,12 +85,16 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglMakeContextCurrentARB", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglMakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglGetCurrentReadDCARB", ExactSpelling = true, SetLastError = true)]
 			internal extern static IntPtr wglGetCurrentReadDCARB();
 
@@ -99,7 +103,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_make_current_read")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool wglMakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
 
 			[RequiredByFeature("WGL_ARB_make_current_read")]
@@ -107,7 +113,9 @@ namespace OpenGL
 			internal static wglMakeContextCurrentARB pwglMakeContextCurrentARB;
 
 			[RequiredByFeature("WGL_ARB_make_current_read")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr wglGetCurrentReadDCARB();
 
 			[RequiredByFeature("WGL_ARB_make_current_read")]

@@ -115,15 +115,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBufferPageCommitmentARB", ExactSpelling = true)]
 			internal extern static unsafe void glBufferPageCommitmentARB(Int32 target, IntPtr offset, UInt32 size, bool commit);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedBufferPageCommitmentEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedBufferPageCommitmentEXT(UInt32 buffer, IntPtr offset, UInt32 size, bool commit);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedBufferPageCommitmentARB", ExactSpelling = true)]
 			internal extern static unsafe void glNamedBufferPageCommitmentARB(UInt32 buffer, IntPtr offset, UInt32 size, bool commit);
 
@@ -132,7 +138,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glBufferPageCommitmentARB(Int32 target, IntPtr offset, UInt32 size, bool commit);
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
@@ -140,7 +148,9 @@ namespace OpenGL
 			internal static glBufferPageCommitmentARB pglBufferPageCommitmentARB;
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedBufferPageCommitmentEXT(UInt32 buffer, IntPtr offset, UInt32 size, bool commit);
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
@@ -148,7 +158,9 @@ namespace OpenGL
 			internal static glNamedBufferPageCommitmentEXT pglNamedBufferPageCommitmentEXT;
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedBufferPageCommitmentARB(UInt32 buffer, IntPtr offset, UInt32 size, bool commit);
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]

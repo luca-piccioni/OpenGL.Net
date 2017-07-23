@@ -116,15 +116,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReadBufferIndexedEXT", ExactSpelling = true)]
 			internal extern static void glReadBufferIndexedEXT(Int32 src, Int32 index);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawBuffersIndexedEXT", ExactSpelling = true)]
 			internal extern static unsafe void glDrawBuffersIndexedEXT(Int32 n, Int32* location, Int32* indices);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetIntegeri_vEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetIntegeri_vEXT(Int32 target, UInt32 index, Int32* data);
 
@@ -133,7 +139,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glReadBufferIndexedEXT(Int32 src, Int32 index);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
@@ -141,7 +149,9 @@ namespace OpenGL
 			internal static glReadBufferIndexedEXT pglReadBufferIndexedEXT;
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDrawBuffersIndexedEXT(Int32 n, Int32* location, Int32* indices);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
@@ -149,7 +159,9 @@ namespace OpenGL
 			internal static glDrawBuffersIndexedEXT pglDrawBuffersIndexedEXT;
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetIntegeri_vEXT(Int32 target, UInt32 index, Int32* data);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]

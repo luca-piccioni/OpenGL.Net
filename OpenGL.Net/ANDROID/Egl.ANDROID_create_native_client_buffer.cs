@@ -81,7 +81,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglCreateNativeClientBufferANDROID", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreateNativeClientBufferANDROID(int* attrib_list);
 
@@ -90,7 +92,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr eglCreateNativeClientBufferANDROID(int* attrib_list);
 
 			[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]

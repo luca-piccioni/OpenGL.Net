@@ -63,7 +63,9 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXSwapIntervalEXT", ExactSpelling = true)]
 			internal extern static unsafe void glXSwapIntervalEXT(IntPtr dpy, IntPtr drawable, int interval);
 
@@ -72,7 +74,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_EXT_swap_control")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glXSwapIntervalEXT(IntPtr dpy, IntPtr drawable, int interval);
 
 			[RequiredByFeature("GLX_EXT_swap_control")]

@@ -42,7 +42,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFlushRasterSGIX", ExactSpelling = true)]
 			internal extern static void glFlushRasterSGIX();
 
@@ -51,7 +53,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_flush_raster")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glFlushRasterSGIX();
 
 			[RequiredByFeature("GL_SGIX_flush_raster")]

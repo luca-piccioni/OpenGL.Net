@@ -66,7 +66,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawMeshArraysSUN", ExactSpelling = true)]
 			internal extern static void glDrawMeshArraysSUN(Int32 mode, Int32 first, Int32 count, Int32 width);
 
@@ -75,7 +77,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SUN_mesh_array")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDrawMeshArraysSUN(Int32 mode, Int32 first, Int32 count, Int32 width);
 
 			[RequiredByFeature("GL_SUN_mesh_array")]

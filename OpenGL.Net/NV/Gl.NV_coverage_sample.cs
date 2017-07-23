@@ -115,11 +115,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCoverageMaskNV", ExactSpelling = true)]
 			internal extern static void glCoverageMaskNV(bool mask);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCoverageOperationNV", ExactSpelling = true)]
 			internal extern static void glCoverageOperationNV(Int32 operation);
 
@@ -128,7 +132,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCoverageMaskNV(bool mask);
 
 			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
@@ -136,7 +142,9 @@ namespace OpenGL
 			internal static glCoverageMaskNV pglCoverageMaskNV;
 
 			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCoverageOperationNV(Int32 operation);
 
 			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]

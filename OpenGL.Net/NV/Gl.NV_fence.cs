@@ -196,33 +196,47 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDeleteFencesNV", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteFencesNV(Int32 n, UInt32* fences);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGenFencesNV", ExactSpelling = true)]
 			internal extern static unsafe void glGenFencesNV(Int32 n, UInt32* fences);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIsFenceNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsFenceNV(UInt32 fence);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTestFenceNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glTestFenceNV(UInt32 fence);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetFenceivNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetFenceivNV(UInt32 fence, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFinishFenceNV", ExactSpelling = true)]
 			internal extern static void glFinishFenceNV(UInt32 fence);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glSetFenceNV", ExactSpelling = true)]
 			internal extern static void glSetFenceNV(UInt32 fence, Int32 condition);
 
@@ -231,7 +245,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDeleteFencesNV(Int32 n, UInt32* fences);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -239,7 +255,9 @@ namespace OpenGL
 			internal static glDeleteFencesNV pglDeleteFencesNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGenFencesNV(Int32 n, UInt32* fences);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -247,7 +265,9 @@ namespace OpenGL
 			internal static glGenFencesNV pglGenFencesNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glIsFenceNV(UInt32 fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -255,7 +275,9 @@ namespace OpenGL
 			internal static glIsFenceNV pglIsFenceNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glTestFenceNV(UInt32 fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -263,7 +285,9 @@ namespace OpenGL
 			internal static glTestFenceNV pglTestFenceNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetFenceivNV(UInt32 fence, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -271,7 +295,9 @@ namespace OpenGL
 			internal static glGetFenceivNV pglGetFenceivNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glFinishFenceNV(UInt32 fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -279,7 +305,9 @@ namespace OpenGL
 			internal static glFinishFenceNV pglFinishFenceNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glSetFenceNV(UInt32 fence, Int32 condition);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]

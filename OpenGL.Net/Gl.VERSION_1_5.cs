@@ -1771,82 +1771,120 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGenQueries", ExactSpelling = true)]
 			internal extern static unsafe void glGenQueries(Int32 n, UInt32* ids);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDeleteQueries", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteQueries(Int32 n, UInt32* ids);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIsQuery", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsQuery(UInt32 id);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBeginQuery", ExactSpelling = true)]
 			internal extern static void glBeginQuery(Int32 target, UInt32 id);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEndQuery", ExactSpelling = true)]
 			internal extern static void glEndQuery(Int32 target);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryiv(Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryObjectiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryObjectiv(UInt32 id, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryObjectuiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryObjectuiv(UInt32 id, Int32 pname, UInt32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBindBuffer", ExactSpelling = true)]
 			internal extern static void glBindBuffer(Int32 target, UInt32 buffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDeleteBuffers", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteBuffers(Int32 n, UInt32* buffers);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGenBuffers", ExactSpelling = true)]
 			internal extern static unsafe void glGenBuffers(Int32 n, UInt32* buffers);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIsBuffer", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsBuffer(UInt32 buffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBufferData", ExactSpelling = true)]
 			internal extern static unsafe void glBufferData(Int32 target, UInt32 size, IntPtr data, Int32 usage);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetBufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glGetBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapBuffer", ExactSpelling = true)]
 			internal extern static IntPtr glMapBuffer(Int32 target, Int32 access);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glUnmapBuffer", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glUnmapBuffer(Int32 target);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetBufferParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetBufferParameteriv(Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetBufferPointerv", ExactSpelling = true)]
 			internal extern static unsafe void glGetBufferPointerv(Int32 target, Int32 pname, IntPtr* @params);
 
@@ -1857,7 +1895,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGenQueries(Int32 n, UInt32* ids);
 
 			[AliasOf("glGenQueries")]
@@ -1871,7 +1911,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDeleteQueries(Int32 n, UInt32* ids);
 
 			[AliasOf("glDeleteQueries")]
@@ -1885,7 +1927,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glIsQuery(UInt32 id);
 
 			[AliasOf("glIsQuery")]
@@ -1899,7 +1943,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glBeginQuery(Int32 target, UInt32 id);
 
 			[AliasOf("glBeginQuery")]
@@ -1913,7 +1959,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glEndQuery(Int32 target);
 
 			[AliasOf("glEndQuery")]
@@ -1927,7 +1975,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetQueryiv(Int32 target, Int32 pname, Int32* @params);
 
 			[AliasOf("glGetQueryiv")]
@@ -1941,7 +1991,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetQueryObjectiv(UInt32 id, Int32 pname, Int32* @params);
 
 			[AliasOf("glGetQueryObjectiv")]
@@ -1956,7 +2008,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetQueryObjectuiv(UInt32 id, Int32 pname, UInt32* @params);
 
 			[AliasOf("glGetQueryObjectuiv")]
@@ -1972,7 +2026,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glBindBuffer(Int32 target, UInt32 buffer);
 
 			[AliasOf("glBindBuffer")]
@@ -1989,7 +2045,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDeleteBuffers(Int32 n, UInt32* buffers);
 
 			[AliasOf("glDeleteBuffers")]
@@ -2006,7 +2064,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGenBuffers(Int32 n, UInt32* buffers);
 
 			[AliasOf("glGenBuffers")]
@@ -2023,7 +2083,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glIsBuffer(UInt32 buffer);
 
 			[AliasOf("glIsBuffer")]
@@ -2040,7 +2102,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glBufferData(Int32 target, UInt32 size, IntPtr data, Int32 usage);
 
 			[AliasOf("glBufferData")]
@@ -2058,7 +2122,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
 
 			[AliasOf("glBufferSubData")]
@@ -2073,7 +2139,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetBufferSubData(Int32 target, IntPtr offset, UInt32 size, IntPtr data);
 
 			[AliasOf("glGetBufferSubData")]
@@ -2086,7 +2154,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr glMapBuffer(Int32 target, Int32 access);
 
 			[AliasOf("glMapBuffer")]
@@ -2102,7 +2172,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glUnmapBuffer(Int32 target);
 
 			[AliasOf("glUnmapBuffer")]
@@ -2120,7 +2192,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetBufferParameteriv(Int32 target, Int32 pname, Int32* @params);
 
 			[AliasOf("glGetBufferParameteriv")]
@@ -2137,7 +2211,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetBufferPointerv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[AliasOf("glGetBufferPointerv")]

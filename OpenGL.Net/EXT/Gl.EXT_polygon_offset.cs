@@ -60,7 +60,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPolygonOffsetEXT", ExactSpelling = true)]
 			internal extern static void glPolygonOffsetEXT(float factor, float bias);
 
@@ -69,7 +71,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_polygon_offset")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPolygonOffsetEXT(float factor, float bias);
 
 			[RequiredByFeature("GL_EXT_polygon_offset")]

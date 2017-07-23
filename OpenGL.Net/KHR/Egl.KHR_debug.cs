@@ -184,15 +184,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglDebugMessageControlKHR", ExactSpelling = true)]
 			internal extern static unsafe int eglDebugMessageControlKHR(DebugProcKHR callback, IntPtr* attrib_list);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglQueryDebugKHR", ExactSpelling = true)]
 			internal extern static unsafe bool eglQueryDebugKHR(int attribute, IntPtr* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglLabelObjectKHR", ExactSpelling = true)]
 			internal extern static unsafe int eglLabelObjectKHR(IntPtr display, uint objectType, IntPtr @object, IntPtr label);
 
@@ -201,21 +207,27 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_debug")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate int eglDebugMessageControlKHR(DebugProcKHR callback, IntPtr* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_debug")]
 			internal static eglDebugMessageControlKHR peglDebugMessageControlKHR;
 
 			[RequiredByFeature("EGL_KHR_debug")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglQueryDebugKHR(int attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_KHR_debug")]
 			internal static eglQueryDebugKHR peglQueryDebugKHR;
 
 			[RequiredByFeature("EGL_KHR_debug")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate int eglLabelObjectKHR(IntPtr display, uint objectType, IntPtr @object, IntPtr label);
 
 			[RequiredByFeature("EGL_KHR_debug")]

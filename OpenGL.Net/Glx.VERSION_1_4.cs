@@ -74,7 +74,9 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXGetProcAddress", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXGetProcAddress(byte* procName);
 
@@ -83,7 +85,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_4")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr glXGetProcAddress(byte* procName);
 
 			[RequiredByFeature("GLX_VERSION_1_4")]

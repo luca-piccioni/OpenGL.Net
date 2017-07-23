@@ -42,7 +42,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTagSampleBufferSGIX", ExactSpelling = true)]
 			internal extern static void glTagSampleBufferSGIX();
 
@@ -51,7 +53,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_tag_sample_buffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTagSampleBufferSGIX();
 
 			[RequiredByFeature("GL_SGIX_tag_sample_buffer")]

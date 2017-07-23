@@ -57,7 +57,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMaxShaderCompilerThreadsARB", ExactSpelling = true)]
 			internal extern static void glMaxShaderCompilerThreadsARB(UInt32 count);
 
@@ -66,7 +68,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMaxShaderCompilerThreadsARB(UInt32 count);
 
 			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]

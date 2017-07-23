@@ -140,7 +140,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPointSizePointerOES", ExactSpelling = true)]
 			internal extern static unsafe void glPointSizePointerOES(Int32 type, Int32 stride, IntPtr pointer);
 
@@ -149,7 +151,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPointSizePointerOES(Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]

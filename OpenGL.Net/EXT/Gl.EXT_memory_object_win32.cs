@@ -128,11 +128,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glImportMemoryWin32HandleEXT", ExactSpelling = true)]
 			internal extern static unsafe void glImportMemoryWin32HandleEXT(UInt32 memory, UInt64 size, Int32 handleType, IntPtr handle);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glImportMemoryWin32NameEXT", ExactSpelling = true)]
 			internal extern static unsafe void glImportMemoryWin32NameEXT(UInt32 memory, UInt64 size, Int32 handleType, IntPtr name);
 
@@ -141,7 +145,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glImportMemoryWin32HandleEXT(UInt32 memory, UInt64 size, Int32 handleType, IntPtr handle);
 
 			[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
@@ -149,7 +155,9 @@ namespace OpenGL
 			internal static glImportMemoryWin32HandleEXT pglImportMemoryWin32HandleEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glImportMemoryWin32NameEXT(UInt32 memory, UInt64 size, Int32 handleType, IntPtr name);
 
 			[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]

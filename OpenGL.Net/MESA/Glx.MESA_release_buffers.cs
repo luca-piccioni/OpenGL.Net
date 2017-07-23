@@ -52,7 +52,9 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXReleaseBuffersMESA", ExactSpelling = true)]
 			internal extern static unsafe bool glXReleaseBuffersMESA(IntPtr dpy, IntPtr drawable);
 
@@ -61,7 +63,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_MESA_release_buffers")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool glXReleaseBuffersMESA(IntPtr dpy, IntPtr drawable);
 
 			[RequiredByFeature("GLX_MESA_release_buffers")]

@@ -315,41 +315,59 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglGetGPUIDsAMD", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe UInt32 wglGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglGetGPUInfoAMD", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe Int32 wglGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglGetContextGPUIDAMD", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe UInt32 wglGetContextGPUIDAMD(IntPtr hglrc);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglCreateAssociatedContextAMD", ExactSpelling = true, SetLastError = true)]
 			internal extern static IntPtr wglCreateAssociatedContextAMD(UInt32 id);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglCreateAssociatedContextAttribsAMD", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int* attribList);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglDeleteAssociatedContextAMD", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglDeleteAssociatedContextAMD(IntPtr hglrc);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglMakeAssociatedContextCurrentAMD", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglMakeAssociatedContextCurrentAMD(IntPtr hglrc);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglGetCurrentAssociatedContextAMD", ExactSpelling = true, SetLastError = true)]
 			internal extern static IntPtr wglGetCurrentAssociatedContextAMD();
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglBlitContextFramebufferAMD", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
@@ -358,7 +376,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate UInt32 wglGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -366,7 +386,9 @@ namespace OpenGL
 			internal static wglGetGPUIDsAMD pwglGetGPUIDsAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate Int32 wglGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -374,7 +396,9 @@ namespace OpenGL
 			internal static wglGetGPUInfoAMD pwglGetGPUInfoAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate UInt32 wglGetContextGPUIDAMD(IntPtr hglrc);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -382,7 +406,9 @@ namespace OpenGL
 			internal static wglGetContextGPUIDAMD pwglGetContextGPUIDAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr wglCreateAssociatedContextAMD(UInt32 id);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -390,7 +416,9 @@ namespace OpenGL
 			internal static wglCreateAssociatedContextAMD pwglCreateAssociatedContextAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr wglCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int* attribList);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -398,7 +426,9 @@ namespace OpenGL
 			internal static wglCreateAssociatedContextAttribsAMD pwglCreateAssociatedContextAttribsAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool wglDeleteAssociatedContextAMD(IntPtr hglrc);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -406,7 +436,9 @@ namespace OpenGL
 			internal static wglDeleteAssociatedContextAMD pwglDeleteAssociatedContextAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool wglMakeAssociatedContextCurrentAMD(IntPtr hglrc);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -414,7 +446,9 @@ namespace OpenGL
 			internal static wglMakeAssociatedContextCurrentAMD pwglMakeAssociatedContextCurrentAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr wglGetCurrentAssociatedContextAMD();
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -422,7 +456,9 @@ namespace OpenGL
 			internal static wglGetCurrentAssociatedContextAMD pwglGetCurrentAssociatedContextAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]

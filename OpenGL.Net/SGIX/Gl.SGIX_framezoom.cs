@@ -63,7 +63,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFrameZoomSGIX", ExactSpelling = true)]
 			internal extern static void glFrameZoomSGIX(Int32 factor);
 
@@ -72,7 +74,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_framezoom")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glFrameZoomSGIX(Int32 factor);
 
 			[RequiredByFeature("GL_SGIX_framezoom")]

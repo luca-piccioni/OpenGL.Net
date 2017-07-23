@@ -46,7 +46,9 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglGetExtensionsStringEXT", ExactSpelling = true, SetLastError = true)]
 			internal extern static IntPtr wglGetExtensionsStringEXT();
 
@@ -55,7 +57,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_extensions_string")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr wglGetExtensionsStringEXT();
 
 			[RequiredByFeature("WGL_EXT_extensions_string")]

@@ -240,11 +240,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearColorIiEXT", ExactSpelling = true)]
 			internal extern static void glClearColorIiEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearColorIuiEXT", ExactSpelling = true)]
 			internal extern static void glClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
 
@@ -253,7 +257,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_texture_integer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glClearColorIiEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha);
 
 			[RequiredByFeature("GL_EXT_texture_integer")]
@@ -261,7 +267,9 @@ namespace OpenGL
 			internal static glClearColorIiEXT pglClearColorIiEXT;
 
 			[RequiredByFeature("GL_EXT_texture_integer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
 
 			[RequiredByFeature("GL_EXT_texture_integer")]

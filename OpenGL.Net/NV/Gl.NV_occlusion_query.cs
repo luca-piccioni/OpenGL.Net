@@ -203,32 +203,46 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGenOcclusionQueriesNV", ExactSpelling = true)]
 			internal extern static unsafe void glGenOcclusionQueriesNV(Int32 n, UInt32* ids);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDeleteOcclusionQueriesNV", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteOcclusionQueriesNV(Int32 n, UInt32* ids);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIsOcclusionQueryNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsOcclusionQueryNV(UInt32 id);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBeginOcclusionQueryNV", ExactSpelling = true)]
 			internal extern static void glBeginOcclusionQueryNV(UInt32 id);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEndOcclusionQueryNV", ExactSpelling = true)]
 			internal extern static void glEndOcclusionQueryNV();
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetOcclusionQueryivNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetOcclusionQueryivNV(UInt32 id, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetOcclusionQueryuivNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetOcclusionQueryuivNV(UInt32 id, Int32 pname, UInt32* @params);
 
@@ -237,7 +251,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGenOcclusionQueriesNV(Int32 n, UInt32* ids);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -245,7 +261,9 @@ namespace OpenGL
 			internal static glGenOcclusionQueriesNV pglGenOcclusionQueriesNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDeleteOcclusionQueriesNV(Int32 n, UInt32* ids);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -253,7 +271,9 @@ namespace OpenGL
 			internal static glDeleteOcclusionQueriesNV pglDeleteOcclusionQueriesNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glIsOcclusionQueryNV(UInt32 id);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -261,7 +281,9 @@ namespace OpenGL
 			internal static glIsOcclusionQueryNV pglIsOcclusionQueryNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glBeginOcclusionQueryNV(UInt32 id);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -269,7 +291,9 @@ namespace OpenGL
 			internal static glBeginOcclusionQueryNV pglBeginOcclusionQueryNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glEndOcclusionQueryNV();
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -277,7 +301,9 @@ namespace OpenGL
 			internal static glEndOcclusionQueryNV pglEndOcclusionQueryNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetOcclusionQueryivNV(UInt32 id, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -285,7 +311,9 @@ namespace OpenGL
 			internal static glGetOcclusionQueryivNV pglGetOcclusionQueryivNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetOcclusionQueryuivNV(UInt32 id, Int32 pname, UInt32* @params);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]

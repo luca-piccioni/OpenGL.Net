@@ -42,7 +42,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glResizeBuffersMESA", ExactSpelling = true)]
 			internal extern static void glResizeBuffersMESA();
 
@@ -51,7 +53,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_MESA_resize_buffers")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glResizeBuffersMESA();
 
 			[RequiredByFeature("GL_MESA_resize_buffers")]

@@ -54,7 +54,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFinishTextureSUNX", ExactSpelling = true)]
 			internal extern static void glFinishTextureSUNX();
 
@@ -63,7 +65,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SUNX_constant_data")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glFinishTextureSUNX();
 
 			[RequiredByFeature("GL_SUNX_constant_data")]

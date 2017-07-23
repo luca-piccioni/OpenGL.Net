@@ -3434,263 +3434,391 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGenPathsNV", ExactSpelling = true)]
 			internal extern static UInt32 glGenPathsNV(Int32 range);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDeletePathsNV", ExactSpelling = true)]
 			internal extern static void glDeletePathsNV(UInt32 path, Int32 range);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIsPathNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsPathNV(UInt32 path);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathCommandsNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathCommandsNV(UInt32 path, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathCoordsNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, IntPtr coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathSubCommandsNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathSubCoordsNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathSubCoordsNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, IntPtr coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathStringNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathStringNV(UInt32 path, Int32 format, Int32 length, IntPtr pathString);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathGlyphsNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, IntPtr charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathGlyphRangeNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glWeightPathsNV", ExactSpelling = true)]
 			internal extern static unsafe void glWeightPathsNV(UInt32 resultPath, Int32 numPaths, UInt32* paths, float* weights);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyPathNV", ExactSpelling = true)]
 			internal extern static void glCopyPathNV(UInt32 resultPath, UInt32 srcPath);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glInterpolatePathsNV", ExactSpelling = true)]
 			internal extern static void glInterpolatePathsNV(UInt32 resultPath, UInt32 pathA, UInt32 pathB, float weight);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTransformPathNV", ExactSpelling = true)]
 			internal extern static unsafe void glTransformPathNV(UInt32 resultPath, UInt32 srcPath, Int32 transformType, float* transformValues);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathParameterivNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathParameteriNV", ExactSpelling = true)]
 			internal extern static void glPathParameteriNV(UInt32 path, Int32 pname, Int32 value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathParameterfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathParameterfvNV(UInt32 path, Int32 pname, float* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathParameterfNV", ExactSpelling = true)]
 			internal extern static void glPathParameterfNV(UInt32 path, Int32 pname, float value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathDashArrayNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathDashArrayNV(UInt32 path, Int32 dashCount, float* dashArray);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathStencilFuncNV", ExactSpelling = true)]
 			internal extern static void glPathStencilFuncNV(Int32 func, Int32 @ref, UInt32 mask);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathStencilDepthOffsetNV", ExactSpelling = true)]
 			internal extern static void glPathStencilDepthOffsetNV(float factor, float units);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilFillPathNV", ExactSpelling = true)]
 			internal extern static void glStencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilStrokePathNV", ExactSpelling = true)]
 			internal extern static void glStencilStrokePathNV(UInt32 path, Int32 reference, UInt32 mask);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilFillPathInstancedNV", ExactSpelling = true)]
 			internal extern static unsafe void glStencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float* transformValues);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilStrokePathInstancedNV", ExactSpelling = true)]
 			internal extern static unsafe void glStencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float* transformValues);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathCoverDepthFuncNV", ExactSpelling = true)]
 			internal extern static void glPathCoverDepthFuncNV(Int32 func);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCoverFillPathNV", ExactSpelling = true)]
 			internal extern static void glCoverFillPathNV(UInt32 path, Int32 coverMode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCoverStrokePathNV", ExactSpelling = true)]
 			internal extern static void glCoverStrokePathNV(UInt32 path, Int32 coverMode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCoverFillPathInstancedNV", ExactSpelling = true)]
 			internal extern static unsafe void glCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCoverStrokePathInstancedNV", ExactSpelling = true)]
 			internal extern static unsafe void glCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathParameterivNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathParameterfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathParameterfvNV(UInt32 path, Int32 pname, float* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathCommandsNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathCommandsNV(UInt32 path, byte* commands);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathCoordsNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathCoordsNV(UInt32 path, float* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathDashArrayNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathDashArrayNV(UInt32 path, float* dashArray);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathMetricsNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, float* metrics);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathMetricRangeNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathMetricRangeNV(UInt32 metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, float* metrics);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathSpacingNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, float* returnedSpacing);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIsPointInFillPathNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsPointInFillPathNV(UInt32 path, UInt32 mask, float x, float y);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIsPointInStrokePathNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsPointInStrokePathNV(UInt32 path, float x, float y);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathLengthNV", ExactSpelling = true)]
 			internal extern static float glGetPathLengthNV(UInt32 path, Int32 startSegment, Int32 numSegments);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPointAlongPathNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static unsafe bool glPointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixLoad3x2fNV", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixLoad3x2fNV(Int32 matrixMode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixLoad3x3fNV", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixLoad3x3fNV(Int32 matrixMode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixLoadTranspose3x3fNV", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixLoadTranspose3x3fNV(Int32 matrixMode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixMult3x2fNV", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixMult3x2fNV(Int32 matrixMode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixMult3x3fNV", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixMult3x3fNV(Int32 matrixMode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixMultTranspose3x3fNV", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixMultTranspose3x3fNV(Int32 matrixMode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilThenCoverFillPathNV", ExactSpelling = true)]
 			internal extern static void glStencilThenCoverFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask, Int32 coverMode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilThenCoverStrokePathNV", ExactSpelling = true)]
 			internal extern static void glStencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, Int32 coverMode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilThenCoverFillPathInstancedNV", ExactSpelling = true)]
 			internal extern static unsafe void glStencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilThenCoverStrokePathInstancedNV", ExactSpelling = true)]
 			internal extern static unsafe void glStencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathGlyphIndexRangeNV", ExactSpelling = true)]
 			internal extern static unsafe Int32 glPathGlyphIndexRangeNV(Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32* baseAndCount);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathGlyphIndexArrayNV", ExactSpelling = true)]
 			internal extern static unsafe Int32 glPathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathMemoryGlyphIndexArrayNV", ExactSpelling = true)]
 			internal extern static unsafe Int32 glPathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramPathFragmentInputGenNV", ExactSpelling = true)]
 			internal extern static unsafe void glProgramPathFragmentInputGenNV(UInt32 program, Int32 location, Int32 genMode, Int32 components, float* coeffs);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramResourcefvNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramResourcefvNV(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32* props, Int32 bufSize, Int32* length, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathColorGenNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float* coeffs);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathTexGenNV", ExactSpelling = true)]
 			internal extern static unsafe void glPathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float* coeffs);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPathFogGenNV", ExactSpelling = true)]
 			internal extern static void glPathFogGenNV(Int32 genMode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathColorGenivNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathColorGenivNV(Int32 color, Int32 pname, Int32* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathColorGenfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathColorGenfvNV(Int32 color, Int32 pname, float* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathTexGenivNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathTexGenivNV(Int32 texCoordSet, Int32 pname, Int32* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPathTexGenfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetPathTexGenfvNV(Int32 texCoordSet, Int32 pname, float* value);
 
@@ -3699,7 +3827,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate UInt32 glGenPathsNV(Int32 range);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3707,7 +3837,9 @@ namespace OpenGL
 			internal static glGenPathsNV pglGenPathsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDeletePathsNV(UInt32 path, Int32 range);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3715,7 +3847,9 @@ namespace OpenGL
 			internal static glDeletePathsNV pglDeletePathsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glIsPathNV(UInt32 path);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3723,7 +3857,9 @@ namespace OpenGL
 			internal static glIsPathNV pglIsPathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathCommandsNV(UInt32 path, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3731,7 +3867,9 @@ namespace OpenGL
 			internal static glPathCommandsNV pglPathCommandsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3739,7 +3877,9 @@ namespace OpenGL
 			internal static glPathCoordsNV pglPathCoordsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3747,7 +3887,9 @@ namespace OpenGL
 			internal static glPathSubCommandsNV pglPathSubCommandsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathSubCoordsNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3755,7 +3897,9 @@ namespace OpenGL
 			internal static glPathSubCoordsNV pglPathSubCoordsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathStringNV(UInt32 path, Int32 format, Int32 length, IntPtr pathString);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3763,7 +3907,9 @@ namespace OpenGL
 			internal static glPathStringNV pglPathStringNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, IntPtr charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3771,7 +3917,9 @@ namespace OpenGL
 			internal static glPathGlyphsNV pglPathGlyphsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3779,7 +3927,9 @@ namespace OpenGL
 			internal static glPathGlyphRangeNV pglPathGlyphRangeNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glWeightPathsNV(UInt32 resultPath, Int32 numPaths, UInt32* paths, float* weights);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3787,7 +3937,9 @@ namespace OpenGL
 			internal static glWeightPathsNV pglWeightPathsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyPathNV(UInt32 resultPath, UInt32 srcPath);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3795,7 +3947,9 @@ namespace OpenGL
 			internal static glCopyPathNV pglCopyPathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glInterpolatePathsNV(UInt32 resultPath, UInt32 pathA, UInt32 pathB, float weight);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3803,7 +3957,9 @@ namespace OpenGL
 			internal static glInterpolatePathsNV pglInterpolatePathsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTransformPathNV(UInt32 resultPath, UInt32 srcPath, Int32 transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3811,7 +3967,9 @@ namespace OpenGL
 			internal static glTransformPathNV pglTransformPathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3819,7 +3977,9 @@ namespace OpenGL
 			internal static glPathParameterivNV pglPathParameterivNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPathParameteriNV(UInt32 path, Int32 pname, Int32 value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3827,7 +3987,9 @@ namespace OpenGL
 			internal static glPathParameteriNV pglPathParameteriNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathParameterfvNV(UInt32 path, Int32 pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3835,7 +3997,9 @@ namespace OpenGL
 			internal static glPathParameterfvNV pglPathParameterfvNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPathParameterfNV(UInt32 path, Int32 pname, float value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3843,7 +4007,9 @@ namespace OpenGL
 			internal static glPathParameterfNV pglPathParameterfNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathDashArrayNV(UInt32 path, Int32 dashCount, float* dashArray);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3851,7 +4017,9 @@ namespace OpenGL
 			internal static glPathDashArrayNV pglPathDashArrayNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPathStencilFuncNV(Int32 func, Int32 @ref, UInt32 mask);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3859,7 +4027,9 @@ namespace OpenGL
 			internal static glPathStencilFuncNV pglPathStencilFuncNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPathStencilDepthOffsetNV(float factor, float units);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3867,7 +4037,9 @@ namespace OpenGL
 			internal static glPathStencilDepthOffsetNV pglPathStencilDepthOffsetNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glStencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3875,7 +4047,9 @@ namespace OpenGL
 			internal static glStencilFillPathNV pglStencilFillPathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glStencilStrokePathNV(UInt32 path, Int32 reference, UInt32 mask);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3883,7 +4057,9 @@ namespace OpenGL
 			internal static glStencilStrokePathNV pglStencilStrokePathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glStencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3891,7 +4067,9 @@ namespace OpenGL
 			internal static glStencilFillPathInstancedNV pglStencilFillPathInstancedNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glStencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3899,7 +4077,9 @@ namespace OpenGL
 			internal static glStencilStrokePathInstancedNV pglStencilStrokePathInstancedNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPathCoverDepthFuncNV(Int32 func);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3907,7 +4087,9 @@ namespace OpenGL
 			internal static glPathCoverDepthFuncNV pglPathCoverDepthFuncNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCoverFillPathNV(UInt32 path, Int32 coverMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3915,7 +4097,9 @@ namespace OpenGL
 			internal static glCoverFillPathNV pglCoverFillPathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCoverStrokePathNV(UInt32 path, Int32 coverMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3923,7 +4107,9 @@ namespace OpenGL
 			internal static glCoverStrokePathNV pglCoverStrokePathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3931,7 +4117,9 @@ namespace OpenGL
 			internal static glCoverFillPathInstancedNV pglCoverFillPathInstancedNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3939,7 +4127,9 @@ namespace OpenGL
 			internal static glCoverStrokePathInstancedNV pglCoverStrokePathInstancedNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3947,7 +4137,9 @@ namespace OpenGL
 			internal static glGetPathParameterivNV pglGetPathParameterivNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathParameterfvNV(UInt32 path, Int32 pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3955,7 +4147,9 @@ namespace OpenGL
 			internal static glGetPathParameterfvNV pglGetPathParameterfvNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathCommandsNV(UInt32 path, byte* commands);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3963,7 +4157,9 @@ namespace OpenGL
 			internal static glGetPathCommandsNV pglGetPathCommandsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathCoordsNV(UInt32 path, float* coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3971,7 +4167,9 @@ namespace OpenGL
 			internal static glGetPathCoordsNV pglGetPathCoordsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathDashArrayNV(UInt32 path, float* dashArray);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3979,7 +4177,9 @@ namespace OpenGL
 			internal static glGetPathDashArrayNV pglGetPathDashArrayNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, float* metrics);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3987,7 +4187,9 @@ namespace OpenGL
 			internal static glGetPathMetricsNV pglGetPathMetricsNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathMetricRangeNV(UInt32 metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, float* metrics);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3995,7 +4197,9 @@ namespace OpenGL
 			internal static glGetPathMetricRangeNV pglGetPathMetricRangeNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, float* returnedSpacing);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4003,7 +4207,9 @@ namespace OpenGL
 			internal static glGetPathSpacingNV pglGetPathSpacingNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glIsPointInFillPathNV(UInt32 path, UInt32 mask, float x, float y);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4011,7 +4217,9 @@ namespace OpenGL
 			internal static glIsPointInFillPathNV pglIsPointInFillPathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glIsPointInStrokePathNV(UInt32 path, float x, float y);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4019,7 +4227,9 @@ namespace OpenGL
 			internal static glIsPointInStrokePathNV pglIsPointInStrokePathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate float glGetPathLengthNV(UInt32 path, Int32 startSegment, Int32 numSegments);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4027,7 +4237,9 @@ namespace OpenGL
 			internal static glGetPathLengthNV pglGetPathLengthNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool glPointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4035,7 +4247,9 @@ namespace OpenGL
 			internal static glPointAlongPathNV pglPointAlongPathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixLoad3x2fNV(Int32 matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4043,7 +4257,9 @@ namespace OpenGL
 			internal static glMatrixLoad3x2fNV pglMatrixLoad3x2fNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixLoad3x3fNV(Int32 matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4051,7 +4267,9 @@ namespace OpenGL
 			internal static glMatrixLoad3x3fNV pglMatrixLoad3x3fNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixLoadTranspose3x3fNV(Int32 matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4059,7 +4277,9 @@ namespace OpenGL
 			internal static glMatrixLoadTranspose3x3fNV pglMatrixLoadTranspose3x3fNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixMult3x2fNV(Int32 matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4067,7 +4287,9 @@ namespace OpenGL
 			internal static glMatrixMult3x2fNV pglMatrixMult3x2fNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixMult3x3fNV(Int32 matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4075,7 +4297,9 @@ namespace OpenGL
 			internal static glMatrixMult3x3fNV pglMatrixMult3x3fNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixMultTranspose3x3fNV(Int32 matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4083,7 +4307,9 @@ namespace OpenGL
 			internal static glMatrixMultTranspose3x3fNV pglMatrixMultTranspose3x3fNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glStencilThenCoverFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask, Int32 coverMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4091,7 +4317,9 @@ namespace OpenGL
 			internal static glStencilThenCoverFillPathNV pglStencilThenCoverFillPathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glStencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, Int32 coverMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4099,7 +4327,9 @@ namespace OpenGL
 			internal static glStencilThenCoverStrokePathNV pglStencilThenCoverStrokePathNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glStencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4107,7 +4337,9 @@ namespace OpenGL
 			internal static glStencilThenCoverFillPathInstancedNV pglStencilThenCoverFillPathInstancedNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glStencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4115,7 +4347,9 @@ namespace OpenGL
 			internal static glStencilThenCoverStrokePathInstancedNV pglStencilThenCoverStrokePathInstancedNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate Int32 glPathGlyphIndexRangeNV(Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32* baseAndCount);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4123,7 +4357,9 @@ namespace OpenGL
 			internal static glPathGlyphIndexRangeNV pglPathGlyphIndexRangeNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate Int32 glPathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4131,7 +4367,9 @@ namespace OpenGL
 			internal static glPathGlyphIndexArrayNV pglPathGlyphIndexArrayNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate Int32 glPathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4139,7 +4377,9 @@ namespace OpenGL
 			internal static glPathMemoryGlyphIndexArrayNV pglPathMemoryGlyphIndexArrayNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramPathFragmentInputGenNV(UInt32 program, Int32 location, Int32 genMode, Int32 components, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4147,7 +4387,9 @@ namespace OpenGL
 			internal static glProgramPathFragmentInputGenNV pglProgramPathFragmentInputGenNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetProgramResourcefvNV(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32* props, Int32 bufSize, Int32* length, float* @params);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -4155,7 +4397,9 @@ namespace OpenGL
 			internal static glGetProgramResourcefvNV pglGetProgramResourcefvNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
@@ -4163,7 +4407,9 @@ namespace OpenGL
 			internal static glPathColorGenNV pglPathColorGenNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
@@ -4171,7 +4417,9 @@ namespace OpenGL
 			internal static glPathTexGenNV pglPathTexGenNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPathFogGenNV(Int32 genMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
@@ -4179,7 +4427,9 @@ namespace OpenGL
 			internal static glPathFogGenNV pglPathFogGenNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathColorGenivNV(Int32 color, Int32 pname, Int32* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
@@ -4187,7 +4437,9 @@ namespace OpenGL
 			internal static glGetPathColorGenivNV pglGetPathColorGenivNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathColorGenfvNV(Int32 color, Int32 pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
@@ -4195,7 +4447,9 @@ namespace OpenGL
 			internal static glGetPathColorGenfvNV pglGetPathColorGenfvNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathTexGenivNV(Int32 texCoordSet, Int32 pname, Int32* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
@@ -4203,7 +4457,9 @@ namespace OpenGL
 			internal static glGetPathTexGenivNV pglGetPathTexGenivNV;
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPathTexGenfvNV(Int32 texCoordSet, Int32 pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]

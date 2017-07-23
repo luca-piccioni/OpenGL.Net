@@ -159,11 +159,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glSampleMaskEXT", ExactSpelling = true)]
 			internal extern static void glSampleMaskEXT(float value, bool invert);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glSamplePatternEXT", ExactSpelling = true)]
 			internal extern static void glSamplePatternEXT(Int32 pattern);
 
@@ -173,7 +177,9 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_multisample")]
 			[RequiredByFeature("GL_SGIS_multisample")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glSampleMaskEXT(float value, bool invert);
 
 			[AliasOf("glSampleMaskEXT")]
@@ -185,7 +191,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_multisample")]
 			[RequiredByFeature("GL_SGIS_multisample")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glSamplePatternEXT(Int32 pattern);
 
 			[AliasOf("glSamplePatternEXT")]

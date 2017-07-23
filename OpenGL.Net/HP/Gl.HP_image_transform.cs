@@ -266,27 +266,39 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glImageTransformParameteriHP", ExactSpelling = true)]
 			internal extern static void glImageTransformParameteriHP(Int32 target, Int32 pname, Int32 param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glImageTransformParameterfHP", ExactSpelling = true)]
 			internal extern static void glImageTransformParameterfHP(Int32 target, Int32 pname, float param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glImageTransformParameterivHP", ExactSpelling = true)]
 			internal extern static unsafe void glImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glImageTransformParameterfvHP", ExactSpelling = true)]
 			internal extern static unsafe void glImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetImageTransformParameterivHP", ExactSpelling = true)]
 			internal extern static unsafe void glGetImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetImageTransformParameterfvHP", ExactSpelling = true)]
 			internal extern static unsafe void glGetImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
 
@@ -295,7 +307,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_HP_image_transform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glImageTransformParameteriHP(Int32 target, Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -303,7 +317,9 @@ namespace OpenGL
 			internal static glImageTransformParameteriHP pglImageTransformParameteriHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glImageTransformParameterfHP(Int32 target, Int32 pname, float param);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -311,7 +327,9 @@ namespace OpenGL
 			internal static glImageTransformParameterfHP pglImageTransformParameterfHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -319,7 +337,9 @@ namespace OpenGL
 			internal static glImageTransformParameterivHP pglImageTransformParameterivHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -327,7 +347,9 @@ namespace OpenGL
 			internal static glImageTransformParameterfvHP pglImageTransformParameterfvHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -335,7 +357,9 @@ namespace OpenGL
 			internal static glGetImageTransformParameterivHP pglGetImageTransformParameterivHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]

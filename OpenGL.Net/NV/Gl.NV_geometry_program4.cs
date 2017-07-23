@@ -66,7 +66,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramVertexLimitNV", ExactSpelling = true)]
 			internal extern static void glProgramVertexLimitNV(Int32 target, Int32 limit);
 
@@ -75,7 +77,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_geometry_program4")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glProgramVertexLimitNV(Int32 target, Int32 limit);
 
 			[RequiredByFeature("GL_NV_geometry_program4")]

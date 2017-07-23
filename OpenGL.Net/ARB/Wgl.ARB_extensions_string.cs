@@ -49,7 +49,9 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglGetExtensionsStringARB", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglGetExtensionsStringARB(IntPtr hdc);
 
@@ -58,7 +60,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_extensions_string")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr wglGetExtensionsStringARB(IntPtr hdc);
 
 			[RequiredByFeature("WGL_ARB_extensions_string")]

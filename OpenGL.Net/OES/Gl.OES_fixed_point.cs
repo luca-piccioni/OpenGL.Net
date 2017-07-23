@@ -2458,431 +2458,645 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glAlphaFuncxOES", ExactSpelling = true)]
 			internal extern static unsafe void glAlphaFuncxOES(Int32 func, IntPtr @ref);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearColorxOES", ExactSpelling = true)]
 			internal extern static unsafe void glClearColorxOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearDepthxOES", ExactSpelling = true)]
 			internal extern static unsafe void glClearDepthxOES(IntPtr depth);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClipPlanexOES", ExactSpelling = true)]
 			internal extern static unsafe void glClipPlanexOES(Int32 plane, IntPtr* equation);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glColor4xOES", ExactSpelling = true)]
 			internal extern static unsafe void glColor4xOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDepthRangexOES", ExactSpelling = true)]
 			internal extern static unsafe void glDepthRangexOES(IntPtr n, IntPtr f);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFogxOES", ExactSpelling = true)]
 			internal extern static unsafe void glFogxOES(Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFogxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glFogxvOES(Int32 pname, IntPtr* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFrustumxOES", ExactSpelling = true)]
 			internal extern static unsafe void glFrustumxOES(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetClipPlanexOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetClipPlanexOES(Int32 plane, IntPtr* equation);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetFixedvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetFixedvOES(Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTexEnvxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexEnvxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTexParameterxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLightModelxOES", ExactSpelling = true)]
 			internal extern static unsafe void glLightModelxOES(Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLightModelxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glLightModelxvOES(Int32 pname, IntPtr* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLightxOES", ExactSpelling = true)]
 			internal extern static unsafe void glLightxOES(Int32 light, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLightxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glLightxvOES(Int32 light, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLineWidthxOES", ExactSpelling = true)]
 			internal extern static unsafe void glLineWidthxOES(IntPtr width);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLoadMatrixxOES", ExactSpelling = true)]
 			internal extern static unsafe void glLoadMatrixxOES(IntPtr* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMaterialxOES", ExactSpelling = true)]
 			internal extern static unsafe void glMaterialxOES(Int32 face, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMaterialxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glMaterialxvOES(Int32 face, Int32 pname, IntPtr* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultMatrixxOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultMatrixxOES(IntPtr* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord4xOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord4xOES(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNormal3xOES", ExactSpelling = true)]
 			internal extern static unsafe void glNormal3xOES(IntPtr nx, IntPtr ny, IntPtr nz);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glOrthoxOES", ExactSpelling = true)]
 			internal extern static unsafe void glOrthoxOES(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPointParameterxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glPointParameterxvOES(Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPointSizexOES", ExactSpelling = true)]
 			internal extern static unsafe void glPointSizexOES(IntPtr size);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPolygonOffsetxOES", ExactSpelling = true)]
 			internal extern static unsafe void glPolygonOffsetxOES(IntPtr factor, IntPtr units);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRotatexOES", ExactSpelling = true)]
 			internal extern static unsafe void glRotatexOES(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glScalexOES", ExactSpelling = true)]
 			internal extern static unsafe void glScalexOES(IntPtr x, IntPtr y, IntPtr z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexEnvxOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexEnvxOES(Int32 target, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexEnvxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexEnvxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexParameterxOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexParameterxOES(Int32 target, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexParameterxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTranslatexOES", ExactSpelling = true)]
 			internal extern static unsafe void glTranslatexOES(IntPtr x, IntPtr y, IntPtr z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetLightxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetLightxvOES(Int32 light, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMaterialxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetMaterialxvOES(Int32 face, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPointParameterxOES", ExactSpelling = true)]
 			internal extern static unsafe void glPointParameterxOES(Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glSampleCoveragexOES", ExactSpelling = true)]
 			internal extern static void glSampleCoveragexOES(Int32 value, bool invert);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glAccumxOES", ExactSpelling = true)]
 			internal extern static unsafe void glAccumxOES(Int32 op, IntPtr value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBitmapxOES", ExactSpelling = true)]
 			internal extern static unsafe void glBitmapxOES(Int32 width, Int32 height, IntPtr xorig, IntPtr yorig, IntPtr xmove, IntPtr ymove, byte* bitmap);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBlendColorxOES", ExactSpelling = true)]
 			internal extern static unsafe void glBlendColorxOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearAccumxOES", ExactSpelling = true)]
 			internal extern static unsafe void glClearAccumxOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glColor3xOES", ExactSpelling = true)]
 			internal extern static unsafe void glColor3xOES(IntPtr red, IntPtr green, IntPtr blue);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glColor3xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glColor3xvOES(IntPtr* components);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glColor4xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glColor4xvOES(IntPtr* components);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glConvolutionParameterxOES", ExactSpelling = true)]
 			internal extern static unsafe void glConvolutionParameterxOES(Int32 target, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glConvolutionParameterxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glConvolutionParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEvalCoord1xOES", ExactSpelling = true)]
 			internal extern static unsafe void glEvalCoord1xOES(IntPtr u);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEvalCoord1xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glEvalCoord1xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEvalCoord2xOES", ExactSpelling = true)]
 			internal extern static unsafe void glEvalCoord2xOES(IntPtr u, IntPtr v);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEvalCoord2xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glEvalCoord2xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFeedbackBufferxOES", ExactSpelling = true)]
 			internal extern static unsafe void glFeedbackBufferxOES(Int32 n, Int32 type, IntPtr* buffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetConvolutionParameterxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetConvolutionParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetHistogramParameterxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetHistogramParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetLightxOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetLightxOES(Int32 light, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMapxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetMapxvOES(Int32 target, Int32 query, IntPtr* v);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMaterialxOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetMaterialxOES(Int32 face, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPixelMapxv", ExactSpelling = true)]
 			internal extern static unsafe void glGetPixelMapxv(Int32 map, Int32 size, IntPtr* values);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTexGenxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexGenxvOES(Int32 coord, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTexLevelParameterxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexLevelParameterxvOES(Int32 target, Int32 level, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIndexxOES", ExactSpelling = true)]
 			internal extern static unsafe void glIndexxOES(IntPtr component);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIndexxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glIndexxvOES(IntPtr* component);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLoadTransposeMatrixxOES", ExactSpelling = true)]
 			internal extern static unsafe void glLoadTransposeMatrixxOES(IntPtr* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMap1xOES", ExactSpelling = true)]
 			internal extern static unsafe void glMap1xOES(Int32 target, IntPtr u1, IntPtr u2, Int32 stride, Int32 order, IntPtr points);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMap2xOES", ExactSpelling = true)]
 			internal extern static unsafe void glMap2xOES(Int32 target, IntPtr u1, IntPtr u2, Int32 ustride, Int32 uorder, IntPtr v1, IntPtr v2, Int32 vstride, Int32 vorder, IntPtr points);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapGrid1xOES", ExactSpelling = true)]
 			internal extern static unsafe void glMapGrid1xOES(Int32 n, IntPtr u1, IntPtr u2);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapGrid2xOES", ExactSpelling = true)]
 			internal extern static unsafe void glMapGrid2xOES(Int32 n, IntPtr u1, IntPtr u2, IntPtr v1, IntPtr v2);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultTransposeMatrixxOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultTransposeMatrixxOES(IntPtr* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord1xOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord1xOES(Int32 texture, IntPtr s);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord1xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord1xvOES(Int32 texture, IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord2xOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord2xOES(Int32 texture, IntPtr s, IntPtr t);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord2xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord2xvOES(Int32 texture, IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord3xOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord3xOES(Int32 texture, IntPtr s, IntPtr t, IntPtr r);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord3xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord3xvOES(Int32 texture, IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord4xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord4xvOES(Int32 texture, IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNormal3xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glNormal3xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPassThroughxOES", ExactSpelling = true)]
 			internal extern static unsafe void glPassThroughxOES(IntPtr token);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPixelMapx", ExactSpelling = true)]
 			internal extern static unsafe void glPixelMapx(Int32 map, Int32 size, IntPtr* values);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPixelStorex", ExactSpelling = true)]
 			internal extern static unsafe void glPixelStorex(Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPixelTransferxOES", ExactSpelling = true)]
 			internal extern static unsafe void glPixelTransferxOES(Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPixelZoomxOES", ExactSpelling = true)]
 			internal extern static unsafe void glPixelZoomxOES(IntPtr xfactor, IntPtr yfactor);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPrioritizeTexturesxOES", ExactSpelling = true)]
 			internal extern static unsafe void glPrioritizeTexturesxOES(Int32 n, UInt32* textures, IntPtr* priorities);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRasterPos2xOES", ExactSpelling = true)]
 			internal extern static unsafe void glRasterPos2xOES(IntPtr x, IntPtr y);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRasterPos2xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glRasterPos2xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRasterPos3xOES", ExactSpelling = true)]
 			internal extern static unsafe void glRasterPos3xOES(IntPtr x, IntPtr y, IntPtr z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRasterPos3xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glRasterPos3xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRasterPos4xOES", ExactSpelling = true)]
 			internal extern static unsafe void glRasterPos4xOES(IntPtr x, IntPtr y, IntPtr z, IntPtr w);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRasterPos4xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glRasterPos4xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRectxOES", ExactSpelling = true)]
 			internal extern static unsafe void glRectxOES(IntPtr x1, IntPtr y1, IntPtr x2, IntPtr y2);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRectxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glRectxvOES(IntPtr* v1, IntPtr* v2);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord1xOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord1xOES(IntPtr s);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord1xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord1xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord2xOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord2xOES(IntPtr s, IntPtr t);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord2xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord2xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord3xOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord3xOES(IntPtr s, IntPtr t, IntPtr r);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord3xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord3xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord4xOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord4xOES(IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord4xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord4xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexGenxOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexGenxOES(Int32 coord, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexGenxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glTexGenxvOES(Int32 coord, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertex2xOES", ExactSpelling = true)]
 			internal extern static unsafe void glVertex2xOES(IntPtr x);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertex2xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glVertex2xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertex3xOES", ExactSpelling = true)]
 			internal extern static unsafe void glVertex3xOES(IntPtr x, IntPtr y);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertex3xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glVertex3xvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertex4xOES", ExactSpelling = true)]
 			internal extern static unsafe void glVertex4xOES(IntPtr x, IntPtr y, IntPtr z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertex4xvOES", ExactSpelling = true)]
 			internal extern static unsafe void glVertex4xvOES(IntPtr* coords);
 
@@ -2891,7 +3105,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glAlphaFuncxOES(Int32 func, IntPtr @ref);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2899,7 +3115,9 @@ namespace OpenGL
 			internal static glAlphaFuncxOES pglAlphaFuncxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClearColorxOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2907,7 +3125,9 @@ namespace OpenGL
 			internal static glClearColorxOES pglClearColorxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClearDepthxOES(IntPtr depth);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2915,7 +3135,9 @@ namespace OpenGL
 			internal static glClearDepthxOES pglClearDepthxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClipPlanexOES(Int32 plane, IntPtr* equation);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2923,7 +3145,9 @@ namespace OpenGL
 			internal static glClipPlanexOES pglClipPlanexOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glColor4xOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2931,7 +3155,9 @@ namespace OpenGL
 			internal static glColor4xOES pglColor4xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDepthRangexOES(IntPtr n, IntPtr f);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2939,7 +3165,9 @@ namespace OpenGL
 			internal static glDepthRangexOES pglDepthRangexOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFogxOES(Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2947,7 +3175,9 @@ namespace OpenGL
 			internal static glFogxOES pglFogxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFogxvOES(Int32 pname, IntPtr* param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2955,7 +3185,9 @@ namespace OpenGL
 			internal static glFogxvOES pglFogxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFrustumxOES(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2963,7 +3195,9 @@ namespace OpenGL
 			internal static glFrustumxOES pglFrustumxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetClipPlanexOES(Int32 plane, IntPtr* equation);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2971,7 +3205,9 @@ namespace OpenGL
 			internal static glGetClipPlanexOES pglGetClipPlanexOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetFixedvOES(Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2979,7 +3215,9 @@ namespace OpenGL
 			internal static glGetFixedvOES pglGetFixedvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTexEnvxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2987,7 +3225,9 @@ namespace OpenGL
 			internal static glGetTexEnvxvOES pglGetTexEnvxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTexParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -2995,7 +3235,9 @@ namespace OpenGL
 			internal static glGetTexParameterxvOES pglGetTexParameterxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLightModelxOES(Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3003,7 +3245,9 @@ namespace OpenGL
 			internal static glLightModelxOES pglLightModelxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLightModelxvOES(Int32 pname, IntPtr* param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3011,7 +3255,9 @@ namespace OpenGL
 			internal static glLightModelxvOES pglLightModelxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLightxOES(Int32 light, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3019,7 +3265,9 @@ namespace OpenGL
 			internal static glLightxOES pglLightxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLightxvOES(Int32 light, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3027,7 +3275,9 @@ namespace OpenGL
 			internal static glLightxvOES pglLightxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLineWidthxOES(IntPtr width);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3035,7 +3285,9 @@ namespace OpenGL
 			internal static glLineWidthxOES pglLineWidthxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLoadMatrixxOES(IntPtr* m);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3043,7 +3295,9 @@ namespace OpenGL
 			internal static glLoadMatrixxOES pglLoadMatrixxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMaterialxOES(Int32 face, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3051,7 +3305,9 @@ namespace OpenGL
 			internal static glMaterialxOES pglMaterialxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMaterialxvOES(Int32 face, Int32 pname, IntPtr* param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3059,7 +3315,9 @@ namespace OpenGL
 			internal static glMaterialxvOES pglMaterialxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultMatrixxOES(IntPtr* m);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3067,7 +3325,9 @@ namespace OpenGL
 			internal static glMultMatrixxOES pglMultMatrixxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord4xOES(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3075,7 +3335,9 @@ namespace OpenGL
 			internal static glMultiTexCoord4xOES pglMultiTexCoord4xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNormal3xOES(IntPtr nx, IntPtr ny, IntPtr nz);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3083,7 +3345,9 @@ namespace OpenGL
 			internal static glNormal3xOES pglNormal3xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glOrthoxOES(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3091,7 +3355,9 @@ namespace OpenGL
 			internal static glOrthoxOES pglOrthoxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPointParameterxvOES(Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3099,7 +3365,9 @@ namespace OpenGL
 			internal static glPointParameterxvOES pglPointParameterxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPointSizexOES(IntPtr size);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3107,7 +3375,9 @@ namespace OpenGL
 			internal static glPointSizexOES pglPointSizexOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPolygonOffsetxOES(IntPtr factor, IntPtr units);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3115,7 +3385,9 @@ namespace OpenGL
 			internal static glPolygonOffsetxOES pglPolygonOffsetxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRotatexOES(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3123,7 +3395,9 @@ namespace OpenGL
 			internal static glRotatexOES pglRotatexOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glScalexOES(IntPtr x, IntPtr y, IntPtr z);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3131,7 +3405,9 @@ namespace OpenGL
 			internal static glScalexOES pglScalexOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexEnvxOES(Int32 target, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3139,7 +3415,9 @@ namespace OpenGL
 			internal static glTexEnvxOES pglTexEnvxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexEnvxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3147,7 +3425,9 @@ namespace OpenGL
 			internal static glTexEnvxvOES pglTexEnvxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexParameterxOES(Int32 target, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3155,7 +3435,9 @@ namespace OpenGL
 			internal static glTexParameterxOES pglTexParameterxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3163,7 +3445,9 @@ namespace OpenGL
 			internal static glTexParameterxvOES pglTexParameterxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTranslatexOES(IntPtr x, IntPtr y, IntPtr z);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -3171,7 +3455,9 @@ namespace OpenGL
 			internal static glTranslatexOES pglTranslatexOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetLightxvOES(Int32 light, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
@@ -3179,7 +3465,9 @@ namespace OpenGL
 			internal static glGetLightxvOES pglGetLightxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMaterialxvOES(Int32 face, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
@@ -3187,7 +3475,9 @@ namespace OpenGL
 			internal static glGetMaterialxvOES pglGetMaterialxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPointParameterxOES(Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
@@ -3195,7 +3485,9 @@ namespace OpenGL
 			internal static glPointParameterxOES pglPointParameterxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glSampleCoveragexOES(Int32 value, bool invert);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
@@ -3203,7 +3495,9 @@ namespace OpenGL
 			internal static glSampleCoveragexOES pglSampleCoveragexOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glAccumxOES(Int32 op, IntPtr value);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3211,7 +3505,9 @@ namespace OpenGL
 			internal static glAccumxOES pglAccumxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glBitmapxOES(Int32 width, Int32 height, IntPtr xorig, IntPtr yorig, IntPtr xmove, IntPtr ymove, byte* bitmap);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3219,7 +3515,9 @@ namespace OpenGL
 			internal static glBitmapxOES pglBitmapxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glBlendColorxOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3227,7 +3525,9 @@ namespace OpenGL
 			internal static glBlendColorxOES pglBlendColorxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClearAccumxOES(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3235,7 +3535,9 @@ namespace OpenGL
 			internal static glClearAccumxOES pglClearAccumxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glColor3xOES(IntPtr red, IntPtr green, IntPtr blue);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3243,7 +3545,9 @@ namespace OpenGL
 			internal static glColor3xOES pglColor3xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glColor3xvOES(IntPtr* components);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3251,7 +3555,9 @@ namespace OpenGL
 			internal static glColor3xvOES pglColor3xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glColor4xvOES(IntPtr* components);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3259,7 +3565,9 @@ namespace OpenGL
 			internal static glColor4xvOES pglColor4xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glConvolutionParameterxOES(Int32 target, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3267,7 +3575,9 @@ namespace OpenGL
 			internal static glConvolutionParameterxOES pglConvolutionParameterxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glConvolutionParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3275,7 +3585,9 @@ namespace OpenGL
 			internal static glConvolutionParameterxvOES pglConvolutionParameterxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glEvalCoord1xOES(IntPtr u);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3283,7 +3595,9 @@ namespace OpenGL
 			internal static glEvalCoord1xOES pglEvalCoord1xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glEvalCoord1xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3291,7 +3605,9 @@ namespace OpenGL
 			internal static glEvalCoord1xvOES pglEvalCoord1xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glEvalCoord2xOES(IntPtr u, IntPtr v);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3299,7 +3615,9 @@ namespace OpenGL
 			internal static glEvalCoord2xOES pglEvalCoord2xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glEvalCoord2xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3307,7 +3625,9 @@ namespace OpenGL
 			internal static glEvalCoord2xvOES pglEvalCoord2xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFeedbackBufferxOES(Int32 n, Int32 type, IntPtr* buffer);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3315,7 +3635,9 @@ namespace OpenGL
 			internal static glFeedbackBufferxOES pglFeedbackBufferxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetConvolutionParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3323,7 +3645,9 @@ namespace OpenGL
 			internal static glGetConvolutionParameterxvOES pglGetConvolutionParameterxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetHistogramParameterxvOES(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3331,7 +3655,9 @@ namespace OpenGL
 			internal static glGetHistogramParameterxvOES pglGetHistogramParameterxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetLightxOES(Int32 light, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3339,7 +3665,9 @@ namespace OpenGL
 			internal static glGetLightxOES pglGetLightxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMapxvOES(Int32 target, Int32 query, IntPtr* v);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3347,7 +3675,9 @@ namespace OpenGL
 			internal static glGetMapxvOES pglGetMapxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMaterialxOES(Int32 face, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3355,7 +3685,9 @@ namespace OpenGL
 			internal static glGetMaterialxOES pglGetMaterialxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPixelMapxv(Int32 map, Int32 size, IntPtr* values);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3364,7 +3696,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_fixed_point")]
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTexGenxvOES(Int32 coord, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3373,7 +3707,9 @@ namespace OpenGL
 			internal static glGetTexGenxvOES pglGetTexGenxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTexLevelParameterxvOES(Int32 target, Int32 level, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3381,7 +3717,9 @@ namespace OpenGL
 			internal static glGetTexLevelParameterxvOES pglGetTexLevelParameterxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glIndexxOES(IntPtr component);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3389,7 +3727,9 @@ namespace OpenGL
 			internal static glIndexxOES pglIndexxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glIndexxvOES(IntPtr* component);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3397,7 +3737,9 @@ namespace OpenGL
 			internal static glIndexxvOES pglIndexxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLoadTransposeMatrixxOES(IntPtr* m);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3405,7 +3747,9 @@ namespace OpenGL
 			internal static glLoadTransposeMatrixxOES pglLoadTransposeMatrixxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMap1xOES(Int32 target, IntPtr u1, IntPtr u2, Int32 stride, Int32 order, IntPtr points);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3413,7 +3757,9 @@ namespace OpenGL
 			internal static glMap1xOES pglMap1xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMap2xOES(Int32 target, IntPtr u1, IntPtr u2, Int32 ustride, Int32 uorder, IntPtr v1, IntPtr v2, Int32 vstride, Int32 vorder, IntPtr points);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3421,7 +3767,9 @@ namespace OpenGL
 			internal static glMap2xOES pglMap2xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMapGrid1xOES(Int32 n, IntPtr u1, IntPtr u2);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3429,7 +3777,9 @@ namespace OpenGL
 			internal static glMapGrid1xOES pglMapGrid1xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMapGrid2xOES(Int32 n, IntPtr u1, IntPtr u2, IntPtr v1, IntPtr v2);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3437,7 +3787,9 @@ namespace OpenGL
 			internal static glMapGrid2xOES pglMapGrid2xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultTransposeMatrixxOES(IntPtr* m);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3445,7 +3797,9 @@ namespace OpenGL
 			internal static glMultTransposeMatrixxOES pglMultTransposeMatrixxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord1xOES(Int32 texture, IntPtr s);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3453,7 +3807,9 @@ namespace OpenGL
 			internal static glMultiTexCoord1xOES pglMultiTexCoord1xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord1xvOES(Int32 texture, IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3461,7 +3817,9 @@ namespace OpenGL
 			internal static glMultiTexCoord1xvOES pglMultiTexCoord1xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord2xOES(Int32 texture, IntPtr s, IntPtr t);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3469,7 +3827,9 @@ namespace OpenGL
 			internal static glMultiTexCoord2xOES pglMultiTexCoord2xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord2xvOES(Int32 texture, IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3477,7 +3837,9 @@ namespace OpenGL
 			internal static glMultiTexCoord2xvOES pglMultiTexCoord2xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord3xOES(Int32 texture, IntPtr s, IntPtr t, IntPtr r);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3485,7 +3847,9 @@ namespace OpenGL
 			internal static glMultiTexCoord3xOES pglMultiTexCoord3xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord3xvOES(Int32 texture, IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3493,7 +3857,9 @@ namespace OpenGL
 			internal static glMultiTexCoord3xvOES pglMultiTexCoord3xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord4xvOES(Int32 texture, IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3501,7 +3867,9 @@ namespace OpenGL
 			internal static glMultiTexCoord4xvOES pglMultiTexCoord4xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNormal3xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3509,7 +3877,9 @@ namespace OpenGL
 			internal static glNormal3xvOES pglNormal3xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPassThroughxOES(IntPtr token);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3517,7 +3887,9 @@ namespace OpenGL
 			internal static glPassThroughxOES pglPassThroughxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPixelMapx(Int32 map, Int32 size, IntPtr* values);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3525,7 +3897,9 @@ namespace OpenGL
 			internal static glPixelMapx pglPixelMapx;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPixelStorex(Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3533,7 +3907,9 @@ namespace OpenGL
 			internal static glPixelStorex pglPixelStorex;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPixelTransferxOES(Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3541,7 +3917,9 @@ namespace OpenGL
 			internal static glPixelTransferxOES pglPixelTransferxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPixelZoomxOES(IntPtr xfactor, IntPtr yfactor);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3549,7 +3927,9 @@ namespace OpenGL
 			internal static glPixelZoomxOES pglPixelZoomxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPrioritizeTexturesxOES(Int32 n, UInt32* textures, IntPtr* priorities);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3557,7 +3937,9 @@ namespace OpenGL
 			internal static glPrioritizeTexturesxOES pglPrioritizeTexturesxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRasterPos2xOES(IntPtr x, IntPtr y);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3565,7 +3947,9 @@ namespace OpenGL
 			internal static glRasterPos2xOES pglRasterPos2xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRasterPos2xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3573,7 +3957,9 @@ namespace OpenGL
 			internal static glRasterPos2xvOES pglRasterPos2xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRasterPos3xOES(IntPtr x, IntPtr y, IntPtr z);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3581,7 +3967,9 @@ namespace OpenGL
 			internal static glRasterPos3xOES pglRasterPos3xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRasterPos3xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3589,7 +3977,9 @@ namespace OpenGL
 			internal static glRasterPos3xvOES pglRasterPos3xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRasterPos4xOES(IntPtr x, IntPtr y, IntPtr z, IntPtr w);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3597,7 +3987,9 @@ namespace OpenGL
 			internal static glRasterPos4xOES pglRasterPos4xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRasterPos4xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3605,7 +3997,9 @@ namespace OpenGL
 			internal static glRasterPos4xvOES pglRasterPos4xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRectxOES(IntPtr x1, IntPtr y1, IntPtr x2, IntPtr y2);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3613,7 +4007,9 @@ namespace OpenGL
 			internal static glRectxOES pglRectxOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRectxvOES(IntPtr* v1, IntPtr* v2);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3621,7 +4017,9 @@ namespace OpenGL
 			internal static glRectxvOES pglRectxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoord1xOES(IntPtr s);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3629,7 +4027,9 @@ namespace OpenGL
 			internal static glTexCoord1xOES pglTexCoord1xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoord1xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3637,7 +4037,9 @@ namespace OpenGL
 			internal static glTexCoord1xvOES pglTexCoord1xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoord2xOES(IntPtr s, IntPtr t);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3645,7 +4047,9 @@ namespace OpenGL
 			internal static glTexCoord2xOES pglTexCoord2xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoord2xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3653,7 +4057,9 @@ namespace OpenGL
 			internal static glTexCoord2xvOES pglTexCoord2xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoord3xOES(IntPtr s, IntPtr t, IntPtr r);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3661,7 +4067,9 @@ namespace OpenGL
 			internal static glTexCoord3xOES pglTexCoord3xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoord3xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3669,7 +4077,9 @@ namespace OpenGL
 			internal static glTexCoord3xvOES pglTexCoord3xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoord4xOES(IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3677,7 +4087,9 @@ namespace OpenGL
 			internal static glTexCoord4xOES pglTexCoord4xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoord4xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3686,7 +4098,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_fixed_point")]
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexGenxOES(Int32 coord, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3696,7 +4110,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_fixed_point")]
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexGenxvOES(Int32 coord, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3705,7 +4121,9 @@ namespace OpenGL
 			internal static glTexGenxvOES pglTexGenxvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertex2xOES(IntPtr x);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3713,7 +4131,9 @@ namespace OpenGL
 			internal static glVertex2xOES pglVertex2xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertex2xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3721,7 +4141,9 @@ namespace OpenGL
 			internal static glVertex2xvOES pglVertex2xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertex3xOES(IntPtr x, IntPtr y);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3729,7 +4151,9 @@ namespace OpenGL
 			internal static glVertex3xOES pglVertex3xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertex3xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3737,7 +4161,9 @@ namespace OpenGL
 			internal static glVertex3xvOES pglVertex3xvOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertex4xOES(IntPtr x, IntPtr y, IntPtr z);
 
 			[RequiredByFeature("GL_OES_fixed_point")]
@@ -3745,7 +4171,9 @@ namespace OpenGL
 			internal static glVertex4xOES pglVertex4xOES;
 
 			[RequiredByFeature("GL_OES_fixed_point")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertex4xvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_fixed_point")]

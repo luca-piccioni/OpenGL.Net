@@ -64,11 +64,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapObjectBufferATI", ExactSpelling = true)]
 			internal extern static IntPtr glMapObjectBufferATI(UInt32 buffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glUnmapObjectBufferATI", ExactSpelling = true)]
 			internal extern static void glUnmapObjectBufferATI(UInt32 buffer);
 
@@ -77,7 +81,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_map_object_buffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr glMapObjectBufferATI(UInt32 buffer);
 
 			[RequiredByFeature("GL_ATI_map_object_buffer")]
@@ -85,7 +91,9 @@ namespace OpenGL
 			internal static glMapObjectBufferATI pglMapObjectBufferATI;
 
 			[RequiredByFeature("GL_ATI_map_object_buffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glUnmapObjectBufferATI(UInt32 buffer);
 
 			[RequiredByFeature("GL_ATI_map_object_buffer")]

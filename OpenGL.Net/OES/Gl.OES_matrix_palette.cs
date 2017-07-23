@@ -248,19 +248,27 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCurrentPaletteMatrixOES", ExactSpelling = true)]
 			internal extern static void glCurrentPaletteMatrixOES(UInt32 matrixpaletteindex);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLoadPaletteFromModelViewMatrixOES", ExactSpelling = true)]
 			internal extern static void glLoadPaletteFromModelViewMatrixOES();
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixIndexPointerOES", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glWeightPointerOES", ExactSpelling = true)]
 			internal extern static unsafe void glWeightPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
@@ -269,7 +277,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCurrentPaletteMatrixOES(UInt32 matrixpaletteindex);
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
@@ -277,7 +287,9 @@ namespace OpenGL
 			internal static glCurrentPaletteMatrixOES pglCurrentPaletteMatrixOES;
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glLoadPaletteFromModelViewMatrixOES();
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
@@ -285,7 +297,9 @@ namespace OpenGL
 			internal static glLoadPaletteFromModelViewMatrixOES pglLoadPaletteFromModelViewMatrixOES;
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
@@ -293,7 +307,9 @@ namespace OpenGL
 			internal static glMatrixIndexPointerOES pglMatrixIndexPointerOES;
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glWeightPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]

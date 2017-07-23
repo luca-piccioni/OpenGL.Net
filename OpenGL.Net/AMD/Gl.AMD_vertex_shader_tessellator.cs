@@ -102,11 +102,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTessellationFactorAMD", ExactSpelling = true)]
 			internal extern static void glTessellationFactorAMD(float factor);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTessellationModeAMD", ExactSpelling = true)]
 			internal extern static void glTessellationModeAMD(Int32 mode);
 
@@ -115,7 +119,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTessellationFactorAMD(float factor);
 
 			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
@@ -123,7 +129,9 @@ namespace OpenGL
 			internal static glTessellationFactorAMD pglTessellationFactorAMD;
 
 			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTessellationModeAMD(Int32 mode);
 
 			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]

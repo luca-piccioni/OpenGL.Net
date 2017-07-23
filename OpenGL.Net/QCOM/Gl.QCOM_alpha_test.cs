@@ -48,7 +48,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glAlphaFuncQCOM", ExactSpelling = true)]
 			internal extern static void glAlphaFuncQCOM(Int32 func, float @ref);
 
@@ -57,7 +59,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glAlphaFuncQCOM(Int32 func, float @ref);
 
 			[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]

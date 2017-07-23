@@ -142,11 +142,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glImportSemaphoreWin32HandleEXT", ExactSpelling = true)]
 			internal extern static unsafe void glImportSemaphoreWin32HandleEXT(UInt32 semaphore, Int32 handleType, IntPtr handle);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glImportSemaphoreWin32NameEXT", ExactSpelling = true)]
 			internal extern static unsafe void glImportSemaphoreWin32NameEXT(UInt32 semaphore, Int32 handleType, IntPtr name);
 
@@ -155,7 +159,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glImportSemaphoreWin32HandleEXT(UInt32 semaphore, Int32 handleType, IntPtr handle);
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
@@ -163,7 +169,9 @@ namespace OpenGL
 			internal static glImportSemaphoreWin32HandleEXT pglImportSemaphoreWin32HandleEXT;
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glImportSemaphoreWin32NameEXT(UInt32 semaphore, Int32 handleType, IntPtr name);
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]

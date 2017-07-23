@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyName>OpenGL.Net</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcore</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcore</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;DEBUG;NETCORE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Gl.NvOptmimus.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="KhronosLogMapEgl.xml" />
+    <None Remove="KhronosLogMapGl.xml" />
+    <None Remove="KhronosLogMapGlx.xml" />
+    <None Remove="KhronosLogMapWgl.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="KhronosLogMapEgl.xml" />
+    <EmbeddedResource Include="KhronosLogMapGl.xml" />
+    <EmbeddedResource Include="KhronosLogMapGlx.xml" />
+    <EmbeddedResource Include="KhronosLogMapWgl.xml" />
+  </ItemGroup>
+
+</Project>

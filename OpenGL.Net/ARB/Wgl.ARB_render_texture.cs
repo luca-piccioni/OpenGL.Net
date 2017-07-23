@@ -299,17 +299,23 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglBindTexImageARB", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglReleaseTexImageARB", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglSetPbufferAttribARB", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
@@ -319,7 +325,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_render_texture")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
@@ -327,7 +335,9 @@ namespace OpenGL
 			internal static wglBindTexImageARB pwglBindTexImageARB;
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
@@ -335,7 +345,9 @@ namespace OpenGL
 			internal static wglReleaseTexImageARB pwglReleaseTexImageARB;
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]

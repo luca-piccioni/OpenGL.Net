@@ -231,10 +231,12 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		internal void GenerateImport(SourceStreamWriter sw, RegistryContext ctx)
 		{
-			// The SuppressUnmanagedCodeSecurity attribute is used to increase P/Invoke performance
+            // The SuppressUnmanagedCodeSecurity attribute is used to increase P/Invoke performance
+            sw.WriteLine("#if !NETCORE");
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
-			// Import definition
-			CommandFlags commandFlags = CommandFlagsDatabase.GetCommandFlags(this);
+            sw.WriteLine("#endif");
+            // Import definition
+            CommandFlags commandFlags = CommandFlagsDatabase.GetCommandFlags(this);
 			
 			if ((commandFlags & CommandFlags.SetLastError) != 0)
 				sw.WriteLine("[DllImport(Library, EntryPoint = \"{0}\", ExactSpelling = true, SetLastError = true)]", ImportName);
@@ -312,11 +314,13 @@ namespace BindingsGen.GLSpecs
 			foreach (IFeature feature in RemovedBy)
 				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
 
-			// Not yet sure if it is really necessary
-			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
+            // Not yet sure if it is really necessary
+            sw.WriteLine("#if !NETCORE");
+            sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
+            sw.WriteLine("#endif");
 
-			// Delegate type definition
-			sw.WriteIdentation(); sw.Write("internal ");
+            // Delegate type definition
+            sw.WriteIdentation(); sw.Write("internal ");
 			if (IsSafeImplementation == false) sw.Write("unsafe ");
 			sw.Write("delegate ");
 

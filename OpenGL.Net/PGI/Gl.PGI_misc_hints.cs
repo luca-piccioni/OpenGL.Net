@@ -168,7 +168,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glHintPGI", ExactSpelling = true)]
 			internal extern static void glHintPGI(Int32 target, Int32 mode);
 
@@ -177,7 +179,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_PGI_misc_hints")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glHintPGI(Int32 target, Int32 mode);
 
 			[RequiredByFeature("GL_PGI_misc_hints")]

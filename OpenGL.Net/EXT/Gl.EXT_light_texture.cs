@@ -132,15 +132,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glApplyTextureEXT", ExactSpelling = true)]
 			internal extern static void glApplyTextureEXT(Int32 mode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureLightEXT", ExactSpelling = true)]
 			internal extern static void glTextureLightEXT(Int32 pname);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureMaterialEXT", ExactSpelling = true)]
 			internal extern static void glTextureMaterialEXT(Int32 face, Int32 mode);
 
@@ -149,7 +155,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_light_texture")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glApplyTextureEXT(Int32 mode);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
@@ -157,7 +165,9 @@ namespace OpenGL
 			internal static glApplyTextureEXT pglApplyTextureEXT;
 
 			[RequiredByFeature("GL_EXT_light_texture")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureLightEXT(Int32 pname);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
@@ -165,7 +175,9 @@ namespace OpenGL
 			internal static glTextureLightEXT pglTextureLightEXT;
 
 			[RequiredByFeature("GL_EXT_light_texture")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureMaterialEXT(Int32 face, Int32 mode);
 
 			[RequiredByFeature("GL_EXT_light_texture")]

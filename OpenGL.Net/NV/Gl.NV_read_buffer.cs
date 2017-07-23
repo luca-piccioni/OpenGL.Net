@@ -45,7 +45,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReadBufferNV", ExactSpelling = true)]
 			internal extern static void glReadBufferNV(Int32 mode);
 
@@ -54,7 +56,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glReadBufferNV(Int32 mode);
 
 			[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]

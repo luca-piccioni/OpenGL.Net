@@ -66,7 +66,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIndexMaterialEXT", ExactSpelling = true)]
 			internal extern static void glIndexMaterialEXT(Int32 face, Int32 mode);
 
@@ -75,7 +77,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_index_material")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glIndexMaterialEXT(Int32 face, Int32 mode);
 
 			[RequiredByFeature("GL_EXT_index_material")]

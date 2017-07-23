@@ -88,11 +88,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramEnvParameters4fvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramEnvParameters4fvEXT(Int32 target, UInt32 index, Int32 count, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramLocalParameters4fvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramLocalParameters4fvEXT(Int32 target, UInt32 index, Int32 count, float* @params);
 
@@ -101,7 +105,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramEnvParameters4fvEXT(Int32 target, UInt32 index, Int32 count, float* @params);
 
 			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
@@ -109,7 +115,9 @@ namespace OpenGL
 			internal static glProgramEnvParameters4fvEXT pglProgramEnvParameters4fvEXT;
 
 			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramLocalParameters4fvEXT(Int32 target, UInt32 index, Int32 count, float* @params);
 
 			[RequiredByFeature("GL_EXT_gpu_program_parameters")]

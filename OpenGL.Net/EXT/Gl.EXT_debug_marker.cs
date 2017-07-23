@@ -78,15 +78,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glInsertEventMarkerEXT", ExactSpelling = true)]
 			internal extern static void glInsertEventMarkerEXT(Int32 length, String marker);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPushGroupMarkerEXT", ExactSpelling = true)]
 			internal extern static void glPushGroupMarkerEXT(Int32 length, String marker);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPopGroupMarkerEXT", ExactSpelling = true)]
 			internal extern static void glPopGroupMarkerEXT();
 
@@ -95,7 +101,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glInsertEventMarkerEXT(Int32 length, String marker);
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
@@ -103,7 +111,9 @@ namespace OpenGL
 			internal static glInsertEventMarkerEXT pglInsertEventMarkerEXT;
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPushGroupMarkerEXT(Int32 length, String marker);
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
@@ -111,7 +121,9 @@ namespace OpenGL
 			internal static glPushGroupMarkerEXT pglPushGroupMarkerEXT;
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPopGroupMarkerEXT();
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]

@@ -62,7 +62,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReferencePlaneSGIX", ExactSpelling = true)]
 			internal extern static unsafe void glReferencePlaneSGIX(double* equation);
 
@@ -71,7 +73,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_reference_plane")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glReferencePlaneSGIX(double* equation);
 
 			[RequiredByFeature("GL_SGIX_reference_plane")]

@@ -1369,175 +1369,261 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClipPlanef", ExactSpelling = true)]
 			internal extern static unsafe void glClipPlanef(Int32 p, float* eqn);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFrustumf", ExactSpelling = true)]
 			internal extern static void glFrustumf(float l, float r, float b, float t, float n, float f);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetClipPlanef", ExactSpelling = true)]
 			internal extern static unsafe void glGetClipPlanef(Int32 plane, float* equation);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glOrthof", ExactSpelling = true)]
 			internal extern static void glOrthof(float l, float r, float b, float t, float n, float f);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glAlphaFuncx", ExactSpelling = true)]
 			internal extern static unsafe void glAlphaFuncx(Int32 func, IntPtr @ref);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearColorx", ExactSpelling = true)]
 			internal extern static unsafe void glClearColorx(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearDepthx", ExactSpelling = true)]
 			internal extern static unsafe void glClearDepthx(IntPtr depth);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClipPlanex", ExactSpelling = true)]
 			internal extern static unsafe void glClipPlanex(Int32 plane, IntPtr* equation);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glColor4x", ExactSpelling = true)]
 			internal extern static unsafe void glColor4x(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDepthRangex", ExactSpelling = true)]
 			internal extern static unsafe void glDepthRangex(IntPtr n, IntPtr f);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFogx", ExactSpelling = true)]
 			internal extern static unsafe void glFogx(Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFogxv", ExactSpelling = true)]
 			internal extern static unsafe void glFogxv(Int32 pname, IntPtr* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFrustumx", ExactSpelling = true)]
 			internal extern static unsafe void glFrustumx(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetClipPlanex", ExactSpelling = true)]
 			internal extern static unsafe void glGetClipPlanex(Int32 plane, IntPtr* equation);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetFixedv", ExactSpelling = true)]
 			internal extern static unsafe void glGetFixedv(Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetLightxv", ExactSpelling = true)]
 			internal extern static unsafe void glGetLightxv(Int32 light, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMaterialxv", ExactSpelling = true)]
 			internal extern static unsafe void glGetMaterialxv(Int32 face, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTexEnvxv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTexParameterxv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLightModelx", ExactSpelling = true)]
 			internal extern static unsafe void glLightModelx(Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLightModelxv", ExactSpelling = true)]
 			internal extern static unsafe void glLightModelxv(Int32 pname, IntPtr* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLightx", ExactSpelling = true)]
 			internal extern static unsafe void glLightx(Int32 light, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLightxv", ExactSpelling = true)]
 			internal extern static unsafe void glLightxv(Int32 light, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLineWidthx", ExactSpelling = true)]
 			internal extern static unsafe void glLineWidthx(IntPtr width);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glLoadMatrixx", ExactSpelling = true)]
 			internal extern static unsafe void glLoadMatrixx(IntPtr* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMaterialx", ExactSpelling = true)]
 			internal extern static unsafe void glMaterialx(Int32 face, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMaterialxv", ExactSpelling = true)]
 			internal extern static unsafe void glMaterialxv(Int32 face, Int32 pname, IntPtr* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultMatrixx", ExactSpelling = true)]
 			internal extern static unsafe void glMultMatrixx(IntPtr* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord4x", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord4x(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNormal3x", ExactSpelling = true)]
 			internal extern static unsafe void glNormal3x(IntPtr nx, IntPtr ny, IntPtr nz);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glOrthox", ExactSpelling = true)]
 			internal extern static unsafe void glOrthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPointParameterx", ExactSpelling = true)]
 			internal extern static unsafe void glPointParameterx(Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPointParameterxv", ExactSpelling = true)]
 			internal extern static unsafe void glPointParameterxv(Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPointSizex", ExactSpelling = true)]
 			internal extern static unsafe void glPointSizex(IntPtr size);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPolygonOffsetx", ExactSpelling = true)]
 			internal extern static unsafe void glPolygonOffsetx(IntPtr factor, IntPtr units);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glRotatex", ExactSpelling = true)]
 			internal extern static unsafe void glRotatex(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glSampleCoveragex", ExactSpelling = true)]
 			internal extern static void glSampleCoveragex(Int32 value, bool invert);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glScalex", ExactSpelling = true)]
 			internal extern static unsafe void glScalex(IntPtr x, IntPtr y, IntPtr z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexEnvx", ExactSpelling = true)]
 			internal extern static unsafe void glTexEnvx(Int32 target, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexEnvxv", ExactSpelling = true)]
 			internal extern static unsafe void glTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexParameterx", ExactSpelling = true)]
 			internal extern static unsafe void glTexParameterx(Int32 target, Int32 pname, IntPtr param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexParameterxv", ExactSpelling = true)]
 			internal extern static unsafe void glTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTranslatex", ExactSpelling = true)]
 			internal extern static unsafe void glTranslatex(IntPtr x, IntPtr y, IntPtr z);
 
@@ -1546,7 +1632,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClipPlanef(Int32 p, float* eqn);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -1554,7 +1642,9 @@ namespace OpenGL
 			internal static glClipPlanef pglClipPlanef;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glFrustumf(float l, float r, float b, float t, float n, float f);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -1562,7 +1652,9 @@ namespace OpenGL
 			internal static glFrustumf pglFrustumf;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetClipPlanef(Int32 plane, float* equation);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -1570,7 +1662,9 @@ namespace OpenGL
 			internal static glGetClipPlanef pglGetClipPlanef;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glOrthof(float l, float r, float b, float t, float n, float f);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -1578,7 +1672,9 @@ namespace OpenGL
 			internal static glOrthof pglOrthof;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glAlphaFuncx(Int32 func, IntPtr @ref);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1586,7 +1682,9 @@ namespace OpenGL
 			internal static glAlphaFuncx pglAlphaFuncx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClearColorx(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1594,7 +1692,9 @@ namespace OpenGL
 			internal static glClearColorx pglClearColorx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClearDepthx(IntPtr depth);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1602,7 +1702,9 @@ namespace OpenGL
 			internal static glClearDepthx pglClearDepthx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClipPlanex(Int32 plane, IntPtr* equation);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1610,7 +1712,9 @@ namespace OpenGL
 			internal static glClipPlanex pglClipPlanex;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glColor4x(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1618,7 +1722,9 @@ namespace OpenGL
 			internal static glColor4x pglColor4x;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDepthRangex(IntPtr n, IntPtr f);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1626,7 +1732,9 @@ namespace OpenGL
 			internal static glDepthRangex pglDepthRangex;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFogx(Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1634,7 +1742,9 @@ namespace OpenGL
 			internal static glFogx pglFogx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFogxv(Int32 pname, IntPtr* param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1642,7 +1752,9 @@ namespace OpenGL
 			internal static glFogxv pglFogxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFrustumx(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1650,7 +1762,9 @@ namespace OpenGL
 			internal static glFrustumx pglFrustumx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetClipPlanex(Int32 plane, IntPtr* equation);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1658,7 +1772,9 @@ namespace OpenGL
 			internal static glGetClipPlanex pglGetClipPlanex;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetFixedv(Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1666,7 +1782,9 @@ namespace OpenGL
 			internal static glGetFixedv pglGetFixedv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetLightxv(Int32 light, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1674,7 +1792,9 @@ namespace OpenGL
 			internal static glGetLightxv pglGetLightxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMaterialxv(Int32 face, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1682,7 +1802,9 @@ namespace OpenGL
 			internal static glGetMaterialxv pglGetMaterialxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1690,7 +1812,9 @@ namespace OpenGL
 			internal static glGetTexEnvxv pglGetTexEnvxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1698,7 +1822,9 @@ namespace OpenGL
 			internal static glGetTexParameterxv pglGetTexParameterxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLightModelx(Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1706,7 +1832,9 @@ namespace OpenGL
 			internal static glLightModelx pglLightModelx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLightModelxv(Int32 pname, IntPtr* param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1714,7 +1842,9 @@ namespace OpenGL
 			internal static glLightModelxv pglLightModelxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLightx(Int32 light, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1722,7 +1852,9 @@ namespace OpenGL
 			internal static glLightx pglLightx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLightxv(Int32 light, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1730,7 +1862,9 @@ namespace OpenGL
 			internal static glLightxv pglLightxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLineWidthx(IntPtr width);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1738,7 +1872,9 @@ namespace OpenGL
 			internal static glLineWidthx pglLineWidthx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glLoadMatrixx(IntPtr* m);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1746,7 +1882,9 @@ namespace OpenGL
 			internal static glLoadMatrixx pglLoadMatrixx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMaterialx(Int32 face, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1754,7 +1892,9 @@ namespace OpenGL
 			internal static glMaterialx pglMaterialx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMaterialxv(Int32 face, Int32 pname, IntPtr* param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1762,7 +1902,9 @@ namespace OpenGL
 			internal static glMaterialxv pglMaterialxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultMatrixx(IntPtr* m);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1770,7 +1912,9 @@ namespace OpenGL
 			internal static glMultMatrixx pglMultMatrixx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoord4x(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1778,7 +1922,9 @@ namespace OpenGL
 			internal static glMultiTexCoord4x pglMultiTexCoord4x;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNormal3x(IntPtr nx, IntPtr ny, IntPtr nz);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1786,7 +1932,9 @@ namespace OpenGL
 			internal static glNormal3x pglNormal3x;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glOrthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1794,7 +1942,9 @@ namespace OpenGL
 			internal static glOrthox pglOrthox;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPointParameterx(Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1802,7 +1952,9 @@ namespace OpenGL
 			internal static glPointParameterx pglPointParameterx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPointParameterxv(Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1810,7 +1962,9 @@ namespace OpenGL
 			internal static glPointParameterxv pglPointParameterxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPointSizex(IntPtr size);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1818,7 +1972,9 @@ namespace OpenGL
 			internal static glPointSizex pglPointSizex;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glPolygonOffsetx(IntPtr factor, IntPtr units);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1826,7 +1982,9 @@ namespace OpenGL
 			internal static glPolygonOffsetx pglPolygonOffsetx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glRotatex(IntPtr angle, IntPtr x, IntPtr y, IntPtr z);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1834,7 +1992,9 @@ namespace OpenGL
 			internal static glRotatex pglRotatex;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glSampleCoveragex(Int32 value, bool invert);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1842,7 +2002,9 @@ namespace OpenGL
 			internal static glSampleCoveragex pglSampleCoveragex;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glScalex(IntPtr x, IntPtr y, IntPtr z);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1850,7 +2012,9 @@ namespace OpenGL
 			internal static glScalex pglScalex;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexEnvx(Int32 target, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1858,7 +2022,9 @@ namespace OpenGL
 			internal static glTexEnvx pglTexEnvx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1866,7 +2032,9 @@ namespace OpenGL
 			internal static glTexEnvxv pglTexEnvxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexParameterx(Int32 target, Int32 pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1874,7 +2042,9 @@ namespace OpenGL
 			internal static glTexParameterx pglTexParameterx;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1882,7 +2052,9 @@ namespace OpenGL
 			internal static glTexParameterxv pglTexParameterxv;
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTranslatex(IntPtr x, IntPtr y, IntPtr z);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]

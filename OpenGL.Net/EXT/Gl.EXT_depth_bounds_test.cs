@@ -60,7 +60,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDepthBoundsEXT", ExactSpelling = true)]
 			internal extern static void glDepthBoundsEXT(double zmin, double zmax);
 
@@ -69,7 +71,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_depth_bounds_test")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDepthBoundsEXT(double zmin, double zmax);
 
 			[RequiredByFeature("GL_EXT_depth_bounds_test")]

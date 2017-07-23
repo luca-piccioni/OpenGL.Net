@@ -147,11 +147,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureRangeAPPLE", ExactSpelling = true)]
 			internal extern static unsafe void glTextureRangeAPPLE(Int32 target, Int32 length, IntPtr pointer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTexParameterPointervAPPLE", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexParameterPointervAPPLE(Int32 target, Int32 pname, IntPtr* @params);
 
@@ -160,7 +164,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_texture_range")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureRangeAPPLE(Int32 target, Int32 length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_texture_range")]
@@ -168,7 +174,9 @@ namespace OpenGL
 			internal static glTextureRangeAPPLE pglTextureRangeAPPLE;
 
 			[RequiredByFeature("GL_APPLE_texture_range")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTexParameterPointervAPPLE(Int32 target, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_APPLE_texture_range")]

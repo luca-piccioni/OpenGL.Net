@@ -60,7 +60,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureColorMaskSGIS", ExactSpelling = true)]
 			internal extern static void glTextureColorMaskSGIS(bool red, bool green, bool blue, bool alpha);
 
@@ -69,7 +71,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIS_texture_color_mask")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureColorMaskSGIS(bool red, bool green, bool blue, bool alpha);
 
 			[RequiredByFeature("GL_SGIS_texture_color_mask")]

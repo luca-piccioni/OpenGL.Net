@@ -61,7 +61,9 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXSet3DfxModeMESA", ExactSpelling = true)]
 			internal extern static bool glXSet3DfxModeMESA(int mode);
 
@@ -70,7 +72,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_MESA_set_3dfx_mode")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glXSet3DfxModeMESA(int mode);
 
 			[RequiredByFeature("GLX_MESA_set_3dfx_mode")]

@@ -126,20 +126,28 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glExtGetShadersQCOM", ExactSpelling = true)]
 			internal extern static unsafe void glExtGetShadersQCOM(UInt32* shaders, Int32 maxShaders, Int32* numShaders);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glExtGetProgramsQCOM", ExactSpelling = true)]
 			internal extern static unsafe void glExtGetProgramsQCOM(UInt32* programs, Int32 maxPrograms, Int32* numPrograms);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glExtIsProgramBinaryQCOM", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glExtIsProgramBinaryQCOM(UInt32 program);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glExtGetProgramBinarySourceQCOM", ExactSpelling = true)]
 			internal extern static unsafe void glExtGetProgramBinarySourceQCOM(UInt32 program, Int32 shadertype, String source, Int32* length);
 
@@ -148,7 +156,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glExtGetShadersQCOM(UInt32* shaders, Int32 maxShaders, Int32* numShaders);
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
@@ -156,7 +166,9 @@ namespace OpenGL
 			internal static glExtGetShadersQCOM pglExtGetShadersQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glExtGetProgramsQCOM(UInt32* programs, Int32 maxPrograms, Int32* numPrograms);
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
@@ -164,7 +176,9 @@ namespace OpenGL
 			internal static glExtGetProgramsQCOM pglExtGetProgramsQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glExtIsProgramBinaryQCOM(UInt32 program);
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
@@ -172,7 +186,9 @@ namespace OpenGL
 			internal static glExtIsProgramBinaryQCOM pglExtIsProgramBinaryQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glExtGetProgramBinarySourceQCOM(UInt32 program, Int32 shadertype, String source, Int32* length);
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]

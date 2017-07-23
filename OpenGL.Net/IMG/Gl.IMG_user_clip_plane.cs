@@ -76,11 +76,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClipPlanefIMG", ExactSpelling = true)]
 			internal extern static unsafe void glClipPlanefIMG(Int32 p, float* eqn);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClipPlanexIMG", ExactSpelling = true)]
 			internal extern static unsafe void glClipPlanexIMG(Int32 p, IntPtr* eqn);
 
@@ -89,7 +93,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClipPlanefIMG(Int32 p, float* eqn);
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -97,7 +103,9 @@ namespace OpenGL
 			internal static glClipPlanefIMG pglClipPlanefIMG;
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClipPlanexIMG(Int32 p, IntPtr* eqn);
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]

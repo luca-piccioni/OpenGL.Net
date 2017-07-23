@@ -69,11 +69,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPrimitiveRestartNV", ExactSpelling = true)]
 			internal extern static void glPrimitiveRestartNV();
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPrimitiveRestartIndexNV", ExactSpelling = true)]
 			internal extern static void glPrimitiveRestartIndexNV(UInt32 index);
 
@@ -82,7 +86,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_primitive_restart")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPrimitiveRestartNV();
 
 			[RequiredByFeature("GL_NV_primitive_restart")]
@@ -90,7 +96,9 @@ namespace OpenGL
 			internal static glPrimitiveRestartNV pglPrimitiveRestartNV;
 
 			[RequiredByFeature("GL_NV_primitive_restart")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPrimitiveRestartIndexNV(UInt32 index);
 
 			[RequiredByFeature("GL_NV_primitive_restart")]

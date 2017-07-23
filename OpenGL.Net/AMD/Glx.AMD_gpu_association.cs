@@ -318,39 +318,57 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXGetGPUIDsAMD", ExactSpelling = true)]
 			internal extern static unsafe UInt32 glXGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXGetGPUInfoAMD", ExactSpelling = true)]
 			internal extern static unsafe int glXGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXGetContextGPUIDAMD", ExactSpelling = true)]
 			internal extern static unsafe UInt32 glXGetContextGPUIDAMD(IntPtr ctx);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXCreateAssociatedContextAMD", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreateAssociatedContextAMD(UInt32 id, IntPtr share_list);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXCreateAssociatedContextAttribsAMD", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr share_context, int* attribList);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXDeleteAssociatedContextAMD", ExactSpelling = true)]
 			internal extern static unsafe bool glXDeleteAssociatedContextAMD(IntPtr ctx);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXMakeAssociatedContextCurrentAMD", ExactSpelling = true)]
 			internal extern static unsafe bool glXMakeAssociatedContextCurrentAMD(IntPtr ctx);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXGetCurrentAssociatedContextAMD", ExactSpelling = true)]
 			internal extern static IntPtr glXGetCurrentAssociatedContextAMD();
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXBlitContextFramebufferAMD", ExactSpelling = true)]
 			internal extern static unsafe void glXBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
@@ -359,63 +377,81 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate UInt32 glXGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
 			internal static glXGetGPUIDsAMD pglXGetGPUIDsAMD;
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate int glXGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
 			internal static glXGetGPUInfoAMD pglXGetGPUInfoAMD;
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate UInt32 glXGetContextGPUIDAMD(IntPtr ctx);
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
 			internal static glXGetContextGPUIDAMD pglXGetContextGPUIDAMD;
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr glXCreateAssociatedContextAMD(UInt32 id, IntPtr share_list);
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
 			internal static glXCreateAssociatedContextAMD pglXCreateAssociatedContextAMD;
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr glXCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr share_context, int* attribList);
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
 			internal static glXCreateAssociatedContextAttribsAMD pglXCreateAssociatedContextAttribsAMD;
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool glXDeleteAssociatedContextAMD(IntPtr ctx);
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
 			internal static glXDeleteAssociatedContextAMD pglXDeleteAssociatedContextAMD;
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool glXMakeAssociatedContextCurrentAMD(IntPtr ctx);
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
 			internal static glXMakeAssociatedContextCurrentAMD pglXMakeAssociatedContextCurrentAMD;
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr glXGetCurrentAssociatedContextAMD();
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
 			internal static glXGetCurrentAssociatedContextAMD pglXGetCurrentAssociatedContextAMD;
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glXBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
 			[RequiredByFeature("GLX_AMD_gpu_association")]

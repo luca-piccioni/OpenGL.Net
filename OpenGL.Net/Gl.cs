@@ -728,7 +728,9 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTransformFeedbackVaryings_Unmanaged(UInt32 program, Int32 count, IntPtr* varyings, Int32 bufferMode);
 			[AliasOf("glTransformFeedbackVaryings")]
 			[AliasOf("glTransformFeedbackVaryingsEXT")]
@@ -738,7 +740,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTransformFeedbackVaryings", ExactSpelling = true)]
 			internal extern static void glTransformFeedbackVaryings_Unmanaged(UInt32 program, Int32 count, IntPtr* varyings, Int32 bufferMode);
 		}

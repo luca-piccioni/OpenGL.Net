@@ -63,7 +63,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glSetMultisamplefvAMD", ExactSpelling = true)]
 			internal extern static unsafe void glSetMultisamplefvAMD(Int32 pname, UInt32 index, float* val);
 
@@ -72,7 +74,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_sample_positions")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glSetMultisamplefvAMD(Int32 pname, UInt32 index, float* val);
 
 			[RequiredByFeature("GL_AMD_sample_positions")]

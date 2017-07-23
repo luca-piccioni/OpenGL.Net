@@ -64,7 +64,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglResetStreamNV", ExactSpelling = true)]
 			internal extern static unsafe bool eglResetStreamNV(IntPtr dpy, IntPtr stream);
 
@@ -73,7 +75,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_stream_reset")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglResetStreamNV(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_NV_stream_reset")]

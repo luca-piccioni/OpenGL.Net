@@ -360,27 +360,39 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glColorPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glColorPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEdgeFlagPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glEdgeFlagPointerEXT(Int32 stride, Int32 count, bool* pointer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIndexPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glIndexPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNormalPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNormalPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexCoordPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoordPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
@@ -389,7 +401,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_vertex_array")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glColorPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
@@ -397,7 +411,9 @@ namespace OpenGL
 			internal static glColorPointerEXT pglColorPointerEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glEdgeFlagPointerEXT(Int32 stride, Int32 count, bool* pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
@@ -405,7 +421,9 @@ namespace OpenGL
 			internal static glEdgeFlagPointerEXT pglEdgeFlagPointerEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glIndexPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
@@ -413,7 +431,9 @@ namespace OpenGL
 			internal static glIndexPointerEXT pglIndexPointerEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNormalPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
@@ -421,7 +441,9 @@ namespace OpenGL
 			internal static glNormalPointerEXT pglNormalPointerEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTexCoordPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
@@ -429,7 +451,9 @@ namespace OpenGL
 			internal static glTexCoordPointerEXT pglTexCoordPointerEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]

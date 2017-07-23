@@ -246,27 +246,39 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetHistogramEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetHistogramEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetHistogramParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetHistogramParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetHistogramParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetHistogramParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMinmaxEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMinmaxEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMinmaxParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMinmaxParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMinmaxParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMinmaxParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
@@ -275,7 +287,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_histogram")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetHistogramEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -283,7 +297,9 @@ namespace OpenGL
 			internal static glGetHistogramEXT pglGetHistogramEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetHistogramParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -291,7 +307,9 @@ namespace OpenGL
 			internal static glGetHistogramParameterfvEXT pglGetHistogramParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetHistogramParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -299,7 +317,9 @@ namespace OpenGL
 			internal static glGetHistogramParameterivEXT pglGetHistogramParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMinmaxEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -307,7 +327,9 @@ namespace OpenGL
 			internal static glGetMinmaxEXT pglGetMinmaxEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMinmaxParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -315,7 +337,9 @@ namespace OpenGL
 			internal static glGetMinmaxParameterfvEXT pglGetMinmaxParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMinmaxParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_histogram")]

@@ -7703,848 +7703,1270 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixLoadfEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixLoadfEXT(Int32 mode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixLoaddEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixLoaddEXT(Int32 mode, double* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixMultfEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixMultfEXT(Int32 mode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixMultdEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixMultdEXT(Int32 mode, double* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixLoadIdentityEXT", ExactSpelling = true)]
 			internal extern static void glMatrixLoadIdentityEXT(Int32 mode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixRotatefEXT", ExactSpelling = true)]
 			internal extern static void glMatrixRotatefEXT(Int32 mode, float angle, float x, float y, float z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixRotatedEXT", ExactSpelling = true)]
 			internal extern static void glMatrixRotatedEXT(Int32 mode, double angle, double x, double y, double z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixScalefEXT", ExactSpelling = true)]
 			internal extern static void glMatrixScalefEXT(Int32 mode, float x, float y, float z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixScaledEXT", ExactSpelling = true)]
 			internal extern static void glMatrixScaledEXT(Int32 mode, double x, double y, double z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixTranslatefEXT", ExactSpelling = true)]
 			internal extern static void glMatrixTranslatefEXT(Int32 mode, float x, float y, float z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixTranslatedEXT", ExactSpelling = true)]
 			internal extern static void glMatrixTranslatedEXT(Int32 mode, double x, double y, double z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixFrustumEXT", ExactSpelling = true)]
 			internal extern static void glMatrixFrustumEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixOrthoEXT", ExactSpelling = true)]
 			internal extern static void glMatrixOrthoEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixPopEXT", ExactSpelling = true)]
 			internal extern static void glMatrixPopEXT(Int32 mode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixPushEXT", ExactSpelling = true)]
 			internal extern static void glMatrixPushEXT(Int32 mode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClientAttribDefaultEXT", ExactSpelling = true)]
 			internal extern static void glClientAttribDefaultEXT(UInt32 mask);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPushClientAttribDefaultEXT", ExactSpelling = true)]
 			internal extern static void glPushClientAttribDefaultEXT(UInt32 mask);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterfEXT", ExactSpelling = true)]
 			internal extern static void glTextureParameterfEXT(UInt32 texture, Int32 target, Int32 pname, float param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameteriEXT", ExactSpelling = true)]
 			internal extern static void glTextureParameteriEXT(UInt32 texture, Int32 target, Int32 pname, Int32 param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureImage1DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureImage2DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureSubImage1DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureSubImage2DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyTextureImage1DEXT", ExactSpelling = true)]
 			internal extern static void glCopyTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyTextureImage2DEXT", ExactSpelling = true)]
 			internal extern static void glCopyTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyTextureSubImage1DEXT", ExactSpelling = true)]
 			internal extern static void glCopyTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyTextureSubImage2DEXT", ExactSpelling = true)]
 			internal extern static void glCopyTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureImageEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureImageEXT(UInt32 texture, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureLevelParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureLevelParameterfvEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureLevelParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureLevelParameterivEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureSubImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyTextureSubImage3DEXT", ExactSpelling = true)]
 			internal extern static void glCopyTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBindMultiTextureEXT", ExactSpelling = true)]
 			internal extern static void glBindMultiTextureEXT(Int32 texunit, Int32 target, UInt32 texture);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoordPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoordPointerEXT(Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexEnvfEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexEnvfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexEnvfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexEnviEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexEnviEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexEnvivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexGendEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexGendEXT(Int32 texunit, Int32 coord, Int32 pname, double param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexGendvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexGenfEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexGenfEXT(Int32 texunit, Int32 coord, Int32 pname, float param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexGenfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexGeniEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexGeniEXT(Int32 texunit, Int32 coord, Int32 pname, Int32 param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexGenivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexEnvfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexEnvivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexGendvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexGenfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexGenivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexParameteriEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexParameteriEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexParameterfEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexParameterfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexImage1DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexImage2DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexSubImage1DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexSubImage2DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyMultiTexImage1DEXT", ExactSpelling = true)]
 			internal extern static void glCopyMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyMultiTexImage2DEXT", ExactSpelling = true)]
 			internal extern static void glCopyMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyMultiTexSubImage1DEXT", ExactSpelling = true)]
 			internal extern static void glCopyMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyMultiTexSubImage2DEXT", ExactSpelling = true)]
 			internal extern static void glCopyMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexImageEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexImageEXT(Int32 texunit, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexLevelParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexLevelParameterfvEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexLevelParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexLevelParameterivEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexSubImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCopyMultiTexSubImage3DEXT", ExactSpelling = true)]
 			internal extern static void glCopyMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEnableClientStateIndexedEXT", ExactSpelling = true)]
 			internal extern static void glEnableClientStateIndexedEXT(Int32 array, UInt32 index);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDisableClientStateIndexedEXT", ExactSpelling = true)]
 			internal extern static void glDisableClientStateIndexedEXT(Int32 array, UInt32 index);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPointerIndexedvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetPointerIndexedvEXT(Int32 target, UInt32 index, IntPtr* data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureImage2DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureImage1DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage2DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage1DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetCompressedTextureImageEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetCompressedTextureImageEXT(UInt32 texture, Int32 target, Int32 lod, IntPtr img);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedMultiTexImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedMultiTexImage2DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedMultiTexImage1DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedMultiTexSubImage3DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedMultiTexSubImage2DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCompressedMultiTexSubImage1DEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetCompressedMultiTexImageEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetCompressedMultiTexImageEXT(Int32 texunit, Int32 target, Int32 lod, IntPtr img);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixLoadTransposefEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixLoadTransposefEXT(Int32 mode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixLoadTransposedEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixLoadTransposedEXT(Int32 mode, double* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixMultTransposefEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixMultTransposefEXT(Int32 mode, float* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMatrixMultTransposedEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMatrixMultTransposedEXT(Int32 mode, double* m);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedBufferDataEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapNamedBufferEXT", ExactSpelling = true)]
 			internal extern static IntPtr glMapNamedBufferEXT(UInt32 buffer, Int32 access);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glUnmapNamedBufferEXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glUnmapNamedBufferEXT(UInt32 buffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedBufferParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedBufferParameterivEXT(UInt32 buffer, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedBufferPointervEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedBufferPointervEXT(UInt32 buffer, Int32 pname, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedBufferSubDataEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureBufferEXT", ExactSpelling = true)]
 			internal extern static void glTextureBufferEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexBufferEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexBufferEXT(Int32 texunit, Int32 target, Int32 internalformat, UInt32 buffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterIivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterIuivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureParameterIivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureParameterIuivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexParameterIivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexParameterIuivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexParameterIivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMultiTexParameterIuivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameters4fvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedProgramLocalParameters4fvEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameterI4iEXT", ExactSpelling = true)]
 			internal extern static void glNamedProgramLocalParameterI4iEXT(UInt32 program, Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameterI4ivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedProgramLocalParameterI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParametersI4ivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedProgramLocalParametersI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameterI4uiEXT", ExactSpelling = true)]
 			internal extern static void glNamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameterI4uivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedProgramLocalParameterI4uivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParametersI4uivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedProgramLocalParametersI4uivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, UInt32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedProgramLocalParameterIivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedProgramLocalParameterIivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedProgramLocalParameterIuivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedProgramLocalParameterIuivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEnableClientStateiEXT", ExactSpelling = true)]
 			internal extern static void glEnableClientStateiEXT(Int32 array, UInt32 index);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDisableClientStateiEXT", ExactSpelling = true)]
 			internal extern static void glDisableClientStateiEXT(Int32 array, UInt32 index);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetPointeri_vEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetPointeri_vEXT(Int32 pname, UInt32 index, IntPtr* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramStringEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedProgramStringEXT(UInt32 program, Int32 target, Int32 format, Int32 len, IntPtr @string);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameter4dEXT", ExactSpelling = true)]
 			internal extern static void glNamedProgramLocalParameter4dEXT(UInt32 program, Int32 target, UInt32 index, double x, double y, double z, double w);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameter4dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedProgramLocalParameter4dvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameter4fEXT", ExactSpelling = true)]
 			internal extern static void glNamedProgramLocalParameter4fEXT(UInt32 program, Int32 target, UInt32 index, float x, float y, float z, float w);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedProgramLocalParameter4fvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedProgramLocalParameter4fvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedProgramLocalParameterdvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedProgramLocalParameterdvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedProgramLocalParameterfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedProgramLocalParameterfvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedProgramivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedProgramivEXT(UInt32 program, Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedProgramStringEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedProgramStringEXT(UInt32 program, Int32 target, Int32 pname, IntPtr @string);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedRenderbufferStorageEXT", ExactSpelling = true)]
 			internal extern static void glNamedRenderbufferStorageEXT(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedRenderbufferParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedRenderbufferParameterivEXT(UInt32 renderbuffer, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedRenderbufferStorageMultisampleEXT", ExactSpelling = true)]
 			internal extern static void glNamedRenderbufferStorageMultisampleEXT(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedRenderbufferStorageMultisampleCoverageEXT", ExactSpelling = true)]
 			internal extern static void glNamedRenderbufferStorageMultisampleCoverageEXT(UInt32 renderbuffer, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glCheckNamedFramebufferStatusEXT", ExactSpelling = true)]
 			internal extern static Int32 glCheckNamedFramebufferStatusEXT(UInt32 framebuffer, Int32 target);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferTexture1DEXT", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferTexture1DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferTexture2DEXT", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferTexture2DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferTexture3DEXT", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferTexture3DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferRenderbufferEXT", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferRenderbufferEXT(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedFramebufferAttachmentParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedFramebufferAttachmentParameterivEXT(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGenerateTextureMipmapEXT", ExactSpelling = true)]
 			internal extern static void glGenerateTextureMipmapEXT(UInt32 texture, Int32 target);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGenerateMultiTexMipmapEXT", ExactSpelling = true)]
 			internal extern static void glGenerateMultiTexMipmapEXT(Int32 texunit, Int32 target);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFramebufferDrawBufferEXT", ExactSpelling = true)]
 			internal extern static void glFramebufferDrawBufferEXT(UInt32 framebuffer, Int32 mode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFramebufferDrawBuffersEXT", ExactSpelling = true)]
 			internal extern static unsafe void glFramebufferDrawBuffersEXT(UInt32 framebuffer, Int32 n, Int32* bufs);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFramebufferReadBufferEXT", ExactSpelling = true)]
 			internal extern static void glFramebufferReadBufferEXT(UInt32 framebuffer, Int32 mode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetFramebufferParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedCopyBufferSubDataEXT", ExactSpelling = true)]
 			internal extern static unsafe void glNamedCopyBufferSubDataEXT(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferTextureEXT", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferTextureEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferTextureLayerEXT", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferTextureLayerEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferTextureFaceEXT", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferTextureFaceEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureRenderbufferEXT", ExactSpelling = true)]
 			internal extern static void glTextureRenderbufferEXT(UInt32 texture, Int32 target, UInt32 renderbuffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexRenderbufferEXT", ExactSpelling = true)]
 			internal extern static void glMultiTexRenderbufferEXT(Int32 texunit, Int32 target, UInt32 renderbuffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayVertexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayColorOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayEdgeFlagOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayEdgeFlagOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayIndexOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayIndexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayNormalOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayNormalOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayTexCoordOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayMultiTexCoordOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayMultiTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayFogCoordOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayFogCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArraySecondaryColorOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArraySecondaryColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribIOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEnableVertexArrayEXT", ExactSpelling = true)]
 			internal extern static void glEnableVertexArrayEXT(UInt32 vaobj, Int32 array);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDisableVertexArrayEXT", ExactSpelling = true)]
 			internal extern static void glDisableVertexArrayEXT(UInt32 vaobj, Int32 array);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEnableVertexArrayAttribEXT", ExactSpelling = true)]
 			internal extern static void glEnableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDisableVertexArrayAttribEXT", ExactSpelling = true)]
 			internal extern static void glDisableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetVertexArrayIntegervEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetVertexArrayIntegervEXT(UInt32 vaobj, Int32 pname, Int32* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetVertexArrayPointervEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetVertexArrayPointervEXT(UInt32 vaobj, Int32 pname, IntPtr* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetVertexArrayIntegeri_vEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetVertexArrayIntegeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetVertexArrayPointeri_vEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetVertexArrayPointeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, IntPtr* param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapNamedBufferRangeEXT", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glMapNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFlushMappedNamedBufferRangeEXT", ExactSpelling = true)]
 			internal extern static unsafe void glFlushMappedNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearNamedBufferDataEXT", ExactSpelling = true)]
 			internal extern static unsafe void glClearNamedBufferDataEXT(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glClearNamedBufferSubDataEXT", ExactSpelling = true)]
 			internal extern static unsafe void glClearNamedBufferSubDataEXT(UInt32 buffer, Int32 internalformat, UInt32 offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferParameteriEXT", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferParameteriEXT(UInt32 framebuffer, Int32 pname, Int32 param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedFramebufferParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform1dEXT", ExactSpelling = true)]
 			internal extern static void glProgramUniform1dEXT(UInt32 program, Int32 location, double x);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform2dEXT", ExactSpelling = true)]
 			internal extern static void glProgramUniform2dEXT(UInt32 program, Int32 location, double x, double y);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform3dEXT", ExactSpelling = true)]
 			internal extern static void glProgramUniform3dEXT(UInt32 program, Int32 location, double x, double y, double z);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform4dEXT", ExactSpelling = true)]
 			internal extern static void glProgramUniform4dEXT(UInt32 program, Int32 location, double x, double y, double z, double w);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform1dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform1dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform2dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform2dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform3dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform3dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform4dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform4dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2x3dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix2x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix2x4dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix2x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3x2dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix3x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix3x4dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix3x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4x2dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix4x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformMatrix4x3dvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformMatrix4x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureBufferRangeEXT", ExactSpelling = true)]
 			internal extern static unsafe void glTextureBufferRangeEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage1DEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorage1DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage2DEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorage2DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage3DEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorage3DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage2DMultisampleEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorage2DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage3DMultisampleEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorage3DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayBindVertexBufferEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayBindVertexBufferEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribFormatEXT", ExactSpelling = true)]
 			internal extern static void glVertexArrayVertexAttribFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribIFormatEXT", ExactSpelling = true)]
 			internal extern static void glVertexArrayVertexAttribIFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribLFormatEXT", ExactSpelling = true)]
 			internal extern static void glVertexArrayVertexAttribLFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribBindingEXT", ExactSpelling = true)]
 			internal extern static void glVertexArrayVertexAttribBindingEXT(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexBindingDivisorEXT", ExactSpelling = true)]
 			internal extern static void glVertexArrayVertexBindingDivisorEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribLOffsetEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayVertexAttribLOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTexturePageCommitmentEXT", ExactSpelling = true)]
 			internal extern static void glTexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexAttribDivisorEXT", ExactSpelling = true)]
 			internal extern static void glVertexArrayVertexAttribDivisorEXT(UInt32 vaobj, UInt32 index, UInt32 divisor);
 
@@ -8553,7 +8975,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixLoadfEXT(Int32 mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8561,7 +8985,9 @@ namespace OpenGL
 			internal static glMatrixLoadfEXT pglMatrixLoadfEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixLoaddEXT(Int32 mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8569,7 +8995,9 @@ namespace OpenGL
 			internal static glMatrixLoaddEXT pglMatrixLoaddEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixMultfEXT(Int32 mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8577,7 +9005,9 @@ namespace OpenGL
 			internal static glMatrixMultfEXT pglMatrixMultfEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixMultdEXT(Int32 mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8585,7 +9015,9 @@ namespace OpenGL
 			internal static glMatrixMultdEXT pglMatrixMultdEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixLoadIdentityEXT(Int32 mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8593,7 +9025,9 @@ namespace OpenGL
 			internal static glMatrixLoadIdentityEXT pglMatrixLoadIdentityEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixRotatefEXT(Int32 mode, float angle, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8601,7 +9035,9 @@ namespace OpenGL
 			internal static glMatrixRotatefEXT pglMatrixRotatefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixRotatedEXT(Int32 mode, double angle, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8609,7 +9045,9 @@ namespace OpenGL
 			internal static glMatrixRotatedEXT pglMatrixRotatedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixScalefEXT(Int32 mode, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8617,7 +9055,9 @@ namespace OpenGL
 			internal static glMatrixScalefEXT pglMatrixScalefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixScaledEXT(Int32 mode, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8625,7 +9065,9 @@ namespace OpenGL
 			internal static glMatrixScaledEXT pglMatrixScaledEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixTranslatefEXT(Int32 mode, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8633,7 +9075,9 @@ namespace OpenGL
 			internal static glMatrixTranslatefEXT pglMatrixTranslatefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixTranslatedEXT(Int32 mode, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8641,7 +9085,9 @@ namespace OpenGL
 			internal static glMatrixTranslatedEXT pglMatrixTranslatedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixFrustumEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8649,7 +9095,9 @@ namespace OpenGL
 			internal static glMatrixFrustumEXT pglMatrixFrustumEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixOrthoEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8657,7 +9105,9 @@ namespace OpenGL
 			internal static glMatrixOrthoEXT pglMatrixOrthoEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixPopEXT(Int32 mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8665,7 +9115,9 @@ namespace OpenGL
 			internal static glMatrixPopEXT pglMatrixPopEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMatrixPushEXT(Int32 mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8673,7 +9125,9 @@ namespace OpenGL
 			internal static glMatrixPushEXT pglMatrixPushEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glClientAttribDefaultEXT(UInt32 mask);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8681,7 +9135,9 @@ namespace OpenGL
 			internal static glClientAttribDefaultEXT pglClientAttribDefaultEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPushClientAttribDefaultEXT(UInt32 mask);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8689,7 +9145,9 @@ namespace OpenGL
 			internal static glPushClientAttribDefaultEXT pglPushClientAttribDefaultEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureParameterfEXT(UInt32 texture, Int32 target, Int32 pname, float param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8697,7 +9155,9 @@ namespace OpenGL
 			internal static glTextureParameterfEXT pglTextureParameterfEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8705,7 +9165,9 @@ namespace OpenGL
 			internal static glTextureParameterfvEXT pglTextureParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureParameteriEXT(UInt32 texture, Int32 target, Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8713,7 +9175,9 @@ namespace OpenGL
 			internal static glTextureParameteriEXT pglTextureParameteriEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8721,7 +9185,9 @@ namespace OpenGL
 			internal static glTextureParameterivEXT pglTextureParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8729,7 +9195,9 @@ namespace OpenGL
 			internal static glTextureImage1DEXT pglTextureImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8737,7 +9205,9 @@ namespace OpenGL
 			internal static glTextureImage2DEXT pglTextureImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8745,7 +9215,9 @@ namespace OpenGL
 			internal static glTextureSubImage1DEXT pglTextureSubImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8753,7 +9225,9 @@ namespace OpenGL
 			internal static glTextureSubImage2DEXT pglTextureSubImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8761,7 +9235,9 @@ namespace OpenGL
 			internal static glCopyTextureImage1DEXT pglCopyTextureImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8769,7 +9245,9 @@ namespace OpenGL
 			internal static glCopyTextureImage2DEXT pglCopyTextureImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8777,7 +9255,9 @@ namespace OpenGL
 			internal static glCopyTextureSubImage1DEXT pglCopyTextureSubImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8785,7 +9265,9 @@ namespace OpenGL
 			internal static glCopyTextureSubImage2DEXT pglCopyTextureSubImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTextureImageEXT(UInt32 texture, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8793,7 +9275,9 @@ namespace OpenGL
 			internal static glGetTextureImageEXT pglGetTextureImageEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8801,7 +9285,9 @@ namespace OpenGL
 			internal static glGetTextureParameterfvEXT pglGetTextureParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8809,7 +9295,9 @@ namespace OpenGL
 			internal static glGetTextureParameterivEXT pglGetTextureParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTextureLevelParameterfvEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8817,7 +9305,9 @@ namespace OpenGL
 			internal static glGetTextureLevelParameterfvEXT pglGetTextureLevelParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTextureLevelParameterivEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8825,7 +9315,9 @@ namespace OpenGL
 			internal static glGetTextureLevelParameterivEXT pglGetTextureLevelParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8833,7 +9325,9 @@ namespace OpenGL
 			internal static glTextureImage3DEXT pglTextureImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8841,7 +9335,9 @@ namespace OpenGL
 			internal static glTextureSubImage3DEXT pglTextureSubImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8849,7 +9345,9 @@ namespace OpenGL
 			internal static glCopyTextureSubImage3DEXT pglCopyTextureSubImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glBindMultiTextureEXT(Int32 texunit, Int32 target, UInt32 texture);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8857,7 +9355,9 @@ namespace OpenGL
 			internal static glBindMultiTextureEXT pglBindMultiTextureEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexCoordPointerEXT(Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8865,7 +9365,9 @@ namespace OpenGL
 			internal static glMultiTexCoordPointerEXT pglMultiTexCoordPointerEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexEnvfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8873,7 +9375,9 @@ namespace OpenGL
 			internal static glMultiTexEnvfEXT pglMultiTexEnvfEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8881,7 +9385,9 @@ namespace OpenGL
 			internal static glMultiTexEnvfvEXT pglMultiTexEnvfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexEnviEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8889,7 +9395,9 @@ namespace OpenGL
 			internal static glMultiTexEnviEXT pglMultiTexEnviEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8897,7 +9405,9 @@ namespace OpenGL
 			internal static glMultiTexEnvivEXT pglMultiTexEnvivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexGendEXT(Int32 texunit, Int32 coord, Int32 pname, double param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8905,7 +9415,9 @@ namespace OpenGL
 			internal static glMultiTexGendEXT pglMultiTexGendEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8913,7 +9425,9 @@ namespace OpenGL
 			internal static glMultiTexGendvEXT pglMultiTexGendvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexGenfEXT(Int32 texunit, Int32 coord, Int32 pname, float param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8921,7 +9435,9 @@ namespace OpenGL
 			internal static glMultiTexGenfEXT pglMultiTexGenfEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8929,7 +9445,9 @@ namespace OpenGL
 			internal static glMultiTexGenfvEXT pglMultiTexGenfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexGeniEXT(Int32 texunit, Int32 coord, Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8937,7 +9455,9 @@ namespace OpenGL
 			internal static glMultiTexGeniEXT pglMultiTexGeniEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8945,7 +9465,9 @@ namespace OpenGL
 			internal static glMultiTexGenivEXT pglMultiTexGenivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8953,7 +9475,9 @@ namespace OpenGL
 			internal static glGetMultiTexEnvfvEXT pglGetMultiTexEnvfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8961,7 +9485,9 @@ namespace OpenGL
 			internal static glGetMultiTexEnvivEXT pglGetMultiTexEnvivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8969,7 +9495,9 @@ namespace OpenGL
 			internal static glGetMultiTexGendvEXT pglGetMultiTexGendvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8977,7 +9505,9 @@ namespace OpenGL
 			internal static glGetMultiTexGenfvEXT pglGetMultiTexGenfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8985,7 +9515,9 @@ namespace OpenGL
 			internal static glGetMultiTexGenivEXT pglGetMultiTexGenivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexParameteriEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -8993,7 +9525,9 @@ namespace OpenGL
 			internal static glMultiTexParameteriEXT pglMultiTexParameteriEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9001,7 +9535,9 @@ namespace OpenGL
 			internal static glMultiTexParameterivEXT pglMultiTexParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexParameterfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9009,7 +9545,9 @@ namespace OpenGL
 			internal static glMultiTexParameterfEXT pglMultiTexParameterfEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9017,7 +9555,9 @@ namespace OpenGL
 			internal static glMultiTexParameterfvEXT pglMultiTexParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9025,7 +9565,9 @@ namespace OpenGL
 			internal static glMultiTexImage1DEXT pglMultiTexImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9033,7 +9575,9 @@ namespace OpenGL
 			internal static glMultiTexImage2DEXT pglMultiTexImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9041,7 +9585,9 @@ namespace OpenGL
 			internal static glMultiTexSubImage1DEXT pglMultiTexSubImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9049,7 +9595,9 @@ namespace OpenGL
 			internal static glMultiTexSubImage2DEXT pglMultiTexSubImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9057,7 +9605,9 @@ namespace OpenGL
 			internal static glCopyMultiTexImage1DEXT pglCopyMultiTexImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9065,7 +9615,9 @@ namespace OpenGL
 			internal static glCopyMultiTexImage2DEXT pglCopyMultiTexImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9073,7 +9625,9 @@ namespace OpenGL
 			internal static glCopyMultiTexSubImage1DEXT pglCopyMultiTexSubImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9081,7 +9635,9 @@ namespace OpenGL
 			internal static glCopyMultiTexSubImage2DEXT pglCopyMultiTexSubImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexImageEXT(Int32 texunit, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9089,7 +9645,9 @@ namespace OpenGL
 			internal static glGetMultiTexImageEXT pglGetMultiTexImageEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9097,7 +9655,9 @@ namespace OpenGL
 			internal static glGetMultiTexParameterfvEXT pglGetMultiTexParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9105,7 +9665,9 @@ namespace OpenGL
 			internal static glGetMultiTexParameterivEXT pglGetMultiTexParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexLevelParameterfvEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9113,7 +9675,9 @@ namespace OpenGL
 			internal static glGetMultiTexLevelParameterfvEXT pglGetMultiTexLevelParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexLevelParameterivEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9121,7 +9685,9 @@ namespace OpenGL
 			internal static glGetMultiTexLevelParameterivEXT pglGetMultiTexLevelParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9129,7 +9695,9 @@ namespace OpenGL
 			internal static glMultiTexImage3DEXT pglMultiTexImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9137,7 +9705,9 @@ namespace OpenGL
 			internal static glMultiTexSubImage3DEXT pglMultiTexSubImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glCopyMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9145,7 +9715,9 @@ namespace OpenGL
 			internal static glCopyMultiTexSubImage3DEXT pglCopyMultiTexSubImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glEnableClientStateIndexedEXT(Int32 array, UInt32 index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9153,7 +9725,9 @@ namespace OpenGL
 			internal static glEnableClientStateIndexedEXT pglEnableClientStateIndexedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDisableClientStateIndexedEXT(Int32 array, UInt32 index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9161,7 +9735,9 @@ namespace OpenGL
 			internal static glDisableClientStateIndexedEXT pglDisableClientStateIndexedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPointerIndexedvEXT(Int32 target, UInt32 index, IntPtr* data);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9169,7 +9745,9 @@ namespace OpenGL
 			internal static glGetPointerIndexedvEXT pglGetPointerIndexedvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9177,7 +9755,9 @@ namespace OpenGL
 			internal static glCompressedTextureImage3DEXT pglCompressedTextureImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9185,7 +9765,9 @@ namespace OpenGL
 			internal static glCompressedTextureImage2DEXT pglCompressedTextureImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9193,7 +9775,9 @@ namespace OpenGL
 			internal static glCompressedTextureImage1DEXT pglCompressedTextureImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9201,7 +9785,9 @@ namespace OpenGL
 			internal static glCompressedTextureSubImage3DEXT pglCompressedTextureSubImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9209,7 +9795,9 @@ namespace OpenGL
 			internal static glCompressedTextureSubImage2DEXT pglCompressedTextureSubImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9217,7 +9805,9 @@ namespace OpenGL
 			internal static glCompressedTextureSubImage1DEXT pglCompressedTextureSubImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetCompressedTextureImageEXT(UInt32 texture, Int32 target, Int32 lod, IntPtr img);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9225,7 +9815,9 @@ namespace OpenGL
 			internal static glGetCompressedTextureImageEXT pglGetCompressedTextureImageEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9233,7 +9825,9 @@ namespace OpenGL
 			internal static glCompressedMultiTexImage3DEXT pglCompressedMultiTexImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9241,7 +9835,9 @@ namespace OpenGL
 			internal static glCompressedMultiTexImage2DEXT pglCompressedMultiTexImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9249,7 +9845,9 @@ namespace OpenGL
 			internal static glCompressedMultiTexImage1DEXT pglCompressedMultiTexImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9257,7 +9855,9 @@ namespace OpenGL
 			internal static glCompressedMultiTexSubImage3DEXT pglCompressedMultiTexSubImage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9265,7 +9865,9 @@ namespace OpenGL
 			internal static glCompressedMultiTexSubImage2DEXT pglCompressedMultiTexSubImage2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glCompressedMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9273,7 +9875,9 @@ namespace OpenGL
 			internal static glCompressedMultiTexSubImage1DEXT pglCompressedMultiTexSubImage1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetCompressedMultiTexImageEXT(Int32 texunit, Int32 target, Int32 lod, IntPtr img);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9281,7 +9885,9 @@ namespace OpenGL
 			internal static glGetCompressedMultiTexImageEXT pglGetCompressedMultiTexImageEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixLoadTransposefEXT(Int32 mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9289,7 +9895,9 @@ namespace OpenGL
 			internal static glMatrixLoadTransposefEXT pglMatrixLoadTransposefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixLoadTransposedEXT(Int32 mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9297,7 +9905,9 @@ namespace OpenGL
 			internal static glMatrixLoadTransposedEXT pglMatrixLoadTransposedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixMultTransposefEXT(Int32 mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9305,7 +9915,9 @@ namespace OpenGL
 			internal static glMatrixMultTransposefEXT pglMatrixMultTransposefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMatrixMultTransposedEXT(Int32 mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9313,7 +9925,9 @@ namespace OpenGL
 			internal static glMatrixMultTransposedEXT pglMatrixMultTransposedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9321,7 +9935,9 @@ namespace OpenGL
 			internal static glNamedBufferDataEXT pglNamedBufferDataEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr glMapNamedBufferEXT(UInt32 buffer, Int32 access);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9329,7 +9945,9 @@ namespace OpenGL
 			internal static glMapNamedBufferEXT pglMapNamedBufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glUnmapNamedBufferEXT(UInt32 buffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9337,7 +9955,9 @@ namespace OpenGL
 			internal static glUnmapNamedBufferEXT pglUnmapNamedBufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedBufferParameterivEXT(UInt32 buffer, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9345,7 +9965,9 @@ namespace OpenGL
 			internal static glGetNamedBufferParameterivEXT pglGetNamedBufferParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedBufferPointervEXT(UInt32 buffer, Int32 pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9353,7 +9975,9 @@ namespace OpenGL
 			internal static glGetNamedBufferPointervEXT pglGetNamedBufferPointervEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9361,7 +9985,9 @@ namespace OpenGL
 			internal static glGetNamedBufferSubDataEXT pglGetNamedBufferSubDataEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureBufferEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9369,7 +9995,9 @@ namespace OpenGL
 			internal static glTextureBufferEXT pglTextureBufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexBufferEXT(Int32 texunit, Int32 target, Int32 internalformat, UInt32 buffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9377,7 +10005,9 @@ namespace OpenGL
 			internal static glMultiTexBufferEXT pglMultiTexBufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9385,7 +10015,9 @@ namespace OpenGL
 			internal static glTextureParameterIivEXT pglTextureParameterIivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9393,7 +10025,9 @@ namespace OpenGL
 			internal static glTextureParameterIuivEXT pglTextureParameterIuivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9401,7 +10035,9 @@ namespace OpenGL
 			internal static glGetTextureParameterIivEXT pglGetTextureParameterIivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9409,7 +10045,9 @@ namespace OpenGL
 			internal static glGetTextureParameterIuivEXT pglGetTextureParameterIuivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9417,7 +10055,9 @@ namespace OpenGL
 			internal static glMultiTexParameterIivEXT pglMultiTexParameterIivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9425,7 +10065,9 @@ namespace OpenGL
 			internal static glMultiTexParameterIuivEXT pglMultiTexParameterIuivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9433,7 +10075,9 @@ namespace OpenGL
 			internal static glGetMultiTexParameterIivEXT pglGetMultiTexParameterIivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9441,7 +10085,9 @@ namespace OpenGL
 			internal static glGetMultiTexParameterIuivEXT pglGetMultiTexParameterIuivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedProgramLocalParameters4fvEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9449,7 +10095,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameters4fvEXT pglNamedProgramLocalParameters4fvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedProgramLocalParameterI4iEXT(UInt32 program, Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9457,7 +10105,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameterI4iEXT pglNamedProgramLocalParameterI4iEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedProgramLocalParameterI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9465,7 +10115,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameterI4ivEXT pglNamedProgramLocalParameterI4ivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedProgramLocalParametersI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9473,7 +10125,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParametersI4ivEXT pglNamedProgramLocalParametersI4ivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9481,7 +10135,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameterI4uiEXT pglNamedProgramLocalParameterI4uiEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedProgramLocalParameterI4uivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9489,7 +10145,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameterI4uivEXT pglNamedProgramLocalParameterI4uivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedProgramLocalParametersI4uivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, UInt32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9497,7 +10155,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParametersI4uivEXT pglNamedProgramLocalParametersI4uivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedProgramLocalParameterIivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9505,7 +10165,9 @@ namespace OpenGL
 			internal static glGetNamedProgramLocalParameterIivEXT pglGetNamedProgramLocalParameterIivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedProgramLocalParameterIuivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9513,7 +10175,9 @@ namespace OpenGL
 			internal static glGetNamedProgramLocalParameterIuivEXT pglGetNamedProgramLocalParameterIuivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glEnableClientStateiEXT(Int32 array, UInt32 index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9521,7 +10185,9 @@ namespace OpenGL
 			internal static glEnableClientStateiEXT pglEnableClientStateiEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDisableClientStateiEXT(Int32 array, UInt32 index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9529,7 +10195,9 @@ namespace OpenGL
 			internal static glDisableClientStateiEXT pglDisableClientStateiEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetPointeri_vEXT(Int32 pname, UInt32 index, IntPtr* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9537,7 +10205,9 @@ namespace OpenGL
 			internal static glGetPointeri_vEXT pglGetPointeri_vEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedProgramStringEXT(UInt32 program, Int32 target, Int32 format, Int32 len, IntPtr @string);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9545,7 +10215,9 @@ namespace OpenGL
 			internal static glNamedProgramStringEXT pglNamedProgramStringEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedProgramLocalParameter4dEXT(UInt32 program, Int32 target, UInt32 index, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9553,7 +10225,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameter4dEXT pglNamedProgramLocalParameter4dEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedProgramLocalParameter4dvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9561,7 +10235,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameter4dvEXT pglNamedProgramLocalParameter4dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedProgramLocalParameter4fEXT(UInt32 program, Int32 target, UInt32 index, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9569,7 +10245,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameter4fEXT pglNamedProgramLocalParameter4fEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedProgramLocalParameter4fvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9577,7 +10255,9 @@ namespace OpenGL
 			internal static glNamedProgramLocalParameter4fvEXT pglNamedProgramLocalParameter4fvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedProgramLocalParameterdvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9585,7 +10265,9 @@ namespace OpenGL
 			internal static glGetNamedProgramLocalParameterdvEXT pglGetNamedProgramLocalParameterdvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedProgramLocalParameterfvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9593,7 +10275,9 @@ namespace OpenGL
 			internal static glGetNamedProgramLocalParameterfvEXT pglGetNamedProgramLocalParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedProgramivEXT(UInt32 program, Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9601,7 +10285,9 @@ namespace OpenGL
 			internal static glGetNamedProgramivEXT pglGetNamedProgramivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedProgramStringEXT(UInt32 program, Int32 target, Int32 pname, IntPtr @string);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9609,7 +10295,9 @@ namespace OpenGL
 			internal static glGetNamedProgramStringEXT pglGetNamedProgramStringEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedRenderbufferStorageEXT(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9617,7 +10305,9 @@ namespace OpenGL
 			internal static glNamedRenderbufferStorageEXT pglNamedRenderbufferStorageEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedRenderbufferParameterivEXT(UInt32 renderbuffer, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9625,7 +10315,9 @@ namespace OpenGL
 			internal static glGetNamedRenderbufferParameterivEXT pglGetNamedRenderbufferParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedRenderbufferStorageMultisampleEXT(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9633,7 +10325,9 @@ namespace OpenGL
 			internal static glNamedRenderbufferStorageMultisampleEXT pglNamedRenderbufferStorageMultisampleEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedRenderbufferStorageMultisampleCoverageEXT(UInt32 renderbuffer, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9641,7 +10335,9 @@ namespace OpenGL
 			internal static glNamedRenderbufferStorageMultisampleCoverageEXT pglNamedRenderbufferStorageMultisampleCoverageEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate Int32 glCheckNamedFramebufferStatusEXT(UInt32 framebuffer, Int32 target);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9649,7 +10345,9 @@ namespace OpenGL
 			internal static glCheckNamedFramebufferStatusEXT pglCheckNamedFramebufferStatusEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedFramebufferTexture1DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9657,7 +10355,9 @@ namespace OpenGL
 			internal static glNamedFramebufferTexture1DEXT pglNamedFramebufferTexture1DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedFramebufferTexture2DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9665,7 +10365,9 @@ namespace OpenGL
 			internal static glNamedFramebufferTexture2DEXT pglNamedFramebufferTexture2DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedFramebufferTexture3DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9673,7 +10375,9 @@ namespace OpenGL
 			internal static glNamedFramebufferTexture3DEXT pglNamedFramebufferTexture3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedFramebufferRenderbufferEXT(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9681,7 +10385,9 @@ namespace OpenGL
 			internal static glNamedFramebufferRenderbufferEXT pglNamedFramebufferRenderbufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedFramebufferAttachmentParameterivEXT(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9689,7 +10395,9 @@ namespace OpenGL
 			internal static glGetNamedFramebufferAttachmentParameterivEXT pglGetNamedFramebufferAttachmentParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glGenerateTextureMipmapEXT(UInt32 texture, Int32 target);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9697,7 +10405,9 @@ namespace OpenGL
 			internal static glGenerateTextureMipmapEXT pglGenerateTextureMipmapEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glGenerateMultiTexMipmapEXT(Int32 texunit, Int32 target);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9705,7 +10415,9 @@ namespace OpenGL
 			internal static glGenerateMultiTexMipmapEXT pglGenerateMultiTexMipmapEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glFramebufferDrawBufferEXT(UInt32 framebuffer, Int32 mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9713,7 +10425,9 @@ namespace OpenGL
 			internal static glFramebufferDrawBufferEXT pglFramebufferDrawBufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFramebufferDrawBuffersEXT(UInt32 framebuffer, Int32 n, Int32* bufs);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9721,7 +10435,9 @@ namespace OpenGL
 			internal static glFramebufferDrawBuffersEXT pglFramebufferDrawBuffersEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glFramebufferReadBufferEXT(UInt32 framebuffer, Int32 mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9729,7 +10445,9 @@ namespace OpenGL
 			internal static glFramebufferReadBufferEXT pglFramebufferReadBufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9737,7 +10455,9 @@ namespace OpenGL
 			internal static glGetFramebufferParameterivEXT pglGetFramebufferParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glNamedCopyBufferSubDataEXT(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9745,7 +10465,9 @@ namespace OpenGL
 			internal static glNamedCopyBufferSubDataEXT pglNamedCopyBufferSubDataEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedFramebufferTextureEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9753,7 +10475,9 @@ namespace OpenGL
 			internal static glNamedFramebufferTextureEXT pglNamedFramebufferTextureEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedFramebufferTextureLayerEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9761,7 +10485,9 @@ namespace OpenGL
 			internal static glNamedFramebufferTextureLayerEXT pglNamedFramebufferTextureLayerEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedFramebufferTextureFaceEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9769,7 +10495,9 @@ namespace OpenGL
 			internal static glNamedFramebufferTextureFaceEXT pglNamedFramebufferTextureFaceEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureRenderbufferEXT(UInt32 texture, Int32 target, UInt32 renderbuffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9777,7 +10505,9 @@ namespace OpenGL
 			internal static glTextureRenderbufferEXT pglTextureRenderbufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glMultiTexRenderbufferEXT(Int32 texunit, Int32 target, UInt32 renderbuffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9785,7 +10515,9 @@ namespace OpenGL
 			internal static glMultiTexRenderbufferEXT pglMultiTexRenderbufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayVertexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9793,7 +10525,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexOffsetEXT pglVertexArrayVertexOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9801,7 +10535,9 @@ namespace OpenGL
 			internal static glVertexArrayColorOffsetEXT pglVertexArrayColorOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayEdgeFlagOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9809,7 +10545,9 @@ namespace OpenGL
 			internal static glVertexArrayEdgeFlagOffsetEXT pglVertexArrayEdgeFlagOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayIndexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9817,7 +10555,9 @@ namespace OpenGL
 			internal static glVertexArrayIndexOffsetEXT pglVertexArrayIndexOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayNormalOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9825,7 +10565,9 @@ namespace OpenGL
 			internal static glVertexArrayNormalOffsetEXT pglVertexArrayNormalOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9833,7 +10575,9 @@ namespace OpenGL
 			internal static glVertexArrayTexCoordOffsetEXT pglVertexArrayTexCoordOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayMultiTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9841,7 +10585,9 @@ namespace OpenGL
 			internal static glVertexArrayMultiTexCoordOffsetEXT pglVertexArrayMultiTexCoordOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayFogCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9849,7 +10595,9 @@ namespace OpenGL
 			internal static glVertexArrayFogCoordOffsetEXT pglVertexArrayFogCoordOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArraySecondaryColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9857,7 +10605,9 @@ namespace OpenGL
 			internal static glVertexArraySecondaryColorOffsetEXT pglVertexArraySecondaryColorOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9865,7 +10615,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexAttribOffsetEXT pglVertexArrayVertexAttribOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9873,7 +10625,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexAttribIOffsetEXT pglVertexArrayVertexAttribIOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glEnableVertexArrayEXT(UInt32 vaobj, Int32 array);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9881,7 +10635,9 @@ namespace OpenGL
 			internal static glEnableVertexArrayEXT pglEnableVertexArrayEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDisableVertexArrayEXT(UInt32 vaobj, Int32 array);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9889,7 +10645,9 @@ namespace OpenGL
 			internal static glDisableVertexArrayEXT pglDisableVertexArrayEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glEnableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9897,7 +10655,9 @@ namespace OpenGL
 			internal static glEnableVertexArrayAttribEXT pglEnableVertexArrayAttribEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDisableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9905,7 +10665,9 @@ namespace OpenGL
 			internal static glDisableVertexArrayAttribEXT pglDisableVertexArrayAttribEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetVertexArrayIntegervEXT(UInt32 vaobj, Int32 pname, Int32* param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9913,7 +10675,9 @@ namespace OpenGL
 			internal static glGetVertexArrayIntegervEXT pglGetVertexArrayIntegervEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetVertexArrayPointervEXT(UInt32 vaobj, Int32 pname, IntPtr* param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9921,7 +10685,9 @@ namespace OpenGL
 			internal static glGetVertexArrayPointervEXT pglGetVertexArrayPointervEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetVertexArrayIntegeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9929,7 +10695,9 @@ namespace OpenGL
 			internal static glGetVertexArrayIntegeri_vEXT pglGetVertexArrayIntegeri_vEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetVertexArrayPointeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, IntPtr* param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9937,7 +10705,9 @@ namespace OpenGL
 			internal static glGetVertexArrayPointeri_vEXT pglGetVertexArrayPointeri_vEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr glMapNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9945,7 +10715,9 @@ namespace OpenGL
 			internal static glMapNamedBufferRangeEXT pglMapNamedBufferRangeEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glFlushMappedNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9953,7 +10725,9 @@ namespace OpenGL
 			internal static glFlushMappedNamedBufferRangeEXT pglFlushMappedNamedBufferRangeEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClearNamedBufferDataEXT(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9961,7 +10735,9 @@ namespace OpenGL
 			internal static glClearNamedBufferDataEXT pglClearNamedBufferDataEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glClearNamedBufferSubDataEXT(UInt32 buffer, Int32 internalformat, UInt32 offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9969,7 +10745,9 @@ namespace OpenGL
 			internal static glClearNamedBufferSubDataEXT pglClearNamedBufferSubDataEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glNamedFramebufferParameteriEXT(UInt32 framebuffer, Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9977,7 +10755,9 @@ namespace OpenGL
 			internal static glNamedFramebufferParameteriEXT pglNamedFramebufferParameteriEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetNamedFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9985,7 +10765,9 @@ namespace OpenGL
 			internal static glGetNamedFramebufferParameterivEXT pglGetNamedFramebufferParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glProgramUniform1dEXT(UInt32 program, Int32 location, double x);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -9993,7 +10775,9 @@ namespace OpenGL
 			internal static glProgramUniform1dEXT pglProgramUniform1dEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glProgramUniform2dEXT(UInt32 program, Int32 location, double x, double y);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10001,7 +10785,9 @@ namespace OpenGL
 			internal static glProgramUniform2dEXT pglProgramUniform2dEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glProgramUniform3dEXT(UInt32 program, Int32 location, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10009,7 +10795,9 @@ namespace OpenGL
 			internal static glProgramUniform3dEXT pglProgramUniform3dEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glProgramUniform4dEXT(UInt32 program, Int32 location, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10017,7 +10805,9 @@ namespace OpenGL
 			internal static glProgramUniform4dEXT pglProgramUniform4dEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniform1dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10025,7 +10815,9 @@ namespace OpenGL
 			internal static glProgramUniform1dvEXT pglProgramUniform1dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniform2dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10033,7 +10825,9 @@ namespace OpenGL
 			internal static glProgramUniform2dvEXT pglProgramUniform2dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniform3dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10041,7 +10835,9 @@ namespace OpenGL
 			internal static glProgramUniform3dvEXT pglProgramUniform3dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniform4dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10049,7 +10845,9 @@ namespace OpenGL
 			internal static glProgramUniform4dvEXT pglProgramUniform4dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10057,7 +10855,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix2dvEXT pglProgramUniformMatrix2dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10065,7 +10865,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix3dvEXT pglProgramUniformMatrix3dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10073,7 +10875,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix4dvEXT pglProgramUniformMatrix4dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix2x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10081,7 +10885,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix2x3dvEXT pglProgramUniformMatrix2x3dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix2x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10089,7 +10895,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix2x4dvEXT pglProgramUniformMatrix2x4dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix3x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10097,7 +10905,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix3x2dvEXT pglProgramUniformMatrix3x2dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix3x4dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10105,7 +10915,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix3x4dvEXT pglProgramUniformMatrix3x4dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix4x2dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10113,7 +10925,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix4x2dvEXT pglProgramUniformMatrix4x2dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glProgramUniformMatrix4x3dvEXT(UInt32 program, Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10121,7 +10935,9 @@ namespace OpenGL
 			internal static glProgramUniformMatrix4x3dvEXT pglProgramUniformMatrix4x3dvEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTextureBufferRangeEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10130,7 +10946,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureStorage1DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10140,7 +10958,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureStorage2DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10150,7 +10970,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureStorage3DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10159,7 +10981,9 @@ namespace OpenGL
 			internal static glTextureStorage3DEXT pglTextureStorage3DEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureStorage2DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10167,7 +10991,9 @@ namespace OpenGL
 			internal static glTextureStorage2DMultisampleEXT pglTextureStorage2DMultisampleEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureStorage3DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10175,7 +11001,9 @@ namespace OpenGL
 			internal static glTextureStorage3DMultisampleEXT pglTextureStorage3DMultisampleEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayBindVertexBufferEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10183,7 +11011,9 @@ namespace OpenGL
 			internal static glVertexArrayBindVertexBufferEXT pglVertexArrayBindVertexBufferEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glVertexArrayVertexAttribFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10191,7 +11021,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexAttribFormatEXT pglVertexArrayVertexAttribFormatEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glVertexArrayVertexAttribIFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10199,7 +11031,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexAttribIFormatEXT pglVertexArrayVertexAttribIFormatEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glVertexArrayVertexAttribLFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10207,7 +11041,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexAttribLFormatEXT pglVertexArrayVertexAttribLFormatEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glVertexArrayVertexAttribBindingEXT(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10215,7 +11051,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexAttribBindingEXT pglVertexArrayVertexAttribBindingEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glVertexArrayVertexBindingDivisorEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10223,7 +11061,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexBindingDivisorEXT pglVertexArrayVertexBindingDivisorEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayVertexAttribLOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10231,7 +11071,9 @@ namespace OpenGL
 			internal static glVertexArrayVertexAttribLOffsetEXT pglVertexArrayVertexAttribLOffsetEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -10239,7 +11081,9 @@ namespace OpenGL
 			internal static glTexturePageCommitmentEXT pglTexturePageCommitmentEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glVertexArrayVertexAttribDivisorEXT(UInt32 vaobj, UInt32 index, UInt32 divisor);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]

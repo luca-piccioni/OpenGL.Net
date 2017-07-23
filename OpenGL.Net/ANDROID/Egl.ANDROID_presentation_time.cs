@@ -55,7 +55,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglPresentationTimeANDROID", ExactSpelling = true)]
 			internal extern static unsafe bool eglPresentationTimeANDROID(IntPtr dpy, IntPtr surface, Int64 time);
 
@@ -64,7 +66,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_ANDROID_presentation_time")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglPresentationTimeANDROID(IntPtr dpy, IntPtr surface, Int64 time);
 
 			[RequiredByFeature("EGL_ANDROID_presentation_time")]

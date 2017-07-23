@@ -35,7 +35,7 @@ namespace OpenGL
 	/// This class defines a generic matrix and the most common operations on it.
 	/// </para>
 	/// </remarks>
-	public class Matrix : IMatrix, IEquatable<Matrix>, ICloneable
+	public class Matrix : IMatrix, IEquatable<Matrix>
 	{
 		#region Constructors
 
@@ -1166,21 +1166,6 @@ namespace OpenGL
 
 				return result;
 			}
-		}
-
-		#endregion
-
-		#region ICloneable Implementation
-
-		/// <summary>
-		/// Creates a new object that is a copy of the current instance.
-		/// </summary>
-		/// <returns>
-		/// A new object that is a copy of this instance.
-		/// </returns>
-		object ICloneable.Clone()
-		{
-			return (Clone());
 		}
 
 		#endregion

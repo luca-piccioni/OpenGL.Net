@@ -72,7 +72,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilOpValueAMD", ExactSpelling = true)]
 			internal extern static void glStencilOpValueAMD(Int32 face, UInt32 value);
 
@@ -81,7 +83,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_stencil_operation_extended")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glStencilOpValueAMD(Int32 face, UInt32 value);
 
 			[RequiredByFeature("GL_AMD_stencil_operation_extended")]

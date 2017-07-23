@@ -110,11 +110,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glFlushVertexArrayRangeNV", ExactSpelling = true)]
 			internal extern static void glFlushVertexArrayRangeNV();
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayRangeNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayRangeNV(Int32 length, IntPtr pointer);
 
@@ -123,7 +127,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_vertex_array_range")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glFlushVertexArrayRangeNV();
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
@@ -131,7 +137,9 @@ namespace OpenGL
 			internal static glFlushVertexArrayRangeNV pglFlushVertexArrayRangeNV;
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glVertexArrayRangeNV(Int32 length, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]

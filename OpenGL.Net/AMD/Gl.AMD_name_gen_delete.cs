@@ -130,15 +130,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGenNamesAMD", ExactSpelling = true)]
 			internal extern static unsafe void glGenNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDeleteNamesAMD", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glIsNameAMD", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsNameAMD(Int32 identifier, UInt32 name);
@@ -148,7 +154,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGenNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
@@ -156,7 +164,9 @@ namespace OpenGL
 			internal static glGenNamesAMD pglGenNamesAMD;
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDeleteNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
@@ -164,7 +174,9 @@ namespace OpenGL
 			internal static glDeleteNamesAMD pglDeleteNamesAMD;
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate bool glIsNameAMD(Int32 identifier, UInt32 name);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]

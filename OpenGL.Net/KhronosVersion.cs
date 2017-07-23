@@ -18,7 +18,9 @@
 
 using System;
 using System.ComponentModel;
+#if !NETCORE
 using System.ComponentModel.Design.Serialization;
+#endif
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
@@ -30,7 +32,9 @@ namespace OpenGL
 	/// Version abstraction for Khrono APIs.
 	/// </summary>
 	[DebuggerDisplay("KhronosVersion: Version={Major}.{Minor}.{Revision} API='{Api}' Profile={Profile}")]
+#if !NETCORE
 	[TypeConverter(typeof(KhronosVersionConverter))]
+#endif
 	public class KhronosVersion : IEquatable<KhronosVersion>, IComparable<KhronosVersion>
 	{
 		#region Constructors
@@ -635,8 +639,13 @@ namespace OpenGL
 				return (false);
 			if (ReferenceEquals(this, obj))
 				return (true);
+#if !NETCORE
 			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().IsSubclassOf(typeof(KhronosVersion)) == false))
 				return (false);
+#else
+			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().GetTypeInfo().IsSubclassOf(typeof(KhronosVersion)) == false))
+				return (false);
+#endif
 
 			return (Equals((KhronosVersion)obj));
 		}
@@ -664,7 +673,7 @@ namespace OpenGL
 			}
 		}
 
-		#endregion
+#endregion
 
 		#region IComparable<KhronosVersion> Implementation
 
@@ -708,6 +717,8 @@ namespace OpenGL
 
 		#endregion
 	}
+
+#if !NETCORE
 
 	/// <summary>
 	/// Designer converter for <see cref="KhronosVersion"/> properties.
@@ -775,4 +786,6 @@ namespace OpenGL
 			return (base.ConvertTo(context, culture, value, destinationType));
 		}
 	}
+
+#endif
 }

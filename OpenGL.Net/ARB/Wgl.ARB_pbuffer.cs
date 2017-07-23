@@ -218,24 +218,34 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglCreatePbufferARB", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglCreatePbufferARB(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglGetPbufferDCARB", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglGetPbufferDCARB(IntPtr hPbuffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglReleasePbufferDCARB", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe int wglReleasePbufferDCARB(IntPtr hPbuffer, IntPtr hDC);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglDestroyPbufferARB", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglDestroyPbufferARB(IntPtr hPbuffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglQueryPbufferARB", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglQueryPbufferARB(IntPtr hPbuffer, int iAttribute, int* piValue);
@@ -245,7 +255,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_pbuffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr wglCreatePbufferARB(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
@@ -253,7 +265,9 @@ namespace OpenGL
 			internal static wglCreatePbufferARB pwglCreatePbufferARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr wglGetPbufferDCARB(IntPtr hPbuffer);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
@@ -261,7 +275,9 @@ namespace OpenGL
 			internal static wglGetPbufferDCARB pwglGetPbufferDCARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate int wglReleasePbufferDCARB(IntPtr hPbuffer, IntPtr hDC);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
@@ -269,7 +285,9 @@ namespace OpenGL
 			internal static wglReleasePbufferDCARB pwglReleasePbufferDCARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool wglDestroyPbufferARB(IntPtr hPbuffer);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
@@ -277,7 +295,9 @@ namespace OpenGL
 			internal static wglDestroyPbufferARB pwglDestroyPbufferARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool wglQueryPbufferARB(IntPtr hPbuffer, int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]

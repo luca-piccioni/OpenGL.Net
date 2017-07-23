@@ -57,7 +57,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPixelTexGenSGIX", ExactSpelling = true)]
 			internal extern static void glPixelTexGenSGIX(Int32 mode);
 
@@ -66,7 +68,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_pixel_texture")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPixelTexGenSGIX(Int32 mode);
 
 			[RequiredByFeature("GL_SGIX_pixel_texture")]

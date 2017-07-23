@@ -131,15 +131,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glUniformBufferEXT", ExactSpelling = true)]
 			internal extern static void glUniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetUniformBufferSizeEXT", ExactSpelling = true)]
 			internal extern static Int32 glGetUniformBufferSizeEXT(UInt32 program, Int32 location);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetUniformOffsetEXT", ExactSpelling = true)]
 			internal extern static IntPtr glGetUniformOffsetEXT(UInt32 program, Int32 location);
 
@@ -148,7 +154,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glUniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
@@ -156,7 +164,9 @@ namespace OpenGL
 			internal static glUniformBufferEXT pglUniformBufferEXT;
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate Int32 glGetUniformBufferSizeEXT(UInt32 program, Int32 location);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
@@ -164,7 +174,9 @@ namespace OpenGL
 			internal static glGetUniformBufferSizeEXT pglGetUniformBufferSizeEXT;
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr glGetUniformOffsetEXT(UInt32 program, Int32 location);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]

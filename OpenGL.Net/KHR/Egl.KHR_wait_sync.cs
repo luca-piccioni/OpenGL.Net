@@ -55,7 +55,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglWaitSyncKHR", ExactSpelling = true)]
 			internal extern static unsafe int eglWaitSyncKHR(IntPtr dpy, IntPtr sync, int flags);
 
@@ -64,7 +66,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_wait_sync")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate int eglWaitSyncKHR(IntPtr dpy, IntPtr sync, int flags);
 
 			[RequiredByFeature("EGL_KHR_wait_sync")]

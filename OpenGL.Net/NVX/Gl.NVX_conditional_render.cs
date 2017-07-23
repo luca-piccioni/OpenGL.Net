@@ -45,7 +45,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBeginConditionalRenderNVX", ExactSpelling = true)]
 			internal extern static void glBeginConditionalRenderNVX(UInt32 id);
 
@@ -54,7 +56,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NVX_conditional_render")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glBeginConditionalRenderNVX(UInt32 id);
 
 			[RequiredByFeature("GL_NVX_conditional_render")]

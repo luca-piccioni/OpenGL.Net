@@ -127,15 +127,21 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXQueryExtensionsString", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXQueryServerString", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXGetClientString", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXGetClientString(IntPtr dpy, int name);
 
@@ -144,21 +150,27 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			internal static glXQueryExtensionsString pglXQueryExtensionsString;
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			internal static glXQueryServerString pglXQueryServerString;
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr glXGetClientString(IntPtr dpy, int name);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]

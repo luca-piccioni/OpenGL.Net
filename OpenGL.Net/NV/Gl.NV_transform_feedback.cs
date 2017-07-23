@@ -317,31 +317,45 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTransformFeedbackAttribsNV", ExactSpelling = true)]
 			internal extern static unsafe void glTransformFeedbackAttribsNV(Int32 count, Int32* attribs, Int32 bufferMode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTransformFeedbackVaryingsNV", ExactSpelling = true)]
 			internal extern static unsafe void glTransformFeedbackVaryingsNV(UInt32 program, Int32 count, Int32* locations, Int32 bufferMode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glActiveVaryingNV", ExactSpelling = true)]
 			internal extern static void glActiveVaryingNV(UInt32 program, String name);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetVaryingLocationNV", ExactSpelling = true)]
 			internal extern static Int32 glGetVaryingLocationNV(UInt32 program, String name);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetActiveVaryingNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, Int32* length, Int32* size, Int32* type, String name);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetTransformFeedbackVaryingNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetTransformFeedbackVaryingNV(UInt32 program, UInt32 index, Int32* location);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTransformFeedbackStreamAttribsNV", ExactSpelling = true)]
 			internal extern static unsafe void glTransformFeedbackStreamAttribsNV(Int32 count, Int32* attribs, Int32 nbuffers, Int32* bufstreams, Int32 bufferMode);
 
@@ -350,7 +364,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_transform_feedback")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTransformFeedbackAttribsNV(Int32 count, Int32* attribs, Int32 bufferMode);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
@@ -358,7 +374,9 @@ namespace OpenGL
 			internal static glTransformFeedbackAttribsNV pglTransformFeedbackAttribsNV;
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTransformFeedbackVaryingsNV(UInt32 program, Int32 count, Int32* locations, Int32 bufferMode);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
@@ -366,7 +384,9 @@ namespace OpenGL
 			internal static glTransformFeedbackVaryingsNV pglTransformFeedbackVaryingsNV;
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glActiveVaryingNV(UInt32 program, String name);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
@@ -374,7 +394,9 @@ namespace OpenGL
 			internal static glActiveVaryingNV pglActiveVaryingNV;
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate Int32 glGetVaryingLocationNV(UInt32 program, String name);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
@@ -382,7 +404,9 @@ namespace OpenGL
 			internal static glGetVaryingLocationNV pglGetVaryingLocationNV;
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetActiveVaryingNV(UInt32 program, UInt32 index, Int32 bufSize, Int32* length, Int32* size, Int32* type, [Out] StringBuilder name);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
@@ -390,7 +414,9 @@ namespace OpenGL
 			internal static glGetActiveVaryingNV pglGetActiveVaryingNV;
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetTransformFeedbackVaryingNV(UInt32 program, UInt32 index, Int32* location);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
@@ -398,7 +424,9 @@ namespace OpenGL
 			internal static glGetTransformFeedbackVaryingNV pglGetTransformFeedbackVaryingNV;
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glTransformFeedbackStreamAttribsNV(Int32 count, Int32* attribs, Int32 nbuffers, Int32* bufstreams, Int32 bufferMode);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]

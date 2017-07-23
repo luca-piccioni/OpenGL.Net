@@ -73,11 +73,15 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglAllocateMemoryNV", ExactSpelling = true, SetLastError = true)]
 			internal extern static IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "wglFreeMemoryNV", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe void wglFreeMemoryNV(IntPtr pointer);
 
@@ -86,7 +90,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
@@ -94,7 +100,9 @@ namespace OpenGL
 			internal static wglAllocateMemoryNV pwglAllocateMemoryNV;
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void wglFreeMemoryNV(IntPtr pointer);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]

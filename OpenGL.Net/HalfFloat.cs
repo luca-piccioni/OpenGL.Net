@@ -71,20 +71,28 @@
 
 using System;
 using System.Runtime.InteropServices;
+#if !NETCORE
 using System.Runtime.Serialization;
 using System.Security.Permissions;
+#endif
 
 namespace OpenGL
 {
 	/// <summary>
 	/// HalfFloat floating-point number (16 bit).
 	/// </summary>
-	[Serializable, StructLayout(LayoutKind.Sequential)]
-	public struct HalfFloat : ISerializable, IComparable<HalfFloat>, IFormattable, IEquatable<HalfFloat>
+#if !NETCORE
+	[Serializable]
+#endif
+	[StructLayout(LayoutKind.Sequential)]
+	public struct HalfFloat : IComparable<HalfFloat>, IFormattable, IEquatable<HalfFloat>
+#if !NETCORE
+		, ISerializable
+#endif
 	{
 		#region Constructors
 
-		 /// <summary>
+		/// <summary>
 		/// Constuct a HalfFloat by specifying its value.
 		/// </summary>
 		/// <param name="f">
@@ -547,6 +555,8 @@ namespace OpenGL
 
 		#endregion
 
+#if !NETCORE
+
 		#region ISerializable Implementation
 
 		/// <summary>
@@ -575,6 +585,8 @@ namespace OpenGL
 		}
 
 		#endregion
+
+#endif
 
 		#region IEquatable<HalfFloat> Implementation
 

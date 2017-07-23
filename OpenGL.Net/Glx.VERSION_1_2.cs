@@ -50,7 +50,9 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXGetCurrentDisplay", ExactSpelling = true)]
 			internal extern static IntPtr glXGetCurrentDisplay();
 
@@ -59,7 +61,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate IntPtr glXGetCurrentDisplay();
 
 			[RequiredByFeature("GLX_VERSION_1_2")]

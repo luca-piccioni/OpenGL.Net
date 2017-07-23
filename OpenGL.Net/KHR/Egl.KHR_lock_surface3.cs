@@ -275,15 +275,21 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglLockSurfaceKHR", ExactSpelling = true)]
 			internal extern static unsafe bool eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglUnlockSurfaceKHR", ExactSpelling = true)]
 			internal extern static unsafe bool eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglQuerySurface64KHR", ExactSpelling = true)]
 			internal extern static unsafe bool eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
 
@@ -293,7 +299,9 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_lock_surface")]
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
@@ -302,7 +310,9 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
@@ -310,7 +320,9 @@ namespace OpenGL
 			internal static eglUnlockSurfaceKHR peglUnlockSurfaceKHR;
 
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_KHR_lock_surface3")]

@@ -42,7 +42,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glTextureBarrierNV", ExactSpelling = true)]
 			internal extern static void glTextureBarrierNV();
 
@@ -51,7 +53,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_texture_barrier", Api = "gl|glcore")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glTextureBarrierNV();
 
 			[RequiredByFeature("GL_NV_texture_barrier", Api = "gl|glcore")]

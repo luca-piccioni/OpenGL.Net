@@ -77,11 +77,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDepthRangeArrayfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glDepthRangeArrayfvNV(UInt32 first, Int32 count, float* v);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDepthRangeIndexedfNV", ExactSpelling = true)]
 			internal extern static void glDepthRangeIndexedfNV(UInt32 index, float n, float f);
 
@@ -90,7 +94,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDepthRangeArrayfvNV(UInt32 first, Int32 count, float* v);
 
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
@@ -98,7 +104,9 @@ namespace OpenGL
 			internal static glDepthRangeArrayfvNV pglDepthRangeArrayfvNV;
 
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDepthRangeIndexedfNV(UInt32 index, float n, float f);
 
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]

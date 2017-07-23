@@ -55,7 +55,9 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glXDelayBeforeSwapNV", ExactSpelling = true)]
 			internal extern static unsafe bool glXDelayBeforeSwapNV(IntPtr dpy, IntPtr drawable, float seconds);
 
@@ -64,7 +66,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_NV_delay_before_swap")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool glXDelayBeforeSwapNV(IntPtr dpy, IntPtr drawable, float seconds);
 
 			[RequiredByFeature("GLX_NV_delay_before_swap")]

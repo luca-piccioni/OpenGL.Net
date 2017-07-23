@@ -45,7 +45,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glBindVertexArrayAPPLE", ExactSpelling = true)]
 			internal extern static void glBindVertexArrayAPPLE(UInt32 array);
 
@@ -54,7 +56,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_vertex_array_object")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glBindVertexArrayAPPLE(UInt32 array);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_object")]

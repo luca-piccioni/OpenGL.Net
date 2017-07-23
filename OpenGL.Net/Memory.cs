@@ -93,7 +93,9 @@ namespace OpenGL
 		/// <param name="src"></param>
 		/// <param name="bytes"></param>
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+#if !NETCORE
 		[System.Security.SuppressUnmanagedCodeSecurity()]
+#endif
 		private delegate void MemoryCopyDelegate(void *dst, void* src, ulong bytes);
 
 		/// <summary>

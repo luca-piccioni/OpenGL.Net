@@ -235,27 +235,39 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglCreateFenceSyncNV", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglDestroySyncNV", ExactSpelling = true)]
 			internal extern static unsafe bool eglDestroySyncNV(IntPtr sync);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglFenceNV", ExactSpelling = true)]
 			internal extern static unsafe bool eglFenceNV(IntPtr sync);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglClientWaitSyncNV", ExactSpelling = true)]
 			internal extern static unsafe int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglSignalSyncNV", ExactSpelling = true)]
 			internal extern static unsafe bool eglSignalSyncNV(IntPtr sync, uint mode);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "eglGetSyncAttribNV", ExactSpelling = true)]
 			internal extern static unsafe bool eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
 
@@ -264,42 +276,54 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_sync")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglCreateFenceSyncNV peglCreateFenceSyncNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglDestroySyncNV(IntPtr sync);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglDestroySyncNV peglDestroySyncNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglFenceNV(IntPtr sync);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglFenceNV peglFenceNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglClientWaitSyncNV peglClientWaitSyncNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglSignalSyncNV(IntPtr sync, uint mode);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglSignalSyncNV peglSignalSyncNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate bool eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
 
 			[RequiredByFeature("EGL_NV_sync")]

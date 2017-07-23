@@ -69,7 +69,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glAlphaToCoverageDitherControlNV", ExactSpelling = true)]
 			internal extern static void glAlphaToCoverageDitherControlNV(Int32 mode);
 
@@ -78,7 +80,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glAlphaToCoverageDitherControlNV(Int32 mode);
 
 			[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]

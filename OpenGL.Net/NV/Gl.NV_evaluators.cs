@@ -502,39 +502,57 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapControlPointsNV", ExactSpelling = true)]
 			internal extern static unsafe void glMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapParameterivNV", ExactSpelling = true)]
 			internal extern static unsafe void glMapParameterivNV(Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glMapParameterfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glMapParameterfvNV(Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMapControlPointsNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, bool packed, IntPtr points);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMapParameterivNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetMapParameterivNV(Int32 target, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMapParameterfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetMapParameterfvNV(Int32 target, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMapAttribParameterivNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetMapAttribParameterivNV(Int32 target, UInt32 index, Int32 pname, Int32* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glGetMapAttribParameterfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetMapAttribParameterfvNV(Int32 target, UInt32 index, Int32 pname, float* @params);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glEvalMapsNV", ExactSpelling = true)]
 			internal extern static void glEvalMapsNV(Int32 target, Int32 mode);
 
@@ -543,7 +561,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points);
 
 			[RequiredByFeature("GL_NV_evaluators")]
@@ -551,7 +571,9 @@ namespace OpenGL
 			internal static glMapControlPointsNV pglMapControlPointsNV;
 
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMapParameterivNV(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
@@ -559,7 +581,9 @@ namespace OpenGL
 			internal static glMapParameterivNV pglMapParameterivNV;
 
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glMapParameterfvNV(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
@@ -567,7 +591,9 @@ namespace OpenGL
 			internal static glMapParameterfvNV pglMapParameterfvNV;
 
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, bool packed, IntPtr points);
 
 			[RequiredByFeature("GL_NV_evaluators")]
@@ -575,7 +601,9 @@ namespace OpenGL
 			internal static glGetMapControlPointsNV pglGetMapControlPointsNV;
 
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMapParameterivNV(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
@@ -583,7 +611,9 @@ namespace OpenGL
 			internal static glGetMapParameterivNV pglGetMapParameterivNV;
 
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMapParameterfvNV(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
@@ -591,7 +621,9 @@ namespace OpenGL
 			internal static glGetMapParameterfvNV pglGetMapParameterfvNV;
 
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMapAttribParameterivNV(Int32 target, UInt32 index, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
@@ -599,7 +631,9 @@ namespace OpenGL
 			internal static glGetMapAttribParameterivNV pglGetMapAttribParameterivNV;
 
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glGetMapAttribParameterfvNV(Int32 target, UInt32 index, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
@@ -607,7 +641,9 @@ namespace OpenGL
 			internal static glGetMapAttribParameterfvNV pglGetMapAttribParameterfvNV;
 
 			[RequiredByFeature("GL_NV_evaluators")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glEvalMapsNV(Int32 target, Int32 mode);
 
 			[RequiredByFeature("GL_NV_evaluators")]

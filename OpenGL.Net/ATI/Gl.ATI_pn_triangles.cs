@@ -120,11 +120,15 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPNTrianglesiATI", ExactSpelling = true)]
 			internal extern static void glPNTrianglesiATI(Int32 pname, Int32 param);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glPNTrianglesfATI", ExactSpelling = true)]
 			internal extern static void glPNTrianglesfATI(Int32 pname, float param);
 
@@ -133,7 +137,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_pn_triangles")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPNTrianglesiATI(Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_ATI_pn_triangles")]
@@ -141,7 +147,9 @@ namespace OpenGL
 			internal static glPNTrianglesiATI pglPNTrianglesiATI;
 
 			[RequiredByFeature("GL_ATI_pn_triangles")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glPNTrianglesfATI(Int32 pname, float param);
 
 			[RequiredByFeature("GL_ATI_pn_triangles")]

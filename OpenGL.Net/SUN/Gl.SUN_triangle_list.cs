@@ -263,31 +263,45 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReplacementCodeuiSUN", ExactSpelling = true)]
 			internal extern static void glReplacementCodeuiSUN(UInt32 code);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReplacementCodeusSUN", ExactSpelling = true)]
 			internal extern static void glReplacementCodeusSUN(UInt16 code);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReplacementCodeubSUN", ExactSpelling = true)]
 			internal extern static void glReplacementCodeubSUN(byte code);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReplacementCodeuivSUN", ExactSpelling = true)]
 			internal extern static unsafe void glReplacementCodeuivSUN(UInt32* code);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReplacementCodeusvSUN", ExactSpelling = true)]
 			internal extern static unsafe void glReplacementCodeusvSUN(UInt16* code);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReplacementCodeubvSUN", ExactSpelling = true)]
 			internal extern static unsafe void glReplacementCodeubvSUN(byte* code);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glReplacementCodePointerSUN", ExactSpelling = true)]
 			internal extern static unsafe void glReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr* pointer);
 
@@ -296,7 +310,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SUN_triangle_list")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glReplacementCodeuiSUN(UInt32 code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
@@ -304,7 +320,9 @@ namespace OpenGL
 			internal static glReplacementCodeuiSUN pglReplacementCodeuiSUN;
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glReplacementCodeusSUN(UInt16 code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
@@ -312,7 +330,9 @@ namespace OpenGL
 			internal static glReplacementCodeusSUN pglReplacementCodeusSUN;
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glReplacementCodeubSUN(byte code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
@@ -320,7 +340,9 @@ namespace OpenGL
 			internal static glReplacementCodeubSUN pglReplacementCodeubSUN;
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glReplacementCodeuivSUN(UInt32* code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
@@ -328,7 +350,9 @@ namespace OpenGL
 			internal static glReplacementCodeuivSUN pglReplacementCodeuivSUN;
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glReplacementCodeusvSUN(UInt16* code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
@@ -336,7 +360,9 @@ namespace OpenGL
 			internal static glReplacementCodeusvSUN pglReplacementCodeusvSUN;
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glReplacementCodeubvSUN(byte* code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
@@ -344,7 +370,9 @@ namespace OpenGL
 			internal static glReplacementCodeubvSUN pglReplacementCodeubvSUN;
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr* pointer);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]

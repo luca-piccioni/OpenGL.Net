@@ -623,95 +623,135 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluNewTess", ExactSpelling = true)]
 			internal extern static IntPtr gluNewTess();
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluDeleteTess", ExactSpelling = true)]
 			internal extern static void gluDeleteTess(IntPtr tess);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluTessBeginPolygon", ExactSpelling = true)]
 			internal extern static void gluTessBeginPolygon(IntPtr tess, IntPtr polygon_data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluTessEndPolygon", ExactSpelling = true)]
 			internal extern static void gluTessEndPolygon(IntPtr tess);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluTessBeginContour", ExactSpelling = true)]
 			internal extern static void gluTessBeginContour(IntPtr tess);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluTessEndContour", ExactSpelling = true)]
 			internal extern static void gluTessEndContour(IntPtr tess);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluTessVertex", ExactSpelling = true)]
 			internal extern static void gluTessVertex(IntPtr tess, IntPtr coords, IntPtr data);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluTessNormal", ExactSpelling = true)]
 			internal extern static void gluTessNormal(IntPtr tess, double valueX, double valueY, double valueZ);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluTessProperty", ExactSpelling = true)]
 			internal extern static void gluTessProperty(IntPtr tess, int which, double value);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "gluTessCallback", ExactSpelling = true)]
 			internal extern static void gluTessCallback(IntPtr tess, int which, IntPtr fn);
 		}
 
 		internal unsafe static partial class Delegates
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate IntPtr gluNewTess();
 
 			internal static gluNewTess pgluNewTess;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluDeleteTess(IntPtr tess);
 
 			internal static gluDeleteTess pgluDeleteTess;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluTessBeginPolygon(IntPtr tess, IntPtr polygon_data);
 
 			internal static gluTessBeginPolygon pgluTessBeginPolygon;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluTessEndPolygon(IntPtr tess);
 
 			internal static gluTessEndPolygon pgluTessEndPolygon;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluTessBeginContour(IntPtr tess);
 
 			internal static gluTessBeginContour pgluTessBeginContour;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluTessEndContour(IntPtr tess);
 
 			internal static gluTessEndContour pgluTessEndContour;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluTessVertex(IntPtr tess, IntPtr coords, IntPtr data);
 
 			internal static gluTessVertex pgluTessVertex;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluTessNormal(IntPtr tess, double valueX, double valueY, double valueZ);
 
 			internal static gluTessNormal pgluTessNormal;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluTessProperty(IntPtr tess, int which, double value);
 
 			internal static gluTessProperty pgluTessProperty;
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void gluTessCallback(IntPtr tess, int which, IntPtr fn);
 
 			internal static gluTessCallback pgluTessCallback;

@@ -240,35 +240,51 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawTexsOES", ExactSpelling = true)]
 			internal extern static void glDrawTexsOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawTexiOES", ExactSpelling = true)]
 			internal extern static void glDrawTexiOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawTexxOES", ExactSpelling = true)]
 			internal extern static unsafe void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawTexsvOES", ExactSpelling = true)]
 			internal extern static unsafe void glDrawTexsvOES(Int16* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawTexivOES", ExactSpelling = true)]
 			internal extern static unsafe void glDrawTexivOES(Int32* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawTexxvOES", ExactSpelling = true)]
 			internal extern static unsafe void glDrawTexxvOES(IntPtr* coords);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawTexfOES", ExactSpelling = true)]
 			internal extern static void glDrawTexfOES(float x, float y, float z, float width, float height);
 
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glDrawTexfvOES", ExactSpelling = true)]
 			internal extern static unsafe void glDrawTexfvOES(float* coords);
 
@@ -277,7 +293,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDrawTexsOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
@@ -285,7 +303,9 @@ namespace OpenGL
 			internal static glDrawTexsOES pglDrawTexsOES;
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDrawTexiOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
@@ -293,7 +313,9 @@ namespace OpenGL
 			internal static glDrawTexiOES pglDrawTexiOES;
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
@@ -301,7 +323,9 @@ namespace OpenGL
 			internal static glDrawTexxOES pglDrawTexxOES;
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDrawTexsvOES(Int16* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
@@ -309,7 +333,9 @@ namespace OpenGL
 			internal static glDrawTexsvOES pglDrawTexsvOES;
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDrawTexivOES(Int32* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
@@ -317,7 +343,9 @@ namespace OpenGL
 			internal static glDrawTexivOES pglDrawTexivOES;
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDrawTexxvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
@@ -325,7 +353,9 @@ namespace OpenGL
 			internal static glDrawTexxvOES pglDrawTexxvOES;
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glDrawTexfOES(float x, float y, float z, float width, float height);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
@@ -333,7 +363,9 @@ namespace OpenGL
 			internal static glDrawTexfOES pglDrawTexfOES;
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal unsafe delegate void glDrawTexfvOES(float* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]

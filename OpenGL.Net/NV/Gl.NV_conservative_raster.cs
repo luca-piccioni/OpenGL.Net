@@ -72,7 +72,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glSubpixelPrecisionBiasNV", ExactSpelling = true)]
 			internal extern static void glSubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits);
 
@@ -81,7 +83,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glSubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits);
 
 			[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]

@@ -60,7 +60,9 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			[DllImport(Library, EntryPoint = "glStencilClearTagEXT", ExactSpelling = true)]
 			internal extern static void glStencilClearTagEXT(Int32 stencilTagBits, UInt32 stencilClearTag);
 
@@ -69,7 +71,9 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_stencil_clear_tag")]
+			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
+			#endif
 			internal delegate void glStencilClearTagEXT(Int32 stencilTagBits, UInt32 stencilClearTag);
 
 			[RequiredByFeature("GL_EXT_stencil_clear_tag")]
