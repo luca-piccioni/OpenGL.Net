@@ -994,7 +994,17 @@ namespace OpenGL
 		/// </returns>
 		double[] IMatrix.GetColumn(uint index)
 		{
+#if !NETCORE
 			return (Array.ConvertAll<float, double>(GetColumn(index), delegate(float input) { return ((double)input); }));
+#else
+			float[] items = GetColumn(index);
+			double[] iitems = new double[items.Length];
+
+			for (int i = 0; i < items.Length; i++)
+				iitems[i] = items[i];
+
+			return (iitems);
+#endif
 		}
 
 		/// <summary>
@@ -1008,7 +1018,17 @@ namespace OpenGL
 		/// </returns>
 		double[] IMatrix.GetRow(uint index)
 		{
+#if !NETCORE
 			return (Array.ConvertAll<float, double>(GetRow(index), delegate(float input) { return ((double)input); }));
+#else
+			float[] items = GetRow(index);
+			double[] iitems = new double[items.Length];
+
+			for (int i = 0; i < items.Length; i++)
+				iitems[i] = items[i];
+
+			return (iitems);
+#endif
 		}
 
 		/// <summary>
@@ -1019,7 +1039,17 @@ namespace OpenGL
 		/// </returns>
 		double[] IMatrix.ToArray()
 		{
+#if !NETCORE
 			return (Array.ConvertAll<float, double>(ToArray(), delegate(float input) { return ((double)input); }));
+#else
+			float[] items = ToArray();
+			double[] iitems = new double[items.Length];
+
+			for (int i = 0; i < items.Length; i++)
+				iitems[i] = items[i];
+
+			return (iitems);
+#endif
 		}
 
 		/// <summary>

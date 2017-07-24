@@ -280,7 +280,11 @@ namespace OpenGL
 
 			// Manages aliases (load external symbol)
 			if (importAddress == IntPtr.Zero) {
+#if !NETCORE
 				Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(function, typeof(AliasOfAttribute));
+#else
+				Attribute[] aliasOfAttributes = new List<Attribute>(function.GetCustomAttributes(typeof(AliasOfAttribute))).ToArray();
+#endif
 
 				for (int i = 1 /* Skip base name */; i < aliasOfAttributes.Length; i++) {
 					AliasOfAttribute aliasOfAttribute = (AliasOfAttribute)aliasOfAttributes[i];
@@ -296,8 +300,13 @@ namespace OpenGL
 				if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, function.FieldType)) == null) {
 					MethodInfo methodInfo;
 
-					if (functionContext.Imports.TryGetValue(importName, out methodInfo) == true)
+					if (functionContext.Imports.TryGetValue(importName, out methodInfo) == true) {
+#if !NETCORE
 						delegatePtr = Delegate.CreateDelegate(function.FieldType, methodInfo);
+#else
+						delegatePtr = methodInfo.CreateDelegate(function.FieldType);
+#endif
+					}
 				}
 
 				if (delegatePtr != null)
@@ -330,7 +339,11 @@ namespace OpenGL
 			if (version == null)
 				throw new ArgumentNullException("version");
 
+#if !NETCORE
 			Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
+#else
+			Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray();
+#endif
 
 			KhronosVersion maxRequiredVersion = null;
 			bool isRequired = false, isRemoved = false;
@@ -349,7 +362,12 @@ namespace OpenGL
 
 			if (isRequired) {
 				// Note: indeed the feature could be supported; check whether it is removed
+				
+#if !NETCORE
 				Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
+#else
+				Attribute[] attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute))).ToArray();
+#endif
 				KhronosVersion maxRemovedVersion = null;
 
 				foreach (RemovedByFeatureAttribute attr in attrRemoved) {
@@ -764,8 +782,12 @@ namespace OpenGL
 					bool support = false;
 
 					// Support by extension
-					Attribute[] coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
-					if ((coreAttributes != null) && (coreAttributes.Length > 0)) {
+#if !NETCORE
+					IEnumerable<Attribute> coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
+#else
+					IEnumerable<Attribute> coreAttributes = fieldInfo.GetCustomAttributes(typeof(CoreExtensionAttribute));
+#endif
+					if (coreAttributes != null) {
 						foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
 							if (version.Api == coreAttribute.Version.Api && version >= coreAttribute.Version) {
 								support |= true;
@@ -775,8 +797,12 @@ namespace OpenGL
 					}
 
 					// Support by extension
-					Attribute[] extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
-					if ((extensionAttributes != null) && (extensionAttributes.Length > 0)) {
+#if !NETCORE
+					IEnumerable<Attribute> extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
+#else
+					IEnumerable<Attribute> extensionAttributes = fieldInfo.GetCustomAttributes(typeof(ExtensionAttribute));
+#endif
+					if (extensionAttributes != null) {
 						foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
 							if (_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName)) {
 								support |= true;
@@ -847,6 +873,7 @@ namespace OpenGL
 			if (extensions == null)
 				throw new ArgumentNullException("extensions");
 
+#if !NETCORE
 			Type apiType = typeof(T);
 			FunctionContext functionContext = GetFunctionContext(apiType);
 
@@ -866,7 +893,7 @@ namespace OpenGL
 				bool supportedByFeature = false;
 
 				Type delegateType = fi.DeclaringType.GetNestedType(fi.Name.Substring(1), BindingFlags.Public | BindingFlags.NonPublic);
-				object[] requiredByFeatureAttributes = delegateType.GetCustomAttributes(typeof(RequiredByFeatureAttribute), false);
+				IEnumerable<object> requiredByFeatureAttributes = delegateType.GetCustomAttributes(typeof(RequiredByFeatureAttribute), false);
 
 				foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes)
 					supportedByFeature |= requiredByFeatureAttribute.IsSupported(version, extensions);
@@ -963,6 +990,7 @@ namespace OpenGL
 				if (sync)
 					extensions.SyncMembers(version);
 			}
+#endif
 		}
 
 		#endregion

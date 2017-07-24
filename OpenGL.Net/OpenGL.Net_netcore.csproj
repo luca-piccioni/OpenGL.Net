@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <AssemblyName>OpenGL.Net</AssemblyName>
     <RootNamespace>OpenGL</RootNamespace>
+    <Authors>Luca Piccioni</Authors>
+    <Product>OpenGL.Net</Product>
+    <Copyright>Copyright (C) Luca Piccioni 2015-2017</Copyright>
+    <Version>0.5.1</Version>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -28,6 +34,7 @@
 
   <ItemGroup>
     <Compile Remove="Gl.NvOptmimus.cs" />
+    <Compile Remove="KhronosLogMap.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,10 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="KhronosLogMapEgl.xml" />
-    <EmbeddedResource Include="KhronosLogMapGl.xml" />
-    <EmbeddedResource Include="KhronosLogMapGlx.xml" />
-    <EmbeddedResource Include="KhronosLogMapWgl.xml" />
+    <None Include="KhronosLogMap.cs" />
   </ItemGroup>
 
 </Project>

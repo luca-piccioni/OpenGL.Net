@@ -190,7 +190,7 @@ namespace OpenGL
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 						break;
 					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+						throw new NotSupportedException("platform not supported");
 				}
 			} else
 				deviceContext = new DeviceContextEGL(display, windowHandle);
@@ -218,7 +218,7 @@ namespace OpenGL
 						deviceContext = new DeviceContextWGL(nativeBuffer);
 						break;
 					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Environment.OSVersion));
+						throw new NotSupportedException("platform not supported");
 				}
 			} else
 				deviceContext = new DeviceContextEGL(nativeBuffer);

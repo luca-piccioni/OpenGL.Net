@@ -20,6 +20,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Reflection;
 
 namespace OpenGL
 {
@@ -748,7 +749,7 @@ namespace OpenGL
 			{
 				string result = string.Empty;
 				Type type = ev.GetType();
-				System.Reflection.FieldInfo[] fields = type.GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Instance);
+				FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
 				for (int i = 0; i < fields.Length; i++) {
 					if (result != string.Empty) {
 						result += ", ";

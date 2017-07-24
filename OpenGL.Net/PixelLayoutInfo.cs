@@ -56,13 +56,23 @@ namespace OpenGL
 
 			Type pixelType = typeof(PixelLayout);
 
+#if !NETCORE
 			PixelColorspaceAttribute colorSpaceAttribute = (PixelColorspaceAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelColorspaceAttribute));
 			PixelComponentsAttribute colorComponentsAttribute = (PixelComponentsAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelComponentsAttribute));
 			PixelPlanesAttribute colorPlanesAttribute = (PixelPlanesAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelPlanesAttribute));
 			PixelPrecisionAttribute colorPrecisionAttribute = (PixelPrecisionAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelPrecisionAttribute));
 			PixelNonLinearAttribute colorNonLinearAttribute = (PixelNonLinearAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelNonLinearAttribute));
 			PixelStructureAttribute structAttribute = (PixelStructureAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelStructureAttribute));
+#else
+			PixelColorspaceAttribute colorSpaceAttribute = null;
+			PixelComponentsAttribute colorComponentsAttribute = null;
+			PixelPlanesAttribute colorPlanesAttribute = null;
+			PixelPrecisionAttribute colorPrecisionAttribute = null;
+			PixelNonLinearAttribute colorNonLinearAttribute = null;
+			PixelStructureAttribute structAttribute = null;
 
+			
+#endif
 			if (colorSpaceAttribute == null)
 				throw new InvalidOperationException(String.Format("pixel format {0} does not declare PixelColorspaceAttribute"));
 			if ((colorComponentsAttribute == null) && (colorPlanesAttribute == null))

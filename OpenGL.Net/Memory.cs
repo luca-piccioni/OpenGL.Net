@@ -60,6 +60,7 @@ namespace OpenGL
 		/// <returns></returns>
 		private static Action<IntPtr, byte, uint> GenerateMemsetDelegate()
 		{
+#if !NETCORE
 			DynamicMethod dynamicMethod = new DynamicMethod(
 				"Memset", MethodAttributes.Public | MethodAttributes.Static, CallingConventions.Standard,
 				null,
@@ -75,6 +76,9 @@ namespace OpenGL
 			generator.Emit(OpCodes.Ret);
 
 			return (Action<IntPtr, byte, uint>)dynamicMethod.CreateDelegate(typeof(Action<IntPtr, byte, uint>));
+#else
+			return (new Action<IntPtr, byte, uint>(delegate(IntPtr addr, byte value, uint count) { throw new NotImplementedException(); }));
+#endif
 		}
 
 		/// <summary>
@@ -235,10 +239,8 @@ namespace OpenGL
 			if (MemoryCopyPointer == null) {
 				IntPtr memoryCopyPtr;
 
-				switch (Environment.OSVersion.Platform) {
-					case PlatformID.Win32Windows:
-					case PlatformID.Win32NT:
-					case PlatformID.Win32S:
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
 						memoryCopyPtr = GetProcAddress.GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
 						if (memoryCopyPtr != IntPtr.Zero) {
 							MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
@@ -246,7 +248,7 @@ namespace OpenGL
 						}
 						
 						throw new NotSupportedException("no suitable memcpy support");
-					case PlatformID.Unix:
+					case Platform.Id.Linux:
 						memoryCopyPtr = GetProcAddress.GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
 						if (memoryCopyPtr != IntPtr.Zero) {
 							MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));

@@ -331,9 +331,9 @@ namespace BindingsGen
 				foreach (CommandParameter commandParameter in command.Parameters) {
 					OpenGL.KhronosLogMap.CommandParam logParameter = new OpenGL.KhronosLogMap.CommandParam();
 					logParameter.Name = commandParameter.Name;
-					logParameter.Flags = OpenGL.KhronosLogMap.CommandParameterFlags.None;
+					logParameter.Flags = OpenGL.KhronosLogCommandParameterFlags.None;
 					if (GenerateLogMap_IsEnumParameter(commandParameter))
-						logParameter.Flags |= OpenGL.KhronosLogMap.CommandParameterFlags.Enum;
+						logParameter.Flags |= OpenGL.KhronosLogCommandParameterFlags.Enum;
 					logCommandParams.Add(logParameter);
 				}
 

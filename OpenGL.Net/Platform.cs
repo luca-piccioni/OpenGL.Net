@@ -20,6 +20,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
@@ -88,6 +89,7 @@ namespace OpenGL
 		/// </returns>
 		private static Id GetCurrentPlatform()
 		{
+#if !NETCORE
 			// Framework platform
 			switch (Environment.OSVersion.Platform) {
 				case PlatformID.Win32NT:
@@ -111,6 +113,17 @@ namespace OpenGL
 				default:
 					return (Id.Unknown);
 			}
+			
+#else
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+				return (Id.WindowsNT);
+			else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+				return (Id.Linux);
+			else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+				return (Id.MacOS);
+			else
+				return (Id.Unknown);
+#endif
 		}
 
 		/// <summary>

@@ -37,9 +37,11 @@ namespace OpenGL
 		public KhronosLogContext(Type khronoApiType)
 		{
 			QueryLogContext(khronoApiType);
+#if !NETCORE
 			try {
 				_LogMap = KhronosLogMap.Load(String.Format("OpenGL.KhronosLogMap{0}.xml", khronoApiType.Name));
 			} catch { /* Fail-safe */ }
+#endif
 		}
 
 		#endregion
@@ -83,6 +85,8 @@ namespace OpenGL
 			Dictionary<Int64, string> enumNames = new Dictionary<Int64, string>();
 			Dictionary<string, Dictionary<Int64, string>> enumBitmasks = new Dictionary<string, Dictionary<Int64, string>>();
 
+#if !NETCORE
+
 			FieldInfo[] fieldInfos = khronoApiType.GetFields(BindingFlags.Public | BindingFlags.Static);
 
 			foreach (FieldInfo fieldInfo in fieldInfos) {
@@ -120,6 +124,8 @@ namespace OpenGL
 				}
 			}
 
+#endif
+
 			// Componse LogContext
 			_EnumNames = enumNames;
 			_EnumBitmasks = enumBitmasks;
@@ -135,10 +141,14 @@ namespace OpenGL
 		/// </summary>
 		private Dictionary<string, Dictionary<long, string>> _EnumBitmasks;
 
+#if !NETCORE
+
 		/// <summary>
 		/// Log map, if any.
 		/// </summary>
 		private KhronosLogMap _LogMap;
+
+#endif
 
 		#endregion
 
@@ -169,22 +179,24 @@ namespace OpenGL
 			formatArgs.Add(name);
 			if (args != null) {
 				for (int i = 0; i < args.Length; i++) {
-					KhronosLogMap.CommandParameterFlags flags = KhronosLogMap.CommandParameterFlags.None;
+					KhronosLogCommandParameterFlags flags = KhronosLogCommandParameterFlags.None;
+#if !NETCORE
 					if (_LogMap != null)
 						flags = _LogMap.GetCommandParameterFlag(name, i);
+#endif
 
 					formatArgs.Add(FormatArg(args[i], flags));
 				}
 					
 			}
 			if (returnValue != null)
-				formatArgs.Add(FormatArg(returnValue, KhronosLogMap.CommandParameterFlags.None));
+				formatArgs.Add(FormatArg(returnValue, KhronosLogCommandParameterFlags.None));
 
 			// Returns formatted string
 			return (String.Format(sbFormat.ToString(), formatArgs.ToArray()));
 		}
 
-		private object FormatArg(object arg, KhronosLogMap.CommandParameterFlags flags)
+		private object FormatArg(object arg, KhronosLogCommandParameterFlags flags)
 		{
 			Type argType = arg.GetType();
 
@@ -200,7 +212,7 @@ namespace OpenGL
 				return (arg);
 		}
 
-		private object FormatArg(string[] arg, KhronosLogMap.CommandParameterFlags flags)
+		private object FormatArg(string[] arg, KhronosLogCommandParameterFlags flags)
 		{
 			if (arg != null) {
 				StringBuilder sb = new StringBuilder();
@@ -217,7 +229,7 @@ namespace OpenGL
 				return ("{ null }");
 		}
 
-		private object FormatArg(Array arg, KhronosLogMap.CommandParameterFlags flags)
+		private object FormatArg(Array arg, KhronosLogCommandParameterFlags flags)
 		{
 			if (arg != null) {
 				StringBuilder sb = new StringBuilder();
@@ -234,14 +246,14 @@ namespace OpenGL
 				return ("{ null }");
 		}
 
-		private object FormatArg(IntPtr arg, KhronosLogMap.CommandParameterFlags flags)
+		private object FormatArg(IntPtr arg, KhronosLogCommandParameterFlags flags)
 		{
 			return ("0x" + arg.ToString("X8"));
 		}
 
-		private object FormatArg(Int32 arg, KhronosLogMap.CommandParameterFlags flags)
+		private object FormatArg(Int32 arg, KhronosLogCommandParameterFlags flags)
 		{
-			if ((flags & KhronosLogMap.CommandParameterFlags.Enum) != 0) {
+			if ((flags & KhronosLogCommandParameterFlags.Enum) != 0) {
 				string enumName = GetEnumName(arg);
 
 				if (enumName != null)

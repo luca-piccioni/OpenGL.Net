@@ -53,7 +53,11 @@ namespace OpenGL
 			_Initialized = true;
 
 			// Before linking procedures, append ANGLE directory in path
+#if !NETCORE
 			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Egl)).Location);
+#else
+			string assemblyPath = Directory.GetCurrentDirectory();
+#endif
 			string anglePath = null;
 
 			switch (Platform.CurrentPlatformId) {

@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
+#if !NETCORE
 [assembly: AssemblyTitle("OpenGL.Net")]
 [assembly: AssemblyDescription("Modern C# bindings for OpenGL.")]
 [assembly: AssemblyConfiguration("")]
@@ -13,6 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright (C) Luca Piccioni 2015-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+#endif
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -29,8 +31,10 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
+#if !NETCORE
 [assembly: AssemblyVersion("0.4.0")]
 [assembly: AssemblyFileVersion("0.4.0")]
+#endif
 
 [assembly: InternalsVisibleTo("OpenGL.Net.VideoCore")]
 [assembly: InternalsVisibleTo("OpenWF.Net")]

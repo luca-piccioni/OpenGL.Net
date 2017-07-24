@@ -328,11 +328,18 @@ namespace OpenGL
 		/// </returns>
 		private static MethodInfo GetConversionMethod(PixelLayout srcType, PixelLayout dstType)
 		{
+#if !NETCORE
 			return (typeof(Pixel).GetMethod(
 				GetConvertionMethodName(srcType, dstType),
 				BindingFlags.NonPublic | BindingFlags.Static, null,
 				new Type[] { typeof(IntPtr), typeof(IntPtr), typeof(uint), typeof(uint) }, null
 			));
+#else
+			return (typeof(Pixel).GetMethod(
+				GetConvertionMethodName(srcType, dstType),
+				new Type[] { typeof(IntPtr), typeof(IntPtr), typeof(uint), typeof(uint) }
+			));
+#endif
 		}
 
 		/// <summary>

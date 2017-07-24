@@ -330,6 +330,7 @@
     <Compile Include="IVertex2.cs" />
     <Compile Include="IVertex3.cs" />
     <Compile Include="IVertex4.cs" />
+    <Compile Include="KhronosLogCommandParameterFlags.cs" />
     <Compile Include="KhronosLogContext.cs" />
     <Compile Include="KhronosLogEventArgs.cs" />
     <Compile Include="KhronosLogMap.cs" />

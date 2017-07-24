@@ -187,7 +187,11 @@ namespace OpenGL
 					windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
 					windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
 					windowClass.lpfnWndProc = Marshal.GetFunctionPointerForDelegate(_WindowsWndProc);
+#if !NETCORE
 					windowClass.hInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
+#else
+					windowClass.hInstance = IntPtr.Zero;
+#endif
 					windowClass.lpszClassName = DefaultWindowClass;
 
 					if ((_ClassAtom = UnsafeNativeMethods.RegisterClassEx(ref windowClass)) == 0)
@@ -313,7 +317,11 @@ namespace OpenGL
 				}
 
 				if (_ClassAtom != 0) {
+#if !NETCORE
 					UnsafeNativeMethods.UnregisterClass(_ClassAtom, Marshal.GetHINSTANCE(typeof(Gl).Module));
+#else
+					
+#endif
 					_ClassAtom = 0;
 				}
 			}

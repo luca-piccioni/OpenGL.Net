@@ -84,19 +84,8 @@ namespace OpenGL
 			public string Name;
 
 			[XmlAttribute("flags")]
-			[DefaultValue(CommandParameterFlags.None)]
-			public CommandParameterFlags Flags = CommandParameterFlags.None;
-		}
-
-		/// <summary>
-		/// Command parameter element.
-		/// </summary>
-		public enum CommandParameterFlags
-		{
-			[XmlEnum("none")]
-			None =				0x0000,
-			[XmlEnum("enum")]
-			Enum =				0x0001,
+			[DefaultValue(KhronosLogCommandParameterFlags.None)]
+			public KhronosLogCommandParameterFlags Flags = KhronosLogCommandParameterFlags.None;
 		}
 
 		#endregion
@@ -161,11 +150,11 @@ namespace OpenGL
 			return (commandParam.Name);
 		}
 
-		public CommandParameterFlags GetCommandParameterFlag(string commandName, int paramIndex)
+		public KhronosLogCommandParameterFlags GetCommandParameterFlag(string commandName, int paramIndex)
 		{
 			CommandParam commandParam = GetCommandParam(commandName, paramIndex);
 			if (commandParam == null)
-				return (CommandParameterFlags.None);
+				return (KhronosLogCommandParameterFlags.None);
 
 			return (commandParam.Flags);
 		}

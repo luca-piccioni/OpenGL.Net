@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace OpenGL
@@ -57,8 +58,13 @@ namespace OpenGL
 				FieldInfo[] graphicsLimitsFields = typeof(Limits).GetFields(BindingFlags.Public | BindingFlags.Instance);
 
 				foreach (FieldInfo field in graphicsLimitsFields) {
+#if !NETCORE
 					LimitAttribute graphicsLimitAttribute = (LimitAttribute)Attribute.GetCustomAttribute(field, typeof(LimitAttribute));
 					Attribute[] graphicsExtensionAttributes = Attribute.GetCustomAttributes(field, typeof(RequiredByFeatureAttribute));
+#else
+					LimitAttribute graphicsLimitAttribute = (LimitAttribute)field.GetCustomAttribute(typeof(LimitAttribute));
+					Attribute[] graphicsExtensionAttributes = new List<Attribute>(field.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray();
+#endif
 					MethodInfo getMethod;
 
 					if (graphicsLimitAttribute == null)
@@ -76,6 +82,7 @@ namespace OpenGL
 					}
 
 					// Determine which method is used to get the OpenGL limit
+#if !NETCORE
 					if (field.FieldType != typeof(String)) {
 						if (field.FieldType.IsArray == true)
 							getMethod = typeof(Gl).GetMethod("Get", BindingFlags.Public | BindingFlags.Static, null, new Type[] { typeof(Int32), field.FieldType }, null);
@@ -83,6 +90,15 @@ namespace OpenGL
 							getMethod = typeof(Gl).GetMethod("Get", BindingFlags.Public | BindingFlags.Static, null, new Type[] { typeof(Int32), field.FieldType.MakeByRefType() }, null);
 					} else
 						getMethod = typeof(Gl).GetMethod("GetString", BindingFlags.Public | BindingFlags.Static, null, new Type[] { typeof(Int32) }, null);
+#else
+					if (field.FieldType != typeof(String)) {
+						if (field.FieldType.IsArray == true)
+							getMethod = typeof(Gl).GetMethod("Get", new Type[] { typeof(Int32), field.FieldType });
+						else
+							getMethod = typeof(Gl).GetMethod("Get", new Type[] { typeof(Int32), field.FieldType.MakeByRefType() });
+					} else
+						getMethod = typeof(Gl).GetMethod("GetString", new Type[] { typeof(Int32) });
+#endif
 
 					if (getMethod != null) {
 						if (field.FieldType != typeof(String)) {
@@ -91,7 +107,7 @@ namespace OpenGL
 							if (field.FieldType.IsArray == false)
 								obj = Activator.CreateInstance(field.FieldType);
 							else
-								obj = Array.CreateInstance(field.FieldType.GetElementType(), graphicsLimitAttribute.ArrayLength);
+								obj = Array.CreateInstance(field.FieldType.GetElementType(), (int)graphicsLimitAttribute.ArrayLength);
 
 							try {
 								object[] @params = new object[] { graphicsLimitAttribute.EnumValue, obj };

@@ -286,6 +286,7 @@
     <Compile Include="Gl.Limits.cs" />
     <Compile Include="Gl.SC_VERSION_2_0.cs" />
     <Compile Include="INativePBuffer.cs" />
+    <Compile Include="KhronosLogCommandParameterFlags.cs" />
     <Compile Include="KhronosLogMap.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
     <Compile Include="DMP\Gl.DMP_shader_binary.cs" />

@@ -17,6 +17,7 @@
 // USA
 
 using System;
+using System.Reflection;
 using System.Text;
 
 namespace OpenGL
@@ -1112,8 +1113,13 @@ namespace OpenGL
 				return (false);
 			if (ReferenceEquals(this, obj))
 				return (true);
+#if !NETCORE
 			if ((obj.GetType() != typeof(MatrixDouble)) && (obj.GetType().IsSubclassOf(typeof(MatrixDouble)) == false))
 				return (false);
+#else
+			if ((obj.GetType() != typeof(MatrixDouble)) && (obj.GetType().GetTypeInfo().IsSubclassOf(typeof(MatrixDouble)) == false))
+				return (false);
+#endif
 
 			return (Equals((MatrixDouble)obj));
 		}
