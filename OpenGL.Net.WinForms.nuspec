@@ -25,6 +25,7 @@
         <releaseNotes>
             v0.5.2
             - Fixed GlControl.ContextVersion designer property serialization.
+            
             v0.5.1
             - Added continuos animation support.
         </releaseNotes>

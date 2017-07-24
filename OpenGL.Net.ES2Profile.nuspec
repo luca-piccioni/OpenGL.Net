@@ -31,15 +31,26 @@
             - No OpenGL API
         </description>
         <releaseNotes>
-            - Added enumeration arguments and return types; (more will be)
-            - Renamed enumerations from ARB or EXT suffixes for core enumerations;
-            - Loads only the required commands for the current GL context; faster load times;
-            - Logging has a cleaner and extensible interface
-            - EGL initialization event for passing custom arguments; other APIs may have their own event;
-            - Optional library initialization via environment variables;
-            - Updated specification (but with strong customization due enums)
-            - More documentation from GLES3.2 manual
-            - Commands and enumerations are documented with multiple manuals
+          * v0.5.2
+          - Documentation tagged with source reference page, for each member;
+          - Completed GL limits support class, automatically generated with gl.xml information;
+          - More coherent procedure loader (ensure priority: Core -> ARB -> EXT -> Vendor);
+          - Added extensions: WGL_ARB_create_context_no_error - GLX_ARB_create_context_no_error - GL_EXT_memory_object - GL_EXT_memory_object_fd - GL_EXT_memory_object_win32 - GL_EXT_semaphore - GL_EXT_semaphore_fd - GL_EXT_semaphore_win32 - GL_EXT_win32_keyed_mutex - GL_EXT_texture_storage (alias of GL_APPLE_texture_format_BGRA8888);
+          - Added OpenGL SC 2 API metadata, binding SC2 over other GL implementations;
+          - Un-aliased GL_CLIP_DISTANCE* enumerations from GL_CLIP_PLANE: they have different requirements;
+          - Added GL_DEPTH_STENCIL_ATTACHMENT in FramebufferAttachment enumeration;
+          - MemoryBarrier and MemoryBarrierByRegion uses MemoryBarrierMask enumeration;
+
+          * v0.5.1
+          - Added enumeration arguments and return types; (more will be);
+          - Renamed enumerations from ARB or EXT suffixes for core enumerations;
+          - Loads only the required commands for the current GL context; faster load times;
+          - Logging has a cleaner and extensible interface;
+          - EGL initialization event for passing custom arguments; other APIs may have their own event;
+          - Optional library initialization via environment variables;
+          - Updated specification (but with strong customization due enums);
+          - More documentation from GLES3.2 manual;
+          - Commands and enumerations are documented with multiple manuals;
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
         <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
