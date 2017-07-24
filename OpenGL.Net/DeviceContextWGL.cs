@@ -33,6 +33,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -190,7 +191,7 @@ namespace OpenGL
 #if !NETCORE
 					windowClass.hInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
 #else
-					windowClass.hInstance = IntPtr.Zero;
+					windowClass.hInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).GetTypeInfo().Assembly.Location);
 #endif
 					windowClass.lpszClassName = DefaultWindowClass;
 
@@ -258,21 +259,20 @@ namespace OpenGL
 				[DllImport("user32.dll", EntryPoint = "DefWindowProc", SetLastError = true)]
 				internal static extern IntPtr DefWindowProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
-				[DllImport("user32.dll", EntryPoint = "RegisterClassExW", SetLastError = true)]
+				[DllImport("user32.dll", EntryPoint = "RegisterClassEx", SetLastError = true, CharSet = CharSet.Unicode)]
 				internal static extern UInt16 RegisterClassEx([In] ref WNDCLASSEX lpWndClass);
 
 				[DllImport("user32.dll", EntryPoint = "UnregisterClass", SetLastError = true)]
 				public static extern bool UnregisterClass(UInt16 lpClassAtom, IntPtr hInstance);
 
-#if !NETCORE
-				[DllImport("user32.dll", EntryPoint = "CreateWindowExW", SetLastError = true, CharSet = CharSet.Auto)]
-#else
-				[DllImport("user32.dll", EntryPoint = "CreateWindowExW", SetLastError = true)]
-#endif
+				[DllImport("user32.dll", EntryPoint = "CreateWindowEx", SetLastError = true, CharSet = CharSet.Unicode)]
 				internal static extern IntPtr CreateWindowEx(uint dwExStyle, string lpClassName, string lpWindowName, uint dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
 
 				[DllImport("user32.dll", SetLastError = true)]
 				internal static extern bool DestroyWindow(IntPtr hWnd);
+
+				[DllImport("Kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+				internal static extern IntPtr GetModuleHandle(string lpModuleName);
 			}
 
 			private static IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
