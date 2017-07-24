@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netcore.csproj" />
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netcore1.1.csproj" />
   </ItemGroup>
 
 </Project>
