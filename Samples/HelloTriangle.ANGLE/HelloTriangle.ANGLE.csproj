@@ -136,7 +136,7 @@
     <PostBuildEvent>xcopy /S /Y "$(SolutionDir)\ANGLE" "$(TargetDir)\ANGLE\"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
-    <PostBuildEvent>cp -R "$(SolutionDir)OpenGL.Net/ANGLE" "$(TargetDir)ANGLE/"</PostBuildEvent>
+    <PostBuildEvent>cp -R "$(SolutionDir)ANGLE" "$(TargetDir)ANGLE/"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
