@@ -943,7 +943,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <PostBuildEvent>$(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+    <PostBuildEvent>mono $(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
