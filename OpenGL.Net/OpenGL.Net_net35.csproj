@@ -43,7 +43,7 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\net35\Debug\OpenGL.Net.xml</DocumentationFile>
-    <NoWarn>419,1570,1572,1573,1734,1574,1591</NoWarn>
+    <NoWarn>419,1570,1572,1573,1574,1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -56,7 +56,7 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\net35\Release\OpenGL.Net.xml</DocumentationFile>
-    <NoWarn>419,1570,1572,1573,1734,1574,1591</NoWarn>
+    <NoWarn>419,1570,1572,1573,1574,1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
