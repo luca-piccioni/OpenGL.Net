@@ -74,6 +74,10 @@ Or just download the nuget binary packages:
 
 Go to the [wiki](https://github.com/luca-piccioni/OpenGL.Net/wiki) to look for information about the project.
 
+# Licensing
+
+The project is released under the [MIT](https://opensource.org/licenses/MIT) license. Previous revisions of the project were licensed under the _LGPL2_ licence; this kind of license seems limiting the deployment of the binary forms on some platform (ironic, isn't it?). Since the project is maintained to be useful on the widest range of platforms/user-cases, and considering the spirit of the technology used to build it ([.NET Fundation](https://dotnetfoundation.org/)), the MIT license was preferred. The [WTFPL](http://www.wtfpl.net/about/) license was considered also, but it hasn not met all requirements.
+
 # Contributing
 
 If you use _OpenGL.Net_, and you're willing to improve the project, your contributions are welcome.
