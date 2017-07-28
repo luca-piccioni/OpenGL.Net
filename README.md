@@ -37,13 +37,23 @@ Follow the command below to clone and build the repository.
 
     git clone https://github.com/luca-piccioni/OpenGL.Net.git
     cd OpenGL.Net
-    msbuild /p:Configuration=Release OpenGL.Net_VC14.sln`
+    msbuild /p:Configuration=Release OpenGL.Net_VC14.sln
+    msbuild /p:Configuration=Release OpenGL.Net_VC15.sln
+
+The following environments can be used:
+- Visual Studio 2015 for _OpenGL.Net_VC14.sln_
+- Visual Studio 2017 15.3 (Preview 2) for _OpenGL.Net_VC15.sln_
 
 ### NuGet
 
 Open the [Package Manager Console](https://docs.nuget.org/consume/package-manager-console) and run the following command:
 
     Install-Package OpenGL.Net
+    
+You can choose to restrict the available GL profile:
+
+    Install-Package OpenGL.Net.CoreProfile
+    Install-Package OpenGL.Net.ES2Profile
     
 To integrate window systems, run the most appropriate command for your platform:
 
@@ -54,6 +64,8 @@ To integrate window systems, run the most appropriate command for your platform:
 Or just download the nuget binary packages:
 
 - [OpenGL.Net](https://www.nuget.org/packages/OpenGL.Net/)
+- [OpenGL.Net - Core Profile](https://www.nuget.org/packages/OpenGL.Net.CoreProfile/)
+- [OpenGL.Net - ES2+ Profile](https://www.nuget.org/packages/OpenGL.Net.ES2Profile/)
 - [OpenGL.Net.WinForms](https://www.nuget.org/packages/OpenGL.Net.WinForms/): System.Windows.Forms UI integration (GlControl), supporting Windows and Linux.
 - [OpenGL.Net.Xamarin.Android](https://www.nuget.org/packages/OpenGL.Net.Xamarin.Android/): Xamarin/Android UI integration.
 - [OpenGL.Net.VideoCore](https://www.nuget.org/packages/OpenGL.Net.VideoCore/): Rpi Broadcom VC4 UI integration (native, no X11 support).
