@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26720.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net_net35", "OpenGL.Net\OpenGL.Net_net35.csproj", "{ABB8DFA8-473A-4FC1-85C0-E21680772A58}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -103,7 +103,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Toolkits", "Toolkits", "{81
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net_netcore1.1", "OpenGL.Net\OpenGL.Net_netcore1.1.csproj", "{CC75D61A-DE09-42B7-B486-E46580DCF8DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle.NETCore", "Samples\HelloTriangle.NETCore\HelloTriangle.NETCore.csproj", "{CC66A8AC-BB09-42A9-BDC2-44B68B1CCBD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloTriangle.NETCore1.1", "Samples\HelloTriangle.NETCore\HelloTriangle.NETCore1.1.csproj", "{CC66A8AC-BB09-42A9-BDC2-44B68B1CCBD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net_netcore2.0", "OpenGL.Net\OpenGL.Net_netcore2.0.csproj", "{B53A3B6C-D29A-4F71-8558-B9A5D090724F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloTriangle.NETCore2.0", "Samples\HelloTriangle.NETCore\HelloTriangle.NETCore2.0.csproj", "{21ECEBE1-F070-4043-B008-C0B240F2D0DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -325,6 +329,22 @@ Global
 		{CC66A8AC-BB09-42A9-BDC2-44B68B1CCBD1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC66A8AC-BB09-42A9-BDC2-44B68B1CCBD1}.Release|x86.ActiveCfg = Release|Any CPU
 		{CC66A8AC-BB09-42A9-BDC2-44B68B1CCBD1}.Release|x86.Build.0 = Release|Any CPU
+		{B53A3B6C-D29A-4F71-8558-B9A5D090724F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B53A3B6C-D29A-4F71-8558-B9A5D090724F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B53A3B6C-D29A-4F71-8558-B9A5D090724F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B53A3B6C-D29A-4F71-8558-B9A5D090724F}.Debug|x86.Build.0 = Debug|Any CPU
+		{B53A3B6C-D29A-4F71-8558-B9A5D090724F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B53A3B6C-D29A-4F71-8558-B9A5D090724F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B53A3B6C-D29A-4F71-8558-B9A5D090724F}.Release|x86.ActiveCfg = Release|Any CPU
+		{B53A3B6C-D29A-4F71-8558-B9A5D090724F}.Release|x86.Build.0 = Release|Any CPU
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD}.Debug|x86.Build.0 = Debug|Any CPU
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD}.Release|x86.ActiveCfg = Release|Any CPU
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -354,5 +374,9 @@ Global
 		{1EDC57AC-6E7A-43E6-9481-5354F37FA6F7} = {81BBBDCD-40F4-43F2-BAA6-AE8280C19105}
 		{73A9C3CD-3467-47B6-976B-8F0B7C22140B} = {81BBBDCD-40F4-43F2-BAA6-AE8280C19105}
 		{CC66A8AC-BB09-42A9-BDC2-44B68B1CCBD1} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
+		{21ECEBE1-F070-4043-B008-C0B240F2D0DD} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A1302DF-7820-469A-9EB2-83CF7691A088}
 	EndGlobalSection
 EndGlobal

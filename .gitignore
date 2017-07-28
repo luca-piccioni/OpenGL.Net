@@ -92,3 +92,5 @@ packages
 /OpenGL.Net.GTK3/obj
 /Samples/HelloTriangle.NETCore/obj
 /Samples/HelloTriangle.NETCore/bin
+/Samples/HelloTriangle.GTK/obj
+/Samples/HelloTriangle.GTK/bin

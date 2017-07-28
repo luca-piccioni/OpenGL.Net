@@ -1,27 +1,23 @@
 ﻿
-
-
-
-
-
-
-
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 2.1 of the License, or (at your option) any later version.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 // 
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// Lesser General Public License for more details.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 // 
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library; if not, write to the Free Software
-// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
-// USA
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 using System;
 using System.Diagnostics;
@@ -29,7 +25,6 @@ using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
-
 	/// <summary>
 	/// BGRA color.
 	/// </summary>
@@ -74,19 +69,16 @@ namespace OpenGL
 		/// </param>
 		public ColorBGRA32(byte r, byte g, byte b, byte a)
 		{
-
 			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
 			this.a = a;
-
 		}
 
 		#endregion
 
 		#region Structure
-
 
 		/// <summary>
 		/// Blue color components.
@@ -108,7 +100,6 @@ namespace OpenGL
 		/// </summary>
 		public byte a;
 
-
 		#endregion
 
 		#region IColorRGBA<byte> Implementation
@@ -118,10 +109,8 @@ namespace OpenGL
 		/// </summary>
 		public byte Red
 		{
-
 			get { return (r); }
 			set { r = value; }
-
 		}
 		
 		/// <summary>
@@ -129,10 +118,8 @@ namespace OpenGL
 		/// </summary>
 		public byte Green
 		{
-
 			get { return (g); }
 			set { g = value; }
-
 		}
 		
 		/// <summary>
@@ -140,10 +127,8 @@ namespace OpenGL
 		/// </summary>
 		public byte Blue
 		{
-
 			get { return (b); }
 			set { b = value; }
-
 		}
 
 		/// <summary>
@@ -151,10 +136,8 @@ namespace OpenGL
 		/// </summary>
 		public byte Alpha
 		{
-
 			get { return (a); }
 			set { a = value; }
-
 		}
 		
 		#endregion
@@ -180,7 +163,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -205,12 +187,10 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
 	}
-
 
 	/// <summary>
 	/// BGRA color.
@@ -256,19 +236,16 @@ namespace OpenGL
 		/// </param>
 		public ColorBGRA64(ushort r, ushort g, ushort b, ushort a)
 		{
-
 			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
 			this.a = a;
-
 		}
 
 		#endregion
 
 		#region Structure
-
 
 		/// <summary>
 		/// Blue color components.
@@ -290,7 +267,6 @@ namespace OpenGL
 		/// </summary>
 		public ushort a;
 
-
 		#endregion
 
 		#region IColorRGBA<ushort> Implementation
@@ -300,10 +276,8 @@ namespace OpenGL
 		/// </summary>
 		public ushort Red
 		{
-
 			get { return (r); }
 			set { r = value; }
-
 		}
 		
 		/// <summary>
@@ -311,10 +285,8 @@ namespace OpenGL
 		/// </summary>
 		public ushort Green
 		{
-
 			get { return (g); }
 			set { g = value; }
-
 		}
 		
 		/// <summary>
@@ -322,10 +294,8 @@ namespace OpenGL
 		/// </summary>
 		public ushort Blue
 		{
-
 			get { return (b); }
 			set { b = value; }
-
 		}
 
 		/// <summary>
@@ -333,10 +303,8 @@ namespace OpenGL
 		/// </summary>
 		public ushort Alpha
 		{
-
 			get { return (a); }
 			set { a = value; }
-
 		}
 		
 		#endregion
@@ -362,7 +330,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -387,12 +354,10 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
 	}
-
 
 	/// <summary>
 	/// BGRA color.
@@ -438,19 +403,16 @@ namespace OpenGL
 		/// </param>
 		public ColorBGRAF(float r, float g, float b, float a)
 		{
-
 			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
 			this.a = a;
-
 		}
 
 		#endregion
 
 		#region Structure
-
 
 		/// <summary>
 		/// Blue color components.
@@ -472,7 +434,6 @@ namespace OpenGL
 		/// </summary>
 		public float a;
 
-
 		#endregion
 
 		#region IColorRGBA<float> Implementation
@@ -482,10 +443,8 @@ namespace OpenGL
 		/// </summary>
 		public float Red
 		{
-
 			get { return (r); }
 			set { r = value; }
-
 		}
 		
 		/// <summary>
@@ -493,10 +452,8 @@ namespace OpenGL
 		/// </summary>
 		public float Green
 		{
-
 			get { return (g); }
 			set { g = value; }
-
 		}
 		
 		/// <summary>
@@ -504,10 +461,8 @@ namespace OpenGL
 		/// </summary>
 		public float Blue
 		{
-
 			get { return (b); }
 			set { b = value; }
-
 		}
 
 		/// <summary>
@@ -515,10 +470,8 @@ namespace OpenGL
 		/// </summary>
 		public float Alpha
 		{
-
 			get { return (a); }
 			set { a = value; }
-
 		}
 		
 		#endregion
@@ -544,7 +497,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -569,12 +521,10 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
 	}
-
 
 	/// <summary>
 	/// BGRA color.
@@ -620,19 +570,16 @@ namespace OpenGL
 		/// </param>
 		public ColorBGRAHF(HalfFloat r, HalfFloat g, HalfFloat b, HalfFloat a)
 		{
-
 			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
 			this.a = a;
-
 		}
 
 		#endregion
 
 		#region Structure
-
 
 		/// <summary>
 		/// Blue color components.
@@ -654,7 +601,6 @@ namespace OpenGL
 		/// </summary>
 		public HalfFloat a;
 
-
 		#endregion
 
 		#region IColorRGBA<HalfFloat> Implementation
@@ -664,10 +610,8 @@ namespace OpenGL
 		/// </summary>
 		public HalfFloat Red
 		{
-
 			get { return (r); }
 			set { r = value; }
-
 		}
 		
 		/// <summary>
@@ -675,10 +619,8 @@ namespace OpenGL
 		/// </summary>
 		public HalfFloat Green
 		{
-
 			get { return (g); }
 			set { g = value; }
-
 		}
 		
 		/// <summary>
@@ -686,10 +628,8 @@ namespace OpenGL
 		/// </summary>
 		public HalfFloat Blue
 		{
-
 			get { return (b); }
 			set { b = value; }
-
 		}
 
 		/// <summary>
@@ -697,10 +637,8 @@ namespace OpenGL
 		/// </summary>
 		public HalfFloat Alpha
 		{
-
 			get { return (a); }
 			set { a = value; }
-
 		}
 		
 		#endregion
@@ -726,7 +664,6 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
-
 			get
 			{
 				switch (c) {
@@ -751,11 +688,9 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
 	}
-
 
 }

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <RootNamespace>HelloTriangle.NETCore</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\netcoreapp1.1\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\netcoreapp1.1\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netcore1.1.csproj" />
+  </ItemGroup>
+
+</Project>

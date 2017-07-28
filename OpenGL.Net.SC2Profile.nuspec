@@ -6,7 +6,7 @@
         <title>OpenGL for .Net - SC2 Profile</title>
         <authors>Luca Piccioni</authors>
         <owners>Luca Piccioni</owners>
-        <licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
+        <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
     <!--<iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net.Logo.png</iconUrl>-->
         <requireLicenseAcceptance>true</requireLicenseAcceptance>

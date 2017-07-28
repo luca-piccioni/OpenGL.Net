@@ -359,7 +359,7 @@ namespace BindingsGen
 
 		internal static void GenerateLicensePreamble(SourceStreamWriter sw)
 		{
-			using (StreamReader sr = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("BindingsGen.Licenses.LGPL2.txt"))) {
+			using (StreamReader sr = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("BindingsGen.Licenses.MIT.txt"))) {
 				string line;
 
 				sw.WriteLine();

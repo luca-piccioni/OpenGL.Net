@@ -15,15 +15,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\Release\</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcore</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;NETCORE;NETCOREAPP1_1</DefineConstants>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP1_1</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\Debug\</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcore</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;NETCORE;NETCOREAPP1_1</DefineConstants>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;NETCOREAPP1_1</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
