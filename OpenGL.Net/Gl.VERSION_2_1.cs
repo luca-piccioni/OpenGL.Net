@@ -40,10 +40,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_PIXEL_PACK_BUFFER_ARB")]
 		[AliasOf("GL_PIXEL_PACK_BUFFER_EXT")]
+		[AliasOf("GL_PIXEL_PACK_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
 		public const int PIXEL_PACK_BUFFER = 0x88EB;
 
 		/// <summary>
@@ -51,10 +53,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_ARB")]
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_EXT")]
+		[AliasOf("GL_PIXEL_UNPACK_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
 		public const int PIXEL_UNPACK_BUFFER = 0x88EC;
 
 		/// <summary>
@@ -64,10 +68,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_EXT")]
+		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
 		public const int PIXEL_PACK_BUFFER_BINDING = 0x88ED;
 
 		/// <summary>
@@ -77,10 +83,12 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_ARB")]
 		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_EXT")]
+		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
 		public const int PIXEL_UNPACK_BUFFER_BINDING = 0x88EF;
 
 		/// <summary>

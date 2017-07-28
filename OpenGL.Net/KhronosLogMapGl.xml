@@ -557,6 +557,13 @@
     <param name="data" />
     <param name="flags" />
   </command>
+  <command name="glBufferStorageExternalEXT">
+    <param name="target" flags="enum" />
+    <param name="offset" />
+    <param name="size" />
+    <param name="clientBuffer" />
+    <param name="flags" />
+  </command>
   <command name="glBufferStorageMemEXT">
     <param name="target" flags="enum" />
     <param name="size" />
@@ -5819,14 +5826,6 @@
     <param name="basevertex" />
   </command>
   <command name="glMultiDrawElementsBaseVertexEXT">
-    <param name="mode" flags="enum" />
-    <param name="count" />
-    <param name="type" flags="enum" />
-    <param name="indices" />
-    <param name="primcount" />
-    <param name="basevertex" />
-  </command>
-  <command name="glMultiDrawElementsBaseVertexOES">
     <param name="mode" flags="enum" />
     <param name="count" />
     <param name="type" flags="enum" />

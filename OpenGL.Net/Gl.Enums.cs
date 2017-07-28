@@ -1106,6 +1106,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
 		PixelPackBuffer = Gl.PIXEL_PACK_BUFFER,
 
 		/// <summary>
@@ -1115,6 +1116,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
 		PixelUnpackBuffer = Gl.PIXEL_UNPACK_BUFFER,
 
 		/// <summary>

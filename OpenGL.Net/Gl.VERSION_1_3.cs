@@ -1434,11 +1434,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage3DARB")]
-		[AliasOf("glCompressedTexImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
@@ -1540,11 +1538,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage3DARB")]
-		[AliasOf("glCompressedTexImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CompressedTexImage3D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -2038,11 +2034,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage3DARB")]
-		[AliasOf("glCompressedTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage3D != null, "pglCompressedTexSubImage3D not implemented");
@@ -2142,11 +2136,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage3DARB")]
-		[AliasOf("glCompressedTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -4224,7 +4216,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
@@ -4232,11 +4223,9 @@ namespace OpenGL
 
 			[AliasOf("glCompressedTexImage3D")]
 			[AliasOf("glCompressedTexImage3DARB")]
-			[AliasOf("glCompressedTexImage3DOES")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCompressedTexImage3D pglCompressedTexImage3D;
 
@@ -4275,7 +4264,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
@@ -4283,11 +4271,9 @@ namespace OpenGL
 
 			[AliasOf("glCompressedTexSubImage3D")]
 			[AliasOf("glCompressedTexSubImage3DARB")]
-			[AliasOf("glCompressedTexSubImage3DOES")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCompressedTexSubImage3D pglCompressedTexSubImage3D;
 

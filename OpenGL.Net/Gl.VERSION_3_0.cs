@@ -6671,11 +6671,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.GenRenderbuffers"/>
 		/// <seealso cref="Gl.FramebufferTexture"/>
 		[AliasOf("glFramebufferTexture3DEXT")]
-		[AliasOf("glFramebufferTexture3DOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void FramebufferTexture3D(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level, Int32 layer)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture3D != null, "pglFramebufferTexture3D not implemented");
@@ -9088,7 +9086,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
@@ -9096,11 +9093,9 @@ namespace OpenGL
 
 			[AliasOf("glFramebufferTexture3D")]
 			[AliasOf("glFramebufferTexture3DEXT")]
-			[AliasOf("glFramebufferTexture3DOES")]
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glFramebufferTexture3D pglFramebufferTexture3D;
 

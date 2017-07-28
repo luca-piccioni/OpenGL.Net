@@ -156,8 +156,9 @@
 	<type name="struct _cl_context*" value="IntPtr" />
 	<type name="struct _cl_event*" value="IntPtr" />
 
-	<!-- OpenGL ES types -->
-	<type name="GLeglImageOES" value="IntPtr" />
+	<!-- Various pointer types -->
+	<type name="GLeglClientBufferEXT" value="IntPtr" />
+  <type name="GLeglImageOES" value="IntPtr" />
 
 	<!-- Various -->
 	<type name="GLvdpauSurfaceNV" value="IntPtr" />

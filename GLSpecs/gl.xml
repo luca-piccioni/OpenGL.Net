@@ -83,6 +83,7 @@ typedef unsigned __int64 uint64_t;
         <type>typedef float <name>GLclampf</name>;</type>
         <type>typedef double <name>GLdouble</name>;</type>
         <type>typedef double <name>GLclampd</name>;</type>
+        <type>typedef void *<name>GLeglClientBufferEXT</name>;</type>
         <type>typedef void *<name>GLeglImageOES</name>;</type>
         <type>typedef char <name>GLchar</name>;</type>
         <type>typedef char <name>GLcharARB</name>;</type>
@@ -7030,16 +7031,20 @@ typedef unsigned int GLhandleARB;
         <enum value="0x88EB" name="GL_PIXEL_PACK_BUFFER"/>
         <enum value="0x88EB" name="GL_PIXEL_PACK_BUFFER_ARB"/>
         <enum value="0x88EB" name="GL_PIXEL_PACK_BUFFER_EXT"/>
+        <enum value="0x88EB" name="GL_PIXEL_PACK_BUFFER_NV"/>
         <enum value="0x88EC" name="GL_PIXEL_UNPACK_BUFFER"/>
         <enum value="0x88EC" name="GL_PIXEL_UNPACK_BUFFER_ARB"/>
         <enum value="0x88EC" name="GL_PIXEL_UNPACK_BUFFER_EXT"/>
+        <enum value="0x88EC" name="GL_PIXEL_UNPACK_BUFFER_NV"/>
         <enum value="0x88ED" name="GL_PIXEL_PACK_BUFFER_BINDING"/>
         <enum value="0x88ED" name="GL_PIXEL_PACK_BUFFER_BINDING_ARB"/>
         <enum value="0x88ED" name="GL_PIXEL_PACK_BUFFER_BINDING_EXT"/>
+        <enum value="0x88ED" name="GL_PIXEL_PACK_BUFFER_BINDING_NV"/>
         <enum value="0x88EE" name="GL_ETC1_SRGB8_NV"/>
         <enum value="0x88EF" name="GL_PIXEL_UNPACK_BUFFER_BINDING"/>
         <enum value="0x88EF" name="GL_PIXEL_UNPACK_BUFFER_BINDING_ARB"/>
         <enum value="0x88EF" name="GL_PIXEL_UNPACK_BUFFER_BINDING_EXT"/>
+        <enum value="0x88EF" name="GL_PIXEL_UNPACK_BUFFER_BINDING_NV"/>
         <enum value="0x88F0" name="GL_DEPTH24_STENCIL8"/>
         <enum value="0x88F0" name="GL_DEPTH24_STENCIL8_EXT"/>
         <enum value="0x88F0" name="GL_DEPTH24_STENCIL8_OES"/>
@@ -10801,6 +10806,14 @@ typedef unsigned int GLhandleARB;
             <alias name="glBufferStorage"/>
         </command>
         <command>
+            <proto>void <name>glBufferStorageExternalEXT</name></proto>
+            <param><ptype>GLenum</ptype> <name>target</name></param>
+            <param><ptype>GLintptr</ptype> <name>offset</name></param>
+            <param><ptype>GLsizeiptr</ptype> <name>size</name></param>
+            <param><ptype>GLeglClientBufferEXT</ptype> <name>clientBuffer</name></param>
+            <param><ptype>GLbitfield</ptype> <name>flags</name></param>
+        </command>
+        <command>
             <proto>void <name>glBufferStorageMemEXT</name></proto>
             <param group="BufferTargetARB"><ptype>GLenum</ptype> <name>target</name></param>
             <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
@@ -11988,7 +12001,6 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>border</name></param>
             <param><ptype>GLsizei</ptype> <name>imageSize</name></param>
             <param len="imageSize">const void *<name>data</name></param>
-            <alias name="glCompressedTexImage3D"/>
         </command>
         <command>
             <proto>void <name>glCompressedTexSubImage1D</name></proto>
@@ -12087,7 +12099,6 @@ typedef unsigned int GLhandleARB;
             <param group="PixelFormat"><ptype>GLenum</ptype> <name>format</name></param>
             <param><ptype>GLsizei</ptype> <name>imageSize</name></param>
             <param len="imageSize">const void *<name>data</name></param>
-            <alias name="glCompressedTexSubImage3D"/>
         </command>
         <command>
             <proto>void <name>glCompressedTextureImage1DEXT</name></proto>
@@ -12709,7 +12720,6 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>y</name></param>
             <param><ptype>GLsizei</ptype> <name>width</name></param>
             <param><ptype>GLsizei</ptype> <name>height</name></param>
-            <alias name="glCopyTexSubImage3D"/>
         </command>
         <command>
             <proto>void <name>glCopyTextureImage1DEXT</name></proto>
@@ -15007,7 +15017,6 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>texture</name></param>
             <param><ptype>GLint</ptype> <name>level</name></param>
             <param><ptype>GLint</ptype> <name>zoffset</name></param>
-            <alias name="glFramebufferTexture3D"/>
         </command>
         <command>
             <proto>void <name>glFramebufferTextureARB</name></proto>
@@ -17619,7 +17628,7 @@ typedef unsigned int GLhandleARB;
             <param group="ShaderType"><ptype>GLenum</ptype> <name>shadertype</name></param>
             <param group="PrecisionType"><ptype>GLenum</ptype> <name>precisiontype</name></param>
             <param len="2"><ptype>GLint</ptype> *<name>range</name></param>
-            <param len="2"><ptype>GLint</ptype> *<name>precision</name></param>
+            <param len="1"><ptype>GLint</ptype> *<name>precision</name></param>
         </command>
         <command>
             <proto>void <name>glGetShaderSource</name></proto>
@@ -20435,16 +20444,6 @@ typedef unsigned int GLhandleARB;
             <alias name="glMultiDrawElementsBaseVertex"/>
         </command>
         <command>
-            <proto>void <name>glMultiDrawElementsBaseVertexOES</name></proto>
-            <param group="PrimitiveType"><ptype>GLenum</ptype> <name>mode</name></param>
-            <param len="COMPSIZE(drawcount)">const <ptype>GLsizei</ptype> *<name>count</name></param>
-            <param group="DrawElementsType"><ptype>GLenum</ptype> <name>type</name></param>
-            <param len="COMPSIZE(drawcount)">const void *const*<name>indices</name></param>
-            <param><ptype>GLsizei</ptype> <name>primcount</name></param>
-            <param len="COMPSIZE(drawcount)">const <ptype>GLint</ptype> *<name>basevertex</name></param>
-            <alias name="glMultiDrawElementsBaseVertex"/>
-        </command>
-        <command>
             <proto>void <name>glMultiDrawElementsEXT</name></proto>
             <param group="PrimitiveType"><ptype>GLenum</ptype> <name>mode</name></param>
             <param len="COMPSIZE(primcount)">const <ptype>GLsizei</ptype> *<name>count</name></param>
@@ -21547,6 +21546,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param len="size">const void *<name>data</name></param>
+            <param><ptype>GLbitfield</ptype> <name>flags</name></param>
+        </command>
+        <command>
+            <proto>void <name>glNamedBufferStorageExternalEXT</name></proto>
+            <param><ptype>GLuint</ptype> <name>buffer</name></param>
+            <param><ptype>GLintptr</ptype> <name>offset</name></param>
+            <param><ptype>GLsizeiptr</ptype> <name>size</name></param>
+            <param><ptype>GLeglClientBufferEXT</ptype> <name>clientBuffer</name></param>
             <param><ptype>GLbitfield</ptype> <name>flags</name></param>
         </command>
         <command>
@@ -26747,7 +26754,6 @@ typedef unsigned int GLhandleARB;
             <param group="PixelFormat"><ptype>GLenum</ptype> <name>format</name></param>
             <param group="PixelType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="COMPSIZE(format,type,width,height,depth)">const void *<name>pixels</name></param>
-            <alias name="glTexImage3D"/>
         </command>
         <command>
             <proto>void <name>glTexImage4DSGIS</name></proto>
@@ -27129,7 +27135,6 @@ typedef unsigned int GLhandleARB;
             <param group="PixelFormat"><ptype>GLenum</ptype> <name>format</name></param>
             <param group="PixelType"><ptype>GLenum</ptype> <name>type</name></param>
             <param len="COMPSIZE(format,type,width,height,depth)">const void *<name>pixels</name></param>
-            <alias name="glTexSubImage3D"/>
         </command>
         <command>
             <proto>void <name>glTexSubImage4DSGIS</name></proto>
@@ -42781,6 +42786,12 @@ typedef unsigned int GLhandleARB;
                 <command name="glDrawTransformFeedbackInstancedEXT"/>
             </require>
         </extension>
+        <extension name="GL_EXT_external_buffer" supported="gl|gles2">
+            <require>
+                <command name="glBufferStorageExternalEXT"/>
+                <command name="glNamedBufferStorageExternalEXT"/>
+            </require>
+        </extension>
         <extension name="GL_EXT_float_blend" supported="gles2"/>
         <extension name="GL_EXT_fog_coord" supported="gl">
             <require>
@@ -45315,6 +45326,12 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_BLEND_ADVANCED_COHERENT_NV"/>
             </require>
         </extension>
+        <extension name="GL_NV_blend_minmax_factor" supported="gl|glcore|gles2">
+            <require>
+                <enum name="GL_FACTOR_MIN_AMD"/>
+                <enum name="GL_FACTOR_MAX_AMD"/>
+            </require>
+        </extension>
         <extension name="GL_NV_blend_square" supported="gl"/>
         <extension name="GL_NV_clip_space_w_scaling" supported="gl|glcore">
             <require>
@@ -46284,6 +46301,14 @@ typedef unsigned int GLhandleARB;
                 <command name="glFlushPixelDataRangeNV"/>
             </require>
         </extension>
+        <extension name="GL_NV_pixel_buffer_object" supported="gles2">
+            <require>
+                <enum name="GL_PIXEL_PACK_BUFFER_NV"/>
+                <enum name="GL_PIXEL_UNPACK_BUFFER_NV"/>
+                <enum name="GL_PIXEL_PACK_BUFFER_BINDING_NV"/>
+                <enum name="GL_PIXEL_UNPACK_BUFFER_BINDING_NV"/>
+            </require>
+        </extension>
         <extension name="GL_NV_point_sprite" supported="gl">
             <require>
                 <enum name="GL_POINT_SPRITE_NV"/>
@@ -46579,6 +46604,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_MAX_RECTANGLE_TEXTURE_SIZE_NV"/>
             </require>
         </extension>
+        <extension name="GL_NV_texture_rectangle_compressed" supported="gl|glcore"/>
         <extension name="GL_NV_texture_shader" supported="gl">
             <require>
                 <enum name="GL_OFFSET_TEXTURE_RECTANGLE_NV"/>
@@ -47293,7 +47319,7 @@ typedef unsigned int GLhandleARB;
                 <command name="glDrawElementsBaseVertexOES"/>
                 <command name="glDrawRangeElementsBaseVertexOES" comment="Supported only if OpenGL ES 3.0 is supported"/>
                 <command name="glDrawElementsInstancedBaseVertexOES" comment="Supported only if OpenGL ES 3.0 is supported"/>
-                <command name="glMultiDrawElementsBaseVertexOES" comment="Supported only if GL_EXT_multi_draw_arrays is supported"/>
+                <command name="glMultiDrawElementsBaseVertexEXT" comment="Supported only if GL_EXT_multi_draw_arrays is supported"/>
             </require>
         </extension>
         <extension name="GL_OES_draw_texture" supported="gles1">

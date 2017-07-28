@@ -3749,6 +3749,12 @@ namespace OpenGL
 			public bool ViewportArray_NV;
 
 			/// <summary>
+			/// Support for extension GL_NV_texture_rectangle_compressed.
+			/// </summary>
+			[Extension("GL_NV_texture_rectangle_compressed", Api = "gl|glcore")]
+			public bool TextureRectangleCompressed_NV;
+
+			/// <summary>
 			/// Support for extension GL_NV_texture_npot_2D_mipmap.
 			/// </summary>
 			[Extension("GL_NV_texture_npot_2D_mipmap", Api = "gles2")]
@@ -3843,6 +3849,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_NV_polygon_mode", Api = "gles2")]
 			public bool PolygonMode_NV;
+
+			/// <summary>
+			/// Support for extension GL_NV_pixel_buffer_object.
+			/// </summary>
+			[Extension("GL_NV_pixel_buffer_object", Api = "gles2")]
+			public bool PixelBufferObject_NV;
 
 			/// <summary>
 			/// Support for extension GL_NV_non_square_matrices.
@@ -3959,6 +3971,12 @@ namespace OpenGL
 			public bool ClipSpaceWScaling_NV;
 
 			/// <summary>
+			/// Support for extension GL_NV_blend_minmax_factor.
+			/// </summary>
+			[Extension("GL_NV_blend_minmax_factor", Api = "gl|glcore|gles2")]
+			public bool BlendMinmaxFactor_NV;
+
+			/// <summary>
 			/// Support for extension GL_NV_alpha_to_coverage_dither_control.
 			/// </summary>
 			[Extension("GL_NV_alpha_to_coverage_dither_control")]
@@ -4043,10 +4061,10 @@ namespace OpenGL
 			public bool ReadFormat_IMG;
 
 			/// <summary>
-			/// Support for extension GL_EXT_tessellation_point_size.
+			/// Support for extension GL_EXT_tessellation_shader.
 			/// </summary>
-			[Extension("GL_EXT_tessellation_point_size", Api = "gles2")]
-			public bool TessellationPointSize_EXT;
+			[Extension("GL_EXT_tessellation_shader", Api = "gles2")]
+			public bool TessellationShader_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_window_rectangles.
@@ -4145,10 +4163,10 @@ namespace OpenGL
 			public bool TextureBorderClamp_EXT;
 
 			/// <summary>
-			/// Support for extension GL_EXT_tessellation_shader.
+			/// Support for extension GL_EXT_tessellation_point_size.
 			/// </summary>
-			[Extension("GL_EXT_tessellation_shader", Api = "gles2")]
-			public bool TessellationShader_EXT;
+			[Extension("GL_EXT_tessellation_point_size", Api = "gles2")]
+			public bool TessellationPointSize_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_sparse_texture.
@@ -4359,6 +4377,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_EXT_float_blend", Api = "gles2")]
 			public bool FloatBlend_EXT;
+
+			/// <summary>
+			/// Support for extension GL_EXT_external_buffer.
+			/// </summary>
+			[Extension("GL_EXT_external_buffer", Api = "gl|gles2")]
+			public bool ExternalBuffer_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_draw_transform_feedback.

@@ -792,11 +792,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexImage3DEXT")]
-		[AliasOf("glTexImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void TexImage3D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglTexImage3D != null, "pglTexImage3D not implemented");
@@ -945,11 +943,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexImage3DEXT")]
-		[AliasOf("glTexImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void TexImage3D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(data, GCHandleType.Pinned);
@@ -1080,11 +1076,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexSubImage3DEXT")]
-		[AliasOf("glTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void TexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage3D != null, "pglTexSubImage3D not implemented");
@@ -1213,11 +1207,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexSubImage3DEXT")]
-		[AliasOf("glTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void TexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
@@ -1298,11 +1290,9 @@ namespace OpenGL
 		/// <seealso cref="Gl.TexSubImage2D"/>
 		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glCopyTexSubImage3DEXT")]
-		[AliasOf("glCopyTexSubImage3DOES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 		public static void CopyTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage3D != null, "pglCopyTexSubImage3D not implemented");
@@ -1362,7 +1352,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
@@ -1370,18 +1359,15 @@ namespace OpenGL
 
 			[AliasOf("glTexImage3D")]
 			[AliasOf("glTexImage3DEXT")]
-			[AliasOf("glTexImage3DOES")]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexImage3D pglTexImage3D;
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
@@ -1389,18 +1375,15 @@ namespace OpenGL
 
 			[AliasOf("glTexSubImage3D")]
 			[AliasOf("glTexSubImage3DEXT")]
-			[AliasOf("glTexSubImage3DOES")]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glTexSubImage3D pglTexSubImage3D;
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_copy_texture")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			#if !NETCORE
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
@@ -1408,11 +1391,9 @@ namespace OpenGL
 
 			[AliasOf("glCopyTexSubImage3D")]
 			[AliasOf("glCopyTexSubImage3DEXT")]
-			[AliasOf("glCopyTexSubImage3DOES")]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_copy_texture")]
-			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCopyTexSubImage3D pglCopyTexSubImage3D;
 

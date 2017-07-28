@@ -39,12 +39,14 @@ namespace OpenGL
 		/// [GL] Value of GL_FACTOR_MIN_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_blend_minmax_factor")]
+		[RequiredByFeature("GL_NV_blend_minmax_factor", Api = "gl|glcore|gles2")]
 		public const int FACTOR_MIN_AMD = 0x901C;
 
 		/// <summary>
 		/// [GL] Value of GL_FACTOR_MAX_AMD symbol.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_blend_minmax_factor")]
+		[RequiredByFeature("GL_NV_blend_minmax_factor", Api = "gl|glcore|gles2")]
 		public const int FACTOR_MAX_AMD = 0x901D;
 
 	}

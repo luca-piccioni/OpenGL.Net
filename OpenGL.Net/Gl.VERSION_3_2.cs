@@ -1114,7 +1114,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glMultiDrawElementsBaseVertexEXT")]
-		[AliasOf("glMultiDrawElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
@@ -2306,7 +2305,6 @@ namespace OpenGL
 
 			[AliasOf("glMultiDrawElementsBaseVertex")]
 			[AliasOf("glMultiDrawElementsBaseVertexEXT")]
-			[AliasOf("glMultiDrawElementsBaseVertexOES")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]

@@ -637,11 +637,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		public static void GetShaderPrecisionFormat(ShaderType shadertype, PrecisionType precisiontype, [Out] Int32[] range, [Out] Int32[] precision)
+		public static void GetShaderPrecisionFormat(ShaderType shadertype, PrecisionType precisiontype, [Out] Int32[] range, out Int32 precision)
 		{
 			unsafe {
 				fixed (Int32* p_range = range)
-				fixed (Int32* p_precision = precision)
+				fixed (Int32* p_precision = &precision)
 				{
 					Debug.Assert(Delegates.pglGetShaderPrecisionFormat != null, "pglGetShaderPrecisionFormat not implemented");
 					Delegates.pglGetShaderPrecisionFormat((Int32)shadertype, (Int32)precisiontype, p_range, p_precision);

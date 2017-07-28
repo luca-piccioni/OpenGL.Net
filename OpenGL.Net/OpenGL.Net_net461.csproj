@@ -274,6 +274,7 @@
     <Compile Include="ColorSRGB.cs" />
     <Compile Include="EglEventArgs.cs" />
     <Compile Include="EXT\Egl.EXT_protected_content.cs" />
+    <Compile Include="EXT\Gl.EXT_external_buffer.cs" />
     <Compile Include="EXT\Gl.EXT_geometry_shader4.cs" />
     <Compile Include="EXT\Gl.EXT_memory_object.cs" />
     <Compile Include="EXT\Gl.EXT_memory_object_fd.cs" />
@@ -710,6 +711,7 @@
     <Compile Include="OES\Gl.OES_point_size_array.cs" />
     <Compile Include="OES\Gl.OES_query_matrix.cs" />
     <Compile Include="OES\Gl.OES_single_precision.cs" />
+    <Compile Include="OES\Gl.OES_texture_3D.cs" />
     <Compile Include="OES\Gl.OES_texture_compression_astc.cs" />
     <Compile Include="OES\Gl.OES_texture_cube_map.cs" />
     <Compile Include="OES\Gl.OES_vertex_half_float.cs" />
