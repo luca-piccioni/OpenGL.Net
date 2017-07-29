@@ -94,7 +94,7 @@ namespace OpenGL
 		/// <exception cref='NotSupportedException'>
 		/// Exception thrown if the current platform is not supported.
 		/// </exception>
-		public static INativeWindow CreateWindow(int x, int y, uint width, uint height)
+		private static INativeWindow CreateWindow(int x, int y, uint width, uint height)
 		{
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
