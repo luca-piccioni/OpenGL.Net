@@ -7,7 +7,17 @@
 # OpenGL.Net
 Modern OpenGL bindings for C#.
 
-Generated from the lastest official XML specification, _OpenGL.Net_ provides:
+### OpenGL and related API
+- [OpenGL 4.5](https://www.opengl.org/registry/), including compatibility profile
+- [OpenGL ES 3.2](https://www.khronos.org/registry/gles/), including OpenGL ES 1.0
+- [OpenGL SC 2.0](https://www.khronos.org/openglsc/); OpenGL SC 1.0 is not supported.
+- WGL, GLX 1.4 and [EGL (Native Platform Interface) 1.5](https://www.khronos.org/registry/egl/) as platform APIs.
+- [Broadcom VideoCore IV](http://elinux.org/Raspberry_Pi_VideoCore_APIs)
+- [OpenWF Composition](https://www.khronos.org/openwf/)
+- [GLU](https://www.opengl.org/resources/libraries/) (only tessellator commands)
+
+### Features
+- Generated from the lastest official XML specification
 - Function pointer wrappers, with safe and unsafe parameters, pinning managed memory when necessary;
 - Automatic entry points aliasing management: function loader is aware of the current OpenGL context;
 - Strongly typed enumerants;
@@ -17,13 +27,6 @@ Generated from the lastest official XML specification, _OpenGL.Net_ provides:
 - Automatic OpenGL extensions and implementation limits query;
 - Checking errors after each OpenGL command (Debug builds only);
 - Integrated entry points call logging (Debug builds only);
-
-Currently implemented API are:
-- [OpenGL 4.5](https://www.opengl.org/registry/), including compatibility profile
-- [OpenGL ES 3.2](https://www.khronos.org/registry/gles/), including OpenGL ES 1.0
-- [OpenGL SC 2.0](https://www.khronos.org/openglsc/); OpenGL SC 1.0 is not supported.
-- WGL, GLX 1.4 and [EGL (Native Platform Interface) 1.5](https://www.khronos.org/registry/egl/) as platform APIs.
-- [Broadcom VideoCore IV](http://elinux.org/Raspberry_Pi_VideoCore_APIs) and [OpenWF Composition](https://www.khronos.org/openwf/) (alpha state)
 
 If you need more [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming) in OpenGL, you can give a try to [OpenGL.Net.Objects](https://github.com/luca-piccioni/OpenGL.Net.Objects).
 
@@ -72,31 +75,8 @@ Or just download the nuget binary packages:
 
 # Documentation
 
-Go to the [wiki](https://github.com/luca-piccioni/OpenGL.Net/wiki) to look for information about the project.
+Go to the [wiki](https://github.com/luca-piccioni/OpenGL.Net/wiki) to look for information about the project. There is also a [Samples](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples) directory, where application skeleton are implemented for various platforms.
 
-# Contributing
+# Licensing
 
-If you use _OpenGL.Net_, and you're willing to improve the project, your contributions are welcome.
-
-## Create an issue
-
-If you find something wrong during the development, you can open an issue to get help. The issue should specify all information that helps to identify the problem. The minimal information to be included should be:
-
-- _OpenGL.Net_ version and configuration;
-- Operating system;
-- GPU device driver vendor, if correlated with the problem.
-
-The common reasons for creating an issue:
-
-- **Unexpected exceptions**: if you get an unexpected exception from _OpenGL.Net_, the issue should specify the exception stack and message.
-- **Missing OpenGL API**: if you expect a GL command, a GL constant or an enumeration, but it is missing or wrong, you can create an issue about it; you can go further by checking the local gl.xml specification, and if it is reasonable, create an issue to the [Khronos GitHub repository](https://github.com/KhronosGroup/OpenGL-API/issues).
-- **Toolkit integration**: you can run _OpenGL.Net_ with any toolkit on any(*) platform, just find the display and window handles. You can open an issue for requesting a support library for integrating some toolkit.
-- **Missing feature**: you can request any feature implementation, if it is related to the project target.
-
-## Pull request
-
-Once you have created an issue, you are free to submit a pull request relative to the issue.
-
-## Donate
-
-If you like the project, or if it has saved you time, or you just want to offer a free beer to me, you can [![Donate](https://img.shields.io/badge/paypal-me-blue.svg)](http://paypal.me/openglnet).
+The project is released under the [MIT](https://opensource.org/licenses/MIT) license. Previous revisions of the project were licensed under the _LGPL2_ licence; this kind of license seems limiting the deployment of the binary forms on some platform (ironic, isn't it?). Since the project is maintained to be useful on the widest range of platforms/user-cases, and considering the spirit of the technology used to build it ([.NET Fundation](https://dotnetfoundation.org/)), the MIT license was preferred. The [WTFPL](http://www.wtfpl.net/about/) license was considered also, but it hasn not met all requirements.
