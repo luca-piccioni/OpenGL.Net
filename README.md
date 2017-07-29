@@ -16,6 +16,16 @@ Modern OpenGL bindings for C#.
 - [OpenWF Composition](https://www.khronos.org/openwf/)
 - [GLU](https://www.opengl.org/resources/libraries/) (only tessellator commands)
 
+### Target Frameworks Matrix
+
+| Platform/OS  | .NET 3.5 | .NET 4.6 | Xamarin | .NET Core |
+| :----------------------- | :-: | :-: | :-: | :-: |
+| Windows | X  | X | X | X |
+| Linux   | X | - | - | ? |
+| MacOS   | ? | ? | ? | ? |
+| Android | - | - | X | - |
+| Rasperry Pi 2| X | - | - | ? |
+
 ### Features
 - Generated from the lastest official XML specification
 - Function pointer wrappers, with safe and unsafe parameters, pinning managed memory when necessary;
