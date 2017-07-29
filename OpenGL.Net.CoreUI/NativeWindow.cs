@@ -91,8 +91,8 @@ namespace OpenGL.CoreUI
 		/// </exception>
 		public static NativeWindow Create()
 		{
-			switch (Platform.CurrentPlatformId) {
-				case Platform.Id.WindowsNT:
+			switch (OpenGL.Platform.CurrentPlatformId) {
+				case OpenGL.Platform.Id.WindowsNT:
 					return (new NativeWindowWinNT());
 				default:
 					throw new NotSupportedException();

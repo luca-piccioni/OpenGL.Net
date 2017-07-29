@@ -21,6 +21,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace OpenGL.CoreUI

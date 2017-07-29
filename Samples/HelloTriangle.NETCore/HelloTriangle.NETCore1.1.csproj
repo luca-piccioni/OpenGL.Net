@@ -17,6 +17,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OpenGL.Net.CoreUI\OpenGL.Net.CoreUI_netcore1.1.csproj" />
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netcore1.1.csproj" />
   </ItemGroup>
 

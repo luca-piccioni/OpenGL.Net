@@ -1,6 +1,7 @@
 ﻿using System;
 
 using OpenGL;
+using OpenGL.CoreUI;
 
 namespace HelloTriangle.NETCore
 {
@@ -8,26 +9,10 @@ namespace HelloTriangle.NETCore
 	{
 		static void Main(string[] args)
 		{
-			Gl.Initialize();
-
-			try {
-				// Gl.CurrentExtensions.FramebufferObject_ARB = false;		// Test P-Buffer
-				// Egl.IsRequired = Egl.IsAvailable;						// Test EGL (not yet working)
-
-				if (Gl.CurrentExtensions.FramebufferObject_ARB) {
-					using (DeviceContext deviceContext = DeviceContext.Create()) {
-						RenderOsdFramebuffer(deviceContext);
-					}
-				} else {
-					// Fallback to old-school pbuffer
-					using (INativePBuffer nativeBuffer = DeviceContext.CreatePBuffer(new DevicePixelFormat(24), 800, 600)) {
-						using (DeviceContext deviceContext = DeviceContext.Create(nativeBuffer)) {
-							RenderOsdPBuffer(deviceContext);
-						}
-					}
-				}
-			} catch (Exception exception) {
-				Console.WriteLine("Unexpected exception: {0}", exception.ToString());
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				nativeWindow.Create(0, 0, 256, 256);
+				nativeWindow.Show();
+				nativeWindow.Run();
 			}
 		}
 

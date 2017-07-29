@@ -31,12 +31,6 @@ namespace HelloTriangle
 		[STAThread]
 		static void Main()
 		{
-			using (OpenGL.CoreUI.NativeWindow nativeWindow = OpenGL.CoreUI.NativeWindow.Create()) {
-				nativeWindow.Create(0, 0, 256, 256);
-				nativeWindow.Show();
-				nativeWindow.Run();
-			}
-
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
 			if (envDebug == "GL") {
 				KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {

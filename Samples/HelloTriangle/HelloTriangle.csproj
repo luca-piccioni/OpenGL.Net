@@ -97,10 +97,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OpenGL.Net.CoreUI\OpenGL.Net.CoreUI_net35.csproj">
-      <Project>{574716b9-f7d9-44c7-8e65-e5827ea031d0}</Project>
-      <Name>OpenGL.Net.CoreUI_net35</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms_net35.csproj">
       <Project>{b65d2a92-28fb-400c-990a-c805a8586b60}</Project>
       <Name>OpenGL.Net.WinForms_net35</Name>
