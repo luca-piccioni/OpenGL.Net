@@ -94,3 +94,5 @@ packages
 /Samples/HelloTriangle.NETCore/bin
 /Samples/HelloTriangle.GTK/obj
 /Samples/HelloTriangle.GTK/bin
+/OpenGL.Net.CoreUI/obj
+/OpenGL.Net.CoreUI/bin
