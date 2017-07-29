@@ -27,8 +27,25 @@ Modern OpenGL bindings for C#.
 - Automatic OpenGL extensions and implementation limits query;
 - Checking errors after each OpenGL command (Debug builds only);
 - Integrated entry points call logging (Debug builds only);
+- Support ANGLE backend
 
 If you need more [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming) in OpenGL, you can give a try to [OpenGL.Net.Objects](https://github.com/luca-piccioni/OpenGL.Net.Objects).
+
+### Frameworks
+_OpenGL.Net_ is running on a number of .NET frameworks:
+- .NET Framework 3.5
+- .NET Framework 4.6.1
+- .NET Core 1.1
+- .NET Core 2.0
+
+### Toolkits
+_OpenGL.Net_ is not aware(*) about the underlying platform or graphical toolkit you're running on. To create a GL context, users are required to provide a window handle and a display handle. There are sub-projects that automate the GL viewport definition and creation.
+
+- _System.Windows.Forms_ toolkit, using an custom UserControl.
+- _GTK#_ toolkit, using a custom Widget.
+- _Android_, using a SurfaceView.
+- _Raspberry Pi 2 VC4_, using the platform SDK.
+- _OpenWF_ compatible video systems.
 
 # Instructions
 
