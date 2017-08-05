@@ -269,8 +269,14 @@ namespace BindingsGen.GLSpecs
 		internal void Link(RegistryContext ctx)
 		{
 			// Index enumeration groups
-			foreach (EnumerantGroup enumerantGroup in Groups)
+			foreach (EnumerantGroup enumerantGroup in Groups) {
+				if (_EnumerantGroupRegistry.ContainsKey(enumerantGroup.Name)) {
+					Console.WriteLine("Enumeration group {0} is duplicated. Ignoring the late definition.", enumerantGroup.Name);
+					continue;
+				}
 				_EnumerantGroupRegistry.Add(enumerantGroup.Name, enumerantGroup);
+			}
+				
 			// Index commands
 			foreach (Command command in Commands)
 				_CommandRegistry.Add(command.Prototype.Name, command);
