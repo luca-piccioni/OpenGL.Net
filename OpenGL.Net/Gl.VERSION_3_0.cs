@@ -2280,7 +2280,7 @@ namespace OpenGL
 		[AliasOf("GL_COMPRESSED_RED_RGTC1_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
+		[RequiredByFeature("GL_EXT_texture_compression_rgtc", Api = "gl|gles2")]
 		public const int COMPRESSED_RED_RGTC1 = 0x8DBB;
 
 		/// <summary>
@@ -2289,7 +2289,7 @@ namespace OpenGL
 		[AliasOf("GL_COMPRESSED_SIGNED_RED_RGTC1_EXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
+		[RequiredByFeature("GL_EXT_texture_compression_rgtc", Api = "gl|gles2")]
 		public const int COMPRESSED_SIGNED_RED_RGTC1 = 0x8DBC;
 
 		/// <summary>

@@ -161,14 +161,11 @@
     <Compile Include="ARB\Gl.ARB_compute_variable_group_size.cs" />
     <Compile Include="ARB\Gl.ARB_fragment_program.cs" />
     <Compile Include="ARB\Gl.ARB_geometry_shader4.cs" />
-    <Compile Include="ARB\Gl.ARB_gl_spirv.cs" />
     <Compile Include="ARB\Gl.ARB_gpu_shader_int64.cs" />
     <Compile Include="ARB\Gl.ARB_imaging.cs" />
-    <Compile Include="ARB\Gl.ARB_indirect_parameters.cs" />
     <Compile Include="ARB\Gl.ARB_internalformat_query2.cs" />
     <Compile Include="ARB\Gl.ARB_matrix_palette.cs" />
     <Compile Include="ARB\Gl.ARB_parallel_shader_compile.cs" />
-    <Compile Include="ARB\Gl.ARB_pipeline_statistics_query.cs" />
     <Compile Include="ARB\Gl.ARB_robustness.cs" />
     <Compile Include="ARB\Gl.ARB_sample_locations.cs" />
     <Compile Include="ARB\Gl.ARB_shader_objects.cs" />
@@ -180,7 +177,6 @@
     <Compile Include="ARB\Gl.ARB_texture_filter_minmax.cs" />
     <Compile Include="ARB\Gl.ARB_texture_float.cs" />
     <Compile Include="ARB\Gl.ARB_texture_gather.cs" />
-    <Compile Include="ARB\Gl.ARB_transform_feedback_overflow_query.cs" />
     <Compile Include="ARB\Gl.ARB_vertex_blend.cs" />
     <Compile Include="ARB\Gl.ARB_vertex_program.cs" />
     <Compile Include="ARB\Gl.ARB_vertex_shader.cs" />
@@ -305,6 +301,7 @@
     <Compile Include="Gl.PlatformExtensions.cs" />
     <Compile Include="Gl.SC_VERSION_2_0.cs" />
     <Compile Include="Gl.Vb.cs" />
+    <Compile Include="Gl.VERSION_4_6.cs" />
     <Compile Include="Gl.VERSION_ES_CM_1_0.cs" />
     <Compile Include="Glu.cs" />
     <Compile Include="IColor.cs" />
@@ -394,7 +391,6 @@
     <Compile Include="EXT\Gl.EXT_pixel_transform.cs" />
     <Compile Include="EXT\Gl.EXT_point_parameters.cs" />
     <Compile Include="EXT\Gl.EXT_polygon_offset.cs" />
-    <Compile Include="EXT\Gl.EXT_polygon_offset_clamp.cs" />
     <Compile Include="EXT\Gl.EXT_raster_multisample.cs" />
     <Compile Include="EXT\Gl.EXT_separate_shader_objects.cs" />
     <Compile Include="EXT\Gl.EXT_shader_image_load_store.cs" />
@@ -407,7 +403,6 @@
     <Compile Include="EXT\Gl.EXT_texture_compression_rgtc.cs" />
     <Compile Include="EXT\Gl.EXT_texture_compression_s3tc.cs" />
     <Compile Include="EXT\Gl.EXT_texture_env_dot3.cs" />
-    <Compile Include="EXT\Gl.EXT_texture_filter_anisotropic.cs" />
     <Compile Include="EXT\Gl.EXT_texture_integer.cs" />
     <Compile Include="EXT\Gl.EXT_texture_mirror_clamp.cs" />
     <Compile Include="EXT\Gl.EXT_texture_object.cs" />
@@ -526,7 +521,6 @@
     <Compile Include="KHR\Egl.KHR_vg_parent_image.cs" />
     <Compile Include="KHR\Egl.KHR_wait_sync.cs" />
     <Compile Include="KHR\Gl.KHR_blend_equation_advanced_coherent.cs" />
-    <Compile Include="KHR\Gl.KHR_no_error.cs" />
     <Compile Include="MatrixBase.cs" />
     <Compile Include="Matrix3x3.cs" />
     <Compile Include="Matrix.cs">

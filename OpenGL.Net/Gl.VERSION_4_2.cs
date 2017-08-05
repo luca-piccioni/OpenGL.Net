@@ -1036,32 +1036,40 @@ namespace OpenGL
 		/// [GL] Value of GL_COMPRESSED_RGBA_BPTC_UNORM symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGBA_BPTC_UNORM_ARB")]
+		[AliasOf("GL_COMPRESSED_RGBA_BPTC_UNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
 		public const int COMPRESSED_RGBA_BPTC_UNORM = 0x8E8C;
 
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB")]
+		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
 		public const int COMPRESSED_SRGB_ALPHA_BPTC_UNORM = 0x8E8D;
 
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB")]
+		[AliasOf("GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
 		public const int COMPRESSED_RGB_BPTC_SIGNED_FLOAT = 0x8E8E;
 
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB")]
+		[AliasOf("GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
 		public const int COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT = 0x8E8F;
 
 		/// <summary>

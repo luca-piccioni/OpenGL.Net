@@ -194,6 +194,7 @@ namespace OpenGL
 		[AliasOf("GL_GEOMETRY_SHADER_INVOCATIONS_EXT")]
 		[AliasOf("GL_GEOMETRY_SHADER_INVOCATIONS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_pipeline_statistics_query", Api = "gl|glcore")]

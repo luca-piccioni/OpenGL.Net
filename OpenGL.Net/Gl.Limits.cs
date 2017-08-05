@@ -441,11 +441,12 @@ namespace OpenGL
 			public int MaxTextureLodBias;
 
 			/// <summary>
-			/// [GL] Value of GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT symbol.
+			/// [GL] Value of GL_MAX_TEXTURE_MAX_ANISOTROPY symbol.
 			/// </summary>
-			[Limit(MAX_TEXTURE_MAX_ANISOTROPY_EXT)]
-			[RequiredByFeature("GL_EXT_texture_filter_anisotropic", Api = "gl|gles1|gles2")]
-			public int MaxTextureMaxAnisotropyExt;
+			[Limit(MAX_TEXTURE_MAX_ANISOTROPY)]
+			[RequiredByFeature("GL_VERSION_4_6")]
+			[RequiredByFeature("GL_ARB_texture_filter_anisotropic", Api = "gl|glcore")]
+			public int MaxTextureMaxAnisotropy;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_SHININESS_NV symbol.

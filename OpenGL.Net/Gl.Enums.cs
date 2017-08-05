@@ -1500,6 +1500,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
@@ -2693,6 +2694,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
@@ -5452,14 +5454,14 @@ namespace OpenGL
 	public enum GetMinmaxParameterPNameEXT
 	{
 		/// <summary>
-		/// Strongly typed for value GL_MINMAX_FORMAT, GL_MINMAX_FORMAT_EXT, GL_MINMAX_FORMAT.
+		/// Strongly typed for value GL_MINMAX_FORMAT, GL_MINMAX_FORMAT_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		MinmaxFormat = Gl.MINMAX_FORMAT,
 
 		/// <summary>
-		/// Strongly typed for value GL_MINMAX_SINK, GL_MINMAX_SINK_EXT, GL_MINMAX_SINK.
+		/// Strongly typed for value GL_MINMAX_SINK, GL_MINMAX_SINK_EXT.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
@@ -10515,7 +10517,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
+		[RequiredByFeature("GL_EXT_texture_compression_rgtc", Api = "gl|gles2")]
 		CompressedRedRgtc1 = Gl.COMPRESSED_RED_RGTC1,
 
 		/// <summary>
@@ -10523,7 +10525,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_texture_compression_rgtc", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
+		[RequiredByFeature("GL_EXT_texture_compression_rgtc", Api = "gl|gles2")]
 		CompressedSignedRedRgtc1 = Gl.COMPRESSED_SIGNED_RED_RGTC1,
 
 		/// <summary>
@@ -10561,6 +10563,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
 		CompressedRgbaBptcUnorm = Gl.COMPRESSED_RGBA_BPTC_UNORM,
 
 		/// <summary>
@@ -10568,6 +10571,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
 		CompressedSrgbAlphaBptcUnorm = Gl.COMPRESSED_SRGB_ALPHA_BPTC_UNORM,
 
 		/// <summary>
@@ -10575,6 +10579,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
 		CompressedRgbBptcSignedFloat = Gl.COMPRESSED_RGB_BPTC_SIGNED_FLOAT,
 
 		/// <summary>
@@ -10582,6 +10587,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
 		CompressedRgbBptcUnsignedFloat = Gl.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT,
 
 		/// <summary>
@@ -11834,6 +11840,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
@@ -12960,6 +12967,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]

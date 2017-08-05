@@ -234,6 +234,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_RELEASE_BEHAVIOR = 0x82FB;
 
@@ -242,6 +243,7 @@ namespace OpenGL
 		/// </summary>
 		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
 		public const int CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x82FC;
 

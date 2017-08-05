@@ -5791,6 +5791,13 @@
     <param name="stride" />
     <param name="vertexBufferCount" />
   </command>
+  <command name="glMultiDrawArraysIndirectCount">
+    <param name="mode" flags="enum" />
+    <param name="indirect" />
+    <param name="drawcount" />
+    <param name="maxdrawcount" />
+    <param name="stride" />
+  </command>
   <command name="glMultiDrawArraysIndirectCountARB">
     <param name="mode" flags="enum" />
     <param name="indirect" />
@@ -5870,6 +5877,14 @@
     <param name="drawCount" />
     <param name="stride" />
     <param name="vertexBufferCount" />
+  </command>
+  <command name="glMultiDrawElementsIndirectCount">
+    <param name="mode" flags="enum" />
+    <param name="type" flags="enum" />
+    <param name="indirect" />
+    <param name="drawcount" />
+    <param name="maxdrawcount" />
+    <param name="stride" />
   </command>
   <command name="glMultiDrawElementsIndirectCountARB">
     <param name="mode" flags="enum" />

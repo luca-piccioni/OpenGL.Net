@@ -653,10 +653,10 @@ namespace OpenGL
 			[AliasOf("glHistogramEXT")]
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			public static void Histogram(HistogramTargetEXT target, Int32 width, InternalFormat internalformat, bool sink)
+			public static void Histogram(Int32 target, Int32 width, InternalFormat internalformat, bool sink)
 			{
 				Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
-				Delegates.pglHistogram((Int32)target, width, (Int32)internalformat, sink);
+				Delegates.pglHistogram(target, width, (Int32)internalformat, sink);
 				LogCommand("glHistogram", null, target, width, internalformat, sink				);
 				DebugCheckErrors(null);
 			}

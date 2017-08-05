@@ -38,13 +38,13 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RED_GREEN_RGTC2_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
+		[RequiredByFeature("GL_EXT_texture_compression_rgtc", Api = "gl|gles2")]
 		public const int COMPRESSED_RED_GREEN_RGTC2_EXT = 0x8DBD;
 
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_compression_rgtc")]
+		[RequiredByFeature("GL_EXT_texture_compression_rgtc", Api = "gl|gles2")]
 		public const int COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT = 0x8DBE;
 
 	}

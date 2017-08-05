@@ -39,6 +39,7 @@ namespace OpenGL
 		/// [GL] Value of GL_COMPRESSED_SRGB_S3TC_DXT1_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_S3TC_DXT1_NV")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		public const int COMPRESSED_SRGB_S3TC_DXT1_EXT = 0x8C4C;
@@ -47,6 +48,7 @@ namespace OpenGL
 		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_NV")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		public const int COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT = 0x8C4D;
@@ -55,6 +57,7 @@ namespace OpenGL
 		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_NV")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		public const int COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT = 0x8C4E;
@@ -63,6 +66,7 @@ namespace OpenGL
 		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT symbol.
 		/// </summary>
 		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
 		public const int COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT = 0x8C4F;

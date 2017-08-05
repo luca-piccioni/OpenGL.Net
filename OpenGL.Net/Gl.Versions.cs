@@ -120,6 +120,11 @@ namespace OpenGL
 		public static readonly KhronosVersion Version_450 = new KhronosVersion(4, 5, KhronosVersion.ApiGl);
 
 		/// <summary>
+		/// Version for OpenGL 4.6 API.
+		/// </summary>
+		public static readonly KhronosVersion Version_460 = new KhronosVersion(4, 6, KhronosVersion.ApiGl);
+
+		/// <summary>
 		/// Version for OpenGL ES 1.0 API.
 		/// </summary>
 		public static readonly KhronosVersion Version_100_ES = new KhronosVersion(1, 0, KhronosVersion.ApiGles1);
