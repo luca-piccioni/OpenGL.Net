@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>OpenGL.Net</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+    <Authors>Luca Piccioni</Authors>
+    <Product>OpenGL.Net</Product>
+    <Copyright>Copyright (C) Luca Piccioni 2015-2017</Copyright>
+    <Version>0.5.2</Version>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>bin\netstd2.0\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netstd2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>bin\netstd2.0\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netstd2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Gl.NvOptmimus.cs" />
+  </ItemGroup>
+
+</Project>

@@ -65,7 +65,7 @@ namespace OpenGL
 		/// <returns></returns>
 		private static Action<IntPtr, byte, uint> GenerateMemsetDelegate()
 		{
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD2_0
 			DynamicMethod dynamicMethod = new DynamicMethod(
 				"Memset", MethodAttributes.Public | MethodAttributes.Static, CallingConventions.Standard,
 				null,

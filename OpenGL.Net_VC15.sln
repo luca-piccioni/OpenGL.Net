@@ -117,6 +117,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net.CoreUI_netcore1.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net.CoreUI_netcore2.0", "OpenGL.Net.CoreUI\OpenGL.Net.CoreUI_netcore2.0.csproj", "{CC1FB31D-212E-4953-9C73-9C159FF55B1A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net_netstd2.0", "OpenGL.Net\OpenGL.Net_netstd2.0.csproj", "{55E65B12-43CC-4D01-A846-BF62DECD66EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -385,6 +387,14 @@ Global
 		{CC1FB31D-212E-4953-9C73-9C159FF55B1A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC1FB31D-212E-4953-9C73-9C159FF55B1A}.Release|x86.ActiveCfg = Release|Any CPU
 		{CC1FB31D-212E-4953-9C73-9C159FF55B1A}.Release|x86.Build.0 = Release|Any CPU
+		{55E65B12-43CC-4D01-A846-BF62DECD66EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55E65B12-43CC-4D01-A846-BF62DECD66EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55E65B12-43CC-4D01-A846-BF62DECD66EA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{55E65B12-43CC-4D01-A846-BF62DECD66EA}.Debug|x86.Build.0 = Debug|Any CPU
+		{55E65B12-43CC-4D01-A846-BF62DECD66EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55E65B12-43CC-4D01-A846-BF62DECD66EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55E65B12-43CC-4D01-A846-BF62DECD66EA}.Release|x86.ActiveCfg = Release|Any CPU
+		{55E65B12-43CC-4D01-A846-BF62DECD66EA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\OpenGL.Net.CoreUI\OpenGL.Net.CoreUI_netcore2.0.csproj" />
-    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netcore2.0.csproj" />
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netstd2.0.csproj" />
   </ItemGroup>
 
 </Project>
