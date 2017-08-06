@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NativeWindow.cs" />
+    <Compile Include="NativeWindowEventArgs.cs" />
     <Compile Include="NativeWindowWinNT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

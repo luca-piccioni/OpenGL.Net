@@ -21,7 +21,7 @@
 
 using System;
 using System.ComponentModel;
-using System.Reflection;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OpenGL.CoreUI
@@ -38,19 +38,42 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public NativeWindowWinNT()
 		{
-			
+			_WindowsWndProc = new UnsafeNativeMethods.WndProc(WindowsWndProc);
 		}
 
 		#endregion
 
 		#region Platform Resources
 
-		private static IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		private IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
 			switch ((WM)msg) {
 				case WM.CREATE:
+					try {
+						// Create device context
+						CreateDeviceContext(IntPtr.Zero, hWnd);
+						// Create OpenGL context
+						CreateDesktopContext();
+						// The context is made current unconditionally: event handlers allocate resources
+						MakeCurrentContext();
+						// Event handling
+						OnContextCreated();
+					} catch (Exception exception) {
+						_FailureException = exception;
+						Debug.Fail(String.Format("OnHandleCreated: initialization exception ({0})\n{1}", exception.Message, exception.ToString()));
+					}
 					break;
 				case WM.DESTROY:
+					DeleteContext();
+					DestroyDeviceContext();
+					break;
+				case WM.SIZE:
+					break;
+				case WM.PAINT:
+					MakeCurrentContext();
+					OnRender();
+					OnContextUpdate();
+					SwapBuffers();
 					break;
 			}
 
@@ -71,7 +94,12 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Windows procedure.
 		/// </summary>
-		private static readonly UnsafeNativeMethods.WndProc _WindowsWndProc = new UnsafeNativeMethods.WndProc(WindowsWndProc);
+		private readonly UnsafeNativeMethods.WndProc _WindowsWndProc;
+
+		/// <summary>
+		/// Exception caught while creating device context and render context.
+		/// </summary>
+		private Exception _FailureException;
 
 		#endregion
 
@@ -390,7 +418,30 @@ namespace OpenGL.CoreUI
 
 			if (_Handle == IntPtr.Zero)
 				throw new Win32Exception(Marshal.GetLastWin32Error());
+
+			_Width = width;
+			_Height = height;
 		}
+
+		/// <summary>
+		/// The NativeWindow width of the client area, in pixels.
+		/// </summary>
+		public override uint Width { get { return (_Width); } }
+
+		/// <summary>
+		/// The NativeWindow width of the client area, in pixels.
+		/// </summary>
+		private uint _Width;
+
+		/// <summary>
+		/// The NativeWindow height of the client area, in pixels.
+		/// </summary>
+		public override uint Height { get { return (_Height); } }
+
+		/// <summary>
+		/// The NativeWindow height of the client area, in pixels.
+		/// </summary>
+		private uint _Height;
 
 		/// <summary>
 		/// Show the native window.
