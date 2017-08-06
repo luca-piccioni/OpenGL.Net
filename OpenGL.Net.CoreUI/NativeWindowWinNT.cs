@@ -138,8 +138,17 @@ namespace OpenGL.CoreUI
 		public struct POINT
 		{  
 			public Int32 x;
-			public Int32 Y;
-		}  
+			public Int32 y;
+		}
+
+		[StructLayout(LayoutKind.Sequential)]
+		public struct RECT
+		{  
+			public Int32 left;
+			public Int32 top;
+			public Int32 right;
+			public Int32 bottom;
+		}
 
 		/// <summary>
 		/// Windows Messages
@@ -338,6 +347,9 @@ namespace OpenGL.CoreUI
 
 			[DllImport("user32.dll")]
 			internal static extern bool ShowWindow(IntPtr hWnd, WindowShowStyle nCmdShow);
+
+			[DllImport("user32.dll")]
+			internal static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 		}
 
 		#endregion
@@ -419,8 +431,11 @@ namespace OpenGL.CoreUI
 			if (_Handle == IntPtr.Zero)
 				throw new Win32Exception(Marshal.GetLastWin32Error());
 
-			_Width = width;
-			_Height = height;
+			RECT clientSize;
+
+			UnsafeNativeMethods.GetClientRect(_Handle, out clientSize);
+			_Width = (uint)clientSize.right;
+			_Height = (uint)clientSize.bottom;
 		}
 
 		/// <summary>
