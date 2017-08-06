@@ -8,7 +8,7 @@
 Modern OpenGL bindings for C#.
 
 ### OpenGL and related API
-- [OpenGL 4.5](https://www.opengl.org/registry/), including compatibility profile
+- [OpenGL 4.6](https://www.opengl.org/registry/), including compatibility profile
 - [OpenGL ES 3.2](https://www.khronos.org/registry/gles/), including OpenGL ES 1.0
 - [OpenGL SC 2.0](https://www.khronos.org/openglsc/); OpenGL SC 1.0 is not supported.
 - WGL, GLX 1.4 and [EGL (Native Platform Interface) 1.5](https://www.khronos.org/registry/egl/) as platform APIs.

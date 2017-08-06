@@ -40,7 +40,6 @@ configuration:
 
 before_build:
   - nuget restore OpenGL.Net_VC14.sln
-  - mkdir ANGLE
 
 build:
   parallel: true

@@ -31,6 +31,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <ReleaseVersion>0.2.3</ReleaseVersion>
     <TargetFrameworkProfile />
+    <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +45,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\net461\Debug\OpenGL.Net.xml</DocumentationFile>
-    <NoWarn>419,1570,1572,1573,1734,1574,1591</NoWarn>
+    <NoWarn>419,1570,1572,1573,1574,1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -56,7 +57,7 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\net461\Release\OpenGL.Net.xml</DocumentationFile>
-    <NoWarn>419,1570,1572,1573,1734,1574,1591</NoWarn>
+    <NoWarn>419,1570,1572,1573,1574,1591</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
@@ -943,7 +944,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <PostBuildEvent>$(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+    <PostBuildEvent>mono $(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
