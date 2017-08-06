@@ -19,7 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#pragma warning disable 618, 649, 1734
+#pragma warning disable 618, 649
+//, 1734
 
 using System;
 using System.Collections.Generic;
