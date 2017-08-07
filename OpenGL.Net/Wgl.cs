@@ -84,7 +84,7 @@ namespace OpenGL
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		private const string Library = "opengl32.dll";
+		private const string Library = "opengl32";
 
 		#endregion
 

@@ -84,11 +84,11 @@ namespace OpenGL.Test
 		///   pointing to the GL 1.4 implementation on Windows.
 		/// </remarks>
 		[SuppressUnmanagedCodeSecurity()]
-		[DllImport("opengl32.dll", EntryPoint = "glFlush", ExactSpelling = true)]
+		[DllImport("opengl32", EntryPoint = "glFlush", ExactSpelling = true)]
 		private extern static void glFlush();
 
 		[SuppressUnmanagedCodeSecurity()]
-		[DllImport("opengl32.dll", EntryPoint = "glEnable", ExactSpelling = true)]
+		[DllImport("opengl32", EntryPoint = "glEnable", ExactSpelling = true)]
 		internal extern static void glEnable(Int32 cap);
 
 		#endregion

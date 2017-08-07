@@ -255,7 +255,7 @@ namespace OpenGL
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		internal const string Library = "libEGL.dll";
+		internal const string Library = "libEGL";
 
 		#endregion
 
