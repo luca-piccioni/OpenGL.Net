@@ -1,20 +1,23 @@
 ﻿
-' Copyright (C) 2016 Luca Piccioni
+' Copyright (C) 2016-2017 Luca Piccioni
 ' 
-' This library Is free software; you can redistribute it And/Or
-' modify it under the terms of the GNU Lesser General Public
-' License as published by the Free Software Foundation; either
-' version 2.1 of the License, Or (at your option) any later version.
+' Permission Is hereby granted, free of charge, to any person obtaining a copy
+' of this software And associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, And/Or sell
+' copies of the Software, And to permit persons to whom the Software Is
+' furnished to do so, subject to the following conditions:
 ' 
-' This library Is distributed in the hope that it will be useful,
-' but WITHOUT ANY WARRANTY; without even the implied warranty of
-' MERCHANTABILITY Or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-' Lesser General Public License for more details.
+' The above copyright notice And this permission notice shall be included in all
+' copies Or substantial portions of the Software.
 ' 
-' You should have received a copy of the GNU Lesser General Public
-' License along with this library; if Not, write to the Free Software
-' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
-' USA
+' THE SOFTWARE Is PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS Or
+' IMPLIED, INCLUDING BUT Not LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE And NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS Or COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES Or OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT Or OTHERWISE, ARISING FROM,
+' OUT OF Or IN CONNECTION WITH THE SOFTWARE Or THE USE Or OTHER DEALINGS IN THE
+' SOFTWARE.
 
 Imports OpenGL
 

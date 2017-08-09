@@ -742,6 +742,9 @@ namespace OpenGL.CoreUI
 			_IsContextCreated = true;
 		}
 
+		/// <summary>
+		/// Flag indicating whether this NativeWindow has a GL context associated with it.
+		/// </summary>
 		private bool _IsContextCreated;
 
 		/// <summary>
