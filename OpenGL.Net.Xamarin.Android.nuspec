@@ -17,8 +17,8 @@
             It includes an SurfaceView implementation that ease the OpenGL context creation on Android.
         </description>
         <releaseNotes>
-            This package includes the targets:
-            - MonoAndroid
+            * v0.6.0
+            - Licenced under MIT
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
         <tags>Android Xamarin OpenGL OpenGL-ES GLSL GLES EGL C# .Net Graphics 3D</tags>

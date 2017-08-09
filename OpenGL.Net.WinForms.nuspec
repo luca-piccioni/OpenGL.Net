@@ -23,9 +23,12 @@
             The package depends on OpenGL.Net.
         </description>
         <releaseNotes>
+            v0.6.0
+            - Licenced under MIT
+            
             v0.5.2
             - Fixed GlControl.ContextVersion designer property serialization.
-            
+
             v0.5.1
             - Added continuos animation support.
         </releaseNotes>

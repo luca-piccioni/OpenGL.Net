@@ -17,8 +17,8 @@
             It includes an simple window implementation that ease the OpenGL context creation. 
         </description>
         <releaseNotes>
-            This package includes the targets:
-            - .NET 3.5
+            * v0.6.0
+            - Licenced under MIT
         </releaseNotes>
         <dependencies>
             <dependency id="OpenGL.Net" version="$version$" />
