@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glVertex2hNV.
+		/// [GL] glVertex2hNV: Binding for glVertex2hNV.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:UInt16"/>.
@@ -54,7 +54,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertex2hvNV.
+		/// [GL] glVertex2hvNV: Binding for glVertex2hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -74,7 +74,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertex3hNV.
+		/// [GL] glVertex3hNV: Binding for glVertex3hNV.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:UInt16"/>.
@@ -95,7 +95,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertex3hvNV.
+		/// [GL] glVertex3hvNV: Binding for glVertex3hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -115,7 +115,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertex4hNV.
+		/// [GL] glVertex4hNV: Binding for glVertex4hNV.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:UInt16"/>.
@@ -139,7 +139,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertex4hvNV.
+		/// [GL] glVertex4hvNV: Binding for glVertex4hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -159,7 +159,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormal3hNV.
+		/// [GL] glNormal3hNV: Binding for glNormal3hNV.
 		/// </summary>
 		/// <param name="nx">
 		/// A <see cref="T:UInt16"/>.
@@ -180,7 +180,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormal3hvNV.
+		/// [GL] glNormal3hvNV: Binding for glNormal3hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -200,7 +200,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glColor3hNV.
+		/// [GL] glColor3hNV: Binding for glColor3hNV.
 		/// </summary>
 		/// <param name="red">
 		/// A <see cref="T:UInt16"/>.
@@ -221,7 +221,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glColor3hvNV.
+		/// [GL] glColor3hvNV: Binding for glColor3hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -241,7 +241,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glColor4hNV.
+		/// [GL] glColor4hNV: Binding for glColor4hNV.
 		/// </summary>
 		/// <param name="red">
 		/// A <see cref="T:UInt16"/>.
@@ -265,7 +265,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glColor4hvNV.
+		/// [GL] glColor4hvNV: Binding for glColor4hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -285,7 +285,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoord1hNV.
+		/// [GL] glTexCoord1hNV: Binding for glTexCoord1hNV.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:UInt16"/>.
@@ -300,7 +300,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoord1hvNV.
+		/// [GL] glTexCoord1hvNV: Binding for glTexCoord1hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -320,7 +320,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoord2hNV.
+		/// [GL] glTexCoord2hNV: Binding for glTexCoord2hNV.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:UInt16"/>.
@@ -338,7 +338,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoord2hvNV.
+		/// [GL] glTexCoord2hvNV: Binding for glTexCoord2hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -358,7 +358,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoord3hNV.
+		/// [GL] glTexCoord3hNV: Binding for glTexCoord3hNV.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:UInt16"/>.
@@ -379,7 +379,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoord3hvNV.
+		/// [GL] glTexCoord3hvNV: Binding for glTexCoord3hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -399,7 +399,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoord4hNV.
+		/// [GL] glTexCoord4hNV: Binding for glTexCoord4hNV.
 		/// </summary>
 		/// <param name="s">
 		/// A <see cref="T:UInt16"/>.
@@ -423,7 +423,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoord4hvNV.
+		/// [GL] glTexCoord4hvNV: Binding for glTexCoord4hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -443,7 +443,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoord1hNV.
+		/// [GL] glMultiTexCoord1hNV: Binding for glMultiTexCoord1hNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureUnit"/>.
@@ -461,7 +461,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoord1hvNV.
+		/// [GL] glMultiTexCoord1hvNV: Binding for glMultiTexCoord1hvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureUnit"/>.
@@ -484,7 +484,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoord2hNV.
+		/// [GL] glMultiTexCoord2hNV: Binding for glMultiTexCoord2hNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureUnit"/>.
@@ -505,7 +505,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoord2hvNV.
+		/// [GL] glMultiTexCoord2hvNV: Binding for glMultiTexCoord2hvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureUnit"/>.
@@ -528,7 +528,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoord3hNV.
+		/// [GL] glMultiTexCoord3hNV: Binding for glMultiTexCoord3hNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureUnit"/>.
@@ -552,7 +552,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoord3hvNV.
+		/// [GL] glMultiTexCoord3hvNV: Binding for glMultiTexCoord3hvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureUnit"/>.
@@ -575,7 +575,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoord4hNV.
+		/// [GL] glMultiTexCoord4hNV: Binding for glMultiTexCoord4hNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureUnit"/>.
@@ -602,7 +602,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoord4hvNV.
+		/// [GL] glMultiTexCoord4hvNV: Binding for glMultiTexCoord4hvNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureUnit"/>.
@@ -625,7 +625,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFogCoordhNV.
+		/// [GL] glFogCoordhNV: Binding for glFogCoordhNV.
 		/// </summary>
 		/// <param name="fog">
 		/// A <see cref="T:UInt16"/>.
@@ -640,7 +640,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFogCoordhvNV.
+		/// [GL] glFogCoordhvNV: Binding for glFogCoordhvNV.
 		/// </summary>
 		/// <param name="fog">
 		/// A <see cref="T:UInt16[]"/>.
@@ -660,7 +660,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSecondaryColor3hNV.
+		/// [GL] glSecondaryColor3hNV: Binding for glSecondaryColor3hNV.
 		/// </summary>
 		/// <param name="red">
 		/// A <see cref="T:UInt16"/>.
@@ -681,7 +681,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSecondaryColor3hvNV.
+		/// [GL] glSecondaryColor3hvNV: Binding for glSecondaryColor3hvNV.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -701,7 +701,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexWeighthNV.
+		/// [GL] glVertexWeighthNV: Binding for glVertexWeighthNV.
 		/// </summary>
 		/// <param name="weight">
 		/// A <see cref="T:UInt16"/>.
@@ -716,7 +716,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexWeighthvNV.
+		/// [GL] glVertexWeighthvNV: Binding for glVertexWeighthvNV.
 		/// </summary>
 		/// <param name="weight">
 		/// A <see cref="T:UInt16[]"/>.
@@ -736,7 +736,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttrib1hNV.
+		/// [GL] glVertexAttrib1hNV: Binding for glVertexAttrib1hNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -754,7 +754,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttrib1hvNV.
+		/// [GL] glVertexAttrib1hvNV: Binding for glVertexAttrib1hvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -777,7 +777,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttrib2hNV.
+		/// [GL] glVertexAttrib2hNV: Binding for glVertexAttrib2hNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -798,7 +798,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttrib2hvNV.
+		/// [GL] glVertexAttrib2hvNV: Binding for glVertexAttrib2hvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -821,7 +821,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttrib3hNV.
+		/// [GL] glVertexAttrib3hNV: Binding for glVertexAttrib3hNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -845,7 +845,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttrib3hvNV.
+		/// [GL] glVertexAttrib3hvNV: Binding for glVertexAttrib3hvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -868,7 +868,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttrib4hNV.
+		/// [GL] glVertexAttrib4hNV: Binding for glVertexAttrib4hNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -895,7 +895,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttrib4hvNV.
+		/// [GL] glVertexAttrib4hvNV: Binding for glVertexAttrib4hvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -918,7 +918,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribs1hvNV.
+		/// [GL] glVertexAttribs1hvNV: Binding for glVertexAttribs1hvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -941,7 +941,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribs2hvNV.
+		/// [GL] glVertexAttribs2hvNV: Binding for glVertexAttribs2hvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -964,7 +964,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribs3hvNV.
+		/// [GL] glVertexAttribs3hvNV: Binding for glVertexAttribs3hvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -987,7 +987,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribs4hvNV.
+		/// [GL] glVertexAttribs4hvNV: Binding for glVertexAttribs4hvNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

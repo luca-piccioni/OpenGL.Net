@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int TEXTURE_GEN_STR_OES = 0x8D60;
 
 		/// <summary>
-		/// [GL] Binding for glTexGenfOES.
+		/// [GL] glTexGenfOES: Binding for glTexGenfOES.
 		/// </summary>
 		/// <param name="coord">
 		/// A <see cref="T:TextureCoordName"/>.
@@ -63,7 +63,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexGenfvOES.
+		/// [GL] glTexGenfvOES: Binding for glTexGenfvOES.
 		/// </summary>
 		/// <param name="coord">
 		/// A <see cref="T:TextureCoordName"/>.
@@ -89,7 +89,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexGeniOES.
+		/// [GL] glTexGeniOES: Binding for glTexGeniOES.
 		/// </summary>
 		/// <param name="coord">
 		/// A <see cref="T:TextureCoordName"/>.
@@ -110,7 +110,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexGenivOES.
+		/// [GL] glTexGenivOES: Binding for glTexGenivOES.
 		/// </summary>
 		/// <param name="coord">
 		/// A <see cref="T:TextureCoordName"/>.
@@ -136,7 +136,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTexGenfvOES.
+		/// [GL] glGetTexGenfvOES: Binding for glGetTexGenfvOES.
 		/// </summary>
 		/// <param name="coord">
 		/// A <see cref="T:TextureCoordName"/>.
@@ -162,7 +162,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTexGenivOES.
+		/// [GL] glGetTexGenivOES: Binding for glGetTexGenivOES.
 		/// </summary>
 		/// <param name="coord">
 		/// A <see cref="T:TextureCoordName"/>.

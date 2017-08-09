@@ -84,7 +84,7 @@ namespace OpenGL
 		public const int ARRAY_OBJECT_OFFSET_ATI = 0x8767;
 
 		/// <summary>
-		/// [GL] Binding for glNewObjectBufferATI.
+		/// [GL] glNewObjectBufferATI: Binding for glNewObjectBufferATI.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -109,7 +109,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNewObjectBufferATI.
+		/// [GL] glNewObjectBufferATI: Binding for glNewObjectBufferATI.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -132,7 +132,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsObjectBufferATI.
+		/// [GL] glIsObjectBufferATI: Binding for glIsObjectBufferATI.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -151,7 +151,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUpdateObjectBufferATI.
+		/// [GL] glUpdateObjectBufferATI: Binding for glUpdateObjectBufferATI.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -178,7 +178,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUpdateObjectBufferATI.
+		/// [GL] glUpdateObjectBufferATI: Binding for glUpdateObjectBufferATI.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -207,7 +207,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetObjectBufferfvATI.
+		/// [GL] glGetObjectBufferfvATI: Binding for glGetObjectBufferfvATI.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -233,7 +233,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetObjectBufferivATI.
+		/// [GL] glGetObjectBufferivATI: Binding for glGetObjectBufferivATI.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -259,7 +259,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFreeObjectBufferATI.
+		/// [GL] glFreeObjectBufferATI: Binding for glFreeObjectBufferATI.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -274,7 +274,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glArrayObjectATI.
+		/// [GL] glArrayObjectATI: Binding for glArrayObjectATI.
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -304,7 +304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetArrayObjectfvATI.
+		/// [GL] glGetArrayObjectfvATI: Binding for glGetArrayObjectfvATI.
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -330,7 +330,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetArrayObjectivATI.
+		/// [GL] glGetArrayObjectivATI: Binding for glGetArrayObjectivATI.
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -356,7 +356,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVariantArrayObjectATI.
+		/// [GL] glVariantArrayObjectATI: Binding for glVariantArrayObjectATI.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -383,7 +383,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVariantArrayObjectfvATI.
+		/// [GL] glGetVariantArrayObjectfvATI: Binding for glGetVariantArrayObjectfvATI.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -409,7 +409,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVariantArrayObjectivATI.
+		/// [GL] glGetVariantArrayObjectivATI: Binding for glGetVariantArrayObjectivATI.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.

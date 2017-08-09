@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_FETCH_NONCOHERENT_QCOM = 0x96A2;
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferFetchBarrierQCOM.
+		/// [GL] glFramebufferFetchBarrierQCOM: Binding for glFramebufferFetchBarrierQCOM.
 		/// </summary>
 		[RequiredByFeature("GL_QCOM_shader_framebuffer_fetch_noncoherent", Api = "gles2")]
 		public static void FramebufferFetchBarrierQCOM()

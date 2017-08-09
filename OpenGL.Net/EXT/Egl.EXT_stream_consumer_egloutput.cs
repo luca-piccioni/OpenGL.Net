@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// [EGL] Binding for eglStreamConsumerOutputEXT.
+		/// [EGL] eglStreamConsumerOutputEXT: Binding for eglStreamConsumerOutputEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

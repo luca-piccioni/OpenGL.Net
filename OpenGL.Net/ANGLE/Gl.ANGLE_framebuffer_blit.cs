@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glBlitFramebufferANGLE.
+		/// [GL] glBlitFramebufferANGLE: Binding for glBlitFramebufferANGLE.
 		/// </summary>
 		/// <param name="srcX0">
 		/// A <see cref="T:Int32"/>.

@@ -50,7 +50,7 @@ namespace OpenGL
 		public const int ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB = 0x2054;
 
 		/// <summary>
-		/// [WGL] Binding for wglMakeContextCurrentARB.
+		/// [WGL] wglMakeContextCurrentARB: Binding for wglMakeContextCurrentARB.
 		/// </summary>
 		/// <param name="hDrawDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -75,7 +75,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglGetCurrentReadDCARB.
+		/// [WGL] wglGetCurrentReadDCARB: Binding for wglGetCurrentReadDCARB.
 		/// </summary>
 		[RequiredByFeature("WGL_ARB_make_current_read")]
 		public static IntPtr GetCurrentReadDCARB()

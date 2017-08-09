@@ -106,7 +106,7 @@ namespace OpenGL
 		public const int LAYOUT_TRANSFER_DST_EXT = 0x9593;
 
 		/// <summary>
-		/// [GL] Binding for glGetUnsignedBytevEXT.
+		/// [GL] glGetUnsignedBytevEXT: Binding for glGetUnsignedBytevEXT.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:GetPName"/>.
@@ -130,7 +130,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetUnsignedBytei_vEXT.
+		/// [GL] glGetUnsignedBytei_vEXT: Binding for glGetUnsignedBytei_vEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -157,7 +157,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenSemaphoresEXT.
+		/// [GL] glGenSemaphoresEXT: Binding for glGenSemaphoresEXT.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -180,7 +180,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeleteSemaphoresEXT.
+		/// [GL] glDeleteSemaphoresEXT: Binding for glDeleteSemaphoresEXT.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -203,7 +203,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsSemaphoreEXT.
+		/// [GL] glIsSemaphoreEXT: Binding for glIsSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -222,7 +222,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSemaphoreParameterui64vEXT.
+		/// [GL] glSemaphoreParameterui64vEXT: Binding for glSemaphoreParameterui64vEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -248,7 +248,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetSemaphoreParameterui64vEXT.
+		/// [GL] glGetSemaphoreParameterui64vEXT: Binding for glGetSemaphoreParameterui64vEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -274,7 +274,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWaitSemaphoreEXT.
+		/// [GL] glWaitSemaphoreEXT: Binding for glWaitSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -311,7 +311,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSignalSemaphoreEXT.
+		/// [GL] glSignalSemaphoreEXT: Binding for glSignalSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.

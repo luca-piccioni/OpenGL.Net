@@ -96,7 +96,7 @@ namespace OpenGL
 		public const int VERTEX_SOURCE_ATI = 0x8774;
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream1sATI.
+		/// [GL] glVertexStream1sATI: Binding for glVertexStream1sATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -114,7 +114,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream1svATI.
+		/// [GL] glVertexStream1svATI: Binding for glVertexStream1svATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -137,7 +137,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream1iATI.
+		/// [GL] glVertexStream1iATI: Binding for glVertexStream1iATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -155,7 +155,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream1ivATI.
+		/// [GL] glVertexStream1ivATI: Binding for glVertexStream1ivATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -178,7 +178,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream1fATI.
+		/// [GL] glVertexStream1fATI: Binding for glVertexStream1fATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -196,7 +196,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream1fvATI.
+		/// [GL] glVertexStream1fvATI: Binding for glVertexStream1fvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -219,7 +219,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream1dATI.
+		/// [GL] glVertexStream1dATI: Binding for glVertexStream1dATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -237,7 +237,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream1dvATI.
+		/// [GL] glVertexStream1dvATI: Binding for glVertexStream1dvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -260,7 +260,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream2sATI.
+		/// [GL] glVertexStream2sATI: Binding for glVertexStream2sATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -281,7 +281,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream2svATI.
+		/// [GL] glVertexStream2svATI: Binding for glVertexStream2svATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -304,7 +304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream2iATI.
+		/// [GL] glVertexStream2iATI: Binding for glVertexStream2iATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -325,7 +325,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream2ivATI.
+		/// [GL] glVertexStream2ivATI: Binding for glVertexStream2ivATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -348,7 +348,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream2fATI.
+		/// [GL] glVertexStream2fATI: Binding for glVertexStream2fATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -369,7 +369,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream2fvATI.
+		/// [GL] glVertexStream2fvATI: Binding for glVertexStream2fvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -392,7 +392,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream2dATI.
+		/// [GL] glVertexStream2dATI: Binding for glVertexStream2dATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -413,7 +413,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream2dvATI.
+		/// [GL] glVertexStream2dvATI: Binding for glVertexStream2dvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -436,7 +436,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream3sATI.
+		/// [GL] glVertexStream3sATI: Binding for glVertexStream3sATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -460,7 +460,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream3svATI.
+		/// [GL] glVertexStream3svATI: Binding for glVertexStream3svATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -483,7 +483,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream3iATI.
+		/// [GL] glVertexStream3iATI: Binding for glVertexStream3iATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -507,7 +507,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream3ivATI.
+		/// [GL] glVertexStream3ivATI: Binding for glVertexStream3ivATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -530,7 +530,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream3fATI.
+		/// [GL] glVertexStream3fATI: Binding for glVertexStream3fATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -554,7 +554,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream3fvATI.
+		/// [GL] glVertexStream3fvATI: Binding for glVertexStream3fvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -577,7 +577,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream3dATI.
+		/// [GL] glVertexStream3dATI: Binding for glVertexStream3dATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -601,7 +601,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream3dvATI.
+		/// [GL] glVertexStream3dvATI: Binding for glVertexStream3dvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -624,7 +624,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream4sATI.
+		/// [GL] glVertexStream4sATI: Binding for glVertexStream4sATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -651,7 +651,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream4svATI.
+		/// [GL] glVertexStream4svATI: Binding for glVertexStream4svATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -674,7 +674,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream4iATI.
+		/// [GL] glVertexStream4iATI: Binding for glVertexStream4iATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -701,7 +701,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream4ivATI.
+		/// [GL] glVertexStream4ivATI: Binding for glVertexStream4ivATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -724,7 +724,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream4fATI.
+		/// [GL] glVertexStream4fATI: Binding for glVertexStream4fATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -751,7 +751,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream4fvATI.
+		/// [GL] glVertexStream4fvATI: Binding for glVertexStream4fvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -774,7 +774,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream4dATI.
+		/// [GL] glVertexStream4dATI: Binding for glVertexStream4dATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -801,7 +801,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexStream4dvATI.
+		/// [GL] glVertexStream4dvATI: Binding for glVertexStream4dvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -824,7 +824,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3bATI.
+		/// [GL] glNormalStream3bATI: Binding for glNormalStream3bATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -848,7 +848,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3bvATI.
+		/// [GL] glNormalStream3bvATI: Binding for glNormalStream3bvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -871,7 +871,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3sATI.
+		/// [GL] glNormalStream3sATI: Binding for glNormalStream3sATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -895,7 +895,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3svATI.
+		/// [GL] glNormalStream3svATI: Binding for glNormalStream3svATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -918,7 +918,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3iATI.
+		/// [GL] glNormalStream3iATI: Binding for glNormalStream3iATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -942,7 +942,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3ivATI.
+		/// [GL] glNormalStream3ivATI: Binding for glNormalStream3ivATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -965,7 +965,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3fATI.
+		/// [GL] glNormalStream3fATI: Binding for glNormalStream3fATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -989,7 +989,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3fvATI.
+		/// [GL] glNormalStream3fvATI: Binding for glNormalStream3fvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -1012,7 +1012,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3dATI.
+		/// [GL] glNormalStream3dATI: Binding for glNormalStream3dATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -1036,7 +1036,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalStream3dvATI.
+		/// [GL] glNormalStream3dvATI: Binding for glNormalStream3dvATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -1059,7 +1059,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClientActiveVertexStreamATI.
+		/// [GL] glClientActiveVertexStreamATI: Binding for glClientActiveVertexStreamATI.
 		/// </summary>
 		/// <param name="stream">
 		/// A <see cref="T:Int32"/>.
@@ -1074,7 +1074,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexBlendEnviATI.
+		/// [GL] glVertexBlendEnviATI: Binding for glVertexBlendEnviATI.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -1092,7 +1092,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexBlendEnvfATI.
+		/// [GL] glVertexBlendEnvfATI: Binding for glVertexBlendEnvfATI.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

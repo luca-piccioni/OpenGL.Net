@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int NAMED_STRING_TYPE_ARB = 0x8DEA;
 
 		/// <summary>
-		/// [GL] Binding for glNamedStringARB.
+		/// [GL] glNamedStringARB: Binding for glNamedStringARB.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -81,7 +81,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeleteNamedStringARB.
+		/// [GL] glDeleteNamedStringARB: Binding for glDeleteNamedStringARB.
 		/// </summary>
 		/// <param name="namelen">
 		/// A <see cref="T:Int32"/>.
@@ -99,7 +99,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompileShaderIncludeARB.
+		/// [GL] glCompileShaderIncludeARB: Binding for glCompileShaderIncludeARB.
 		/// </summary>
 		/// <param name="shader">
 		/// A <see cref="T:UInt32"/>.
@@ -125,7 +125,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsNamedStringARB.
+		/// [GL] glIsNamedStringARB: Binding for glIsNamedStringARB.
 		/// </summary>
 		/// <param name="namelen">
 		/// A <see cref="T:Int32"/>.
@@ -147,7 +147,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedStringARB.
+		/// [GL] glGetNamedStringARB: Binding for glGetNamedStringARB.
 		/// </summary>
 		/// <param name="namelen">
 		/// A <see cref="T:Int32"/>.
@@ -179,7 +179,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedStringivARB.
+		/// [GL] glGetNamedStringivARB: Binding for glGetNamedStringivARB.
 		/// </summary>
 		/// <param name="namelen">
 		/// A <see cref="T:Int32"/>.
@@ -208,7 +208,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedStringivARB.
+		/// [GL] glGetNamedStringivARB: Binding for glGetNamedStringivARB.
 		/// </summary>
 		/// <param name="namelen">
 		/// A <see cref="T:Int32"/>.

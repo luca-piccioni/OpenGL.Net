@@ -96,7 +96,7 @@ namespace OpenGL
 		public const int GPU_NUM_SPI_AMD = 0x21A8;
 
 		/// <summary>
-		/// [GLX] Binding for glXGetGPUIDsAMD.
+		/// [GLX] glXGetGPUIDsAMD: Binding for glXGetGPUIDsAMD.
 		/// </summary>
 		/// <param name="maxCount">
 		/// A <see cref="T:UInt32"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXGetGPUInfoAMD.
+		/// [GLX] glXGetGPUInfoAMD: Binding for glXGetGPUInfoAMD.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXGetContextGPUIDAMD.
+		/// [GLX] glXGetContextGPUIDAMD: Binding for glXGetContextGPUIDAMD.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
@@ -173,7 +173,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXCreateAssociatedContextAMD.
+		/// [GLX] glXCreateAssociatedContextAMD: Binding for glXCreateAssociatedContextAMD.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -195,7 +195,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXCreateAssociatedContextAttribsAMD.
+		/// [GLX] glXCreateAssociatedContextAttribsAMD: Binding for glXCreateAssociatedContextAttribsAMD.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -225,7 +225,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXDeleteAssociatedContextAMD.
+		/// [GLX] glXDeleteAssociatedContextAMD: Binding for glXDeleteAssociatedContextAMD.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
@@ -244,7 +244,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXMakeAssociatedContextCurrentAMD.
+		/// [GLX] glXMakeAssociatedContextCurrentAMD: Binding for glXMakeAssociatedContextCurrentAMD.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
@@ -263,7 +263,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXGetCurrentAssociatedContextAMD.
+		/// [GLX] glXGetCurrentAssociatedContextAMD: Binding for glXGetCurrentAssociatedContextAMD.
 		/// </summary>
 		[RequiredByFeature("GLX_AMD_gpu_association")]
 		public static IntPtr GetCurrentAssociatedContextAMD()
@@ -279,7 +279,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXBlitContextFramebufferAMD.
+		/// [GLX] glXBlitContextFramebufferAMD: Binding for glXBlitContextFramebufferAMD.
 		/// </summary>
 		/// <param name="dstCtx">
 		/// A <see cref="T:IntPtr"/>.

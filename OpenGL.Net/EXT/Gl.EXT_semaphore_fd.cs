@@ -43,7 +43,7 @@ namespace OpenGL
 		public const int HANDLE_TYPE_OPAQUE_FD_EXT = 0x9586;
 
 		/// <summary>
-		/// [GL] Binding for glImportSemaphoreFdEXT.
+		/// [GL] glImportSemaphoreFdEXT: Binding for glImportSemaphoreFdEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.

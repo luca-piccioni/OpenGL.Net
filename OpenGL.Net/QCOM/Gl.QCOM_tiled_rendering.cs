@@ -260,7 +260,7 @@ namespace OpenGL
 		public const uint MULTISAMPLE_BUFFER_BIT7_QCOM = 0x80000000;
 
 		/// <summary>
-		/// [GL] Binding for glStartTilingQCOM.
+		/// [GL] glStartTilingQCOM: Binding for glStartTilingQCOM.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:UInt32"/>.
@@ -287,7 +287,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEndTilingQCOM.
+		/// [GL] glEndTilingQCOM: Binding for glEndTilingQCOM.
 		/// </summary>
 		/// <param name="preserveMask">
 		/// A <see cref="T:UInt32"/>.

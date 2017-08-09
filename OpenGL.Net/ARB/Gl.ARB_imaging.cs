@@ -631,7 +631,7 @@ namespace OpenGL
 		public const int CONVOLUTION_BORDER_COLOR = 0x8154;
 
 		/// <summary>
-		/// [GL2.1] define a color lookup table
+		/// [GL2.1] glColorTable: define a color lookup table
 		/// </summary>
 		/// <param name="target">
 		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, Gl.POST_COLOR_MATRIX_COLOR_TABLE, Gl.PROXY_COLOR_TABLE, 
@@ -716,7 +716,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define a color lookup table
+		/// [GL2.1] glColorTable: define a color lookup table
 		/// </summary>
 		/// <param name="target">
 		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, Gl.POST_COLOR_MATRIX_COLOR_TABLE, Gl.PROXY_COLOR_TABLE, 
@@ -803,7 +803,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set color lookup table parameters
+		/// [GL2.1] glColorTableParameterfv: set color lookup table parameters
 		/// </summary>
 		/// <param name="target">
 		/// The target color table. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
@@ -840,7 +840,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set color lookup table parameters
+		/// [GL2.1] glColorTableParameteriv: set color lookup table parameters
 		/// </summary>
 		/// <param name="target">
 		/// The target color table. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
@@ -877,7 +877,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] copy pixels into a color table
+		/// [GL2.1] glCopyColorTable: copy pixels into a color table
 		/// </summary>
 		/// <param name="target">
 		/// The color table target. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
@@ -930,7 +930,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] retrieve contents of a color lookup table
+		/// [GL2.1] glGetColorTable: retrieve contents of a color lookup table
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
@@ -1000,7 +1000,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] retrieve contents of a color lookup table
+		/// [GL2.1] glGetColorTable: retrieve contents of a color lookup table
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
@@ -1072,7 +1072,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get color lookup table parameters
+		/// [GL2.1] glGetColorTableParameterfv: get color lookup table parameters
 		/// </summary>
 		/// <param name="target">
 		/// The target color table. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, Gl.POST_COLOR_MATRIX_COLOR_TABLE, 
@@ -1113,7 +1113,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get color lookup table parameters
+		/// [GL2.1] glGetColorTableParameteriv: get color lookup table parameters
 		/// </summary>
 		/// <param name="target">
 		/// The target color table. Must be Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, Gl.POST_COLOR_MATRIX_COLOR_TABLE, 
@@ -1154,7 +1154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] respecify a portion of a color table
+		/// [GL2.1] glColorSubTable: respecify a portion of a color table
 		/// </summary>
 		/// <param name="target">
 		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
@@ -1225,7 +1225,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] respecify a portion of a color table
+		/// [GL2.1] glColorSubTable: respecify a portion of a color table
 		/// </summary>
 		/// <param name="target">
 		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
@@ -1298,7 +1298,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] respecify a portion of a color table
+		/// [GL2.1] glCopyColorSubTable: respecify a portion of a color table
 		/// </summary>
 		/// <param name="target">
 		/// Must be one of Gl.COLOR_TABLE, Gl.POST_CONVOLUTION_COLOR_TABLE, or Gl.POST_COLOR_MATRIX_COLOR_TABLE.
@@ -1344,7 +1344,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define a one-dimensional convolution filter
+		/// [GL2.1] glConvolutionFilter1D: define a one-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.CONVOLUTION_1D.
@@ -1435,7 +1435,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define a one-dimensional convolution filter
+		/// [GL2.1] glConvolutionFilter1D: define a one-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.CONVOLUTION_1D.
@@ -1528,7 +1528,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define a two-dimensional convolution filter
+		/// [GL2.1] glConvolutionFilter2D: define a two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.CONVOLUTION_2D.
@@ -1627,7 +1627,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define a two-dimensional convolution filter
+		/// [GL2.1] glConvolutionFilter2D: define a two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.CONVOLUTION_2D.
@@ -1728,7 +1728,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set convolution parameters
+		/// [GL2.1] glConvolutionParameterf: set convolution parameters
 		/// </summary>
 		/// <param name="target">
 		/// The target for the convolution parameter. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or Gl.SEPARABLE_2D.
@@ -1769,7 +1769,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set convolution parameters
+		/// [GL2.1] glConvolutionParameterfv: set convolution parameters
 		/// </summary>
 		/// <param name="target">
 		/// The target for the convolution parameter. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or Gl.SEPARABLE_2D.
@@ -1815,7 +1815,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set convolution parameters
+		/// [GL2.1] glConvolutionParameteri: set convolution parameters
 		/// </summary>
 		/// <param name="target">
 		/// The target for the convolution parameter. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or Gl.SEPARABLE_2D.
@@ -1856,7 +1856,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set convolution parameters
+		/// [GL2.1] glConvolutionParameteriv: set convolution parameters
 		/// </summary>
 		/// <param name="target">
 		/// The target for the convolution parameter. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or Gl.SEPARABLE_2D.
@@ -1902,7 +1902,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] copy pixels into a one-dimensional convolution filter
+		/// [GL2.1] glCopyConvolutionFilter1D: copy pixels into a one-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.CONVOLUTION_1D.
@@ -1954,7 +1954,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] copy pixels into a two-dimensional convolution filter
+		/// [GL2.1] glCopyConvolutionFilter2D: copy pixels into a two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.CONVOLUTION_2D.
@@ -2014,7 +2014,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get current 1D or 2D convolution filter kernel
+		/// [GL2.1] glGetConvolutionFilter: get current 1D or 2D convolution filter kernel
 		/// </summary>
 		/// <param name="target">
 		/// The filter to be retrieved. Must be one of Gl.CONVOLUTION_1D or Gl.CONVOLUTION_2D.
@@ -2084,7 +2084,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get current 1D or 2D convolution filter kernel
+		/// [GL2.1] glGetConvolutionFilter: get current 1D or 2D convolution filter kernel
 		/// </summary>
 		/// <param name="target">
 		/// The filter to be retrieved. Must be one of Gl.CONVOLUTION_1D or Gl.CONVOLUTION_2D.
@@ -2156,7 +2156,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get convolution parameters
+		/// [GL2.1] glGetConvolutionParameterfv: get convolution parameters
 		/// </summary>
 		/// <param name="target">
 		/// The filter whose parameters are to be retrieved. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or 
@@ -2202,7 +2202,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get convolution parameters
+		/// [GL2.1] glGetConvolutionParameteriv: get convolution parameters
 		/// </summary>
 		/// <param name="target">
 		/// The filter whose parameters are to be retrieved. Must be one of Gl.CONVOLUTION_1D, Gl.CONVOLUTION_2D, or 
@@ -2248,7 +2248,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get separable convolution filter kernel images
+		/// [GL2.1] glGetSeparableFilter: get separable convolution filter kernel images
 		/// </summary>
 		/// <param name="target">
 		/// The separable filter to be retrieved. Must be Gl.SEPARABLE_2D.
@@ -2323,7 +2323,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get separable convolution filter kernel images
+		/// [GL2.1] glGetSeparableFilter: get separable convolution filter kernel images
 		/// </summary>
 		/// <param name="target">
 		/// The separable filter to be retrieved. Must be Gl.SEPARABLE_2D.
@@ -2404,7 +2404,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define a separable two-dimensional convolution filter
+		/// [GL2.1] glSeparableFilter2D: define a separable two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.SEPARABLE_2D.
@@ -2508,7 +2508,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define a separable two-dimensional convolution filter
+		/// [GL2.1] glSeparableFilter2D: define a separable two-dimensional convolution filter
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.SEPARABLE_2D.
@@ -2616,7 +2616,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get histogram table
+		/// [GL2.1] glGetHistogram: get histogram table
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.HISTOGRAM.
@@ -2688,7 +2688,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get histogram table
+		/// [GL2.1] glGetHistogram: get histogram table
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.HISTOGRAM.
@@ -2762,7 +2762,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get histogram parameters
+		/// [GL2.1] glGetHistogramParameterfv: get histogram parameters
 		/// </summary>
 		/// <param name="target">
 		/// Must be one of Gl.HISTOGRAM or Gl.PROXY_HISTOGRAM.
@@ -2802,7 +2802,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get histogram parameters
+		/// [GL2.1] glGetHistogramParameteriv: get histogram parameters
 		/// </summary>
 		/// <param name="target">
 		/// Must be one of Gl.HISTOGRAM or Gl.PROXY_HISTOGRAM.
@@ -2842,7 +2842,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get minimum and maximum pixel values
+		/// [GL2.1] glGetMinmax: get minimum and maximum pixel values
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.MINMAX.
@@ -2910,7 +2910,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get minimum and maximum pixel values
+		/// [GL2.1] glGetMinmax: get minimum and maximum pixel values
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.MINMAX.
@@ -2980,7 +2980,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get minmax parameters
+		/// [GL2.1] glGetMinmaxParameterfv: get minmax parameters
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.MINMAX.
@@ -3018,7 +3018,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get minmax parameters
+		/// [GL2.1] glGetMinmaxParameteriv: get minmax parameters
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.MINMAX.
@@ -3056,7 +3056,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define histogram table
+		/// [GL2.1] glHistogram: define histogram table
 		/// </summary>
 		/// <param name="target">
 		/// The histogram whose parameters are to be set. Must be one of Gl.HISTOGRAM or Gl.PROXY_HISTOGRAM.
@@ -3106,7 +3106,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define minmax table
+		/// [GL2.1] glMinmax: define minmax table
 		/// </summary>
 		/// <param name="target">
 		/// The minmax table whose parameters are to be set. Must be Gl.MINMAX.
@@ -3146,7 +3146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] reset histogram table entries to zero
+		/// [GL2.1] glResetHistogram: reset histogram table entries to zero
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.HISTOGRAM.
@@ -3171,7 +3171,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] reset minmax table entries to initial values
+		/// [GL2.1] glResetMinmax: reset minmax table entries to initial values
 		/// </summary>
 		/// <param name="target">
 		/// Must be Gl.MINMAX.

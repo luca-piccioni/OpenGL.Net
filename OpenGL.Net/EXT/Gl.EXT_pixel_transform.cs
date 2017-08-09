@@ -90,7 +90,7 @@ namespace OpenGL
 		public const int PIXEL_TRANSFORM_2D_MATRIX_EXT = 0x8338;
 
 		/// <summary>
-		/// [GL] Binding for glPixelTransformParameteriEXT.
+		/// [GL] glPixelTransformParameteriEXT: Binding for glPixelTransformParameteriEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -111,7 +111,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glPixelTransformParameterfEXT.
+		/// [GL] glPixelTransformParameterfEXT: Binding for glPixelTransformParameterfEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -132,7 +132,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glPixelTransformParameterivEXT.
+		/// [GL] glPixelTransformParameterivEXT: Binding for glPixelTransformParameterivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -158,7 +158,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glPixelTransformParameterfvEXT.
+		/// [GL] glPixelTransformParameterfvEXT: Binding for glPixelTransformParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -184,7 +184,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPixelTransformParameterivEXT.
+		/// [GL] glGetPixelTransformParameterivEXT: Binding for glGetPixelTransformParameterivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -210,7 +210,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPixelTransformParameterfvEXT.
+		/// [GL] glGetPixelTransformParameterfvEXT: Binding for glGetPixelTransformParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

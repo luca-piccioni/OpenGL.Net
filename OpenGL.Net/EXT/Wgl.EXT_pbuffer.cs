@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int OPTIMAL_PBUFFER_HEIGHT_EXT = 0x2032;
 
 		/// <summary>
-		/// [WGL] Binding for wglCreatePbufferEXT.
+		/// [WGL] wglCreatePbufferEXT: Binding for wglCreatePbufferEXT.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -84,7 +84,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglGetPbufferDCEXT.
+		/// [WGL] wglGetPbufferDCEXT: Binding for wglGetPbufferDCEXT.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -103,7 +103,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglReleasePbufferDCEXT.
+		/// [WGL] wglReleasePbufferDCEXT: Binding for wglReleasePbufferDCEXT.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -125,7 +125,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDestroyPbufferEXT.
+		/// [WGL] wglDestroyPbufferEXT: Binding for wglDestroyPbufferEXT.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.
@@ -144,7 +144,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglQueryPbufferEXT.
+		/// [WGL] wglQueryPbufferEXT: Binding for wglQueryPbufferEXT.
 		/// </summary>
 		/// <param name="hPbuffer">
 		/// A <see cref="T:IntPtr"/>.

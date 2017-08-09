@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int TEXTURE_CROP_RECT_OES = 0x8B9D;
 
 		/// <summary>
-		/// [GLES1.1] draws a texture rectangle to the screen
+		/// [GLES1.1] glDrawTexsOES: draws a texture rectangle to the screen
 		/// </summary>
 		/// <param name="x">
 		/// Specify the position of the affected screen rectangle.
@@ -71,7 +71,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] draws a texture rectangle to the screen
+		/// [GLES1.1] glDrawTexiOES: draws a texture rectangle to the screen
 		/// </summary>
 		/// <param name="x">
 		/// Specify the position of the affected screen rectangle.
@@ -100,7 +100,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] draws a texture rectangle to the screen
+		/// [GLES1.1] glDrawTexxOES: draws a texture rectangle to the screen
 		/// </summary>
 		/// <param name="x">
 		/// Specify the position of the affected screen rectangle.
@@ -129,7 +129,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] draws a texture rectangle to the screen
+		/// [GLES1.1] glDrawTexsvOES: draws a texture rectangle to the screen
 		/// </summary>
 		/// <param name="coords">
 		/// Specifies a pointer to the coords for the affected screen rectangle.
@@ -151,7 +151,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] draws a texture rectangle to the screen
+		/// [GLES1.1] glDrawTexivOES: draws a texture rectangle to the screen
 		/// </summary>
 		/// <param name="coords">
 		/// Specifies a pointer to the coords for the affected screen rectangle.
@@ -173,7 +173,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] draws a texture rectangle to the screen
+		/// [GLES1.1] glDrawTexxvOES: draws a texture rectangle to the screen
 		/// </summary>
 		/// <param name="coords">
 		/// Specifies a pointer to the coords for the affected screen rectangle.
@@ -195,7 +195,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] draws a texture rectangle to the screen
+		/// [GLES1.1] glDrawTexfOES: draws a texture rectangle to the screen
 		/// </summary>
 		/// <param name="x">
 		/// Specify the position of the affected screen rectangle.
@@ -224,7 +224,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] draws a texture rectangle to the screen
+		/// [GLES1.1] glDrawTexfvOES: draws a texture rectangle to the screen
 		/// </summary>
 		/// <param name="coords">
 		/// Specifies a pointer to the coords for the affected screen rectangle.

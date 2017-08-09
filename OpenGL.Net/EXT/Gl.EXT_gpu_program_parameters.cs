@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glProgramEnvParameters4fvEXT.
+		/// [GL] glProgramEnvParameters4fvEXT: Binding for glProgramEnvParameters4fvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -65,7 +65,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramLocalParameters4fvEXT.
+		/// [GL] glProgramLocalParameters4fvEXT: Binding for glProgramLocalParameters4fvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

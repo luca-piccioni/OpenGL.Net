@@ -102,7 +102,7 @@ namespace OpenGL
 		public const int DMA_BUF_PLANE3_MODIFIER_HI_EXT = 0x344A;
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryDmaBufFormatsEXT.
+		/// [EGL] eglQueryDmaBufFormatsEXT: Binding for eglQueryDmaBufFormatsEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -136,7 +136,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryDmaBufModifiersEXT.
+		/// [EGL] eglQueryDmaBufModifiersEXT: Binding for eglQueryDmaBufModifiersEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

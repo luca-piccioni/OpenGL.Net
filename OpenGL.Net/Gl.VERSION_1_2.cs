@@ -526,7 +526,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data
+		/// [GL4|GLES3.2] glDrawRangeElements: render primitives from array data
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -589,7 +589,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data
+		/// [GL4|GLES3.2] glDrawRangeElements: render primitives from array data
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -653,7 +653,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify a three-dimensional texture image
+		/// [GL2.1] glTexImage3D: specify a three-dimensional texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
@@ -804,7 +804,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify a three-dimensional texture image
+		/// [GL2.1] glTexImage3D: specify a three-dimensional texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_3D or Gl.PROXY_TEXTURE_3D.
@@ -958,7 +958,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify a three-dimensional texture subimage
+		/// [GL4|GLES3.2] glTexSubImage3D: specify a three-dimensional texture subimage
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1089,7 +1089,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify a three-dimensional texture subimage
+		/// [GL4|GLES3.2] glTexSubImage3D: specify a three-dimensional texture subimage
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1221,7 +1221,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] copy a three-dimensional texture subimage
+		/// [GL2.1] glCopyTexSubImage3D: copy a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_3D

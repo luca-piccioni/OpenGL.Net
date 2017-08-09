@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXDelayBeforeSwapNV.
+		/// [GLX] glXDelayBeforeSwapNV: Binding for glXDelayBeforeSwapNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

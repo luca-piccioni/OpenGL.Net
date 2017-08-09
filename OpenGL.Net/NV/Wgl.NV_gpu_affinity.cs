@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int ERROR_MISSING_AFFINITY_MASK_NV = 0x20D1;
 
 		/// <summary>
-		/// [WGL] Binding for wglEnumGpusNV.
+		/// [WGL] wglEnumGpusNV: Binding for wglEnumGpusNV.
 		/// </summary>
 		/// <param name="iGpuIndex">
 		/// A <see cref="T:UInt32"/>.
@@ -75,7 +75,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglEnumGpuDevicesNV.
+		/// [WGL] wglEnumGpuDevicesNV: Binding for wglEnumGpuDevicesNV.
 		/// </summary>
 		/// <param name="hGpu">
 		/// A <see cref="T:IntPtr"/>.
@@ -100,7 +100,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglCreateAffinityDCNV.
+		/// [WGL] wglCreateAffinityDCNV: Binding for wglCreateAffinityDCNV.
 		/// </summary>
 		/// <param name="phGpuList">
 		/// A <see cref="T:IntPtr[]"/>.
@@ -124,7 +124,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglEnumGpusFromAffinityDCNV.
+		/// [WGL] wglEnumGpusFromAffinityDCNV: Binding for wglEnumGpusFromAffinityDCNV.
 		/// </summary>
 		/// <param name="hAffinityDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDeleteDCNV.
+		/// [WGL] wglDeleteDCNV: Binding for wglDeleteDCNV.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.

@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int SYNC_NEW_FRAME_NV = 0x321F;
 
 		/// <summary>
-		/// [EGL] Binding for eglCreateStreamSyncNV.
+		/// [EGL] eglCreateStreamSyncNV: Binding for eglCreateStreamSyncNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

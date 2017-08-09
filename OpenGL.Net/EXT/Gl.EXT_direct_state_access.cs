@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int PROGRAM_MATRIX_STACK_DEPTH_EXT = 0x8E2F;
 
 		/// <summary>
-		/// [GL] Binding for glMatrixLoadfEXT.
+		/// [GL] glMatrixLoadfEXT: Binding for glMatrixLoadfEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixLoaddEXT.
+		/// [GL] glMatrixLoaddEXT: Binding for glMatrixLoaddEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -100,7 +100,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixMultfEXT.
+		/// [GL] glMatrixMultfEXT: Binding for glMatrixMultfEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixMultdEXT.
+		/// [GL] glMatrixMultdEXT: Binding for glMatrixMultdEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -146,7 +146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixLoadIdentityEXT.
+		/// [GL] glMatrixLoadIdentityEXT: Binding for glMatrixLoadIdentityEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -161,7 +161,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixRotatefEXT.
+		/// [GL] glMatrixRotatefEXT: Binding for glMatrixRotatefEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -188,7 +188,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixRotatedEXT.
+		/// [GL] glMatrixRotatedEXT: Binding for glMatrixRotatedEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -215,7 +215,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixScalefEXT.
+		/// [GL] glMatrixScalefEXT: Binding for glMatrixScalefEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -239,7 +239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixScaledEXT.
+		/// [GL] glMatrixScaledEXT: Binding for glMatrixScaledEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -263,7 +263,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixTranslatefEXT.
+		/// [GL] glMatrixTranslatefEXT: Binding for glMatrixTranslatefEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -287,7 +287,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixTranslatedEXT.
+		/// [GL] glMatrixTranslatedEXT: Binding for glMatrixTranslatedEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -311,7 +311,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixFrustumEXT.
+		/// [GL] glMatrixFrustumEXT: Binding for glMatrixFrustumEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -344,7 +344,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixOrthoEXT.
+		/// [GL] glMatrixOrthoEXT: Binding for glMatrixOrthoEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -377,7 +377,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixPopEXT.
+		/// [GL] glMatrixPopEXT: Binding for glMatrixPopEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -392,7 +392,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixPushEXT.
+		/// [GL] glMatrixPushEXT: Binding for glMatrixPushEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -407,7 +407,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClientAttribDefaultEXT.
+		/// [GL] glClientAttribDefaultEXT: Binding for glClientAttribDefaultEXT.
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:ClientAttribMask"/>.
@@ -422,7 +422,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glPushClientAttribDefaultEXT.
+		/// [GL] glPushClientAttribDefaultEXT: Binding for glPushClientAttribDefaultEXT.
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:ClientAttribMask"/>.
@@ -437,7 +437,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterfEXT.
+		/// [GL] glTextureParameterfEXT: Binding for glTextureParameterfEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -461,7 +461,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterfvEXT.
+		/// [GL] glTextureParameterfvEXT: Binding for glTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -490,7 +490,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameteriEXT.
+		/// [GL] glTextureParameteriEXT: Binding for glTextureParameteriEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -514,7 +514,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterivEXT.
+		/// [GL] glTextureParameterivEXT: Binding for glTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -543,7 +543,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage1DEXT.
+		/// [GL] glTextureImage1DEXT: Binding for glTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -582,7 +582,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage1DEXT.
+		/// [GL] glTextureImage1DEXT: Binding for glTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -623,7 +623,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage2DEXT.
+		/// [GL] glTextureImage2DEXT: Binding for glTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -665,7 +665,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage2DEXT.
+		/// [GL] glTextureImage2DEXT: Binding for glTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -709,7 +709,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureSubImage1DEXT.
+		/// [GL] glTextureSubImage1DEXT: Binding for glTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -745,7 +745,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureSubImage1DEXT.
+		/// [GL] glTextureSubImage1DEXT: Binding for glTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -783,7 +783,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureSubImage2DEXT.
+		/// [GL] glTextureSubImage2DEXT: Binding for glTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -825,7 +825,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureSubImage2DEXT.
+		/// [GL] glTextureSubImage2DEXT: Binding for glTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -869,7 +869,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTextureImage1DEXT.
+		/// [GL] glCopyTextureImage1DEXT: Binding for glCopyTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -905,7 +905,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTextureImage2DEXT.
+		/// [GL] glCopyTextureImage2DEXT: Binding for glCopyTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -944,7 +944,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTextureSubImage1DEXT.
+		/// [GL] glCopyTextureSubImage1DEXT: Binding for glCopyTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -977,7 +977,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTextureSubImage2DEXT.
+		/// [GL] glCopyTextureSubImage2DEXT: Binding for glCopyTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1016,7 +1016,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureImageEXT.
+		/// [GL] glGetTextureImageEXT: Binding for glGetTextureImageEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1046,7 +1046,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureImageEXT.
+		/// [GL] glGetTextureImageEXT: Binding for glGetTextureImageEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1078,7 +1078,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureParameterfvEXT.
+		/// [GL] glGetTextureParameterfvEXT: Binding for glGetTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1107,7 +1107,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureParameterivEXT.
+		/// [GL] glGetTextureParameterivEXT: Binding for glGetTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1136,7 +1136,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureParameterivEXT.
+		/// [GL] glGetTextureParameterivEXT: Binding for glGetTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1165,7 +1165,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureLevelParameterfvEXT.
+		/// [GL] glGetTextureLevelParameterfvEXT: Binding for glGetTextureLevelParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1197,7 +1197,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureLevelParameterivEXT.
+		/// [GL] glGetTextureLevelParameterivEXT: Binding for glGetTextureLevelParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1229,7 +1229,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureLevelParameterivEXT.
+		/// [GL] glGetTextureLevelParameterivEXT: Binding for glGetTextureLevelParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1261,7 +1261,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage3DEXT.
+		/// [GL] glTextureImage3DEXT: Binding for glTextureImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1306,7 +1306,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage3DEXT.
+		/// [GL] glTextureImage3DEXT: Binding for glTextureImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1353,7 +1353,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureSubImage3DEXT.
+		/// [GL] glTextureSubImage3DEXT: Binding for glTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1401,7 +1401,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureSubImage3DEXT.
+		/// [GL] glTextureSubImage3DEXT: Binding for glTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1451,7 +1451,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTextureSubImage3DEXT.
+		/// [GL] glCopyTextureSubImage3DEXT: Binding for glCopyTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -1493,7 +1493,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBindMultiTextureEXT.
+		/// [GL] glBindMultiTextureEXT: Binding for glBindMultiTextureEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1514,7 +1514,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoordPointerEXT.
+		/// [GL] glMultiTexCoordPointerEXT: Binding for glMultiTexCoordPointerEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1541,7 +1541,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexCoordPointerEXT.
+		/// [GL] glMultiTexCoordPointerEXT: Binding for glMultiTexCoordPointerEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1570,7 +1570,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexEnvfEXT.
+		/// [GL] glMultiTexEnvfEXT: Binding for glMultiTexEnvfEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1594,7 +1594,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexEnvfvEXT.
+		/// [GL] glMultiTexEnvfvEXT: Binding for glMultiTexEnvfvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1623,7 +1623,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexEnviEXT.
+		/// [GL] glMultiTexEnviEXT: Binding for glMultiTexEnviEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1647,7 +1647,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexEnvivEXT.
+		/// [GL] glMultiTexEnvivEXT: Binding for glMultiTexEnvivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1676,7 +1676,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexGendEXT.
+		/// [GL] glMultiTexGendEXT: Binding for glMultiTexGendEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1700,7 +1700,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexGendvEXT.
+		/// [GL] glMultiTexGendvEXT: Binding for glMultiTexGendvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1729,7 +1729,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexGenfEXT.
+		/// [GL] glMultiTexGenfEXT: Binding for glMultiTexGenfEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1753,7 +1753,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexGenfvEXT.
+		/// [GL] glMultiTexGenfvEXT: Binding for glMultiTexGenfvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1782,7 +1782,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexGeniEXT.
+		/// [GL] glMultiTexGeniEXT: Binding for glMultiTexGeniEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1806,7 +1806,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexGenivEXT.
+		/// [GL] glMultiTexGenivEXT: Binding for glMultiTexGenivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1835,7 +1835,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexEnvfvEXT.
+		/// [GL] glGetMultiTexEnvfvEXT: Binding for glGetMultiTexEnvfvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1864,7 +1864,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexEnvivEXT.
+		/// [GL] glGetMultiTexEnvivEXT: Binding for glGetMultiTexEnvivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1893,7 +1893,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexGendvEXT.
+		/// [GL] glGetMultiTexGendvEXT: Binding for glGetMultiTexGendvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1922,7 +1922,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexGenfvEXT.
+		/// [GL] glGetMultiTexGenfvEXT: Binding for glGetMultiTexGenfvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1951,7 +1951,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexGenivEXT.
+		/// [GL] glGetMultiTexGenivEXT: Binding for glGetMultiTexGenivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -1980,7 +1980,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexParameteriEXT.
+		/// [GL] glMultiTexParameteriEXT: Binding for glMultiTexParameteriEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2004,7 +2004,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexParameterivEXT.
+		/// [GL] glMultiTexParameterivEXT: Binding for glMultiTexParameterivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2033,7 +2033,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexParameterfEXT.
+		/// [GL] glMultiTexParameterfEXT: Binding for glMultiTexParameterfEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2057,7 +2057,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexParameterfvEXT.
+		/// [GL] glMultiTexParameterfvEXT: Binding for glMultiTexParameterfvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2086,7 +2086,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexImage1DEXT.
+		/// [GL] glMultiTexImage1DEXT: Binding for glMultiTexImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2125,7 +2125,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexImage1DEXT.
+		/// [GL] glMultiTexImage1DEXT: Binding for glMultiTexImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2166,7 +2166,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexImage2DEXT.
+		/// [GL] glMultiTexImage2DEXT: Binding for glMultiTexImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2208,7 +2208,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexImage2DEXT.
+		/// [GL] glMultiTexImage2DEXT: Binding for glMultiTexImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2252,7 +2252,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexSubImage1DEXT.
+		/// [GL] glMultiTexSubImage1DEXT: Binding for glMultiTexSubImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2288,7 +2288,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexSubImage1DEXT.
+		/// [GL] glMultiTexSubImage1DEXT: Binding for glMultiTexSubImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2326,7 +2326,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexSubImage2DEXT.
+		/// [GL] glMultiTexSubImage2DEXT: Binding for glMultiTexSubImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2368,7 +2368,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexSubImage2DEXT.
+		/// [GL] glMultiTexSubImage2DEXT: Binding for glMultiTexSubImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2412,7 +2412,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyMultiTexImage1DEXT.
+		/// [GL] glCopyMultiTexImage1DEXT: Binding for glCopyMultiTexImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2448,7 +2448,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyMultiTexImage2DEXT.
+		/// [GL] glCopyMultiTexImage2DEXT: Binding for glCopyMultiTexImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2487,7 +2487,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyMultiTexSubImage1DEXT.
+		/// [GL] glCopyMultiTexSubImage1DEXT: Binding for glCopyMultiTexSubImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2520,7 +2520,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyMultiTexSubImage2DEXT.
+		/// [GL] glCopyMultiTexSubImage2DEXT: Binding for glCopyMultiTexSubImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2559,7 +2559,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexImageEXT.
+		/// [GL] glGetMultiTexImageEXT: Binding for glGetMultiTexImageEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2589,7 +2589,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexImageEXT.
+		/// [GL] glGetMultiTexImageEXT: Binding for glGetMultiTexImageEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2621,7 +2621,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexParameterfvEXT.
+		/// [GL] glGetMultiTexParameterfvEXT: Binding for glGetMultiTexParameterfvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2650,7 +2650,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexParameterivEXT.
+		/// [GL] glGetMultiTexParameterivEXT: Binding for glGetMultiTexParameterivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2679,7 +2679,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexLevelParameterfvEXT.
+		/// [GL] glGetMultiTexLevelParameterfvEXT: Binding for glGetMultiTexLevelParameterfvEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2711,7 +2711,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexLevelParameterivEXT.
+		/// [GL] glGetMultiTexLevelParameterivEXT: Binding for glGetMultiTexLevelParameterivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2743,7 +2743,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexImage3DEXT.
+		/// [GL] glMultiTexImage3DEXT: Binding for glMultiTexImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2788,7 +2788,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexImage3DEXT.
+		/// [GL] glMultiTexImage3DEXT: Binding for glMultiTexImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2835,7 +2835,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexSubImage3DEXT.
+		/// [GL] glMultiTexSubImage3DEXT: Binding for glMultiTexSubImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2883,7 +2883,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexSubImage3DEXT.
+		/// [GL] glMultiTexSubImage3DEXT: Binding for glMultiTexSubImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2933,7 +2933,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyMultiTexSubImage3DEXT.
+		/// [GL] glCopyMultiTexSubImage3DEXT: Binding for glCopyMultiTexSubImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -2975,7 +2975,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEnableClientStateIndexedEXT.
+		/// [GL] glEnableClientStateIndexedEXT: Binding for glEnableClientStateIndexedEXT.
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -2993,7 +2993,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDisableClientStateIndexedEXT.
+		/// [GL] glDisableClientStateIndexedEXT: Binding for glDisableClientStateIndexedEXT.
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -3011,7 +3011,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPointerIndexedvEXT.
+		/// [GL] glGetPointerIndexedvEXT: Binding for glGetPointerIndexedvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -3037,7 +3037,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPointerIndexedvEXT.
+		/// [GL] glGetPointerIndexedvEXT: Binding for glGetPointerIndexedvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -3060,7 +3060,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureImage3DEXT.
+		/// [GL] glCompressedTextureImage3DEXT: Binding for glCompressedTextureImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3102,7 +3102,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureImage3DEXT.
+		/// [GL] glCompressedTextureImage3DEXT: Binding for glCompressedTextureImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3146,7 +3146,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureImage2DEXT.
+		/// [GL] glCompressedTextureImage2DEXT: Binding for glCompressedTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3185,7 +3185,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureImage2DEXT.
+		/// [GL] glCompressedTextureImage2DEXT: Binding for glCompressedTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3226,7 +3226,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureImage1DEXT.
+		/// [GL] glCompressedTextureImage1DEXT: Binding for glCompressedTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3262,7 +3262,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureImage1DEXT.
+		/// [GL] glCompressedTextureImage1DEXT: Binding for glCompressedTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3300,7 +3300,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureSubImage3DEXT.
+		/// [GL] glCompressedTextureSubImage3DEXT: Binding for glCompressedTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3348,7 +3348,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureSubImage3DEXT.
+		/// [GL] glCompressedTextureSubImage3DEXT: Binding for glCompressedTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3398,7 +3398,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureSubImage2DEXT.
+		/// [GL] glCompressedTextureSubImage2DEXT: Binding for glCompressedTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3440,7 +3440,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureSubImage2DEXT.
+		/// [GL] glCompressedTextureSubImage2DEXT: Binding for glCompressedTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3484,7 +3484,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureSubImage1DEXT.
+		/// [GL] glCompressedTextureSubImage1DEXT: Binding for glCompressedTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3520,7 +3520,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTextureSubImage1DEXT.
+		/// [GL] glCompressedTextureSubImage1DEXT: Binding for glCompressedTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3558,7 +3558,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetCompressedTextureImageEXT.
+		/// [GL] glGetCompressedTextureImageEXT: Binding for glGetCompressedTextureImageEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3582,7 +3582,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetCompressedTextureImageEXT.
+		/// [GL] glGetCompressedTextureImageEXT: Binding for glGetCompressedTextureImageEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3608,7 +3608,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexImage3DEXT.
+		/// [GL] glCompressedMultiTexImage3DEXT: Binding for glCompressedMultiTexImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3650,7 +3650,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexImage3DEXT.
+		/// [GL] glCompressedMultiTexImage3DEXT: Binding for glCompressedMultiTexImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3694,7 +3694,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexImage2DEXT.
+		/// [GL] glCompressedMultiTexImage2DEXT: Binding for glCompressedMultiTexImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3733,7 +3733,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexImage2DEXT.
+		/// [GL] glCompressedMultiTexImage2DEXT: Binding for glCompressedMultiTexImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3774,7 +3774,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexImage1DEXT.
+		/// [GL] glCompressedMultiTexImage1DEXT: Binding for glCompressedMultiTexImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3810,7 +3810,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexImage1DEXT.
+		/// [GL] glCompressedMultiTexImage1DEXT: Binding for glCompressedMultiTexImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3848,7 +3848,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexSubImage3DEXT.
+		/// [GL] glCompressedMultiTexSubImage3DEXT: Binding for glCompressedMultiTexSubImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3896,7 +3896,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexSubImage3DEXT.
+		/// [GL] glCompressedMultiTexSubImage3DEXT: Binding for glCompressedMultiTexSubImage3DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3946,7 +3946,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexSubImage2DEXT.
+		/// [GL] glCompressedMultiTexSubImage2DEXT: Binding for glCompressedMultiTexSubImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -3988,7 +3988,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexSubImage2DEXT.
+		/// [GL] glCompressedMultiTexSubImage2DEXT: Binding for glCompressedMultiTexSubImage2DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4032,7 +4032,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexSubImage1DEXT.
+		/// [GL] glCompressedMultiTexSubImage1DEXT: Binding for glCompressedMultiTexSubImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4068,7 +4068,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedMultiTexSubImage1DEXT.
+		/// [GL] glCompressedMultiTexSubImage1DEXT: Binding for glCompressedMultiTexSubImage1DEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4106,7 +4106,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetCompressedMultiTexImageEXT.
+		/// [GL] glGetCompressedMultiTexImageEXT: Binding for glGetCompressedMultiTexImageEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4130,7 +4130,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetCompressedMultiTexImageEXT.
+		/// [GL] glGetCompressedMultiTexImageEXT: Binding for glGetCompressedMultiTexImageEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4156,7 +4156,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixLoadTransposefEXT.
+		/// [GL] glMatrixLoadTransposefEXT: Binding for glMatrixLoadTransposefEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -4179,7 +4179,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixLoadTransposedEXT.
+		/// [GL] glMatrixLoadTransposedEXT: Binding for glMatrixLoadTransposedEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -4202,7 +4202,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixMultTransposefEXT.
+		/// [GL] glMatrixMultTransposefEXT: Binding for glMatrixMultTransposefEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -4225,7 +4225,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMatrixMultTransposedEXT.
+		/// [GL] glMatrixMultTransposedEXT: Binding for glMatrixMultTransposedEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:MatrixMode"/>.
@@ -4248,7 +4248,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedBufferDataEXT.
+		/// [GL] glNamedBufferDataEXT: Binding for glNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4272,7 +4272,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedBufferDataEXT.
+		/// [GL] glNamedBufferDataEXT: Binding for glNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4298,7 +4298,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMapNamedBufferEXT.
+		/// [GL] glMapNamedBufferEXT: Binding for glMapNamedBufferEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4320,7 +4320,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUnmapNamedBufferEXT.
+		/// [GL] glUnmapNamedBufferEXT: Binding for glUnmapNamedBufferEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4339,7 +4339,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedBufferParameterivEXT.
+		/// [GL] glGetNamedBufferParameterivEXT: Binding for glGetNamedBufferParameterivEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4365,7 +4365,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedBufferPointervEXT.
+		/// [GL] glGetNamedBufferPointervEXT: Binding for glGetNamedBufferPointervEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4391,7 +4391,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedBufferPointervEXT.
+		/// [GL] glGetNamedBufferPointervEXT: Binding for glGetNamedBufferPointervEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4414,7 +4414,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedBufferSubDataEXT.
+		/// [GL] glGetNamedBufferSubDataEXT: Binding for glGetNamedBufferSubDataEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4438,7 +4438,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedBufferSubDataEXT.
+		/// [GL] glGetNamedBufferSubDataEXT: Binding for glGetNamedBufferSubDataEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -4464,7 +4464,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureBufferEXT.
+		/// [GL] glTextureBufferEXT: Binding for glTextureBufferEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4488,7 +4488,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexBufferEXT.
+		/// [GL] glMultiTexBufferEXT: Binding for glMultiTexBufferEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4512,7 +4512,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterIivEXT.
+		/// [GL] glTextureParameterIivEXT: Binding for glTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4541,7 +4541,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterIuivEXT.
+		/// [GL] glTextureParameterIuivEXT: Binding for glTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4570,7 +4570,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureParameterIivEXT.
+		/// [GL] glGetTextureParameterIivEXT: Binding for glGetTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4599,7 +4599,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureParameterIivEXT.
+		/// [GL] glGetTextureParameterIivEXT: Binding for glGetTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4628,7 +4628,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureParameterIuivEXT.
+		/// [GL] glGetTextureParameterIuivEXT: Binding for glGetTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4657,7 +4657,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureParameterIuivEXT.
+		/// [GL] glGetTextureParameterIuivEXT: Binding for glGetTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4686,7 +4686,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexParameterIivEXT.
+		/// [GL] glMultiTexParameterIivEXT: Binding for glMultiTexParameterIivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4715,7 +4715,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexParameterIuivEXT.
+		/// [GL] glMultiTexParameterIuivEXT: Binding for glMultiTexParameterIuivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4744,7 +4744,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexParameterIivEXT.
+		/// [GL] glGetMultiTexParameterIivEXT: Binding for glGetMultiTexParameterIivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4773,7 +4773,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMultiTexParameterIuivEXT.
+		/// [GL] glGetMultiTexParameterIuivEXT: Binding for glGetMultiTexParameterIuivEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -4802,7 +4802,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameters4fvEXT.
+		/// [GL] glNamedProgramLocalParameters4fvEXT: Binding for glNamedProgramLocalParameters4fvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4834,7 +4834,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameterI4iEXT.
+		/// [GL] glNamedProgramLocalParameterI4iEXT: Binding for glNamedProgramLocalParameterI4iEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4867,7 +4867,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameterI4ivEXT.
+		/// [GL] glNamedProgramLocalParameterI4ivEXT: Binding for glNamedProgramLocalParameterI4ivEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4896,7 +4896,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParametersI4ivEXT.
+		/// [GL] glNamedProgramLocalParametersI4ivEXT: Binding for glNamedProgramLocalParametersI4ivEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4928,7 +4928,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameterI4uiEXT.
+		/// [GL] glNamedProgramLocalParameterI4uiEXT: Binding for glNamedProgramLocalParameterI4uiEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4961,7 +4961,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameterI4uivEXT.
+		/// [GL] glNamedProgramLocalParameterI4uivEXT: Binding for glNamedProgramLocalParameterI4uivEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -4990,7 +4990,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParametersI4uivEXT.
+		/// [GL] glNamedProgramLocalParametersI4uivEXT: Binding for glNamedProgramLocalParametersI4uivEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5022,7 +5022,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedProgramLocalParameterIivEXT.
+		/// [GL] glGetNamedProgramLocalParameterIivEXT: Binding for glGetNamedProgramLocalParameterIivEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5051,7 +5051,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedProgramLocalParameterIuivEXT.
+		/// [GL] glGetNamedProgramLocalParameterIuivEXT: Binding for glGetNamedProgramLocalParameterIuivEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5080,7 +5080,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEnableClientStateiEXT.
+		/// [GL] glEnableClientStateiEXT: Binding for glEnableClientStateiEXT.
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -5098,7 +5098,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDisableClientStateiEXT.
+		/// [GL] glDisableClientStateiEXT: Binding for glDisableClientStateiEXT.
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
@@ -5116,7 +5116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPointeri_vEXT.
+		/// [GL] glGetPointeri_vEXT: Binding for glGetPointeri_vEXT.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -5142,7 +5142,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPointeri_vEXT.
+		/// [GL] glGetPointeri_vEXT: Binding for glGetPointeri_vEXT.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -5165,7 +5165,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramStringEXT.
+		/// [GL] glNamedProgramStringEXT: Binding for glNamedProgramStringEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5192,7 +5192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramStringEXT.
+		/// [GL] glNamedProgramStringEXT: Binding for glNamedProgramStringEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5221,7 +5221,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameter4dEXT.
+		/// [GL] glNamedProgramLocalParameter4dEXT: Binding for glNamedProgramLocalParameter4dEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5254,7 +5254,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameter4dvEXT.
+		/// [GL] glNamedProgramLocalParameter4dvEXT: Binding for glNamedProgramLocalParameter4dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5283,7 +5283,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameter4fEXT.
+		/// [GL] glNamedProgramLocalParameter4fEXT: Binding for glNamedProgramLocalParameter4fEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5316,7 +5316,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedProgramLocalParameter4fvEXT.
+		/// [GL] glNamedProgramLocalParameter4fvEXT: Binding for glNamedProgramLocalParameter4fvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5345,7 +5345,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedProgramLocalParameterdvEXT.
+		/// [GL] glGetNamedProgramLocalParameterdvEXT: Binding for glGetNamedProgramLocalParameterdvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5374,7 +5374,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedProgramLocalParameterfvEXT.
+		/// [GL] glGetNamedProgramLocalParameterfvEXT: Binding for glGetNamedProgramLocalParameterfvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5403,7 +5403,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedProgramivEXT.
+		/// [GL] glGetNamedProgramivEXT: Binding for glGetNamedProgramivEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5432,7 +5432,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedProgramStringEXT.
+		/// [GL] glGetNamedProgramStringEXT: Binding for glGetNamedProgramStringEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5456,7 +5456,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedProgramStringEXT.
+		/// [GL] glGetNamedProgramStringEXT: Binding for glGetNamedProgramStringEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -5482,7 +5482,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedRenderbufferStorageEXT.
+		/// [GL] glNamedRenderbufferStorageEXT: Binding for glNamedRenderbufferStorageEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5506,7 +5506,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedRenderbufferParameterivEXT.
+		/// [GL] glGetNamedRenderbufferParameterivEXT: Binding for glGetNamedRenderbufferParameterivEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5532,7 +5532,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedRenderbufferStorageMultisampleEXT.
+		/// [GL] glNamedRenderbufferStorageMultisampleEXT: Binding for glNamedRenderbufferStorageMultisampleEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5559,7 +5559,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedRenderbufferStorageMultisampleCoverageEXT.
+		/// [GL] glNamedRenderbufferStorageMultisampleCoverageEXT: Binding for glNamedRenderbufferStorageMultisampleCoverageEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5589,7 +5589,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCheckNamedFramebufferStatusEXT.
+		/// [GL] glCheckNamedFramebufferStatusEXT: Binding for glCheckNamedFramebufferStatusEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5611,7 +5611,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferTexture1DEXT.
+		/// [GL] glNamedFramebufferTexture1DEXT: Binding for glNamedFramebufferTexture1DEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5638,7 +5638,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferTexture2DEXT.
+		/// [GL] glNamedFramebufferTexture2DEXT: Binding for glNamedFramebufferTexture2DEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5665,7 +5665,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferTexture3DEXT.
+		/// [GL] glNamedFramebufferTexture3DEXT: Binding for glNamedFramebufferTexture3DEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5695,7 +5695,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferRenderbufferEXT.
+		/// [GL] glNamedFramebufferRenderbufferEXT: Binding for glNamedFramebufferRenderbufferEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5719,7 +5719,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedFramebufferAttachmentParameterivEXT.
+		/// [GL] glGetNamedFramebufferAttachmentParameterivEXT: Binding for glGetNamedFramebufferAttachmentParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5748,7 +5748,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenerateTextureMipmapEXT.
+		/// [GL] glGenerateTextureMipmapEXT: Binding for glGenerateTextureMipmapEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -5766,7 +5766,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenerateMultiTexMipmapEXT.
+		/// [GL] glGenerateMultiTexMipmapEXT: Binding for glGenerateMultiTexMipmapEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -5784,7 +5784,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferDrawBufferEXT.
+		/// [GL] glFramebufferDrawBufferEXT: Binding for glFramebufferDrawBufferEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5802,7 +5802,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferDrawBuffersEXT.
+		/// [GL] glFramebufferDrawBuffersEXT: Binding for glFramebufferDrawBuffersEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5825,7 +5825,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferReadBufferEXT.
+		/// [GL] glFramebufferReadBufferEXT: Binding for glFramebufferReadBufferEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5843,7 +5843,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetFramebufferParameterivEXT.
+		/// [GL] glGetFramebufferParameterivEXT: Binding for glGetFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5869,7 +5869,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedCopyBufferSubDataEXT.
+		/// [GL] glNamedCopyBufferSubDataEXT: Binding for glNamedCopyBufferSubDataEXT.
 		/// </summary>
 		/// <param name="readBuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5896,7 +5896,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferTextureEXT.
+		/// [GL] glNamedFramebufferTextureEXT: Binding for glNamedFramebufferTextureEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5920,7 +5920,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferTextureLayerEXT.
+		/// [GL] glNamedFramebufferTextureLayerEXT: Binding for glNamedFramebufferTextureLayerEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5947,7 +5947,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferTextureFaceEXT.
+		/// [GL] glNamedFramebufferTextureFaceEXT: Binding for glNamedFramebufferTextureFaceEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -5974,7 +5974,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureRenderbufferEXT.
+		/// [GL] glTextureRenderbufferEXT: Binding for glTextureRenderbufferEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -5995,7 +5995,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiTexRenderbufferEXT.
+		/// [GL] glMultiTexRenderbufferEXT: Binding for glMultiTexRenderbufferEXT.
 		/// </summary>
 		/// <param name="texunit">
 		/// A <see cref="T:TextureUnit"/>.
@@ -6016,7 +6016,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexOffsetEXT.
+		/// [GL] glVertexArrayVertexOffsetEXT: Binding for glVertexArrayVertexOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6046,7 +6046,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayColorOffsetEXT.
+		/// [GL] glVertexArrayColorOffsetEXT: Binding for glVertexArrayColorOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6076,7 +6076,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayEdgeFlagOffsetEXT.
+		/// [GL] glVertexArrayEdgeFlagOffsetEXT: Binding for glVertexArrayEdgeFlagOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6100,7 +6100,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayIndexOffsetEXT.
+		/// [GL] glVertexArrayIndexOffsetEXT: Binding for glVertexArrayIndexOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6127,7 +6127,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayNormalOffsetEXT.
+		/// [GL] glVertexArrayNormalOffsetEXT: Binding for glVertexArrayNormalOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6154,7 +6154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayTexCoordOffsetEXT.
+		/// [GL] glVertexArrayTexCoordOffsetEXT: Binding for glVertexArrayTexCoordOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6184,7 +6184,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayMultiTexCoordOffsetEXT.
+		/// [GL] glVertexArrayMultiTexCoordOffsetEXT: Binding for glVertexArrayMultiTexCoordOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6217,7 +6217,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayFogCoordOffsetEXT.
+		/// [GL] glVertexArrayFogCoordOffsetEXT: Binding for glVertexArrayFogCoordOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6244,7 +6244,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArraySecondaryColorOffsetEXT.
+		/// [GL] glVertexArraySecondaryColorOffsetEXT: Binding for glVertexArraySecondaryColorOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6274,7 +6274,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexAttribOffsetEXT.
+		/// [GL] glVertexArrayVertexAttribOffsetEXT: Binding for glVertexArrayVertexAttribOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6310,7 +6310,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexAttribIOffsetEXT.
+		/// [GL] glVertexArrayVertexAttribIOffsetEXT: Binding for glVertexArrayVertexAttribIOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6343,7 +6343,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEnableVertexArrayEXT.
+		/// [GL] glEnableVertexArrayEXT: Binding for glEnableVertexArrayEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6361,7 +6361,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDisableVertexArrayEXT.
+		/// [GL] glDisableVertexArrayEXT: Binding for glDisableVertexArrayEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6379,7 +6379,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEnableVertexArrayAttribEXT.
+		/// [GL] glEnableVertexArrayAttribEXT: Binding for glEnableVertexArrayAttribEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6397,7 +6397,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDisableVertexArrayAttribEXT.
+		/// [GL] glDisableVertexArrayAttribEXT: Binding for glDisableVertexArrayAttribEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6415,7 +6415,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexArrayIntegervEXT.
+		/// [GL] glGetVertexArrayIntegervEXT: Binding for glGetVertexArrayIntegervEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6441,7 +6441,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexArrayPointervEXT.
+		/// [GL] glGetVertexArrayPointervEXT: Binding for glGetVertexArrayPointervEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6467,7 +6467,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexArrayPointervEXT.
+		/// [GL] glGetVertexArrayPointervEXT: Binding for glGetVertexArrayPointervEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6490,7 +6490,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexArrayIntegeri_vEXT.
+		/// [GL] glGetVertexArrayIntegeri_vEXT: Binding for glGetVertexArrayIntegeri_vEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6519,7 +6519,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexArrayPointeri_vEXT.
+		/// [GL] glGetVertexArrayPointeri_vEXT: Binding for glGetVertexArrayPointeri_vEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6548,7 +6548,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMapNamedBufferRangeEXT.
+		/// [GL] glMapNamedBufferRangeEXT: Binding for glMapNamedBufferRangeEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -6576,7 +6576,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFlushMappedNamedBufferRangeEXT.
+		/// [GL] glFlushMappedNamedBufferRangeEXT: Binding for glFlushMappedNamedBufferRangeEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -6597,7 +6597,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClearNamedBufferDataEXT.
+		/// [GL] glClearNamedBufferDataEXT: Binding for glClearNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -6624,7 +6624,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClearNamedBufferDataEXT.
+		/// [GL] glClearNamedBufferDataEXT: Binding for glClearNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -6653,7 +6653,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClearNamedBufferSubDataEXT.
+		/// [GL] glClearNamedBufferSubDataEXT: Binding for glClearNamedBufferSubDataEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -6686,7 +6686,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClearNamedBufferSubDataEXT.
+		/// [GL] glClearNamedBufferSubDataEXT: Binding for glClearNamedBufferSubDataEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -6721,7 +6721,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferParameteriEXT.
+		/// [GL] glNamedFramebufferParameteriEXT: Binding for glNamedFramebufferParameteriEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -6742,7 +6742,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedFramebufferParameterivEXT.
+		/// [GL] glGetNamedFramebufferParameterivEXT: Binding for glGetNamedFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -6768,7 +6768,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform1dEXT.
+		/// [GL] glProgramUniform1dEXT: Binding for glProgramUniform1dEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6789,7 +6789,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform2dEXT.
+		/// [GL] glProgramUniform2dEXT: Binding for glProgramUniform2dEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6813,7 +6813,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform3dEXT.
+		/// [GL] glProgramUniform3dEXT: Binding for glProgramUniform3dEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6840,7 +6840,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform4dEXT.
+		/// [GL] glProgramUniform4dEXT: Binding for glProgramUniform4dEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6870,7 +6870,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform1dvEXT.
+		/// [GL] glProgramUniform1dvEXT: Binding for glProgramUniform1dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6896,7 +6896,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform2dvEXT.
+		/// [GL] glProgramUniform2dvEXT: Binding for glProgramUniform2dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6925,7 +6925,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform3dvEXT.
+		/// [GL] glProgramUniform3dvEXT: Binding for glProgramUniform3dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6954,7 +6954,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform4dvEXT.
+		/// [GL] glProgramUniform4dvEXT: Binding for glProgramUniform4dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -6983,7 +6983,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix2dvEXT.
+		/// [GL] glProgramUniformMatrix2dvEXT: Binding for glProgramUniformMatrix2dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7015,7 +7015,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix3dvEXT.
+		/// [GL] glProgramUniformMatrix3dvEXT: Binding for glProgramUniformMatrix3dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7047,7 +7047,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix4dvEXT.
+		/// [GL] glProgramUniformMatrix4dvEXT: Binding for glProgramUniformMatrix4dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7079,7 +7079,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix2x3dvEXT.
+		/// [GL] glProgramUniformMatrix2x3dvEXT: Binding for glProgramUniformMatrix2x3dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7111,7 +7111,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix2x4dvEXT.
+		/// [GL] glProgramUniformMatrix2x4dvEXT: Binding for glProgramUniformMatrix2x4dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7143,7 +7143,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix3x2dvEXT.
+		/// [GL] glProgramUniformMatrix3x2dvEXT: Binding for glProgramUniformMatrix3x2dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7175,7 +7175,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix3x4dvEXT.
+		/// [GL] glProgramUniformMatrix3x4dvEXT: Binding for glProgramUniformMatrix3x4dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7207,7 +7207,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix4x2dvEXT.
+		/// [GL] glProgramUniformMatrix4x2dvEXT: Binding for glProgramUniformMatrix4x2dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7239,7 +7239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformMatrix4x3dvEXT.
+		/// [GL] glProgramUniformMatrix4x3dvEXT: Binding for glProgramUniformMatrix4x3dvEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -7271,7 +7271,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureBufferRangeEXT.
+		/// [GL] glTextureBufferRangeEXT: Binding for glTextureBufferRangeEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -7301,7 +7301,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorage1DEXT.
+		/// [GL] glTextureStorage1DEXT: Binding for glTextureStorage1DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -7329,7 +7329,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorage2DEXT.
+		/// [GL] glTextureStorage2DEXT: Binding for glTextureStorage2DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -7360,7 +7360,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorage3DEXT.
+		/// [GL] glTextureStorage3DEXT: Binding for glTextureStorage3DEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -7394,7 +7394,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorage2DMultisampleEXT.
+		/// [GL] glTextureStorage2DMultisampleEXT: Binding for glTextureStorage2DMultisampleEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -7427,7 +7427,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorage3DMultisampleEXT.
+		/// [GL] glTextureStorage3DMultisampleEXT: Binding for glTextureStorage3DMultisampleEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -7463,7 +7463,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayBindVertexBufferEXT.
+		/// [GL] glVertexArrayBindVertexBufferEXT: Binding for glVertexArrayBindVertexBufferEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -7490,7 +7490,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexAttribFormatEXT.
+		/// [GL] glVertexArrayVertexAttribFormatEXT: Binding for glVertexArrayVertexAttribFormatEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -7520,7 +7520,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexAttribIFormatEXT.
+		/// [GL] glVertexArrayVertexAttribIFormatEXT: Binding for glVertexArrayVertexAttribIFormatEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -7547,7 +7547,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexAttribLFormatEXT.
+		/// [GL] glVertexArrayVertexAttribLFormatEXT: Binding for glVertexArrayVertexAttribLFormatEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -7574,7 +7574,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexAttribBindingEXT.
+		/// [GL] glVertexArrayVertexAttribBindingEXT: Binding for glVertexArrayVertexAttribBindingEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -7595,7 +7595,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexBindingDivisorEXT.
+		/// [GL] glVertexArrayVertexBindingDivisorEXT: Binding for glVertexArrayVertexBindingDivisorEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -7616,7 +7616,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexAttribLOffsetEXT.
+		/// [GL] glVertexArrayVertexAttribLOffsetEXT: Binding for glVertexArrayVertexAttribLOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -7649,7 +7649,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexturePageCommitmentEXT.
+		/// [GL] glTexturePageCommitmentEXT: Binding for glTexturePageCommitmentEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -7688,7 +7688,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayVertexAttribDivisorEXT.
+		/// [GL] glVertexArrayVertexAttribDivisorEXT: Binding for glVertexArrayVertexAttribDivisorEXT.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.

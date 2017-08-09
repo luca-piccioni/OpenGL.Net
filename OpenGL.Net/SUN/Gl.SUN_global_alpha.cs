@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int GLOBAL_ALPHA_FACTOR_SUN = 0x81DA;
 
 		/// <summary>
-		/// [GL] Binding for glGlobalAlphaFactorbSUN.
+		/// [GL] glGlobalAlphaFactorbSUN: Binding for glGlobalAlphaFactorbSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:sbyte"/>.
@@ -63,7 +63,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGlobalAlphaFactorsSUN.
+		/// [GL] glGlobalAlphaFactorsSUN: Binding for glGlobalAlphaFactorsSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:Int16"/>.
@@ -78,7 +78,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGlobalAlphaFactoriSUN.
+		/// [GL] glGlobalAlphaFactoriSUN: Binding for glGlobalAlphaFactoriSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:Int32"/>.
@@ -93,7 +93,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGlobalAlphaFactorfSUN.
+		/// [GL] glGlobalAlphaFactorfSUN: Binding for glGlobalAlphaFactorfSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.
@@ -108,7 +108,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGlobalAlphaFactordSUN.
+		/// [GL] glGlobalAlphaFactordSUN: Binding for glGlobalAlphaFactordSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:double"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGlobalAlphaFactorubSUN.
+		/// [GL] glGlobalAlphaFactorubSUN: Binding for glGlobalAlphaFactorubSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:byte"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGlobalAlphaFactorusSUN.
+		/// [GL] glGlobalAlphaFactorusSUN: Binding for glGlobalAlphaFactorusSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:UInt16"/>.
@@ -153,7 +153,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGlobalAlphaFactoruiSUN.
+		/// [GL] glGlobalAlphaFactoruiSUN: Binding for glGlobalAlphaFactoruiSUN.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:UInt32"/>.

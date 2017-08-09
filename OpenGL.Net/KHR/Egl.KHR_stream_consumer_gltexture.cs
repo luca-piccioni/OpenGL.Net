@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int CONSUMER_ACQUIRE_TIMEOUT_USEC_KHR = 0x321E;
 
 		/// <summary>
-		/// [EGL] Binding for eglStreamConsumerGLTextureExternalKHR.
+		/// [EGL] eglStreamConsumerGLTextureExternalKHR: Binding for eglStreamConsumerGLTextureExternalKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -64,7 +64,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglStreamConsumerAcquireKHR.
+		/// [EGL] eglStreamConsumerAcquireKHR: Binding for eglStreamConsumerAcquireKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglStreamConsumerReleaseKHR.
+		/// [EGL] eglStreamConsumerReleaseKHR: Binding for eglStreamConsumerReleaseKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

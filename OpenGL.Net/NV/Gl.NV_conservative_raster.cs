@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV = 0x9349;
 
 		/// <summary>
-		/// [GL] Binding for glSubpixelPrecisionBiasNV.
+		/// [GL] glSubpixelPrecisionBiasNV: Binding for glSubpixelPrecisionBiasNV.
 		/// </summary>
 		/// <param name="xbits">
 		/// A <see cref="T:UInt32"/>.

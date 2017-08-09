@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glGetTextureHandleNV.
+		/// [GL] glGetTextureHandleNV: Binding for glGetTextureHandleNV.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -55,7 +55,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureSamplerHandleNV.
+		/// [GL] glGetTextureSamplerHandleNV: Binding for glGetTextureSamplerHandleNV.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMakeTextureHandleResidentNV.
+		/// [GL] glMakeTextureHandleResidentNV: Binding for glMakeTextureHandleResidentNV.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -92,7 +92,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMakeTextureHandleNonResidentNV.
+		/// [GL] glMakeTextureHandleNonResidentNV: Binding for glMakeTextureHandleNonResidentNV.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -107,7 +107,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetImageHandleNV.
+		/// [GL] glGetImageHandleNV: Binding for glGetImageHandleNV.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMakeImageHandleResidentNV.
+		/// [GL] glMakeImageHandleResidentNV: Binding for glMakeImageHandleResidentNV.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -156,7 +156,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMakeImageHandleNonResidentNV.
+		/// [GL] glMakeImageHandleNonResidentNV: Binding for glMakeImageHandleNonResidentNV.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -171,7 +171,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformHandleui64NV.
+		/// [GL] glUniformHandleui64NV: Binding for glUniformHandleui64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -189,7 +189,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformHandleui64vNV.
+		/// [GL] glUniformHandleui64vNV: Binding for glUniformHandleui64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -212,7 +212,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformHandleui64NV.
+		/// [GL] glProgramUniformHandleui64NV: Binding for glProgramUniformHandleui64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -233,7 +233,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformHandleui64vNV.
+		/// [GL] glProgramUniformHandleui64vNV: Binding for glProgramUniformHandleui64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -259,7 +259,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsTextureHandleResidentNV.
+		/// [GL] glIsTextureHandleResidentNV: Binding for glIsTextureHandleResidentNV.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.
@@ -278,7 +278,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsImageHandleResidentNV.
+		/// [GL] glIsImageHandleResidentNV: Binding for glIsImageHandleResidentNV.
 		/// </summary>
 		/// <param name="handle">
 		/// A <see cref="T:UInt64"/>.

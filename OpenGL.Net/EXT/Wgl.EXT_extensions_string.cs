@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// [WGL] Binding for wglGetExtensionsStringEXT.
+		/// [WGL] wglGetExtensionsStringEXT: Binding for wglGetExtensionsStringEXT.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_extensions_string")]
 		public static string GetExtensionsStringEXT()

@@ -1188,7 +1188,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data
+		/// [GL4|GLES3.2] glDrawArrays: render primitives from array data
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1235,7 +1235,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data
+		/// [GL4|GLES3.2] glDrawElements: render primitives from array data
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1284,7 +1284,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data
+		/// [GL4|GLES3.2] glDrawElements: render primitives from array data
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1335,7 +1335,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the address of the specified pointer
+		/// [GL4|GLES3.2] glGetPointerv: return the address of the specified pointer
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -1374,7 +1374,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the address of the specified pointer
+		/// [GL4|GLES3.2] glGetPointerv: return the address of the specified pointer
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -1410,7 +1410,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] set the scale and units used to calculate depth values
+		/// [GL2.1|GLES1.1] glPolygonOffset: set the scale and units used to calculate depth values
 		/// </para>
 		/// </summary>
 		/// <param name="factor">
@@ -1440,7 +1440,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] copy pixels into a 1D texture image
+		/// [GL2.1] glCopyTexImage1D: copy pixels into a 1D texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_1D.
@@ -1529,10 +1529,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] copy pixels into a 2D texture image
+		/// [GL2.1] glCopyTexImage2D: copy pixels into a 2D texture image
 		/// </para>
 		/// <para>
-		/// [GLES1.1] specify a two-dimensional texture image with pixels from the color buffer
+		/// [GLES1.1] glCopyTexImage2D: specify a two-dimensional texture image with pixels from the color buffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1629,7 +1629,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] copy a one-dimensional texture subimage
+		/// [GL2.1] glCopyTexSubImage1D: copy a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture. Must be Gl.TEXTURE_1D.
@@ -1698,10 +1698,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] copy a two-dimensional texture subimage
+		/// [GL2.1] glCopyTexSubImage2D: copy a two-dimensional texture subimage
 		/// </para>
 		/// <para>
-		/// [GLES1.1] specify a two-dimensional texture subimage with pixels from the color buffer
+		/// [GLES1.1] glCopyTexSubImage2D: specify a two-dimensional texture subimage with pixels from the color buffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1785,7 +1785,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a one-dimensional texture subimage
+		/// [GL4] glTexSubImage1D: specify a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexSubImage1D. Must be Gl.TEXTURE_1D.
@@ -1897,7 +1897,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a one-dimensional texture subimage
+		/// [GL4] glTexSubImage1D: specify a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.TexSubImage1D. Must be Gl.TEXTURE_1D.
@@ -2012,7 +2012,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify a two-dimensional texture subimage
+		/// [GL4|GLES3.2] glTexSubImage2D: specify a two-dimensional texture subimage
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2139,7 +2139,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify a two-dimensional texture subimage
+		/// [GL4|GLES3.2] glTexSubImage2D: specify a two-dimensional texture subimage
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2268,7 +2268,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a named texture to a texturing target
+		/// [GL4|GLES3.2] glBindTexture: bind a named texture to a texturing target
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2318,7 +2318,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delete named textures
+		/// [GL4|GLES3.2] glDeleteTextures: delete named textures
 		/// </para>
 		/// </summary>
 		/// <param name="textures">
@@ -2354,7 +2354,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate texture names
+		/// [GL4|GLES3.2] glGenTextures: generate texture names
 		/// </para>
 		/// </summary>
 		/// <param name="textures">
@@ -2392,7 +2392,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate texture names
+		/// [GL4|GLES3.2] glGenTextures: generate texture names
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -2421,7 +2421,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] determine if a name corresponds to a texture
+		/// [GL4|GLES3.2] glIsTexture: determine if a name corresponds to a texture
 		/// </para>
 		/// </summary>
 		/// <param name="texture">
@@ -2454,7 +2454,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] render a vertex using the specified vertex array element
+		/// [GL2.1] glArrayElement: render a vertex using the specified vertex array element
 		/// </summary>
 		/// <param name="i">
 		/// Specifies an index into the enabled vertex data arrays.
@@ -2491,7 +2491,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] define an array of colors
+		/// [GL2.1|GLES1.1] glColorPointer: define an array of colors
 		/// </para>
 		/// </summary>
 		/// <param name="size">
@@ -2551,7 +2551,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] define an array of colors
+		/// [GL2.1|GLES1.1] glColorPointer: define an array of colors
 		/// </para>
 		/// </summary>
 		/// <param name="size">
@@ -2613,7 +2613,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] enable or disable client-side capability
+		/// [GL2.1|GLES1.1] glDisableClientState: enable or disable client-side capability
 		/// </para>
 		/// </summary>
 		/// <param name="array">
@@ -2653,7 +2653,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define an array of edge flags
+		/// [GL2.1] glEdgeFlagPointer: define an array of edge flags
 		/// </summary>
 		/// <param name="stride">
 		/// Specifies the byte offset between consecutive edge flags. If <paramref name="stride"/> is 0, the edge flags are 
@@ -2697,7 +2697,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define an array of edge flags
+		/// [GL2.1] glEdgeFlagPointer: define an array of edge flags
 		/// </summary>
 		/// <param name="stride">
 		/// Specifies the byte offset between consecutive edge flags. If <paramref name="stride"/> is 0, the edge flags are 
@@ -2744,7 +2744,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] enable or disable client-side capability
+		/// [GL2.1|GLES1.1] glEnableClientState: enable or disable client-side capability
 		/// </para>
 		/// </summary>
 		/// <param name="array">
@@ -2784,7 +2784,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define an array of color indexes
+		/// [GL2.1] glIndexPointer: define an array of color indexes
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each color index in the array. Symbolic constants Gl.UNSIGNED_BYTE, Gl.SHORT, Gl.INT, 
@@ -2835,7 +2835,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define an array of color indexes
+		/// [GL2.1] glIndexPointer: define an array of color indexes
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each color index in the array. Symbolic constants Gl.UNSIGNED_BYTE, Gl.SHORT, Gl.INT, 
@@ -2888,7 +2888,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] simultaneously specify and enable several interleaved arrays
+		/// [GL2.1] glInterleavedArrays: simultaneously specify and enable several interleaved arrays
 		/// </summary>
 		/// <param name="format">
 		/// Specifies the type of array to enable. Symbolic constants Gl.V2F, Gl.V3F, Gl.C4UB_V2F, Gl.C4UB_V3F, Gl.C3F_V3F, 
@@ -2931,7 +2931,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] simultaneously specify and enable several interleaved arrays
+		/// [GL2.1] glInterleavedArrays: simultaneously specify and enable several interleaved arrays
 		/// </summary>
 		/// <param name="format">
 		/// Specifies the type of array to enable. Symbolic constants Gl.V2F, Gl.V3F, Gl.C4UB_V2F, Gl.C4UB_V3F, Gl.C3F_V3F, 
@@ -2977,7 +2977,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] define an array of normals
+		/// [GL2.1|GLES1.1] glNormalPointer: define an array of normals
 		/// </para>
 		/// </summary>
 		/// <param name="type">
@@ -3031,7 +3031,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] define an array of normals
+		/// [GL2.1|GLES1.1] glNormalPointer: define an array of normals
 		/// </para>
 		/// </summary>
 		/// <param name="type">
@@ -3087,7 +3087,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] define an array of texture coordinates
+		/// [GL2.1|GLES1.1] glTexCoordPointer: define an array of texture coordinates
 		/// </para>
 		/// </summary>
 		/// <param name="size">
@@ -3149,7 +3149,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1|GLES1.1] define an array of texture coordinates
+		/// [GL2.1|GLES1.1] glTexCoordPointer: define an array of texture coordinates
 		/// </para>
 		/// </summary>
 		/// <param name="size">
@@ -3213,10 +3213,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] define an array of vertex data
+		/// [GL2.1] glVertexPointer: define an array of vertex data
 		/// </para>
 		/// <para>
-		/// [GLES1.1] define an array of vertex coordinates
+		/// [GLES1.1] glVertexPointer: define an array of vertex coordinates
 		/// </para>
 		/// </summary>
 		/// <param name="size">
@@ -3276,10 +3276,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] define an array of vertex data
+		/// [GL2.1] glVertexPointer: define an array of vertex data
 		/// </para>
 		/// <para>
-		/// [GLES1.1] define an array of vertex coordinates
+		/// [GLES1.1] glVertexPointer: define an array of vertex coordinates
 		/// </para>
 		/// </summary>
 		/// <param name="size">
@@ -3340,7 +3340,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] determine if textures are loaded in texture memory
+		/// [GL2.1] glAreTexturesResident: determine if textures are loaded in texture memory
 		/// </summary>
 		/// <param name="textures">
 		/// Specifies an array containing the names of the textures to be queried.
@@ -3388,7 +3388,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set texture residence priority
+		/// [GL2.1] glPrioritizeTextures: set texture residence priority
 		/// </summary>
 		/// <param name="textures">
 		/// Specifies an array containing the names of the textures to be prioritized.
@@ -3431,7 +3431,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current color index
+		/// [GL2.1] glIndexub: set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -3448,7 +3448,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current color index
+		/// [GL2.1] glIndexubv: set the current color index
 		/// </summary>
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
@@ -3471,7 +3471,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] push and pop the client attribute stack
+		/// [GL2.1] glPopClientAttrib: push and pop the client attribute stack
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.STACK_OVERFLOW is generated if Gl.PushClientAttrib is called while the attribute stack is full.
@@ -3504,7 +3504,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] push and pop the client attribute stack
+		/// [GL2.1] glPushClientAttrib: push and pop the client attribute stack
 		/// </summary>
 		/// <param name="mask">
 		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.

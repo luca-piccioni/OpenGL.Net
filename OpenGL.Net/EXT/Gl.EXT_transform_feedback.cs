@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glBindBufferOffsetEXT.
+		/// [GL] glBindBufferOffsetEXT: Binding for glBindBufferOffsetEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:BufferTarget"/>.

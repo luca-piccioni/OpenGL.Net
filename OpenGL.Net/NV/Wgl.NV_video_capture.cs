@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int NUM_VIDEO_CAPTURE_SLOTS_NV = 0x20CF;
 
 		/// <summary>
-		/// [WGL] Binding for wglBindVideoCaptureDeviceNV.
+		/// [WGL] wglBindVideoCaptureDeviceNV: Binding for wglBindVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="uVideoSlot">
 		/// A <see cref="T:UInt32"/>.
@@ -70,7 +70,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglEnumerateVideoCaptureDevicesNV.
+		/// [WGL] wglEnumerateVideoCaptureDevicesNV: Binding for wglEnumerateVideoCaptureDevicesNV.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -97,7 +97,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglLockVideoCaptureDeviceNV.
+		/// [WGL] wglLockVideoCaptureDeviceNV: Binding for wglLockVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -119,7 +119,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglQueryVideoCaptureDeviceNV.
+		/// [WGL] wglQueryVideoCaptureDeviceNV: Binding for wglQueryVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.
@@ -152,7 +152,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglReleaseVideoCaptureDeviceNV.
+		/// [WGL] wglReleaseVideoCaptureDeviceNV: Binding for wglReleaseVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="hDc">
 		/// A <see cref="T:IntPtr"/>.

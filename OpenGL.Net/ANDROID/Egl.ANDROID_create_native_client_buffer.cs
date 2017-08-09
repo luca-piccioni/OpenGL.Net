@@ -63,7 +63,7 @@ namespace OpenGL
 		public const uint NATIVE_BUFFER_USAGE_TEXTURE_BIT_ANDROID = 0x00000004;
 
 		/// <summary>
-		/// [EGL] Binding for eglCreateNativeClientBufferANDROID.
+		/// [EGL] eglCreateNativeClientBufferANDROID: Binding for eglCreateNativeClientBufferANDROID.
 		/// </summary>
 		/// <param name="attrib_list">
 		/// A <see cref="T:int[]"/>.

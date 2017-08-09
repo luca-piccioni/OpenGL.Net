@@ -76,7 +76,7 @@ namespace OpenGL
 		public const int POINT_SIZE_ARRAY_BUFFER_BINDING_OES = 0x8B9F;
 
 		/// <summary>
-		/// [GLES1.1] define an array of point sizes
+		/// [GLES1.1] glPointSizePointerOES: define an array of point sizes
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each point size in the array. Symbolic constant Gl.FIXED is accepted. However, the common 
@@ -110,7 +110,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] define an array of point sizes
+		/// [GLES1.1] glPointSizePointerOES: define an array of point sizes
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each point size in the array. Symbolic constant Gl.FIXED is accepted. However, the common 

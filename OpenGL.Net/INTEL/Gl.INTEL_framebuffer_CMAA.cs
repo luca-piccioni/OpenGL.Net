@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glApplyFramebufferAttachmentCMAAINTEL.
+		/// [GL] glApplyFramebufferAttachmentCMAAINTEL: Binding for glApplyFramebufferAttachmentCMAAINTEL.
 		/// </summary>
 		[RequiredByFeature("GL_INTEL_framebuffer_CMAA", Api = "gl|glcore|gles2")]
 		public static void ApplyFramebufferAttachmentINTEL()

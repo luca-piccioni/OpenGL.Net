@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// [WGL] Binding for wglDelayBeforeSwapNV.
+		/// [WGL] wglDelayBeforeSwapNV: Binding for wglDelayBeforeSwapNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

@@ -83,7 +83,7 @@ namespace OpenGL
 		public const int D3D12_FENCE_VALUE_EXT = 0x9595;
 
 		/// <summary>
-		/// [GL] Binding for glImportSemaphoreWin32HandleEXT.
+		/// [GL] glImportSemaphoreWin32HandleEXT: Binding for glImportSemaphoreWin32HandleEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -104,7 +104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glImportSemaphoreWin32NameEXT.
+		/// [GL] glImportSemaphoreWin32NameEXT: Binding for glImportSemaphoreWin32NameEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.
@@ -125,7 +125,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glImportSemaphoreWin32NameEXT.
+		/// [GL] glImportSemaphoreWin32NameEXT: Binding for glImportSemaphoreWin32NameEXT.
 		/// </summary>
 		/// <param name="semaphore">
 		/// A <see cref="T:UInt32"/>.

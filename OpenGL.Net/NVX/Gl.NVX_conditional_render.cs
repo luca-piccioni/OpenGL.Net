@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glBeginConditionalRenderNVX.
+		/// [GL] glBeginConditionalRenderNVX: Binding for glBeginConditionalRenderNVX.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.

@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int PIXEL_TEX_GEN_MODE_SGIX = 0x832B;
 
 		/// <summary>
-		/// [GL] Binding for glPixelTexGenSGIX.
+		/// [GL] glPixelTexGenSGIX: Binding for glPixelTexGenSGIX.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.

@@ -72,7 +72,7 @@ namespace OpenGL
 		public const int NUM_WINDOW_RECTANGLES_EXT = 0x8F15;
 
 		/// <summary>
-		/// [GL] Binding for glWindowRectanglesEXT.
+		/// [GL] glWindowRectanglesEXT: Binding for glWindowRectanglesEXT.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.

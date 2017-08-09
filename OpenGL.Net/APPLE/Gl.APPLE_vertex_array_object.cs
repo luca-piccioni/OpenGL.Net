@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glBindVertexArrayAPPLE.
+		/// [GL] glBindVertexArrayAPPLE: Binding for glBindVertexArrayAPPLE.
 		/// </summary>
 		/// <param name="array">
 		/// A <see cref="T:UInt32"/>.

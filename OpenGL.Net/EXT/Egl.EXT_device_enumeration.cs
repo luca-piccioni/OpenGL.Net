@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// [EGL] Binding for eglQueryDevicesEXT.
+		/// [EGL] eglQueryDevicesEXT: Binding for eglQueryDevicesEXT.
 		/// </summary>
 		/// <param name="max_devices">
 		/// A <see cref="T:int"/>.

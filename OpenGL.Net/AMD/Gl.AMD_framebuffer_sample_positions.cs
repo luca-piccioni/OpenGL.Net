@@ -54,7 +54,7 @@ namespace OpenGL
 		public const uint ALL_PIXELS_AMD = 0xFFFFFFFF;
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferSamplePositionsfvAMD.
+		/// [GL] glFramebufferSamplePositionsfvAMD: Binding for glFramebufferSamplePositionsfvAMD.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -83,7 +83,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedFramebufferSamplePositionsfvAMD.
+		/// [GL] glNamedFramebufferSamplePositionsfvAMD: Binding for glNamedFramebufferSamplePositionsfvAMD.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetFramebufferParameterfvAMD.
+		/// [GL] glGetFramebufferParameterfvAMD: Binding for glGetFramebufferParameterfvAMD.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -147,7 +147,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedFramebufferParameterfvAMD.
+		/// [GL] glGetNamedFramebufferParameterfvAMD: Binding for glGetNamedFramebufferParameterfvAMD.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.

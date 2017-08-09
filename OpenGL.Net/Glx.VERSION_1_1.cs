@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int EXTENSIONS = 0x3;
 
 		/// <summary>
-		/// [GL2.1] return list of supported extensions
+		/// [GL2.1] glXQueryExtensionsString: return list of supported extensions
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -80,7 +80,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] return string describing the server
+		/// [GL2.1] glXQueryServerString: return string describing the server
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -108,7 +108,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] return a string describing the client
+		/// [GL2.1] glXGetClientString: return a string describing the client
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.

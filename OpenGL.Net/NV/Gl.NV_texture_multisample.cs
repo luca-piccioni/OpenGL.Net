@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int TEXTURE_COLOR_SAMPLES_NV = 0x9046;
 
 		/// <summary>
-		/// [GL] Binding for glTexImage2DMultisampleCoverageNV.
+		/// [GL] glTexImage2DMultisampleCoverageNV: Binding for glTexImage2DMultisampleCoverageNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -81,7 +81,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexImage3DMultisampleCoverageNV.
+		/// [GL] glTexImage3DMultisampleCoverageNV: Binding for glTexImage3DMultisampleCoverageNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage2DMultisampleNV.
+		/// [GL] glTextureImage2DMultisampleNV: Binding for glTextureImage2DMultisampleNV.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -150,7 +150,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage3DMultisampleNV.
+		/// [GL] glTextureImage3DMultisampleNV: Binding for glTextureImage3DMultisampleNV.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -186,7 +186,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage2DMultisampleCoverageNV.
+		/// [GL] glTextureImage2DMultisampleCoverageNV: Binding for glTextureImage2DMultisampleCoverageNV.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -222,7 +222,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureImage3DMultisampleCoverageNV.
+		/// [GL] glTextureImage3DMultisampleCoverageNV: Binding for glTextureImage3DMultisampleCoverageNV.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.

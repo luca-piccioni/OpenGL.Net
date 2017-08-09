@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int DEPTH_BUFFER_FLOAT_MODE_NV = 0x8DAF;
 
 		/// <summary>
-		/// [GL] Binding for glDepthRangedNV.
+		/// [GL] glDepthRangedNV: Binding for glDepthRangedNV.
 		/// </summary>
 		/// <param name="zNear">
 		/// A <see cref="T:double"/>.
@@ -72,7 +72,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClearDepthdNV.
+		/// [GL] glClearDepthdNV: Binding for glClearDepthdNV.
 		/// </summary>
 		/// <param name="depth">
 		/// A <see cref="T:double"/>.
@@ -87,7 +87,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDepthBoundsdNV.
+		/// [GL] glDepthBoundsdNV: Binding for glDepthBoundsdNV.
 		/// </summary>
 		/// <param name="zmin">
 		/// A <see cref="T:double"/>.

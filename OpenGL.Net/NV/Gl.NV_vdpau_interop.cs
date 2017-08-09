@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int WRITE_DISCARD_NV = 0x88BE;
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUInitNV.
+		/// [GL] glVDPAUInitNV: Binding for glVDPAUInitNV.
 		/// </summary>
 		/// <param name="vdpDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -78,7 +78,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUInitNV.
+		/// [GL] glVDPAUInitNV: Binding for glVDPAUInitNV.
 		/// </summary>
 		/// <param name="vdpDevice">
 		/// A <see cref="T:Object"/>.
@@ -100,7 +100,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUFiniNV.
+		/// [GL] glVDPAUFiniNV: Binding for glVDPAUFiniNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
 		public static void VDPAUNV()
@@ -112,7 +112,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAURegisterVideoSurfaceNV.
+		/// [GL] glVDPAURegisterVideoSurfaceNV: Binding for glVDPAURegisterVideoSurfaceNV.
 		/// </summary>
 		/// <param name="vdpSurface">
 		/// A <see cref="T:Object"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAURegisterVideoSurfaceNV.
+		/// [GL] glVDPAURegisterVideoSurfaceNV: Binding for glVDPAURegisterVideoSurfaceNV.
 		/// </summary>
 		/// <param name="vdpSurface">
 		/// A <see cref="T:IntPtr"/>.
@@ -168,7 +168,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAURegisterOutputSurfaceNV.
+		/// [GL] glVDPAURegisterOutputSurfaceNV: Binding for glVDPAURegisterOutputSurfaceNV.
 		/// </summary>
 		/// <param name="vdpSurface">
 		/// A <see cref="T:Object"/>.
@@ -194,7 +194,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAURegisterOutputSurfaceNV.
+		/// [GL] glVDPAURegisterOutputSurfaceNV: Binding for glVDPAURegisterOutputSurfaceNV.
 		/// </summary>
 		/// <param name="vdpSurface">
 		/// A <see cref="T:IntPtr"/>.
@@ -224,7 +224,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUIsSurfaceNV.
+		/// [GL] glVDPAUIsSurfaceNV: Binding for glVDPAUIsSurfaceNV.
 		/// </summary>
 		/// <param name="surface">
 		/// A <see cref="T:IntPtr"/>.
@@ -243,7 +243,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUUnregisterSurfaceNV.
+		/// [GL] glVDPAUUnregisterSurfaceNV: Binding for glVDPAUUnregisterSurfaceNV.
 		/// </summary>
 		/// <param name="surface">
 		/// A <see cref="T:IntPtr"/>.
@@ -258,7 +258,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUGetSurfaceivNV.
+		/// [GL] glVDPAUGetSurfaceivNV: Binding for glVDPAUGetSurfaceivNV.
 		/// </summary>
 		/// <param name="surface">
 		/// A <see cref="T:IntPtr"/>.
@@ -288,7 +288,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUSurfaceAccessNV.
+		/// [GL] glVDPAUSurfaceAccessNV: Binding for glVDPAUSurfaceAccessNV.
 		/// </summary>
 		/// <param name="surface">
 		/// A <see cref="T:IntPtr"/>.
@@ -306,7 +306,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUMapSurfacesNV.
+		/// [GL] glVDPAUMapSurfacesNV: Binding for glVDPAUMapSurfacesNV.
 		/// </summary>
 		/// <param name="surfaces">
 		/// A <see cref="T:IntPtr[]"/>.
@@ -326,7 +326,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVDPAUUnmapSurfacesNV.
+		/// [GL] glVDPAUUnmapSurfacesNV: Binding for glVDPAUUnmapSurfacesNV.
 		/// </summary>
 		/// <param name="surfaces">
 		/// A <see cref="T:IntPtr[]"/>.

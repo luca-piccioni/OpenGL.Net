@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glGetGraphicsResetStatusARB.
+		/// [GL] glGetGraphicsResetStatusARB: Binding for glGetGraphicsResetStatusARB.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 		public static GraphicsResetStatus GetGraphicsResetStatusARB()
@@ -52,7 +52,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnTexImageARB.
+		/// [GL] glGetnTexImageARB: Binding for glGetnTexImageARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -82,7 +82,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnTexImageARB.
+		/// [GL] glGetnTexImageARB: Binding for glGetnTexImageARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -114,7 +114,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnCompressedTexImageARB.
+		/// [GL] glGetnCompressedTexImageARB: Binding for glGetnCompressedTexImageARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnCompressedTexImageARB.
+		/// [GL] glGetnCompressedTexImageARB: Binding for glGetnCompressedTexImageARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -164,7 +164,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnUniformfvARB.
+		/// [GL] glGetnUniformfvARB: Binding for glGetnUniformfvARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -190,7 +190,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnUniformivARB.
+		/// [GL] glGetnUniformivARB: Binding for glGetnUniformivARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -216,7 +216,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnUniformuivARB.
+		/// [GL] glGetnUniformuivARB: Binding for glGetnUniformuivARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -242,7 +242,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnUniformdvARB.
+		/// [GL] glGetnUniformdvARB: Binding for glGetnUniformdvARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -268,7 +268,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapdvARB.
+		/// [GL] glGetnMapdvARB: Binding for glGetnMapdvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -297,7 +297,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapdvARB.
+		/// [GL] glGetnMapdvARB: Binding for glGetnMapdvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -323,7 +323,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapfvARB.
+		/// [GL] glGetnMapfvARB: Binding for glGetnMapfvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -352,7 +352,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapfvARB.
+		/// [GL] glGetnMapfvARB: Binding for glGetnMapfvARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -378,7 +378,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapivARB.
+		/// [GL] glGetnMapivARB: Binding for glGetnMapivARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -407,7 +407,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapivARB.
+		/// [GL] glGetnMapivARB: Binding for glGetnMapivARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -433,7 +433,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapfvARB.
+		/// [GL] glGetnPixelMapfvARB: Binding for glGetnPixelMapfvARB.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -459,7 +459,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapfvARB.
+		/// [GL] glGetnPixelMapfvARB: Binding for glGetnPixelMapfvARB.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -482,7 +482,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapuivARB.
+		/// [GL] glGetnPixelMapuivARB: Binding for glGetnPixelMapuivARB.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -508,7 +508,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapuivARB.
+		/// [GL] glGetnPixelMapuivARB: Binding for glGetnPixelMapuivARB.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -531,7 +531,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapusvARB.
+		/// [GL] glGetnPixelMapusvARB: Binding for glGetnPixelMapusvARB.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -557,7 +557,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapusvARB.
+		/// [GL] glGetnPixelMapusvARB: Binding for glGetnPixelMapusvARB.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -580,7 +580,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPolygonStippleARB.
+		/// [GL] glGetnPolygonStippleARB: Binding for glGetnPolygonStippleARB.
 		/// </summary>
 		/// <param name="pattern">
 		/// A <see cref="T:byte[]"/>.
@@ -600,7 +600,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnColorTableARB.
+		/// [GL] glGetnColorTableARB: Binding for glGetnColorTableARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ColorTableTarget"/>.
@@ -627,7 +627,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnColorTableARB.
+		/// [GL] glGetnColorTableARB: Binding for glGetnColorTableARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ColorTableTarget"/>.
@@ -656,7 +656,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnConvolutionFilterARB.
+		/// [GL] glGetnConvolutionFilterARB: Binding for glGetnConvolutionFilterARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ConvolutionTarget"/>.
@@ -683,7 +683,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnConvolutionFilterARB.
+		/// [GL] glGetnConvolutionFilterARB: Binding for glGetnConvolutionFilterARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ConvolutionTarget"/>.
@@ -712,7 +712,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnSeparableFilterARB.
+		/// [GL] glGetnSeparableFilterARB: Binding for glGetnSeparableFilterARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:SeparableTarget"/>.
@@ -748,7 +748,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnSeparableFilterARB.
+		/// [GL] glGetnSeparableFilterARB: Binding for glGetnSeparableFilterARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:SeparableTarget"/>.
@@ -790,7 +790,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnHistogramARB.
+		/// [GL] glGetnHistogramARB: Binding for glGetnHistogramARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -820,7 +820,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnHistogramARB.
+		/// [GL] glGetnHistogramARB: Binding for glGetnHistogramARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -852,7 +852,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMinmaxARB.
+		/// [GL] glGetnMinmaxARB: Binding for glGetnMinmaxARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -882,7 +882,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMinmaxARB.
+		/// [GL] glGetnMinmaxARB: Binding for glGetnMinmaxARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.

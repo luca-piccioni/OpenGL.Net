@@ -132,7 +132,7 @@ namespace OpenGL
 		public const int SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM = 103087;
 
 		/// <summary>
-		/// [GL] Binding for glColorPointerListIBM.
+		/// [GL] glColorPointerListIBM: Binding for glColorPointerListIBM.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -164,7 +164,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSecondaryColorPointerListIBM.
+		/// [GL] glSecondaryColorPointerListIBM: Binding for glSecondaryColorPointerListIBM.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -196,7 +196,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEdgeFlagPointerListIBM.
+		/// [GL] glEdgeFlagPointerListIBM: Binding for glEdgeFlagPointerListIBM.
 		/// </summary>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -217,7 +217,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFogCoordPointerListIBM.
+		/// [GL] glFogCoordPointerListIBM: Binding for glFogCoordPointerListIBM.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:FogCoordinatePointerType"/>.
@@ -246,7 +246,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIndexPointerListIBM.
+		/// [GL] glIndexPointerListIBM: Binding for glIndexPointerListIBM.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:IndexPointerType"/>.
@@ -275,7 +275,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalPointerListIBM.
+		/// [GL] glNormalPointerListIBM: Binding for glNormalPointerListIBM.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:NormalPointerType"/>.
@@ -304,7 +304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoordPointerListIBM.
+		/// [GL] glTexCoordPointerListIBM: Binding for glTexCoordPointerListIBM.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -336,7 +336,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexPointerListIBM.
+		/// [GL] glVertexPointerListIBM: Binding for glVertexPointerListIBM.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.

@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glBufferStorageExternalEXT.
+		/// [GL] glBufferStorageExternalEXT: Binding for glBufferStorageExternalEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -63,7 +63,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedBufferStorageExternalEXT.
+		/// [GL] glNamedBufferStorageExternalEXT: Binding for glNamedBufferStorageExternalEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.

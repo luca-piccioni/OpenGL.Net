@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glEGLImageTargetTexture2DOES.
+		/// [GL] glEGLImageTargetTexture2DOES: Binding for glEGLImageTargetTexture2DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -54,7 +54,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEGLImageTargetRenderbufferStorageOES.
+		/// [GL] glEGLImageTargetRenderbufferStorageOES: Binding for glEGLImageTargetRenderbufferStorageOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

@@ -225,7 +225,7 @@ namespace OpenGL
 		public const int AUX9_EXT = 0x20EB;
 
 		/// <summary>
-		/// [GLX] Binding for glXBindTexImageEXT.
+		/// [GLX] glXBindTexImageEXT: Binding for glXBindTexImageEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -254,7 +254,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXReleaseTexImageEXT.
+		/// [GLX] glXReleaseTexImageEXT: Binding for glXReleaseTexImageEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

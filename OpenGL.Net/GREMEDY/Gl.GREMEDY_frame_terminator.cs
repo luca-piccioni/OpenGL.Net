@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glFrameTerminatorGREMEDY.
+		/// [GL] glFrameTerminatorGREMEDY: Binding for glFrameTerminatorGREMEDY.
 		/// </summary>
 		[RequiredByFeature("GL_GREMEDY_frame_terminator")]
 		public static void FrameTerminatorGREMEDY()

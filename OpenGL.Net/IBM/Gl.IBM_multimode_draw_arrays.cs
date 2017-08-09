@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glMultiModeDrawArraysIBM.
+		/// [GL] glMultiModeDrawArraysIBM: Binding for glMultiModeDrawArraysIBM.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32[]"/>.
@@ -70,7 +70,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiModeDrawElementsIBM.
+		/// [GL] glMultiModeDrawElementsIBM: Binding for glMultiModeDrawElementsIBM.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32[]"/>.

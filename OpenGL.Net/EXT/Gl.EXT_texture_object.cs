@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int TEXTURE_3D_BINDING_EXT = 0x806A;
 
 		/// <summary>
-		/// [GL] Binding for glAreTexturesResidentEXT.
+		/// [GL] glAreTexturesResidentEXT: Binding for glAreTexturesResidentEXT.
 		/// </summary>
 		/// <param name="textures">
 		/// A <see cref="T:UInt32[]"/>.
@@ -82,7 +82,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeleteTexturesEXT.
+		/// [GL] glDeleteTexturesEXT: Binding for glDeleteTexturesEXT.
 		/// </summary>
 		/// <param name="textures">
 		/// A <see cref="T:UInt32[]"/>.
@@ -102,7 +102,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenTexturesEXT.
+		/// [GL] glGenTexturesEXT: Binding for glGenTexturesEXT.
 		/// </summary>
 		/// <param name="textures">
 		/// A <see cref="T:UInt32[]"/>.
@@ -122,7 +122,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenTexturesEXT.
+		/// [GL] glGenTexturesEXT: Binding for glGenTexturesEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_object")]
 		public static UInt32 GenTexturesEXT()
@@ -133,7 +133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsTextureEXT.
+		/// [GL] glIsTextureEXT: Binding for glIsTextureEXT.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.

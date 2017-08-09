@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int INDEX_TEST_REF_EXT = 0x81B7;
 
 		/// <summary>
-		/// [GL] Binding for glIndexFuncEXT.
+		/// [GL] glIndexFuncEXT: Binding for glIndexFuncEXT.
 		/// </summary>
 		/// <param name="func">
 		/// A <see cref="T:Int32"/>.

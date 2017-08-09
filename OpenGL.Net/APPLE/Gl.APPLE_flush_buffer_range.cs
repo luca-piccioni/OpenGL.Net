@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int BUFFER_FLUSHING_UNMAP_APPLE = 0x8A13;
 
 		/// <summary>
-		/// [GL] Binding for glBufferParameteriAPPLE.
+		/// [GL] glBufferParameteriAPPLE: Binding for glBufferParameteriAPPLE.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

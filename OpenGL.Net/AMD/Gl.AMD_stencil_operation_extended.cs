@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int STENCIL_BACK_OP_VALUE_AMD = 0x874D;
 
 		/// <summary>
-		/// [GL] Binding for glStencilOpValueAMD.
+		/// [GL] glStencilOpValueAMD: Binding for glStencilOpValueAMD.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:StencilFaceDirection"/>.

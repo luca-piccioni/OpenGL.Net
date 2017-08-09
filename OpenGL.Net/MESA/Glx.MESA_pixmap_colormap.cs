@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXCreateGLXPixmapMESA.
+		/// [GLX] glXCreateGLXPixmapMESA: Binding for glXCreateGLXPixmapMESA.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glClipPlanefOES.
+		/// [GL] glClipPlanefOES: Binding for glClipPlanefOES.
 		/// </summary>
 		/// <param name="plane">
 		/// A <see cref="T:ClipPlaneName"/>.
@@ -59,7 +59,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFrustumfOES.
+		/// [GL] glFrustumfOES: Binding for glFrustumfOES.
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:float"/>.
@@ -89,7 +89,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetClipPlanefOES.
+		/// [GL] glGetClipPlanefOES: Binding for glGetClipPlanefOES.
 		/// </summary>
 		/// <param name="plane">
 		/// A <see cref="T:ClipPlaneName"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glOrthofOES.
+		/// [GL] glOrthofOES: Binding for glOrthofOES.
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:float"/>.

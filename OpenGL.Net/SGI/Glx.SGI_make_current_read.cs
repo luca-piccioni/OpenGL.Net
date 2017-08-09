@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXMakeCurrentReadSGI.
+		/// [GLX] glXMakeCurrentReadSGI: Binding for glXMakeCurrentReadSGI.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -64,7 +64,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXGetCurrentReadDrawableSGI.
+		/// [GLX] glXGetCurrentReadDrawableSGI: Binding for glXGetCurrentReadDrawableSGI.
 		/// </summary>
 		[RequiredByFeature("GLX_SGI_make_current_read")]
 		public static IntPtr GetCurrentReadDrawableSGI()

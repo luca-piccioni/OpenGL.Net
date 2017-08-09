@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int FENCE_APPLE = 0x8A0B;
 
 		/// <summary>
-		/// [GL] Binding for glGenFencesAPPLE.
+		/// [GL] glGenFencesAPPLE: Binding for glGenFencesAPPLE.
 		/// </summary>
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
@@ -68,7 +68,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenFencesAPPLE.
+		/// [GL] glGenFencesAPPLE: Binding for glGenFencesAPPLE.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_fence")]
 		public static UInt32 GenFencesAPPLE()
@@ -79,7 +79,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeleteFencesAPPLE.
+		/// [GL] glDeleteFencesAPPLE: Binding for glDeleteFencesAPPLE.
 		/// </summary>
 		/// <param name="fences">
 		/// A <see cref="T:UInt32[]"/>.
@@ -99,7 +99,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSetFenceAPPLE.
+		/// [GL] glSetFenceAPPLE: Binding for glSetFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -114,7 +114,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsFenceAPPLE.
+		/// [GL] glIsFenceAPPLE: Binding for glIsFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -133,7 +133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTestFenceAPPLE.
+		/// [GL] glTestFenceAPPLE: Binding for glTestFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -152,7 +152,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFinishFenceAPPLE.
+		/// [GL] glFinishFenceAPPLE: Binding for glFinishFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
 		/// A <see cref="T:UInt32"/>.
@@ -167,7 +167,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTestObjectAPPLE.
+		/// [GL] glTestObjectAPPLE: Binding for glTestObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
 		/// A <see cref="T:Int32"/>.
@@ -189,7 +189,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFinishObjectAPPLE.
+		/// [GL] glFinishObjectAPPLE: Binding for glFinishObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
 		/// A <see cref="T:Int32"/>.

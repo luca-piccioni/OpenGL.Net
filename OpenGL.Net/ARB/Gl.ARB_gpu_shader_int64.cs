@@ -100,7 +100,7 @@ namespace OpenGL
 		public const int UNSIGNED_INT64_VEC4_ARB = 0x8FF7;
 
 		/// <summary>
-		/// [GL] Binding for glUniform1i64ARB.
+		/// [GL] glUniform1i64ARB: Binding for glUniform1i64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -118,7 +118,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform2i64ARB.
+		/// [GL] glUniform2i64ARB: Binding for glUniform2i64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -139,7 +139,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform3i64ARB.
+		/// [GL] glUniform3i64ARB: Binding for glUniform3i64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -163,7 +163,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform4i64ARB.
+		/// [GL] glUniform4i64ARB: Binding for glUniform4i64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -190,7 +190,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform1i64vARB.
+		/// [GL] glUniform1i64vARB: Binding for glUniform1i64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -216,7 +216,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform2i64vARB.
+		/// [GL] glUniform2i64vARB: Binding for glUniform2i64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -242,7 +242,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform3i64vARB.
+		/// [GL] glUniform3i64vARB: Binding for glUniform3i64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -268,7 +268,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform4i64vARB.
+		/// [GL] glUniform4i64vARB: Binding for glUniform4i64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -294,7 +294,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform1ui64ARB.
+		/// [GL] glUniform1ui64ARB: Binding for glUniform1ui64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -312,7 +312,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform2ui64ARB.
+		/// [GL] glUniform2ui64ARB: Binding for glUniform2ui64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -333,7 +333,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform3ui64ARB.
+		/// [GL] glUniform3ui64ARB: Binding for glUniform3ui64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -357,7 +357,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform4ui64ARB.
+		/// [GL] glUniform4ui64ARB: Binding for glUniform4ui64ARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -384,7 +384,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform1ui64vARB.
+		/// [GL] glUniform1ui64vARB: Binding for glUniform1ui64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -410,7 +410,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform2ui64vARB.
+		/// [GL] glUniform2ui64vARB: Binding for glUniform2ui64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -436,7 +436,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform3ui64vARB.
+		/// [GL] glUniform3ui64vARB: Binding for glUniform3ui64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -462,7 +462,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform4ui64vARB.
+		/// [GL] glUniform4ui64vARB: Binding for glUniform4ui64vARB.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -488,7 +488,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetUniformi64vARB.
+		/// [GL] glGetUniformi64vARB: Binding for glGetUniformi64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -514,7 +514,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetUniformui64vARB.
+		/// [GL] glGetUniformui64vARB: Binding for glGetUniformui64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -540,7 +540,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnUniformi64vARB.
+		/// [GL] glGetnUniformi64vARB: Binding for glGetnUniformi64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -569,7 +569,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnUniformui64vARB.
+		/// [GL] glGetnUniformui64vARB: Binding for glGetnUniformui64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -598,7 +598,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform1i64ARB.
+		/// [GL] glProgramUniform1i64ARB: Binding for glProgramUniform1i64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -619,7 +619,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform2i64ARB.
+		/// [GL] glProgramUniform2i64ARB: Binding for glProgramUniform2i64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -643,7 +643,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform3i64ARB.
+		/// [GL] glProgramUniform3i64ARB: Binding for glProgramUniform3i64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -670,7 +670,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform4i64ARB.
+		/// [GL] glProgramUniform4i64ARB: Binding for glProgramUniform4i64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -700,7 +700,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform1i64vARB.
+		/// [GL] glProgramUniform1i64vARB: Binding for glProgramUniform1i64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -726,7 +726,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform2i64vARB.
+		/// [GL] glProgramUniform2i64vARB: Binding for glProgramUniform2i64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -755,7 +755,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform3i64vARB.
+		/// [GL] glProgramUniform3i64vARB: Binding for glProgramUniform3i64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -784,7 +784,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform4i64vARB.
+		/// [GL] glProgramUniform4i64vARB: Binding for glProgramUniform4i64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -813,7 +813,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform1ui64ARB.
+		/// [GL] glProgramUniform1ui64ARB: Binding for glProgramUniform1ui64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -834,7 +834,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform2ui64ARB.
+		/// [GL] glProgramUniform2ui64ARB: Binding for glProgramUniform2ui64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -858,7 +858,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform3ui64ARB.
+		/// [GL] glProgramUniform3ui64ARB: Binding for glProgramUniform3ui64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -885,7 +885,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform4ui64ARB.
+		/// [GL] glProgramUniform4ui64ARB: Binding for glProgramUniform4ui64ARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -915,7 +915,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform1ui64vARB.
+		/// [GL] glProgramUniform1ui64vARB: Binding for glProgramUniform1ui64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -941,7 +941,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform2ui64vARB.
+		/// [GL] glProgramUniform2ui64vARB: Binding for glProgramUniform2ui64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -970,7 +970,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform3ui64vARB.
+		/// [GL] glProgramUniform3ui64vARB: Binding for glProgramUniform3ui64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -999,7 +999,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniform4ui64vARB.
+		/// [GL] glProgramUniform4ui64vARB: Binding for glProgramUniform4ui64vARB.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.

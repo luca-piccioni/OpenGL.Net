@@ -704,7 +704,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data with a per-element offset
+		/// [GL4|GLES3.2] glDrawElementsBaseVertex: render primitives from array data with a per-element offset
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -761,7 +761,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data with a per-element offset
+		/// [GL4|GLES3.2] glDrawElementsBaseVertex: render primitives from array data with a per-element offset
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -820,7 +820,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data with a per-element offset
+		/// [GL4|GLES3.2] glDrawRangeElementsBaseVertex: render primitives from array data with a per-element offset
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -886,7 +886,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data with a per-element offset
+		/// [GL4|GLES3.2] glDrawRangeElementsBaseVertex: render primitives from array data with a per-element offset
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -954,7 +954,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render multiple instances of a set of primitives from array data with a per-element offset
+		/// [GL4|GLES3.2] glDrawElementsInstancedBaseVertex: render multiple instances of a set of primitives from array data with a 
+		/// per-element offset
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1014,7 +1015,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render multiple instances of a set of primitives from array data with a per-element offset
+		/// [GL4|GLES3.2] glDrawElementsInstancedBaseVertex: render multiple instances of a set of primitives from array data with a 
+		/// per-element offset
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1075,8 +1077,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render multiple sets of primitives by specifying indices of array data elements and an index to apply to each 
-		/// index
+		/// [GL4] glMultiDrawElementsBaseVertex: render multiple sets of primitives by specifying indices of array data elements and 
+		/// an index to apply to each index
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -1134,7 +1136,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specifiy the vertex to be used as the source of data for flat shaded varyings
+		/// [GL4] glProvokingVertex: specifiy the vertex to be used as the source of data for flat shaded varyings
 		/// </summary>
 		/// <param name="provokeMode">
 		/// Specifies the vertex to be used as the source of data for flat shaded varyings.
@@ -1156,7 +1158,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] create a new sync object and insert it into the GL command stream
+		/// [GL4|GLES3.2] glFenceSync: create a new sync object and insert it into the GL command stream
 		/// </para>
 		/// </summary>
 		/// <param name="condition">
@@ -1200,7 +1202,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] determine if a name corresponds to a sync object
+		/// [GL4|GLES3.2] glIsSync: determine if a name corresponds to a sync object
 		/// </para>
 		/// </summary>
 		/// <param name="sync">
@@ -1229,7 +1231,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delete a sync object
+		/// [GL4|GLES3.2] glDeleteSync: delete a sync object
 		/// </para>
 		/// </summary>
 		/// <param name="sync">
@@ -1256,7 +1258,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] block and wait for a sync object to become signaled
+		/// [GL4|GLES3.2] glClientWaitSync: block and wait for a sync object to become signaled
 		/// </para>
 		/// </summary>
 		/// <param name="sync">
@@ -1297,7 +1299,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] instruct the GL server to block until the specified sync object becomes signaled
+		/// [GL4|GLES3.2] glWaitSync: instruct the GL server to block until the specified sync object becomes signaled
 		/// </para>
 		/// </summary>
 		/// <param name="sync">
@@ -1336,7 +1338,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetInteger64v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -1397,7 +1399,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetInteger64v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -1458,7 +1460,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetInteger64v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -1519,7 +1521,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetInteger64v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -1580,7 +1582,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query the properties of a sync object
+		/// [GL4|GLES3.2] glGetSynciv: query the properties of a sync object
 		/// </para>
 		/// </summary>
 		/// <param name="sync">
@@ -1628,7 +1630,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query the properties of a sync object
+		/// [GL4|GLES3.2] glGetSynciv: query the properties of a sync object
 		/// </para>
 		/// </summary>
 		/// <param name="sync">
@@ -1673,7 +1675,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetInteger64i_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1734,7 +1736,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetInteger64i_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1795,7 +1797,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return parameters of a buffer object
+		/// [GL4|GLES3.2] glGetBufferParameteri64v: return parameters of a buffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1845,7 +1847,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] attach a level of a texture object as a logical buffer of a framebuffer object
+		/// [GL4|GLES3.2] glFramebufferTexture: attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1916,7 +1918,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] establish the data storage, format, dimensions, and number of samples of a multisample texture's image
+		/// [GL4] glTexImage2DMultisample: establish the data storage, format, dimensions, and number of samples of a multisample 
+		/// texture's image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target of the operation. <paramref name="target"/> must be Gl.TEXTURE_2D_MULTISAMPLE or 
@@ -1975,7 +1978,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] establish the data storage, format, dimensions, and number of samples of a multisample texture's image
+		/// [GL4] glTexImage3DMultisample: establish the data storage, format, dimensions, and number of samples of a multisample 
+		/// texture's image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target of the operation. <paramref name="target"/> must be Gl.TEXTURE_2D_MULTISAMPLE_ARRAY or 
@@ -2041,7 +2045,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve the location of a sample
+		/// [GL4|GLES3.2] glGetMultisamplefv: retrieve the location of a sample
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -2081,7 +2085,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] set the value of a sub-word of the sample mask
+		/// [GL4|GLES3.2] glSampleMaski: set the value of a sub-word of the sample mask
 		/// </para>
 		/// </summary>
 		/// <param name="maskNumber">

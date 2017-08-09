@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXGetProcAddressARB.
+		/// [GLX] glXGetProcAddressARB: Binding for glXGetProcAddressARB.
 		/// </summary>
 		/// <param name="procName">
 		/// A <see cref="T:byte[]"/>.

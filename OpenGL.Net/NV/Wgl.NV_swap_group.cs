@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// [WGL] Binding for wglJoinSwapGroupNV.
+		/// [WGL] wglJoinSwapGroupNV: Binding for wglJoinSwapGroupNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -58,7 +58,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglBindSwapBarrierNV.
+		/// [WGL] wglBindSwapBarrierNV: Binding for wglBindSwapBarrierNV.
 		/// </summary>
 		/// <param name="group">
 		/// A <see cref="T:UInt32"/>.
@@ -80,7 +80,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglQuerySwapGroupNV.
+		/// [WGL] wglQuerySwapGroupNV: Binding for wglQuerySwapGroupNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -111,7 +111,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglQueryMaxSwapGroupsNV.
+		/// [WGL] wglQueryMaxSwapGroupsNV: Binding for wglQueryMaxSwapGroupsNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -142,7 +142,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglQueryFrameCountNV.
+		/// [WGL] wglQueryFrameCountNV: Binding for wglQueryFrameCountNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -169,7 +169,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglResetFrameCountNV.
+		/// [WGL] wglResetFrameCountNV: Binding for wglResetFrameCountNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.

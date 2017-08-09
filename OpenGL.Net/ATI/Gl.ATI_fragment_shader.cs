@@ -673,7 +673,7 @@ namespace OpenGL
 		public const uint BIAS_BIT_ATI = 0x00000008;
 
 		/// <summary>
-		/// [GL] Binding for glGenFragmentShadersATI.
+		/// [GL] glGenFragmentShadersATI: Binding for glGenFragmentShadersATI.
 		/// </summary>
 		/// <param name="range">
 		/// A <see cref="T:UInt32"/>.
@@ -692,7 +692,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBindFragmentShaderATI.
+		/// [GL] glBindFragmentShaderATI: Binding for glBindFragmentShaderATI.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -707,7 +707,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeleteFragmentShaderATI.
+		/// [GL] glDeleteFragmentShaderATI: Binding for glDeleteFragmentShaderATI.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -722,7 +722,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBeginFragmentShaderATI.
+		/// [GL] glBeginFragmentShaderATI: Binding for glBeginFragmentShaderATI.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
 		public static void BeginFragmentShaderATI()
@@ -734,7 +734,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEndFragmentShaderATI.
+		/// [GL] glEndFragmentShaderATI: Binding for glEndFragmentShaderATI.
 		/// </summary>
 		[RequiredByFeature("GL_ATI_fragment_shader")]
 		public static void EndFragmentShaderATI()
@@ -746,7 +746,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glPassTexCoordATI.
+		/// [GL] glPassTexCoordATI: Binding for glPassTexCoordATI.
 		/// </summary>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.
@@ -767,7 +767,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSampleMapATI.
+		/// [GL] glSampleMapATI: Binding for glSampleMapATI.
 		/// </summary>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.
@@ -788,7 +788,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glColorFragmentOp1ATI.
+		/// [GL] glColorFragmentOp1ATI: Binding for glColorFragmentOp1ATI.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:FragmentOpATI"/>.
@@ -821,7 +821,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glColorFragmentOp2ATI.
+		/// [GL] glColorFragmentOp2ATI: Binding for glColorFragmentOp2ATI.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:FragmentOpATI"/>.
@@ -863,7 +863,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glColorFragmentOp3ATI.
+		/// [GL] glColorFragmentOp3ATI: Binding for glColorFragmentOp3ATI.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:FragmentOpATI"/>.
@@ -914,7 +914,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glAlphaFragmentOp1ATI.
+		/// [GL] glAlphaFragmentOp1ATI: Binding for glAlphaFragmentOp1ATI.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:FragmentOpATI"/>.
@@ -944,7 +944,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glAlphaFragmentOp2ATI.
+		/// [GL] glAlphaFragmentOp2ATI: Binding for glAlphaFragmentOp2ATI.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:FragmentOpATI"/>.
@@ -983,7 +983,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glAlphaFragmentOp3ATI.
+		/// [GL] glAlphaFragmentOp3ATI: Binding for glAlphaFragmentOp3ATI.
 		/// </summary>
 		/// <param name="op">
 		/// A <see cref="T:FragmentOpATI"/>.
@@ -1031,7 +1031,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSetFragmentShaderConstantATI.
+		/// [GL] glSetFragmentShaderConstantATI: Binding for glSetFragmentShaderConstantATI.
 		/// </summary>
 		/// <param name="dst">
 		/// A <see cref="T:UInt32"/>.

@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int LAYOUT_LINEAR_CPU_CACHED_INTEL = 2;
 
 		/// <summary>
-		/// [GL] Binding for glSyncTextureINTEL.
+		/// [GL] glSyncTextureINTEL: Binding for glSyncTextureINTEL.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -75,7 +75,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUnmapTexture2DINTEL.
+		/// [GL] glUnmapTexture2DINTEL: Binding for glUnmapTexture2DINTEL.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -93,7 +93,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMapTexture2DINTEL.
+		/// [GL] glMapTexture2DINTEL: Binding for glMapTexture2DINTEL.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.

@@ -43,7 +43,7 @@ namespace OpenGL
 		public const int STREAM_BIT_KHR = 0x0800;
 
 		/// <summary>
-		/// [EGL] Binding for eglCreateStreamProducerSurfaceKHR.
+		/// [EGL] eglCreateStreamProducerSurfaceKHR: Binding for eglCreateStreamProducerSurfaceKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

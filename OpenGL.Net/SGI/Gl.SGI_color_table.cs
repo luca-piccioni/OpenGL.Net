@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glGetColorTableSGI.
+		/// [GL] glGetColorTableSGI: Binding for glGetColorTableSGI.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ColorTableTarget"/>.
@@ -60,7 +60,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetColorTableSGI.
+		/// [GL] glGetColorTableSGI: Binding for glGetColorTableSGI.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ColorTableTarget"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetColorTableParameterfvSGI.
+		/// [GL] glGetColorTableParameterfvSGI: Binding for glGetColorTableParameterfvSGI.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ColorTableTarget"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetColorTableParameterivSGI.
+		/// [GL] glGetColorTableParameterivSGI: Binding for glGetColorTableParameterivSGI.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ColorTableTarget"/>.

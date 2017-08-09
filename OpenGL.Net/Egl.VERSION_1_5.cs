@@ -283,7 +283,7 @@ namespace OpenGL
 		public const int NO_IMAGE = 0;
 
 		/// <summary>
-		/// [EGL] Binding for eglCreateSync.
+		/// [EGL] eglCreateSync: Binding for eglCreateSync.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -315,7 +315,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglDestroySync.
+		/// [EGL] eglDestroySync: Binding for eglDestroySync.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -340,7 +340,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglClientWaitSync.
+		/// [EGL] eglClientWaitSync: Binding for eglClientWaitSync.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -371,7 +371,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglGetSyncAttrib.
+		/// [EGL] eglGetSyncAttrib: Binding for eglGetSyncAttrib.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -404,7 +404,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglCreateImage.
+		/// [EGL] eglCreateImage: Binding for eglCreateImage.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -440,7 +440,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglDestroyImage.
+		/// [EGL] eglDestroyImage: Binding for eglDestroyImage.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -465,7 +465,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglGetPlatformDisplay.
+		/// [EGL] eglGetPlatformDisplay: Binding for eglGetPlatformDisplay.
 		/// </summary>
 		/// <param name="platform">
 		/// A <see cref="T:uint"/>.
@@ -495,7 +495,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglCreatePlatformWindowSurface.
+		/// [EGL] eglCreatePlatformWindowSurface: Binding for eglCreatePlatformWindowSurface.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -528,7 +528,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglCreatePlatformPixmapSurface.
+		/// [EGL] eglCreatePlatformPixmapSurface: Binding for eglCreatePlatformPixmapSurface.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -561,7 +561,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglWaitSync.
+		/// [EGL] eglWaitSync: Binding for eglWaitSync.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

@@ -108,7 +108,7 @@ namespace OpenGL
 		public const int VIEWPORT_SWIZZLE_W_NV = 0x935B;
 
 		/// <summary>
-		/// [GL] Binding for glViewportSwizzleNV.
+		/// [GL] glViewportSwizzleNV: Binding for glViewportSwizzleNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

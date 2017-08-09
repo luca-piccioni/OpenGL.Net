@@ -64,7 +64,7 @@ namespace OpenGL
 		public const int VERTEX_ARRAY_OBJECT_EXT = 0x9154;
 
 		/// <summary>
-		/// [GL] Binding for glLabelObjectEXT.
+		/// [GL] glLabelObjectEXT: Binding for glLabelObjectEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -88,7 +88,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetObjectLabelEXT.
+		/// [GL] glGetObjectLabelEXT: Binding for glGetObjectLabelEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.

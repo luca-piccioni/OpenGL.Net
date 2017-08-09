@@ -72,7 +72,7 @@ namespace OpenGL
 		public const int READ_PIXEL_DATA_RANGE_POINTER_NV = 0x887D;
 
 		/// <summary>
-		/// [GL] Binding for glPixelDataRangeNV.
+		/// [GL] glPixelDataRangeNV: Binding for glPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -93,7 +93,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glPixelDataRangeNV.
+		/// [GL] glPixelDataRangeNV: Binding for glPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFlushPixelDataRangeNV.
+		/// [GL] glFlushPixelDataRangeNV: Binding for glFlushPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

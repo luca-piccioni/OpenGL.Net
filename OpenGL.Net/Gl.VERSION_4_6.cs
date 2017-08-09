@@ -174,7 +174,7 @@ namespace OpenGL
 		public const int TRANSFORM_FEEDBACK_STREAM_OVERFLOW = 0x82ED;
 
 		/// <summary>
-		/// [GL] Binding for glSpecializeShader.
+		/// [GL] glSpecializeShader: Binding for glSpecializeShader.
 		/// </summary>
 		/// <param name="shader">
 		/// A <see cref="T:UInt32"/>.
@@ -209,7 +209,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiDrawArraysIndirectCount.
+		/// [GL] glMultiDrawArraysIndirectCount: Binding for glMultiDrawArraysIndirectCount.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -238,7 +238,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiDrawArraysIndirectCount.
+		/// [GL] glMultiDrawArraysIndirectCount: Binding for glMultiDrawArraysIndirectCount.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -269,7 +269,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiDrawElementsIndirectCount.
+		/// [GL] glMultiDrawElementsIndirectCount: Binding for glMultiDrawElementsIndirectCount.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -301,7 +301,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMultiDrawElementsIndirectCount.
+		/// [GL] glMultiDrawElementsIndirectCount: Binding for glMultiDrawElementsIndirectCount.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:PrimitiveType"/>.
@@ -335,7 +335,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glPolygonOffsetClamp.
+		/// [GL] glPolygonOffsetClamp: Binding for glPolygonOffsetClamp.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.

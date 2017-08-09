@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// [WGL] Binding for wglCopyImageSubDataNV.
+		/// [WGL] wglCopyImageSubDataNV: Binding for wglCopyImageSubDataNV.
 		/// </summary>
 		/// <param name="hSrcRC">
 		/// A <see cref="T:IntPtr"/>.

@@ -57,7 +57,7 @@ namespace OpenGL
 		public const int ACCESS_WRITE_DISCARD_NV = 0x00000002;
 
 		/// <summary>
-		/// [WGL] Binding for wglDXSetResourceShareHandleNV.
+		/// [WGL] wglDXSetResourceShareHandleNV: Binding for wglDXSetResourceShareHandleNV.
 		/// </summary>
 		/// <param name="dxObject">
 		/// A <see cref="T:IntPtr"/>.
@@ -79,7 +79,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDXOpenDeviceNV.
+		/// [WGL] wglDXOpenDeviceNV: Binding for wglDXOpenDeviceNV.
 		/// </summary>
 		/// <param name="dxDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -98,7 +98,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDXCloseDeviceNV.
+		/// [WGL] wglDXCloseDeviceNV: Binding for wglDXCloseDeviceNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDXRegisterObjectNV.
+		/// [WGL] wglDXRegisterObjectNV: Binding for wglDXRegisterObjectNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -148,7 +148,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDXUnregisterObjectNV.
+		/// [WGL] wglDXUnregisterObjectNV: Binding for wglDXUnregisterObjectNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -170,7 +170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDXObjectAccessNV.
+		/// [WGL] wglDXObjectAccessNV: Binding for wglDXObjectAccessNV.
 		/// </summary>
 		/// <param name="hObject">
 		/// A <see cref="T:IntPtr"/>.
@@ -192,7 +192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDXLockObjectsNV.
+		/// [WGL] wglDXLockObjectsNV: Binding for wglDXLockObjectsNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -222,7 +222,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglDXUnlockObjectsNV.
+		/// [WGL] wglDXUnlockObjectsNV: Binding for wglDXUnlockObjectsNV.
 		/// </summary>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.

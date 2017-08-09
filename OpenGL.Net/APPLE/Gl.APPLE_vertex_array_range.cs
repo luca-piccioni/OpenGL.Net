@@ -80,7 +80,7 @@ namespace OpenGL
 		public const int STORAGE_SHARED_APPLE = 0x85BF;
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayRangeAPPLE.
+		/// [GL] glVertexArrayRangeAPPLE: Binding for glVertexArrayRangeAPPLE.
 		/// </summary>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -98,7 +98,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFlushVertexArrayRangeAPPLE.
+		/// [GL] glFlushVertexArrayRangeAPPLE: Binding for glFlushVertexArrayRangeAPPLE.
 		/// </summary>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayParameteriAPPLE.
+		/// [GL] glVertexArrayParameteriAPPLE: Binding for glVertexArrayParameteriAPPLE.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

@@ -42,7 +42,7 @@ namespace OpenGL
 		{
 			/// <summary>
 			/// <para>
-			/// [GL4|GLES3.2] clear buffers to preset values
+			/// [GL4|GLES3.2] glClear: clear buffers to preset values
 			/// </para>
 			/// </summary>
 			/// <param name="mask">
@@ -71,7 +71,7 @@ namespace OpenGL
 
 			/// <summary>
 			/// <para>
-			/// [GL2.1|GLES1.1] set the viewport
+			/// [GL2.1|GLES1.1] glViewport: set the viewport
 			/// </para>
 			/// </summary>
 			/// <param name="x">
@@ -109,7 +109,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] draw a bitmap
+			/// [GL2.1] glBitmap: draw a bitmap
 			/// </summary>
 			/// <param name="width">
 			/// Specify the pixel width and height of the bitmap image.
@@ -171,7 +171,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexd: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -188,7 +188,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexdv: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -211,7 +211,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexf: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -228,7 +228,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexfv: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -251,7 +251,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexi: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -268,7 +268,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexiv: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -291,7 +291,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexs: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -308,7 +308,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexsv: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -332,7 +332,7 @@ namespace OpenGL
 
 			/// <summary>
 			/// <para>
-			/// [GL2.1|GLES1.1] specify fog parameters
+			/// [GL2.1|GLES1.1] glFogf: specify fog parameters
 			/// </para>
 			/// </summary>
 			/// <param name="pname">
@@ -367,7 +367,7 @@ namespace OpenGL
 
 			/// <summary>
 			/// <para>
-			/// [GL2.1|GLES1.1] specify fog parameters
+			/// [GL2.1|GLES1.1] glFogfv: specify fog parameters
 			/// </para>
 			/// </summary>
 			/// <param name="pname">
@@ -406,7 +406,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] specify fog parameters
+			/// [GL2.1] glFogi: specify fog parameters
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -438,7 +438,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] specify fog parameters
+			/// [GL2.1] glFogiv: specify fog parameters
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, Gl.FOG_END, Gl.FOG_INDEX, and 
@@ -475,7 +475,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] operate on the accumulation buffer
+			/// [GL2.1] glAccum: operate on the accumulation buffer
 			/// </summary>
 			/// <param name="op">
 			/// Specifies the accumulation buffer operation. Symbolic constants Gl.ACCUM, Gl.LOAD, Gl.ADD, Gl.MULT, and Gl.RETURN are 
@@ -515,7 +515,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexub: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -532,7 +532,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] set the current color index
+			/// [GL2.1] glIndexubv: set the current color index
 			/// </summary>
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
@@ -555,7 +555,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GLES1.1] specify fog parameters
+			/// [GLES1.1] glFogx: specify fog parameters
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
@@ -581,7 +581,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GLES1.1] specify fog parameters
+			/// [GLES1.1] glFogxv: specify fog parameters
 			/// </summary>
 			/// <param name="pname">
 			/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
@@ -612,7 +612,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] define histogram table
+			/// [GL2.1] glHistogram: define histogram table
 			/// </summary>
 			/// <param name="target">
 			/// The histogram whose parameters are to be set. Must be one of Gl.HISTOGRAM or Gl.PROXY_HISTOGRAM.
@@ -662,7 +662,7 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// [GL2.1] define minmax table
+			/// [GL2.1] glMinmax: define minmax table
 			/// </summary>
 			/// <param name="target">
 			/// The minmax table whose parameters are to be set. Must be Gl.MINMAX.

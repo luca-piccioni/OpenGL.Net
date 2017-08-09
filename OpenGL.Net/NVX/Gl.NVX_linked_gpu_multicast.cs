@@ -49,7 +49,7 @@ namespace OpenGL
 		public const int MAX_LGPU_GPUS_NVX = 0x92BA;
 
 		/// <summary>
-		/// [GL] Binding for glLGPUNamedBufferSubDataNVX.
+		/// [GL] glLGPUNamedBufferSubDataNVX: Binding for glLGPUNamedBufferSubDataNVX.
 		/// </summary>
 		/// <param name="gpuMask">
 		/// A <see cref="T:UInt32"/>.
@@ -76,7 +76,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glLGPUNamedBufferSubDataNVX.
+		/// [GL] glLGPUNamedBufferSubDataNVX: Binding for glLGPUNamedBufferSubDataNVX.
 		/// </summary>
 		/// <param name="gpuMask">
 		/// A <see cref="T:UInt32"/>.
@@ -105,7 +105,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glLGPUCopyImageSubDataNVX.
+		/// [GL] glLGPUCopyImageSubDataNVX: Binding for glLGPUCopyImageSubDataNVX.
 		/// </summary>
 		/// <param name="sourceGpu">
 		/// A <see cref="T:UInt32"/>.
@@ -168,7 +168,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glLGPUInterlockNVX.
+		/// [GL] glLGPUInterlockNVX: Binding for glLGPUInterlockNVX.
 		/// </summary>
 		[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 		public static void NVX()

@@ -78,7 +78,7 @@ namespace OpenGL
 		public const int COVERAGE_MODULATION_TABLE_SIZE_NV = 0x9333;
 
 		/// <summary>
-		/// [GL] Binding for glCoverageModulationTableNV.
+		/// [GL] glCoverageModulationTableNV: Binding for glCoverageModulationTableNV.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -101,7 +101,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetCoverageModulationTableNV.
+		/// [GL] glGetCoverageModulationTableNV: Binding for glGetCoverageModulationTableNV.
 		/// </summary>
 		/// <param name="bufsize">
 		/// A <see cref="T:Int32"/>.
@@ -124,7 +124,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCoverageModulationNV.
+		/// [GL] glCoverageModulationNV: Binding for glCoverageModulationNV.
 		/// </summary>
 		/// <param name="components">
 		/// A <see cref="T:Int32"/>.

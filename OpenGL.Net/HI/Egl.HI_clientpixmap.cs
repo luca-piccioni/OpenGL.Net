@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int CLIENT_PIXMAP_POINTER_HI = 0x8F74;
 
 		/// <summary>
-		/// [EGL] Binding for eglCreatePixmapSurfaceHI.
+		/// [EGL] eglCreatePixmapSurfaceHI: Binding for eglCreatePixmapSurfaceHI.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

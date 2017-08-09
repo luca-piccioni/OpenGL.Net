@@ -118,7 +118,7 @@ namespace OpenGL
 		public const int OBJECT_SHADER_SOURCE_LENGTH_ARB = 0x8B88;
 
 		/// <summary>
-		/// [GL] Binding for glDeleteObjectARB.
+		/// [GL] glDeleteObjectARB: Binding for glDeleteObjectARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -133,7 +133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetHandleARB.
+		/// [GL] glGetHandleARB: Binding for glGetHandleARB.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -152,7 +152,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetObjectParameterfvARB.
+		/// [GL] glGetObjectParameterfvARB: Binding for glGetObjectParameterfvARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -178,7 +178,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetObjectParameterfvARB.
+		/// [GL] glGetObjectParameterfvARB: Binding for glGetObjectParameterfvARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -204,7 +204,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetObjectParameterivARB.
+		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -230,7 +230,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetObjectParameterivARB.
+		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -256,7 +256,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetInfoLogARB.
+		/// [GL] glGetInfoLogARB: Binding for glGetInfoLogARB.
 		/// </summary>
 		/// <param name="obj">
 		/// A <see cref="T:UInt32"/>.
@@ -285,7 +285,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetAttachedObjectsARB.
+		/// [GL] glGetAttachedObjectsARB: Binding for glGetAttachedObjectsARB.
 		/// </summary>
 		/// <param name="containerObj">
 		/// A <see cref="T:UInt32"/>.

@@ -418,7 +418,7 @@ namespace OpenGL
 		public const int TYPE_COLORINDEX_ARB = 0x202C;
 
 		/// <summary>
-		/// [WGL] Binding for wglGetPixelFormatAttribivARB.
+		/// [WGL] wglGetPixelFormatAttribivARB: Binding for wglGetPixelFormatAttribivARB.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -458,7 +458,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglGetPixelFormatAttribfvARB.
+		/// [WGL] wglGetPixelFormatAttribfvARB: Binding for wglGetPixelFormatAttribfvARB.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.
@@ -498,7 +498,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglChoosePixelFormatARB.
+		/// [WGL] wglChoosePixelFormatARB: Binding for wglChoosePixelFormatARB.
 		/// </summary>
 		/// <param name="hdc">
 		/// A <see cref="T:IntPtr"/>.

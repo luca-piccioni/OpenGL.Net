@@ -43,7 +43,7 @@ namespace OpenGL
 		public const int SUBSAMPLE_DISTANCE_AMD = 0x883F;
 
 		/// <summary>
-		/// [GL] Binding for glSetMultisamplefvAMD.
+		/// [GL] glSetMultisamplefvAMD: Binding for glSetMultisamplefvAMD.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

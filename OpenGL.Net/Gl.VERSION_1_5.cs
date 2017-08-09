@@ -470,7 +470,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate query object names
+		/// [GL4|GLES3.2] glGenQueries: generate query object names
 		/// </para>
 		/// </summary>
 		/// <param name="ids">
@@ -500,7 +500,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate query object names
+		/// [GL4|GLES3.2] glGenQueries: generate query object names
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -521,7 +521,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delete named query objects
+		/// [GL4|GLES3.2] glDeleteQueries: delete named query objects
 		/// </para>
 		/// </summary>
 		/// <param name="ids">
@@ -553,7 +553,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] determine if a name corresponds to a query object
+		/// [GL4|GLES3.2] glIsQuery: determine if a name corresponds to a query object
 		/// </para>
 		/// </summary>
 		/// <param name="id">
@@ -580,7 +580,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delimit the boundaries of a query object
+		/// [GL4|GLES3.2] glBeginQuery: delimit the boundaries of a query object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -632,7 +632,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delimit the boundaries of a query object
+		/// [GL4|GLES3.2] glEndQuery: delimit the boundaries of a query object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -681,7 +681,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return parameters of a query object target
+		/// [GL4|GLES3.2] glGetQueryiv: return parameters of a query object target
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -720,7 +720,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return parameters of a query object target
+		/// [GL4|GLES3.2] glGetQueryiv: return parameters of a query object target
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -758,7 +758,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return parameters of a query object
+		/// [GL4] glGetQueryObjectiv: return parameters of a query object
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -809,7 +809,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return parameters of a query object
+		/// [GL4] glGetQueryObjectiv: return parameters of a query object
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of a query object.
@@ -861,7 +861,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return parameters of a query object
+		/// [GL4|GLES3.2] glGetQueryObjectuiv: return parameters of a query object
 		/// </para>
 		/// </summary>
 		/// <param name="id">
@@ -913,7 +913,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return parameters of a query object
+		/// [GL4|GLES3.2] glGetQueryObjectuiv: return parameters of a query object
 		/// </para>
 		/// </summary>
 		/// <param name="id">
@@ -965,7 +965,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a named buffer object
+		/// [GL4|GLES3.2] glBindBuffer: bind a named buffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1006,7 +1006,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delete named buffer objects
+		/// [GL4|GLES3.2] glDeleteBuffers: delete named buffer objects
 		/// </para>
 		/// </summary>
 		/// <param name="buffers">
@@ -1038,7 +1038,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate buffer object names
+		/// [GL4|GLES3.2] glGenBuffers: generate buffer object names
 		/// </para>
 		/// </summary>
 		/// <param name="buffers">
@@ -1071,7 +1071,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate buffer object names
+		/// [GL4|GLES3.2] glGenBuffers: generate buffer object names
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -1095,7 +1095,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] determine if a name corresponds to a buffer object
+		/// [GL4|GLES3.2] glIsBuffer: determine if a name corresponds to a buffer object
 		/// </para>
 		/// </summary>
 		/// <param name="buffer">
@@ -1124,7 +1124,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] creates and initializes a buffer object's data store
+		/// [GL4|GLES3.2] glBufferData: creates and initializes a buffer object's data store
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1184,7 +1184,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] creates and initializes a buffer object's data store
+		/// [GL4|GLES3.2] glBufferData: creates and initializes a buffer object's data store
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1247,7 +1247,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] updates a subset of a buffer object's data store
+		/// [GL4|GLES3.2] glBufferSubData: updates a subset of a buffer object's data store
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1307,7 +1307,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] updates a subset of a buffer object's data store
+		/// [GL4|GLES3.2] glBufferSubData: updates a subset of a buffer object's data store
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1368,7 +1368,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] returns a subset of a buffer object's data store
+		/// [GL4] glGetBufferSubData: returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferSubData, which must be one of the buffer 
@@ -1419,7 +1419,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] returns a subset of a buffer object's data store
+		/// [GL4] glGetBufferSubData: returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.GetBufferSubData, which must be one of the buffer 
@@ -1472,7 +1472,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] map all of a buffer object's data store into the client's address space
+		/// [GL4] glMapBuffer: map all of a buffer object's data store into the client's address space
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.MapBuffer, which must be one of the buffer binding 
@@ -1531,10 +1531,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] release the mapping of a buffer object's data store into the client's address space
+		/// [GL4] glUnmapBuffer: release the mapping of a buffer object's data store into the client's address space
 		/// </para>
 		/// <para>
-		/// [GLES3.2] map a section of a buffer object's data store
+		/// [GLES3.2] glUnmapBuffer: map a section of a buffer object's data store
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1579,7 +1579,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return parameters of a buffer object
+		/// [GL4|GLES3.2] glGetBufferParameteriv: return parameters of a buffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1633,7 +1633,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return parameters of a buffer object
+		/// [GL4|GLES3.2] glGetBufferParameteriv: return parameters of a buffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1687,7 +1687,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the pointer to a mapped buffer object's data store
+		/// [GL4|GLES3.2] glGetBufferPointerv: return the pointer to a mapped buffer object's data store
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -1734,7 +1734,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the pointer to a mapped buffer object's data store
+		/// [GL4|GLES3.2] glGetBufferPointerv: return the pointer to a mapped buffer object's data store
 		/// </para>
 		/// </summary>
 		/// <param name="target">

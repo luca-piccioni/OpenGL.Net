@@ -84,7 +84,7 @@ namespace OpenGL
 		public const int EFFECTIVE_RASTER_SAMPLES_EXT = 0x932C;
 
 		/// <summary>
-		/// [GL] Binding for glRasterSamplesEXT.
+		/// [GL] glRasterSamplesEXT: Binding for glRasterSamplesEXT.
 		/// </summary>
 		/// <param name="samples">
 		/// A <see cref="T:UInt32"/>.

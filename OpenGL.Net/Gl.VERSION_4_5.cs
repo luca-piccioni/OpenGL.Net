@@ -248,7 +248,7 @@ namespace OpenGL
 		public const int CONTEXT_RELEASE_BEHAVIOR_FLUSH = 0x82FC;
 
 		/// <summary>
-		/// [GL4] control clip coordinate to window coordinate behavior
+		/// [GL4] glClipControl: control clip coordinate to window coordinate behavior
 		/// </summary>
 		/// <param name="origin">
 		/// Specifies the clip control origin. Must be one of Gl.LOWER_LEFT or Gl.UPPER_LEFT.
@@ -277,7 +277,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create transform feedback objects
+		/// [GL4] glCreateTransformFeedbacks: create transform feedback objects
 		/// </summary>
 		/// <param name="ids">
 		/// Specifies an array in which names of the new transform feedback objects are stored.
@@ -308,7 +308,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create transform feedback objects
+		/// [GL4] glCreateTransformFeedbacks: create transform feedback objects
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -330,7 +330,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] bind a buffer object to a transform feedback buffer object
+		/// [GL4] glTransformFeedbackBufferBase: bind a buffer object to a transform feedback buffer object
 		/// </summary>
 		/// <param name="xfb">
 		/// Name of the transform feedback buffer object.
@@ -365,7 +365,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] bind a range within a buffer object to a transform feedback buffer object
+		/// [GL4] glTransformFeedbackBufferRange: bind a range within a buffer object to a transform feedback buffer object
 		/// </summary>
 		/// <param name="xfb">
 		/// Name of the transform feedback buffer object.
@@ -415,7 +415,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query the state of a transform feedback object.
+		/// [GL4] glGetTransformFeedbackiv: query the state of a transform feedback object.
 		/// </summary>
 		/// <param name="xfb">
 		/// The name of an existing transform feedback object, or zero for the default transform feedback object.
@@ -470,7 +470,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query the state of a transform feedback object.
+		/// [GL4] glGetTransformFeedbacki_v: query the state of a transform feedback object.
 		/// </summary>
 		/// <param name="xfb">
 		/// The name of an existing transform feedback object, or zero for the default transform feedback object.
@@ -528,7 +528,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query the state of a transform feedback object.
+		/// [GL4] glGetTransformFeedbacki64_v: query the state of a transform feedback object.
 		/// </summary>
 		/// <param name="xfb">
 		/// The name of an existing transform feedback object, or zero for the default transform feedback object.
@@ -586,7 +586,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create buffer objects
+		/// [GL4] glCreateBuffers: create buffer objects
 		/// </summary>
 		/// <param name="buffers">
 		/// Specifies an array in which names of the new buffer objects are stored.
@@ -618,7 +618,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create buffer objects
+		/// [GL4] glCreateBuffers: create buffer objects
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -641,7 +641,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] creates and initializes a buffer object's immutable data store
+		/// [GL4] glNamedBufferStorage: creates and initializes a buffer object's immutable data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.NamedBufferStorage function.
@@ -707,7 +707,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] creates and initializes a buffer object's immutable data store
+		/// [GL4] glNamedBufferStorage: creates and initializes a buffer object's immutable data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.NamedBufferStorage function.
@@ -775,7 +775,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] creates and initializes a buffer object's data store
+		/// [GL4] glNamedBufferData: creates and initializes a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.NamedBufferData function.
@@ -829,7 +829,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] creates and initializes a buffer object's data store
+		/// [GL4] glNamedBufferData: creates and initializes a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.NamedBufferData function.
@@ -885,7 +885,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] updates a subset of a buffer object's data store
+		/// [GL4] glNamedBufferSubData: updates a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.NamedBufferSubData.
@@ -940,7 +940,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] updates a subset of a buffer object's data store
+		/// [GL4] glNamedBufferSubData: updates a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.NamedBufferSubData.
@@ -997,7 +997,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] copy all or part of the data store of a buffer object to the data store of another buffer object
+		/// [GL4] glCopyNamedBufferSubData: copy all or part of the data store of a buffer object to the data store of another 
+		/// buffer object
 		/// </summary>
 		/// <param name="readBuffer">
 		/// Specifies the name of the source buffer object for Gl.CopyNamedBufferSubData.
@@ -1061,7 +1062,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] fill a buffer object's data store with a fixed value
+		/// [GL4] glClearNamedBufferData: fill a buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.ClearNamedBufferData.
@@ -1114,7 +1115,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] fill a buffer object's data store with a fixed value
+		/// [GL4] glClearNamedBufferData: fill a buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.ClearNamedBufferData.
@@ -1169,7 +1170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] fill all or part of buffer object's data store with a fixed value
+		/// [GL4] glClearNamedBufferSubData: fill all or part of buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.ClearNamedBufferSubData.
@@ -1238,7 +1239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] fill all or part of buffer object's data store with a fixed value
+		/// [GL4] glClearNamedBufferSubData: fill all or part of buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.ClearNamedBufferSubData.
@@ -1309,7 +1310,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] map all of a buffer object's data store into the client's address space
+		/// [GL4] glMapNamedBuffer: map all of a buffer object's data store into the client's address space
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.MapNamedBuffer.
@@ -1363,7 +1364,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] map all or part of a buffer object's data store into the client's address space
+		/// [GL4] glMapNamedBufferRange: map all or part of a buffer object's data store into the client's address space
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.MapNamedBufferRange.
@@ -1424,7 +1425,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] release the mapping of a buffer object's data store into the client's address space
+		/// [GL4] glUnmapNamedBuffer: release the mapping of a buffer object's data store into the client's address space
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.UnmapNamedBuffer.
@@ -1462,7 +1463,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] indicate modifications to a range of a mapped buffer
+		/// [GL4] glFlushMappedNamedBufferRange: indicate modifications to a range of a mapped buffer
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.FlushMappedNamedBufferRange.
@@ -1506,7 +1507,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return parameters of a buffer object
+		/// [GL4] glGetNamedBufferParameteriv: return parameters of a buffer object
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.GetNamedBufferParameteriv and Gl.GetNamedBufferParameteri64v.
@@ -1553,7 +1554,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return parameters of a buffer object
+		/// [GL4] glGetNamedBufferParameteri64v: return parameters of a buffer object
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.GetNamedBufferParameteriv and Gl.GetNamedBufferParameteri64v.
@@ -1600,7 +1601,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return the pointer to a mapped buffer object's data store
+		/// [GL4] glGetNamedBufferPointerv: return the pointer to a mapped buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.GetNamedBufferPointerv.
@@ -1640,7 +1641,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] returns a subset of a buffer object's data store
+		/// [GL4] glGetNamedBufferSubData: returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.GetNamedBufferSubData.
@@ -1689,7 +1690,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] returns a subset of a buffer object's data store
+		/// [GL4] glGetNamedBufferSubData: returns a subset of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.GetNamedBufferSubData.
@@ -1740,7 +1741,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create framebuffer objects
+		/// [GL4] glCreateFramebuffers: create framebuffer objects
 		/// </summary>
 		/// <param name="framebuffers">
 		/// Specifies an array in which names of the new framebuffer objects are stored.
@@ -1771,7 +1772,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create framebuffer objects
+		/// [GL4] glCreateFramebuffers: create framebuffer objects
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -1793,7 +1794,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] attach a renderbuffer as a logical buffer of a framebuffer object
+		/// [GL4] glNamedFramebufferRenderbuffer: attach a renderbuffer as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.NamedFramebufferRenderbuffer.
@@ -1843,7 +1844,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] set a named parameter of a framebuffer object
+		/// [GL4] glNamedFramebufferParameteri: set a named parameter of a framebuffer object
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.NamedFramebufferParameteri.
@@ -1899,7 +1900,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] attach a level of a texture object as a logical buffer of a framebuffer object
+		/// [GL4] glNamedFramebufferTexture: attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.NamedFramebufferTexture.
@@ -1962,7 +1963,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] attach a single layer of a texture object as a logical buffer of a framebuffer object
+		/// [GL4] glNamedFramebufferTextureLayer: attach a single layer of a texture object as a logical buffer of a framebuffer 
+		/// object
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.NamedFramebufferTextureLayer.
@@ -2028,7 +2030,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify which color buffers are to be drawn into
+		/// [GL4] glNamedFramebufferDrawBuffer: specify which color buffers are to be drawn into
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.NamedFramebufferDrawBuffer function. Must be zero or the name of a 
@@ -2072,7 +2074,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies a list of color buffers to be drawn into
+		/// [GL4] glNamedFramebufferDrawBuffers: Specifies a list of color buffers to be drawn into
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.NamedFramebufferDrawBuffers.
@@ -2138,7 +2140,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] select a color buffer source for pixels
+		/// [GL4] glNamedFramebufferReadBuffer: select a color buffer source for pixels
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.NamedFramebufferReadBuffer function.
@@ -2175,7 +2177,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] invalidate the content of some or all of a framebuffer's attachments
+		/// [GL4] glInvalidateNamedFramebufferData: invalidate the content of some or all of a framebuffer's attachments
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.InvalidateNamedFramebufferData.
@@ -2226,7 +2228,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] invalidate the content of a region of some or all of a framebuffer's attachments
+		/// [GL4] glInvalidateNamedFramebufferSubData: invalidate the content of a region of some or all of a framebuffer's 
+		/// attachments
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.InvalidateNamedFramebufferSubData.
@@ -2290,7 +2293,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] clear individual buffers of a framebuffer
+		/// [GL4] glClearNamedFramebufferiv: clear individual buffers of a framebuffer
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.ClearNamedFramebuffer*.
@@ -2352,7 +2355,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] clear individual buffers of a framebuffer
+		/// [GL4] glClearNamedFramebufferuiv: clear individual buffers of a framebuffer
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.ClearNamedFramebuffer*.
@@ -2414,7 +2417,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] clear individual buffers of a framebuffer
+		/// [GL4] glClearNamedFramebufferfv: clear individual buffers of a framebuffer
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.ClearNamedFramebuffer*.
@@ -2476,7 +2479,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] clear individual buffers of a framebuffer
+		/// [GL4] glClearNamedFramebufferfi: clear individual buffers of a framebuffer
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.ClearNamedFramebuffer*.
@@ -2536,7 +2539,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] copy a block of pixels from one framebuffer object to another
+		/// [GL4] glBlitNamedFramebuffer: copy a block of pixels from one framebuffer object to another
 		/// </summary>
 		/// <param name="readFramebuffer">
 		/// Specifies the name of the source framebuffer object for Gl.BlitNamedFramebuffer.
@@ -2624,7 +2627,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] check the completeness status of a framebuffer
+		/// [GL4] glCheckNamedFramebufferStatus: check the completeness status of a framebuffer
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.CheckNamedFramebufferStatus
@@ -2659,7 +2662,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query a named parameter of a framebuffer object
+		/// [GL4] glGetNamedFramebufferParameteriv: query a named parameter of a framebuffer object
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.GetNamedFramebufferParameteriv.
@@ -2704,7 +2707,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve information about attachments of a framebuffer object
+		/// [GL4] glGetNamedFramebufferAttachmentParameteriv: retrieve information about attachments of a framebuffer object
 		/// </summary>
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object for Gl.GetNamedFramebufferAttachmentParameteriv.
@@ -2765,7 +2768,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create renderbuffer objects
+		/// [GL4] glCreateRenderbuffers: create renderbuffer objects
 		/// </summary>
 		/// <param name="renderbuffers">
 		/// Specifies an array in which names of the new renderbuffer objects are stored.
@@ -2795,7 +2798,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create renderbuffer objects
+		/// [GL4] glCreateRenderbuffers: create renderbuffer objects
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -2816,7 +2819,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] establish data storage, format and dimensions of a renderbuffer object's image
+		/// [GL4] glNamedRenderbufferStorage: establish data storage, format and dimensions of a renderbuffer object's image
 		/// </summary>
 		/// <param name="renderbuffer">
 		/// Specifies the name of the renderbuffer object for Gl.NamedRenderbufferStorage function.
@@ -2864,7 +2867,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] establish data storage, format, dimensions and sample count of a renderbuffer object's image
+		/// [GL4] glNamedRenderbufferStorageMultisample: establish data storage, format, dimensions and sample count of a 
+		/// renderbuffer object's image
 		/// </summary>
 		/// <param name="renderbuffer">
 		/// Specifies the name of the renderbuffer object for Gl.NamedRenderbufferStorageMultisample function.
@@ -2924,7 +2928,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query a named parameter of a renderbuffer object
+		/// [GL4] glGetNamedRenderbufferParameteriv: query a named parameter of a renderbuffer object
 		/// </summary>
 		/// <param name="renderbuffer">
 		/// Specifies the name of the renderbuffer object for Gl.GetNamedRenderbufferParameteriv.
@@ -2969,7 +2973,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create texture objects
+		/// [GL4] glCreateTextures: create texture objects
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the effective texture target of each created texture.
@@ -3015,7 +3019,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create texture objects
+		/// [GL4] glCreateTextures: create texture objects
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the effective texture target of each created texture.
@@ -3058,7 +3062,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create texture objects
+		/// [GL4] glCreateTextures: create texture objects
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the effective texture target of each created texture.
@@ -3092,7 +3096,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] attach a buffer object's data store to a buffer texture object
+		/// [GL4] glTextureBuffer: attach a buffer object's data store to a buffer texture object
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureBuffer.
@@ -3140,7 +3144,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] attach a range of a buffer object's data store to a buffer texture object
+		/// [GL4] glTextureBufferRange: attach a range of a buffer object's data store to a buffer texture object
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureBufferRange.
@@ -3197,7 +3201,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorage1D.
+		/// [GL] glTextureStorage1D: Binding for glTextureStorage1D.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3222,7 +3226,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorage2D.
+		/// [GL] glTextureStorage2D: Binding for glTextureStorage2D.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3250,7 +3254,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorage3D.
+		/// [GL] glTextureStorage3D: Binding for glTextureStorage3D.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -3281,7 +3285,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify storage for a two-dimensional multisample texture
+		/// [GL4] glTextureStorage2DMultisample: specify storage for a two-dimensional multisample texture
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureStorage2DMultisample. The effective target of <paramref name="texture"/> 
@@ -3351,7 +3355,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify storage for a two-dimensional multisample array texture
+		/// [GL4] glTextureStorage3DMultisample: specify storage for a two-dimensional multisample array texture
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureStorage3DMultisample. The effective target of <paramref name="texture"/> 
@@ -3429,7 +3433,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a one-dimensional texture subimage
+		/// [GL4] glTextureSubImage1D: specify a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureSubImage1D. The effective target of <paramref name="texture"/> must be 
@@ -3541,7 +3545,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a one-dimensional texture subimage
+		/// [GL4] glTextureSubImage1D: specify a one-dimensional texture subimage
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureSubImage1D. The effective target of <paramref name="texture"/> must be 
@@ -3655,7 +3659,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a two-dimensional texture subimage
+		/// [GL4] glTextureSubImage2D: specify a two-dimensional texture subimage
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureSubImage2D. The effective target of <paramref name="texture"/> must be 
@@ -3775,7 +3779,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a two-dimensional texture subimage
+		/// [GL4] glTextureSubImage2D: specify a two-dimensional texture subimage
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureSubImage2D. The effective target of <paramref name="texture"/> must be 
@@ -3897,7 +3901,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a three-dimensional texture subimage
+		/// [GL4] glTextureSubImage3D: specify a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureSubImage3D. The effective target of <paramref name="texture"/> must be 
@@ -4025,7 +4029,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a three-dimensional texture subimage
+		/// [GL4] glTextureSubImage3D: specify a three-dimensional texture subimage
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.TextureSubImage3D. The effective target of <paramref name="texture"/> must be 
@@ -4155,7 +4159,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a one-dimensional texture subimage in a compressed format
+		/// [GL4] glCompressedTextureSubImage1D: specify a one-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.CompressedTextureSubImage1D function.
@@ -4236,7 +4240,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a one-dimensional texture subimage in a compressed format
+		/// [GL4] glCompressedTextureSubImage1D: specify a one-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.CompressedTextureSubImage1D function.
@@ -4319,7 +4323,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a two-dimensional texture subimage in a compressed format
+		/// [GL4] glCompressedTextureSubImage2D: specify a two-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.CompressedTextureSubImage2D function.
@@ -4413,7 +4417,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a two-dimensional texture subimage in a compressed format
+		/// [GL4] glCompressedTextureSubImage2D: specify a two-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.CompressedTextureSubImage2D function.
@@ -4509,7 +4513,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a three-dimensional texture subimage in a compressed format
+		/// [GL4] glCompressedTextureSubImage3D: specify a three-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.CompressedTextureSubImage3D function.
@@ -4606,7 +4610,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify a three-dimensional texture subimage in a compressed format
+		/// [GL4] glCompressedTextureSubImage3D: specify a three-dimensional texture subimage in a compressed format
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.CompressedTextureSubImage3D function.
@@ -4705,7 +4709,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTextureSubImage1D.
+		/// [GL] glCopyTextureSubImage1D: Binding for glCopyTextureSubImage1D.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4736,7 +4740,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTextureSubImage2D.
+		/// [GL] glCopyTextureSubImage2D: Binding for glCopyTextureSubImage2D.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4773,7 +4777,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTextureSubImage3D.
+		/// [GL] glCopyTextureSubImage3D: Binding for glCopyTextureSubImage3D.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4813,7 +4817,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterf.
+		/// [GL] glTextureParameterf: Binding for glTextureParameterf.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4835,7 +4839,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterfv.
+		/// [GL] glTextureParameterfv: Binding for glTextureParameterfv.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4862,7 +4866,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameteri.
+		/// [GL] glTextureParameteri: Binding for glTextureParameteri.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4884,7 +4888,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterIiv.
+		/// [GL] glTextureParameterIiv: Binding for glTextureParameterIiv.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4911,7 +4915,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameterIuiv.
+		/// [GL] glTextureParameterIuiv: Binding for glTextureParameterIuiv.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4938,7 +4942,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureParameteriv.
+		/// [GL] glTextureParameteriv: Binding for glTextureParameteriv.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -4965,7 +4969,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] generate mipmaps for a specified texture object
+		/// [GL4] glGenerateTextureMipmap: generate mipmaps for a specified texture object
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GenerateTextureMipmap.
@@ -4996,7 +5000,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] bind an existing texture object to the specified texture unit
+		/// [GL4] glBindTextureUnit: bind an existing texture object to the specified texture unit
 		/// </summary>
 		/// <param name="unit">
 		/// Specifies the texture unit, to which the texture object should be bound to.
@@ -5031,7 +5035,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureImage.
+		/// [GL] glGetTextureImage: Binding for glGetTextureImage.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -5062,7 +5066,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTextureImage.
+		/// [GL] glGetTextureImage: Binding for glGetTextureImage.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -5095,7 +5099,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return a compressed texture image
+		/// [GL4] glGetCompressedTextureImage: return a compressed texture image
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetCompressedTextureImage function.
@@ -5158,7 +5162,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return a compressed texture image
+		/// [GL4] glGetCompressedTextureImage: return a compressed texture image
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetCompressedTextureImage function.
@@ -5223,7 +5227,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values for a specific level of detail
+		/// [GL4] glGetTextureLevelParameterfv: return texture parameter values for a specific level of detail
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureLevelParameterfv and Gl.GetTextureLevelParameteriv functions.
@@ -5294,7 +5298,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values for a specific level of detail
+		/// [GL4] glGetTextureLevelParameteriv: return texture parameter values for a specific level of detail
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureLevelParameterfv and Gl.GetTextureLevelParameteriv functions.
@@ -5365,7 +5369,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values for a specific level of detail
+		/// [GL4] glGetTextureLevelParameteriv: return texture parameter values for a specific level of detail
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureLevelParameterfv and Gl.GetTextureLevelParameteriv functions.
@@ -5436,7 +5440,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values
+		/// [GL4] glGetTextureParameterfv: return texture parameter values
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureParameterfv, Gl.GetTextureParameteriv, Gl.GetTextureParameterIiv, and 
@@ -5486,7 +5490,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values
+		/// [GL4] glGetTextureParameterIiv: return texture parameter values
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureParameterfv, Gl.GetTextureParameteriv, Gl.GetTextureParameterIiv, and 
@@ -5536,7 +5540,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values
+		/// [GL4] glGetTextureParameterIiv: return texture parameter values
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureParameterfv, Gl.GetTextureParameteriv, Gl.GetTextureParameterIiv, and 
@@ -5586,7 +5590,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values
+		/// [GL4] glGetTextureParameterIuiv: return texture parameter values
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureParameterfv, Gl.GetTextureParameteriv, Gl.GetTextureParameterIiv, and 
@@ -5636,7 +5640,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values
+		/// [GL4] glGetTextureParameterIuiv: return texture parameter values
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureParameterfv, Gl.GetTextureParameteriv, Gl.GetTextureParameterIiv, and 
@@ -5686,7 +5690,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values
+		/// [GL4] glGetTextureParameteriv: return texture parameter values
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureParameterfv, Gl.GetTextureParameteriv, Gl.GetTextureParameterIiv, and 
@@ -5736,7 +5740,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return texture parameter values
+		/// [GL4] glGetTextureParameteriv: return texture parameter values
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GetTextureParameterfv, Gl.GetTextureParameteriv, Gl.GetTextureParameterIiv, and 
@@ -5786,7 +5790,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create vertex array objects
+		/// [GL4] glCreateVertexArrays: create vertex array objects
 		/// </summary>
 		/// <param name="arrays">
 		/// Specifies an array in which names of the new vertex array objects are stored.
@@ -5816,7 +5820,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create vertex array objects
+		/// [GL4] glCreateVertexArrays: create vertex array objects
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -5837,7 +5841,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Enable or disable a generic vertex attribute array
+		/// [GL4] glDisableVertexArrayAttrib: Enable or disable a generic vertex attribute array
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object for Gl.DisableVertexArrayAttrib and Gl.EnableVertexArrayAttrib functions.
@@ -5874,7 +5878,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Enable or disable a generic vertex attribute array
+		/// [GL4] glEnableVertexArrayAttrib: Enable or disable a generic vertex attribute array
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object for Gl.DisableVertexArrayAttrib and Gl.EnableVertexArrayAttrib functions.
@@ -5911,7 +5915,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] configures element array buffer binding of a vertex array object
+		/// [GL4] glVertexArrayElementBuffer: configures element array buffer binding of a vertex array object
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object.
@@ -5939,7 +5943,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] bind a buffer to a vertex buffer bind point
+		/// [GL4] glVertexArrayVertexBuffer: bind a buffer to a vertex buffer bind point
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object to be used by Gl.VertexArrayVertexBuffer function.
@@ -5990,7 +5994,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] attach multiple buffer objects to a vertex array object
+		/// [GL4] glVertexArrayVertexBuffers: attach multiple buffer objects to a vertex array object
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object for Gl.VertexArrayVertexBuffers.
@@ -6049,7 +6053,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] associate a vertex attribute and a vertex buffer binding for a vertex array object
+		/// [GL4] glVertexArrayAttribBinding: associate a vertex attribute and a vertex buffer binding for a vertex array object
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object for Gl.VertexArrayAttribBinding.
@@ -6090,7 +6094,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify the organization of vertex arrays
+		/// [GL4] glVertexArrayAttribFormat: specify the organization of vertex arrays
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object for Gl.VertexArrayAttrib{I, L}Format functions.
@@ -6162,7 +6166,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify the organization of vertex arrays
+		/// [GL4] glVertexArrayAttribIFormat: specify the organization of vertex arrays
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object for Gl.VertexArrayAttrib{I, L}Format functions.
@@ -6230,7 +6234,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify the organization of vertex arrays
+		/// [GL4] glVertexArrayAttribLFormat: specify the organization of vertex arrays
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object for Gl.VertexArrayAttrib{I, L}Format functions.
@@ -6298,7 +6302,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] modify the rate at which generic vertex attributes advance
+		/// [GL4] glVertexArrayBindingDivisor: modify the rate at which generic vertex attributes advance
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of the vertex array object for Gl.VertexArrayBindingDivisor function.
@@ -6336,7 +6340,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexArrayiv.
+		/// [GL] glGetVertexArrayiv: Binding for glGetVertexArrayiv.
 		/// </summary>
 		/// <param name="vaobj">
 		/// A <see cref="T:UInt32"/>.
@@ -6363,7 +6367,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve parameters of an attribute of a vertex array object
+		/// [GL4] glGetVertexArrayIndexediv: retrieve parameters of an attribute of a vertex array object
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of a vertex array object.
@@ -6410,7 +6414,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve parameters of an attribute of a vertex array object
+		/// [GL4] glGetVertexArrayIndexed64iv: retrieve parameters of an attribute of a vertex array object
 		/// </summary>
 		/// <param name="vaobj">
 		/// Specifies the name of a vertex array object.
@@ -6457,7 +6461,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create sampler objects
+		/// [GL4] glCreateSamplers: create sampler objects
 		/// </summary>
 		/// <param name="samplers">
 		/// Specifies an array in which names of the new sampler objects are stored.
@@ -6490,7 +6494,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create sampler objects
+		/// [GL4] glCreateSamplers: create sampler objects
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -6514,7 +6518,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create program pipeline objects
+		/// [GL4] glCreateProgramPipelines: create program pipeline objects
 		/// </summary>
 		/// <param name="pipelines">
 		/// Specifies an array in which names of the new program pipeline objects are stored.
@@ -6546,7 +6550,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create program pipeline objects
+		/// [GL4] glCreateProgramPipelines: create program pipeline objects
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
@@ -6569,7 +6573,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create query objects
+		/// [GL4] glCreateQueries: create query objects
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target of each created query object.
@@ -6609,7 +6613,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create query objects
+		/// [GL4] glCreateQueries: create query objects
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target of each created query object.
@@ -6646,7 +6650,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] create query objects
+		/// [GL4] glCreateQueries: create query objects
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target of each created query object.
@@ -6674,7 +6678,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetQueryBufferObjecti64v.
+		/// [GL] glGetQueryBufferObjecti64v: Binding for glGetQueryBufferObjecti64v.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -6699,7 +6703,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetQueryBufferObjectiv.
+		/// [GL] glGetQueryBufferObjectiv: Binding for glGetQueryBufferObjectiv.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -6724,7 +6728,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetQueryBufferObjectui64v.
+		/// [GL] glGetQueryBufferObjectui64v: Binding for glGetQueryBufferObjectui64v.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -6749,7 +6753,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetQueryBufferObjectuiv.
+		/// [GL] glGetQueryBufferObjectuiv: Binding for glGetQueryBufferObjectuiv.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -6775,7 +6779,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] defines a barrier ordering memory transactions
+		/// [GL4|GLES3.2] glMemoryBarrierByRegion: defines a barrier ordering memory transactions
 		/// </para>
 		/// </summary>
 		/// <param name="barriers">
@@ -6803,7 +6807,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve a sub-region of a texture image from a texture object
+		/// [GL4] glGetTextureSubImage: retrieve a sub-region of a texture image from a texture object
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the name of the source texture object. Must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
@@ -6894,7 +6898,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve a sub-region of a texture image from a texture object
+		/// [GL4] glGetTextureSubImage: retrieve a sub-region of a texture image from a texture object
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the name of the source texture object. Must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
@@ -6987,7 +6991,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve a sub-region of a compressed texture image from a compressed texture object
+		/// [GL4] glGetCompressedTextureSubImage: retrieve a sub-region of a compressed texture image from a compressed texture 
+		/// object
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the name of the source texture object. Must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
@@ -7082,7 +7087,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve a sub-region of a compressed texture image from a compressed texture object
+		/// [GL4] glGetCompressedTextureSubImage: retrieve a sub-region of a compressed texture image from a compressed texture 
+		/// object
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the name of the source texture object. Must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
@@ -7180,7 +7186,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] check if the rendering context has not been lost due to software or hardware issues
+		/// [GL4|GLES3.2] glGetGraphicsResetStatus: check if the rendering context has not been lost due to software or hardware 
+		/// issues
 		/// </para>
 		/// </summary>
 		/// <seealso cref="Gl.GetError"/>
@@ -7205,7 +7212,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return a compressed texture image
+		/// [GL4] glGetnCompressedTexImage: return a compressed texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetCompressedTexImage and Gl.GetnCompressedTexImage functions. 
@@ -7270,7 +7277,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return a compressed texture image
+		/// [GL4] glGetnCompressedTexImage: return a compressed texture image
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the texture is bound for Gl.GetCompressedTexImage and Gl.GetnCompressedTexImage functions. 
@@ -7337,7 +7344,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnTexImage.
+		/// [GL] glGetnTexImage: Binding for glGetnTexImage.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -7367,7 +7374,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnTexImage.
+		/// [GL] glGetnTexImage: Binding for glGetnTexImage.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -7399,7 +7406,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Returns the value of a uniform variable
+		/// [GL4] glGetnUniformdv: Returns the value of a uniform variable
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.
@@ -7449,7 +7456,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// [GL4|GLES3.2] glGetnUniformfv: Returns the value of a uniform variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -7507,7 +7514,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// [GL4|GLES3.2] glGetnUniformiv: Returns the value of a uniform variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -7565,7 +7572,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// [GL4|GLES3.2] glGetnUniformuiv: Returns the value of a uniform variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -7619,7 +7626,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glReadnPixels.
+		/// [GL] glReadnPixels: Binding for glReadnPixels.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:Int32"/>.
@@ -7664,7 +7671,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapdv.
+		/// [GL] glGetnMapdv: Binding for glGetnMapdv.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -7693,7 +7700,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapfv.
+		/// [GL] glGetnMapfv: Binding for glGetnMapfv.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -7722,7 +7729,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMapiv.
+		/// [GL] glGetnMapiv: Binding for glGetnMapiv.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:EvaluatorTarget"/>.
@@ -7751,7 +7758,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapfv.
+		/// [GL] glGetnPixelMapfv: Binding for glGetnPixelMapfv.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -7777,7 +7784,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapuiv.
+		/// [GL] glGetnPixelMapuiv: Binding for glGetnPixelMapuiv.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -7803,7 +7810,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPixelMapusv.
+		/// [GL] glGetnPixelMapusv: Binding for glGetnPixelMapusv.
 		/// </summary>
 		/// <param name="map">
 		/// A <see cref="T:PixelMap"/>.
@@ -7829,7 +7836,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnPolygonStipple.
+		/// [GL] glGetnPolygonStipple: Binding for glGetnPolygonStipple.
 		/// </summary>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -7852,7 +7859,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnColorTable.
+		/// [GL] glGetnColorTable: Binding for glGetnColorTable.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ColorTableTarget"/>.
@@ -7879,7 +7886,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnColorTable.
+		/// [GL] glGetnColorTable: Binding for glGetnColorTable.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ColorTableTarget"/>.
@@ -7908,7 +7915,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnConvolutionFilter.
+		/// [GL] glGetnConvolutionFilter: Binding for glGetnConvolutionFilter.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ConvolutionTarget"/>.
@@ -7935,7 +7942,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnConvolutionFilter.
+		/// [GL] glGetnConvolutionFilter: Binding for glGetnConvolutionFilter.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ConvolutionTarget"/>.
@@ -7964,7 +7971,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnSeparableFilter.
+		/// [GL] glGetnSeparableFilter: Binding for glGetnSeparableFilter.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:SeparableTarget"/>.
@@ -8000,7 +8007,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnSeparableFilter.
+		/// [GL] glGetnSeparableFilter: Binding for glGetnSeparableFilter.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:SeparableTarget"/>.
@@ -8042,7 +8049,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnHistogram.
+		/// [GL] glGetnHistogram: Binding for glGetnHistogram.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -8072,7 +8079,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnHistogram.
+		/// [GL] glGetnHistogram: Binding for glGetnHistogram.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -8104,7 +8111,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMinmax.
+		/// [GL] glGetnMinmax: Binding for glGetnMinmax.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -8134,7 +8141,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetnMinmax.
+		/// [GL] glGetnMinmax: Binding for glGetnMinmax.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -8166,7 +8173,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] controls the ordering of reads and writes to rendered fragments across drawing commands
+		/// [GL4] glTextureBarrier: controls the ordering of reads and writes to rendered fragments across drawing commands
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// None.

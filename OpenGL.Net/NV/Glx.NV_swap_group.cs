@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXJoinSwapGroupNV.
+		/// [GLX] glXJoinSwapGroupNV: Binding for glXJoinSwapGroupNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -61,7 +61,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXBindSwapBarrierNV.
+		/// [GLX] glXBindSwapBarrierNV: Binding for glXBindSwapBarrierNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQuerySwapGroupNV.
+		/// [GLX] glXQuerySwapGroupNV: Binding for glXQuerySwapGroupNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -120,7 +120,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryMaxSwapGroupsNV.
+		/// [GLX] glXQueryMaxSwapGroupsNV: Binding for glXQueryMaxSwapGroupsNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryFrameCountNV.
+		/// [GLX] glXQueryFrameCountNV: Binding for glXQueryFrameCountNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -184,7 +184,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXResetFrameCountNV.
+		/// [GLX] glXResetFrameCountNV: Binding for glXResetFrameCountNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

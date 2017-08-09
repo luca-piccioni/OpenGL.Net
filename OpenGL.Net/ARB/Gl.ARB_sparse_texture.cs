@@ -126,7 +126,7 @@ namespace OpenGL
 		public const int SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB = 0x91A9;
 
 		/// <summary>
-		/// [GL] Binding for glTexPageCommitmentARB.
+		/// [GL] glTexPageCommitmentARB: Binding for glTexPageCommitmentARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

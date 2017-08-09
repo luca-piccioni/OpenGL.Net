@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int CULL_VERTEX_OBJECT_POSITION_EXT = 0x81AC;
 
 		/// <summary>
-		/// [GL] Binding for glCullParameterdvEXT.
+		/// [GL] glCullParameterdvEXT: Binding for glCullParameterdvEXT.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCullParameterfvEXT.
+		/// [GL] glCullParameterfvEXT: Binding for glCullParameterfvEXT.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

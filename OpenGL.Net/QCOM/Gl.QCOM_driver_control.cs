@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glGetDriverControlsQCOM.
+		/// [GL] glGetDriverControlsQCOM: Binding for glGetDriverControlsQCOM.
 		/// </summary>
 		/// <param name="num">
 		/// A <see cref="T:Int32[]"/>.
@@ -60,7 +60,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetDriverControlStringQCOM.
+		/// [GL] glGetDriverControlStringQCOM: Binding for glGetDriverControlStringQCOM.
 		/// </summary>
 		/// <param name="driverControl">
 		/// A <see cref="T:UInt32"/>.
@@ -89,7 +89,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEnableDriverControlQCOM.
+		/// [GL] glEnableDriverControlQCOM: Binding for glEnableDriverControlQCOM.
 		/// </summary>
 		/// <param name="driverControl">
 		/// A <see cref="T:UInt32"/>.
@@ -104,7 +104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDisableDriverControlQCOM.
+		/// [GL] glDisableDriverControlQCOM: Binding for glDisableDriverControlQCOM.
 		/// </summary>
 		/// <param name="driverControl">
 		/// A <see cref="T:UInt32"/>.

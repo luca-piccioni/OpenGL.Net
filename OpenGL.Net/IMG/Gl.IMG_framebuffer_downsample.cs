@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG = 0x913F;
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferTexture2DDownsampleIMG.
+		/// [GL] glFramebufferTexture2DDownsampleIMG: Binding for glFramebufferTexture2DDownsampleIMG.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -93,7 +93,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferTextureLayerDownsampleIMG.
+		/// [GL] glFramebufferTextureLayerDownsampleIMG: Binding for glFramebufferTextureLayerDownsampleIMG.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.

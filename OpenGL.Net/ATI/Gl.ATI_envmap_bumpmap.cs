@@ -84,7 +84,7 @@ namespace OpenGL
 		public const int BUMP_TARGET_ATI = 0x877C;
 
 		/// <summary>
-		/// [GL] Binding for glTexBumpParameterivATI.
+		/// [GL] glTexBumpParameterivATI: Binding for glTexBumpParameterivATI.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -107,7 +107,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexBumpParameterfvATI.
+		/// [GL] glTexBumpParameterfvATI: Binding for glTexBumpParameterfvATI.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -130,7 +130,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTexBumpParameterivATI.
+		/// [GL] glGetTexBumpParameterivATI: Binding for glGetTexBumpParameterivATI.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -153,7 +153,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetTexBumpParameterfvATI.
+		/// [GL] glGetTexBumpParameterfvATI: Binding for glGetTexBumpParameterfvATI.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

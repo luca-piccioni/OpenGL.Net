@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXCreateGLXVideoSourceSGIX.
+		/// [GLX] glXCreateGLXVideoSourceSGIX: Binding for glXCreateGLXVideoSourceSGIX.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="T:IntPtr"/>.
@@ -70,7 +70,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXDestroyGLXVideoSourceSGIX.
+		/// [GLX] glXDestroyGLXVideoSourceSGIX: Binding for glXDestroyGLXVideoSourceSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

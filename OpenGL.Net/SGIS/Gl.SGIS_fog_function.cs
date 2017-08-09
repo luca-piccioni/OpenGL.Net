@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int MAX_FOG_FUNC_POINTS_SGIS = 0x812C;
 
 		/// <summary>
-		/// [GL] Binding for glFogFuncSGIS.
+		/// [GL] glFogFuncSGIS: Binding for glFogFuncSGIS.
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:Int32"/>.
@@ -77,7 +77,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetFogFuncSGIS.
+		/// [GL] glGetFogFuncSGIS: Binding for glGetFogFuncSGIS.
 		/// </summary>
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.

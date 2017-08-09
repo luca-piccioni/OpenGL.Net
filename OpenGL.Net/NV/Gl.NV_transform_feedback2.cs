@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glBindTransformFeedbackNV.
+		/// [GL] glBindTransformFeedbackNV: Binding for glBindTransformFeedbackNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TransformFeedbackTarget"/>.

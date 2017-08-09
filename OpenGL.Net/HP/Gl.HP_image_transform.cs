@@ -126,7 +126,7 @@ namespace OpenGL
 		public const int PROXY_POST_IMAGE_TRANSFORM_COLOR_TABLE_HP = 0x8163;
 
 		/// <summary>
-		/// [GL] Binding for glImageTransformParameteriHP.
+		/// [GL] glImageTransformParameteriHP: Binding for glImageTransformParameteriHP.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -147,7 +147,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glImageTransformParameterfHP.
+		/// [GL] glImageTransformParameterfHP: Binding for glImageTransformParameterfHP.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -168,7 +168,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glImageTransformParameterivHP.
+		/// [GL] glImageTransformParameterivHP: Binding for glImageTransformParameterivHP.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -194,7 +194,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glImageTransformParameterfvHP.
+		/// [GL] glImageTransformParameterfvHP: Binding for glImageTransformParameterfvHP.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -220,7 +220,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetImageTransformParameterivHP.
+		/// [GL] glGetImageTransformParameterivHP: Binding for glGetImageTransformParameterivHP.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -246,7 +246,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetImageTransformParameterfvHP.
+		/// [GL] glGetImageTransformParameterfvHP: Binding for glGetImageTransformParameterfvHP.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

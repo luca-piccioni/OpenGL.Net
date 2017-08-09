@@ -194,7 +194,7 @@ namespace OpenGL
 		public const int UPPER_LEFT_KHR = 0x30CF;
 
 		/// <summary>
-		/// [EGL] Binding for eglLockSurfaceKHR.
+		/// [EGL] eglLockSurfaceKHR: Binding for eglLockSurfaceKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -225,7 +225,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglUnlockSurfaceKHR.
+		/// [EGL] eglUnlockSurfaceKHR: Binding for eglUnlockSurfaceKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -248,7 +248,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQuerySurface64KHR.
+		/// [EGL] eglQuerySurface64KHR: Binding for eglQuerySurface64KHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

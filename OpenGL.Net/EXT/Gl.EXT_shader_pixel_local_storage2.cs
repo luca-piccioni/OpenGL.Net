@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT = 0x9652;
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferPixelLocalStorageSizeEXT.
+		/// [GL] glFramebufferPixelLocalStorageSizeEXT: Binding for glFramebufferPixelLocalStorageSizeEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:UInt32"/>.
@@ -72,7 +72,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetFramebufferPixelLocalStorageSizeEXT.
+		/// [GL] glGetFramebufferPixelLocalStorageSizeEXT: Binding for glGetFramebufferPixelLocalStorageSizeEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClearPixelLocalStorageuiEXT.
+		/// [GL] glClearPixelLocalStorageuiEXT: Binding for glClearPixelLocalStorageuiEXT.
 		/// </summary>
 		/// <param name="offset">
 		/// A <see cref="T:Int32"/>.

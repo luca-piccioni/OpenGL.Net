@@ -65,7 +65,7 @@ namespace OpenGL
 		public const uint TEXTURE_STORAGE_SPARSE_BIT_AMD = 0x00000001;
 
 		/// <summary>
-		/// [GL] Binding for glTexStorageSparseAMD.
+		/// [GL] glTexStorageSparseAMD: Binding for glTexStorageSparseAMD.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -98,7 +98,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTextureStorageSparseAMD.
+		/// [GL] glTextureStorageSparseAMD: Binding for glTextureStorageSparseAMD.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.

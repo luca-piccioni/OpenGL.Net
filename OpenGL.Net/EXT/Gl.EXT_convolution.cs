@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glGetConvolutionFilterEXT.
+		/// [GL] glGetConvolutionFilterEXT: Binding for glGetConvolutionFilterEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ConvolutionTarget"/>.
@@ -60,7 +60,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetConvolutionFilterEXT.
+		/// [GL] glGetConvolutionFilterEXT: Binding for glGetConvolutionFilterEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ConvolutionTarget"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetConvolutionParameterfvEXT.
+		/// [GL] glGetConvolutionParameterfvEXT: Binding for glGetConvolutionParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ConvolutionTarget"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetConvolutionParameterivEXT.
+		/// [GL] glGetConvolutionParameterivEXT: Binding for glGetConvolutionParameterivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:ConvolutionTarget"/>.
@@ -138,7 +138,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetSeparableFilterEXT.
+		/// [GL] glGetSeparableFilterEXT: Binding for glGetSeparableFilterEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:SeparableTarget"/>.
@@ -168,7 +168,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetSeparableFilterEXT.
+		/// [GL] glGetSeparableFilterEXT: Binding for glGetSeparableFilterEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:SeparableTarget"/>.

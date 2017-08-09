@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV = 0x954F;
 
 		/// <summary>
-		/// [GL] Binding for glConservativeRasterParameteriNV.
+		/// [GL] glConservativeRasterParameteriNV: Binding for glConservativeRasterParameteriNV.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

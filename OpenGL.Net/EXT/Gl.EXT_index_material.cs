@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int INDEX_MATERIAL_FACE_EXT = 0x81BA;
 
 		/// <summary>
-		/// [GL] Binding for glIndexMaterialEXT.
+		/// [GL] glIndexMaterialEXT: Binding for glIndexMaterialEXT.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.

@@ -62,7 +62,7 @@ namespace OpenGL
 		public const int OPTIMAL_PBUFFER_HEIGHT_SGIX = 0x801A;
 
 		/// <summary>
-		/// [GLX] Binding for glXCreateGLXPbufferSGIX.
+		/// [GLX] glXCreateGLXPbufferSGIX: Binding for glXCreateGLXPbufferSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -98,7 +98,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXDestroyGLXPbufferSGIX.
+		/// [GLX] glXDestroyGLXPbufferSGIX: Binding for glXDestroyGLXPbufferSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryGLXPbufferSGIX.
+		/// [GLX] glXQueryGLXPbufferSGIX: Binding for glXQueryGLXPbufferSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -149,7 +149,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXSelectEventSGIX.
+		/// [GLX] glXSelectEventSGIX: Binding for glXSelectEventSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -170,7 +170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXGetSelectedEventSGIX.
+		/// [GLX] glXGetSelectedEventSGIX: Binding for glXGetSelectedEventSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

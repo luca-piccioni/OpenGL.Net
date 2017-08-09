@@ -108,7 +108,7 @@ namespace OpenGL
 		public const int DEBUG_CALLBACK_KHR = 0x33B8;
 
 		/// <summary>
-		/// [EGL] Binding for eglDebugMessageControlKHR.
+		/// [EGL] eglDebugMessageControlKHR: Binding for eglDebugMessageControlKHR.
 		/// </summary>
 		/// <param name="callback">
 		/// A <see cref="T:DebugProcKHR"/>.
@@ -135,7 +135,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryDebugKHR.
+		/// [EGL] eglQueryDebugKHR: Binding for eglQueryDebugKHR.
 		/// </summary>
 		/// <param name="attribute">
 		/// A <see cref="T:int"/>.
@@ -162,7 +162,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglLabelObjectKHR.
+		/// [EGL] eglLabelObjectKHR: Binding for eglLabelObjectKHR.
 		/// </summary>
 		/// <param name="display">
 		/// A <see cref="T:IntPtr"/>.

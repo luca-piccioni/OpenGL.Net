@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glRenderbufferStorageMultisampleANGLE.
+		/// [GL] glRenderbufferStorageMultisampleANGLE: Binding for glRenderbufferStorageMultisampleANGLE.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:RenderbufferTarget"/>.

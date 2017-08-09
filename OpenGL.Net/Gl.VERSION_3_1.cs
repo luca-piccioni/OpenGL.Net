@@ -660,7 +660,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] draw multiple instances of a range of elements
+		/// [GL4|GLES3.2] glDrawArraysInstanced: draw multiple instances of a range of elements
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -714,7 +714,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] draw multiple instances of a set of elements
+		/// [GL4|GLES3.2] glDrawElementsInstanced: draw multiple instances of a set of elements
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -773,7 +773,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] draw multiple instances of a set of elements
+		/// [GL4|GLES3.2] glDrawElementsInstanced: draw multiple instances of a set of elements
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -834,7 +834,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] attach a buffer object's data store to a buffer texture object
+		/// [GL4|GLES3.2] glTexBuffer: attach a buffer object's data store to a buffer texture object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -890,7 +890,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify the primitive restart index
+		/// [GL4] glPrimitiveRestartIndex: specify the primitive restart index
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the value to be interpreted as the primitive restart index.
@@ -910,10 +910,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] copy all or part of the data store of a buffer object to the data store of another buffer object
+		/// [GL4] glCopyBufferSubData: copy all or part of the data store of a buffer object to the data store of another buffer 
+		/// object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] copy part of the data store of a buffer object to the data store of another buffer object
+		/// [GLES3.2] glCopyBufferSubData: copy part of the data store of a buffer object to the data store of another buffer object
 		/// </para>
 		/// </summary>
 		/// <param name="readTarget">
@@ -982,7 +983,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve the index of a named uniform block
+		/// [GL4|GLES3.2] glGetUniformIndices: retrieve the index of a named uniform block
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1022,7 +1023,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns information about several active uniform variables for the specified program object
+		/// [GL4|GLES3.2] glGetActiveUniformsiv: Returns information about several active uniform variables for the specified 
+		/// program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1082,7 +1084,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns information about several active uniform variables for the specified program object
+		/// [GL4|GLES3.2] glGetActiveUniformsiv: Returns information about several active uniform variables for the specified 
+		/// program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1137,7 +1140,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query the name of an active uniform
+		/// [GL4] glGetActiveUniformName: query the name of an active uniform
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program containing the active uniform index <paramref name="uniformIndex"/>.
@@ -1189,7 +1192,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve the index of a named uniform block
+		/// [GL4|GLES3.2] glGetUniformBlockIndex: retrieve the index of a named uniform block
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1222,7 +1225,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query information about an active uniform block
+		/// [GL4|GLES3.2] glGetActiveUniformBlockiv: query information about an active uniform block
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1269,7 +1272,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve the name of an active uniform block
+		/// [GL4|GLES3.2] glGetActiveUniformBlockName: retrieve the name of an active uniform block
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1317,7 +1320,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] assign a binding point to an active uniform block
+		/// [GL4|GLES3.2] glUniformBlockBinding: assign a binding point to an active uniform block
 		/// </para>
 		/// </summary>
 		/// <param name="program">

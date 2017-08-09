@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glAlphaFuncQCOM.
+		/// [GL] glAlphaFuncQCOM: Binding for glAlphaFuncQCOM.
 		/// </summary>
 		/// <param name="func">
 		/// A <see cref="T:Int32"/>.

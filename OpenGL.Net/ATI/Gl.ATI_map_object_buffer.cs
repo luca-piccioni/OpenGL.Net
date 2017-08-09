@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glMapObjectBufferATI.
+		/// [GL] glMapObjectBufferATI: Binding for glMapObjectBufferATI.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -55,7 +55,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUnmapObjectBufferATI.
+		/// [GL] glUnmapObjectBufferATI: Binding for glUnmapObjectBufferATI.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.

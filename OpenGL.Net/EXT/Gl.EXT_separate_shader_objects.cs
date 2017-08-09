@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glUseShaderProgramEXT.
+		/// [GL] glUseShaderProgramEXT: Binding for glUseShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.
@@ -54,7 +54,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glActiveProgramEXT.
+		/// [GL] glActiveProgramEXT: Binding for glActiveProgramEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -69,7 +69,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCreateShaderProgramEXT.
+		/// [GL] glCreateShaderProgramEXT: Binding for glCreateShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:ShaderType"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glActiveShaderProgramEXT.
+		/// [GL] glActiveShaderProgramEXT: Binding for glActiveShaderProgramEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -109,7 +109,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBindProgramPipelineEXT.
+		/// [GL] glBindProgramPipelineEXT: Binding for glBindProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -124,7 +124,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCreateShaderProgramvEXT.
+		/// [GL] glCreateShaderProgramvEXT: Binding for glCreateShaderProgramvEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:ShaderType"/>.
@@ -150,7 +150,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCreateShaderProgramvEXT.
+		/// [GL] glCreateShaderProgramvEXT: Binding for glCreateShaderProgramvEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:ShaderType"/>.
@@ -172,7 +172,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeleteProgramPipelinesEXT.
+		/// [GL] glDeleteProgramPipelinesEXT: Binding for glDeleteProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="pipelines">
 		/// A <see cref="T:UInt32[]"/>.
@@ -192,7 +192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenProgramPipelinesEXT.
+		/// [GL] glGenProgramPipelinesEXT: Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="pipelines">
 		/// A <see cref="T:UInt32[]"/>.
@@ -212,7 +212,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenProgramPipelinesEXT.
+		/// [GL] glGenProgramPipelinesEXT: Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static UInt32 GenProgramPipelinesEXT()
@@ -223,7 +223,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetProgramPipelineInfoLogEXT.
+		/// [GL] glGetProgramPipelineInfoLogEXT: Binding for glGetProgramPipelineInfoLogEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -252,7 +252,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetProgramPipelineivEXT.
+		/// [GL] glGetProgramPipelineivEXT: Binding for glGetProgramPipelineivEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -278,7 +278,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsProgramPipelineEXT.
+		/// [GL] glIsProgramPipelineEXT: Binding for glIsProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -297,7 +297,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUseProgramStagesEXT.
+		/// [GL] glUseProgramStagesEXT: Binding for glUseProgramStagesEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.
@@ -318,7 +318,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glValidateProgramPipelineEXT.
+		/// [GL] glValidateProgramPipelineEXT: Binding for glValidateProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
 		/// A <see cref="T:UInt32"/>.

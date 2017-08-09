@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glDiscardFramebufferEXT.
+		/// [GL] glDiscardFramebufferEXT: Binding for glDiscardFramebufferEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

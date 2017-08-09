@@ -496,7 +496,7 @@ namespace OpenGL
 		public const int COMPRESSED_SRGB8_ALPHA8_ASTC_12x12 = 0x93DD;
 
 		/// <summary>
-		/// [GLES3.2] specifies a boundary between advanced blending passes
+		/// [GLES3.2] glBlendBarrier: specifies a boundary between advanced blending passes
 		/// </summary>
 		/// <seealso cref="Gl.BlendEquation"/>
 		/// <seealso cref="Gl.BlendEquationi"/>
@@ -515,7 +515,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES3.2] set the bounding box for a primitive
+		/// [GLES3.2] glPrimitiveBoundingBox: set the bounding box for a primitive
 		/// </summary>
 		/// <param name="minX">
 		/// Specify the minimum clip space cooridnate of the bounding box. The initial value is (-1, -1, -1, -1).

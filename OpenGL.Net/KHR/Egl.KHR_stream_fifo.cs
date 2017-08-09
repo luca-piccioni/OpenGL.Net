@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int STREAM_TIME_PRODUCER_KHR = 0x31FF;
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryStreamTimeKHR.
+		/// [EGL] eglQueryStreamTimeKHR: Binding for eglQueryStreamTimeKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

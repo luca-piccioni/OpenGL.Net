@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glTexImage3DOES.
+		/// [GL] glTexImage3DOES: Binding for glTexImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -78,7 +78,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexImage3DOES.
+		/// [GL] glTexImage3DOES: Binding for glTexImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -122,7 +122,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexSubImage3DOES.
+		/// [GL] glTexSubImage3DOES: Binding for glTexSubImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -167,7 +167,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexSubImage3DOES.
+		/// [GL] glTexSubImage3DOES: Binding for glTexSubImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -214,7 +214,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCopyTexSubImage3DOES.
+		/// [GL] glCopyTexSubImage3DOES: Binding for glCopyTexSubImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -253,7 +253,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTexImage3DOES.
+		/// [GL] glCompressedTexImage3DOES: Binding for glCompressedTexImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -292,7 +292,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTexImage3DOES.
+		/// [GL] glCompressedTexImage3DOES: Binding for glCompressedTexImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -333,7 +333,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTexSubImage3DOES.
+		/// [GL] glCompressedTexSubImage3DOES: Binding for glCompressedTexSubImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -378,7 +378,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glCompressedTexSubImage3DOES.
+		/// [GL] glCompressedTexSubImage3DOES: Binding for glCompressedTexSubImage3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -425,7 +425,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferTexture3DOES.
+		/// [GL] glFramebufferTexture3DOES: Binding for glFramebufferTexture3DOES.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.

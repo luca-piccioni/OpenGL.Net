@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB = 0x9345;
 
 		/// <summary>
-		/// [GL] Binding for glDispatchComputeGroupSizeARB.
+		/// [GL] glDispatchComputeGroupSizeARB: Binding for glDispatchComputeGroupSizeARB.
 		/// </summary>
 		/// <param name="num_groups_x">
 		/// A <see cref="T:UInt32"/>.

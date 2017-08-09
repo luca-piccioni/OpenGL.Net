@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int MAX_SHADER_BUFFER_ADDRESS_NV = 0x8F35;
 
 		/// <summary>
-		/// [GL] Binding for glMakeBufferResidentNV.
+		/// [GL] glMakeBufferResidentNV: Binding for glMakeBufferResidentNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -72,7 +72,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMakeBufferNonResidentNV.
+		/// [GL] glMakeBufferNonResidentNV: Binding for glMakeBufferNonResidentNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -87,7 +87,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsBufferResidentNV.
+		/// [GL] glIsBufferResidentNV: Binding for glIsBufferResidentNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -106,7 +106,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMakeNamedBufferResidentNV.
+		/// [GL] glMakeNamedBufferResidentNV: Binding for glMakeNamedBufferResidentNV.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -124,7 +124,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glMakeNamedBufferNonResidentNV.
+		/// [GL] glMakeNamedBufferNonResidentNV: Binding for glMakeNamedBufferNonResidentNV.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -139,7 +139,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsNamedBufferResidentNV.
+		/// [GL] glIsNamedBufferResidentNV: Binding for glIsNamedBufferResidentNV.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -158,7 +158,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetBufferParameterui64vNV.
+		/// [GL] glGetBufferParameterui64vNV: Binding for glGetBufferParameterui64vNV.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:BufferTarget"/>.
@@ -184,7 +184,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetNamedBufferParameterui64vNV.
+		/// [GL] glGetNamedBufferParameterui64vNV: Binding for glGetNamedBufferParameterui64vNV.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -210,7 +210,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetIntegerui64vNV.
+		/// [GL] glGetIntegerui64vNV: Binding for glGetIntegerui64vNV.
 		/// </summary>
 		/// <param name="value">
 		/// A <see cref="T:Int32"/>.
@@ -233,7 +233,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformui64NV.
+		/// [GL] glUniformui64NV: Binding for glUniformui64NV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -251,7 +251,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformui64vNV.
+		/// [GL] glUniformui64vNV: Binding for glUniformui64vNV.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -277,7 +277,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetUniformui64vNV.
+		/// [GL] glGetUniformui64vNV: Binding for glGetUniformui64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -304,7 +304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformui64NV.
+		/// [GL] glProgramUniformui64NV: Binding for glProgramUniformui64NV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.
@@ -325,7 +325,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glProgramUniformui64vNV.
+		/// [GL] glProgramUniformui64vNV: Binding for glProgramUniformui64vNV.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.

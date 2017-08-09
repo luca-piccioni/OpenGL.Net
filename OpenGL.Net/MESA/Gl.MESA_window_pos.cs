@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glWindowPos4dMESA.
+		/// [GL] glWindowPos4dMESA: Binding for glWindowPos4dMESA.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -60,7 +60,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWindowPos4dvMESA.
+		/// [GL] glWindowPos4dvMESA: Binding for glWindowPos4dvMESA.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -80,7 +80,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWindowPos4fMESA.
+		/// [GL] glWindowPos4fMESA: Binding for glWindowPos4fMESA.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -104,7 +104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWindowPos4fvMESA.
+		/// [GL] glWindowPos4fvMESA: Binding for glWindowPos4fvMESA.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -124,7 +124,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWindowPos4iMESA.
+		/// [GL] glWindowPos4iMESA: Binding for glWindowPos4iMESA.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:Int32"/>.
@@ -148,7 +148,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWindowPos4ivMESA.
+		/// [GL] glWindowPos4ivMESA: Binding for glWindowPos4ivMESA.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -168,7 +168,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWindowPos4sMESA.
+		/// [GL] glWindowPos4sMESA: Binding for glWindowPos4sMESA.
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="T:Int16"/>.
@@ -192,7 +192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWindowPos4svMESA.
+		/// [GL] glWindowPos4svMESA: Binding for glWindowPos4svMESA.
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.

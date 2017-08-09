@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int NO_NATIVE_FENCE_FD_ANDROID = -1;
 
 		/// <summary>
-		/// [EGL] Binding for eglDupNativeFenceFDANDROID.
+		/// [EGL] eglDupNativeFenceFDANDROID: Binding for eglDupNativeFenceFDANDROID.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

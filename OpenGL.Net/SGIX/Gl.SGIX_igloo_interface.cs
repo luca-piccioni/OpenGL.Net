@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glIglooInterfaceSGIX.
+		/// [GL] glIglooInterfaceSGIX: Binding for glIglooInterfaceSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.
@@ -54,7 +54,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIglooInterfaceSGIX.
+		/// [GL] glIglooInterfaceSGIX: Binding for glIglooInterfaceSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

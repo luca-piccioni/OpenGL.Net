@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glDrawBuffersNV.
+		/// [GL] glDrawBuffersNV: Binding for glDrawBuffersNV.
 		/// </summary>
 		/// <param name="bufs">
 		/// A <see cref="T:Int32[]"/>.

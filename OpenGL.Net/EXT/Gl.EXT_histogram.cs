@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glGetHistogramEXT.
+		/// [GL] glGetHistogramEXT: Binding for glGetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -63,7 +63,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetHistogramEXT.
+		/// [GL] glGetHistogramEXT: Binding for glGetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -92,7 +92,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetHistogramParameterfvEXT.
+		/// [GL] glGetHistogramParameterfvEXT: Binding for glGetHistogramParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -118,7 +118,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetHistogramParameterivEXT.
+		/// [GL] glGetHistogramParameterivEXT: Binding for glGetHistogramParameterivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:HistogramTargetEXT"/>.
@@ -144,7 +144,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMinmaxEXT.
+		/// [GL] glGetMinmaxEXT: Binding for glGetMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -171,7 +171,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMinmaxEXT.
+		/// [GL] glGetMinmaxEXT: Binding for glGetMinmaxEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -200,7 +200,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMinmaxParameterfvEXT.
+		/// [GL] glGetMinmaxParameterfvEXT: Binding for glGetMinmaxParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.
@@ -226,7 +226,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetMinmaxParameterivEXT.
+		/// [GL] glGetMinmaxParameterivEXT: Binding for glGetMinmaxParameterivEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:MinmaxTarget"/>.

@@ -66,7 +66,7 @@ namespace OpenGL
 		public const int SWAP_INTERVAL_EXT = 0x322F;
 
 		/// <summary>
-		/// [EGL] Binding for eglGetOutputLayersEXT.
+		/// [EGL] eglGetOutputLayersEXT: Binding for eglGetOutputLayersEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -104,7 +104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglGetOutputPortsEXT.
+		/// [EGL] eglGetOutputPortsEXT: Binding for eglGetOutputPortsEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -142,7 +142,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglOutputLayerAttribEXT.
+		/// [EGL] eglOutputLayerAttribEXT: Binding for eglOutputLayerAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -170,7 +170,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryOutputLayerAttribEXT.
+		/// [EGL] eglQueryOutputLayerAttribEXT: Binding for eglQueryOutputLayerAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -203,7 +203,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryOutputLayerStringEXT.
+		/// [EGL] eglQueryOutputLayerStringEXT: Binding for eglQueryOutputLayerStringEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -228,7 +228,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglOutputPortAttribEXT.
+		/// [EGL] eglOutputPortAttribEXT: Binding for eglOutputPortAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -256,7 +256,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryOutputPortAttribEXT.
+		/// [EGL] eglQueryOutputPortAttribEXT: Binding for eglQueryOutputPortAttribEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -289,7 +289,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryOutputPortStringEXT.
+		/// [EGL] eglQueryOutputPortStringEXT: Binding for eglQueryOutputPortStringEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

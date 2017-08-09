@@ -72,7 +72,7 @@ namespace OpenGL
 		public const uint QUERY_ALL_EVENT_BITS_AMD = 0xFFFFFFFF;
 
 		/// <summary>
-		/// [GL] Binding for glQueryObjectParameteruiAMD.
+		/// [GL] glQueryObjectParameteruiAMD: Binding for glQueryObjectParameteruiAMD.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:QueryTarget"/>.

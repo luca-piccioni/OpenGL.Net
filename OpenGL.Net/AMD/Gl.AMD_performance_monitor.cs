@@ -78,7 +78,7 @@ namespace OpenGL
 		public const int PERFMON_RESULT_AMD = 0x8BC6;
 
 		/// <summary>
-		/// [GL] Binding for glGetPerfMonitorGroupsAMD.
+		/// [GL] glGetPerfMonitorGroupsAMD: Binding for glGetPerfMonitorGroupsAMD.
 		/// </summary>
 		/// <param name="numGroups">
 		/// A <see cref="T:Int32"/>.
@@ -102,7 +102,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPerfMonitorCountersAMD.
+		/// [GL] glGetPerfMonitorCountersAMD: Binding for glGetPerfMonitorCountersAMD.
 		/// </summary>
 		/// <param name="group">
 		/// A <see cref="T:UInt32"/>.
@@ -133,7 +133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPerfMonitorGroupStringAMD.
+		/// [GL] glGetPerfMonitorGroupStringAMD: Binding for glGetPerfMonitorGroupStringAMD.
 		/// </summary>
 		/// <param name="group">
 		/// A <see cref="T:UInt32"/>.
@@ -162,7 +162,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPerfMonitorCounterStringAMD.
+		/// [GL] glGetPerfMonitorCounterStringAMD: Binding for glGetPerfMonitorCounterStringAMD.
 		/// </summary>
 		/// <param name="group">
 		/// A <see cref="T:UInt32"/>.
@@ -194,7 +194,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPerfMonitorCounterInfoAMD.
+		/// [GL] glGetPerfMonitorCounterInfoAMD: Binding for glGetPerfMonitorCounterInfoAMD.
 		/// </summary>
 		/// <param name="group">
 		/// A <see cref="T:UInt32"/>.
@@ -218,7 +218,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPerfMonitorCounterInfoAMD.
+		/// [GL] glGetPerfMonitorCounterInfoAMD: Binding for glGetPerfMonitorCounterInfoAMD.
 		/// </summary>
 		/// <param name="group">
 		/// A <see cref="T:UInt32"/>.
@@ -244,7 +244,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenPerfMonitorsAMD.
+		/// [GL] glGenPerfMonitorsAMD: Binding for glGenPerfMonitorsAMD.
 		/// </summary>
 		/// <param name="monitors">
 		/// A <see cref="T:UInt32[]"/>.
@@ -264,7 +264,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenPerfMonitorsAMD.
+		/// [GL] glGenPerfMonitorsAMD: Binding for glGenPerfMonitorsAMD.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 		public static UInt32 GenPerfMonitorsAMD()
@@ -275,7 +275,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeletePerfMonitorsAMD.
+		/// [GL] glDeletePerfMonitorsAMD: Binding for glDeletePerfMonitorsAMD.
 		/// </summary>
 		/// <param name="monitors">
 		/// A <see cref="T:UInt32[]"/>.
@@ -295,7 +295,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glSelectPerfMonitorCountersAMD.
+		/// [GL] glSelectPerfMonitorCountersAMD: Binding for glSelectPerfMonitorCountersAMD.
 		/// </summary>
 		/// <param name="monitor">
 		/// A <see cref="T:UInt32"/>.
@@ -324,7 +324,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBeginPerfMonitorAMD.
+		/// [GL] glBeginPerfMonitorAMD: Binding for glBeginPerfMonitorAMD.
 		/// </summary>
 		/// <param name="monitor">
 		/// A <see cref="T:UInt32"/>.
@@ -339,7 +339,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEndPerfMonitorAMD.
+		/// [GL] glEndPerfMonitorAMD: Binding for glEndPerfMonitorAMD.
 		/// </summary>
 		/// <param name="monitor">
 		/// A <see cref="T:UInt32"/>.
@@ -354,7 +354,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetPerfMonitorCounterDataAMD.
+		/// [GL] glGetPerfMonitorCounterDataAMD: Binding for glGetPerfMonitorCounterDataAMD.
 		/// </summary>
 		/// <param name="monitor">
 		/// A <see cref="T:UInt32"/>.

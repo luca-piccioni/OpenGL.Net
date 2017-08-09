@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int VERTEX_ID_SWIZZLE_AMD = 0x91A5;
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribParameteriAMD.
+		/// [GL] glVertexAttribParameteriAMD: Binding for glVertexAttribParameteriAMD.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

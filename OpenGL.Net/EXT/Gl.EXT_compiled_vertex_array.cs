@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int ARRAY_ELEMENT_LOCK_COUNT_EXT = 0x81A9;
 
 		/// <summary>
-		/// [GL] Binding for glLockArraysEXT.
+		/// [GL] glLockArraysEXT: Binding for glLockArraysEXT.
 		/// </summary>
 		/// <param name="first">
 		/// A <see cref="T:Int32"/>.
@@ -66,7 +66,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUnlockArraysEXT.
+		/// [GL] glUnlockArraysEXT: Binding for glUnlockArraysEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 		public static void UnlockArraysEXT()

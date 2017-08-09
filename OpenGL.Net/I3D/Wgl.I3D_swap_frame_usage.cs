@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// [WGL] Binding for wglGetFrameUsageI3D.
+		/// [WGL] wglGetFrameUsageI3D: Binding for wglGetFrameUsageI3D.
 		/// </summary>
 		/// <param name="pUsage">
 		/// A <see cref="T:float []"/>.
@@ -60,7 +60,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglBeginFrameTrackingI3D.
+		/// [WGL] wglBeginFrameTrackingI3D: Binding for wglBeginFrameTrackingI3D.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 		public static bool BeginFrameTrackingI3D()
@@ -76,7 +76,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglEndFrameTrackingI3D.
+		/// [WGL] wglEndFrameTrackingI3D: Binding for wglEndFrameTrackingI3D.
 		/// </summary>
 		[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 		public static bool EndFrameTrackingI3D()
@@ -92,7 +92,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglQueryFrameTrackingI3D.
+		/// [WGL] wglQueryFrameTrackingI3D: Binding for wglQueryFrameTrackingI3D.
 		/// </summary>
 		/// <param name="pFrameCount">
 		/// A <see cref="T:Int32[]"/>.

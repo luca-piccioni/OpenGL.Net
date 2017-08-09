@@ -50,7 +50,7 @@ namespace OpenGL
 		public const uint FOVEATION_SCALED_BIN_METHOD_BIT_QCOM = 0x00000002;
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferFoveationConfigQCOM.
+		/// [GL] glFramebufferFoveationConfigQCOM: Binding for glFramebufferFoveationConfigQCOM.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.
@@ -82,7 +82,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFramebufferFoveationParametersQCOM.
+		/// [GL] glFramebufferFoveationParametersQCOM: Binding for glFramebufferFoveationParametersQCOM.
 		/// </summary>
 		/// <param name="framebuffer">
 		/// A <see cref="T:UInt32"/>.

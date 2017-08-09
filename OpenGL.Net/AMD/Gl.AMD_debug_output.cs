@@ -84,7 +84,7 @@ namespace OpenGL
 		public const int DEBUG_CATEGORY_OTHER_AMD = 0x9150;
 
 		/// <summary>
-		/// [GL] Binding for glDebugMessageEnableAMD.
+		/// [GL] glDebugMessageEnableAMD: Binding for glDebugMessageEnableAMD.
 		/// </summary>
 		/// <param name="category">
 		/// A <see cref="T:Int32"/>.
@@ -116,7 +116,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDebugMessageEnableAMD.
+		/// [GL] glDebugMessageEnableAMD: Binding for glDebugMessageEnableAMD.
 		/// </summary>
 		/// <param name="category">
 		/// A <see cref="T:Int32"/>.
@@ -145,7 +145,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDebugMessageInsertAMD.
+		/// [GL] glDebugMessageInsertAMD: Binding for glDebugMessageInsertAMD.
 		/// </summary>
 		/// <param name="category">
 		/// A <see cref="T:Int32"/>.
@@ -172,7 +172,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDebugMessageCallbackAMD.
+		/// [GL] glDebugMessageCallbackAMD: Binding for glDebugMessageCallbackAMD.
 		/// </summary>
 		/// <param name="callback">
 		/// A <see cref="T:Gl.DebugProc"/>.
@@ -190,7 +190,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetDebugMessageLogAMD.
+		/// [GL] glGetDebugMessageLogAMD: Binding for glGetDebugMessageLogAMD.
 		/// </summary>
 		/// <param name="bufsize">
 		/// A <see cref="T:Int32"/>.

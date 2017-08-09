@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glVertexAttribArrayObjectATI.
+		/// [GL] glVertexAttribArrayObjectATI: Binding for glVertexAttribArrayObjectATI.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -69,7 +69,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexAttribArrayObjectfvATI.
+		/// [GL] glGetVertexAttribArrayObjectfvATI: Binding for glGetVertexAttribArrayObjectfvATI.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -95,7 +95,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexAttribArrayObjectivATI.
+		/// [GL] glGetVertexAttribArrayObjectivATI: Binding for glGetVertexAttribArrayObjectivATI.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

@@ -275,7 +275,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix2x3fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -348,7 +348,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix2x3fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -416,7 +416,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix3x2fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -489,7 +489,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix3x2fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -557,7 +557,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix2x4fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -630,7 +630,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix2x4fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -698,7 +698,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix4x2fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -771,7 +771,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix4x2fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -839,7 +839,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix3x4fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -912,7 +912,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix3x4fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -980,7 +980,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix4x3fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -1053,7 +1053,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix4x3fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">

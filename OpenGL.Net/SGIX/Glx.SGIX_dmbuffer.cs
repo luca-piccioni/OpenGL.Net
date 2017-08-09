@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int DIGITAL_MEDIA_PBUFFER_SGIX = 0x8024;
 
 		/// <summary>
-		/// [GLX] Binding for glXAssociateDMPbufferSGIX.
+		/// [GLX] glXAssociateDMPbufferSGIX: Binding for glXAssociateDMPbufferSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

@@ -102,7 +102,7 @@ namespace OpenGL
 		public const int STATE_RESTORE = 0x8BDC;
 
 		/// <summary>
-		/// [GL] Binding for glExtGetTexturesQCOM.
+		/// [GL] glExtGetTexturesQCOM: Binding for glExtGetTexturesQCOM.
 		/// </summary>
 		/// <param name="textures">
 		/// A <see cref="T:UInt32[]"/>.
@@ -129,7 +129,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glExtGetBuffersQCOM.
+		/// [GL] glExtGetBuffersQCOM: Binding for glExtGetBuffersQCOM.
 		/// </summary>
 		/// <param name="buffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -153,7 +153,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glExtGetRenderbuffersQCOM.
+		/// [GL] glExtGetRenderbuffersQCOM: Binding for glExtGetRenderbuffersQCOM.
 		/// </summary>
 		/// <param name="renderbuffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -177,7 +177,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glExtGetFramebuffersQCOM.
+		/// [GL] glExtGetFramebuffersQCOM: Binding for glExtGetFramebuffersQCOM.
 		/// </summary>
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
@@ -201,7 +201,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glExtGetTexLevelParameterivQCOM.
+		/// [GL] glExtGetTexLevelParameterivQCOM: Binding for glExtGetTexLevelParameterivQCOM.
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
@@ -233,7 +233,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glExtTexObjectStateOverrideiQCOM.
+		/// [GL] glExtTexObjectStateOverrideiQCOM: Binding for glExtTexObjectStateOverrideiQCOM.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -254,7 +254,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glExtGetTexSubImageQCOM.
+		/// [GL] glExtGetTexSubImageQCOM: Binding for glExtGetTexSubImageQCOM.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -299,7 +299,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glExtGetBufferPointervQCOM.
+		/// [GL] glExtGetBufferPointervQCOM: Binding for glExtGetBufferPointervQCOM.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.

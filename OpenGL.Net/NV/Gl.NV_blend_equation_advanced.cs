@@ -216,7 +216,7 @@ namespace OpenGL
 		public const int VIVIDLIGHT_NV = 0x92A6;
 
 		/// <summary>
-		/// [GL] Binding for glBlendParameteriNV.
+		/// [GL] glBlendParameteriNV: Binding for glBlendParameteriNV.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:Int32"/>.

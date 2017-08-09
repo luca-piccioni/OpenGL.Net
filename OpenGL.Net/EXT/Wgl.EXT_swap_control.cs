@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// [WGL] Binding for wglSwapIntervalEXT.
+		/// [WGL] wglSwapIntervalEXT: Binding for wglSwapIntervalEXT.
 		/// </summary>
 		/// <param name="interval">
 		/// A <see cref="T:int"/>.
@@ -55,7 +55,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglGetSwapIntervalEXT.
+		/// [WGL] wglGetSwapIntervalEXT: Binding for wglGetSwapIntervalEXT.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_swap_control")]
 		public static int GetSwapIntervalEXT()

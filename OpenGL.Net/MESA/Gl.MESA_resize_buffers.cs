@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glResizeBuffersMESA.
+		/// [GL] glResizeBuffersMESA: Binding for glResizeBuffersMESA.
 		/// </summary>
 		[RequiredByFeature("GL_MESA_resize_buffers")]
 		public static void ResizeBuffersMESA()

@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXGetTransparentIndexSUN.
+		/// [GLX] glXGetTransparentIndexSUN: Binding for glXGetTransparentIndexSUN.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

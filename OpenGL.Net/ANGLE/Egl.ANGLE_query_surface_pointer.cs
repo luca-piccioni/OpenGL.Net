@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// [EGL] Binding for eglQuerySurfacePointerANGLE.
+		/// [EGL] eglQuerySurfacePointerANGLE: Binding for eglQuerySurfacePointerANGLE.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

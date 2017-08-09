@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glStencilFuncSeparateATI.
+		/// [GL] glStencilFuncSeparateATI: Binding for glStencilFuncSeparateATI.
 		/// </summary>
 		/// <param name="frontfunc">
 		/// A <see cref="T:StencilFunction"/>.

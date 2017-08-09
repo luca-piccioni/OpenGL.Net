@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int NUM_VIDEO_SLOTS_NV = 0x20F0;
 
 		/// <summary>
-		/// [WGL] Binding for wglEnumerateVideoDevicesNV.
+		/// [WGL] wglEnumerateVideoDevicesNV: Binding for wglEnumerateVideoDevicesNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -69,7 +69,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglBindVideoDeviceNV.
+		/// [WGL] wglBindVideoDeviceNV: Binding for wglBindVideoDeviceNV.
 		/// </summary>
 		/// <param name="hDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -102,7 +102,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglQueryCurrentContextNV.
+		/// [WGL] wglQueryCurrentContextNV: Binding for wglQueryCurrentContextNV.
 		/// </summary>
 		/// <param name="iAttribute">
 		/// A <see cref="T:int"/>.

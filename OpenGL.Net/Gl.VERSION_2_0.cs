@@ -1068,7 +1068,7 @@ namespace OpenGL
 		public const int MAX_TEXTURE_COORDS = 0x8871;
 
 		/// <summary>
-		/// [GL2.1] set the RGB blend equation and the alpha blend equation separately
+		/// [GL2.1] glBlendEquationSeparate: set the RGB blend equation and the alpha blend equation separately
 		/// </summary>
 		/// <param name="modeRGB">
 		/// specifies the RGB blend equation, how the red, green, and blue components of the source and destination colors are 
@@ -1105,7 +1105,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies a list of color buffers to be drawn into
+		/// [GL4|GLES3.2] glDrawBuffers: Specifies a list of color buffers to be drawn into
 		/// </para>
 		/// </summary>
 		/// <param name="bufs">
@@ -1173,7 +1173,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] set front and/or back stencil test actions
+		/// [GL4|GLES3.2] glStencilOpSeparate: set front and/or back stencil test actions
 		/// </para>
 		/// </summary>
 		/// <param name="face">
@@ -1224,7 +1224,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] set front and/or back function and reference value for stencil testing
+		/// [GL4|GLES3.2] glStencilFuncSeparate: set front and/or back function and reference value for stencil testing
 		/// </para>
 		/// </summary>
 		/// <param name="face">
@@ -1268,7 +1268,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] control the front and/or back writing of individual bits in the stencil planes
+		/// [GL4|GLES3.2] glStencilMaskSeparate: control the front and/or back writing of individual bits in the stencil planes
 		/// </para>
 		/// </summary>
 		/// <param name="face">
@@ -1302,7 +1302,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Attaches a shader object to a program object
+		/// [GL4|GLES3.2] glAttachShader: Attaches a shader object to a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1344,7 +1344,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Associates a generic vertex attribute index with a named attribute variable
+		/// [GL4|GLES3.2] glBindAttribLocation: Associates a generic vertex attribute index with a named attribute variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1387,7 +1387,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Compiles a shader object
+		/// [GL4|GLES3.2] glCompileShader: Compiles a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="shader">
@@ -1416,7 +1416,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Creates a program object
+		/// [GL4|GLES3.2] glCreateProgram: Creates a program object
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -1450,7 +1450,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Creates a shader object
+		/// [GL4|GLES3.2] glCreateShader: Creates a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="type">
@@ -1485,7 +1485,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Deletes a program object
+		/// [GL4|GLES3.2] glDeleteProgram: Deletes a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1509,7 +1509,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Deletes a shader object
+		/// [GL4|GLES3.2] glDeleteShader: Deletes a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="shader">
@@ -1534,7 +1534,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Detaches a shader object from a program object to which it is attached
+		/// [GL4|GLES3.2] glDetachShader: Detaches a shader object from a program object to which it is attached
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1571,7 +1571,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Enable or disable a generic vertex attribute array
+		/// [GL4|GLES3.2] glDisableVertexAttribArray: Enable or disable a generic vertex attribute array
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -1611,7 +1611,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Enable or disable a generic vertex attribute array
+		/// [GL4|GLES3.2] glEnableVertexAttribArray: Enable or disable a generic vertex attribute array
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -1651,7 +1651,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns information about an active attribute variable for the specified program object
+		/// [GL4|GLES3.2] glGetActiveAttrib: Returns information about an active attribute variable for the specified program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1715,7 +1715,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns information about an active uniform variable for the specified program object
+		/// [GL4|GLES3.2] glGetActiveUniform: Returns information about an active uniform variable for the specified program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1780,7 +1780,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the handles of the shader objects attached to a program object
+		/// [GL4|GLES3.2] glGetAttachedShaders: Returns the handles of the shader objects attached to a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1821,7 +1821,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the location of an attribute variable
+		/// [GL4|GLES3.2] glGetAttribLocation: Returns the location of an attribute variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1862,7 +1862,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns a parameter from a program object
+		/// [GL4|GLES3.2] glGetProgramiv: Returns a parameter from a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1920,7 +1920,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns a parameter from a program object
+		/// [GL4|GLES3.2] glGetProgramiv: Returns a parameter from a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -1978,7 +1978,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the information log for a program object
+		/// [GL4|GLES3.2] glGetProgramInfoLog: Returns the information log for a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -2023,7 +2023,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns a parameter from a shader object
+		/// [GL4|GLES3.2] glGetShaderiv: Returns a parameter from a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="shader">
@@ -2067,7 +2067,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns a parameter from a shader object
+		/// [GL4|GLES3.2] glGetShaderiv: Returns a parameter from a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="shader">
@@ -2111,7 +2111,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the information log for a shader object
+		/// [GL4|GLES3.2] glGetShaderInfoLog: Returns the information log for a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="shader">
@@ -2156,7 +2156,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the source code string from a shader object
+		/// [GL4|GLES3.2] glGetShaderSource: Returns the source code string from a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="shader">
@@ -2201,7 +2201,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the location of a uniform variable
+		/// [GL4|GLES3.2] glGetUniformLocation: Returns the location of a uniform variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -2240,7 +2240,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// [GL4|GLES3.2] glGetUniformfv: Returns the value of a uniform variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -2291,7 +2291,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// [GL4|GLES3.2] glGetUniformiv: Returns the value of a uniform variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -2341,7 +2341,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Return a generic vertex attribute parameter
+		/// [GL4] glGetVertexAttribdv: Return a generic vertex attribute parameter
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the generic vertex attribute parameter to be queried.
@@ -2396,7 +2396,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Return a generic vertex attribute parameter
+		/// [GL4|GLES3.2] glGetVertexAttribfv: Return a generic vertex attribute parameter
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -2454,7 +2454,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Return a generic vertex attribute parameter
+		/// [GL4|GLES3.2] glGetVertexAttribiv: Return a generic vertex attribute parameter
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -2512,7 +2512,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Return a generic vertex attribute parameter
+		/// [GL4|GLES3.2] glGetVertexAttribiv: Return a generic vertex attribute parameter
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -2570,7 +2570,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the address of the specified generic vertex attribute pointer
+		/// [GL4|GLES3.2] glGetVertexAttribPointerv: return the address of the specified generic vertex attribute pointer
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -2617,7 +2617,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the address of the specified generic vertex attribute pointer
+		/// [GL4|GLES3.2] glGetVertexAttribPointerv: return the address of the specified generic vertex attribute pointer
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -2661,7 +2661,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Determines if a name corresponds to a program object
+		/// [GL4|GLES3.2] glIsProgram: Determines if a name corresponds to a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -2692,7 +2692,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Determines if a name corresponds to a shader object
+		/// [GL4|GLES3.2] glIsShader: Determines if a name corresponds to a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="shader">
@@ -2721,7 +2721,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Links a program object
+		/// [GL4|GLES3.2] glLinkProgram: Links a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -2760,7 +2760,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Replaces the source code in a shader object
+		/// [GL4|GLES3.2] glShaderSource: Replaces the source code in a shader object
 		/// </para>
 		/// </summary>
 		/// <param name="shader">
@@ -2803,7 +2803,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Installs a program object as part of current rendering state
+		/// [GL4|GLES3.2] glUseProgram: Installs a program object as part of current rendering state
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -2846,7 +2846,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1f: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -2907,7 +2907,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2f: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -2971,7 +2971,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3f: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3038,7 +3038,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4f: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3108,7 +3108,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1i: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3169,7 +3169,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2i: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3233,7 +3233,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3i: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3300,7 +3300,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4i: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3370,7 +3370,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3441,7 +3441,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3507,7 +3507,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3578,7 +3578,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3644,7 +3644,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3715,7 +3715,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3781,7 +3781,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3852,7 +3852,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3918,7 +3918,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1iv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -3989,7 +3989,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1iv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4055,7 +4055,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2iv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4126,7 +4126,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2iv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4192,7 +4192,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3iv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4263,7 +4263,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3iv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4329,7 +4329,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4iv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4400,7 +4400,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4iv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4466,7 +4466,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix2fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4540,7 +4540,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix2fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4609,7 +4609,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix3fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4683,7 +4683,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix3fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4752,7 +4752,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix4fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4826,7 +4826,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniformMatrix4fv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4895,7 +4895,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Validates a program object
+		/// [GL4|GLES3.2] glValidateProgram: Validates a program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -4922,7 +4922,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib1d: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4956,7 +4956,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib1dv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4998,7 +4998,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttrib1f: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -5036,7 +5036,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttrib1fv: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -5080,7 +5080,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib1s: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5114,7 +5114,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib1sv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5155,7 +5155,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib2d: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5192,7 +5192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib2dv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5234,7 +5234,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttrib2f: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -5275,7 +5275,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttrib2fv: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -5319,7 +5319,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib2s: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5356,7 +5356,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib2sv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5397,7 +5397,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib3d: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5437,7 +5437,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib3dv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5479,7 +5479,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttrib3f: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -5523,7 +5523,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttrib3fv: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -5567,7 +5567,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib3s: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5607,7 +5607,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib3sv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5648,7 +5648,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4Nbv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5687,7 +5687,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4Niv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5726,7 +5726,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4Nsv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5765,7 +5765,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4Nub: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5808,7 +5808,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4Nubv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5849,7 +5849,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4Nuiv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5888,7 +5888,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4Nusv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5927,7 +5927,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4bv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -5966,7 +5966,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4d: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6009,7 +6009,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4dv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6051,7 +6051,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttrib4f: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -6098,7 +6098,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttrib4fv: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -6142,7 +6142,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4iv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6181,7 +6181,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4s: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6224,7 +6224,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4sv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6265,7 +6265,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4ubv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6304,7 +6304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4uiv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6343,7 +6343,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttrib4usv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -6383,7 +6383,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] define an array of generic vertex attribute data
+		/// [GL4|GLES3.2] glVertexAttribPointer: define an array of generic vertex attribute data
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -6470,7 +6470,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] define an array of generic vertex attribute data
+		/// [GL4|GLES3.2] glVertexAttribPointer: define an array of generic vertex attribute data
 		/// </para>
 		/// </summary>
 		/// <param name="index">

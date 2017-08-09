@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// [EGL] Binding for eglPresentationTimeANDROID.
+		/// [EGL] eglPresentationTimeANDROID: Binding for eglPresentationTimeANDROID.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

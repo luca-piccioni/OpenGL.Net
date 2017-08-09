@@ -52,7 +52,7 @@ namespace OpenGL
 		public const int FRAMEBUFFER_INCOMPLETE_FORMATS_EXT = 0x8CDA;
 
 		/// <summary>
-		/// [GL] Binding for glBindRenderbufferEXT.
+		/// [GL] glBindRenderbufferEXT: Binding for glBindRenderbufferEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:RenderbufferTarget"/>.
@@ -70,7 +70,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBindFramebufferEXT.
+		/// [GL] glBindFramebufferEXT: Binding for glBindFramebufferEXT.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.

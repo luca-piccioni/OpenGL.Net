@@ -72,7 +72,7 @@ namespace OpenGL
 		public const int EDGE_FLAG_ARRAY_COUNT_EXT = 0x808D;
 
 		/// <summary>
-		/// [GL] Binding for glColorPointerEXT.
+		/// [GL] glColorPointerEXT: Binding for glColorPointerEXT.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -99,7 +99,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glColorPointerEXT.
+		/// [GL] glColorPointerEXT: Binding for glColorPointerEXT.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -128,7 +128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEdgeFlagPointerEXT.
+		/// [GL] glEdgeFlagPointerEXT: Binding for glEdgeFlagPointerEXT.
 		/// </summary>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIndexPointerEXT.
+		/// [GL] glIndexPointerEXT: Binding for glIndexPointerEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:IndexPointerType"/>.
@@ -178,7 +178,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIndexPointerEXT.
+		/// [GL] glIndexPointerEXT: Binding for glIndexPointerEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:IndexPointerType"/>.
@@ -204,7 +204,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalPointerEXT.
+		/// [GL] glNormalPointerEXT: Binding for glNormalPointerEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:NormalPointerType"/>.
@@ -228,7 +228,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNormalPointerEXT.
+		/// [GL] glNormalPointerEXT: Binding for glNormalPointerEXT.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:NormalPointerType"/>.
@@ -254,7 +254,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoordPointerEXT.
+		/// [GL] glTexCoordPointerEXT: Binding for glTexCoordPointerEXT.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -281,7 +281,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexCoordPointerEXT.
+		/// [GL] glTexCoordPointerEXT: Binding for glTexCoordPointerEXT.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -310,7 +310,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexPointerEXT.
+		/// [GL] glVertexPointerEXT: Binding for glVertexPointerEXT.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -337,7 +337,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexPointerEXT.
+		/// [GL] glVertexPointerEXT: Binding for glVertexPointerEXT.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.

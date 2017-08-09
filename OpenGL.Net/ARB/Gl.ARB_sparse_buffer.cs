@@ -49,7 +49,7 @@ namespace OpenGL
 		public const int SPARSE_BUFFER_PAGE_SIZE_ARB = 0x82F8;
 
 		/// <summary>
-		/// [GL] Binding for glBufferPageCommitmentARB.
+		/// [GL] glBufferPageCommitmentARB: Binding for glBufferPageCommitmentARB.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:Int32"/>.
@@ -73,7 +73,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedBufferPageCommitmentEXT.
+		/// [GL] glNamedBufferPageCommitmentEXT: Binding for glNamedBufferPageCommitmentEXT.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.
@@ -97,7 +97,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glNamedBufferPageCommitmentARB.
+		/// [GL] glNamedBufferPageCommitmentARB: Binding for glNamedBufferPageCommitmentARB.
 		/// </summary>
 		/// <param name="buffer">
 		/// A <see cref="T:UInt32"/>.

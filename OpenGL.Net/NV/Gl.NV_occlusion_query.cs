@@ -60,7 +60,7 @@ namespace OpenGL
 		public const int PIXEL_COUNT_AVAILABLE_NV = 0x8867;
 
 		/// <summary>
-		/// [GL] Binding for glGenOcclusionQueriesNV.
+		/// [GL] glGenOcclusionQueriesNV: Binding for glGenOcclusionQueriesNV.
 		/// </summary>
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
@@ -80,7 +80,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGenOcclusionQueriesNV.
+		/// [GL] glGenOcclusionQueriesNV: Binding for glGenOcclusionQueriesNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static UInt32 GenOcclusionQueriesNV()
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeleteOcclusionQueriesNV.
+		/// [GL] glDeleteOcclusionQueriesNV: Binding for glDeleteOcclusionQueriesNV.
 		/// </summary>
 		/// <param name="ids">
 		/// A <see cref="T:UInt32[]"/>.
@@ -111,7 +111,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glIsOcclusionQueryNV.
+		/// [GL] glIsOcclusionQueryNV: Binding for glIsOcclusionQueryNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -130,7 +130,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBeginOcclusionQueryNV.
+		/// [GL] glBeginOcclusionQueryNV: Binding for glBeginOcclusionQueryNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -145,7 +145,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEndOcclusionQueryNV.
+		/// [GL] glEndOcclusionQueryNV: Binding for glEndOcclusionQueryNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_occlusion_query")]
 		public static void EndOcclusionQueryNV()
@@ -157,7 +157,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetOcclusionQueryivNV.
+		/// [GL] glGetOcclusionQueryivNV: Binding for glGetOcclusionQueryivNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.
@@ -183,7 +183,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetOcclusionQueryuivNV.
+		/// [GL] glGetOcclusionQueryuivNV: Binding for glGetOcclusionQueryuivNV.
 		/// </summary>
 		/// <param name="id">
 		/// A <see cref="T:UInt32"/>.

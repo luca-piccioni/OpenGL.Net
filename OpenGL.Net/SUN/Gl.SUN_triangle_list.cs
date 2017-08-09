@@ -138,7 +138,7 @@ namespace OpenGL
 		public const int R1UI_T2F_C4F_N3F_V3F_SUN = 0x85CB;
 
 		/// <summary>
-		/// [GL] Binding for glReplacementCodeuiSUN.
+		/// [GL] glReplacementCodeuiSUN: Binding for glReplacementCodeuiSUN.
 		/// </summary>
 		/// <param name="code">
 		/// A <see cref="T:UInt32"/>.
@@ -153,7 +153,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glReplacementCodeusSUN.
+		/// [GL] glReplacementCodeusSUN: Binding for glReplacementCodeusSUN.
 		/// </summary>
 		/// <param name="code">
 		/// A <see cref="T:UInt16"/>.
@@ -168,7 +168,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glReplacementCodeubSUN.
+		/// [GL] glReplacementCodeubSUN: Binding for glReplacementCodeubSUN.
 		/// </summary>
 		/// <param name="code">
 		/// A <see cref="T:byte"/>.
@@ -183,7 +183,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glReplacementCodeuivSUN.
+		/// [GL] glReplacementCodeuivSUN: Binding for glReplacementCodeuivSUN.
 		/// </summary>
 		/// <param name="code">
 		/// A <see cref="T:UInt32[]"/>.
@@ -203,7 +203,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glReplacementCodeusvSUN.
+		/// [GL] glReplacementCodeusvSUN: Binding for glReplacementCodeusvSUN.
 		/// </summary>
 		/// <param name="code">
 		/// A <see cref="T:UInt16[]"/>.
@@ -223,7 +223,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glReplacementCodeubvSUN.
+		/// [GL] glReplacementCodeubvSUN: Binding for glReplacementCodeubvSUN.
 		/// </summary>
 		/// <param name="code">
 		/// A <see cref="T:byte[]"/>.
@@ -243,7 +243,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glReplacementCodePointerSUN.
+		/// [GL] glReplacementCodePointerSUN: Binding for glReplacementCodePointerSUN.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="T:Int32"/>.

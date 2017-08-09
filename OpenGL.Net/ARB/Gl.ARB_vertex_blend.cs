@@ -304,7 +304,7 @@ namespace OpenGL
 		public const int MODELVIEW31_ARB = 0x873F;
 
 		/// <summary>
-		/// [GL] Binding for glWeightbvARB.
+		/// [GL] glWeightbvARB: Binding for glWeightbvARB.
 		/// </summary>
 		/// <param name="weights">
 		/// A <see cref="T:sbyte[]"/>.
@@ -324,7 +324,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightsvARB.
+		/// [GL] glWeightsvARB: Binding for glWeightsvARB.
 		/// </summary>
 		/// <param name="weights">
 		/// A <see cref="T:Int16[]"/>.
@@ -344,7 +344,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightivARB.
+		/// [GL] glWeightivARB: Binding for glWeightivARB.
 		/// </summary>
 		/// <param name="weights">
 		/// A <see cref="T:Int32[]"/>.
@@ -364,7 +364,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightfvARB.
+		/// [GL] glWeightfvARB: Binding for glWeightfvARB.
 		/// </summary>
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
@@ -384,7 +384,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightdvARB.
+		/// [GL] glWeightdvARB: Binding for glWeightdvARB.
 		/// </summary>
 		/// <param name="weights">
 		/// A <see cref="T:double[]"/>.
@@ -404,7 +404,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightubvARB.
+		/// [GL] glWeightubvARB: Binding for glWeightubvARB.
 		/// </summary>
 		/// <param name="weights">
 		/// A <see cref="T:byte[]"/>.
@@ -424,7 +424,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightusvARB.
+		/// [GL] glWeightusvARB: Binding for glWeightusvARB.
 		/// </summary>
 		/// <param name="weights">
 		/// A <see cref="T:UInt16[]"/>.
@@ -444,7 +444,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightuivARB.
+		/// [GL] glWeightuivARB: Binding for glWeightuivARB.
 		/// </summary>
 		/// <param name="weights">
 		/// A <see cref="T:UInt32[]"/>.
@@ -464,7 +464,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightPointerARB.
+		/// [GL] glWeightPointerARB: Binding for glWeightPointerARB.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -488,7 +488,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glWeightPointerARB.
+		/// [GL] glWeightPointerARB: Binding for glWeightPointerARB.
 		/// </summary>
 		/// <param name="size">
 		/// A <see cref="T:Int32"/>.
@@ -514,7 +514,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexBlendARB.
+		/// [GL] glVertexBlendARB: Binding for glVertexBlendARB.
 		/// </summary>
 		/// <param name="count">
 		/// A <see cref="T:Int32"/>.

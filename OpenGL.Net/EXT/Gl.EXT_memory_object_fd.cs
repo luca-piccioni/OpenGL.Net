@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glImportMemoryFdEXT.
+		/// [GL] glImportMemoryFdEXT: Binding for glImportMemoryFdEXT.
 		/// </summary>
 		/// <param name="memory">
 		/// A <see cref="T:UInt32"/>.

@@ -56,7 +56,7 @@ namespace OpenGL
 		public const int SAMPLES = 100001;
 
 		/// <summary>
-		/// [GL2.1] obtain a pointer to an OpenGL or GLX function
+		/// [GL2.1] glXGetProcAddress: obtain a pointer to an OpenGL or GLX function
 		/// </summary>
 		/// <param name="procName">
 		/// Specifies the name of the OpenGL or GLX function whose address is to be returned.

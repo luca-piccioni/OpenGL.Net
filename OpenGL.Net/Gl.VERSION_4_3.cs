@@ -2527,7 +2527,7 @@ namespace OpenGL
 		public const int DISPLAY_LIST = 0x82E7;
 
 		/// <summary>
-		/// [GL4] fill a buffer object's data store with a fixed value
+		/// [GL4] glClearBufferData: fill a buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.ClearBufferData, which must must be one of the buffer 
@@ -2581,7 +2581,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] fill a buffer object's data store with a fixed value
+		/// [GL4] glClearBufferData: fill a buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.ClearBufferData, which must must be one of the buffer 
@@ -2637,7 +2637,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] fill all or part of buffer object's data store with a fixed value
+		/// [GL4] glClearBufferSubData: fill all or part of buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.ClearBufferSubData, which must be one of the buffer 
@@ -2707,7 +2707,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] fill all or part of buffer object's data store with a fixed value
+		/// [GL4] glClearBufferSubData: fill all or part of buffer object's data store with a fixed value
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the buffer object is bound for Gl.ClearBufferSubData, which must be one of the buffer 
@@ -2780,7 +2780,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] launch one or more compute work groups
+		/// [GL4|GLES3.2] glDispatchCompute: launch one or more compute work groups
 		/// </para>
 		/// </summary>
 		/// <param name="num_groups_x">
@@ -2813,7 +2813,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] launch one or more compute work groups using parameters stored in a buffer
+		/// [GL4|GLES3.2] glDispatchComputeIndirect: launch one or more compute work groups using parameters stored in a buffer
 		/// </para>
 		/// </summary>
 		/// <param name="indirect">
@@ -2844,7 +2844,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] perform a raw data copy between two images
+		/// [GL4|GLES3.2] glCopyImageSubData: perform a raw data copy between two images
 		/// </para>
 		/// </summary>
 		/// <param name="srcName">
@@ -2941,10 +2941,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] set a named parameter of a framebuffer object
+		/// [GL4] glFramebufferParameteri: set a named parameter of a framebuffer object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] set a named parameter of a framebuffer
+		/// [GLES3.2] glFramebufferParameteri: set a named parameter of a framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -3003,10 +3003,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] query a named parameter of a framebuffer object
+		/// [GL4] glGetFramebufferParameteriv: query a named parameter of a framebuffer object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] retrieve a named parameter from a framebuffer
+		/// [GLES3.2] glGetFramebufferParameteriv: retrieve a named parameter from a framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -3053,7 +3053,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve information about implementation-dependent support for internal formats
+		/// [GL4] glGetInternalformati64v: retrieve information about implementation-dependent support for internal formats
 		/// </summary>
 		/// <param name="target">
 		/// Indicates the usage of the internal format. <paramref name="target"/> must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, 
@@ -3103,7 +3103,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve information about implementation-dependent support for internal formats
+		/// [GL4] glGetInternalformati64v: retrieve information about implementation-dependent support for internal formats
 		/// </summary>
 		/// <param name="target">
 		/// Indicates the usage of the internal format. <paramref name="target"/> must be Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, 
@@ -3149,7 +3149,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] invalidate a region of a texture image
+		/// [GL4] glInvalidateTexSubImage: invalidate a region of a texture image
 		/// </summary>
 		/// <param name="texture">
 		/// The name of a texture object a subregion of which to invalidate.
@@ -3207,7 +3207,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] invalidate the entirety a texture image
+		/// [GL4] glInvalidateTexImage: invalidate the entirety a texture image
 		/// </summary>
 		/// <param name="texture">
 		/// The name of a texture object to invalidate.
@@ -3243,7 +3243,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] invalidate a region of a buffer object's data store
+		/// [GL4] glInvalidateBufferSubData: invalidate a region of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// The name of a buffer object, a subrange of whose data store to invalidate.
@@ -3280,7 +3280,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] invalidate the content of a buffer object's data store
+		/// [GL4] glInvalidateBufferData: invalidate the content of a buffer object's data store
 		/// </summary>
 		/// <param name="buffer">
 		/// The name of a buffer object whose data store to invalidate.
@@ -3308,10 +3308,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] invalidate the content of some or all of a framebuffer's attachments
+		/// [GL4] glInvalidateFramebuffer: invalidate the content of some or all of a framebuffer's attachments
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Invalidate the contents of attachments within a framebuffer
+		/// [GLES3.2] glInvalidateFramebuffer: Invalidate the contents of attachments within a framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -3365,10 +3365,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] invalidate the content of some or all of a framebuffer's attachments
+		/// [GL4] glInvalidateFramebuffer: invalidate the content of some or all of a framebuffer's attachments
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Invalidate the contents of attachments within a framebuffer
+		/// [GLES3.2] glInvalidateFramebuffer: Invalidate the contents of attachments within a framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -3419,10 +3419,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] invalidate the content of a region of some or all of a framebuffer's attachments
+		/// [GL4] glInvalidateSubFramebuffer: invalidate the content of a region of some or all of a framebuffer's attachments
 		/// </para>
 		/// <para>
-		/// [GLES3.2] Invalidate portions of the contents of attachments within a framebuffer
+		/// [GLES3.2] glInvalidateSubFramebuffer: Invalidate portions of the contents of attachments within a framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -3485,7 +3485,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render multiple sets of primitives from array data, taking parameters from memory
+		/// [GL4] glMultiDrawArraysIndirect: render multiple sets of primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -3542,7 +3542,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render multiple sets of primitives from array data, taking parameters from memory
+		/// [GL4] glMultiDrawArraysIndirect: render multiple sets of primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -3601,7 +3601,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render indexed primitives from array data, taking parameters from memory
+		/// [GL4] glMultiDrawElementsIndirect: render indexed primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -3666,7 +3666,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render indexed primitives from array data, taking parameters from memory
+		/// [GL4] glMultiDrawElementsIndirect: render indexed primitives from array data, taking parameters from memory
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -3734,7 +3734,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query a property of an interface in a program
+		/// [GL4|GLES3.2] glGetProgramInterfaceiv: query a property of an interface in a program
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -3794,7 +3794,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query a property of an interface in a program
+		/// [GL4|GLES3.2] glGetProgramInterfaceiv: query a property of an interface in a program
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -3854,7 +3854,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query the index of a named resource within a program
+		/// [GL4|GLES3.2] glGetProgramResourceIndex: query the index of a named resource within a program
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -3900,7 +3900,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query the name of an indexed resource within a program
+		/// [GL4|GLES3.2] glGetProgramResourceName: query the name of an indexed resource within a program
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -3958,7 +3958,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve values for multiple properties of a single active resource within a program object
+		/// [GL4|GLES3.2] glGetProgramResourceiv: retrieve values for multiple properties of a single active resource within a 
+		/// program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -4023,7 +4024,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve values for multiple properties of a single active resource within a program object
+		/// [GL4|GLES3.2] glGetProgramResourceiv: retrieve values for multiple properties of a single active resource within a 
+		/// program object
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -4082,7 +4084,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query the location of a named resource within a program
+		/// [GL4|GLES3.2] glGetProgramResourceLocation: query the location of a named resource within a program
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -4124,7 +4126,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query the fragment color index of a named variable within a program
+		/// [GL4] glGetProgramResourceLocationIndex: query the fragment color index of a named variable within a program
 		/// </summary>
 		/// <param name="program">
 		/// The name of a program object whose resources to query.
@@ -4164,7 +4166,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] change an active shader storage block binding
+		/// [GL4] glShaderStorageBlockBinding: change an active shader storage block binding
 		/// </summary>
 		/// <param name="program">
 		/// The name of the program containing the block whose binding to change.
@@ -4198,7 +4200,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] attach a range of a buffer object's data store to a buffer texture object
+		/// [GL4|GLES3.2] glTexBufferRange: attach a range of a buffer object's data store to a buffer texture object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -4262,7 +4264,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify storage for a two-dimensional multisample texture
+		/// [GL4|GLES3.2] glTexStorage2DMultisample: specify storage for a two-dimensional multisample texture
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -4335,7 +4337,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify storage for a two-dimensional multisample array texture
+		/// [GL4|GLES3.2] glTexStorage3DMultisample: specify storage for a two-dimensional multisample array texture
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -4417,7 +4419,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] initialize a texture as a data alias of another texture's data store
+		/// [GL4] glTextureView: initialize a texture as a data alias of another texture's data store
 		/// </summary>
 		/// <param name="texture">
 		/// Specifies the texture object to be initialized as a view.
@@ -4502,7 +4504,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a buffer to a vertex buffer bind point
+		/// [GL4|GLES3.2] glBindVertexBuffer: bind a buffer to a vertex buffer bind point
 		/// </para>
 		/// </summary>
 		/// <param name="bindingindex">
@@ -4553,7 +4555,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify the organization of vertex arrays
+		/// [GL4|GLES3.2] glVertexAttribFormat: specify the organization of vertex arrays
 		/// </para>
 		/// </summary>
 		/// <param name="attribindex">
@@ -4625,7 +4627,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify the organization of vertex arrays
+		/// [GL4|GLES3.2] glVertexAttribIFormat: specify the organization of vertex arrays
 		/// </para>
 		/// </summary>
 		/// <param name="attribindex">
@@ -4692,7 +4694,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify the organization of vertex arrays
+		/// [GL4] glVertexAttribLFormat: specify the organization of vertex arrays
 		/// </summary>
 		/// <param name="attribindex">
 		/// The generic vertex attribute array being described.
@@ -4758,10 +4760,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] associate a vertex attribute and a vertex buffer binding for a vertex array object
+		/// [GL4] glVertexAttribBinding: associate a vertex attribute and a vertex buffer binding for a vertex array object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] associate a vertex attribute and a vertex buffer binding
+		/// [GLES3.2] glVertexAttribBinding: associate a vertex attribute and a vertex buffer binding
 		/// </para>
 		/// </summary>
 		/// <param name="attribindex">
@@ -4802,7 +4804,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] modify the rate at which generic vertex attributes advance
+		/// [GL4|GLES3.2] glVertexBindingDivisor: modify the rate at which generic vertex attributes advance
 		/// </para>
 		/// </summary>
 		/// <param name="bindingindex">
@@ -4840,7 +4842,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] control the reporting of debug messages in a debug context
+		/// [GL4|GLES3.2] glDebugMessageControl: control the reporting of debug messages in a debug context
 		/// </para>
 		/// </summary>
 		/// <param name="source">
@@ -4897,7 +4899,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] control the reporting of debug messages in a debug context
+		/// [GL4|GLES3.2] glDebugMessageControl: control the reporting of debug messages in a debug context
 		/// </para>
 		/// </summary>
 		/// <param name="source">
@@ -4951,7 +4953,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] inject an application-supplied message into the debug message queue
+		/// [GL4|GLES3.2] glDebugMessageInsert: inject an application-supplied message into the debug message queue
 		/// </para>
 		/// </summary>
 		/// <param name="source">
@@ -4999,7 +5001,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify a callback to receive debugging messages from the GL
+		/// [GL4|GLES3.2] glDebugMessageCallback: specify a callback to receive debugging messages from the GL
 		/// </para>
 		/// </summary>
 		/// <param name="callback">
@@ -5028,7 +5030,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify a callback to receive debugging messages from the GL
+		/// [GL4|GLES3.2] glDebugMessageCallback: specify a callback to receive debugging messages from the GL
 		/// </para>
 		/// </summary>
 		/// <param name="callback">
@@ -5059,7 +5061,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve messages from the debug message log
+		/// [GL4|GLES3.2] glGetDebugMessageLog: retrieve messages from the debug message log
 		/// </para>
 		/// </summary>
 		/// <param name="bufSize">
@@ -5119,7 +5121,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] push a named debug group into the command stream
+		/// [GL4|GLES3.2] glPushDebugGroup: push a named debug group into the command stream
 		/// </para>
 		/// </summary>
 		/// <param name="source">
@@ -5160,7 +5162,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] pop the active debug group
+		/// [GL4|GLES3.2] glPopDebugGroup: pop the active debug group
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -5184,7 +5186,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] label a named object identified within a namespace
+		/// [GL4|GLES3.2] glObjectLabel: label a named object identified within a namespace
 		/// </para>
 		/// </summary>
 		/// <param name="identifier">
@@ -5228,7 +5230,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve the label of a named object identified within a namespace
+		/// [GL4|GLES3.2] glGetObjectLabel: retrieve the label of a named object identified within a namespace
 		/// </para>
 		/// </summary>
 		/// <param name="identifier">
@@ -5284,7 +5286,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] label a a sync object identified by a pointer
+		/// [GL4|GLES3.2] glObjectPtrLabel: label a a sync object identified by a pointer
 		/// </para>
 		/// </summary>
 		/// <param name="ptr">
@@ -5321,7 +5323,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] label a a sync object identified by a pointer
+		/// [GL4|GLES3.2] glObjectPtrLabel: label a a sync object identified by a pointer
 		/// </para>
 		/// </summary>
 		/// <param name="ptr">
@@ -5360,7 +5362,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve the label of a sync object identified by a pointer
+		/// [GL4|GLES3.2] glGetObjectPtrLabel: retrieve the label of a sync object identified by a pointer
 		/// </para>
 		/// </summary>
 		/// <param name="ptr">
@@ -5412,7 +5414,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve the label of a sync object identified by a pointer
+		/// [GL4|GLES3.2] glGetObjectPtrLabel: retrieve the label of a sync object identified by a pointer
 		/// </para>
 		/// </summary>
 		/// <param name="ptr">

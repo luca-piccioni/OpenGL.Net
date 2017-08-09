@@ -66,7 +66,7 @@ namespace OpenGL
 		public const int VERTEX_ARRAY_RANGE_POINTER_NV = 0x8521;
 
 		/// <summary>
-		/// [GL] Binding for glFlushVertexArrayRangeNV.
+		/// [GL] glFlushVertexArrayRangeNV: Binding for glFlushVertexArrayRangeNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
 		public static void FlushVertexArrayRangeNV()
@@ -78,7 +78,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayRangeNV.
+		/// [GL] glVertexArrayRangeNV: Binding for glVertexArrayRangeNV.
 		/// </summary>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.
@@ -96,7 +96,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexArrayRangeNV.
+		/// [GL] glVertexArrayRangeNV: Binding for glVertexArrayRangeNV.
 		/// </summary>
 		/// <param name="length">
 		/// A <see cref="T:Int32"/>.

@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int SHARE_CONTEXT_EXT = 0x800A;
 
 		/// <summary>
-		/// [GLX] Binding for glXGetCurrentDisplayEXT.
+		/// [GLX] glXGetCurrentDisplayEXT: Binding for glXGetCurrentDisplayEXT.
 		/// </summary>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static IntPtr GetCurrentDisplayEXT()
@@ -58,7 +58,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] query context information
+		/// [GL2.1] glXQueryContextInfoEXT: query context information
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -104,7 +104,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] get the XID for a context.
+		/// [GL2.1] glXGetContextIDEXT: get the XID for a context.
 		/// </summary>
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
@@ -130,7 +130,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] import another process's indirect rendering context.
+		/// [GL2.1] glXImportContextEXT: import another process's indirect rendering context.
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.
@@ -160,7 +160,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] free client-side memory for imported context
+		/// [GL2.1] glXFreeContextEXT: free client-side memory for imported context
 		/// </summary>
 		/// <param name="dpy">
 		/// Specifies the connection to the X server.

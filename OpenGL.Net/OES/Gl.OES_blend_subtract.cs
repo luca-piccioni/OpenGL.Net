@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glBlendEquationOES.
+		/// [GL] glBlendEquationOES: Binding for glBlendEquationOES.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:BlendEquationMode"/>.

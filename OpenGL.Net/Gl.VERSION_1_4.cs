@@ -733,7 +733,7 @@ namespace OpenGL
 		public const int ONE_MINUS_CONSTANT_ALPHA = 0x8004;
 
 		/// <summary>
-		/// [GL2.1] specify pixel arithmetic for RGB and alpha components separately
+		/// [GL2.1] glBlendFuncSeparate: specify pixel arithmetic for RGB and alpha components separately
 		/// </summary>
 		/// <param name="sfactorRGB">
 		/// A <see cref="T:BlendingFactor"/>.
@@ -779,7 +779,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render multiple sets of primitives from array data
+		/// [GL4] glMultiDrawArrays: render multiple sets of primitives from array data
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -825,7 +825,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render multiple sets of primitives by specifying indices of array data elements
+		/// [GL4] glMultiDrawElements: render multiple sets of primitives by specifying indices of array data elements
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -876,10 +876,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] specify point parameters
+		/// [GL4] glPointParameterf: specify point parameters
 		/// </para>
 		/// <para>
-		/// [GLES1.1] specify parameters for point rasterization
+		/// [GLES1.1] glPointParameterf: specify parameters for point rasterization
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -914,10 +914,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] specify point parameters
+		/// [GL4] glPointParameterfv: specify point parameters
 		/// </para>
 		/// <para>
-		/// [GLES1.1] specify parameters for point rasterization
+		/// [GLES1.1] glPointParameterfv: specify parameters for point rasterization
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -957,7 +957,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify point parameters
+		/// [GL4] glPointParameteri: specify point parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued point parameter. Gl.POINT_FADE_THRESHOLD_SIZE, and Gl.POINT_SPRITE_COORD_ORIGIN are accepted.
@@ -985,7 +985,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify point parameters
+		/// [GL4] glPointParameteriv: specify point parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued point parameter. Gl.POINT_FADE_THRESHOLD_SIZE, and Gl.POINT_SPRITE_COORD_ORIGIN are accepted.
@@ -1019,7 +1019,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current fog coordinates
+		/// [GL2.1] glFogCoordf: set the current fog coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specify the fog distance.
@@ -1039,7 +1039,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current fog coordinates
+		/// [GL2.1] glFogCoordfv: set the current fog coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specify the fog distance.
@@ -1065,7 +1065,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current fog coordinates
+		/// [GL2.1] glFogCoordd: set the current fog coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specify the fog distance.
@@ -1085,7 +1085,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current fog coordinates
+		/// [GL2.1] glFogCoorddv: set the current fog coordinates
 		/// </summary>
 		/// <param name="coord">
 		/// Specify the fog distance.
@@ -1111,7 +1111,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define an array of fog coordinates
+		/// [GL2.1] glFogCoordPointer: define an array of fog coordinates
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each fog coordinate. Symbolic constants Gl.FLOAT, or Gl.DOUBLE are accepted. The initial 
@@ -1164,7 +1164,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define an array of fog coordinates
+		/// [GL2.1] glFogCoordPointer: define an array of fog coordinates
 		/// </summary>
 		/// <param name="type">
 		/// Specifies the data type of each fog coordinate. Symbolic constants Gl.FLOAT, or Gl.DOUBLE are accepted. The initial 
@@ -1219,7 +1219,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3b: set the current secondary color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current secondary color.
@@ -1246,7 +1246,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3bv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
@@ -1273,7 +1273,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3d: set the current secondary color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current secondary color.
@@ -1300,7 +1300,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3dv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -1327,7 +1327,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3f: set the current secondary color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current secondary color.
@@ -1354,7 +1354,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3fv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -1381,7 +1381,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3i: set the current secondary color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current secondary color.
@@ -1408,7 +1408,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3iv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -1435,7 +1435,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3s: set the current secondary color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current secondary color.
@@ -1462,7 +1462,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3sv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -1489,7 +1489,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3ub: set the current secondary color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current secondary color.
@@ -1516,7 +1516,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3ubv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
@@ -1543,7 +1543,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3ui: set the current secondary color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current secondary color.
@@ -1570,7 +1570,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3uiv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
@@ -1597,7 +1597,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3us: set the current secondary color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, and blue values for the current secondary color.
@@ -1624,7 +1624,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] set the current secondary color
+		/// [GL2.1] glSecondaryColor3usv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
@@ -1651,7 +1651,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define an array of secondary colors
+		/// [GL2.1] glSecondaryColorPointer: define an array of secondary colors
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of components per color. Must be 3.
@@ -1710,7 +1710,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] define an array of secondary colors
+		/// [GL2.1] glSecondaryColorPointer: define an array of secondary colors
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of components per color. Must be 3.
@@ -1771,7 +1771,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos2d: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z coordinates for the raster position.
@@ -1809,7 +1809,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos2dv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -1849,7 +1849,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos2f: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z coordinates for the raster position.
@@ -1887,7 +1887,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos2fv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -1927,7 +1927,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos2i: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z coordinates for the raster position.
@@ -1965,7 +1965,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos2iv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -2005,7 +2005,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos2s: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z coordinates for the raster position.
@@ -2043,7 +2043,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos2sv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -2083,7 +2083,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos3d: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z coordinates for the raster position.
@@ -2124,7 +2124,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos3dv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
@@ -2164,7 +2164,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos3f: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z coordinates for the raster position.
@@ -2205,7 +2205,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos3fv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
@@ -2245,7 +2245,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos3i: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z coordinates for the raster position.
@@ -2286,7 +2286,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos3iv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
@@ -2326,7 +2326,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos3s: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="x">
 		/// Specify the x, y, z coordinates for the raster position.
@@ -2367,7 +2367,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the raster position in window coordinates for pixel operations
+		/// [GL2.1] glWindowPos3sv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
@@ -2408,7 +2408,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] set the blend color
+		/// [GL4|GLES3.2] glBlendColor: set the blend color
 		/// </para>
 		/// </summary>
 		/// <param name="red">
@@ -2442,7 +2442,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL2.1] specify the equation used for both the RGB blend equation and the Alpha blend equation
+		/// [GL2.1] glBlendEquation: specify the equation used for both the RGB blend equation and the Alpha blend equation
 		/// </summary>
 		/// <param name="mode">
 		/// specifies how source and destination colors are combined. It must be Gl.FUNC_ADD, Gl.FUNC_SUBTRACT, 

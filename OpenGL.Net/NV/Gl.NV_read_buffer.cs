@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glReadBufferNV.
+		/// [GL] glReadBufferNV: Binding for glReadBufferNV.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.

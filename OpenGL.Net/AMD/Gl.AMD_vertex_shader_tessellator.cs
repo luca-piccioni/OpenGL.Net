@@ -78,7 +78,7 @@ namespace OpenGL
 		public const int CONTINUOUS_AMD = 0x9007;
 
 		/// <summary>
-		/// [GL] Binding for glTessellationFactorAMD.
+		/// [GL] glTessellationFactorAMD: Binding for glTessellationFactorAMD.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:float"/>.
@@ -93,7 +93,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTessellationModeAMD.
+		/// [GL] glTessellationModeAMD: Binding for glTessellationModeAMD.
 		/// </summary>
 		/// <param name="mode">
 		/// A <see cref="T:Int32"/>.

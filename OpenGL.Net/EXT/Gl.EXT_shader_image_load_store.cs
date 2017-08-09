@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glBindImageTextureEXT.
+		/// [GL] glBindImageTextureEXT: Binding for glBindImageTextureEXT.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

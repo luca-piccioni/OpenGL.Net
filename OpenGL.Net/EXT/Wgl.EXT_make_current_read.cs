@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// [WGL] Binding for wglMakeContextCurrentEXT.
+		/// [WGL] wglMakeContextCurrentEXT: Binding for wglMakeContextCurrentEXT.
 		/// </summary>
 		/// <param name="hDrawDC">
 		/// A <see cref="T:IntPtr"/>.
@@ -61,7 +61,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [WGL] Binding for wglGetCurrentReadDCEXT.
+		/// [WGL] wglGetCurrentReadDCEXT: Binding for wglGetCurrentReadDCEXT.
 		/// </summary>
 		[RequiredByFeature("WGL_EXT_make_current_read")]
 		public static IntPtr GetCurrentReadDCEXT()

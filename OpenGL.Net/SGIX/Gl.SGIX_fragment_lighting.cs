@@ -156,7 +156,7 @@ namespace OpenGL
 		public const int FRAGMENT_LIGHT7_SGIX = 0x8413;
 
 		/// <summary>
-		/// [GL] Binding for glFragmentColorMaterialSGIX.
+		/// [GL] glFragmentColorMaterialSGIX: Binding for glFragmentColorMaterialSGIX.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
@@ -174,7 +174,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentLightfSGIX.
+		/// [GL] glFragmentLightfSGIX: Binding for glFragmentLightfSGIX.
 		/// </summary>
 		/// <param name="light">
 		/// A <see cref="T:Int32"/>.
@@ -195,7 +195,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentLightfvSGIX.
+		/// [GL] glFragmentLightfvSGIX: Binding for glFragmentLightfvSGIX.
 		/// </summary>
 		/// <param name="light">
 		/// A <see cref="T:Int32"/>.
@@ -221,7 +221,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentLightiSGIX.
+		/// [GL] glFragmentLightiSGIX: Binding for glFragmentLightiSGIX.
 		/// </summary>
 		/// <param name="light">
 		/// A <see cref="T:Int32"/>.
@@ -242,7 +242,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentLightivSGIX.
+		/// [GL] glFragmentLightivSGIX: Binding for glFragmentLightivSGIX.
 		/// </summary>
 		/// <param name="light">
 		/// A <see cref="T:Int32"/>.
@@ -268,7 +268,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentLightModelfSGIX.
+		/// [GL] glFragmentLightModelfSGIX: Binding for glFragmentLightModelfSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:FragmentLightModelParameterSGIX"/>.
@@ -286,7 +286,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentLightModelfvSGIX.
+		/// [GL] glFragmentLightModelfvSGIX: Binding for glFragmentLightModelfvSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:FragmentLightModelParameterSGIX"/>.
@@ -309,7 +309,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentLightModeliSGIX.
+		/// [GL] glFragmentLightModeliSGIX: Binding for glFragmentLightModeliSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:FragmentLightModelParameterSGIX"/>.
@@ -327,7 +327,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentLightModelivSGIX.
+		/// [GL] glFragmentLightModelivSGIX: Binding for glFragmentLightModelivSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:FragmentLightModelParameterSGIX"/>.
@@ -350,7 +350,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentMaterialfSGIX.
+		/// [GL] glFragmentMaterialfSGIX: Binding for glFragmentMaterialfSGIX.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
@@ -371,7 +371,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentMaterialfvSGIX.
+		/// [GL] glFragmentMaterialfvSGIX: Binding for glFragmentMaterialfvSGIX.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
@@ -397,7 +397,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentMaterialiSGIX.
+		/// [GL] glFragmentMaterialiSGIX: Binding for glFragmentMaterialiSGIX.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
@@ -418,7 +418,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glFragmentMaterialivSGIX.
+		/// [GL] glFragmentMaterialivSGIX: Binding for glFragmentMaterialivSGIX.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
@@ -444,7 +444,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetFragmentLightfvSGIX.
+		/// [GL] glGetFragmentLightfvSGIX: Binding for glGetFragmentLightfvSGIX.
 		/// </summary>
 		/// <param name="light">
 		/// A <see cref="T:Int32"/>.
@@ -470,7 +470,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetFragmentLightivSGIX.
+		/// [GL] glGetFragmentLightivSGIX: Binding for glGetFragmentLightivSGIX.
 		/// </summary>
 		/// <param name="light">
 		/// A <see cref="T:Int32"/>.
@@ -496,7 +496,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetFragmentMaterialfvSGIX.
+		/// [GL] glGetFragmentMaterialfvSGIX: Binding for glGetFragmentMaterialfvSGIX.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
@@ -522,7 +522,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetFragmentMaterialivSGIX.
+		/// [GL] glGetFragmentMaterialivSGIX: Binding for glGetFragmentMaterialivSGIX.
 		/// </summary>
 		/// <param name="face">
 		/// A <see cref="T:MaterialFace"/>.
@@ -548,7 +548,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glLightEnviSGIX.
+		/// [GL] glLightEnviSGIX: Binding for glLightEnviSGIX.
 		/// </summary>
 		/// <param name="pname">
 		/// A <see cref="T:LightEnvParameterSGIX"/>.

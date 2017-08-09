@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int VERSION_ES_CL_1_1 = 1;
 
 		/// <summary>
-		/// [GLES1.1] specify a plane against which all geometry is clipped
+		/// [GLES1.1] glClipPlanef: specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="p">
 		/// A <see cref="T:ClipPlaneName"/>.
@@ -83,7 +83,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] multiply the current matrix by a perspective matrix
+		/// [GLES1.1] glFrustumf: multiply the current matrix by a perspective matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:float"/>.
@@ -123,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] return the coefficients of the specified clipping plane
+		/// [GLES1.1] glGetClipPlanef: return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
 		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
@@ -153,7 +153,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] multiply the current matrix with an orthographic matrix
+		/// [GLES1.1] glOrthof: multiply the current matrix with an orthographic matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:float"/>.
@@ -192,7 +192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify the alpha test function
+		/// [GLES1.1] glAlphaFuncx: specify the alpha test function
 		/// </summary>
 		/// <param name="func">
 		/// Specifies the alpha comparison function. Symbolic constants Gl.NEVER, Gl.LESS, Gl.EQUAL, Gl.LEQUAL, Gl.GREATER, 
@@ -220,7 +220,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify clear values for the color buffer
+		/// [GLES1.1] glClearColorx: specify clear values for the color buffer
 		/// </summary>
 		/// <param name="red">
 		/// Specify the red, green, blue, and alpha values used when the color buffer is cleared. The initial values are all 0.
@@ -248,7 +248,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify the clear value for the depth buffer
+		/// [GLES1.1] glClearDepthx: specify the clear value for the depth buffer
 		/// </summary>
 		/// <param name="depth">
 		/// Specifies the depth value used when the depth buffer is cleared. The initial value is 1.
@@ -268,7 +268,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify a plane against which all geometry is clipped
+		/// [GLES1.1] glClipPlanex: specify a plane against which all geometry is clipped
 		/// </summary>
 		/// <param name="plane">
 		/// Specifies which clipping plane is being positioned. Symbolic names of the form Gl.CLIP_PLANEi, where i is an integer 
@@ -299,7 +299,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set the current color
+		/// [GLES1.1] glColor4x: set the current color
 		/// </summary>
 		/// <param name="red">
 		/// Specify new red, green, blue, and alpha values for the current color.
@@ -326,7 +326,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify mapping of depth values from normalized device coordinates to window coordinates
+		/// [GLES1.1] glDepthRangex: specify mapping of depth values from normalized device coordinates to window coordinates
 		/// </summary>
 		/// <param name="n">
 		/// A <see cref="T:IntPtr"/>.
@@ -347,7 +347,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify fog parameters
+		/// [GLES1.1] glFogx: specify fog parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
@@ -373,7 +373,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify fog parameters
+		/// [GLES1.1] glFogxv: specify fog parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued fog parameter. Gl.FOG_MODE, Gl.FOG_DENSITY, Gl.FOG_START, and Gl.FOG_END are accepted.
@@ -404,7 +404,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] multiply the current matrix by a perspective matrix
+		/// [GLES1.1] glFrustumx: multiply the current matrix by a perspective matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:IntPtr"/>.
@@ -444,7 +444,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] return the coefficients of the specified clipping plane
+		/// [GLES1.1] glGetClipPlanex: return the coefficients of the specified clipping plane
 		/// </summary>
 		/// <param name="plane">
 		/// Specifies a clipping plane. The number of clipping planes depends on the implementation, but at least six clipping 
@@ -474,7 +474,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] return the value or values of a selected parameter
+		/// [GLES1.1] glGetFixedv: return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the parameter value to be returned. The symbolic constants in the list below are accepted.
@@ -502,7 +502,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] return light source parameter values
+		/// [GLES1.1] glGetLightxv: return light source parameter values
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light source. The number of possible lights depends on the implementation, but at least eight lights are 
@@ -535,7 +535,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] return material parameters values
+		/// [GLES1.1] glGetMaterialxv: return material parameters values
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which of the two materials is being queried. Gl.FRONT or Gl.BACK are accepted, representing the front and back 
@@ -567,7 +567,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] return texture environment parameters
+		/// [GLES1.1] glGetTexEnvxv: return texture environment parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
@@ -601,7 +601,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] return texture parameter values
+		/// [GLES1.1] glGetTexParameterxv: return texture parameter values
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
@@ -633,7 +633,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set the lighting model parameters
+		/// [GLES1.1] glLightModelx: set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued lighting model parameter. Must be Gl.LIGHT_MODEL_TWO_SIDE.
@@ -656,7 +656,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set the lighting model parameters
+		/// [GLES1.1] glLightModelxv: set the lighting model parameters
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies a single-valued lighting model parameter. Must be Gl.LIGHT_MODEL_TWO_SIDE.
@@ -684,7 +684,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set light source parameters
+		/// [GLES1.1] glLightx: set light source parameters
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
@@ -718,7 +718,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set light source parameters
+		/// [GLES1.1] glLightxv: set light source parameters
 		/// </summary>
 		/// <param name="light">
 		/// Specifies a light. The number of lights depends on the implementation, but at least eight lights are supported. They are 
@@ -757,7 +757,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify the width of rasterized lines
+		/// [GLES1.1] glLineWidthx: specify the width of rasterized lines
 		/// </summary>
 		/// <param name="width">
 		/// Specifies the width of rasterized lines. The initial value is 1.
@@ -777,7 +777,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] replace the current matrix with the specified matrix
+		/// [GLES1.1] glLoadMatrixx: replace the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4x4 column-major matrix.
@@ -801,7 +801,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify material parameters for the lighting model
+		/// [GLES1.1] glMaterialx: specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which face or faces are being updated. Must be Gl.FRONT_AND_BACK.
@@ -831,7 +831,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify material parameters for the lighting model
+		/// [GLES1.1] glMaterialxv: specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
 		/// Specifies which face or faces are being updated. Must be Gl.FRONT_AND_BACK.
@@ -866,7 +866,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] multiply the current matrix with the specified matrix
+		/// [GLES1.1] glMultMatrixx: multiply the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4x4 column-major matrix.
@@ -890,7 +890,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set the current texture coordinates
+		/// [GLES1.1] glMultiTexCoord4x: set the current texture coordinates
 		/// </summary>
 		/// <param name="texture">
 		/// A <see cref="T:TextureUnit"/>.
@@ -927,7 +927,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set the current normal vector
+		/// [GLES1.1] glNormal3x: set the current normal vector
 		/// </summary>
 		/// <param name="nx">
 		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of the new current normal. 
@@ -955,7 +955,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] multiply the current matrix with an orthographic matrix
+		/// [GLES1.1] glOrthox: multiply the current matrix with an orthographic matrix
 		/// </summary>
 		/// <param name="l">
 		/// A <see cref="T:IntPtr"/>.
@@ -994,7 +994,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify parameters for point rasterization
+		/// [GLES1.1] glPointParameterx: specify parameters for point rasterization
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the single-valued parameter to be updated. Can be either Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
@@ -1024,7 +1024,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify parameters for point rasterization
+		/// [GLES1.1] glPointParameterxv: specify parameters for point rasterization
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the single-valued parameter to be updated. Can be either Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
@@ -1059,7 +1059,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify the diameter of rasterized points
+		/// [GLES1.1] glPointSizex: specify the diameter of rasterized points
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the diameter of rasterized points. The initial value is 1.
@@ -1079,7 +1079,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set the scale and units used to calculate depth values
+		/// [GLES1.1] glPolygonOffsetx: set the scale and units used to calculate depth values
 		/// </summary>
 		/// <param name="factor">
 		/// Specifies a scale factor that is used to create a variable depth offset for each polygon. The initial value is 0.
@@ -1099,7 +1099,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] multiply the current matrix by a rotation matrix
+		/// [GLES1.1] glRotatex: multiply the current matrix by a rotation matrix
 		/// </summary>
 		/// <param name="angle">
 		/// Specifies the angle of rotation, in degrees.
@@ -1128,7 +1128,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] specify mask to modify multisampled pixel fragments
+		/// [GLES1.1] glSampleCoveragex: specify mask to modify multisampled pixel fragments
 		/// </summary>
 		/// <param name="value">
 		/// Specifies the coverage of the modification mask. The value is clamped to the range [0, 1], where 0 represents no 
@@ -1149,7 +1149,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] multiply the current matrix by a general scaling matrix
+		/// [GLES1.1] glScalex: multiply the current matrix by a general scaling matrix
 		/// </summary>
 		/// <param name="x">
 		/// Specify scale factors along the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> axes, respectively.
@@ -1176,7 +1176,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set texture environment parameters
+		/// [GLES1.1] glTexEnvx: set texture environment parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
@@ -1220,7 +1220,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set texture environment parameters
+		/// [GLES1.1] glTexEnvxv: set texture environment parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a texture environment. May be Gl.TEXTURE_ENV or Gl.POINT_SPRITE_OES.
@@ -1266,7 +1266,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set texture parameters
+		/// [GLES1.1] glTexParameterx: set texture parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
@@ -1305,7 +1305,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] set texture parameters
+		/// [GLES1.1] glTexParameterxv: set texture parameters
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target texture, which must be Gl.TEXTURE_2D.
@@ -1349,7 +1349,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] multiply the current matrix by a translation matrix
+		/// [GLES1.1] glTranslatex: multiply the current matrix by a translation matrix
 		/// </summary>
 		/// <param name="x">
 		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a translation vector.

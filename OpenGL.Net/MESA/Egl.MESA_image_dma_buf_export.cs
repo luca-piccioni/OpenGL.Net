@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Egl
 	{
 		/// <summary>
-		/// [EGL] Binding for eglExportDMABUFImageQueryMESA.
+		/// [EGL] eglExportDMABUFImageQueryMESA: Binding for eglExportDMABUFImageQueryMESA.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -74,7 +74,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglExportDMABUFImageMESA.
+		/// [EGL] eglExportDMABUFImageMESA: Binding for eglExportDMABUFImageMESA.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

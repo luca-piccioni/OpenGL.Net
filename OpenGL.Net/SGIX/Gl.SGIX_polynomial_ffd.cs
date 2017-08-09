@@ -74,7 +74,7 @@ namespace OpenGL
 		public const int MAX_DEFORMATION_ORDER_SGIX = 0x8197;
 
 		/// <summary>
-		/// [GL] Binding for glDeformationMap3dSGIX.
+		/// [GL] glDeformationMap3dSGIX: Binding for glDeformationMap3dSGIX.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FfdTargetSGIX"/>.
@@ -133,7 +133,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeformationMap3fSGIX.
+		/// [GL] glDeformationMap3fSGIX: Binding for glDeformationMap3fSGIX.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:FfdTargetSGIX"/>.
@@ -192,7 +192,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDeformSGIX.
+		/// [GL] glDeformSGIX: Binding for glDeformSGIX.
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:FfdMaskSGIX"/>.
@@ -207,7 +207,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glLoadIdentityDeformationMapSGIX.
+		/// [GL] glLoadIdentityDeformationMapSGIX: Binding for glLoadIdentityDeformationMapSGIX.
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:FfdMaskSGIX"/>.

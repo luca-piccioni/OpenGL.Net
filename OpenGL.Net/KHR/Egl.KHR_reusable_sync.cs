@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int SYNC_REUSABLE_KHR = 0x30FA;
 
 		/// <summary>
-		/// [EGL] Binding for eglCreateSyncKHR.
+		/// [EGL] eglCreateSyncKHR: Binding for eglCreateSyncKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -73,7 +73,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglSignalSyncKHR.
+		/// [EGL] eglSignalSyncKHR: Binding for eglSignalSyncKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -98,7 +98,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglGetSyncAttribKHR.
+		/// [EGL] eglGetSyncAttribKHR: Binding for eglGetSyncAttribKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

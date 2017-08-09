@@ -198,7 +198,7 @@ namespace OpenGL
 		public const int RGBA_INTEGER_MODE_EXT = 0x8D9E;
 
 		/// <summary>
-		/// [GL] Binding for glClearColorIiEXT.
+		/// [GL] glClearColorIiEXT: Binding for glClearColorIiEXT.
 		/// </summary>
 		/// <param name="red">
 		/// A <see cref="T:Int32"/>.
@@ -222,7 +222,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glClearColorIuiEXT.
+		/// [GL] glClearColorIuiEXT: Binding for glClearColorIuiEXT.
 		/// </summary>
 		/// <param name="red">
 		/// A <see cref="T:UInt32"/>.

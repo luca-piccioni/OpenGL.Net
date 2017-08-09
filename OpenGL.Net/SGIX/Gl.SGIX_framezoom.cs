@@ -54,7 +54,7 @@ namespace OpenGL
 		public const int MAX_FRAMEZOOM_FACTOR_SGIX = 0x818D;
 
 		/// <summary>
-		/// [GL] Binding for glFrameZoomSGIX.
+		/// [GL] glFrameZoomSGIX: Binding for glFrameZoomSGIX.
 		/// </summary>
 		/// <param name="factor">
 		/// A <see cref="T:Int32"/>.

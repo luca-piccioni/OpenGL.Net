@@ -161,11 +161,11 @@ namespace BindingsGen
 
 				foreach (KeyValuePair<string, string> docHandler in docHandlersDoc) {
 					sw.WriteLine("/// <para>");
-					sw.WriteLine("/// {0}", SplitDocumentationLines(String.Format("[{0}] {1}", docHandler.Key, docHandler.Value)));
+					sw.WriteLine("/// {0}", SplitDocumentationLines(String.Format("[{0}] {1}: {2}", docHandler.Key, command.Prototype.Name, docHandler.Value)));
 					sw.WriteLine("/// </para>");
 				}
 			} else {
-				sw.WriteLine("/// {0}", SplitDocumentationLines(String.Format("[{0}] {1}", docHandlers[0].Api ?? defaultApi, docHandlers[0].QueryCommandSummary(ctx, command))));
+				sw.WriteLine("/// {0}", SplitDocumentationLines(String.Format("[{0}] {1}: {2}", docHandlers[0].Api ?? defaultApi, command.Prototype.Name, docHandlers[0].QueryCommandSummary(ctx, command))));
 			}
 			sw.WriteLine("/// </summary>");
 

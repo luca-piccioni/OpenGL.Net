@@ -90,7 +90,7 @@ namespace OpenGL
 		public const int BAD_STATE_KHR = 0x321C;
 
 		/// <summary>
-		/// [EGL] Binding for eglCreateStreamKHR.
+		/// [EGL] eglCreateStreamKHR: Binding for eglCreateStreamKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -117,7 +117,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglDestroyStreamKHR.
+		/// [EGL] eglDestroyStreamKHR: Binding for eglDestroyStreamKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -139,7 +139,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglStreamAttribKHR.
+		/// [EGL] eglStreamAttribKHR: Binding for eglStreamAttribKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -167,7 +167,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryStreamKHR.
+		/// [EGL] eglQueryStreamKHR: Binding for eglQueryStreamKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -200,7 +200,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryStreamu64KHR.
+		/// [EGL] eglQueryStreamu64KHR: Binding for eglQueryStreamu64KHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

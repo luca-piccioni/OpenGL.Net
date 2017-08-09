@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glGetProgramResourceLocationIndexEXT.
+		/// [GL] glGetProgramResourceLocationIndexEXT: Binding for glGetProgramResourceLocationIndexEXT.
 		/// </summary>
 		/// <param name="program">
 		/// A <see cref="T:UInt32"/>.

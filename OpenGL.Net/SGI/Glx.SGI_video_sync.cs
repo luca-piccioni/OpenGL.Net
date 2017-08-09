@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXGetVideoSyncSGI.
+		/// [GLX] glXGetVideoSyncSGI: Binding for glXGetVideoSyncSGI.
 		/// </summary>
 		/// <param name="count">
 		/// A <see cref="T:UInt32[]"/>.
@@ -60,7 +60,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXWaitVideoSyncSGI.
+		/// [GLX] glXWaitVideoSyncSGI: Binding for glXWaitVideoSyncSGI.
 		/// </summary>
 		/// <param name="divisor">
 		/// A <see cref="T:int"/>.

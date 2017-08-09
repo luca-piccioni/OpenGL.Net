@@ -64,7 +64,7 @@ namespace OpenGL
 		public const int STREAM_STATE_CONNECTING_KHR = 0x3216;
 
 		/// <summary>
-		/// [EGL] Binding for eglCreateStreamAttribKHR.
+		/// [EGL] eglCreateStreamAttribKHR: Binding for eglCreateStreamAttribKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglSetStreamAttribKHR.
+		/// [EGL] eglSetStreamAttribKHR: Binding for eglSetStreamAttribKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -119,7 +119,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglQueryStreamAttribKHR.
+		/// [EGL] eglQueryStreamAttribKHR: Binding for eglQueryStreamAttribKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -152,7 +152,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglStreamConsumerAcquireAttribKHR.
+		/// [EGL] eglStreamConsumerAcquireAttribKHR: Binding for eglStreamConsumerAcquireAttribKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -182,7 +182,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [EGL] Binding for eglStreamConsumerReleaseAttribKHR.
+		/// [EGL] eglStreamConsumerReleaseAttribKHR: Binding for eglStreamConsumerReleaseAttribKHR.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

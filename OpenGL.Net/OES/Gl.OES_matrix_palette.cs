@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES = 0x8B9E;
 
 		/// <summary>
-		/// [GLES1.1] defines which of the palette's matrices is affected by subsequent matrix operations
+		/// [GLES1.1] glCurrentPaletteMatrixOES: defines which of the palette's matrices is affected by subsequent matrix operations
 		/// </summary>
 		/// <param name="matrixpaletteindex">
 		/// A <see cref="T:UInt32"/>.
@@ -64,7 +64,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] copies the current model view matrix to a matrix in the current matrix palette
+		/// [GLES1.1] glLoadPaletteFromModelViewMatrixOES: copies the current model view matrix to a matrix in the current matrix 
+		/// palette
 		/// </summary>
 		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
 		/// <seealso cref="Gl.MatrixIndexPointer"/>
@@ -80,7 +81,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] define an array of matrix indices
+		/// [GLES1.1] glMatrixIndexPointerOES: define an array of matrix indices
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of matrix indices per vertex. Must be is less than or equal to Gl.MAX_VERTEX_UNITS_OES. The initial 
@@ -122,7 +123,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] define an array of matrix indices
+		/// [GLES1.1] glMatrixIndexPointerOES: define an array of matrix indices
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of matrix indices per vertex. Must be is less than or equal to Gl.MAX_VERTEX_UNITS_OES. The initial 
@@ -166,7 +167,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] define an array of weights
+		/// [GLES1.1] glWeightPointerOES: define an array of weights
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of weights per vertex. Must be is less than or equal to Gl.MAX_VERTEX_UNITS_OES. The initial value 
@@ -209,7 +210,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLES1.1] define an array of weights
+		/// [GLES1.1] glWeightPointerOES: define an array of weights
 		/// </summary>
 		/// <param name="size">
 		/// Specifies the number of weights per vertex. Must be is less than or equal to Gl.MAX_VERTEX_UNITS_OES. The initial value 

@@ -96,7 +96,7 @@ namespace OpenGL
 		public const int TEXTURE_4D_BINDING_SGIS = 0x814F;
 
 		/// <summary>
-		/// [GL] Binding for glTexImage4DSGIS.
+		/// [GL] glTexImage4DSGIS: Binding for glTexImage4DSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -141,7 +141,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexImage4DSGIS.
+		/// [GL] glTexImage4DSGIS: Binding for glTexImage4DSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -188,7 +188,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexSubImage4DSGIS.
+		/// [GL] glTexSubImage4DSGIS: Binding for glTexSubImage4DSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -239,7 +239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexSubImage4DSGIS.
+		/// [GL] glTexSubImage4DSGIS: Binding for glTexSubImage4DSGIS.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.

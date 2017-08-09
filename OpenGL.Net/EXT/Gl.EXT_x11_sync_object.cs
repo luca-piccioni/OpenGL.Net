@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int SYNC_X11_FENCE_EXT = 0x90E1;
 
 		/// <summary>
-		/// [GL] Binding for glImportSyncEXT.
+		/// [GL] glImportSyncEXT: Binding for glImportSyncEXT.
 		/// </summary>
 		/// <param name="external_sync_type">
 		/// A <see cref="T:Int32"/>.

@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glTbufferMask3DFX.
+		/// [GL] glTbufferMask3DFX: Binding for glTbufferMask3DFX.
 		/// </summary>
 		/// <param name="mask">
 		/// A <see cref="T:UInt32"/>.

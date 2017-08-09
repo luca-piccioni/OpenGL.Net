@@ -48,7 +48,7 @@ namespace OpenGL
 		public const int MAX_SWAP_INTERVAL_EXT = 0x20F2;
 
 		/// <summary>
-		/// [GLX] Binding for glXSwapIntervalEXT.
+		/// [GLX] glXSwapIntervalEXT: Binding for glXSwapIntervalEXT.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

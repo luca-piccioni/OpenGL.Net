@@ -884,10 +884,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] specifies minimum rate at which sample shaing takes place
+		/// [GL4] glMinSampleShading: specifies minimum rate at which sample shaing takes place
 		/// </para>
 		/// <para>
-		/// [GLES3.2] specifies minimum rate at which sample shading takes place
+		/// [GLES3.2] glMinSampleShading: specifies minimum rate at which sample shading takes place
 		/// </para>
 		/// </summary>
 		/// <param name="value">
@@ -912,7 +912,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBlendEquationi.
+		/// [GL] glBlendEquationi: Binding for glBlendEquationi.
 		/// </summary>
 		/// <param name="buf">
 		/// A <see cref="T:UInt32"/>.
@@ -939,7 +939,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBlendEquationSeparatei.
+		/// [GL] glBlendEquationSeparatei: Binding for glBlendEquationSeparatei.
 		/// </summary>
 		/// <param name="buf">
 		/// A <see cref="T:UInt32"/>.
@@ -969,7 +969,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBlendFunci.
+		/// [GL] glBlendFunci: Binding for glBlendFunci.
 		/// </summary>
 		/// <param name="buf">
 		/// A <see cref="T:UInt32"/>.
@@ -999,7 +999,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glBlendFuncSeparatei.
+		/// [GL] glBlendFuncSeparatei: Binding for glBlendFuncSeparatei.
 		/// </summary>
 		/// <param name="buf">
 		/// A <see cref="T:UInt32"/>.
@@ -1036,7 +1036,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data, taking parameters from memory
+		/// [GL4|GLES3.2] glDrawArraysIndirect: render primitives from array data, taking parameters from memory
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1078,7 +1078,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render primitives from array data, taking parameters from memory
+		/// [GL4|GLES3.2] glDrawArraysIndirect: render primitives from array data, taking parameters from memory
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1122,7 +1122,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render indexed primitives from array data, taking parameters from memory
+		/// [GL4|GLES3.2] glDrawElementsIndirect: render indexed primitives from array data, taking parameters from memory
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1172,7 +1172,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] render indexed primitives from array data, taking parameters from memory
+		/// [GL4|GLES3.2] glDrawElementsIndirect: render indexed primitives from array data, taking parameters from memory
 		/// </para>
 		/// </summary>
 		/// <param name="mode">
@@ -1223,7 +1223,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform1d.
+		/// [GL] glUniform1d: Binding for glUniform1d.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1242,7 +1242,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform2d.
+		/// [GL] glUniform2d: Binding for glUniform2d.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1264,7 +1264,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform3d.
+		/// [GL] glUniform3d: Binding for glUniform3d.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1289,7 +1289,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform4d.
+		/// [GL] glUniform4d: Binding for glUniform4d.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1317,7 +1317,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform1dv.
+		/// [GL] glUniform1dv: Binding for glUniform1dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1344,7 +1344,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform1dv.
+		/// [GL] glUniform1dv: Binding for glUniform1dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1366,7 +1366,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform2dv.
+		/// [GL] glUniform2dv: Binding for glUniform2dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1393,7 +1393,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform2dv.
+		/// [GL] glUniform2dv: Binding for glUniform2dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1415,7 +1415,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform3dv.
+		/// [GL] glUniform3dv: Binding for glUniform3dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1442,7 +1442,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform3dv.
+		/// [GL] glUniform3dv: Binding for glUniform3dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1464,7 +1464,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform4dv.
+		/// [GL] glUniform4dv: Binding for glUniform4dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1491,7 +1491,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniform4dv.
+		/// [GL] glUniform4dv: Binding for glUniform4dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1513,7 +1513,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix2dv.
+		/// [GL] glUniformMatrix2dv: Binding for glUniformMatrix2dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1543,7 +1543,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix2dv.
+		/// [GL] glUniformMatrix2dv: Binding for glUniformMatrix2dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1568,7 +1568,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix3dv.
+		/// [GL] glUniformMatrix3dv: Binding for glUniformMatrix3dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1598,7 +1598,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix3dv.
+		/// [GL] glUniformMatrix3dv: Binding for glUniformMatrix3dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1623,7 +1623,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix4dv.
+		/// [GL] glUniformMatrix4dv: Binding for glUniformMatrix4dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1653,7 +1653,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix4dv.
+		/// [GL] glUniformMatrix4dv: Binding for glUniformMatrix4dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1678,7 +1678,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix2x3dv.
+		/// [GL] glUniformMatrix2x3dv: Binding for glUniformMatrix2x3dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1708,7 +1708,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix2x3dv.
+		/// [GL] glUniformMatrix2x3dv: Binding for glUniformMatrix2x3dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1733,7 +1733,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix2x4dv.
+		/// [GL] glUniformMatrix2x4dv: Binding for glUniformMatrix2x4dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1763,7 +1763,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix2x4dv.
+		/// [GL] glUniformMatrix2x4dv: Binding for glUniformMatrix2x4dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1788,7 +1788,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix3x2dv.
+		/// [GL] glUniformMatrix3x2dv: Binding for glUniformMatrix3x2dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1818,7 +1818,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix3x2dv.
+		/// [GL] glUniformMatrix3x2dv: Binding for glUniformMatrix3x2dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1843,7 +1843,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix3x4dv.
+		/// [GL] glUniformMatrix3x4dv: Binding for glUniformMatrix3x4dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1873,7 +1873,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix3x4dv.
+		/// [GL] glUniformMatrix3x4dv: Binding for glUniformMatrix3x4dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1898,7 +1898,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix4x2dv.
+		/// [GL] glUniformMatrix4x2dv: Binding for glUniformMatrix4x2dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1928,7 +1928,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix4x2dv.
+		/// [GL] glUniformMatrix4x2dv: Binding for glUniformMatrix4x2dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1953,7 +1953,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix4x3dv.
+		/// [GL] glUniformMatrix4x3dv: Binding for glUniformMatrix4x3dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -1983,7 +1983,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glUniformMatrix4x3dv.
+		/// [GL] glUniformMatrix4x3dv: Binding for glUniformMatrix4x3dv.
 		/// </summary>
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
@@ -2008,7 +2008,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Returns the value of a uniform variable
+		/// [GL4] glGetUniformdv: Returns the value of a uniform variable
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the program object to be queried.
@@ -2055,7 +2055,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve the location of a subroutine uniform of a given shader stage within a program
+		/// [GL4] glGetSubroutineUniformLocation: retrieve the location of a subroutine uniform of a given shader stage within a 
+		/// program
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of the program containing shader stage.
@@ -2093,7 +2094,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve the index of a subroutine uniform of a given shader stage within a program
+		/// [GL4] glGetSubroutineIndex: retrieve the index of a subroutine uniform of a given shader stage within a program
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of the program containing shader stage.
@@ -2130,7 +2131,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query a property of an active shader subroutine uniform
+		/// [GL4] glGetActiveSubroutineUniformiv: query a property of an active shader subroutine uniform
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of the program containing the subroutine.
@@ -2179,7 +2180,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query the name of an active shader subroutine uniform
+		/// [GL4] glGetActiveSubroutineUniformName: query the name of an active shader subroutine uniform
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of the program containing the subroutine.
@@ -2230,7 +2231,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] query the name of an active shader subroutine
+		/// [GL4] glGetActiveSubroutineName: query the name of an active shader subroutine
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of the program containing the subroutine.
@@ -2276,7 +2277,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] load active subroutine uniforms
+		/// [GL4] glUniformSubroutinesuiv: load active subroutine uniforms
 		/// </summary>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
@@ -2322,7 +2323,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] load active subroutine uniforms
+		/// [GL4] glUniformSubroutinesuiv: load active subroutine uniforms
 		/// </summary>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
@@ -2365,7 +2366,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve the value of a subroutine uniform of a given shader stage of the current program
+		/// [GL4] glGetUniformSubroutineuiv: retrieve the value of a subroutine uniform of a given shader stage of the current 
+		/// program
 		/// </summary>
 		/// <param name="shadertype">
 		/// Specifies the shader stage from which to query for subroutine uniform index. <paramref name="shadertype"/> must be one 
@@ -2407,7 +2409,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] retrieve properties of a program object corresponding to a specified shader stage
+		/// [GL4] glGetProgramStageiv: retrieve properties of a program object corresponding to a specified shader stage
 		/// </summary>
 		/// <param name="program">
 		/// Specifies the name of the program containing shader stage.
@@ -2449,7 +2451,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specifies the parameters for patch primitives
+		/// [GL4|GLES3.2] glPatchParameteri: specifies the parameters for patch primitives
 		/// </para>
 		/// </summary>
 		/// <param name="pname">
@@ -2486,7 +2488,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specifies the parameters for patch primitives
+		/// [GL4] glPatchParameterfv: specifies the parameters for patch primitives
 		/// </summary>
 		/// <param name="pname">
 		/// Specifies the name of the parameter to set. The symbolc constants Gl.PATCH_VERTICES, Gl.PATCH_DEFAULT_OUTER_LEVEL, and 
@@ -2523,7 +2525,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a transform feedback object
+		/// [GL4|GLES3.2] glBindTransformFeedback: bind a transform feedback object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2564,7 +2566,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delete transform feedback objects
+		/// [GL4|GLES3.2] glDeleteTransformFeedbacks: delete transform feedback objects
 		/// </para>
 		/// </summary>
 		/// <param name="ids">
@@ -2596,7 +2598,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] reserve transform feedback object names
+		/// [GL4|GLES3.2] glGenTransformFeedbacks: reserve transform feedback object names
 		/// </para>
 		/// </summary>
 		/// <param name="ids">
@@ -2628,7 +2630,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] reserve transform feedback object names
+		/// [GL4|GLES3.2] glGenTransformFeedbacks: reserve transform feedback object names
 		/// </para>
 		/// </summary>
 		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
@@ -2651,7 +2653,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] determine if a name corresponds to a transform feedback object
+		/// [GL4|GLES3.2] glIsTransformFeedback: determine if a name corresponds to a transform feedback object
 		/// </para>
 		/// </summary>
 		/// <param name="id">
@@ -2679,7 +2681,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] pause transform feedback operations
+		/// [GL4|GLES3.2] glPauseTransformFeedback: pause transform feedback operations
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -2705,7 +2707,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] resume transform feedback operations
+		/// [GL4|GLES3.2] glResumeTransformFeedback: resume transform feedback operations
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -2730,7 +2732,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render primitives using a count derived from a transform feedback object
+		/// [GL4] glDrawTransformFeedback: render primitives using a count derived from a transform feedback object
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -2781,7 +2783,8 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] render primitives using a count derived from a specifed stream of a transform feedback object
+		/// [GL4] glDrawTransformFeedbackStream: render primitives using a count derived from a specifed stream of a transform 
+		/// feedback object
 		/// </summary>
 		/// <param name="mode">
 		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
@@ -2835,7 +2838,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] delimit the boundaries of a query object on an indexed target
+		/// [GL4] glBeginQueryIndexed: delimit the boundaries of a query object on an indexed target
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target type of query object established between Gl.BeginQueryIndexed and the subsequent 
@@ -2889,7 +2892,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] delimit the boundaries of a query object on an indexed target
+		/// [GL4] glEndQueryIndexed: delimit the boundaries of a query object on an indexed target
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target type of query object established between Gl.BeginQueryIndexed and the subsequent 
@@ -2940,7 +2943,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] return parameters of an indexed query object target
+		/// [GL4] glGetQueryIndexediv: return parameters of an indexed query object target
 		/// </summary>
 		/// <param name="target">
 		/// Specifies a query object target. Must be Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, 

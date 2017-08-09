@@ -108,7 +108,7 @@ namespace OpenGL
 		public const int RENDERER_ID_MESA = 0x818E;
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryCurrentRendererIntegerMESA.
+		/// [GLX] glXQueryCurrentRendererIntegerMESA: Binding for glXQueryCurrentRendererIntegerMESA.
 		/// </summary>
 		/// <param name="attribute">
 		/// A <see cref="T:int"/>.
@@ -135,7 +135,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryCurrentRendererStringMESA.
+		/// [GLX] glXQueryCurrentRendererStringMESA: Binding for glXQueryCurrentRendererStringMESA.
 		/// </summary>
 		/// <param name="attribute">
 		/// A <see cref="T:int"/>.
@@ -154,7 +154,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryRendererIntegerMESA.
+		/// [GLX] glXQueryRendererIntegerMESA: Binding for glXQueryRendererIntegerMESA.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -190,7 +190,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryRendererStringMESA.
+		/// [GLX] glXQueryRendererStringMESA: Binding for glXQueryRendererStringMESA.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

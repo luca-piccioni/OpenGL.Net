@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL1i64NV.
+		/// [GL] glVertexAttribL1i64NV: Binding for glVertexAttribL1i64NV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -54,7 +54,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL2i64NV.
+		/// [GL] glVertexAttribL2i64NV: Binding for glVertexAttribL2i64NV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -75,7 +75,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL3i64NV.
+		/// [GL] glVertexAttribL3i64NV: Binding for glVertexAttribL3i64NV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -99,7 +99,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL4i64NV.
+		/// [GL] glVertexAttribL4i64NV: Binding for glVertexAttribL4i64NV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -126,7 +126,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL1i64vNV.
+		/// [GL] glVertexAttribL1i64vNV: Binding for glVertexAttribL1i64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -149,7 +149,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL2i64vNV.
+		/// [GL] glVertexAttribL2i64vNV: Binding for glVertexAttribL2i64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -172,7 +172,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL3i64vNV.
+		/// [GL] glVertexAttribL3i64vNV: Binding for glVertexAttribL3i64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -195,7 +195,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL4i64vNV.
+		/// [GL] glVertexAttribL4i64vNV: Binding for glVertexAttribL4i64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -218,7 +218,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL1ui64NV.
+		/// [GL] glVertexAttribL1ui64NV: Binding for glVertexAttribL1ui64NV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -236,7 +236,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL2ui64NV.
+		/// [GL] glVertexAttribL2ui64NV: Binding for glVertexAttribL2ui64NV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -257,7 +257,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL3ui64NV.
+		/// [GL] glVertexAttribL3ui64NV: Binding for glVertexAttribL3ui64NV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -281,7 +281,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL4ui64NV.
+		/// [GL] glVertexAttribL4ui64NV: Binding for glVertexAttribL4ui64NV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -308,7 +308,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL1ui64vNV.
+		/// [GL] glVertexAttribL1ui64vNV: Binding for glVertexAttribL1ui64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -331,7 +331,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL2ui64vNV.
+		/// [GL] glVertexAttribL2ui64vNV: Binding for glVertexAttribL2ui64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -354,7 +354,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL3ui64vNV.
+		/// [GL] glVertexAttribL3ui64vNV: Binding for glVertexAttribL3ui64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -377,7 +377,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribL4ui64vNV.
+		/// [GL] glVertexAttribL4ui64vNV: Binding for glVertexAttribL4ui64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -400,7 +400,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexAttribLi64vNV.
+		/// [GL] glGetVertexAttribLi64vNV: Binding for glGetVertexAttribLi64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -426,7 +426,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glGetVertexAttribLui64vNV.
+		/// [GL] glGetVertexAttribLui64vNV: Binding for glGetVertexAttribLui64vNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
@@ -452,7 +452,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glVertexAttribLFormatNV.
+		/// [GL] glVertexAttribLFormatNV: Binding for glVertexAttribLFormatNV.
 		/// </summary>
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.

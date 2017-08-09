@@ -102,7 +102,7 @@ namespace OpenGL
 		public const int HYPERPIPE_ID_SGIX = 0x8030;
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryHyperpipeNetworkSGIX.
+		/// [GLX] glXQueryHyperpipeNetworkSGIX: Binding for glXQueryHyperpipeNetworkSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -129,7 +129,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXHyperpipeConfigSGIX.
+		/// [GLX] glXHyperpipeConfigSGIX: Binding for glXHyperpipeConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -165,7 +165,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryHyperpipeConfigSGIX.
+		/// [GLX] glXQueryHyperpipeConfigSGIX: Binding for glXQueryHyperpipeConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -195,7 +195,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXDestroyHyperpipeConfigSGIX.
+		/// [GLX] glXDestroyHyperpipeConfigSGIX: Binding for glXDestroyHyperpipeConfigSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -217,7 +217,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXBindHyperpipeSGIX.
+		/// [GLX] glXBindHyperpipeSGIX: Binding for glXBindHyperpipeSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -239,7 +239,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryHyperpipeBestAttribSGIX.
+		/// [GLX] glXQueryHyperpipeBestAttribSGIX: Binding for glXQueryHyperpipeBestAttribSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -273,7 +273,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXHyperpipeAttribSGIX.
+		/// [GLX] glXHyperpipeAttribSGIX: Binding for glXHyperpipeAttribSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -304,7 +304,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXQueryHyperpipeAttribSGIX.
+		/// [GLX] glXQueryHyperpipeAttribSGIX: Binding for glXQueryHyperpipeAttribSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

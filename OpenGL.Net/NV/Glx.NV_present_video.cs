@@ -42,7 +42,7 @@ namespace OpenGL
 		public const int NUM_VIDEO_SLOTS_NV = 0x20F0;
 
 		/// <summary>
-		/// [GLX] Binding for glXEnumerateVideoDevicesNV.
+		/// [GLX] glXEnumerateVideoDevicesNV: Binding for glXEnumerateVideoDevicesNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
@@ -72,7 +72,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GLX] Binding for glXBindVideoDeviceNV.
+		/// [GLX] glXBindVideoDeviceNV: Binding for glXBindVideoDeviceNV.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

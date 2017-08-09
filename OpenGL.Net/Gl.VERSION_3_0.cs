@@ -2555,7 +2555,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] enable and disable writing of frame buffer color components
+		/// [GL4|GLES3.2] glColorMaski: enable and disable writing of frame buffer color components
 		/// </para>
 		/// </summary>
 		/// <param name="buf">
@@ -2598,7 +2598,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetBooleani_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2662,7 +2662,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetBooleani_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2726,7 +2726,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetBooleani_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2790,7 +2790,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetBooleani_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2854,7 +2854,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetIntegeri_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2920,7 +2920,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return the value or values of a selected parameter
+		/// [GL4|GLES3.2] glGetIntegeri_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -2985,7 +2985,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glEnablei.
+		/// [GL] glEnablei: Binding for glEnablei.
 		/// </summary>
 		/// <param name="cap">
 		/// A <see cref="T:EnableCap"/>.
@@ -3014,7 +3014,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glDisablei.
+		/// [GL] glDisablei: Binding for glDisablei.
 		/// </summary>
 		/// <param name="cap">
 		/// A <see cref="T:EnableCap"/>.
@@ -3044,7 +3044,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] test whether a capability is enabled
+		/// [GL4|GLES3.2] glIsEnabledi: test whether a capability is enabled
 		/// </para>
 		/// </summary>
 		/// <param name="cap">
@@ -3088,7 +3088,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] start transform feedback operation
+		/// [GL4|GLES3.2] glBeginTransformFeedback: start transform feedback operation
 		/// </para>
 		/// </summary>
 		/// <param name="primitiveMode">
@@ -3133,7 +3133,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] start transform feedback operation
+		/// [GL4|GLES3.2] glEndTransformFeedback: start transform feedback operation
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -3174,7 +3174,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a range within a buffer object to an indexed buffer target
+		/// [GL4|GLES3.2] glBindBufferRange: bind a range within a buffer object to an indexed buffer target
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -3233,7 +3233,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a buffer object to an indexed buffer target
+		/// [GL4|GLES3.2] glBindBufferBase: bind a buffer object to an indexed buffer target
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -3282,7 +3282,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] specify values to record in transform feedback buffers
+		/// [GL4|GLES3.2] glTransformFeedbackVaryings: specify values to record in transform feedback buffers
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -3319,7 +3319,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] retrieve information about varying variables selected for transform feedback
+		/// [GL4|GLES3.2] glGetTransformFeedbackVarying: retrieve information about varying variables selected for transform 
+		/// feedback
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -3377,7 +3378,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] specify whether data read via glReadPixels should be clamped
+		/// [GL4] glClampColor: specify whether data read via glReadPixels should be clamped
 		/// </summary>
 		/// <param name="target">
 		/// Target for color clamping. <paramref name="target"/> must be Gl.CLAMP_READ_COLOR.
@@ -3403,7 +3404,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] start conditional rendering
+		/// [GL4] glBeginConditionalRender: start conditional rendering
 		/// </summary>
 		/// <param name="id">
 		/// Specifies the name of an occlusion query object whose results are used to determine if the rendering commands are 
@@ -3444,7 +3445,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] start conditional rendering
+		/// [GL4] glEndConditionalRender: start conditional rendering
 		/// </summary>
 		/// <exception cref="KhronosException">
 		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of an existing query object.
@@ -3481,7 +3482,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] define an array of generic vertex attribute data
+		/// [GL4|GLES3.2] glVertexAttribIPointer: define an array of generic vertex attribute data
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -3562,7 +3563,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] define an array of generic vertex attribute data
+		/// [GL4|GLES3.2] glVertexAttribIPointer: define an array of generic vertex attribute data
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -3645,7 +3646,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Return a generic vertex attribute parameter
+		/// [GL4|GLES3.2] glGetVertexAttribIiv: Return a generic vertex attribute parameter
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -3699,7 +3700,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Return a generic vertex attribute parameter
+		/// [GL4|GLES3.2] glGetVertexAttribIuiv: Return a generic vertex attribute parameter
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -3752,7 +3753,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI1i: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3784,7 +3785,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI2i: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3819,7 +3820,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI3i: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3858,7 +3859,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttribI4i: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -3901,7 +3902,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI1ui: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3933,7 +3934,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI2ui: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -3968,7 +3969,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI3ui: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4007,7 +4008,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttribI4ui: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -4050,7 +4051,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI1iv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4088,7 +4089,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI2iv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4126,7 +4127,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI3iv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4165,7 +4166,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttribI4iv: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -4205,7 +4206,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI1uiv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4243,7 +4244,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI2uiv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4281,7 +4282,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI3uiv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4320,7 +4321,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specifies the value of a generic vertex attribute
+		/// [GL4|GLES3.2] glVertexAttribI4uiv: Specifies the value of a generic vertex attribute
 		/// </para>
 		/// </summary>
 		/// <param name="index">
@@ -4360,7 +4361,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI4bv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4398,7 +4399,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI4sv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4436,7 +4437,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI4ubv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4474,7 +4475,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] Specifies the value of a generic vertex attribute
+		/// [GL4] glVertexAttribI4usv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be modified.
@@ -4513,7 +4514,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Returns the value of a uniform variable
+		/// [GL4|GLES3.2] glGetUniformuiv: Returns the value of a uniform variable
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -4563,7 +4564,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] bind a user-defined varying out variable to a fragment shader color number
+		/// [GL4] glBindFragDataLocation: bind a user-defined varying out variable to a fragment shader color number
 		/// </summary>
 		/// <param name="program">
 		/// The name of the program containing varying out variable whose binding to modify
@@ -4599,7 +4600,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] query the bindings of color numbers to user-defined varying out variables
+		/// [GL4|GLES3.2] glGetFragDataLocation: query the bindings of color numbers to user-defined varying out variables
 		/// </para>
 		/// </summary>
 		/// <param name="program">
@@ -4631,7 +4632,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1ui: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4691,7 +4692,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2ui: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4754,7 +4755,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3ui: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4820,7 +4821,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4ui: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4889,7 +4890,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1uiv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -4959,7 +4960,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform1uiv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -5024,7 +5025,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2uiv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -5094,7 +5095,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform2uiv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -5159,7 +5160,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3uiv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -5229,7 +5230,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform3uiv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -5294,7 +5295,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4uiv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -5364,7 +5365,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] Specify the value of a uniform variable for the current program object
+		/// [GL4|GLES3.2] glUniform4uiv: Specify the value of a uniform variable for the current program object
 		/// </para>
 		/// </summary>
 		/// <param name="location">
@@ -5428,7 +5429,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexParameterIiv.
+		/// [GL] glTexParameterIiv: Binding for glTexParameterIiv.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5460,7 +5461,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL] Binding for glTexParameterIuiv.
+		/// [GL] glTexParameterIuiv: Binding for glTexParameterIuiv.
 		/// </summary>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5493,7 +5494,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return texture parameter values
+		/// [GL4|GLES3.2] glGetTexParameterIiv: return texture parameter values
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -5552,7 +5553,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return texture parameter values
+		/// [GL4|GLES3.2] glGetTexParameterIiv: return texture parameter values
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -5611,7 +5612,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return texture parameter values
+		/// [GL4|GLES3.2] glGetTexParameterIuiv: return texture parameter values
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -5670,7 +5671,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return texture parameter values
+		/// [GL4|GLES3.2] glGetTexParameterIuiv: return texture parameter values
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -5729,10 +5730,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] clear individual buffers of a framebuffer
+		/// [GL4] glClearBufferiv: clear individual buffers of a framebuffer
 		/// </para>
 		/// <para>
-		/// [GLES3.2] clear individual buffers of the currently bound draw framebuffer
+		/// [GLES3.2] glClearBufferiv: clear individual buffers of the currently bound draw framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="buffer">
@@ -5793,10 +5794,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] clear individual buffers of a framebuffer
+		/// [GL4] glClearBufferuiv: clear individual buffers of a framebuffer
 		/// </para>
 		/// <para>
-		/// [GLES3.2] clear individual buffers of the currently bound draw framebuffer
+		/// [GLES3.2] glClearBufferuiv: clear individual buffers of the currently bound draw framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="buffer">
@@ -5857,10 +5858,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] clear individual buffers of a framebuffer
+		/// [GL4] glClearBufferfv: clear individual buffers of a framebuffer
 		/// </para>
 		/// <para>
-		/// [GLES3.2] clear individual buffers of the currently bound draw framebuffer
+		/// [GLES3.2] glClearBufferfv: clear individual buffers of the currently bound draw framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="buffer">
@@ -5921,10 +5922,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] clear individual buffers of a framebuffer
+		/// [GL4] glClearBufferfi: clear individual buffers of a framebuffer
 		/// </para>
 		/// <para>
-		/// [GLES3.2] clear individual buffers of the currently bound draw framebuffer
+		/// [GLES3.2] glClearBufferfi: clear individual buffers of the currently bound draw framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="buffer">
@@ -5983,7 +5984,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] return a string describing the current GL connection
+		/// [GL4|GLES3.2] glGetStringi: return a string describing the current GL connection
 		/// </para>
 		/// </summary>
 		/// <param name="name">
@@ -6016,7 +6017,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] determine if a name corresponds to a renderbuffer object
+		/// [GL4|GLES3.2] glIsRenderbuffer: determine if a name corresponds to a renderbuffer object
 		/// </para>
 		/// </summary>
 		/// <param name="renderbuffer">
@@ -6045,7 +6046,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a renderbuffer to a renderbuffer target
+		/// [GL4|GLES3.2] glBindRenderbuffer: bind a renderbuffer to a renderbuffer target
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6080,7 +6081,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delete renderbuffer objects
+		/// [GL4|GLES3.2] glDeleteRenderbuffers: delete renderbuffer objects
 		/// </para>
 		/// </summary>
 		/// <param name="renderbuffers">
@@ -6113,7 +6114,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate renderbuffer object names
+		/// [GL4|GLES3.2] glGenRenderbuffers: generate renderbuffer object names
 		/// </para>
 		/// </summary>
 		/// <param name="renderbuffers">
@@ -6145,7 +6146,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate renderbuffer object names
+		/// [GL4|GLES3.2] glGenRenderbuffers: generate renderbuffer object names
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -6168,7 +6169,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] establish data storage, format and dimensions of a renderbuffer object's image
+		/// [GL4|GLES3.2] glRenderbufferStorage: establish data storage, format and dimensions of a renderbuffer object's image
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6222,10 +6223,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] query a named parameter of a renderbuffer object
+		/// [GL4] glGetRenderbufferParameteriv: query a named parameter of a renderbuffer object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] retrieve information about a bound renderbuffer object
+		/// [GLES3.2] glGetRenderbufferParameteriv: retrieve information about a bound renderbuffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6277,7 +6278,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] determine if a name corresponds to a framebuffer object
+		/// [GL4|GLES3.2] glIsFramebuffer: determine if a name corresponds to a framebuffer object
 		/// </para>
 		/// </summary>
 		/// <param name="framebuffer">
@@ -6305,7 +6306,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a framebuffer to a framebuffer target
+		/// [GL4|GLES3.2] glBindFramebuffer: bind a framebuffer to a framebuffer target
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6342,7 +6343,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delete framebuffer objects
+		/// [GL4|GLES3.2] glDeleteFramebuffers: delete framebuffer objects
 		/// </para>
 		/// </summary>
 		/// <param name="framebuffers">
@@ -6374,7 +6375,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate framebuffer object names
+		/// [GL4|GLES3.2] glGenFramebuffers: generate framebuffer object names
 		/// </para>
 		/// </summary>
 		/// <param name="framebuffers">
@@ -6406,7 +6407,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate framebuffer object names
+		/// [GL4|GLES3.2] glGenFramebuffers: generate framebuffer object names
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -6429,7 +6430,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] check the completeness status of a framebuffer
+		/// [GL4|GLES3.2] glCheckFramebufferStatus: check the completeness status of a framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6466,7 +6467,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] attach a level of a texture object as a logical buffer of a framebuffer object
+		/// [GL4] glFramebufferTexture1D: attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.
@@ -6536,10 +6537,11 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] attach a level of a texture object as a logical buffer of a framebuffer object
+		/// [GL4] glFramebufferTexture2D: attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] attach a level of a texture object as a logical buffer to the currently bound framebuffer object
+		/// [GLES3.2] glFramebufferTexture2D: attach a level of a texture object as a logical buffer to the currently bound 
+		/// framebuffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6611,7 +6613,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// [GL4] attach a level of a texture object as a logical buffer of a framebuffer object
+		/// [GL4] glFramebufferTexture3D: attach a level of a texture object as a logical buffer of a framebuffer object
 		/// </summary>
 		/// <param name="target">
 		/// Specifies the target to which the framebuffer is bound for all commands exceptGl.NamedFramebufferTexture.
@@ -6684,10 +6686,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] attach a renderbuffer as a logical buffer of a framebuffer object
+		/// [GL4] glFramebufferRenderbuffer: attach a renderbuffer as a logical buffer of a framebuffer object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] attach a renderbuffer as a logical buffer to the currently bound framebuffer object
+		/// [GLES3.2] glFramebufferRenderbuffer: attach a renderbuffer as a logical buffer to the currently bound framebuffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6743,10 +6745,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] retrieve information about attachments of a framebuffer object
+		/// [GL4] glGetFramebufferAttachmentParameteriv: retrieve information about attachments of a framebuffer object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] retrieve information about attachments of a bound framebuffer object
+		/// [GLES3.2] glGetFramebufferAttachmentParameteriv: retrieve information about attachments of a bound framebuffer object
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6813,10 +6815,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] generate mipmaps for a specified texture object
+		/// [GL4] glGenerateMipmap: generate mipmaps for a specified texture object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] generate mipmaps for a specified texture target
+		/// [GLES3.2] glGenerateMipmap: generate mipmaps for a specified texture target
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -6855,10 +6857,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] copy a block of pixels from one framebuffer object to another
+		/// [GL4] glBlitFramebuffer: copy a block of pixels from one framebuffer object to another
 		/// </para>
 		/// <para>
-		/// [GLES3.2] copy a block of pixels from the read framebuffer to the draw framebuffer
+		/// [GLES3.2] glBlitFramebuffer: copy a block of pixels from the read framebuffer to the draw framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="srcX0">
@@ -6947,7 +6949,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] establish data storage, format, dimensions and sample count of a renderbuffer object's image
+		/// [GL4|GLES3.2] glRenderbufferStorageMultisample: establish data storage, format, dimensions and sample count of a 
+		/// renderbuffer object's image
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -7015,10 +7018,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] attach a single layer of a texture object as a logical buffer of a framebuffer object
+		/// [GL4] glFramebufferTextureLayer: attach a single layer of a texture object as a logical buffer of a framebuffer object
 		/// </para>
 		/// <para>
-		/// [GLES3.2] attach a single layer of a texture to a framebuffer
+		/// [GLES3.2] glFramebufferTextureLayer: attach a single layer of a texture to a framebuffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -7092,10 +7095,10 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4] map all or part of a buffer object's data store into the client's address space
+		/// [GL4] glMapBufferRange: map all or part of a buffer object's data store into the client's address space
 		/// </para>
 		/// <para>
-		/// [GLES3.2] map a section of a buffer object's data store
+		/// [GLES3.2] glMapBufferRange: map a section of a buffer object's data store
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -7162,7 +7165,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] indicate modifications to a range of a mapped buffer
+		/// [GL4|GLES3.2] glFlushMappedBufferRange: indicate modifications to a range of a mapped buffer
 		/// </para>
 		/// </summary>
 		/// <param name="target">
@@ -7214,7 +7217,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] bind a vertex array object
+		/// [GL4|GLES3.2] glBindVertexArray: bind a vertex array object
 		/// </para>
 		/// </summary>
 		/// <param name="array">
@@ -7244,7 +7247,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] delete vertex array objects
+		/// [GL4|GLES3.2] glDeleteVertexArrays: delete vertex array objects
 		/// </para>
 		/// </summary>
 		/// <param name="arrays">
@@ -7278,7 +7281,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate vertex array object names
+		/// [GL4|GLES3.2] glGenVertexArrays: generate vertex array object names
 		/// </para>
 		/// </summary>
 		/// <param name="arrays">
@@ -7311,7 +7314,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] generate vertex array object names
+		/// [GL4|GLES3.2] glGenVertexArrays: generate vertex array object names
 		/// </para>
 		/// </summary>
 		/// <exception cref="KhronosException">
@@ -7335,7 +7338,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL4|GLES3.2] determine if a name corresponds to a vertex array object
+		/// [GL4|GLES3.2] glIsVertexArray: determine if a name corresponds to a vertex array object
 		/// </para>
 		/// </summary>
 		/// <param name="array">

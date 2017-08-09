@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Glx
 	{
 		/// <summary>
-		/// [GLX] Binding for glXJoinSwapGroupSGIX.
+		/// [GLX] glXJoinSwapGroupSGIX: Binding for glXJoinSwapGroupSGIX.
 		/// </summary>
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.

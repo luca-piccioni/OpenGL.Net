@@ -36,7 +36,7 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Binding for glTextureBarrierNV.
+		/// [GL] glTextureBarrierNV: Binding for glTextureBarrierNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_texture_barrier", Api = "gl|glcore")]
 		public static void TextureBarrierNV()
