@@ -49,7 +49,7 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
-		#region Design Properties - Context Attributes
+		#region Context Attributes
 
 		/// <summary>
 		/// Get or set the version to be requested to the OpenGL driver.
@@ -166,7 +166,7 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
-		#region Design Properties - Framebuffer
+		#region Framebuffer
 
 		/// <summary>
 		/// Get or set the OpenGL minimum color buffer bits.
@@ -290,6 +290,38 @@ namespace OpenGL.CoreUI
 
 				return (controlReqFormat);
 			}
+		}
+
+		#endregion
+
+		#region Animation
+
+		/// <summary>
+		/// Get or set the flag indicating whether control should update itself continuosly.
+		/// </summary>
+		public bool Animation
+		{
+			get { return (_Animation); }
+			set
+			{
+				_Animation = value;
+				// Start animation, if necessary
+				if (_Animation && _IsContextCreated)
+					Invalidate();
+			}
+		}
+
+		/// <summary>
+		/// Flag indicating whether control should update itself continuosly.
+		/// </summary>
+		private bool _Animation;
+
+		/// <summary>
+		/// Get or set the flag indicating whether control should update itself continuosly.
+		/// </summary>
+		public int AnimationTime
+		{
+			get; set;
 		}
 
 		#endregion
@@ -580,7 +612,7 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
-		#region Render Context Shadring
+		#region Render Context Sharing
 
 		/// <summary>
 		/// Context sharing options.
@@ -687,6 +719,11 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public abstract void Hide();
 
+		/// <summary>
+		/// Invalidate the window.
+		/// </summary>
+		public abstract void Invalidate();
+
 		#endregion
 
 		#region Events
@@ -702,7 +739,10 @@ namespace OpenGL.CoreUI
 		protected virtual void OnContextCreated()
 		{
 			ContextCreated?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
+			_IsContextCreated = true;
 		}
+
+		private bool _IsContextCreated;
 
 		/// <summary>
 		/// Event raised on control disposition time, allow user to dispose resources on control.
@@ -714,6 +754,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnContextDestroying()
 		{
+			_IsContextCreated = false;
 			ContextDestroying?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
 		}
 
