@@ -68,7 +68,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
-		public static void FramebufferQCOM(UInt32 framebuffer, UInt32 numLayers, UInt32 focalPointsPerLayer, UInt32 requestedFeatures, UInt32[] providedFeatures)
+		public static void FramebufferFoveationQCOM(UInt32 framebuffer, UInt32 numLayers, UInt32 focalPointsPerLayer, UInt32 requestedFeatures, UInt32[] providedFeatures)
 		{
 			unsafe {
 				fixed (UInt32* p_providedFeatures = providedFeatures)
