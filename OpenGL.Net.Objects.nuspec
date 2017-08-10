@@ -1,31 +1,34 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-  <metadata>
-		<id>OpenGL.Net.Objects</id>
-		<version>$version$</version>
-		<title>OpenGL for .Net, Object-Oriented</title>
-		<authors>Luca Piccioni</authors>
-		<owners>Luca Piccioni</owners>
-		<licenseUrl>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</licenseUrl>
-		<projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
-    <!--<iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net.Logo.png</iconUrl>-->
-		<requireLicenseAcceptance>true</requireLicenseAcceptance>
-		<summary>Modern OpenGL bindings for C#, OOP.</summary>
-		<description>
-			Modern OpenGL bindings for C#, OOP.
-		</description>
-		<releaseNotes>
-			This package includes the targets:
-			- .NET 4.6.1
-		</releaseNotes>
-		<copyright>Copyright 2015-2017</copyright>
-		<tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
-		<dependencies>
-			<dependency id="OpenGL.Net" version="0.5.1" />
-		</dependencies>
-	</metadata>
-	<files>
-		<file src="OpenGL.Net.Objects/bin/Release/OpenGL.Net.Objects.dll" target="lib\net461" />
-		<file src="OpenGL.Net.Objects/bin/Release/OpenGL.Net.Objects.xml" target="lib\net461" />
-	</files>
+    <metadata>
+        <id>OpenGL.Net.Objects</id>
+        <version>$version$</version>
+        <title>OpenGL for .Net, Object-Oriented</title>
+        <authors>Luca Piccioni</authors>
+        <owners>Luca Piccioni</owners>
+        <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
+        <iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net-Logo.gif</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <summary>Modern OpenGL bindings for C#, OOP.</summary>
+        <description>
+            Modern OpenGL bindings for C#, OOP.
+        </description>
+        <releaseNotes>
+            This package includes the targets:
+            - .NET 4.6.1
+            - .NET 3.5
+        </releaseNotes>
+        <copyright>Copyright 2015-2017</copyright>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
+        <dependencies>
+            <dependency id="OpenGL.Net" version="0.5.1" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="OpenGL.Net.Objects/bin/net461/Release/OpenGL.Net.Objects.dll" target="lib\net461" />
+        <file src="OpenGL.Net.Objects/bin/net461/Release/OpenGL.Net.Objects.xml" target="lib\net461" />
+        <file src="OpenGL.Net.Objects/bin/net35/Release/OpenGL.Net.Objects.dll" target="lib\net35" />
+        <file src="OpenGL.Net.Objects/bin/net35/Release/OpenGL.Net.Objects.xml" target="lib\net35" />
+    </files>
 </package>

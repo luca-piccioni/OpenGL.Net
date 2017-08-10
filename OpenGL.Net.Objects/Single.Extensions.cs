@@ -1,20 +1,23 @@
 ﻿
-  // Copyright (C) 2009-2017 Luca Piccioni
+// Copyright (C) 2009-2017 Luca Piccioni
 // 
-// This library is free software; you can redistribute it and/or
-// modify it under the terms of the GNU Lesser General Public
-// License as published by the Free Software Foundation; either
-// version 2.1 of the License, or (at your option) any later version.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 // 
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// Lesser General Public License for more details.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 // 
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library; if not, write to the Free Software
-// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
-// USA
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 using System;
 
@@ -26,13 +29,13 @@ namespace OpenGL.Objects
 	public static class SingleExtensions
 	{
 		/// <summary>
-		/// Convert a <see cref="Single[]"/> to <see cref="Vertex4f[]"/>.
+		/// Convert a <see cref="T:Single[]"/> to <see cref="T:Vertex4f[]"/>.
 		/// </summary>
 		/// <param name="array">
-		/// The <see cref="Single[]"/> to be converted.
+		/// The <see cref="T:Single[]"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="Vertex4f[]"/> equivalent to <paramref name="array"/>.
+		/// It returns the <see cref="T:Vertex4f[]"/> equivalent to <paramref name="array"/>.
 		/// </returns>
 		public static Vertex4f[] ToVertex4f(this float[] array)
 		{
@@ -46,13 +49,13 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Convert a <see cref="Single[]"/> to <see cref="Vertex3f[]"/>.
+		/// Convert a <see cref="T:Single[]"/> to <see cref="T:Vertex3f[]"/>.
 		/// </summary>
 		/// <param name="array">
-		/// The <see cref="Single[]"/> to be converted.
+		/// The <see cref="T:Single[]"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="Vertex3f[]"/> equivalent to <paramref name="array"/>.
+		/// It returns the <see cref="T:Vertex3f[]"/> equivalent to <paramref name="array"/>.
 		/// </returns>
 		public static Vertex3f[] ToVertex3f(this float[] array)
 		{
@@ -66,13 +69,13 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Convert a <see cref="Single[]"/> to <see cref="Vertex2f[]"/>.
+		/// Convert a <see cref="T:Single[]"/> to <see cref="T:Vertex2f[]"/>.
 		/// </summary>
 		/// <param name="array">
-		/// The <see cref="Single[]"/> to be converted.
+		/// The <see cref="T:Single[]"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="Vertex2f[]"/> equivalent to <paramref name="array"/>.
+		/// It returns the <see cref="T:Vertex2f[]"/> equivalent to <paramref name="array"/>.
 		/// </returns>
 		public static Vertex2f[] ToVertex2f(this float[] array)
 		{
@@ -86,13 +89,13 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Convert a <see cref="Single[]"/> to <see cref="ColorRGBAF[]"/>.
+		/// Convert a <see cref="T:Single[]"/> to <see cref="T:ColorRGBAF[]"/>.
 		/// </summary>
 		/// <param name="array">
-		/// The <see cref="Single[]"/> to be converted.
+		/// The <see cref="T:Single[]"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="ColorRGBAF[]"/> equivalent to <paramref name="array"/>.
+		/// It returns the <see cref="T:ColorRGBAF[]"/> equivalent to <paramref name="array"/>.
 		/// </returns>
 		public static ColorRGBAF[] ToColorRGBAF(this float[] array)
 		{
@@ -106,13 +109,13 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Convert a <see cref="Single[]"/> to <see cref="ColorRGBF[]"/>.
+		/// Convert a <see cref="T:Single[]"/> to <see cref="T:ColorRGBF[]"/>.
 		/// </summary>
 		/// <param name="array">
-		/// The <see cref="Single[]"/> to be converted.
+		/// The <see cref="T:Single[]"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="ColorRGBF[]"/> equivalent to <paramref name="array"/>.
+		/// It returns the <see cref="T:ColorRGBF[]"/> equivalent to <paramref name="array"/>.
 		/// </returns>
 		public static ColorRGBF[] ToColorRGBF(this float[] array)
 		{
