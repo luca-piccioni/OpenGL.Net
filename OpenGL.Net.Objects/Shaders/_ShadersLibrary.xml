@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ShadersLibrary>
+	
+	<!-- Include sources -->
+	<Includes>
+		<Include Id="/OpenGL/Compatibility.glsl">
+			<Path>OpenGL.Objects.Shaders.Compatibility.glsl</Path>
+		</Include>
+		<Include Id="/OpenGL/TransformState.glsl">
+			<Path>OpenGL.Objects.Shaders.TransformState.glsl</Path>
+		</Include>
+	</Includes>
+	
+	<!-- Program Objects -->
+	<Objects>
+		
+		<!-- Line -->
+
+		<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl">
+			<Symbols>
+				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
+			</Symbols>
+		</Object>
+		
+		<!-- Geometry Clipmap -->
+		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.Vertex.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.Fragment.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.ClipmapTexFragment.glsl" />
+	
+	</Objects>
+
+	<Programs>
+
+		<!-- Line -->
+		<Program Id="OpenGL.Line">
+			<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader" />
+			<Attribute Name="glo_Position" Semantic="Position" />
+		</Program>
+
+		<!-- Line+Color -->
+		<Program Id="OpenGL.Line+Color">
+			<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader" >
+				<Symbols>
+					<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
+				</Symbols>
+			</Object>
+			<Attribute Name="glo_Position" Semantic="Position" />
+			<Attribute Name="glo_Color" Semantic="Color" />
+		</Program>
+	
+	</Programs>
+	
+</ShadersLibrary>

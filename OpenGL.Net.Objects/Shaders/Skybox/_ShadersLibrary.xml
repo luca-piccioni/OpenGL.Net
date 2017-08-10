@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ShadersLibrary>
+	
+	<!-- Program Objects -->
+	<Objects>
+		
+		<!-- Skybox -->
+
+		<Object Path="OpenGL.Objects.Shaders.Skybox.Vertex.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Skybox.Fragment.glsl" />
+	
+	</Objects>
+
+	<Programs>
+
+		<!-- Skybox -->
+		<Program Id="OpenGL.Skybox">
+			<Object Path="OpenGL.Objects.Shaders.Skybox.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Skybox.Fragment.glsl" Stage="FragmentShader" />
+			<Attribute Name="glo_Position" Semantic="Position" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+		</Program>
+	
+	</Programs>
+	
+</ShadersLibrary>

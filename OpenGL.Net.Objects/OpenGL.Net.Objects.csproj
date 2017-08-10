@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01314A39-AE2A-44F6-BA14-8C961583C75C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenGL.Objects</RootNamespace>
+    <AssemblyName>OpenGL.Net.Objects</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile>bin\Release\OpenGL.Net.Objects.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.3.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.3.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlignedMemoryBuffer.cs" />
+    <Compile Include="ArrayBufferItem.cs" />
+    <Compile Include="ArrayBuffer.cs" />
+    <Compile Include="ArrayBufferBase.cs" />
+    <Compile Include="ArrayBufferInterleaved.cs" />
+    <Compile Include="Collections\StringDictionary.cs" />
+    <Compile Include="Font.cs" />
+    <Compile Include="FontFactory.cs" />
+    <Compile Include="FontVertex.cs" />
+    <Compile Include="FontFx.cs" />
+    <Compile Include="FontTextureArray2d.cs" />
+    <Compile Include="IBindingIndexResource.cs" />
+    <Compile Include="IFont.cs" />
+    <Compile Include="IShaderUniformContainer.cs" />
+    <Compile Include="Sampler.cs" />
+    <Compile Include="SamplerParameters.cs" />
+    <Compile Include="Scene\SceneGraphFlags.cs" />
+    <Compile Include="Scene\SceneGraphSorter.cs" />
+    <Compile Include="Scene\SceneLightManager.cs" />
+    <Compile Include="Scene\SceneObjectBatch.cs" />
+    <Compile Include="Scene\SceneObjectCodecWavefront.cs" />
+    <Compile Include="Scene\SceneObjectFlags.cs" />
+    <Compile Include="Scene\SceneObjectFormat.cs" />
+    <Compile Include="Scene\SceneObjectCodecCriteria.cs" />
+    <Compile Include="Scene\SceneObjectCodec.cs" />
+    <Compile Include="Scene\SceneObjectGeometryFlags.cs" />
+    <Compile Include="Scene\SceneObjectInfo.cs" />
+    <Compile Include="Scene\BoundingBox.cs" />
+    <None Include="packages.config" />
+    <None Include="Scene\BoundingSphere.cs" />
+    <Compile Include="Scene\IBoundingVolume.cs" />
+    <Compile Include="Scene\SceneGraph.cs" />
+    <Compile Include="Scene\SceneObjectCamera.cs" />
+    <Compile Include="Scene\SceneGraphContext.cs" />
+    <Compile Include="Scene\SceneObject.cs" />
+    <Compile Include="Scene\SceneObjectGeometry.cs" />
+    <Compile Include="Scene\SceneObjectLightSpot.cs" />
+    <Compile Include="Scene\SceneObjectLightPoint.cs" />
+    <Compile Include="Scene\SceneObjectLightDirectional.cs" />
+    <Compile Include="Scene\SceneObjectLight.cs" />
+    <Compile Include="Scene\SceneObjectLightZone.cs" />
+    <Compile Include="Scene\ShadowMap.cs" />
+    <Compile Include="ShaderProgram.GetUniform.cs" />
+    <Compile Include="ShaderProgram.SetUniform.cs" />
+    <Compile Include="ShaderProgram.UniformBlock.cs" />
+    <Compile Include="ShaderStorageBuffer.cs" />
+    <Compile Include="Single.Extensions.cs" />
+    <Compile Include="Buffer.cs" />
+    <Compile Include="CoreImageCodecPlugin.cs" />
+    <Compile Include="ElementBuffer.cs" />
+    <Compile Include="FeedbackBufferFormat.cs" />
+    <Compile Include="FeedbackBuffer.cs" />
+    <Compile Include="Framebuffer.cs" />
+    <Compile Include="GraphicsContext.cs" />
+    <Compile Include="GraphicsContextFlags.cs" />
+    <Compile Include="GraphicsResource.cs" />
+    <Compile Include="GraphicsSurface.cs" />
+    <Compile Include="IBindingResource.cs" />
+    <Compile Include="IDisposableExtensions.cs" />
+    <Compile Include="IGraphicsDisposable.cs" />
+    <Compile Include="IGraphicsResource.cs" />
+    <Compile Include="IGraphicsResource.Extensions.cs" />
+    <Compile Include="IGraphicsSurface.cs" />
+    <Compile Include="IImageCodecPlugin.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="ImageCodec.cs" />
+    <Compile Include="ImageCodecCriteria.cs" />
+    <Compile Include="ImageFormat.cs" />
+    <Compile Include="ImageInfo.cs" />
+    <Compile Include="ImageSemantic.cs" />
+    <Compile Include="IMedia.cs" />
+    <Compile Include="IMediaCodecPlugin.cs" />
+    <Compile Include="IPlugin.cs" />
+    <Compile Include="IResource.cs" />
+    <Compile Include="MediaCodec.cs" />
+    <Compile Include="MediaCodecCriteria.cs" />
+    <Compile Include="MediaFormatAttribute.cs" />
+    <Compile Include="MediaInfo.cs" />
+    <Compile Include="PluginLoader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query.cs" />
+    <Compile Include="RenderBuffer.cs" />
+    <Compile Include="Resource.cs" />
+    <Compile Include="ResourceCollection.cs" />
+    <Compile Include="ShaderAttributeType.cs" />
+    <Compile Include="ShaderCompilerContext.cs" />
+    <Compile Include="ShaderException.cs" />
+    <Compile Include="ShaderExtension.cs" />
+    <Compile Include="ShaderExtensionBehavior.cs" />
+    <Compile Include="ShaderInclude.cs" />
+    <Compile Include="ShaderIncludeLibrary.cs" />
+    <Compile Include="ShaderIncludePreprocessor.cs" />
+    <Compile Include="Shader.cs" />
+    <Compile Include="ShaderProgram.cs" />
+    <Compile Include="ShaderProgram.Uniform.cs" />
+    <Compile Include="ShaderProgram.VariantUniform.cs" />
+    <Compile Include="ShadersLibrary.cs" />
+    <Compile Include="ShaderUniformType.cs" />
+    <Compile Include="State\BlendState.cs" />
+    <Compile Include="State\CullFaceState.cs" />
+    <Compile Include="State\DepthTestState.cs" />
+    <Compile Include="State\GraphicsState.cs" />
+    <Compile Include="State\GraphicsStateSet.cs" />
+    <Compile Include="State\GraphicsStateSetStack.cs" />
+    <Compile Include="State\IGraphicsState.cs" />
+    <Compile Include="State\MaterialState.cs" />
+    <Compile Include="State\LightsState.cs" />
+    <Compile Include="State\PixelAlignmentState.cs" />
+    <Compile Include="State\PolygonModeState.cs" />
+    <Compile Include="State\PolygonOffsetState.cs" />
+    <Compile Include="State\PrimitiveRestartState.cs" />
+    <Compile Include="State\ShaderUniformState.cs" />
+    <Compile Include="State\ShadowsState.cs" />
+    <Compile Include="State\TransformState.cs" />
+    <Compile Include="State\TransformStateBase.cs" />
+    <Compile Include="State\TransformStateDouble.cs" />
+    <Compile Include="State\ViewportState.cs" />
+    <Compile Include="State\WriteMaskState.cs" />
+    <Compile Include="String.Extensions.cs" />
+    <Compile Include="Tessellator.cs" />
+    <Compile Include="Texture.cs" />
+    <Compile Include="Texture1d.cs" />
+    <Compile Include="Texture2d.cs" />
+    <Compile Include="Texture3d.cs" />
+    <Compile Include="TextureArray2d.cs" />
+    <Compile Include="TextureCube.cs" />
+    <Compile Include="TextureRectangle.cs" />
+    <Compile Include="TextureUnit.cs" />
+    <Compile Include="UniformBuffer.cs" />
+    <Compile Include="UniformBuffer.SetUniform.cs" />
+    <Compile Include="VertexArrays.Arrays.cs" />
+    <Compile Include="VertexArrays.cs" />
+    <Compile Include="VertexArrays.Elements.cs" />
+    <Compile Include="VertexArraySemantic.cs" />
+    <Compile Include="VertexArrayTexGen.cs" />
+    <Compile Include="Vincenty.cs" />
+    <EmbeddedResource Include="Shaders\Font\Fragment.FontPatch.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Vertex.FontPatch.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Vertex.FontTextureArray.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Fragment.FontTextureArray.glsl" />
+    <EmbeddedResource Include="Shaders\Shadow\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Shadow\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\TextureVertex.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\TextureFragment.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\DepthFragment.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\DepthVertex.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadowState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightDirectional.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightDirectionalImpl.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightPoint.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightPointImpl.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightSpot.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightSpotImpl.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Shaders\Compatibility.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Geometry.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Standard\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Standard\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\TransformState.glsl" />
+    <EmbeddedResource Include="Shaders\Skybox\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Skybox\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadingLambert.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightMulti.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\MaterialState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadingPhong.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shaders\CompatibilityNotes.txt" />
+    <EmbeddedResource Include="Shaders\Specialized\_ShadersLibrary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shaders\Shadow\_ShadersLibrary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shaders\Font\_ShadersLibrary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shaders\Skybox\_ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\Standard\_ShadersLibrary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shaders\Light\_ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net461.csproj">
+      <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
+      <Name>OpenGL.Net_net461</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

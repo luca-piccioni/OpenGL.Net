@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ShadersLibrary>
+
+	<!-- Program Objects -->
+	<Objects>
+		<Object Path="OpenGL.Objects.Shaders.Shadow.Vertex.glsl">
+		</Object>
+
+		<Object Path="OpenGL.Objects.Shaders.Shadow.Fragment.glsl">
+		</Object>
+	</Objects>
+
+	<Programs>
+
+		<!-- ShadowMap -->
+		<Program Id="OpenGL.ShadowMap">
+			<Object Path="OpenGL.Objects.Shaders.Shadow.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Shadow.Fragment.glsl" Stage="FragmentShader" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+		</Program>
+
+	</Programs>
+
+</ShadersLibrary>

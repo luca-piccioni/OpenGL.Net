@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ShadersLibrary>
+
+	<!-- Program Objects -->
+	<Objects>
+		<Object Path="OpenGL.Objects.Shaders.Specialized.TextureVertex.glsl">
+			<Symbols>
+			</Symbols>
+		</Object>
+
+		<Object Path="OpenGL.Objects.Shaders.Specialized.TextureFragment.glsl">
+			<Symbols>
+				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
+			</Symbols>
+		</Object>
+
+		<Object Path="OpenGL.Objects.Shaders.Specialized.DepthVertex.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Specialized.DepthFragment.glsl" />
+		
+	</Objects>
+
+	<Programs>
+
+		<!-- Specialized+Texture -->
+		<Program Id="OpenGL.Specialized+Texture">
+			<Object Path="OpenGL.Objects.Shaders.Specialized.TextureVertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Specialized.TextureFragment.glsl" Stage="FragmentShader" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
+			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+			<Uniform Name="glo_UniformColor" Semantic="Color"/>
+		</Program>
+
+		<!-- Specialized+Depth -->
+		<Program Id="OpenGL.Specialized+Depth">
+			<Object Path="OpenGL.Objects.Shaders.Specialized.DepthVertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Specialized.DepthFragment.glsl" Stage="FragmentShader" />
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
+
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+		</Program>
+	
+	</Programs>
+
+</ShadersLibrary>
