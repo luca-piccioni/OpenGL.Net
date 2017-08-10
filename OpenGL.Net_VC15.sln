@@ -27,14 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.appveyor.yml = .appveyor.yml
 		.travis.yml = .travis.yml
 		LICENSE = LICENSE
-		OpenGL.Net.CoreProfile.nuspec = OpenGL.Net.CoreProfile.nuspec
-		OpenGL.Net.Debug.nuspec = OpenGL.Net.Debug.nuspec
-		OpenGL.Net.ES2Profile.nuspec = OpenGL.Net.ES2Profile.nuspec
-		OpenGL.Net.nuspec = OpenGL.Net.nuspec
-		OpenGL.Net.SC2Profile.nuspec = OpenGL.Net.SC2Profile.nuspec
-		OpenGL.Net.VideoCore.nuspec = OpenGL.Net.VideoCore.nuspec
-		OpenGL.Net.WinForms.nuspec = OpenGL.Net.WinForms.nuspec
-		OpenGL.Net.Xamarin.Android.nuspec = OpenGL.Net.Xamarin.Android.nuspec
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -120,6 +112,27 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net_netstd2.0", "OpenGL.Net\OpenGL.Net_netstd2.0.csproj", "{55E65B12-43CC-4D01-A846-BF62DECD66EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle.CoreUI", "Samples\HelloTriangle.CoreUI\HelloTriangle.CoreUI.csproj", "{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Objects_net461", "OpenGL.Net.Objects\OpenGL.Net.Objects_net461.csproj", "{01314A39-AE2A-44F6-BA14-8C961583C75C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Objects_net35", "OpenGL.Net.Objects\OpenGL.Net.Objects_net35.csproj", "{A73EE465-4E0D-4513-882D-29CA79F734F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net.Objects_netstd1.4", "OpenGL.Net.Objects\OpenGL.Net.Objects_netstd1.4.csproj", "{3DE32B2B-7033-4A4C-9B87-E593106E31DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net_netstd1.4", "OpenGL.Net\OpenGL.Net_netstd1.4.csproj", "{D7423E59-BCF7-4BCA-9B75-0C31460E220E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{7F9EC9D0-456B-4452-8EFE-28ED3A16993C}"
+	ProjectSection(SolutionItems) = preProject
+		OpenGL.Net.CoreProfile.nuspec = OpenGL.Net.CoreProfile.nuspec
+		OpenGL.Net.Debug.nuspec = OpenGL.Net.Debug.nuspec
+		OpenGL.Net.ES2Profile.nuspec = OpenGL.Net.ES2Profile.nuspec
+		OpenGL.Net.nuspec = OpenGL.Net.nuspec
+		OpenGL.Net.Objects.nuspec = OpenGL.Net.Objects.nuspec
+		OpenGL.Net.SC2Profile.nuspec = OpenGL.Net.SC2Profile.nuspec
+		OpenGL.Net.VideoCore.nuspec = OpenGL.Net.VideoCore.nuspec
+		OpenGL.Net.WinForms.nuspec = OpenGL.Net.WinForms.nuspec
+		OpenGL.Net.Xamarin.Android.nuspec = OpenGL.Net.Xamarin.Android.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -405,6 +418,38 @@ Global
 		{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA}.Release|x86.ActiveCfg = Release|Any CPU
 		{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA}.Release|x86.Build.0 = Release|Any CPU
+		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Debug|x86.ActiveCfg = Debug|x86
+		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Debug|x86.Build.0 = Debug|x86
+		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Release|x86.ActiveCfg = Release|x86
+		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Release|x86.Build.0 = Release|x86
+		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Debug|x86.ActiveCfg = Debug|x86
+		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Debug|x86.Build.0 = Debug|x86
+		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Release|x86.ActiveCfg = Release|x86
+		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Release|x86.Build.0 = Release|x86
+		{3DE32B2B-7033-4A4C-9B87-E593106E31DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE32B2B-7033-4A4C-9B87-E593106E31DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE32B2B-7033-4A4C-9B87-E593106E31DD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3DE32B2B-7033-4A4C-9B87-E593106E31DD}.Debug|x86.Build.0 = Debug|Any CPU
+		{3DE32B2B-7033-4A4C-9B87-E593106E31DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE32B2B-7033-4A4C-9B87-E593106E31DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE32B2B-7033-4A4C-9B87-E593106E31DD}.Release|x86.ActiveCfg = Release|Any CPU
+		{3DE32B2B-7033-4A4C-9B87-E593106E31DD}.Release|x86.Build.0 = Release|Any CPU
+		{D7423E59-BCF7-4BCA-9B75-0C31460E220E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7423E59-BCF7-4BCA-9B75-0C31460E220E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7423E59-BCF7-4BCA-9B75-0C31460E220E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D7423E59-BCF7-4BCA-9B75-0C31460E220E}.Debug|x86.Build.0 = Debug|Any CPU
+		{D7423E59-BCF7-4BCA-9B75-0C31460E220E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7423E59-BCF7-4BCA-9B75-0C31460E220E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7423E59-BCF7-4BCA-9B75-0C31460E220E}.Release|x86.ActiveCfg = Release|Any CPU
+		{D7423E59-BCF7-4BCA-9B75-0C31460E220E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
