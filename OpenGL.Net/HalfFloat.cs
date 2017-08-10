@@ -55,7 +55,7 @@
 
 using System;
 using System.Runtime.InteropServices;
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 #endif
@@ -65,12 +65,12 @@ namespace OpenGL
 	/// <summary>
 	/// HalfFloat floating-point number (16 bit).
 	/// </summary>
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 	[Serializable]
 #endif
 	[StructLayout(LayoutKind.Sequential)]
 	public struct HalfFloat : IComparable<HalfFloat>, IFormattable, IEquatable<HalfFloat>
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 		, ISerializable
 #endif
 	{
@@ -539,7 +539,7 @@ namespace OpenGL
 
 		#endregion
 
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 
 		#region ISerializable Implementation
 

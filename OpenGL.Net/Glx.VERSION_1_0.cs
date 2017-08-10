@@ -1010,103 +1010,103 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXChooseVisual", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXChooseVisual(IntPtr dpy, int screen, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXCreateContext", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXDestroyContext", ExactSpelling = true)]
 			internal extern static unsafe void glXDestroyContext(IntPtr dpy, IntPtr ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXMakeCurrent", ExactSpelling = true)]
 			internal extern static unsafe bool glXMakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXCopyContext", ExactSpelling = true)]
 			internal extern static unsafe void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXSwapBuffers", ExactSpelling = true)]
 			internal extern static unsafe void glXSwapBuffers(IntPtr dpy, IntPtr drawable);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXCreateGLXPixmap", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXDestroyGLXPixmap", ExactSpelling = true)]
 			internal extern static unsafe void glXDestroyGLXPixmap(IntPtr dpy, IntPtr pixmap);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryExtension", ExactSpelling = true)]
 			internal extern static unsafe bool glXQueryExtension(IntPtr dpy, int* errorb, int* @event);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryVersion", ExactSpelling = true)]
 			internal extern static unsafe bool glXQueryVersion(IntPtr dpy, int* maj, int* min);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXIsDirect", ExactSpelling = true)]
 			internal extern static unsafe bool glXIsDirect(IntPtr dpy, IntPtr ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetConfig", ExactSpelling = true)]
 			internal extern static unsafe int glXGetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetCurrentContext", ExactSpelling = true)]
 			internal extern static IntPtr glXGetCurrentContext();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetCurrentDrawable", ExactSpelling = true)]
 			internal extern static IntPtr glXGetCurrentDrawable();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXWaitGL", ExactSpelling = true)]
 			internal extern static void glXWaitGL();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXWaitX", ExactSpelling = true)]
 			internal extern static void glXWaitX();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXUseXFont", ExactSpelling = true)]
@@ -1117,7 +1117,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXChooseVisual(IntPtr dpy, int screen, int* attribList);
@@ -1126,7 +1126,7 @@ namespace OpenGL
 			internal static glXChooseVisual pglXChooseVisual;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXCreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct);
@@ -1135,7 +1135,7 @@ namespace OpenGL
 			internal static glXCreateContext pglXCreateContext;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXDestroyContext(IntPtr dpy, IntPtr ctx);
@@ -1144,7 +1144,7 @@ namespace OpenGL
 			internal static glXDestroyContext pglXDestroyContext;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool glXMakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx);
@@ -1153,7 +1153,7 @@ namespace OpenGL
 			internal static glXMakeCurrent pglXMakeCurrent;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask);
@@ -1162,7 +1162,7 @@ namespace OpenGL
 			internal static glXCopyContext pglXCopyContext;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXSwapBuffers(IntPtr dpy, IntPtr drawable);
@@ -1171,7 +1171,7 @@ namespace OpenGL
 			internal static glXSwapBuffers pglXSwapBuffers;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXCreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap);
@@ -1180,7 +1180,7 @@ namespace OpenGL
 			internal static glXCreateGLXPixmap pglXCreateGLXPixmap;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXDestroyGLXPixmap(IntPtr dpy, IntPtr pixmap);
@@ -1189,7 +1189,7 @@ namespace OpenGL
 			internal static glXDestroyGLXPixmap pglXDestroyGLXPixmap;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool glXQueryExtension(IntPtr dpy, int* errorb, int* @event);
@@ -1198,7 +1198,7 @@ namespace OpenGL
 			internal static glXQueryExtension pglXQueryExtension;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool glXQueryVersion(IntPtr dpy, int* maj, int* min);
@@ -1207,7 +1207,7 @@ namespace OpenGL
 			internal static glXQueryVersion pglXQueryVersion;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool glXIsDirect(IntPtr dpy, IntPtr ctx);
@@ -1216,7 +1216,7 @@ namespace OpenGL
 			internal static glXIsDirect pglXIsDirect;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXGetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int* value);
@@ -1225,7 +1225,7 @@ namespace OpenGL
 			internal static glXGetConfig pglXGetConfig;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr glXGetCurrentContext();
@@ -1234,7 +1234,7 @@ namespace OpenGL
 			internal static glXGetCurrentContext pglXGetCurrentContext;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr glXGetCurrentDrawable();
@@ -1243,7 +1243,7 @@ namespace OpenGL
 			internal static glXGetCurrentDrawable pglXGetCurrentDrawable;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glXWaitGL();
@@ -1252,7 +1252,7 @@ namespace OpenGL
 			internal static glXWaitGL pglXWaitGL;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glXWaitX();
@@ -1261,7 +1261,7 @@ namespace OpenGL
 			internal static glXWaitX pglXWaitX;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glXUseXFont(Int32 font, int first, int count, int list);

@@ -118,19 +118,19 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFramebufferPixelLocalStorageSizeEXT", ExactSpelling = true)]
 			internal extern static void glFramebufferPixelLocalStorageSizeEXT(UInt32 target, Int32 size);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetFramebufferPixelLocalStorageSizeEXT", ExactSpelling = true)]
 			internal extern static Int32 glGetFramebufferPixelLocalStorageSizeEXT(UInt32 target);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClearPixelLocalStorageuiEXT", ExactSpelling = true)]
@@ -141,7 +141,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glFramebufferPixelLocalStorageSizeEXT(UInt32 target, Int32 size);
@@ -151,7 +151,7 @@ namespace OpenGL
 			internal static glFramebufferPixelLocalStorageSizeEXT pglFramebufferPixelLocalStorageSizeEXT;
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate Int32 glGetFramebufferPixelLocalStorageSizeEXT(UInt32 target);
@@ -161,7 +161,7 @@ namespace OpenGL
 			internal static glGetFramebufferPixelLocalStorageSizeEXT pglGetFramebufferPixelLocalStorageSizeEXT;
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glClearPixelLocalStorageuiEXT(Int32 offset, Int32 n, UInt32* values);

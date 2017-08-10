@@ -1132,11 +1132,11 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Determine the actual <see cref="Element"/> instances used for drawing.
 		/// </summary>
-		protected virtual IEnumerable<Element> DrawElements { get { return (_Elements); } }
+		protected virtual IEnumerable<IElement> DrawElements { get { return (_Elements); } }
 
 		/// <summary>
 		/// Collection of elements for drawing arrays.
 		/// </summary>
-		private readonly List<Element> _Elements = new List<Element>();
+		private readonly List<IElement> _Elements = new List<IElement>();
 	}
 }

@@ -52,7 +52,7 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBlendEquationOES", ExactSpelling = true)]
@@ -63,7 +63,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBlendEquationOES(Int32 mode);

@@ -95,13 +95,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCombinerStageParameterfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glCombinerStageParameterfvNV(Int32 stage, Int32 pname, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetCombinerStageParameterfvNV", ExactSpelling = true)]
@@ -112,7 +112,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_register_combiners2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCombinerStageParameterfvNV(Int32 stage, Int32 pname, float* @params);
@@ -122,7 +122,7 @@ namespace OpenGL
 			internal static glCombinerStageParameterfvNV pglCombinerStageParameterfvNV;
 
 			[RequiredByFeature("GL_NV_register_combiners2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetCombinerStageParameterfvNV(Int32 stage, Int32 pname, float* @params);

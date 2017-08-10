@@ -169,49 +169,49 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorbSUN", ExactSpelling = true)]
 			internal extern static void glGlobalAlphaFactorbSUN(sbyte factor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorsSUN", ExactSpelling = true)]
 			internal extern static void glGlobalAlphaFactorsSUN(Int16 factor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactoriSUN", ExactSpelling = true)]
 			internal extern static void glGlobalAlphaFactoriSUN(Int32 factor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorfSUN", ExactSpelling = true)]
 			internal extern static void glGlobalAlphaFactorfSUN(float factor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactordSUN", ExactSpelling = true)]
 			internal extern static void glGlobalAlphaFactordSUN(double factor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorubSUN", ExactSpelling = true)]
 			internal extern static void glGlobalAlphaFactorubSUN(byte factor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactorusSUN", ExactSpelling = true)]
 			internal extern static void glGlobalAlphaFactorusSUN(UInt16 factor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGlobalAlphaFactoruiSUN", ExactSpelling = true)]
@@ -222,7 +222,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGlobalAlphaFactorbSUN(sbyte factor);
@@ -232,7 +232,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorbSUN pglGlobalAlphaFactorbSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGlobalAlphaFactorsSUN(Int16 factor);
@@ -242,7 +242,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorsSUN pglGlobalAlphaFactorsSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGlobalAlphaFactoriSUN(Int32 factor);
@@ -252,7 +252,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactoriSUN pglGlobalAlphaFactoriSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGlobalAlphaFactorfSUN(float factor);
@@ -262,7 +262,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorfSUN pglGlobalAlphaFactorfSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGlobalAlphaFactordSUN(double factor);
@@ -272,7 +272,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactordSUN pglGlobalAlphaFactordSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGlobalAlphaFactorubSUN(byte factor);
@@ -282,7 +282,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorubSUN pglGlobalAlphaFactorubSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGlobalAlphaFactorusSUN(UInt16 factor);
@@ -292,7 +292,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorusSUN pglGlobalAlphaFactorusSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGlobalAlphaFactoruiSUN(UInt32 factor);

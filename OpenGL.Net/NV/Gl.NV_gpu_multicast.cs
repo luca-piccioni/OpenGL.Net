@@ -465,73 +465,73 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glRenderGpuMaskNV", ExactSpelling = true)]
 			internal extern static void glRenderGpuMaskNV(UInt32 mask);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastBufferSubDataNV", ExactSpelling = true)]
 			internal extern static unsafe void glMulticastBufferSubDataNV(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, void* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastCopyBufferSubDataNV", ExactSpelling = true)]
 			internal extern static unsafe void glMulticastCopyBufferSubDataNV(UInt32 readGpu, UInt32 writeGpuMask, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastCopyImageSubDataNV", ExactSpelling = true)]
 			internal extern static void glMulticastCopyImageSubDataNV(UInt32 srcGpu, UInt32 dstGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastBlitFramebufferNV", ExactSpelling = true)]
 			internal extern static void glMulticastBlitFramebufferNV(UInt32 srcGpu, UInt32 dstGpu, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastFramebufferSampleLocationsfvNV", ExactSpelling = true)]
 			internal extern static unsafe void glMulticastFramebufferSampleLocationsfvNV(UInt32 gpu, UInt32 framebuffer, UInt32 start, Int32 count, float* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastBarrierNV", ExactSpelling = true)]
 			internal extern static void glMulticastBarrierNV();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastWaitSyncNV", ExactSpelling = true)]
 			internal extern static void glMulticastWaitSyncNV(UInt32 signalGpu, UInt32 waitGpuMask);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastGetQueryObjectivNV", ExactSpelling = true)]
 			internal extern static unsafe void glMulticastGetQueryObjectivNV(UInt32 gpu, UInt32 id, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastGetQueryObjectuivNV", ExactSpelling = true)]
 			internal extern static unsafe void glMulticastGetQueryObjectuivNV(UInt32 gpu, UInt32 id, Int32 pname, UInt32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastGetQueryObjecti64vNV", ExactSpelling = true)]
 			internal extern static unsafe void glMulticastGetQueryObjecti64vNV(UInt32 gpu, UInt32 id, Int32 pname, Int64* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMulticastGetQueryObjectui64vNV", ExactSpelling = true)]
@@ -542,7 +542,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glRenderGpuMaskNV(UInt32 mask);
@@ -552,7 +552,7 @@ namespace OpenGL
 			internal static glRenderGpuMaskNV pglRenderGpuMaskNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMulticastBufferSubDataNV(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, void* data);
@@ -562,7 +562,7 @@ namespace OpenGL
 			internal static glMulticastBufferSubDataNV pglMulticastBufferSubDataNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMulticastCopyBufferSubDataNV(UInt32 readGpu, UInt32 writeGpuMask, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
@@ -572,7 +572,7 @@ namespace OpenGL
 			internal static glMulticastCopyBufferSubDataNV pglMulticastCopyBufferSubDataNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMulticastCopyImageSubDataNV(UInt32 srcGpu, UInt32 dstGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
@@ -582,7 +582,7 @@ namespace OpenGL
 			internal static glMulticastCopyImageSubDataNV pglMulticastCopyImageSubDataNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMulticastBlitFramebufferNV(UInt32 srcGpu, UInt32 dstGpu, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
@@ -592,7 +592,7 @@ namespace OpenGL
 			internal static glMulticastBlitFramebufferNV pglMulticastBlitFramebufferNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMulticastFramebufferSampleLocationsfvNV(UInt32 gpu, UInt32 framebuffer, UInt32 start, Int32 count, float* v);
@@ -602,7 +602,7 @@ namespace OpenGL
 			internal static glMulticastFramebufferSampleLocationsfvNV pglMulticastFramebufferSampleLocationsfvNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMulticastBarrierNV();
@@ -612,7 +612,7 @@ namespace OpenGL
 			internal static glMulticastBarrierNV pglMulticastBarrierNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMulticastWaitSyncNV(UInt32 signalGpu, UInt32 waitGpuMask);
@@ -622,7 +622,7 @@ namespace OpenGL
 			internal static glMulticastWaitSyncNV pglMulticastWaitSyncNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMulticastGetQueryObjectivNV(UInt32 gpu, UInt32 id, Int32 pname, Int32* @params);
@@ -632,7 +632,7 @@ namespace OpenGL
 			internal static glMulticastGetQueryObjectivNV pglMulticastGetQueryObjectivNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMulticastGetQueryObjectuivNV(UInt32 gpu, UInt32 id, Int32 pname, UInt32* @params);
@@ -642,7 +642,7 @@ namespace OpenGL
 			internal static glMulticastGetQueryObjectuivNV pglMulticastGetQueryObjectuivNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMulticastGetQueryObjecti64vNV(UInt32 gpu, UInt32 id, Int32 pname, Int64* @params);
@@ -652,7 +652,7 @@ namespace OpenGL
 			internal static glMulticastGetQueryObjecti64vNV pglMulticastGetQueryObjecti64vNV;
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMulticastGetQueryObjectui64vNV(UInt32 gpu, UInt32 id, Int32 pname, UInt64* @params);

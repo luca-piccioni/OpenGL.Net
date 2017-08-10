@@ -1116,7 +1116,7 @@ namespace OpenGL
 				return (false);
 			if (ReferenceEquals(this, obj))
 				return (true);
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			if ((obj.GetType() != typeof(MatrixDouble)) && (obj.GetType().IsSubclassOf(typeof(MatrixDouble)) == false))
 				return (false);
 #else

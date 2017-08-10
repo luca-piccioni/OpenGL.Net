@@ -72,14 +72,14 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglSwapIntervalEXT", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static bool wglSwapIntervalEXT(int interval);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglGetSwapIntervalEXT", ExactSpelling = true, SetLastError = true)]
@@ -90,7 +90,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_swap_control")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool wglSwapIntervalEXT(int interval);
@@ -100,7 +100,7 @@ namespace OpenGL
 			internal static wglSwapIntervalEXT pwglSwapIntervalEXT;
 
 			[RequiredByFeature("WGL_EXT_swap_control")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wglGetSwapIntervalEXT();

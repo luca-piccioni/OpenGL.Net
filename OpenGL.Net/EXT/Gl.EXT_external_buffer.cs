@@ -91,13 +91,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBufferStorageExternalEXT", ExactSpelling = true)]
 			internal extern static unsafe void glBufferStorageExternalEXT(Int32 target, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedBufferStorageExternalEXT", ExactSpelling = true)]
@@ -108,7 +108,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glBufferStorageExternalEXT(Int32 target, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags);
@@ -118,7 +118,7 @@ namespace OpenGL
 			internal static glBufferStorageExternalEXT pglBufferStorageExternalEXT;
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNamedBufferStorageExternalEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags);

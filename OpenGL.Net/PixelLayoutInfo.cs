@@ -59,7 +59,7 @@ namespace OpenGL
 
 			Type pixelType = typeof(PixelLayout);
 
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			PixelColorspaceAttribute colorSpaceAttribute = (PixelColorspaceAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelColorspaceAttribute));
 			PixelComponentsAttribute colorComponentsAttribute = (PixelComponentsAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelComponentsAttribute));
 			PixelPlanesAttribute colorPlanesAttribute = (PixelPlanesAttribute)Attribute.GetCustomAttribute(pixelType.GetField(Enum.GetName(pixelType, pType)), typeof(PixelPlanesAttribute));

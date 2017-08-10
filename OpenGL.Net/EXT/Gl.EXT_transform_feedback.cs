@@ -63,7 +63,7 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindBufferOffsetEXT", ExactSpelling = true)]
@@ -75,7 +75,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glBindBufferOffsetEXT(Int32 target, UInt32 index, UInt32 buffer, IntPtr offset);

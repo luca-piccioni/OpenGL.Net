@@ -117,28 +117,28 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglEnableFrameLockI3D", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static bool wglEnableFrameLockI3D();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDisableFrameLockI3D", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static bool wglDisableFrameLockI3D();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglIsEnabledFrameLockI3D", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglIsEnabledFrameLockI3D(bool* pFlag);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglQueryFrameLockMasterI3D", ExactSpelling = true, SetLastError = true)]
@@ -150,7 +150,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool wglEnableFrameLockI3D();
@@ -160,7 +160,7 @@ namespace OpenGL
 			internal static wglEnableFrameLockI3D pwglEnableFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool wglDisableFrameLockI3D();
@@ -170,7 +170,7 @@ namespace OpenGL
 			internal static wglDisableFrameLockI3D pwglDisableFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglIsEnabledFrameLockI3D(bool* pFlag);
@@ -180,7 +180,7 @@ namespace OpenGL
 			internal static wglIsEnabledFrameLockI3D pwglIsEnabledFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglQueryFrameLockMasterI3D(bool* pFlag);

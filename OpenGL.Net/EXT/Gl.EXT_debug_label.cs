@@ -121,13 +121,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glLabelObjectEXT", ExactSpelling = true)]
 			internal extern static void glLabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetObjectLabelEXT", ExactSpelling = true)]
@@ -138,7 +138,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glLabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label);
@@ -148,7 +148,7 @@ namespace OpenGL
 			internal static glLabelObjectEXT pglLabelObjectEXT;
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetObjectLabelEXT(Int32 type, UInt32 @object, Int32 bufSize, Int32* length, [Out] StringBuilder label);

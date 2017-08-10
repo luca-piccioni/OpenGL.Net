@@ -385,67 +385,67 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetPerfMonitorGroupsAMD", ExactSpelling = true)]
 			internal extern static unsafe void glGetPerfMonitorGroupsAMD(Int32* numGroups, Int32 groupsSize, UInt32* groups);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetPerfMonitorCountersAMD", ExactSpelling = true)]
 			internal extern static unsafe void glGetPerfMonitorCountersAMD(UInt32 group, Int32* numCounters, Int32* maxActiveCounters, Int32 counterSize, UInt32* counters);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetPerfMonitorGroupStringAMD", ExactSpelling = true)]
 			internal extern static unsafe void glGetPerfMonitorGroupStringAMD(UInt32 group, Int32 bufSize, Int32* length, String groupString);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetPerfMonitorCounterStringAMD", ExactSpelling = true)]
 			internal extern static unsafe void glGetPerfMonitorCounterStringAMD(UInt32 group, UInt32 counter, Int32 bufSize, Int32* length, String counterString);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetPerfMonitorCounterInfoAMD", ExactSpelling = true)]
 			internal extern static unsafe void glGetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, Int32 pname, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenPerfMonitorsAMD", ExactSpelling = true)]
 			internal extern static unsafe void glGenPerfMonitorsAMD(Int32 n, UInt32* monitors);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeletePerfMonitorsAMD", ExactSpelling = true)]
 			internal extern static unsafe void glDeletePerfMonitorsAMD(Int32 n, UInt32* monitors);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSelectPerfMonitorCountersAMD", ExactSpelling = true)]
 			internal extern static unsafe void glSelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, Int32 numCounters, UInt32* counterList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBeginPerfMonitorAMD", ExactSpelling = true)]
 			internal extern static void glBeginPerfMonitorAMD(UInt32 monitor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glEndPerfMonitorAMD", ExactSpelling = true)]
 			internal extern static void glEndPerfMonitorAMD(UInt32 monitor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetPerfMonitorCounterDataAMD", ExactSpelling = true)]
@@ -456,7 +456,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetPerfMonitorGroupsAMD(Int32* numGroups, Int32 groupsSize, UInt32* groups);
@@ -466,7 +466,7 @@ namespace OpenGL
 			internal static glGetPerfMonitorGroupsAMD pglGetPerfMonitorGroupsAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetPerfMonitorCountersAMD(UInt32 group, Int32* numCounters, Int32* maxActiveCounters, Int32 counterSize, UInt32* counters);
@@ -476,7 +476,7 @@ namespace OpenGL
 			internal static glGetPerfMonitorCountersAMD pglGetPerfMonitorCountersAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetPerfMonitorGroupStringAMD(UInt32 group, Int32 bufSize, Int32* length, [Out] StringBuilder groupString);
@@ -486,7 +486,7 @@ namespace OpenGL
 			internal static glGetPerfMonitorGroupStringAMD pglGetPerfMonitorGroupStringAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetPerfMonitorCounterStringAMD(UInt32 group, UInt32 counter, Int32 bufSize, Int32* length, [Out] StringBuilder counterString);
@@ -496,7 +496,7 @@ namespace OpenGL
 			internal static glGetPerfMonitorCounterStringAMD pglGetPerfMonitorCounterStringAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, Int32 pname, IntPtr data);
@@ -506,7 +506,7 @@ namespace OpenGL
 			internal static glGetPerfMonitorCounterInfoAMD pglGetPerfMonitorCounterInfoAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGenPerfMonitorsAMD(Int32 n, UInt32* monitors);
@@ -516,7 +516,7 @@ namespace OpenGL
 			internal static glGenPerfMonitorsAMD pglGenPerfMonitorsAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeletePerfMonitorsAMD(Int32 n, UInt32* monitors);
@@ -526,7 +526,7 @@ namespace OpenGL
 			internal static glDeletePerfMonitorsAMD pglDeletePerfMonitorsAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, Int32 numCounters, UInt32* counterList);
@@ -536,7 +536,7 @@ namespace OpenGL
 			internal static glSelectPerfMonitorCountersAMD pglSelectPerfMonitorCountersAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBeginPerfMonitorAMD(UInt32 monitor);
@@ -546,7 +546,7 @@ namespace OpenGL
 			internal static glBeginPerfMonitorAMD pglBeginPerfMonitorAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glEndPerfMonitorAMD(UInt32 monitor);
@@ -556,7 +556,7 @@ namespace OpenGL
 			internal static glEndPerfMonitorAMD pglEndPerfMonitorAMD;
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetPerfMonitorCounterDataAMD(UInt32 monitor, Int32 pname, Int32 dataSize, UInt32* data, Int32* bytesWritten);

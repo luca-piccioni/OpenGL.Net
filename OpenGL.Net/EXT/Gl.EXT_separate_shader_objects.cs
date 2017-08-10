@@ -334,80 +334,80 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUseShaderProgramEXT", ExactSpelling = true)]
 			internal extern static void glUseShaderProgramEXT(Int32 type, UInt32 program);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glActiveProgramEXT", ExactSpelling = true)]
 			internal extern static void glActiveProgramEXT(UInt32 program);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateShaderProgramEXT", ExactSpelling = true)]
 			internal extern static UInt32 glCreateShaderProgramEXT(Int32 type, String @string);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glActiveShaderProgramEXT", ExactSpelling = true)]
 			internal extern static void glActiveShaderProgramEXT(UInt32 pipeline, UInt32 program);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindProgramPipelineEXT", ExactSpelling = true)]
 			internal extern static void glBindProgramPipelineEXT(UInt32 pipeline);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateShaderProgramvEXT", ExactSpelling = true)]
 			internal extern static UInt32 glCreateShaderProgramvEXT(Int32 type, Int32 count, String[] strings);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteProgramPipelinesEXT", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteProgramPipelinesEXT(Int32 n, UInt32* pipelines);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenProgramPipelinesEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGenProgramPipelinesEXT(Int32 n, UInt32* pipelines);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramPipelineInfoLogEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, Int32* length, String infoLog);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramPipelineivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramPipelineivEXT(UInt32 pipeline, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsProgramPipelineEXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsProgramPipelineEXT(UInt32 pipeline);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUseProgramStagesEXT", ExactSpelling = true)]
 			internal extern static void glUseProgramStagesEXT(UInt32 pipeline, UInt32 stages, UInt32 program);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glValidateProgramPipelineEXT", ExactSpelling = true)]
@@ -418,7 +418,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUseShaderProgramEXT(Int32 type, UInt32 program);
@@ -428,7 +428,7 @@ namespace OpenGL
 			internal static glUseShaderProgramEXT pglUseShaderProgramEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glActiveProgramEXT(UInt32 program);
@@ -438,7 +438,7 @@ namespace OpenGL
 			internal static glActiveProgramEXT pglActiveProgramEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glCreateShaderProgramEXT(Int32 type, String @string);
@@ -448,7 +448,7 @@ namespace OpenGL
 			internal static glCreateShaderProgramEXT pglCreateShaderProgramEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glActiveShaderProgramEXT(UInt32 pipeline, UInt32 program);
@@ -458,7 +458,7 @@ namespace OpenGL
 			internal static glActiveShaderProgramEXT pglActiveShaderProgramEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBindProgramPipelineEXT(UInt32 pipeline);
@@ -468,7 +468,7 @@ namespace OpenGL
 			internal static glBindProgramPipelineEXT pglBindProgramPipelineEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glCreateShaderProgramvEXT(Int32 type, Int32 count, String[] strings);
@@ -478,7 +478,7 @@ namespace OpenGL
 			internal static glCreateShaderProgramvEXT pglCreateShaderProgramvEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeleteProgramPipelinesEXT(Int32 n, UInt32* pipelines);
@@ -488,7 +488,7 @@ namespace OpenGL
 			internal static glDeleteProgramPipelinesEXT pglDeleteProgramPipelinesEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGenProgramPipelinesEXT(Int32 n, UInt32* pipelines);
@@ -498,7 +498,7 @@ namespace OpenGL
 			internal static glGenProgramPipelinesEXT pglGenProgramPipelinesEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
@@ -508,7 +508,7 @@ namespace OpenGL
 			internal static glGetProgramPipelineInfoLogEXT pglGetProgramPipelineInfoLogEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetProgramPipelineivEXT(UInt32 pipeline, Int32 pname, Int32* @params);
@@ -518,7 +518,7 @@ namespace OpenGL
 			internal static glGetProgramPipelineivEXT pglGetProgramPipelineivEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsProgramPipelineEXT(UInt32 pipeline);
@@ -528,7 +528,7 @@ namespace OpenGL
 			internal static glIsProgramPipelineEXT pglIsProgramPipelineEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUseProgramStagesEXT(UInt32 pipeline, UInt32 stages, UInt32 program);
@@ -538,7 +538,7 @@ namespace OpenGL
 			internal static glUseProgramStagesEXT pglUseProgramStagesEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glValidateProgramPipelineEXT(UInt32 pipeline);

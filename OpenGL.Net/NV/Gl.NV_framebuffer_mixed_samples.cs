@@ -140,19 +140,19 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCoverageModulationTableNV", ExactSpelling = true)]
 			internal extern static unsafe void glCoverageModulationTableNV(Int32 n, float* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetCoverageModulationTableNV", ExactSpelling = true)]
 			internal extern static unsafe void glGetCoverageModulationTableNV(Int32 bufsize, float* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCoverageModulationNV", ExactSpelling = true)]
@@ -163,7 +163,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCoverageModulationTableNV(Int32 n, float* v);
@@ -173,7 +173,7 @@ namespace OpenGL
 			internal static glCoverageModulationTableNV pglCoverageModulationTableNV;
 
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetCoverageModulationTableNV(Int32 bufsize, float* v);
@@ -183,7 +183,7 @@ namespace OpenGL
 			internal static glGetCoverageModulationTableNV pglGetCoverageModulationTableNV;
 
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCoverageModulationNV(Int32 components);

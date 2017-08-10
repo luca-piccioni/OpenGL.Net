@@ -105,7 +105,7 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glRasterSamplesEXT", ExactSpelling = true)]
@@ -118,7 +118,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glRasterSamplesEXT(UInt32 samples, bool fixedsamplelocations);

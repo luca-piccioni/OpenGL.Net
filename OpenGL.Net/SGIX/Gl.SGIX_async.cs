@@ -162,37 +162,37 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glAsyncMarkerSGIX", ExactSpelling = true)]
 			internal extern static void glAsyncMarkerSGIX(UInt32 marker);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFinishAsyncSGIX", ExactSpelling = true)]
 			internal extern static unsafe Int32 glFinishAsyncSGIX(UInt32* markerp);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glPollAsyncSGIX", ExactSpelling = true)]
 			internal extern static unsafe Int32 glPollAsyncSGIX(UInt32* markerp);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenAsyncMarkersSGIX", ExactSpelling = true)]
 			internal extern static UInt32 glGenAsyncMarkersSGIX(Int32 range);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteAsyncMarkersSGIX", ExactSpelling = true)]
 			internal extern static void glDeleteAsyncMarkersSGIX(UInt32 marker, Int32 range);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsAsyncMarkerSGIX", ExactSpelling = true)]
@@ -204,7 +204,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_async")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glAsyncMarkerSGIX(UInt32 marker);
@@ -214,7 +214,7 @@ namespace OpenGL
 			internal static glAsyncMarkerSGIX pglAsyncMarkerSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate Int32 glFinishAsyncSGIX(UInt32* markerp);
@@ -224,7 +224,7 @@ namespace OpenGL
 			internal static glFinishAsyncSGIX pglFinishAsyncSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate Int32 glPollAsyncSGIX(UInt32* markerp);
@@ -234,7 +234,7 @@ namespace OpenGL
 			internal static glPollAsyncSGIX pglPollAsyncSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glGenAsyncMarkersSGIX(Int32 range);
@@ -244,7 +244,7 @@ namespace OpenGL
 			internal static glGenAsyncMarkersSGIX pglGenAsyncMarkersSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDeleteAsyncMarkersSGIX(UInt32 marker, Int32 range);
@@ -254,7 +254,7 @@ namespace OpenGL
 			internal static glDeleteAsyncMarkersSGIX pglDeleteAsyncMarkersSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsAsyncMarkerSGIX(UInt32 marker);

@@ -601,223 +601,223 @@ namespace OpenWF
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcEnumerateDevices", ExactSpelling = true)]
 			internal extern static unsafe int wfcEnumerateDevices(int* deviceIds, int deviceIdsCount, int* filterList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcCreateDevice", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfcCreateDevice(int deviceId, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetError", ExactSpelling = true)]
 			internal extern static WFCErrorCode wfcGetError(UInt32 dev);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetDeviceAttribi", ExactSpelling = true)]
 			internal extern static int wfcGetDeviceAttribi(UInt32 dev, WFCDeviceAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcDestroyDevice", ExactSpelling = true)]
 			internal extern static WFCErrorCode wfcDestroyDevice(UInt32 dev);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcCreateOnScreenContext", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfcCreateOnScreenContext(UInt32 dev, int screenNumber, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcCreateOffScreenContext", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfcCreateOffScreenContext(UInt32 dev, UInt32 stream, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcCommit", ExactSpelling = true)]
 			internal extern static void wfcCommit(UInt32 dev, UInt32 ctx, bool wait);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetContextAttribi", ExactSpelling = true)]
 			internal extern static int wfcGetContextAttribi(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetContextAttribfv", ExactSpelling = true)]
 			internal extern static unsafe void wfcGetContextAttribfv(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int count, float* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcSetContextAttribi", ExactSpelling = true)]
 			internal extern static void wfcSetContextAttribi(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcSetContextAttribfv", ExactSpelling = true)]
 			internal extern static unsafe void wfcSetContextAttribfv(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int count, float* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcDestroyContext", ExactSpelling = true)]
 			internal extern static void wfcDestroyContext(UInt32 dev, UInt32 ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcCreateSourceFromStream", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfcCreateSourceFromStream(UInt32 dev, UInt32 ctx, UInt32 stream, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcDestroySource", ExactSpelling = true)]
 			internal extern static void wfcDestroySource(UInt32 dev, UInt32 src);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcCreateMaskFromStream", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfcCreateMaskFromStream(UInt32 dev, UInt32 ctx, UInt32 stream, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcDestroyMask", ExactSpelling = true)]
 			internal extern static void wfcDestroyMask(UInt32 dev, UInt32 mask);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcCreateElement", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfcCreateElement(UInt32 dev, UInt32 ctx, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetElementAttribi", ExactSpelling = true)]
 			internal extern static int wfcGetElementAttribi(UInt32 dev, UInt32 element, WFCElementAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetElementAttribf", ExactSpelling = true)]
 			internal extern static float wfcGetElementAttribf(UInt32 dev, UInt32 element, WFCElementAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetElementAttribiv", ExactSpelling = true)]
 			internal extern static unsafe void wfcGetElementAttribiv(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, int* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetElementAttribfv", ExactSpelling = true)]
 			internal extern static unsafe void wfcGetElementAttribfv(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, float* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcSetElementAttribi", ExactSpelling = true)]
 			internal extern static void wfcSetElementAttribi(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcSetElementAttribf", ExactSpelling = true)]
 			internal extern static void wfcSetElementAttribf(UInt32 dev, UInt32 element, WFCElementAttrib attrib, float value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcSetElementAttribiv", ExactSpelling = true)]
 			internal extern static unsafe void wfcSetElementAttribiv(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, int* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcSetElementAttribfv", ExactSpelling = true)]
 			internal extern static unsafe void wfcSetElementAttribfv(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, float* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcInsertElement", ExactSpelling = true)]
 			internal extern static void wfcInsertElement(UInt32 dev, UInt32 element, UInt32 subordinate);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcRemoveElement", ExactSpelling = true)]
 			internal extern static void wfcRemoveElement(UInt32 dev, UInt32 element);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetElementAbove", ExactSpelling = true)]
 			internal extern static UInt32 wfcGetElementAbove(UInt32 dev, UInt32 element);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetElementBelow", ExactSpelling = true)]
 			internal extern static UInt32 wfcGetElementBelow(UInt32 dev, UInt32 element);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcDestroyElement", ExactSpelling = true)]
 			internal extern static void wfcDestroyElement(UInt32 dev, UInt32 element);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcActivate", ExactSpelling = true)]
 			internal extern static void wfcActivate(UInt32 dev, UInt32 ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcDeactivate", ExactSpelling = true)]
 			internal extern static void wfcDeactivate(UInt32 dev, UInt32 ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcCompose", ExactSpelling = true)]
 			internal extern static void wfcCompose(UInt32 dev, UInt32 ctx, bool wait);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcFence", ExactSpelling = true)]
 			internal extern static unsafe void wfcFence(UInt32 dev, UInt32 ctx, IntPtr dpy, IntPtr sync);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcGetStrings", ExactSpelling = true)]
 			internal extern static unsafe int wfcGetStrings(UInt32 dev, WFCStringID name, IntPtr* strings, int stringsCount);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfcIsExtensionSupported", ExactSpelling = true)]
@@ -827,259 +827,259 @@ namespace OpenWF
 
 		internal unsafe static partial class Delegates
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfcEnumerateDevices(int* deviceIds, int deviceIdsCount, int* filterList);
 
 			internal static wfcEnumerateDevices pwfcEnumerateDevices;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfcCreateDevice(int deviceId, int* attribList);
 
 			internal static wfcCreateDevice pwfcCreateDevice;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate WFCErrorCode wfcGetError(UInt32 dev);
 
 			internal static wfcGetError pwfcGetError;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfcGetDeviceAttribi(UInt32 dev, WFCDeviceAttrib attrib);
 
 			internal static wfcGetDeviceAttribi pwfcGetDeviceAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate WFCErrorCode wfcDestroyDevice(UInt32 dev);
 
 			internal static wfcDestroyDevice pwfcDestroyDevice;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfcCreateOnScreenContext(UInt32 dev, int screenNumber, int* attribList);
 
 			internal static wfcCreateOnScreenContext pwfcCreateOnScreenContext;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfcCreateOffScreenContext(UInt32 dev, UInt32 stream, int* attribList);
 
 			internal static wfcCreateOffScreenContext pwfcCreateOffScreenContext;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcCommit(UInt32 dev, UInt32 ctx, bool wait);
 
 			internal static wfcCommit pwfcCommit;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfcGetContextAttribi(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib);
 
 			internal static wfcGetContextAttribi pwfcGetContextAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfcGetContextAttribfv(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int count, float* values);
 
 			internal static wfcGetContextAttribfv pwfcGetContextAttribfv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcSetContextAttribi(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int value);
 
 			internal static wfcSetContextAttribi pwfcSetContextAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfcSetContextAttribfv(UInt32 dev, UInt32 ctx, WFCContextAttrib attrib, int count, float* values);
 
 			internal static wfcSetContextAttribfv pwfcSetContextAttribfv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcDestroyContext(UInt32 dev, UInt32 ctx);
 
 			internal static wfcDestroyContext pwfcDestroyContext;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfcCreateSourceFromStream(UInt32 dev, UInt32 ctx, UInt32 stream, int* attribList);
 
 			internal static wfcCreateSourceFromStream pwfcCreateSourceFromStream;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcDestroySource(UInt32 dev, UInt32 src);
 
 			internal static wfcDestroySource pwfcDestroySource;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfcCreateMaskFromStream(UInt32 dev, UInt32 ctx, UInt32 stream, int* attribList);
 
 			internal static wfcCreateMaskFromStream pwfcCreateMaskFromStream;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcDestroyMask(UInt32 dev, UInt32 mask);
 
 			internal static wfcDestroyMask pwfcDestroyMask;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfcCreateElement(UInt32 dev, UInt32 ctx, int* attribList);
 
 			internal static wfcCreateElement pwfcCreateElement;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfcGetElementAttribi(UInt32 dev, UInt32 element, WFCElementAttrib attrib);
 
 			internal static wfcGetElementAttribi pwfcGetElementAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate float wfcGetElementAttribf(UInt32 dev, UInt32 element, WFCElementAttrib attrib);
 
 			internal static wfcGetElementAttribf pwfcGetElementAttribf;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfcGetElementAttribiv(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, int* values);
 
 			internal static wfcGetElementAttribiv pwfcGetElementAttribiv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfcGetElementAttribfv(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, float* values);
 
 			internal static wfcGetElementAttribfv pwfcGetElementAttribfv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcSetElementAttribi(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int value);
 
 			internal static wfcSetElementAttribi pwfcSetElementAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcSetElementAttribf(UInt32 dev, UInt32 element, WFCElementAttrib attrib, float value);
 
 			internal static wfcSetElementAttribf pwfcSetElementAttribf;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfcSetElementAttribiv(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, int* values);
 
 			internal static wfcSetElementAttribiv pwfcSetElementAttribiv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfcSetElementAttribfv(UInt32 dev, UInt32 element, WFCElementAttrib attrib, int count, float* values);
 
 			internal static wfcSetElementAttribfv pwfcSetElementAttribfv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcInsertElement(UInt32 dev, UInt32 element, UInt32 subordinate);
 
 			internal static wfcInsertElement pwfcInsertElement;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcRemoveElement(UInt32 dev, UInt32 element);
 
 			internal static wfcRemoveElement pwfcRemoveElement;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 wfcGetElementAbove(UInt32 dev, UInt32 element);
 
 			internal static wfcGetElementAbove pwfcGetElementAbove;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 wfcGetElementBelow(UInt32 dev, UInt32 element);
 
 			internal static wfcGetElementBelow pwfcGetElementBelow;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcDestroyElement(UInt32 dev, UInt32 element);
 
 			internal static wfcDestroyElement pwfcDestroyElement;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcActivate(UInt32 dev, UInt32 ctx);
 
 			internal static wfcActivate pwfcActivate;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcDeactivate(UInt32 dev, UInt32 ctx);
 
 			internal static wfcDeactivate pwfcDeactivate;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfcCompose(UInt32 dev, UInt32 ctx, bool wait);
 
 			internal static wfcCompose pwfcCompose;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfcFence(UInt32 dev, UInt32 ctx, IntPtr dpy, IntPtr sync);
 
 			internal static wfcFence pwfcFence;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfcGetStrings(UInt32 dev, WFCStringID name, IntPtr* strings, int stringsCount);
 
 			internal static wfcGetStrings pwfcGetStrings;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wfcIsExtensionSupported(UInt32 dev, char* @string);

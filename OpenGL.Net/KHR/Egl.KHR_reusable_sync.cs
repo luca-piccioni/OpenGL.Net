@@ -133,19 +133,19 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglCreateSyncKHR", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglSignalSyncKHR", ExactSpelling = true)]
 			internal extern static unsafe bool eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetSyncAttribKHR", ExactSpelling = true)]
@@ -157,7 +157,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
@@ -167,7 +167,7 @@ namespace OpenGL
 			internal static eglCreateSyncKHR peglCreateSyncKHR;
 
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
@@ -177,7 +177,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);

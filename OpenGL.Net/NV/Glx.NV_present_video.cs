@@ -106,13 +106,13 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXEnumerateVideoDevicesNV", ExactSpelling = true)]
 			internal extern static unsafe UInt32* glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXBindVideoDeviceNV", ExactSpelling = true)]
@@ -123,7 +123,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_NV_present_video")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32* glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
@@ -132,7 +132,7 @@ namespace OpenGL
 			internal static glXEnumerateVideoDevicesNV pglXEnumerateVideoDevicesNV;
 
 			[RequiredByFeature("GLX_NV_present_video")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXBindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int* attrib_list);

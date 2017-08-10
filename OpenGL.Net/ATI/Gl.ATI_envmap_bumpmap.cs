@@ -177,25 +177,25 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexBumpParameterivATI", ExactSpelling = true)]
 			internal extern static unsafe void glTexBumpParameterivATI(Int32 pname, Int32* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexBumpParameterfvATI", ExactSpelling = true)]
 			internal extern static unsafe void glTexBumpParameterfvATI(Int32 pname, float* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTexBumpParameterivATI", ExactSpelling = true)]
 			internal extern static unsafe void glGetTexBumpParameterivATI(Int32 pname, Int32* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTexBumpParameterfvATI", ExactSpelling = true)]
@@ -206,7 +206,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexBumpParameterivATI(Int32 pname, Int32* param);
@@ -216,7 +216,7 @@ namespace OpenGL
 			internal static glTexBumpParameterivATI pglTexBumpParameterivATI;
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexBumpParameterfvATI(Int32 pname, float* param);
@@ -226,7 +226,7 @@ namespace OpenGL
 			internal static glTexBumpParameterfvATI pglTexBumpParameterfvATI;
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTexBumpParameterivATI(Int32 pname, Int32* param);
@@ -236,7 +236,7 @@ namespace OpenGL
 			internal static glGetTexBumpParameterivATI pglGetTexBumpParameterivATI;
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTexBumpParameterfvATI(Int32 pname, float* param);

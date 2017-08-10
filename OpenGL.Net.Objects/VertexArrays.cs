@@ -113,7 +113,10 @@ namespace OpenGL.Objects
 			else
 				ctx.ResetProgram();
 
-			IEnumerable<IElement> drawElements = (IEnumerable<IElement>)elements ?? DrawElements;
+			IEnumerable<IElement> drawElements = DrawElements;
+
+			if (elements != null)
+				drawElements = elements;
 
 			foreach (Element attributeElement in drawElements) {
 				if (_FeedbackBuffer != null)

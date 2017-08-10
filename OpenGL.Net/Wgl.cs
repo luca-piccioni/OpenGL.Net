@@ -192,6 +192,7 @@ namespace OpenGL
 			ErrorHandlingMode methodErrorHandling = ErrorHandling;
 
 			if ((methodErrorHandling == ErrorHandlingMode.Normal) && (returnValue != null)) {
+#if !NETSTANDARD1_4
 				switch (Type.GetTypeCode(returnValue.GetType())) {
 					case TypeCode.Boolean:
 						if ((bool)returnValue == true)
@@ -202,6 +203,17 @@ namespace OpenGL
 							methodErrorHandling = ErrorHandlingMode.LogOnly;
 						break;
 				}
+#else
+				Type returnValueType = returnValue.GetType();
+
+				if        (returnValueType == typeof(Boolean)) {
+					if ((bool)returnValue == true)
+							methodErrorHandling = ErrorHandlingMode.LogOnly;
+				} else if (returnValueType == typeof(String)) {
+					if ((string)returnValue != null)
+							methodErrorHandling = ErrorHandlingMode.LogOnly;
+				}
+#endif
 			}
 
 			// All WGl routines set error using SetLastError routine (*)
@@ -226,9 +238,9 @@ namespace OpenGL
 			}
 		}
 
-		#endregion
+#endregion
 
-		#region Command Logging
+#region Command Logging
 
 		/// <summary>
 		/// Load an API command call.
@@ -255,9 +267,9 @@ namespace OpenGL
 		/// </summary>
 		private static KhronosLogContext _LogContext;
 
-		#endregion
+#endregion
 
-		#region Required External Declarations
+#region Required External Declarations
 
 		/// <summary>
 		/// 
@@ -681,7 +693,7 @@ namespace OpenGL
 		[StructLayout(LayoutKind.Sequential)]
 		public struct PIXELFORMATDESCRIPTOR
 		{
-			#region Constructors
+#region Constructors
 
 			/// <summary>
 			/// Construct a pixel format descriptor.
@@ -715,9 +727,9 @@ namespace OpenGL
 				cAccumRedBits = 0; cAccumGreenBits = 0; cAccumBlueBits = 0; cAccumAlphaBits = 0;
 			}
 
-			#endregion
+#endregion
 
-			#region Structure
+#region Structure
 
 			/// <summary>
 			/// Specifies the size of this data structure. This value should be set to <c>sizeof(PIXELFORMATDESCRIPTOR)</c>.
@@ -855,9 +867,9 @@ namespace OpenGL
 			/// </summary>
 			public Int32 dwDamageMask;
 
-			#endregion
+#endregion
 
-			#region Object Overrides
+#region Object Overrides
 
 			///<summary>
 			/// Converts this PIXELFORMATDESCRIPTOR into a human-legible string representation.
@@ -884,10 +896,10 @@ namespace OpenGL
 				return (sb.ToString());
 			}
 
-			#endregion
+#endregion
 		};
 
-		#region Pixel Type Enumeration
+#region Pixel Type Enumeration
 
 		/// <summary>
 		/// RGBA pixels.
@@ -908,9 +920,9 @@ namespace OpenGL
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int PFD_TYPE_COLORINDEX = 1;
 
-		#endregion
+#endregion
 
-		#region Layer Type Enumeration
+#region Layer Type Enumeration
 
 		/// <summary>
 		/// The layer is the main plane.
@@ -930,9 +942,9 @@ namespace OpenGL
 		[RequiredByFeature("WGL_VERSION_1_0")]
 		public const int PFD_UNDERLAY_PLANE = -1;
 
-		#endregion
+#endregion
 
-		#region PIXELFORMATDESCRIPTOR flags
+#region PIXELFORMATDESCRIPTOR flags
 
 		/// <summary>
 		/// The buffer is double-buffered. This flag and PFD_SUPPORT_GDI are mutually exclusive in the current generic implementation.
@@ -1108,8 +1120,8 @@ namespace OpenGL
 		[Log(BitmaskName = "WGLPixelFormatDescriptorFlags")]
 		public const int PFD_STEREO_DONTCARE =			unchecked((int)0x80000000);
 
-		#endregion
+#endregion
 
-		#endregion
+#endregion
 	}
 }

@@ -21,6 +21,9 @@ using System.Runtime.CompilerServices;
 
 namespace OpenGL.Objects
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public static class IDisposableExtensions
 	{
 		/// <summary>

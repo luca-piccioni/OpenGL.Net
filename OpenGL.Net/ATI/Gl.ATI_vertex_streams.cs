@@ -1111,271 +1111,271 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream1sATI", ExactSpelling = true)]
 			internal extern static void glVertexStream1sATI(Int32 stream, Int16 x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream1svATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream1svATI(Int32 stream, Int16* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream1iATI", ExactSpelling = true)]
 			internal extern static void glVertexStream1iATI(Int32 stream, Int32 x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream1ivATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream1ivATI(Int32 stream, Int32* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream1fATI", ExactSpelling = true)]
 			internal extern static void glVertexStream1fATI(Int32 stream, float x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream1fvATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream1fvATI(Int32 stream, float* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream1dATI", ExactSpelling = true)]
 			internal extern static void glVertexStream1dATI(Int32 stream, double x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream1dvATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream1dvATI(Int32 stream, double* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream2sATI", ExactSpelling = true)]
 			internal extern static void glVertexStream2sATI(Int32 stream, Int16 x, Int16 y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream2svATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream2svATI(Int32 stream, Int16* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream2iATI", ExactSpelling = true)]
 			internal extern static void glVertexStream2iATI(Int32 stream, Int32 x, Int32 y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream2ivATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream2ivATI(Int32 stream, Int32* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream2fATI", ExactSpelling = true)]
 			internal extern static void glVertexStream2fATI(Int32 stream, float x, float y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream2fvATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream2fvATI(Int32 stream, float* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream2dATI", ExactSpelling = true)]
 			internal extern static void glVertexStream2dATI(Int32 stream, double x, double y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream2dvATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream2dvATI(Int32 stream, double* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream3sATI", ExactSpelling = true)]
 			internal extern static void glVertexStream3sATI(Int32 stream, Int16 x, Int16 y, Int16 z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream3svATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream3svATI(Int32 stream, Int16* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream3iATI", ExactSpelling = true)]
 			internal extern static void glVertexStream3iATI(Int32 stream, Int32 x, Int32 y, Int32 z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream3ivATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream3ivATI(Int32 stream, Int32* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream3fATI", ExactSpelling = true)]
 			internal extern static void glVertexStream3fATI(Int32 stream, float x, float y, float z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream3fvATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream3fvATI(Int32 stream, float* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream3dATI", ExactSpelling = true)]
 			internal extern static void glVertexStream3dATI(Int32 stream, double x, double y, double z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream3dvATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream3dvATI(Int32 stream, double* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream4sATI", ExactSpelling = true)]
 			internal extern static void glVertexStream4sATI(Int32 stream, Int16 x, Int16 y, Int16 z, Int16 w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream4svATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream4svATI(Int32 stream, Int16* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream4iATI", ExactSpelling = true)]
 			internal extern static void glVertexStream4iATI(Int32 stream, Int32 x, Int32 y, Int32 z, Int32 w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream4ivATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream4ivATI(Int32 stream, Int32* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream4fATI", ExactSpelling = true)]
 			internal extern static void glVertexStream4fATI(Int32 stream, float x, float y, float z, float w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream4fvATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream4fvATI(Int32 stream, float* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream4dATI", ExactSpelling = true)]
 			internal extern static void glVertexStream4dATI(Int32 stream, double x, double y, double z, double w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexStream4dvATI", ExactSpelling = true)]
 			internal extern static unsafe void glVertexStream4dvATI(Int32 stream, double* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3bATI", ExactSpelling = true)]
 			internal extern static void glNormalStream3bATI(Int32 stream, sbyte nx, sbyte ny, sbyte nz);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3bvATI", ExactSpelling = true)]
 			internal extern static unsafe void glNormalStream3bvATI(Int32 stream, sbyte* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3sATI", ExactSpelling = true)]
 			internal extern static void glNormalStream3sATI(Int32 stream, Int16 nx, Int16 ny, Int16 nz);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3svATI", ExactSpelling = true)]
 			internal extern static unsafe void glNormalStream3svATI(Int32 stream, Int16* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3iATI", ExactSpelling = true)]
 			internal extern static void glNormalStream3iATI(Int32 stream, Int32 nx, Int32 ny, Int32 nz);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3ivATI", ExactSpelling = true)]
 			internal extern static unsafe void glNormalStream3ivATI(Int32 stream, Int32* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3fATI", ExactSpelling = true)]
 			internal extern static void glNormalStream3fATI(Int32 stream, float nx, float ny, float nz);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3fvATI", ExactSpelling = true)]
 			internal extern static unsafe void glNormalStream3fvATI(Int32 stream, float* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3dATI", ExactSpelling = true)]
 			internal extern static void glNormalStream3dATI(Int32 stream, double nx, double ny, double nz);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalStream3dvATI", ExactSpelling = true)]
 			internal extern static unsafe void glNormalStream3dvATI(Int32 stream, double* coords);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClientActiveVertexStreamATI", ExactSpelling = true)]
 			internal extern static void glClientActiveVertexStreamATI(Int32 stream);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexBlendEnviATI", ExactSpelling = true)]
 			internal extern static void glVertexBlendEnviATI(Int32 pname, Int32 param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexBlendEnvfATI", ExactSpelling = true)]
@@ -1386,7 +1386,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream1sATI(Int32 stream, Int16 x);
@@ -1396,7 +1396,7 @@ namespace OpenGL
 			internal static glVertexStream1sATI pglVertexStream1sATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream1svATI(Int32 stream, Int16* coords);
@@ -1406,7 +1406,7 @@ namespace OpenGL
 			internal static glVertexStream1svATI pglVertexStream1svATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream1iATI(Int32 stream, Int32 x);
@@ -1416,7 +1416,7 @@ namespace OpenGL
 			internal static glVertexStream1iATI pglVertexStream1iATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream1ivATI(Int32 stream, Int32* coords);
@@ -1426,7 +1426,7 @@ namespace OpenGL
 			internal static glVertexStream1ivATI pglVertexStream1ivATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream1fATI(Int32 stream, float x);
@@ -1436,7 +1436,7 @@ namespace OpenGL
 			internal static glVertexStream1fATI pglVertexStream1fATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream1fvATI(Int32 stream, float* coords);
@@ -1446,7 +1446,7 @@ namespace OpenGL
 			internal static glVertexStream1fvATI pglVertexStream1fvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream1dATI(Int32 stream, double x);
@@ -1456,7 +1456,7 @@ namespace OpenGL
 			internal static glVertexStream1dATI pglVertexStream1dATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream1dvATI(Int32 stream, double* coords);
@@ -1466,7 +1466,7 @@ namespace OpenGL
 			internal static glVertexStream1dvATI pglVertexStream1dvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream2sATI(Int32 stream, Int16 x, Int16 y);
@@ -1476,7 +1476,7 @@ namespace OpenGL
 			internal static glVertexStream2sATI pglVertexStream2sATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream2svATI(Int32 stream, Int16* coords);
@@ -1486,7 +1486,7 @@ namespace OpenGL
 			internal static glVertexStream2svATI pglVertexStream2svATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream2iATI(Int32 stream, Int32 x, Int32 y);
@@ -1496,7 +1496,7 @@ namespace OpenGL
 			internal static glVertexStream2iATI pglVertexStream2iATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream2ivATI(Int32 stream, Int32* coords);
@@ -1506,7 +1506,7 @@ namespace OpenGL
 			internal static glVertexStream2ivATI pglVertexStream2ivATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream2fATI(Int32 stream, float x, float y);
@@ -1516,7 +1516,7 @@ namespace OpenGL
 			internal static glVertexStream2fATI pglVertexStream2fATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream2fvATI(Int32 stream, float* coords);
@@ -1526,7 +1526,7 @@ namespace OpenGL
 			internal static glVertexStream2fvATI pglVertexStream2fvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream2dATI(Int32 stream, double x, double y);
@@ -1536,7 +1536,7 @@ namespace OpenGL
 			internal static glVertexStream2dATI pglVertexStream2dATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream2dvATI(Int32 stream, double* coords);
@@ -1546,7 +1546,7 @@ namespace OpenGL
 			internal static glVertexStream2dvATI pglVertexStream2dvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream3sATI(Int32 stream, Int16 x, Int16 y, Int16 z);
@@ -1556,7 +1556,7 @@ namespace OpenGL
 			internal static glVertexStream3sATI pglVertexStream3sATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream3svATI(Int32 stream, Int16* coords);
@@ -1566,7 +1566,7 @@ namespace OpenGL
 			internal static glVertexStream3svATI pglVertexStream3svATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream3iATI(Int32 stream, Int32 x, Int32 y, Int32 z);
@@ -1576,7 +1576,7 @@ namespace OpenGL
 			internal static glVertexStream3iATI pglVertexStream3iATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream3ivATI(Int32 stream, Int32* coords);
@@ -1586,7 +1586,7 @@ namespace OpenGL
 			internal static glVertexStream3ivATI pglVertexStream3ivATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream3fATI(Int32 stream, float x, float y, float z);
@@ -1596,7 +1596,7 @@ namespace OpenGL
 			internal static glVertexStream3fATI pglVertexStream3fATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream3fvATI(Int32 stream, float* coords);
@@ -1606,7 +1606,7 @@ namespace OpenGL
 			internal static glVertexStream3fvATI pglVertexStream3fvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream3dATI(Int32 stream, double x, double y, double z);
@@ -1616,7 +1616,7 @@ namespace OpenGL
 			internal static glVertexStream3dATI pglVertexStream3dATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream3dvATI(Int32 stream, double* coords);
@@ -1626,7 +1626,7 @@ namespace OpenGL
 			internal static glVertexStream3dvATI pglVertexStream3dvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream4sATI(Int32 stream, Int16 x, Int16 y, Int16 z, Int16 w);
@@ -1636,7 +1636,7 @@ namespace OpenGL
 			internal static glVertexStream4sATI pglVertexStream4sATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream4svATI(Int32 stream, Int16* coords);
@@ -1646,7 +1646,7 @@ namespace OpenGL
 			internal static glVertexStream4svATI pglVertexStream4svATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream4iATI(Int32 stream, Int32 x, Int32 y, Int32 z, Int32 w);
@@ -1656,7 +1656,7 @@ namespace OpenGL
 			internal static glVertexStream4iATI pglVertexStream4iATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream4ivATI(Int32 stream, Int32* coords);
@@ -1666,7 +1666,7 @@ namespace OpenGL
 			internal static glVertexStream4ivATI pglVertexStream4ivATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream4fATI(Int32 stream, float x, float y, float z, float w);
@@ -1676,7 +1676,7 @@ namespace OpenGL
 			internal static glVertexStream4fATI pglVertexStream4fATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream4fvATI(Int32 stream, float* coords);
@@ -1686,7 +1686,7 @@ namespace OpenGL
 			internal static glVertexStream4fvATI pglVertexStream4fvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexStream4dATI(Int32 stream, double x, double y, double z, double w);
@@ -1696,7 +1696,7 @@ namespace OpenGL
 			internal static glVertexStream4dATI pglVertexStream4dATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexStream4dvATI(Int32 stream, double* coords);
@@ -1706,7 +1706,7 @@ namespace OpenGL
 			internal static glVertexStream4dvATI pglVertexStream4dvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNormalStream3bATI(Int32 stream, sbyte nx, sbyte ny, sbyte nz);
@@ -1716,7 +1716,7 @@ namespace OpenGL
 			internal static glNormalStream3bATI pglNormalStream3bATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNormalStream3bvATI(Int32 stream, sbyte* coords);
@@ -1726,7 +1726,7 @@ namespace OpenGL
 			internal static glNormalStream3bvATI pglNormalStream3bvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNormalStream3sATI(Int32 stream, Int16 nx, Int16 ny, Int16 nz);
@@ -1736,7 +1736,7 @@ namespace OpenGL
 			internal static glNormalStream3sATI pglNormalStream3sATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNormalStream3svATI(Int32 stream, Int16* coords);
@@ -1746,7 +1746,7 @@ namespace OpenGL
 			internal static glNormalStream3svATI pglNormalStream3svATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNormalStream3iATI(Int32 stream, Int32 nx, Int32 ny, Int32 nz);
@@ -1756,7 +1756,7 @@ namespace OpenGL
 			internal static glNormalStream3iATI pglNormalStream3iATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNormalStream3ivATI(Int32 stream, Int32* coords);
@@ -1766,7 +1766,7 @@ namespace OpenGL
 			internal static glNormalStream3ivATI pglNormalStream3ivATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNormalStream3fATI(Int32 stream, float nx, float ny, float nz);
@@ -1776,7 +1776,7 @@ namespace OpenGL
 			internal static glNormalStream3fATI pglNormalStream3fATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNormalStream3fvATI(Int32 stream, float* coords);
@@ -1786,7 +1786,7 @@ namespace OpenGL
 			internal static glNormalStream3fvATI pglNormalStream3fvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNormalStream3dATI(Int32 stream, double nx, double ny, double nz);
@@ -1796,7 +1796,7 @@ namespace OpenGL
 			internal static glNormalStream3dATI pglNormalStream3dATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNormalStream3dvATI(Int32 stream, double* coords);
@@ -1806,7 +1806,7 @@ namespace OpenGL
 			internal static glNormalStream3dvATI pglNormalStream3dvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glClientActiveVertexStreamATI(Int32 stream);
@@ -1816,7 +1816,7 @@ namespace OpenGL
 			internal static glClientActiveVertexStreamATI pglClientActiveVertexStreamATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexBlendEnviATI(Int32 pname, Int32 param);
@@ -1826,7 +1826,7 @@ namespace OpenGL
 			internal static glVertexBlendEnviATI pglVertexBlendEnviATI;
 
 			[RequiredByFeature("GL_ATI_vertex_streams")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexBlendEnvfATI(Int32 pname, float param);

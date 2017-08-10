@@ -28,12 +28,12 @@ namespace OpenGL
 	/// </summary>
 	public enum KhronosLogCommandParameterFlags
 	{
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 		[XmlEnum("none")]
 #endif
 		None = 0x0000,
 
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 		[XmlEnum("enum")]
 #endif
 		Enum = 0x0001,

@@ -131,19 +131,19 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSyncTextureINTEL", ExactSpelling = true)]
 			internal extern static void glSyncTextureINTEL(UInt32 texture);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUnmapTexture2DINTEL", ExactSpelling = true)]
 			internal extern static void glUnmapTexture2DINTEL(UInt32 texture, Int32 level);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMapTexture2DINTEL", ExactSpelling = true)]
@@ -154,7 +154,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_INTEL_map_texture")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSyncTextureINTEL(UInt32 texture);
@@ -164,7 +164,7 @@ namespace OpenGL
 			internal static glSyncTextureINTEL pglSyncTextureINTEL;
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUnmapTexture2DINTEL(UInt32 texture, Int32 level);
@@ -174,7 +174,7 @@ namespace OpenGL
 			internal static glUnmapTexture2DINTEL pglUnmapTexture2DINTEL;
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glMapTexture2DINTEL(UInt32 texture, Int32 level, UInt32 access, Int32* stride, Int32* layout);

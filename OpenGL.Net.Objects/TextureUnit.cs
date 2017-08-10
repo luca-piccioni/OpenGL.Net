@@ -99,7 +99,7 @@ namespace OpenGL.Objects
 					currTexture._ActiveTextureUnits.Remove(Index);
 
 				// Add texture relationship
-				_Texture = new WeakReference<Texture>(texture);
+				_Texture = new WeakReference(texture);
 
 				Debug.Assert(texture._ActiveTextureUnits.Contains(Index) == false);
 				texture._ActiveTextureUnits.Add(Index);
@@ -126,8 +126,8 @@ namespace OpenGL.Objects
 			{
 				Texture currTexture = null;
 
-				if (_Texture != null)
-					_Texture.TryGetTarget(out currTexture);
+				if (_Texture != null && _Texture.IsAlive)
+					currTexture = (Texture)_Texture.Target;
 
 				return (currTexture);
 			}
@@ -136,7 +136,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Texture currently bound on texture unit.
 		/// </summary>
-		private WeakReference<Texture> _Texture;
+		private WeakReference _Texture;
 
 		#endregion
 
@@ -172,7 +172,7 @@ namespace OpenGL.Objects
 					// Note: only when ARB_sampler_objects is implemented
 					sampler.Bind(ctx, this);
 					// Add sampler relationship
-					_Sampler = new WeakReference<Sampler>(sampler);
+					_Sampler = new WeakReference(sampler);
 				} else {
 					// Ensure no sampler on texture unit
 					Sampler.Unbind(ctx, this);
@@ -195,8 +195,8 @@ namespace OpenGL.Objects
 			{
 				Sampler currSampler = null;
 
-				if (_Sampler != null)
-					_Sampler.TryGetTarget(out currSampler);
+				if (_Sampler != null && _Sampler.IsAlive)
+					currSampler = (Sampler)_Sampler.Target;
 
 				return (currSampler);
 			}
@@ -210,7 +210,7 @@ namespace OpenGL.Objects
 		/// is as though BindSampler is called once for each texture unit to which the sampler is bound, with unit set to the texture
 		/// unit and sampler set to zero."
 		/// </remarks>
-		private WeakReference<Sampler> _Sampler;
+		private WeakReference _Sampler;
 
 		#endregion
 

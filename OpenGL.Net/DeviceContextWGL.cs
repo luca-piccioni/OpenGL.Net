@@ -200,8 +200,10 @@ namespace OpenGL
 					windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
 					windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
 					windowClass.lpfnWndProc = Marshal.GetFunctionPointerForDelegate(_WindowsWndProc);
-#if !NETCORE && !NETSTANDARD2_0
+#if !NETCORE && !NETSTANDARD1_4 && !NETSTANDARD2_0
 					windowClass.hInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
+#elif NETSTANDARD1_4
+					windowClass.hInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).GetTypeInfo().Assembly.FullName);
 #else
 					windowClass.hInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).GetTypeInfo().Assembly.Location);
 #endif
@@ -329,7 +331,7 @@ namespace OpenGL
 				}
 
 				if (_ClassAtom != 0) {
-#if !NETCORE && !NETSTANDARD2_0
+#if !NETCORE && !NETSTANDARD1_4 && !NETSTANDARD2_0
 					UnsafeNativeMethods.UnregisterClass(_ClassAtom, Marshal.GetHINSTANCE(typeof(Gl).Module));
 #else
 					

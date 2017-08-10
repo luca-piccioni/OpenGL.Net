@@ -69,7 +69,7 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryDevicesEXT", ExactSpelling = true)]
@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_enumeration")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglQueryDevicesEXT(int max_devices, IntPtr* devices, int* num_devices);

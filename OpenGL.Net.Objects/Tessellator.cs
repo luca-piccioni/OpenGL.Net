@@ -41,10 +41,10 @@ namespace OpenGL.Objects
 			_Tess = Glu.NewTess();
 
 			// Register callbacks
-			TessCallback<Glu.CallbackBeginDelegate>(Glu.TessCallbackType.TessBegin, BeginCallback);
-			TessCallback<Glu.CallbackEndDelegate>(Glu.TessCallbackType.TessEnd, EndCallback);
-			TessCallback<Glu.CallbackTessVertexDelegate>(Glu.TessCallbackType.TessVertex, VertexCallback);
-			TessCallback<Glu.CallbackTessVertexDelegate>(Glu.TessCallbackType.TessEdgeFlag, EdgeFlagCallback);
+			TessCallback(Glu.TessCallbackType.TessBegin, new Glu.CallbackBeginDelegate(BeginCallback));
+			TessCallback(Glu.TessCallbackType.TessEnd, new Glu.CallbackEndDelegate(EndCallback));
+			TessCallback(Glu.TessCallbackType.TessVertex, new Glu.CallbackTessVertexDelegate(VertexCallback));
+			TessCallback(Glu.TessCallbackType.TessEdgeFlag, new Glu.CallbackTessVertexDelegate(EdgeFlagCallback));
 		}
 
 		#endregion
@@ -71,12 +71,12 @@ namespace OpenGL.Objects
 			// Force triangle generation
 		}
 
-		private void TessCallback<T>(Glu.TessCallbackType callbackType, T callback)
+		private void TessCallback(Glu.TessCallbackType callbackType, Delegate callback)
 		{
 			// Avoid GC management
 			_DelegatePins.Add(GCHandle.Alloc(callback));
 
-			Glu.TessCallback(_Tess, callbackType, Marshal.GetFunctionPointerForDelegate<T>(callback));
+			Glu.TessCallback(_Tess, callbackType, Marshal.GetFunctionPointerForDelegate(callback));
 		}
 
 		/// <summary>
@@ -233,10 +233,14 @@ namespace OpenGL.Objects
 	{
 		public TessellatorVertexEventArgs(IntPtr vertex_data)
 		{
+#if HAVE_UNSAFE
 			unsafe
 			{
 				Vertex = Unsafe.Read<Vertex3d>(vertex_data.ToPointer());
 			}
+#else
+			throw new NotImplementedException();
+#endif
 		}
 
 		public readonly Vertex3d Vertex;

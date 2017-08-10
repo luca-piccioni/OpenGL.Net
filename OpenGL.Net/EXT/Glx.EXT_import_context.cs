@@ -186,31 +186,31 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetCurrentDisplayEXT", ExactSpelling = true)]
 			internal extern static IntPtr glXGetCurrentDisplayEXT();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryContextInfoEXT", ExactSpelling = true)]
 			internal extern static unsafe int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetContextIDEXT", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXGetContextIDEXT(IntPtr context);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXImportContextEXT", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXFreeContextEXT", ExactSpelling = true)]
@@ -221,7 +221,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr glXGetCurrentDisplayEXT();
@@ -230,7 +230,7 @@ namespace OpenGL
 			internal static glXGetCurrentDisplayEXT pglXGetCurrentDisplayEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
@@ -239,7 +239,7 @@ namespace OpenGL
 			internal static glXQueryContextInfoEXT pglXQueryContextInfoEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXGetContextIDEXT(IntPtr context);
@@ -248,7 +248,7 @@ namespace OpenGL
 			internal static glXGetContextIDEXT pglXGetContextIDEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
@@ -257,7 +257,7 @@ namespace OpenGL
 			internal static glXImportContextEXT pglXImportContextEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXFreeContextEXT(IntPtr dpy, IntPtr context);

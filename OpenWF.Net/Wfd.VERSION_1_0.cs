@@ -1033,337 +1033,337 @@ namespace OpenWF
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetStrings", ExactSpelling = true)]
 			internal extern static unsafe int wfdGetStrings(UInt32 device, WFDStringID name, IntPtr* strings, int stringsCount);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdIsExtensionSupported", ExactSpelling = true)]
 			internal extern static unsafe bool wfdIsExtensionSupported(UInt32 device, char* @string);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetError", ExactSpelling = true)]
 			internal extern static WFDErrorCode wfdGetError(UInt32 device);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdEnumerateDevices", ExactSpelling = true)]
 			internal extern static unsafe int wfdEnumerateDevices(int* deviceIds, int deviceIdsCount, int* filterList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdCreateDevice", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfdCreateDevice(int deviceId, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDestroyDevice", ExactSpelling = true)]
 			internal extern static WFDErrorCode wfdDestroyDevice(UInt32 device);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDeviceCommit", ExactSpelling = true)]
 			internal extern static void wfdDeviceCommit(UInt32 device, WFDCommitType type, UInt32 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetDeviceAttribi", ExactSpelling = true)]
 			internal extern static int wfdGetDeviceAttribi(UInt32 device, WFDDeviceAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetDeviceAttribi", ExactSpelling = true)]
 			internal extern static void wfdSetDeviceAttribi(UInt32 device, WFDDeviceAttrib attrib, int value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdCreateEvent", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfdCreateEvent(UInt32 device, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDestroyEvent", ExactSpelling = true)]
 			internal extern static void wfdDestroyEvent(UInt32 device, UInt32 @event);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetEventAttribi", ExactSpelling = true)]
 			internal extern static int wfdGetEventAttribi(UInt32 device, UInt32 @event, WFDEventAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDeviceEventAsync", ExactSpelling = true)]
 			internal extern static unsafe void wfdDeviceEventAsync(UInt32 device, UInt32 @event, IntPtr display, IntPtr sync);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDeviceEventWait", ExactSpelling = true)]
 			internal extern static WFDEventType wfdDeviceEventWait(UInt32 device, UInt32 @event, ulong timeout);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDeviceEventFilter", ExactSpelling = true)]
 			internal extern static unsafe void wfdDeviceEventFilter(UInt32 device, UInt32 @event, WFDEventType* filter);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdEnumeratePorts", ExactSpelling = true)]
 			internal extern static unsafe int wfdEnumeratePorts(UInt32 device, int* portIds, int portIdsCount, int* filterList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdCreatePort", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfdCreatePort(UInt32 device, int portId, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDestroyPort", ExactSpelling = true)]
 			internal extern static void wfdDestroyPort(UInt32 device, UInt32 port);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPortModes", ExactSpelling = true)]
 			internal extern static unsafe int wfdGetPortModes(UInt32 device, UInt32 port, UInt32* modes, int modesCount);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPortModeAttribi", ExactSpelling = true)]
 			internal extern static int wfdGetPortModeAttribi(UInt32 device, UInt32 port, UInt32 mode, WFDPortModeAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPortModeAttribf", ExactSpelling = true)]
 			internal extern static float wfdGetPortModeAttribf(UInt32 device, UInt32 port, UInt32 mode, WFDPortModeAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPortMode", ExactSpelling = true)]
 			internal extern static void wfdSetPortMode(UInt32 device, UInt32 port, UInt32 mode);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetCurrentPortMode", ExactSpelling = true)]
 			internal extern static UInt32 wfdGetCurrentPortMode(UInt32 device, UInt32 port);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPortAttribi", ExactSpelling = true)]
 			internal extern static int wfdGetPortAttribi(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPortAttribf", ExactSpelling = true)]
 			internal extern static float wfdGetPortAttribf(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPortAttribiv", ExactSpelling = true)]
 			internal extern static unsafe void wfdGetPortAttribiv(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPortAttribfv", ExactSpelling = true)]
 			internal extern static unsafe void wfdGetPortAttribfv(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, float* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPortAttribi", ExactSpelling = true)]
 			internal extern static void wfdSetPortAttribi(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPortAttribf", ExactSpelling = true)]
 			internal extern static void wfdSetPortAttribf(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, float value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPortAttribiv", ExactSpelling = true)]
 			internal extern static unsafe void wfdSetPortAttribiv(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPortAttribfv", ExactSpelling = true)]
 			internal extern static unsafe void wfdSetPortAttribfv(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, float* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdBindPipelineToPort", ExactSpelling = true)]
 			internal extern static void wfdBindPipelineToPort(UInt32 device, UInt32 port, UInt32 pipeline);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetDisplayDataFormats", ExactSpelling = true)]
 			internal extern static unsafe int wfdGetDisplayDataFormats(UInt32 device, UInt32 port, WFDDisplayDataFormat* format, int formatCount);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetDisplayData", ExactSpelling = true)]
 			internal extern static unsafe int wfdGetDisplayData(UInt32 device, UInt32 port, WFDDisplayDataFormat format, byte* data, int dataCount);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdEnumeratePipelines", ExactSpelling = true)]
 			internal extern static unsafe int wfdEnumeratePipelines(UInt32 device, int* pipelineIds, int pipelineIdsCount, int* filterList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdCreatePipeline", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfdCreatePipeline(UInt32 device, int pipelineId, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDestroyPipeline", ExactSpelling = true)]
 			internal extern static void wfdDestroyPipeline(UInt32 device, UInt32 pipeline);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdCreateSourceFromImage", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfdCreateSourceFromImage(UInt32 device, UInt32 pipeline, IntPtr image, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdCreateSourceFromStream", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfdCreateSourceFromStream(UInt32 device, UInt32 pipeline, UInt32 stream, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDestroySource", ExactSpelling = true)]
 			internal extern static void wfdDestroySource(UInt32 device, UInt32 source);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdCreateMaskFromImage", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfdCreateMaskFromImage(UInt32 device, UInt32 pipeline, IntPtr image, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdCreateMaskFromStream", ExactSpelling = true)]
 			internal extern static unsafe UInt32 wfdCreateMaskFromStream(UInt32 device, UInt32 pipeline, UInt32 stream, int* attribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdDestroyMask", ExactSpelling = true)]
 			internal extern static void wfdDestroyMask(UInt32 device, UInt32 mask);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdBindSourceToPipeline", ExactSpelling = true)]
 			internal extern static unsafe void wfdBindSourceToPipeline(UInt32 device, UInt32 pipeline, UInt32 source, WFDTransition transition, WFDRect* region);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdBindMaskToPipeline", ExactSpelling = true)]
 			internal extern static void wfdBindMaskToPipeline(UInt32 device, UInt32 pipeline, UInt32 mask, WFDTransition transition);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPipelineAttribi", ExactSpelling = true)]
 			internal extern static int wfdGetPipelineAttribi(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPipelineAttribf", ExactSpelling = true)]
 			internal extern static float wfdGetPipelineAttribf(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPipelineAttribiv", ExactSpelling = true)]
 			internal extern static unsafe void wfdGetPipelineAttribiv(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPipelineAttribfv", ExactSpelling = true)]
 			internal extern static unsafe void wfdGetPipelineAttribfv(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, float* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPipelineAttribi", ExactSpelling = true)]
 			internal extern static void wfdSetPipelineAttribi(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPipelineAttribf", ExactSpelling = true)]
 			internal extern static void wfdSetPipelineAttribf(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, float value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPipelineAttribiv", ExactSpelling = true)]
 			internal extern static unsafe void wfdSetPipelineAttribiv(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPipelineAttribfv", ExactSpelling = true)]
 			internal extern static unsafe void wfdSetPipelineAttribfv(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, float* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPipelineTransparency", ExactSpelling = true)]
 			internal extern static unsafe int wfdGetPipelineTransparency(UInt32 device, UInt32 pipeline, UInt32* trans, int transCount);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdSetPipelineTSColor", ExactSpelling = true)]
 			internal extern static unsafe void wfdSetPipelineTSColor(UInt32 device, UInt32 pipeline, WFDTSColorFormat colorFormat, int count, void* color);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wfdGetPipelineLayerOrder", ExactSpelling = true)]
@@ -1373,392 +1373,392 @@ namespace OpenWF
 
 		internal unsafe static partial class Delegates
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfdGetStrings(UInt32 device, WFDStringID name, IntPtr* strings, int stringsCount);
 
 			internal static wfdGetStrings pwfdGetStrings;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wfdIsExtensionSupported(UInt32 device, char* @string);
 
 			internal static wfdIsExtensionSupported pwfdIsExtensionSupported;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate WFDErrorCode wfdGetError(UInt32 device);
 
 			internal static wfdGetError pwfdGetError;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfdEnumerateDevices(int* deviceIds, int deviceIdsCount, int* filterList);
 
 			internal static wfdEnumerateDevices pwfdEnumerateDevices;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfdCreateDevice(int deviceId, int* attribList);
 
 			internal static wfdCreateDevice pwfdCreateDevice;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate WFDErrorCode wfdDestroyDevice(UInt32 device);
 
 			internal static wfdDestroyDevice pwfdDestroyDevice;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdDeviceCommit(UInt32 device, WFDCommitType type, UInt32 handle);
 
 			internal static wfdDeviceCommit pwfdDeviceCommit;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfdGetDeviceAttribi(UInt32 device, WFDDeviceAttrib attrib);
 
 			internal static wfdGetDeviceAttribi pwfdGetDeviceAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdSetDeviceAttribi(UInt32 device, WFDDeviceAttrib attrib, int value);
 
 			internal static wfdSetDeviceAttribi pwfdSetDeviceAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfdCreateEvent(UInt32 device, int* attribList);
 
 			internal static wfdCreateEvent pwfdCreateEvent;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdDestroyEvent(UInt32 device, UInt32 @event);
 
 			internal static wfdDestroyEvent pwfdDestroyEvent;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfdGetEventAttribi(UInt32 device, UInt32 @event, WFDEventAttrib attrib);
 
 			internal static wfdGetEventAttribi pwfdGetEventAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdDeviceEventAsync(UInt32 device, UInt32 @event, IntPtr display, IntPtr sync);
 
 			internal static wfdDeviceEventAsync pwfdDeviceEventAsync;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate WFDEventType wfdDeviceEventWait(UInt32 device, UInt32 @event, ulong timeout);
 
 			internal static wfdDeviceEventWait pwfdDeviceEventWait;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdDeviceEventFilter(UInt32 device, UInt32 @event, WFDEventType* filter);
 
 			internal static wfdDeviceEventFilter pwfdDeviceEventFilter;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfdEnumeratePorts(UInt32 device, int* portIds, int portIdsCount, int* filterList);
 
 			internal static wfdEnumeratePorts pwfdEnumeratePorts;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfdCreatePort(UInt32 device, int portId, int* attribList);
 
 			internal static wfdCreatePort pwfdCreatePort;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdDestroyPort(UInt32 device, UInt32 port);
 
 			internal static wfdDestroyPort pwfdDestroyPort;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfdGetPortModes(UInt32 device, UInt32 port, UInt32* modes, int modesCount);
 
 			internal static wfdGetPortModes pwfdGetPortModes;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfdGetPortModeAttribi(UInt32 device, UInt32 port, UInt32 mode, WFDPortModeAttrib attrib);
 
 			internal static wfdGetPortModeAttribi pwfdGetPortModeAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate float wfdGetPortModeAttribf(UInt32 device, UInt32 port, UInt32 mode, WFDPortModeAttrib attrib);
 
 			internal static wfdGetPortModeAttribf pwfdGetPortModeAttribf;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdSetPortMode(UInt32 device, UInt32 port, UInt32 mode);
 
 			internal static wfdSetPortMode pwfdSetPortMode;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 wfdGetCurrentPortMode(UInt32 device, UInt32 port);
 
 			internal static wfdGetCurrentPortMode pwfdGetCurrentPortMode;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfdGetPortAttribi(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib);
 
 			internal static wfdGetPortAttribi pwfdGetPortAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate float wfdGetPortAttribf(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib);
 
 			internal static wfdGetPortAttribf pwfdGetPortAttribf;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdGetPortAttribiv(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, int* value);
 
 			internal static wfdGetPortAttribiv pwfdGetPortAttribiv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdGetPortAttribfv(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, float* value);
 
 			internal static wfdGetPortAttribfv pwfdGetPortAttribfv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdSetPortAttribi(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int value);
 
 			internal static wfdSetPortAttribi pwfdSetPortAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdSetPortAttribf(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, float value);
 
 			internal static wfdSetPortAttribf pwfdSetPortAttribf;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdSetPortAttribiv(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, int* value);
 
 			internal static wfdSetPortAttribiv pwfdSetPortAttribiv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdSetPortAttribfv(UInt32 device, UInt32 port, WFDPortConfigAttrib attrib, int count, float* value);
 
 			internal static wfdSetPortAttribfv pwfdSetPortAttribfv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdBindPipelineToPort(UInt32 device, UInt32 port, UInt32 pipeline);
 
 			internal static wfdBindPipelineToPort pwfdBindPipelineToPort;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfdGetDisplayDataFormats(UInt32 device, UInt32 port, WFDDisplayDataFormat* format, int formatCount);
 
 			internal static wfdGetDisplayDataFormats pwfdGetDisplayDataFormats;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfdGetDisplayData(UInt32 device, UInt32 port, WFDDisplayDataFormat format, byte* data, int dataCount);
 
 			internal static wfdGetDisplayData pwfdGetDisplayData;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfdEnumeratePipelines(UInt32 device, int* pipelineIds, int pipelineIdsCount, int* filterList);
 
 			internal static wfdEnumeratePipelines pwfdEnumeratePipelines;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfdCreatePipeline(UInt32 device, int pipelineId, int* attribList);
 
 			internal static wfdCreatePipeline pwfdCreatePipeline;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdDestroyPipeline(UInt32 device, UInt32 pipeline);
 
 			internal static wfdDestroyPipeline pwfdDestroyPipeline;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfdCreateSourceFromImage(UInt32 device, UInt32 pipeline, IntPtr image, int* attribList);
 
 			internal static wfdCreateSourceFromImage pwfdCreateSourceFromImage;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfdCreateSourceFromStream(UInt32 device, UInt32 pipeline, UInt32 stream, int* attribList);
 
 			internal static wfdCreateSourceFromStream pwfdCreateSourceFromStream;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdDestroySource(UInt32 device, UInt32 source);
 
 			internal static wfdDestroySource pwfdDestroySource;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfdCreateMaskFromImage(UInt32 device, UInt32 pipeline, IntPtr image, int* attribList);
 
 			internal static wfdCreateMaskFromImage pwfdCreateMaskFromImage;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 wfdCreateMaskFromStream(UInt32 device, UInt32 pipeline, UInt32 stream, int* attribList);
 
 			internal static wfdCreateMaskFromStream pwfdCreateMaskFromStream;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdDestroyMask(UInt32 device, UInt32 mask);
 
 			internal static wfdDestroyMask pwfdDestroyMask;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdBindSourceToPipeline(UInt32 device, UInt32 pipeline, UInt32 source, WFDTransition transition, WFDRect* region);
 
 			internal static wfdBindSourceToPipeline pwfdBindSourceToPipeline;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdBindMaskToPipeline(UInt32 device, UInt32 pipeline, UInt32 mask, WFDTransition transition);
 
 			internal static wfdBindMaskToPipeline pwfdBindMaskToPipeline;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfdGetPipelineAttribi(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib);
 
 			internal static wfdGetPipelineAttribi pwfdGetPipelineAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate float wfdGetPipelineAttribf(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib);
 
 			internal static wfdGetPipelineAttribf pwfdGetPipelineAttribf;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdGetPipelineAttribiv(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, int* value);
 
 			internal static wfdGetPipelineAttribiv pwfdGetPipelineAttribiv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdGetPipelineAttribfv(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, float* value);
 
 			internal static wfdGetPipelineAttribfv pwfdGetPipelineAttribfv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdSetPipelineAttribi(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int value);
 
 			internal static wfdSetPipelineAttribi pwfdSetPipelineAttribi;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void wfdSetPipelineAttribf(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, float value);
 
 			internal static wfdSetPipelineAttribf pwfdSetPipelineAttribf;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdSetPipelineAttribiv(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, int* value);
 
 			internal static wfdSetPipelineAttribiv pwfdSetPipelineAttribiv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdSetPipelineAttribfv(UInt32 device, UInt32 pipeline, WFDPipelineConfigAttrib attrib, int count, float* value);
 
 			internal static wfdSetPipelineAttribfv pwfdSetPipelineAttribfv;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wfdGetPipelineTransparency(UInt32 device, UInt32 pipeline, UInt32* trans, int transCount);
 
 			internal static wfdGetPipelineTransparency pwfdGetPipelineTransparency;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wfdSetPipelineTSColor(UInt32 device, UInt32 pipeline, WFDTSColorFormat colorFormat, int count, void* color);
 
 			internal static wfdSetPipelineTSColor pwfdSetPipelineTSColor;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int wfdGetPipelineLayerOrder(UInt32 device, UInt32 port, UInt32 pipeline);

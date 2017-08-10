@@ -436,74 +436,74 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNewObjectBufferATI", ExactSpelling = true)]
 			internal extern static unsafe UInt32 glNewObjectBufferATI(Int32 size, IntPtr pointer, Int32 usage);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsObjectBufferATI", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsObjectBufferATI(UInt32 buffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUpdateObjectBufferATI", ExactSpelling = true)]
 			internal extern static unsafe void glUpdateObjectBufferATI(UInt32 buffer, UInt32 offset, Int32 size, IntPtr pointer, Int32 preserve);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetObjectBufferfvATI", ExactSpelling = true)]
 			internal extern static unsafe void glGetObjectBufferfvATI(UInt32 buffer, Int32 pname, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetObjectBufferivATI", ExactSpelling = true)]
 			internal extern static unsafe void glGetObjectBufferivATI(UInt32 buffer, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFreeObjectBufferATI", ExactSpelling = true)]
 			internal extern static void glFreeObjectBufferATI(UInt32 buffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glArrayObjectATI", ExactSpelling = true)]
 			internal extern static void glArrayObjectATI(Int32 array, Int32 size, Int32 type, Int32 stride, UInt32 buffer, UInt32 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetArrayObjectfvATI", ExactSpelling = true)]
 			internal extern static unsafe void glGetArrayObjectfvATI(Int32 array, Int32 pname, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetArrayObjectivATI", ExactSpelling = true)]
 			internal extern static unsafe void glGetArrayObjectivATI(Int32 array, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantArrayObjectATI", ExactSpelling = true)]
 			internal extern static void glVariantArrayObjectATI(UInt32 id, Int32 type, Int32 stride, UInt32 buffer, UInt32 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVariantArrayObjectfvATI", ExactSpelling = true)]
 			internal extern static unsafe void glGetVariantArrayObjectfvATI(UInt32 id, Int32 pname, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVariantArrayObjectivATI", ExactSpelling = true)]
@@ -514,7 +514,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate UInt32 glNewObjectBufferATI(Int32 size, IntPtr pointer, Int32 usage);
@@ -524,7 +524,7 @@ namespace OpenGL
 			internal static glNewObjectBufferATI pglNewObjectBufferATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsObjectBufferATI(UInt32 buffer);
@@ -534,7 +534,7 @@ namespace OpenGL
 			internal static glIsObjectBufferATI pglIsObjectBufferATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUpdateObjectBufferATI(UInt32 buffer, UInt32 offset, Int32 size, IntPtr pointer, Int32 preserve);
@@ -544,7 +544,7 @@ namespace OpenGL
 			internal static glUpdateObjectBufferATI pglUpdateObjectBufferATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetObjectBufferfvATI(UInt32 buffer, Int32 pname, float* @params);
@@ -554,7 +554,7 @@ namespace OpenGL
 			internal static glGetObjectBufferfvATI pglGetObjectBufferfvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetObjectBufferivATI(UInt32 buffer, Int32 pname, Int32* @params);
@@ -564,7 +564,7 @@ namespace OpenGL
 			internal static glGetObjectBufferivATI pglGetObjectBufferivATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glFreeObjectBufferATI(UInt32 buffer);
@@ -574,7 +574,7 @@ namespace OpenGL
 			internal static glFreeObjectBufferATI pglFreeObjectBufferATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glArrayObjectATI(Int32 array, Int32 size, Int32 type, Int32 stride, UInt32 buffer, UInt32 offset);
@@ -584,7 +584,7 @@ namespace OpenGL
 			internal static glArrayObjectATI pglArrayObjectATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetArrayObjectfvATI(Int32 array, Int32 pname, float* @params);
@@ -594,7 +594,7 @@ namespace OpenGL
 			internal static glGetArrayObjectfvATI pglGetArrayObjectfvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetArrayObjectivATI(Int32 array, Int32 pname, Int32* @params);
@@ -604,7 +604,7 @@ namespace OpenGL
 			internal static glGetArrayObjectivATI pglGetArrayObjectivATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVariantArrayObjectATI(UInt32 id, Int32 type, Int32 stride, UInt32 buffer, UInt32 offset);
@@ -614,7 +614,7 @@ namespace OpenGL
 			internal static glVariantArrayObjectATI pglVariantArrayObjectATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVariantArrayObjectfvATI(UInt32 id, Int32 pname, float* @params);
@@ -624,7 +624,7 @@ namespace OpenGL
 			internal static glGetVariantArrayObjectfvATI pglGetVariantArrayObjectfvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVariantArrayObjectivATI(UInt32 id, Int32 pname, Int32* @params);

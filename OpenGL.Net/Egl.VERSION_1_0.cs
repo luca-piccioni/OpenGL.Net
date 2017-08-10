@@ -1777,145 +1777,145 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglChooseConfig", ExactSpelling = true)]
 			internal extern static unsafe bool eglChooseConfig(IntPtr dpy, int* attrib_list, IntPtr* configs, int config_size, int* num_config);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglCopyBuffers", ExactSpelling = true)]
 			internal extern static unsafe bool eglCopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglCreateContext", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglCreatePbufferSurface", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreatePbufferSurface(IntPtr dpy, IntPtr config, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglCreatePixmapSurface", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglCreateWindowSurface", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglDestroyContext", ExactSpelling = true)]
 			internal extern static unsafe bool eglDestroyContext(IntPtr dpy, IntPtr ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglDestroySurface", ExactSpelling = true)]
 			internal extern static unsafe bool eglDestroySurface(IntPtr dpy, IntPtr surface);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetConfigAttrib", ExactSpelling = true)]
 			internal extern static unsafe bool eglGetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetConfigs", ExactSpelling = true)]
 			internal extern static unsafe bool eglGetConfigs(IntPtr dpy, IntPtr* configs, int config_size, int* num_config);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetCurrentDisplay", ExactSpelling = true)]
 			internal extern static IntPtr eglGetCurrentDisplay();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetCurrentSurface", ExactSpelling = true)]
 			internal extern static IntPtr eglGetCurrentSurface(int readdraw);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetDisplay", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglGetDisplay(IntPtr display_id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetError", ExactSpelling = true)]
 			internal extern static int eglGetError();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetProcAddress", ExactSpelling = true)]
 			internal extern static IntPtr eglGetProcAddress(string procname);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglInitialize", ExactSpelling = true)]
 			internal extern static unsafe bool eglInitialize(IntPtr dpy, int* major, int* minor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglMakeCurrent", ExactSpelling = true)]
 			internal extern static unsafe bool eglMakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryContext", ExactSpelling = true)]
 			internal extern static unsafe bool eglQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryString", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglQueryString(IntPtr dpy, int name);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQuerySurface", ExactSpelling = true)]
 			internal extern static unsafe bool eglQuerySurface(IntPtr dpy, IntPtr surface, int attribute, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglSwapBuffers", ExactSpelling = true)]
 			internal extern static unsafe bool eglSwapBuffers(IntPtr dpy, IntPtr surface);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglTerminate", ExactSpelling = true)]
 			internal extern static unsafe bool eglTerminate(IntPtr dpy);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglWaitGL", ExactSpelling = true)]
 			internal extern static bool eglWaitGL();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglWaitNative", ExactSpelling = true)]
@@ -1926,7 +1926,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglChooseConfig(IntPtr dpy, int* attrib_list, IntPtr* configs, int config_size, int* num_config);
@@ -1935,7 +1935,7 @@ namespace OpenGL
 			internal static eglChooseConfig peglChooseConfig;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglCopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target);
@@ -1944,7 +1944,7 @@ namespace OpenGL
 			internal static eglCopyBuffers peglCopyBuffers;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglCreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int* attrib_list);
@@ -1953,7 +1953,7 @@ namespace OpenGL
 			internal static eglCreateContext peglCreateContext;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglCreatePbufferSurface(IntPtr dpy, IntPtr config, int* attrib_list);
@@ -1962,7 +1962,7 @@ namespace OpenGL
 			internal static eglCreatePbufferSurface peglCreatePbufferSurface;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglCreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
@@ -1971,7 +1971,7 @@ namespace OpenGL
 			internal static eglCreatePixmapSurface peglCreatePixmapSurface;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglCreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
@@ -1980,7 +1980,7 @@ namespace OpenGL
 			internal static eglCreateWindowSurface peglCreateWindowSurface;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglDestroyContext(IntPtr dpy, IntPtr ctx);
@@ -1989,7 +1989,7 @@ namespace OpenGL
 			internal static eglDestroyContext peglDestroyContext;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglDestroySurface(IntPtr dpy, IntPtr surface);
@@ -1998,7 +1998,7 @@ namespace OpenGL
 			internal static eglDestroySurface peglDestroySurface;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglGetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
@@ -2007,7 +2007,7 @@ namespace OpenGL
 			internal static eglGetConfigAttrib peglGetConfigAttrib;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglGetConfigs(IntPtr dpy, IntPtr* configs, int config_size, int* num_config);
@@ -2016,7 +2016,7 @@ namespace OpenGL
 			internal static eglGetConfigs peglGetConfigs;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr eglGetCurrentDisplay();
@@ -2025,7 +2025,7 @@ namespace OpenGL
 			internal static eglGetCurrentDisplay peglGetCurrentDisplay;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr eglGetCurrentSurface(int readdraw);
@@ -2034,7 +2034,7 @@ namespace OpenGL
 			internal static eglGetCurrentSurface peglGetCurrentSurface;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglGetDisplay(IntPtr display_id);
@@ -2043,7 +2043,7 @@ namespace OpenGL
 			internal static eglGetDisplay peglGetDisplay;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int eglGetError();
@@ -2052,7 +2052,7 @@ namespace OpenGL
 			internal static eglGetError peglGetError;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr eglGetProcAddress(string procname);
@@ -2061,7 +2061,7 @@ namespace OpenGL
 			internal static eglGetProcAddress peglGetProcAddress;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglInitialize(IntPtr dpy, int* major, int* minor);
@@ -2070,7 +2070,7 @@ namespace OpenGL
 			internal static eglInitialize peglInitialize;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglMakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
@@ -2079,7 +2079,7 @@ namespace OpenGL
 			internal static eglMakeCurrent peglMakeCurrent;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
@@ -2088,7 +2088,7 @@ namespace OpenGL
 			internal static eglQueryContext peglQueryContext;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglQueryString(IntPtr dpy, int name);
@@ -2097,7 +2097,7 @@ namespace OpenGL
 			internal static eglQueryString peglQueryString;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglQuerySurface(IntPtr dpy, IntPtr surface, int attribute, int* value);
@@ -2106,7 +2106,7 @@ namespace OpenGL
 			internal static eglQuerySurface peglQuerySurface;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglSwapBuffers(IntPtr dpy, IntPtr surface);
@@ -2115,7 +2115,7 @@ namespace OpenGL
 			internal static eglSwapBuffers peglSwapBuffers;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglTerminate(IntPtr dpy);
@@ -2124,7 +2124,7 @@ namespace OpenGL
 			internal static eglTerminate peglTerminate;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool eglWaitGL();
@@ -2133,7 +2133,7 @@ namespace OpenGL
 			internal static eglWaitGL peglWaitGL;
 
 			[RequiredByFeature("EGL_VERSION_1_0")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool eglWaitNative(int engine);

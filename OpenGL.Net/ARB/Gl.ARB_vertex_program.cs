@@ -1090,115 +1090,115 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramStringARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramStringARB(Int32 target, Int32 format, Int32 len, IntPtr @string);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindProgramARB", ExactSpelling = true)]
 			internal extern static void glBindProgramARB(Int32 target, UInt32 program);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteProgramsARB", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteProgramsARB(Int32 n, UInt32* programs);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenProgramsARB", ExactSpelling = true)]
 			internal extern static unsafe void glGenProgramsARB(Int32 n, UInt32* programs);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramEnvParameter4dARB", ExactSpelling = true)]
 			internal extern static void glProgramEnvParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramEnvParameter4dvARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramEnvParameter4dvARB(Int32 target, UInt32 index, double* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramEnvParameter4fARB", ExactSpelling = true)]
 			internal extern static void glProgramEnvParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramEnvParameter4fvARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramEnvParameter4fvARB(Int32 target, UInt32 index, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramLocalParameter4dARB", ExactSpelling = true)]
 			internal extern static void glProgramLocalParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramLocalParameter4dvARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramLocalParameter4dvARB(Int32 target, UInt32 index, double* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramLocalParameter4fARB", ExactSpelling = true)]
 			internal extern static void glProgramLocalParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramLocalParameter4fvARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramLocalParameter4fvARB(Int32 target, UInt32 index, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramEnvParameterdvARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramEnvParameterdvARB(Int32 target, UInt32 index, double* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramEnvParameterfvARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramEnvParameterfvARB(Int32 target, UInt32 index, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramLocalParameterdvARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramLocalParameterdvARB(Int32 target, UInt32 index, double* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramLocalParameterfvARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramLocalParameterfvARB(Int32 target, UInt32 index, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramivARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramivARB(Int32 target, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetProgramStringARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetProgramStringARB(Int32 target, Int32 pname, IntPtr @string);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsProgramARB", ExactSpelling = true)]
@@ -1211,7 +1211,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramStringARB(Int32 target, Int32 format, Int32 len, IntPtr @string);
@@ -1224,7 +1224,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBindProgramARB(Int32 target, UInt32 program);
@@ -1240,7 +1240,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeleteProgramsARB(Int32 n, UInt32* programs);
@@ -1256,7 +1256,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGenProgramsARB(Int32 n, UInt32* programs);
@@ -1271,7 +1271,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramEnvParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
@@ -1283,7 +1283,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramEnvParameter4dvARB(Int32 target, UInt32 index, double* @params);
@@ -1295,7 +1295,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramEnvParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
@@ -1307,7 +1307,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramEnvParameter4fvARB(Int32 target, UInt32 index, float* @params);
@@ -1319,7 +1319,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramLocalParameter4dARB(Int32 target, UInt32 index, double x, double y, double z, double w);
@@ -1331,7 +1331,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramLocalParameter4dvARB(Int32 target, UInt32 index, double* @params);
@@ -1343,7 +1343,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramLocalParameter4fARB(Int32 target, UInt32 index, float x, float y, float z, float w);
@@ -1355,7 +1355,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramLocalParameter4fvARB(Int32 target, UInt32 index, float* @params);
@@ -1367,7 +1367,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetProgramEnvParameterdvARB(Int32 target, UInt32 index, double* @params);
@@ -1379,7 +1379,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetProgramEnvParameterfvARB(Int32 target, UInt32 index, float* @params);
@@ -1391,7 +1391,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetProgramLocalParameterdvARB(Int32 target, UInt32 index, double* @params);
@@ -1403,7 +1403,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetProgramLocalParameterfvARB(Int32 target, UInt32 index, float* @params);
@@ -1415,7 +1415,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetProgramivARB(Int32 target, Int32 pname, Int32* @params);
@@ -1427,7 +1427,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetProgramStringARB(Int32 target, Int32 pname, IntPtr @string);
@@ -1440,7 +1440,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsProgramARB(UInt32 program);

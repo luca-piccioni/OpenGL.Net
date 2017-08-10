@@ -106,19 +106,19 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDepthRangedNV", ExactSpelling = true)]
 			internal extern static void glDepthRangedNV(double zNear, double zFar);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClearDepthdNV", ExactSpelling = true)]
 			internal extern static void glClearDepthdNV(double depth);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDepthBoundsdNV", ExactSpelling = true)]
@@ -129,7 +129,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_depth_buffer_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDepthRangedNV(double zNear, double zFar);
@@ -139,7 +139,7 @@ namespace OpenGL
 			internal static glDepthRangedNV pglDepthRangedNV;
 
 			[RequiredByFeature("GL_NV_depth_buffer_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glClearDepthdNV(double depth);
@@ -149,7 +149,7 @@ namespace OpenGL
 			internal static glClearDepthdNV pglClearDepthdNV;
 
 			[RequiredByFeature("GL_NV_depth_buffer_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDepthBoundsdNV(double zmin, double zmax);

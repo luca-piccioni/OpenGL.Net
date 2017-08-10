@@ -231,12 +231,12 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		internal void GenerateImport(SourceStreamWriter sw, RegistryContext ctx)
 		{
-            // The SuppressUnmanagedCodeSecurity attribute is used to increase P/Invoke performance
-            sw.WriteLine("#if !NETCORE");
+			// The SuppressUnmanagedCodeSecurity attribute is used to increase P/Invoke performance
+			sw.WriteLine("#if !NETCORE && !NETSTANDARD1_4");
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
-            sw.WriteLine("#endif");
-            // Import definition
-            CommandFlags commandFlags = CommandFlagsDatabase.GetCommandFlags(this);
+			sw.WriteLine("#endif");
+			// Import definition
+			CommandFlags commandFlags = CommandFlagsDatabase.GetCommandFlags(this);
 			
 			if ((commandFlags & CommandFlags.SetLastError) != 0)
 				sw.WriteLine("[DllImport(Library, EntryPoint = \"{0}\", ExactSpelling = true, SetLastError = true)]", ImportName);
@@ -315,7 +315,7 @@ namespace BindingsGen.GLSpecs
 				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
 
             // Not yet sure if it is really necessary
-            sw.WriteLine("#if !NETCORE");
+            sw.WriteLine("#if !NETCORE && !NETSTANDARD1_4");
             sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
             sw.WriteLine("#endif");
 

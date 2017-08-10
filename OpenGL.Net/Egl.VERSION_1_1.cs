@@ -357,25 +357,25 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglBindTexImage", ExactSpelling = true)]
 			internal extern static unsafe bool eglBindTexImage(IntPtr dpy, IntPtr surface, int buffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglReleaseTexImage", ExactSpelling = true)]
 			internal extern static unsafe bool eglReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglSurfaceAttrib", ExactSpelling = true)]
 			internal extern static unsafe bool eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglSwapInterval", ExactSpelling = true)]
@@ -386,7 +386,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_VERSION_1_1")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglBindTexImage(IntPtr dpy, IntPtr surface, int buffer);
@@ -395,7 +395,7 @@ namespace OpenGL
 			internal static eglBindTexImage peglBindTexImage;
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer);
@@ -404,7 +404,7 @@ namespace OpenGL
 			internal static eglReleaseTexImage peglReleaseTexImage;
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
@@ -413,7 +413,7 @@ namespace OpenGL
 			internal static eglSurfaceAttrib peglSurfaceAttrib;
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglSwapInterval(IntPtr dpy, int interval);

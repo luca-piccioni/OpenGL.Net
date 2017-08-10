@@ -478,31 +478,31 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglBindAPI", ExactSpelling = true)]
 			internal extern static bool eglBindAPI(uint api);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryAPI", ExactSpelling = true)]
 			internal extern static uint eglQueryAPI();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglCreatePbufferFromClientBuffer", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglReleaseThread", ExactSpelling = true)]
 			internal extern static bool eglReleaseThread();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglWaitClient", ExactSpelling = true)]
@@ -513,7 +513,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool eglBindAPI(uint api);
@@ -522,7 +522,7 @@ namespace OpenGL
 			internal static eglBindAPI peglBindAPI;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate uint eglQueryAPI();
@@ -531,7 +531,7 @@ namespace OpenGL
 			internal static eglQueryAPI peglQueryAPI;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
@@ -540,7 +540,7 @@ namespace OpenGL
 			internal static eglCreatePbufferFromClientBuffer peglCreatePbufferFromClientBuffer;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool eglReleaseThread();
@@ -549,7 +549,7 @@ namespace OpenGL
 			internal static eglReleaseThread peglReleaseThread;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool eglWaitClient();

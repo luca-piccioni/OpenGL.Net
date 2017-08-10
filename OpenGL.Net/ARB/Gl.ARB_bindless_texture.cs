@@ -388,99 +388,99 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureHandleARB", ExactSpelling = true)]
 			internal extern static UInt64 glGetTextureHandleARB(UInt32 texture);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureSamplerHandleARB", ExactSpelling = true)]
 			internal extern static UInt64 glGetTextureSamplerHandleARB(UInt32 texture, UInt32 sampler);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMakeTextureHandleResidentARB", ExactSpelling = true)]
 			internal extern static void glMakeTextureHandleResidentARB(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMakeTextureHandleNonResidentARB", ExactSpelling = true)]
 			internal extern static void glMakeTextureHandleNonResidentARB(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetImageHandleARB", ExactSpelling = true)]
 			internal extern static UInt64 glGetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMakeImageHandleResidentARB", ExactSpelling = true)]
 			internal extern static void glMakeImageHandleResidentARB(UInt64 handle, Int32 access);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMakeImageHandleNonResidentARB", ExactSpelling = true)]
 			internal extern static void glMakeImageHandleNonResidentARB(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniformHandleui64ARB", ExactSpelling = true)]
 			internal extern static void glUniformHandleui64ARB(Int32 location, UInt64 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniformHandleui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniformHandleui64vARB(Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformHandleui64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniformHandleui64ARB(UInt32 program, Int32 location, UInt64 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformHandleui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformHandleui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsTextureHandleResidentARB", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsTextureHandleResidentARB(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsImageHandleResidentARB", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsImageHandleResidentARB(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttribL1ui64ARB", ExactSpelling = true)]
 			internal extern static void glVertexAttribL1ui64ARB(UInt32 index, UInt64 x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttribL1ui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glVertexAttribL1ui64vARB(UInt32 index, UInt64* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVertexAttribLui64vARB", ExactSpelling = true)]
@@ -492,7 +492,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 glGetTextureHandleARB(UInt32 texture);
@@ -506,7 +506,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 glGetTextureSamplerHandleARB(UInt32 texture, UInt32 sampler);
@@ -519,7 +519,7 @@ namespace OpenGL
 			internal static glGetTextureSamplerHandleARB pglGetTextureSamplerHandleARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMakeTextureHandleResidentARB(UInt64 handle);
@@ -529,7 +529,7 @@ namespace OpenGL
 			internal static glMakeTextureHandleResidentARB pglMakeTextureHandleResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMakeTextureHandleNonResidentARB(UInt64 handle);
@@ -539,7 +539,7 @@ namespace OpenGL
 			internal static glMakeTextureHandleNonResidentARB pglMakeTextureHandleNonResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 glGetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
@@ -549,7 +549,7 @@ namespace OpenGL
 			internal static glGetImageHandleARB pglGetImageHandleARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMakeImageHandleResidentARB(UInt64 handle, Int32 access);
@@ -559,7 +559,7 @@ namespace OpenGL
 			internal static glMakeImageHandleResidentARB pglMakeImageHandleResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMakeImageHandleNonResidentARB(UInt64 handle);
@@ -570,7 +570,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniformHandleui64ARB(Int32 location, UInt64 value);
@@ -584,7 +584,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformHandleui64vARB(Int32 location, Int32 count, UInt64* value);
@@ -598,7 +598,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniformHandleui64ARB(UInt32 program, Int32 location, UInt64 value);
@@ -612,7 +612,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniformHandleui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* values);
@@ -625,7 +625,7 @@ namespace OpenGL
 			internal static glProgramUniformHandleui64vARB pglProgramUniformHandleui64vARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsTextureHandleResidentARB(UInt64 handle);
@@ -635,7 +635,7 @@ namespace OpenGL
 			internal static glIsTextureHandleResidentARB pglIsTextureHandleResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsImageHandleResidentARB(UInt64 handle);
@@ -645,7 +645,7 @@ namespace OpenGL
 			internal static glIsImageHandleResidentARB pglIsImageHandleResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexAttribL1ui64ARB(UInt32 index, UInt64 x);
@@ -655,7 +655,7 @@ namespace OpenGL
 			internal static glVertexAttribL1ui64ARB pglVertexAttribL1ui64ARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttribL1ui64vARB(UInt32 index, UInt64* v);
@@ -665,7 +665,7 @@ namespace OpenGL
 			internal static glVertexAttribL1ui64vARB pglVertexAttribL1ui64vARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVertexAttribLui64vARB(UInt32 index, Int32 pname, UInt64* @params);

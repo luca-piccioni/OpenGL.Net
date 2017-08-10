@@ -234,31 +234,31 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXBindChannelToWindowSGIX", ExactSpelling = true)]
 			internal extern static unsafe int glXBindChannelToWindowSGIX(IntPtr display, int screen, int channel, IntPtr window);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXChannelRectSGIX", ExactSpelling = true)]
 			internal extern static unsafe int glXChannelRectSGIX(IntPtr display, int screen, int channel, int x, int y, int w, int h);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryChannelRectSGIX", ExactSpelling = true)]
 			internal extern static unsafe int glXQueryChannelRectSGIX(IntPtr display, int screen, int channel, int* dx, int* dy, int* dw, int* dh);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryChannelDeltasSGIX", ExactSpelling = true)]
 			internal extern static unsafe int glXQueryChannelDeltasSGIX(IntPtr display, int screen, int channel, int* x, int* y, int* w, int* h);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXChannelRectSyncSGIX", ExactSpelling = true)]
@@ -269,7 +269,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXBindChannelToWindowSGIX(IntPtr display, int screen, int channel, IntPtr window);
@@ -278,7 +278,7 @@ namespace OpenGL
 			internal static glXBindChannelToWindowSGIX pglXBindChannelToWindowSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXChannelRectSGIX(IntPtr display, int screen, int channel, int x, int y, int w, int h);
@@ -287,7 +287,7 @@ namespace OpenGL
 			internal static glXChannelRectSGIX pglXChannelRectSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXQueryChannelRectSGIX(IntPtr display, int screen, int channel, int* dx, int* dy, int* dw, int* dh);
@@ -296,7 +296,7 @@ namespace OpenGL
 			internal static glXQueryChannelRectSGIX pglXQueryChannelRectSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXQueryChannelDeltasSGIX(IntPtr display, int screen, int channel, int* x, int* y, int* w, int* h);
@@ -305,7 +305,7 @@ namespace OpenGL
 			internal static glXQueryChannelDeltasSGIX pglXQueryChannelDeltasSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, Int32 synctype);

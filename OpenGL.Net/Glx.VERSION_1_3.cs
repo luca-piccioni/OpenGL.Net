@@ -1378,103 +1378,103 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetFBConfigs", ExactSpelling = true)]
 			internal extern static unsafe IntPtr* glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXChooseFBConfig", ExactSpelling = true)]
 			internal extern static unsafe IntPtr* glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetFBConfigAttrib", ExactSpelling = true)]
 			internal extern static unsafe int glXGetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetVisualFromFBConfig", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXCreateWindow", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreateWindow(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXDestroyWindow", ExactSpelling = true)]
 			internal extern static unsafe void glXDestroyWindow(IntPtr dpy, IntPtr win);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXCreatePixmap", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreatePixmap(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXDestroyPixmap", ExactSpelling = true)]
 			internal extern static unsafe void glXDestroyPixmap(IntPtr dpy, IntPtr pixmap);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXCreatePbuffer", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreatePbuffer(IntPtr dpy, IntPtr config, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXDestroyPbuffer", ExactSpelling = true)]
 			internal extern static unsafe void glXDestroyPbuffer(IntPtr dpy, IntPtr pbuf);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryDrawable", ExactSpelling = true)]
 			internal extern static unsafe void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, UInt32* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXCreateNewContext", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXCreateNewContext(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXMakeContextCurrent", ExactSpelling = true)]
 			internal extern static unsafe bool glXMakeContextCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetCurrentReadDrawable", ExactSpelling = true)]
 			internal extern static IntPtr glXGetCurrentReadDrawable();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryContext", ExactSpelling = true)]
 			internal extern static unsafe int glXQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXSelectEvent", ExactSpelling = true)]
 			internal extern static unsafe void glXSelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetSelectedEvent", ExactSpelling = true)]
@@ -1485,7 +1485,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr* glXGetFBConfigs(IntPtr dpy, int screen, int* nelements);
@@ -1494,7 +1494,7 @@ namespace OpenGL
 			internal static glXGetFBConfigs pglXGetFBConfigs;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr* glXChooseFBConfig(IntPtr dpy, int screen, int* attrib_list, int* nelements);
@@ -1503,7 +1503,7 @@ namespace OpenGL
 			internal static glXChooseFBConfig pglXChooseFBConfig;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXGetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, int* value);
@@ -1512,7 +1512,7 @@ namespace OpenGL
 			internal static glXGetFBConfigAttrib pglXGetFBConfigAttrib;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXGetVisualFromFBConfig(IntPtr dpy, IntPtr config);
@@ -1521,7 +1521,7 @@ namespace OpenGL
 			internal static glXGetVisualFromFBConfig pglXGetVisualFromFBConfig;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXCreateWindow(IntPtr dpy, IntPtr config, IntPtr win, int* attrib_list);
@@ -1530,7 +1530,7 @@ namespace OpenGL
 			internal static glXCreateWindow pglXCreateWindow;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXDestroyWindow(IntPtr dpy, IntPtr win);
@@ -1539,7 +1539,7 @@ namespace OpenGL
 			internal static glXDestroyWindow pglXDestroyWindow;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXCreatePixmap(IntPtr dpy, IntPtr config, IntPtr pixmap, int* attrib_list);
@@ -1548,7 +1548,7 @@ namespace OpenGL
 			internal static glXCreatePixmap pglXCreatePixmap;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXDestroyPixmap(IntPtr dpy, IntPtr pixmap);
@@ -1557,7 +1557,7 @@ namespace OpenGL
 			internal static glXDestroyPixmap pglXDestroyPixmap;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXCreatePbuffer(IntPtr dpy, IntPtr config, int* attrib_list);
@@ -1566,7 +1566,7 @@ namespace OpenGL
 			internal static glXCreatePbuffer pglXCreatePbuffer;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXDestroyPbuffer(IntPtr dpy, IntPtr pbuf);
@@ -1575,7 +1575,7 @@ namespace OpenGL
 			internal static glXDestroyPbuffer pglXDestroyPbuffer;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, UInt32* value);
@@ -1584,7 +1584,7 @@ namespace OpenGL
 			internal static glXQueryDrawable pglXQueryDrawable;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXCreateNewContext(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
@@ -1593,7 +1593,7 @@ namespace OpenGL
 			internal static glXCreateNewContext pglXCreateNewContext;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool glXMakeContextCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
@@ -1602,7 +1602,7 @@ namespace OpenGL
 			internal static glXMakeContextCurrent pglXMakeContextCurrent;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr glXGetCurrentReadDrawable();
@@ -1611,7 +1611,7 @@ namespace OpenGL
 			internal static glXGetCurrentReadDrawable pglXGetCurrentReadDrawable;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXQueryContext(IntPtr dpy, IntPtr ctx, int attribute, int* value);
@@ -1620,7 +1620,7 @@ namespace OpenGL
 			internal static glXQueryContext pglXQueryContext;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXSelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask);
@@ -1629,7 +1629,7 @@ namespace OpenGL
 			internal static glXSelectEvent pglXSelectEvent;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glXGetSelectedEvent(IntPtr dpy, IntPtr draw, UInt32* event_mask);

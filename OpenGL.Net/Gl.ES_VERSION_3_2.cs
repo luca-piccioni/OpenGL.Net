@@ -558,13 +558,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBlendBarrier", ExactSpelling = true)]
 			internal extern static void glBlendBarrier();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glPrimitiveBoundingBox", ExactSpelling = true)]
@@ -577,7 +577,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBlendBarrier();
@@ -595,7 +595,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
 			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);

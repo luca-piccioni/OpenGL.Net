@@ -145,19 +145,19 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryDeviceAttribEXT", ExactSpelling = true)]
 			internal extern static unsafe bool eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryDeviceStringEXT", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryDisplayAttribEXT", ExactSpelling = true)]
@@ -169,7 +169,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_query")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
@@ -180,7 +180,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_query")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
@@ -192,7 +192,7 @@ namespace OpenGL
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_query")]
 			[RequiredByFeature("EGL_NV_stream_metadata")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);

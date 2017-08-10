@@ -173,26 +173,26 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglCreateBufferRegionARB", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDeleteBufferRegionARB", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe void wglDeleteBufferRegionARB(IntPtr hRegion);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglSaveBufferRegionARB", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglRestoreBufferRegionARB", ExactSpelling = true, SetLastError = true)]
@@ -204,7 +204,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_buffer_region")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType);
@@ -214,7 +214,7 @@ namespace OpenGL
 			internal static wglCreateBufferRegionARB pwglCreateBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void wglDeleteBufferRegionARB(IntPtr hRegion);
@@ -224,7 +224,7 @@ namespace OpenGL
 			internal static wglDeleteBufferRegionARB pwglDeleteBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
@@ -234,7 +234,7 @@ namespace OpenGL
 			internal static wglSaveBufferRegionARB pwglSaveBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglRestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc);

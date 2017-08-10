@@ -189,37 +189,37 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetListParameterfvSGIX", ExactSpelling = true)]
 			internal extern static unsafe void glGetListParameterfvSGIX(UInt32 list, Int32 pname, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetListParameterivSGIX", ExactSpelling = true)]
 			internal extern static unsafe void glGetListParameterivSGIX(UInt32 list, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glListParameterfSGIX", ExactSpelling = true)]
 			internal extern static void glListParameterfSGIX(UInt32 list, Int32 pname, float param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glListParameterfvSGIX", ExactSpelling = true)]
 			internal extern static unsafe void glListParameterfvSGIX(UInt32 list, Int32 pname, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glListParameteriSGIX", ExactSpelling = true)]
 			internal extern static void glListParameteriSGIX(UInt32 list, Int32 pname, Int32 param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glListParameterivSGIX", ExactSpelling = true)]
@@ -230,7 +230,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetListParameterfvSGIX(UInt32 list, Int32 pname, float* @params);
@@ -240,7 +240,7 @@ namespace OpenGL
 			internal static glGetListParameterfvSGIX pglGetListParameterfvSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetListParameterivSGIX(UInt32 list, Int32 pname, Int32* @params);
@@ -250,7 +250,7 @@ namespace OpenGL
 			internal static glGetListParameterivSGIX pglGetListParameterivSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glListParameterfSGIX(UInt32 list, Int32 pname, float param);
@@ -260,7 +260,7 @@ namespace OpenGL
 			internal static glListParameterfSGIX pglListParameterfSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glListParameterfvSGIX(UInt32 list, Int32 pname, float* @params);
@@ -270,7 +270,7 @@ namespace OpenGL
 			internal static glListParameterfvSGIX pglListParameterfvSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glListParameteriSGIX(UInt32 list, Int32 pname, Int32 param);
@@ -280,7 +280,7 @@ namespace OpenGL
 			internal static glListParameteriSGIX pglListParameteriSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glListParameterivSGIX(UInt32 list, Int32 pname, Int32* @params);

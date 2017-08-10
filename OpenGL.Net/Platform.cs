@@ -92,7 +92,7 @@ namespace OpenGL
 		/// </returns>
 		private static Id GetCurrentPlatform()
 		{
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			// Framework platform
 			switch (Environment.OSVersion.Platform) {
 				case PlatformID.Win32NT:
@@ -116,9 +116,8 @@ namespace OpenGL
 				default:
 					return (Id.Unknown);
 			}
-			
 #else
-			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+			if      (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 				return (Id.WindowsNT);
 			else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
 				return (Id.Linux);
@@ -141,6 +140,7 @@ namespace OpenGL
 		/// </remarks>
 		private static string DetectUnixKernel()
 		{
+#if !NETSTANDARD1_4
 			ProcessStartInfo startInfo = new ProcessStartInfo();
 
 			startInfo.Arguments = "-s";
@@ -165,7 +165,7 @@ namespace OpenGL
 					continue;
 				}
 			}
-
+#endif
 			return (null);
 		}
 
@@ -192,7 +192,11 @@ namespace OpenGL
 			if (monoRuntime != null) {
 				string runningVersion = "generic";
 				try {
+#if !NETSTANDARD1_4
 					MethodInfo getDisplayName = monoRuntime.GetMethod("GetDisplayName", BindingFlags.Static | BindingFlags.NonPublic);
+#else
+					MethodInfo getDisplayName = monoRuntime.GetTypeInfo().GetDeclaredMethod("GetDisplayName");
+#endif
 					if (getDisplayName != null)
 						runningVersion = getDisplayName.Invoke(null, new object[0]) as string;
 				} catch { /* Ignore */ }

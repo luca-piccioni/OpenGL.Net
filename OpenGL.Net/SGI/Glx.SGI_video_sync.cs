@@ -91,13 +91,13 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetVideoSyncSGI", ExactSpelling = true)]
 			internal extern static unsafe int glXGetVideoSyncSGI(UInt32* count);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXWaitVideoSyncSGI", ExactSpelling = true)]
@@ -108,7 +108,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGI_video_sync")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXGetVideoSyncSGI(UInt32* count);
@@ -117,7 +117,7 @@ namespace OpenGL
 			internal static glXGetVideoSyncSGI pglXGetVideoSyncSGI;
 
 			[RequiredByFeature("GLX_SGI_video_sync")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXWaitVideoSyncSGI(int divisor, int remainder, UInt32* count);

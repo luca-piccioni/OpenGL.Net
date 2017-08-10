@@ -98,13 +98,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFogFuncSGIS", ExactSpelling = true)]
 			internal extern static unsafe void glFogFuncSGIS(Int32 n, float* points);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetFogFuncSGIS", ExactSpelling = true)]
@@ -115,7 +115,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIS_fog_function")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glFogFuncSGIS(Int32 n, float* points);
@@ -125,7 +125,7 @@ namespace OpenGL
 			internal static glFogFuncSGIS pglFogFuncSGIS;
 
 			[RequiredByFeature("GL_SGIS_fog_function")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetFogFuncSGIS(float* points);

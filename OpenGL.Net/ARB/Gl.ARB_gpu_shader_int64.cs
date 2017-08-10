@@ -1029,217 +1029,217 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform1i64ARB", ExactSpelling = true)]
 			internal extern static void glUniform1i64ARB(Int32 location, Int64 x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform2i64ARB", ExactSpelling = true)]
 			internal extern static void glUniform2i64ARB(Int32 location, Int64 x, Int64 y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform3i64ARB", ExactSpelling = true)]
 			internal extern static void glUniform3i64ARB(Int32 location, Int64 x, Int64 y, Int64 z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform4i64ARB", ExactSpelling = true)]
 			internal extern static void glUniform4i64ARB(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform1i64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniform1i64vARB(Int32 location, Int32 count, Int64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform2i64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniform2i64vARB(Int32 location, Int32 count, Int64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform3i64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniform3i64vARB(Int32 location, Int32 count, Int64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform4i64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniform4i64vARB(Int32 location, Int32 count, Int64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform1ui64ARB", ExactSpelling = true)]
 			internal extern static void glUniform1ui64ARB(Int32 location, UInt64 x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform2ui64ARB", ExactSpelling = true)]
 			internal extern static void glUniform2ui64ARB(Int32 location, UInt64 x, UInt64 y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform3ui64ARB", ExactSpelling = true)]
 			internal extern static void glUniform3ui64ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform4ui64ARB", ExactSpelling = true)]
 			internal extern static void glUniform4ui64ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform1ui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniform1ui64vARB(Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform2ui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniform2ui64vARB(Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform3ui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniform3ui64vARB(Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniform4ui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glUniform4ui64vARB(Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetUniformi64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetUniformi64vARB(UInt32 program, Int32 location, Int64* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetUniformui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetUniformui64vARB(UInt32 program, Int32 location, UInt64* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnUniformi64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformi64vARB(UInt32 program, Int32 location, Int32 bufSize, Int64* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnUniformui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformui64vARB(UInt32 program, Int32 location, Int32 bufSize, UInt64* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform1i64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniform1i64ARB(UInt32 program, Int32 location, Int64 x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform2i64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniform2i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform3i64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniform3i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform4i64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniform4i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform1i64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform1i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform2i64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform2i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform3i64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform3i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform4i64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform4i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform1ui64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniform1ui64ARB(UInt32 program, Int32 location, UInt64 x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform2ui64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniform2ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform3ui64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniform3ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform4ui64ARB", ExactSpelling = true)]
 			internal extern static void glProgramUniform4ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform1ui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform1ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform2ui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform2ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform3ui64vARB", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniform3ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniform4ui64vARB", ExactSpelling = true)]
@@ -1250,7 +1250,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniform1i64ARB(Int32 location, Int64 x);
@@ -1260,7 +1260,7 @@ namespace OpenGL
 			internal static glUniform1i64ARB pglUniform1i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniform2i64ARB(Int32 location, Int64 x, Int64 y);
@@ -1270,7 +1270,7 @@ namespace OpenGL
 			internal static glUniform2i64ARB pglUniform2i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniform3i64ARB(Int32 location, Int64 x, Int64 y, Int64 z);
@@ -1280,7 +1280,7 @@ namespace OpenGL
 			internal static glUniform3i64ARB pglUniform3i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniform4i64ARB(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
@@ -1290,7 +1290,7 @@ namespace OpenGL
 			internal static glUniform4i64ARB pglUniform4i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniform1i64vARB(Int32 location, Int32 count, Int64* value);
@@ -1300,7 +1300,7 @@ namespace OpenGL
 			internal static glUniform1i64vARB pglUniform1i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniform2i64vARB(Int32 location, Int32 count, Int64* value);
@@ -1310,7 +1310,7 @@ namespace OpenGL
 			internal static glUniform2i64vARB pglUniform2i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniform3i64vARB(Int32 location, Int32 count, Int64* value);
@@ -1320,7 +1320,7 @@ namespace OpenGL
 			internal static glUniform3i64vARB pglUniform3i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniform4i64vARB(Int32 location, Int32 count, Int64* value);
@@ -1330,7 +1330,7 @@ namespace OpenGL
 			internal static glUniform4i64vARB pglUniform4i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniform1ui64ARB(Int32 location, UInt64 x);
@@ -1340,7 +1340,7 @@ namespace OpenGL
 			internal static glUniform1ui64ARB pglUniform1ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniform2ui64ARB(Int32 location, UInt64 x, UInt64 y);
@@ -1350,7 +1350,7 @@ namespace OpenGL
 			internal static glUniform2ui64ARB pglUniform2ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniform3ui64ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z);
@@ -1360,7 +1360,7 @@ namespace OpenGL
 			internal static glUniform3ui64ARB pglUniform3ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniform4ui64ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
@@ -1370,7 +1370,7 @@ namespace OpenGL
 			internal static glUniform4ui64ARB pglUniform4ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniform1ui64vARB(Int32 location, Int32 count, UInt64* value);
@@ -1380,7 +1380,7 @@ namespace OpenGL
 			internal static glUniform1ui64vARB pglUniform1ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniform2ui64vARB(Int32 location, Int32 count, UInt64* value);
@@ -1390,7 +1390,7 @@ namespace OpenGL
 			internal static glUniform2ui64vARB pglUniform2ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniform3ui64vARB(Int32 location, Int32 count, UInt64* value);
@@ -1400,7 +1400,7 @@ namespace OpenGL
 			internal static glUniform3ui64vARB pglUniform3ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniform4ui64vARB(Int32 location, Int32 count, UInt64* value);
@@ -1410,7 +1410,7 @@ namespace OpenGL
 			internal static glUniform4ui64vARB pglUniform4ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetUniformi64vARB(UInt32 program, Int32 location, Int64* @params);
@@ -1420,7 +1420,7 @@ namespace OpenGL
 			internal static glGetUniformi64vARB pglGetUniformi64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetUniformui64vARB(UInt32 program, Int32 location, UInt64* @params);
@@ -1430,7 +1430,7 @@ namespace OpenGL
 			internal static glGetUniformui64vARB pglGetUniformui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnUniformi64vARB(UInt32 program, Int32 location, Int32 bufSize, Int64* @params);
@@ -1440,7 +1440,7 @@ namespace OpenGL
 			internal static glGetnUniformi64vARB pglGetnUniformi64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnUniformui64vARB(UInt32 program, Int32 location, Int32 bufSize, UInt64* @params);
@@ -1450,7 +1450,7 @@ namespace OpenGL
 			internal static glGetnUniformui64vARB pglGetnUniformui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniform1i64ARB(UInt32 program, Int32 location, Int64 x);
@@ -1460,7 +1460,7 @@ namespace OpenGL
 			internal static glProgramUniform1i64ARB pglProgramUniform1i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniform2i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y);
@@ -1470,7 +1470,7 @@ namespace OpenGL
 			internal static glProgramUniform2i64ARB pglProgramUniform2i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniform3i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z);
@@ -1480,7 +1480,7 @@ namespace OpenGL
 			internal static glProgramUniform3i64ARB pglProgramUniform3i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniform4i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
@@ -1490,7 +1490,7 @@ namespace OpenGL
 			internal static glProgramUniform4i64ARB pglProgramUniform4i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniform1i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
@@ -1500,7 +1500,7 @@ namespace OpenGL
 			internal static glProgramUniform1i64vARB pglProgramUniform1i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniform2i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
@@ -1510,7 +1510,7 @@ namespace OpenGL
 			internal static glProgramUniform2i64vARB pglProgramUniform2i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniform3i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
@@ -1520,7 +1520,7 @@ namespace OpenGL
 			internal static glProgramUniform3i64vARB pglProgramUniform3i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniform4i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
@@ -1530,7 +1530,7 @@ namespace OpenGL
 			internal static glProgramUniform4i64vARB pglProgramUniform4i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniform1ui64ARB(UInt32 program, Int32 location, UInt64 x);
@@ -1540,7 +1540,7 @@ namespace OpenGL
 			internal static glProgramUniform1ui64ARB pglProgramUniform1ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniform2ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y);
@@ -1550,7 +1550,7 @@ namespace OpenGL
 			internal static glProgramUniform2ui64ARB pglProgramUniform2ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniform3ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z);
@@ -1560,7 +1560,7 @@ namespace OpenGL
 			internal static glProgramUniform3ui64ARB pglProgramUniform3ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniform4ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
@@ -1570,7 +1570,7 @@ namespace OpenGL
 			internal static glProgramUniform4ui64ARB pglProgramUniform4ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniform1ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
@@ -1580,7 +1580,7 @@ namespace OpenGL
 			internal static glProgramUniform1ui64vARB pglProgramUniform1ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniform2ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
@@ -1590,7 +1590,7 @@ namespace OpenGL
 			internal static glProgramUniform2ui64vARB pglProgramUniform2ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniform3ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
@@ -1600,7 +1600,7 @@ namespace OpenGL
 			internal static glProgramUniform3ui64vARB pglProgramUniform3ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniform4ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);

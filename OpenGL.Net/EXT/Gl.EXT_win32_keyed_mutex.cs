@@ -84,14 +84,14 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glAcquireKeyedMutexWin32EXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glAcquireKeyedMutexWin32EXT(UInt32 memory, UInt64 key, UInt32 timeout);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glReleaseKeyedMutexWin32EXT", ExactSpelling = true)]
@@ -103,7 +103,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glAcquireKeyedMutexWin32EXT(UInt32 memory, UInt64 key, UInt32 timeout);
@@ -113,7 +113,7 @@ namespace OpenGL
 			internal static glAcquireKeyedMutexWin32EXT pglAcquireKeyedMutexWin32EXT;
 
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glReleaseKeyedMutexWin32EXT(UInt32 memory, UInt64 key);

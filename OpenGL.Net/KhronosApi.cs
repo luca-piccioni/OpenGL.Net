@@ -184,11 +184,11 @@ namespace OpenGL
 				throw new ArgumentNullException("getAddress");
 
 			FunctionContext functionContext = GetFunctionContext(typeof(T));
-
 			Debug.Assert(functionContext != null);
 			if (functionContext == null)
 				throw new InvalidOperationException("unrecognized API type");
 
+#if !NETSTANDARD1_4
 			Type delegatesClass = typeof(T).GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
 			Debug.Assert(delegatesClass != null);
 			if (delegatesClass == null)
@@ -198,6 +198,17 @@ namespace OpenGL
 			Debug.Assert(functionField != null);
 			if (functionField == null)
 				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
+#else
+			TypeInfo delegatesClass = typeof(T).GetTypeInfo().GetDeclaredNestedType("Delegates");
+			Debug.Assert(delegatesClass != null);
+			if (delegatesClass == null)
+				throw new NotImplementedException("missing Delegates class");
+
+			FieldInfo functionField = delegatesClass.GetDeclaredField("p" + functionName);
+			Debug.Assert(functionField != null);
+			if (functionField == null)
+				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
+#endif
 
 			BindAPIFunction(path, delegate (string libpath, string function) {
 				// Note: IGetProcAddress implementation may have GetOpenGLProcAddress equivalent to GetProcAddress
@@ -283,7 +294,7 @@ namespace OpenGL
 
 			// Manages aliases (load external symbol)
 			if (importAddress == IntPtr.Zero) {
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 				Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(function, typeof(AliasOfAttribute));
 #else
 				Attribute[] aliasOfAttributes = new List<Attribute>(function.GetCustomAttributes(typeof(AliasOfAttribute))).ToArray();
@@ -304,7 +315,7 @@ namespace OpenGL
 					MethodInfo methodInfo;
 
 					if (functionContext.Imports.TryGetValue(importName, out methodInfo) == true) {
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 						delegatePtr = Delegate.CreateDelegate(function.FieldType, methodInfo);
 #else
 						delegatePtr = methodInfo.CreateDelegate(function.FieldType);
@@ -342,7 +353,7 @@ namespace OpenGL
 			if (version == null)
 				throw new ArgumentNullException("version");
 
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
 #else
 			Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray();
@@ -366,7 +377,7 @@ namespace OpenGL
 			if (isRequired) {
 				// Note: indeed the feature could be supported; check whether it is removed
 				
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 				Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
 #else
 				Attribute[] attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute))).ToArray();
@@ -411,15 +422,22 @@ namespace OpenGL
 		{
 			if (type == null)
 				throw new ArgumentNullException("type");
-
+#if !NETSTANDARD1_4
 			Type unsafeClass = type.GetNestedType("UnsafeNativeMethods", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
 			Debug.Assert(unsafeClass != null);
 			if (unsafeClass == null)
 				throw new NotImplementedException("missing UnsafeNativeMethods class");
+			IEnumerable<MethodInfo> methods = unsafeClass.GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
 
-			MethodInfo[] methods = unsafeClass.GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
+#else
+			TypeInfo unsafeClass = type.GetTypeInfo().GetDeclaredNestedType("UnsafeNativeMethods");
+			Debug.Assert(unsafeClass != null);
+			if (unsafeClass == null)
+				throw new NotImplementedException("missing UnsafeNativeMethods class");
+			IEnumerable<MethodInfo> methods = unsafeClass.DeclaredMethods;
+#endif
 
-			ImportMap importMap = new ImportMap(methods.Length);
+			ImportMap importMap = new ImportMap();
 			foreach (MethodInfo m in methods)
 				importMap.Add(m.Name, m);
 
@@ -440,12 +458,21 @@ namespace OpenGL
 			if (type == null)
 				throw new ArgumentNullException("type");
 
+#if !NETSTANDARD1_4
 			Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
 			Debug.Assert(delegatesClass != null);
 			if (delegatesClass == null)
 				throw new NotImplementedException("missing Delegates class");
 
 			return (new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic)));
+#else
+			TypeInfo delegatesClass = type.GetTypeInfo().GetDeclaredNestedType("Delegates");
+			Debug.Assert(delegatesClass != null);
+			if (delegatesClass == null)
+				throw new NotImplementedException("missing Delegates class");
+
+			return (new DelegateList(delegatesClass.DeclaredFields));
+#endif
 		}
 
 		/// <summary>
@@ -775,8 +802,13 @@ namespace OpenGL
 					throw new ArgumentNullException("version");
 
 				Type thisType = GetType();
+#if !NETCORE && !NETSTANDARD1_4
+				IEnumerable<FieldInfo> thisTypeFields = thisType.GetFields(BindingFlags.Instance | BindingFlags.Public);
+#else
+				IEnumerable<FieldInfo> thisTypeFields = thisType.GetTypeInfo().DeclaredFields;
+#endif
 
-				foreach (FieldInfo fieldInfo in thisType.GetFields(BindingFlags.Instance | BindingFlags.Public)) {
+				foreach (FieldInfo fieldInfo in thisTypeFields) {
 					// Check boolean field (defensive)
 					Debug.Assert(fieldInfo.FieldType == typeof(bool));
 					if (fieldInfo.FieldType != typeof(bool))
@@ -785,7 +817,7 @@ namespace OpenGL
 					bool support = false;
 
 					// Support by extension
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 					IEnumerable<Attribute> coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
 #else
 					IEnumerable<Attribute> coreAttributes = fieldInfo.GetCustomAttributes(typeof(CoreExtensionAttribute));
@@ -800,7 +832,7 @@ namespace OpenGL
 					}
 
 					// Support by extension
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 					IEnumerable<Attribute> extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
 #else
 					IEnumerable<Attribute> extensionAttributes = fieldInfo.GetCustomAttributes(typeof(ExtensionAttribute));
@@ -876,7 +908,7 @@ namespace OpenGL
 			if (extensions == null)
 				throw new ArgumentNullException("extensions");
 
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			Type apiType = typeof(T);
 			FunctionContext functionContext = GetFunctionContext(apiType);
 
@@ -897,7 +929,7 @@ namespace OpenGL
 
 				Type delegateType = fi.DeclaringType.GetNestedType(fi.Name.Substring(1), BindingFlags.Public | BindingFlags.NonPublic);
 				IEnumerable<object> requiredByFeatureAttributes = delegateType.GetCustomAttributes(typeof(RequiredByFeatureAttribute), false);
-
+	
 				foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes)
 					supportedByFeature |= requiredByFeatureAttribute.IsSupported(version, extensions);
 

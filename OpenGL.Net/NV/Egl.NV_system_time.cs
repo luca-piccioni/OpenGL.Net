@@ -69,13 +69,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetSystemTimeFrequencyNV", ExactSpelling = true)]
 			internal extern static UInt64 eglGetSystemTimeFrequencyNV();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglGetSystemTimeNV", ExactSpelling = true)]
@@ -86,7 +86,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_system_time")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 eglGetSystemTimeFrequencyNV();
@@ -95,7 +95,7 @@ namespace OpenGL
 			internal static eglGetSystemTimeFrequencyNV peglGetSystemTimeFrequencyNV;
 
 			[RequiredByFeature("EGL_NV_system_time")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 eglGetSystemTimeNV();

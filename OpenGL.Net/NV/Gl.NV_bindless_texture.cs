@@ -298,80 +298,80 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureHandleNV", ExactSpelling = true)]
 			internal extern static UInt64 glGetTextureHandleNV(UInt32 texture);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureSamplerHandleNV", ExactSpelling = true)]
 			internal extern static UInt64 glGetTextureSamplerHandleNV(UInt32 texture, UInt32 sampler);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMakeTextureHandleResidentNV", ExactSpelling = true)]
 			internal extern static void glMakeTextureHandleResidentNV(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMakeTextureHandleNonResidentNV", ExactSpelling = true)]
 			internal extern static void glMakeTextureHandleNonResidentNV(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetImageHandleNV", ExactSpelling = true)]
 			internal extern static UInt64 glGetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMakeImageHandleResidentNV", ExactSpelling = true)]
 			internal extern static void glMakeImageHandleResidentNV(UInt64 handle, Int32 access);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMakeImageHandleNonResidentNV", ExactSpelling = true)]
 			internal extern static void glMakeImageHandleNonResidentNV(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniformHandleui64NV", ExactSpelling = true)]
 			internal extern static void glUniformHandleui64NV(Int32 location, UInt64 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUniformHandleui64vNV", ExactSpelling = true)]
 			internal extern static unsafe void glUniformHandleui64vNV(Int32 location, Int32 count, UInt64* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformHandleui64NV", ExactSpelling = true)]
 			internal extern static void glProgramUniformHandleui64NV(UInt32 program, Int32 location, UInt64 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glProgramUniformHandleui64vNV", ExactSpelling = true)]
 			internal extern static unsafe void glProgramUniformHandleui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsTextureHandleResidentNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsTextureHandleResidentNV(UInt64 handle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsImageHandleResidentNV", ExactSpelling = true)]
@@ -383,7 +383,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 glGetTextureHandleNV(UInt32 texture);
@@ -393,7 +393,7 @@ namespace OpenGL
 			internal static glGetTextureHandleNV pglGetTextureHandleNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 glGetTextureSamplerHandleNV(UInt32 texture, UInt32 sampler);
@@ -403,7 +403,7 @@ namespace OpenGL
 			internal static glGetTextureSamplerHandleNV pglGetTextureSamplerHandleNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMakeTextureHandleResidentNV(UInt64 handle);
@@ -413,7 +413,7 @@ namespace OpenGL
 			internal static glMakeTextureHandleResidentNV pglMakeTextureHandleResidentNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMakeTextureHandleNonResidentNV(UInt64 handle);
@@ -423,7 +423,7 @@ namespace OpenGL
 			internal static glMakeTextureHandleNonResidentNV pglMakeTextureHandleNonResidentNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 glGetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
@@ -433,7 +433,7 @@ namespace OpenGL
 			internal static glGetImageHandleNV pglGetImageHandleNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMakeImageHandleResidentNV(UInt64 handle, Int32 access);
@@ -443,7 +443,7 @@ namespace OpenGL
 			internal static glMakeImageHandleResidentNV pglMakeImageHandleResidentNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMakeImageHandleNonResidentNV(UInt64 handle);
@@ -453,7 +453,7 @@ namespace OpenGL
 			internal static glMakeImageHandleNonResidentNV pglMakeImageHandleNonResidentNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniformHandleui64NV(Int32 location, UInt64 value);
@@ -463,7 +463,7 @@ namespace OpenGL
 			internal static glUniformHandleui64NV pglUniformHandleui64NV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformHandleui64vNV(Int32 location, Int32 count, UInt64* value);
@@ -473,7 +473,7 @@ namespace OpenGL
 			internal static glUniformHandleui64vNV pglUniformHandleui64vNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniformHandleui64NV(UInt32 program, Int32 location, UInt64 value);
@@ -483,7 +483,7 @@ namespace OpenGL
 			internal static glProgramUniformHandleui64NV pglProgramUniformHandleui64NV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniformHandleui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* values);
@@ -493,7 +493,7 @@ namespace OpenGL
 			internal static glProgramUniformHandleui64vNV pglProgramUniformHandleui64vNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsTextureHandleResidentNV(UInt64 handle);
@@ -503,7 +503,7 @@ namespace OpenGL
 			internal static glIsTextureHandleResidentNV pglIsTextureHandleResidentNV;
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsImageHandleResidentNV(UInt64 handle);

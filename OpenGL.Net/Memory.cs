@@ -65,7 +65,7 @@ namespace OpenGL
 		/// <returns></returns>
 		private static Action<IntPtr, byte, uint> GenerateMemsetDelegate()
 		{
-#if !NETCORE && !NETSTANDARD2_0
+#if !NETCORE && !NETSTANDARD1_4 && !NETSTANDARD2_0
 			DynamicMethod dynamicMethod = new DynamicMethod(
 				"Memset", MethodAttributes.Public | MethodAttributes.Static, CallingConventions.Standard,
 				null,
@@ -102,7 +102,7 @@ namespace OpenGL
 		/// <param name="src"></param>
 		/// <param name="bytes"></param>
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 		[System.Security.SuppressUnmanagedCodeSecurity()]
 #endif
 		private delegate void MemoryCopyDelegate(void *dst, void* src, ulong bytes);

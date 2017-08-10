@@ -997,7 +997,7 @@ namespace OpenGL
 		/// </returns>
 		double[] IMatrix.GetColumn(uint index)
 		{
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			return (Array.ConvertAll<float, double>(GetColumn(index), delegate(float input) { return ((double)input); }));
 #else
 			float[] items = GetColumn(index);
@@ -1021,7 +1021,7 @@ namespace OpenGL
 		/// </returns>
 		double[] IMatrix.GetRow(uint index)
 		{
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			return (Array.ConvertAll<float, double>(GetRow(index), delegate(float input) { return ((double)input); }));
 #else
 			float[] items = GetRow(index);
@@ -1042,7 +1042,7 @@ namespace OpenGL
 		/// </returns>
 		double[] IMatrix.ToArray()
 		{
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			return (Array.ConvertAll<float, double>(ToArray(), delegate(float input) { return ((double)input); }));
 #else
 			float[] items = ToArray();

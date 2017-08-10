@@ -89,13 +89,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindRenderbufferEXT", ExactSpelling = true)]
 			internal extern static void glBindRenderbufferEXT(Int32 target, UInt32 renderbuffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindFramebufferEXT", ExactSpelling = true)]
@@ -106,7 +106,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBindRenderbufferEXT(Int32 target, UInt32 renderbuffer);
@@ -116,7 +116,7 @@ namespace OpenGL
 			internal static glBindRenderbufferEXT pglBindRenderbufferEXT;
 
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBindFramebufferEXT(Int32 target, UInt32 framebuffer);

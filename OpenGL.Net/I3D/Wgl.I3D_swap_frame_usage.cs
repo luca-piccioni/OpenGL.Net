@@ -125,28 +125,28 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglGetFrameUsageI3D", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglGetFrameUsageI3D(float * pUsage);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglBeginFrameTrackingI3D", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static bool wglBeginFrameTrackingI3D();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglEndFrameTrackingI3D", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static bool wglEndFrameTrackingI3D();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglQueryFrameTrackingI3D", ExactSpelling = true, SetLastError = true)]
@@ -158,7 +158,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglGetFrameUsageI3D(float * pUsage);
@@ -168,7 +168,7 @@ namespace OpenGL
 			internal static wglGetFrameUsageI3D pwglGetFrameUsageI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool wglBeginFrameTrackingI3D();
@@ -178,7 +178,7 @@ namespace OpenGL
 			internal static wglBeginFrameTrackingI3D pwglBeginFrameTrackingI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool wglEndFrameTrackingI3D();
@@ -188,7 +188,7 @@ namespace OpenGL
 			internal static wglEndFrameTrackingI3D pwglEndFrameTrackingI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglQueryFrameTrackingI3D(Int32* pFrameCount, Int32* pMissedFrames, float * pLastMissedUsage);

@@ -332,7 +332,7 @@ namespace BindingsGen
 
 					// Release memory
 					docHandler.Dispose();
-				} catch (Exception e) {
+				} catch (Exception) {
 					continue;
 				}
 			}

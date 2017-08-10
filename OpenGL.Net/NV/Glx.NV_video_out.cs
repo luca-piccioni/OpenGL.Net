@@ -273,37 +273,37 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetVideoDeviceNV", ExactSpelling = true)]
 			internal extern static unsafe int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXReleaseVideoDeviceNV", ExactSpelling = true)]
 			internal extern static unsafe int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXBindVideoImageNV", ExactSpelling = true)]
 			internal extern static unsafe int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXReleaseVideoImageNV", ExactSpelling = true)]
 			internal extern static unsafe int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXSendPbufferToVideoNV", ExactSpelling = true)]
 			internal extern static unsafe int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetVideoInfoNV", ExactSpelling = true)]
@@ -314,7 +314,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_NV_video_out")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
@@ -323,7 +323,7 @@ namespace OpenGL
 			internal static glXGetVideoDeviceNV pglXGetVideoDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
@@ -332,7 +332,7 @@ namespace OpenGL
 			internal static glXReleaseVideoDeviceNV pglXReleaseVideoDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
@@ -341,7 +341,7 @@ namespace OpenGL
 			internal static glXBindVideoImageNV pglXBindVideoImageNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
@@ -350,7 +350,7 @@ namespace OpenGL
 			internal static glXReleaseVideoImageNV pglXReleaseVideoImageNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
@@ -359,7 +359,7 @@ namespace OpenGL
 			internal static glXSendPbufferToVideoNV pglXSendPbufferToVideoNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);

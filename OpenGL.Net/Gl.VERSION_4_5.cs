@@ -8191,734 +8191,734 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClipControl", ExactSpelling = true)]
 			internal extern static void glClipControl(Int32 origin, Int32 depth);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateTransformFeedbacks", ExactSpelling = true)]
 			internal extern static unsafe void glCreateTransformFeedbacks(Int32 n, UInt32* ids);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTransformFeedbackBufferBase", ExactSpelling = true)]
 			internal extern static void glTransformFeedbackBufferBase(UInt32 xfb, UInt32 index, UInt32 buffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTransformFeedbackBufferRange", ExactSpelling = true)]
 			internal extern static unsafe void glTransformFeedbackBufferRange(UInt32 xfb, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTransformFeedbackiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTransformFeedbackiv(UInt32 xfb, Int32 pname, Int32* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTransformFeedbacki_v", ExactSpelling = true)]
 			internal extern static unsafe void glGetTransformFeedbacki_v(UInt32 xfb, Int32 pname, UInt32 index, Int32* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTransformFeedbacki64_v", ExactSpelling = true)]
 			internal extern static unsafe void glGetTransformFeedbacki64_v(UInt32 xfb, Int32 pname, UInt32 index, Int64* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateBuffers", ExactSpelling = true)]
 			internal extern static unsafe void glCreateBuffers(Int32 n, UInt32* buffers);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedBufferStorage", ExactSpelling = true)]
 			internal extern static unsafe void glNamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedBufferData", ExactSpelling = true)]
 			internal extern static unsafe void glNamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedBufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCopyNamedBufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glCopyNamedBufferSubData(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClearNamedBufferData", ExactSpelling = true)]
 			internal extern static unsafe void glClearNamedBufferData(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClearNamedBufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glClearNamedBufferSubData(UInt32 buffer, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMapNamedBuffer", ExactSpelling = true)]
 			internal extern static IntPtr glMapNamedBuffer(UInt32 buffer, Int32 access);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMapNamedBufferRange", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glMapNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUnmapNamedBuffer", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glUnmapNamedBuffer(UInt32 buffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFlushMappedNamedBufferRange", ExactSpelling = true)]
 			internal extern static unsafe void glFlushMappedNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedBufferParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedBufferParameteriv(UInt32 buffer, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedBufferParameteri64v", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedBufferParameteri64v(UInt32 buffer, Int32 pname, Int64* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedBufferPointerv", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedBufferPointerv(UInt32 buffer, Int32 pname, IntPtr* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedBufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateFramebuffers", ExactSpelling = true)]
 			internal extern static unsafe void glCreateFramebuffers(Int32 n, UInt32* framebuffers);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferRenderbuffer", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferRenderbuffer(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferParameteri", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferParameteri(UInt32 framebuffer, Int32 pname, Int32 param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferTexture", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferTexture(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferTextureLayer", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferTextureLayer(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferDrawBuffer", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferDrawBuffer(UInt32 framebuffer, Int32 buf);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferDrawBuffers", ExactSpelling = true)]
 			internal extern static unsafe void glNamedFramebufferDrawBuffers(UInt32 framebuffer, Int32 n, Int32* bufs);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferReadBuffer", ExactSpelling = true)]
 			internal extern static void glNamedFramebufferReadBuffer(UInt32 framebuffer, Int32 src);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glInvalidateNamedFramebufferData", ExactSpelling = true)]
 			internal extern static unsafe void glInvalidateNamedFramebufferData(UInt32 framebuffer, Int32 numAttachments, Int32* attachments);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glInvalidateNamedFramebufferSubData", ExactSpelling = true)]
 			internal extern static unsafe void glInvalidateNamedFramebufferSubData(UInt32 framebuffer, Int32 numAttachments, Int32* attachments, Int32 x, Int32 y, Int32 width, Int32 height);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClearNamedFramebufferiv", ExactSpelling = true)]
 			internal extern static unsafe void glClearNamedFramebufferiv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, Int32* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClearNamedFramebufferuiv", ExactSpelling = true)]
 			internal extern static unsafe void glClearNamedFramebufferuiv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, UInt32* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClearNamedFramebufferfv", ExactSpelling = true)]
 			internal extern static unsafe void glClearNamedFramebufferfv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glClearNamedFramebufferfi", ExactSpelling = true)]
 			internal extern static void glClearNamedFramebufferfi(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float depth, Int32 stencil);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBlitNamedFramebuffer", ExactSpelling = true)]
 			internal extern static void glBlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCheckNamedFramebufferStatus", ExactSpelling = true)]
 			internal extern static Int32 glCheckNamedFramebufferStatus(UInt32 framebuffer, Int32 target);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedFramebufferParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedFramebufferParameteriv(UInt32 framebuffer, Int32 pname, Int32* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedFramebufferAttachmentParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedFramebufferAttachmentParameteriv(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateRenderbuffers", ExactSpelling = true)]
 			internal extern static unsafe void glCreateRenderbuffers(Int32 n, UInt32* renderbuffers);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedRenderbufferStorage", ExactSpelling = true)]
 			internal extern static void glNamedRenderbufferStorage(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedRenderbufferStorageMultisample", ExactSpelling = true)]
 			internal extern static void glNamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedRenderbufferParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetNamedRenderbufferParameteriv(UInt32 renderbuffer, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateTextures", ExactSpelling = true)]
 			internal extern static unsafe void glCreateTextures(Int32 target, Int32 n, UInt32* textures);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureBuffer", ExactSpelling = true)]
 			internal extern static void glTextureBuffer(UInt32 texture, Int32 internalformat, UInt32 buffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureBufferRange", ExactSpelling = true)]
 			internal extern static unsafe void glTextureBufferRange(UInt32 texture, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage1D", ExactSpelling = true)]
 			internal extern static void glTextureStorage1D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage2D", ExactSpelling = true)]
 			internal extern static void glTextureStorage2D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage3D", ExactSpelling = true)]
 			internal extern static void glTextureStorage3D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage2DMultisample", ExactSpelling = true)]
 			internal extern static void glTextureStorage2DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorage3DMultisample", ExactSpelling = true)]
 			internal extern static void glTextureStorage3DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureSubImage1D", ExactSpelling = true)]
 			internal extern static unsafe void glTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureSubImage2D", ExactSpelling = true)]
 			internal extern static unsafe void glTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureSubImage3D", ExactSpelling = true)]
 			internal extern static unsafe void glTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage1D", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage2D", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCompressedTextureSubImage3D", ExactSpelling = true)]
 			internal extern static unsafe void glCompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCopyTextureSubImage1D", ExactSpelling = true)]
 			internal extern static void glCopyTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCopyTextureSubImage2D", ExactSpelling = true)]
 			internal extern static void glCopyTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCopyTextureSubImage3D", ExactSpelling = true)]
 			internal extern static void glCopyTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterf", ExactSpelling = true)]
 			internal extern static void glTextureParameterf(UInt32 texture, Int32 pname, float param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterfv", ExactSpelling = true)]
 			internal extern static unsafe void glTextureParameterfv(UInt32 texture, Int32 pname, float* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameteri", ExactSpelling = true)]
 			internal extern static void glTextureParameteri(UInt32 texture, Int32 pname, Int32 param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterIiv", ExactSpelling = true)]
 			internal extern static unsafe void glTextureParameterIiv(UInt32 texture, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameterIuiv", ExactSpelling = true)]
 			internal extern static unsafe void glTextureParameterIuiv(UInt32 texture, Int32 pname, UInt32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glTextureParameteriv(UInt32 texture, Int32 pname, Int32* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenerateTextureMipmap", ExactSpelling = true)]
 			internal extern static void glGenerateTextureMipmap(UInt32 texture);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindTextureUnit", ExactSpelling = true)]
 			internal extern static void glBindTextureUnit(UInt32 unit, UInt32 texture);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureImage", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetCompressedTextureImage", ExactSpelling = true)]
 			internal extern static unsafe void glGetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureLevelParameterfv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureLevelParameterfv(UInt32 texture, Int32 level, Int32 pname, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureLevelParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureLevelParameteriv(UInt32 texture, Int32 level, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureParameterfv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureParameterfv(UInt32 texture, Int32 pname, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureParameterIiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureParameterIiv(UInt32 texture, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureParameterIuiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureParameterIuiv(UInt32 texture, Int32 pname, UInt32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureParameteriv", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureParameteriv(UInt32 texture, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateVertexArrays", ExactSpelling = true)]
 			internal extern static unsafe void glCreateVertexArrays(Int32 n, UInt32* arrays);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDisableVertexArrayAttrib", ExactSpelling = true)]
 			internal extern static void glDisableVertexArrayAttrib(UInt32 vaobj, UInt32 index);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glEnableVertexArrayAttrib", ExactSpelling = true)]
 			internal extern static void glEnableVertexArrayAttrib(UInt32 vaobj, UInt32 index);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayElementBuffer", ExactSpelling = true)]
 			internal extern static void glVertexArrayElementBuffer(UInt32 vaobj, UInt32 buffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexBuffer", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayVertexBuffer(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayVertexBuffers", ExactSpelling = true)]
 			internal extern static unsafe void glVertexArrayVertexBuffers(UInt32 vaobj, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayAttribBinding", ExactSpelling = true)]
 			internal extern static void glVertexArrayAttribBinding(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayAttribFormat", ExactSpelling = true)]
 			internal extern static void glVertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayAttribIFormat", ExactSpelling = true)]
 			internal extern static void glVertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayAttribLFormat", ExactSpelling = true)]
 			internal extern static void glVertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexArrayBindingDivisor", ExactSpelling = true)]
 			internal extern static void glVertexArrayBindingDivisor(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVertexArrayiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetVertexArrayiv(UInt32 vaobj, Int32 pname, Int32* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVertexArrayIndexediv", ExactSpelling = true)]
 			internal extern static unsafe void glGetVertexArrayIndexediv(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVertexArrayIndexed64iv", ExactSpelling = true)]
 			internal extern static unsafe void glGetVertexArrayIndexed64iv(UInt32 vaobj, UInt32 index, Int32 pname, Int64* param);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateSamplers", ExactSpelling = true)]
 			internal extern static unsafe void glCreateSamplers(Int32 n, UInt32* samplers);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateProgramPipelines", ExactSpelling = true)]
 			internal extern static unsafe void glCreateProgramPipelines(Int32 n, UInt32* pipelines);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateQueries", ExactSpelling = true)]
 			internal extern static unsafe void glCreateQueries(Int32 target, Int32 n, UInt32* ids);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryBufferObjecti64v", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryBufferObjecti64v(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryBufferObjectiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryBufferObjectiv(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryBufferObjectui64v", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryBufferObjectui64v(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryBufferObjectuiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryBufferObjectuiv(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMemoryBarrierByRegion", ExactSpelling = true)]
 			internal extern static void glMemoryBarrierByRegion(UInt32 barriers);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetTextureSubImage", ExactSpelling = true)]
 			internal extern static unsafe void glGetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetCompressedTextureSubImage", ExactSpelling = true)]
 			internal extern static unsafe void glGetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetGraphicsResetStatus", ExactSpelling = true)]
 			internal extern static Int32 glGetGraphicsResetStatus();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnCompressedTexImage", ExactSpelling = true)]
 			internal extern static unsafe void glGetnCompressedTexImage(Int32 target, Int32 lod, Int32 bufSize, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnTexImage", ExactSpelling = true)]
 			internal extern static unsafe void glGetnTexImage(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnUniformdv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformdv(UInt32 program, Int32 location, Int32 bufSize, double* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnUniformfv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnUniformiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnUniformuiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glReadnPixels", ExactSpelling = true)]
 			internal extern static unsafe void glReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnMapdv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnMapdv(Int32 target, Int32 query, Int32 bufSize, double* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnMapfv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnMapfv(Int32 target, Int32 query, Int32 bufSize, float* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnMapiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnMapiv(Int32 target, Int32 query, Int32 bufSize, Int32* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnPixelMapfv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnPixelMapfv(Int32 map, Int32 bufSize, float* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnPixelMapuiv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnPixelMapuiv(Int32 map, Int32 bufSize, UInt32* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnPixelMapusv", ExactSpelling = true)]
 			internal extern static unsafe void glGetnPixelMapusv(Int32 map, Int32 bufSize, UInt16* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnPolygonStipple", ExactSpelling = true)]
 			internal extern static unsafe void glGetnPolygonStipple(Int32 bufSize, byte* pattern);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnColorTable", ExactSpelling = true)]
 			internal extern static unsafe void glGetnColorTable(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnConvolutionFilter", ExactSpelling = true)]
 			internal extern static unsafe void glGetnConvolutionFilter(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnSeparableFilter", ExactSpelling = true)]
 			internal extern static unsafe void glGetnSeparableFilter(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnHistogram", ExactSpelling = true)]
 			internal extern static unsafe void glGetnHistogram(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetnMinmax", ExactSpelling = true)]
 			internal extern static unsafe void glGetnMinmax(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureBarrier", ExactSpelling = true)]
@@ -8930,7 +8930,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glClipControl(Int32 origin, Int32 depth);
@@ -8942,7 +8942,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateTransformFeedbacks(Int32 n, UInt32* ids);
@@ -8954,7 +8954,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTransformFeedbackBufferBase(UInt32 xfb, UInt32 index, UInt32 buffer);
@@ -8966,7 +8966,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTransformFeedbackBufferRange(UInt32 xfb, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size);
@@ -8978,7 +8978,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTransformFeedbackiv(UInt32 xfb, Int32 pname, Int32* param);
@@ -8990,7 +8990,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTransformFeedbacki_v(UInt32 xfb, Int32 pname, UInt32 index, Int32* param);
@@ -9002,7 +9002,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTransformFeedbacki64_v(UInt32 xfb, Int32 pname, UInt32 index, Int64* param);
@@ -9014,7 +9014,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateBuffers(Int32 n, UInt32* buffers);
@@ -9027,7 +9027,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags);
@@ -9042,7 +9042,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
@@ -9055,7 +9055,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
@@ -9070,7 +9070,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCopyNamedBufferSubData(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
@@ -9082,7 +9082,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glClearNamedBufferData(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
@@ -9094,7 +9094,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glClearNamedBufferSubData(UInt32 buffer, Int32 internalformat, IntPtr offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
@@ -9106,7 +9106,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr glMapNamedBuffer(UInt32 buffer, Int32 access);
@@ -9118,7 +9118,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glMapNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
@@ -9130,7 +9130,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glUnmapNamedBuffer(UInt32 buffer);
@@ -9142,7 +9142,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glFlushMappedNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length);
@@ -9154,7 +9154,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetNamedBufferParameteriv(UInt32 buffer, Int32 pname, Int32* @params);
@@ -9166,7 +9166,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetNamedBufferParameteri64v(UInt32 buffer, Int32 pname, Int64* @params);
@@ -9178,7 +9178,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetNamedBufferPointerv(UInt32 buffer, Int32 pname, IntPtr* @params);
@@ -9190,7 +9190,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
@@ -9202,7 +9202,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateFramebuffers(Int32 n, UInt32* framebuffers);
@@ -9214,7 +9214,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedFramebufferRenderbuffer(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
@@ -9226,7 +9226,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedFramebufferParameteri(UInt32 framebuffer, Int32 pname, Int32 param);
@@ -9238,7 +9238,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedFramebufferTexture(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
@@ -9250,7 +9250,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedFramebufferTextureLayer(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
@@ -9262,7 +9262,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedFramebufferDrawBuffer(UInt32 framebuffer, Int32 buf);
@@ -9274,7 +9274,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNamedFramebufferDrawBuffers(UInt32 framebuffer, Int32 n, Int32* bufs);
@@ -9286,7 +9286,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedFramebufferReadBuffer(UInt32 framebuffer, Int32 src);
@@ -9298,7 +9298,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glInvalidateNamedFramebufferData(UInt32 framebuffer, Int32 numAttachments, Int32* attachments);
@@ -9310,7 +9310,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glInvalidateNamedFramebufferSubData(UInt32 framebuffer, Int32 numAttachments, Int32* attachments, Int32 x, Int32 y, Int32 width, Int32 height);
@@ -9322,7 +9322,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glClearNamedFramebufferiv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, Int32* value);
@@ -9334,7 +9334,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glClearNamedFramebufferuiv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, UInt32* value);
@@ -9346,7 +9346,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glClearNamedFramebufferfv(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float* value);
@@ -9358,7 +9358,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glClearNamedFramebufferfi(UInt32 framebuffer, Int32 buffer, Int32 drawbuffer, float depth, Int32 stencil);
@@ -9370,7 +9370,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
@@ -9382,7 +9382,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate Int32 glCheckNamedFramebufferStatus(UInt32 framebuffer, Int32 target);
@@ -9394,7 +9394,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetNamedFramebufferParameteriv(UInt32 framebuffer, Int32 pname, Int32* param);
@@ -9406,7 +9406,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetNamedFramebufferAttachmentParameteriv(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
@@ -9418,7 +9418,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateRenderbuffers(Int32 n, UInt32* renderbuffers);
@@ -9430,7 +9430,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedRenderbufferStorage(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
@@ -9442,7 +9442,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
@@ -9454,7 +9454,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetNamedRenderbufferParameteriv(UInt32 renderbuffer, Int32 pname, Int32* @params);
@@ -9466,7 +9466,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateTextures(Int32 target, Int32 n, UInt32* textures);
@@ -9478,7 +9478,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureBuffer(UInt32 texture, Int32 internalformat, UInt32 buffer);
@@ -9490,7 +9490,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTextureBufferRange(UInt32 texture, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
@@ -9502,7 +9502,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorage1D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width);
@@ -9514,7 +9514,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorage2D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
@@ -9526,7 +9526,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorage3D(UInt32 texture, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
@@ -9538,7 +9538,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorage2DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
@@ -9550,7 +9550,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorage3DMultisample(UInt32 texture, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
@@ -9562,7 +9562,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
@@ -9574,7 +9574,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
@@ -9586,7 +9586,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
@@ -9598,7 +9598,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data);
@@ -9610,7 +9610,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data);
@@ -9622,7 +9622,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
@@ -9634,7 +9634,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCopyTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
@@ -9646,7 +9646,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCopyTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
@@ -9658,7 +9658,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCopyTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
@@ -9670,7 +9670,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureParameterf(UInt32 texture, Int32 pname, float param);
@@ -9682,7 +9682,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTextureParameterfv(UInt32 texture, Int32 pname, float* param);
@@ -9694,7 +9694,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureParameteri(UInt32 texture, Int32 pname, Int32 param);
@@ -9706,7 +9706,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTextureParameterIiv(UInt32 texture, Int32 pname, Int32* @params);
@@ -9718,7 +9718,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTextureParameterIuiv(UInt32 texture, Int32 pname, UInt32* @params);
@@ -9730,7 +9730,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTextureParameteriv(UInt32 texture, Int32 pname, Int32* param);
@@ -9742,7 +9742,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glGenerateTextureMipmap(UInt32 texture);
@@ -9754,7 +9754,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBindTextureUnit(UInt32 unit, UInt32 texture);
@@ -9766,7 +9766,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTextureImage(UInt32 texture, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
@@ -9778,7 +9778,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, IntPtr pixels);
@@ -9790,7 +9790,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTextureLevelParameterfv(UInt32 texture, Int32 level, Int32 pname, float* @params);
@@ -9802,7 +9802,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTextureLevelParameteriv(UInt32 texture, Int32 level, Int32 pname, Int32* @params);
@@ -9814,7 +9814,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTextureParameterfv(UInt32 texture, Int32 pname, float* @params);
@@ -9826,7 +9826,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTextureParameterIiv(UInt32 texture, Int32 pname, Int32* @params);
@@ -9838,7 +9838,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTextureParameterIuiv(UInt32 texture, Int32 pname, UInt32* @params);
@@ -9850,7 +9850,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTextureParameteriv(UInt32 texture, Int32 pname, Int32* @params);
@@ -9862,7 +9862,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateVertexArrays(Int32 n, UInt32* arrays);
@@ -9874,7 +9874,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDisableVertexArrayAttrib(UInt32 vaobj, UInt32 index);
@@ -9886,7 +9886,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glEnableVertexArrayAttrib(UInt32 vaobj, UInt32 index);
@@ -9898,7 +9898,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexArrayElementBuffer(UInt32 vaobj, UInt32 buffer);
@@ -9910,7 +9910,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexArrayVertexBuffer(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
@@ -9922,7 +9922,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexArrayVertexBuffers(UInt32 vaobj, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
@@ -9934,7 +9934,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexArrayAttribBinding(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
@@ -9946,7 +9946,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset);
@@ -9958,7 +9958,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
@@ -9970,7 +9970,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
@@ -9982,7 +9982,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexArrayBindingDivisor(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
@@ -9994,7 +9994,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVertexArrayiv(UInt32 vaobj, Int32 pname, Int32* param);
@@ -10006,7 +10006,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVertexArrayIndexediv(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
@@ -10018,7 +10018,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVertexArrayIndexed64iv(UInt32 vaobj, UInt32 index, Int32 pname, Int64* param);
@@ -10030,7 +10030,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateSamplers(Int32 n, UInt32* samplers);
@@ -10042,7 +10042,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateProgramPipelines(Int32 n, UInt32* pipelines);
@@ -10054,7 +10054,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateQueries(Int32 target, Int32 n, UInt32* ids);
@@ -10066,7 +10066,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetQueryBufferObjecti64v(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
@@ -10078,7 +10078,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetQueryBufferObjectiv(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
@@ -10090,7 +10090,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetQueryBufferObjectui64v(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
@@ -10102,7 +10102,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetQueryBufferObjectuiv(UInt32 id, UInt32 buffer, Int32 pname, IntPtr offset);
@@ -10115,7 +10115,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_ES3_1_compatibility", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMemoryBarrierByRegion(UInt32 barriers);
@@ -10128,7 +10128,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
@@ -10140,7 +10140,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, IntPtr pixels);
@@ -10156,7 +10156,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate Int32 glGetGraphicsResetStatus();
@@ -10174,7 +10174,7 @@ namespace OpenGL
 			internal static glGetGraphicsResetStatus pglGetGraphicsResetStatus;
 
 			[RequiredByFeature("GL_VERSION_4_5")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnCompressedTexImage(Int32 target, Int32 lod, Int32 bufSize, IntPtr pixels);
@@ -10184,7 +10184,7 @@ namespace OpenGL
 			internal static glGetnCompressedTexImage pglGetnCompressedTexImage;
 
 			[RequiredByFeature("GL_VERSION_4_5")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnTexImage(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr pixels);
@@ -10194,7 +10194,7 @@ namespace OpenGL
 			internal static glGetnTexImage pglGetnTexImage;
 
 			[RequiredByFeature("GL_VERSION_4_5")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnUniformdv(UInt32 program, Int32 location, Int32 bufSize, double* @params);
@@ -10209,7 +10209,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, float* @params);
@@ -10232,7 +10232,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
@@ -10253,7 +10253,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
@@ -10274,7 +10274,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
@@ -10294,7 +10294,7 @@ namespace OpenGL
 			internal static glReadnPixels pglReadnPixels;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnMapdv(Int32 target, Int32 query, Int32 bufSize, double* v);
@@ -10304,7 +10304,7 @@ namespace OpenGL
 			internal static glGetnMapdv pglGetnMapdv;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnMapfv(Int32 target, Int32 query, Int32 bufSize, float* v);
@@ -10314,7 +10314,7 @@ namespace OpenGL
 			internal static glGetnMapfv pglGetnMapfv;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnMapiv(Int32 target, Int32 query, Int32 bufSize, Int32* v);
@@ -10324,7 +10324,7 @@ namespace OpenGL
 			internal static glGetnMapiv pglGetnMapiv;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnPixelMapfv(Int32 map, Int32 bufSize, float* values);
@@ -10334,7 +10334,7 @@ namespace OpenGL
 			internal static glGetnPixelMapfv pglGetnPixelMapfv;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnPixelMapuiv(Int32 map, Int32 bufSize, UInt32* values);
@@ -10344,7 +10344,7 @@ namespace OpenGL
 			internal static glGetnPixelMapuiv pglGetnPixelMapuiv;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnPixelMapusv(Int32 map, Int32 bufSize, UInt16* values);
@@ -10354,7 +10354,7 @@ namespace OpenGL
 			internal static glGetnPixelMapusv pglGetnPixelMapusv;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnPolygonStipple(Int32 bufSize, byte* pattern);
@@ -10364,7 +10364,7 @@ namespace OpenGL
 			internal static glGetnPolygonStipple pglGetnPolygonStipple;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnColorTable(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table);
@@ -10374,7 +10374,7 @@ namespace OpenGL
 			internal static glGetnColorTable pglGetnColorTable;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnConvolutionFilter(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image);
@@ -10384,7 +10384,7 @@ namespace OpenGL
 			internal static glGetnConvolutionFilter pglGetnConvolutionFilter;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnSeparableFilter(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span);
@@ -10394,7 +10394,7 @@ namespace OpenGL
 			internal static glGetnSeparableFilter pglGetnSeparableFilter;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnHistogram(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
@@ -10404,7 +10404,7 @@ namespace OpenGL
 			internal static glGetnHistogram pglGetnHistogram;
 
 			[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetnMinmax(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
@@ -10415,7 +10415,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_texture_barrier", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureBarrier();

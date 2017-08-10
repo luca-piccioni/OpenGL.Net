@@ -110,13 +110,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSharpenTexFuncSGIS", ExactSpelling = true)]
 			internal extern static unsafe void glSharpenTexFuncSGIS(Int32 target, Int32 n, float* points);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetSharpenTexFuncSGIS", ExactSpelling = true)]
@@ -127,7 +127,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSharpenTexFuncSGIS(Int32 target, Int32 n, float* points);
@@ -137,7 +137,7 @@ namespace OpenGL
 			internal static glSharpenTexFuncSGIS pglSharpenTexFuncSGIS;
 
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetSharpenTexFuncSGIS(Int32 target, float* points);

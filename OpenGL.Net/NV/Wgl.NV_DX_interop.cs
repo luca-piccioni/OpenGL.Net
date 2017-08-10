@@ -253,54 +253,54 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDXSetResourceShareHandleNV", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDXOpenDeviceNV", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDXCloseDeviceNV", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglDXCloseDeviceNV(IntPtr hDevice);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDXRegisterObjectNV", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDXUnregisterObjectNV", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDXObjectAccessNV", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDXLockObjectsNV", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDXUnlockObjectsNV", ExactSpelling = true, SetLastError = true)]
@@ -312,7 +312,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
@@ -322,7 +322,7 @@ namespace OpenGL
 			internal static wglDXSetResourceShareHandleNV pwglDXSetResourceShareHandleNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
@@ -332,7 +332,7 @@ namespace OpenGL
 			internal static wglDXOpenDeviceNV pwglDXOpenDeviceNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglDXCloseDeviceNV(IntPtr hDevice);
@@ -342,7 +342,7 @@ namespace OpenGL
 			internal static wglDXCloseDeviceNV pwglDXCloseDeviceNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
@@ -352,7 +352,7 @@ namespace OpenGL
 			internal static wglDXRegisterObjectNV pwglDXRegisterObjectNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
@@ -362,7 +362,7 @@ namespace OpenGL
 			internal static wglDXUnregisterObjectNV pwglDXUnregisterObjectNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
@@ -372,7 +372,7 @@ namespace OpenGL
 			internal static wglDXObjectAccessNV pwglDXObjectAccessNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
@@ -382,7 +382,7 @@ namespace OpenGL
 			internal static wglDXLockObjectsNV pwglDXLockObjectsNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);

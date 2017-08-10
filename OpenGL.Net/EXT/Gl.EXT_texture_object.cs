@@ -153,26 +153,26 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glAreTexturesResidentEXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static unsafe bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, bool* residences);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteTexturesEXT", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteTexturesEXT(Int32 n, UInt32* textures);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenTexturesEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGenTexturesEXT(Int32 n, UInt32* textures);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsTextureEXT", ExactSpelling = true)]
@@ -184,7 +184,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_texture_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, bool* residences);
@@ -194,7 +194,7 @@ namespace OpenGL
 			internal static glAreTexturesResidentEXT pglAreTexturesResidentEXT;
 
 			[RequiredByFeature("GL_EXT_texture_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeleteTexturesEXT(Int32 n, UInt32* textures);
@@ -204,7 +204,7 @@ namespace OpenGL
 			internal static glDeleteTexturesEXT pglDeleteTexturesEXT;
 
 			[RequiredByFeature("GL_EXT_texture_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGenTexturesEXT(Int32 n, UInt32* textures);
@@ -214,7 +214,7 @@ namespace OpenGL
 			internal static glGenTexturesEXT pglGenTexturesEXT;
 
 			[RequiredByFeature("GL_EXT_texture_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsTextureEXT(UInt32 texture);

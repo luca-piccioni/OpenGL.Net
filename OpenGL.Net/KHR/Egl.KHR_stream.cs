@@ -234,31 +234,31 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglCreateStreamKHR", ExactSpelling = true)]
 			internal extern static unsafe IntPtr eglCreateStreamKHR(IntPtr dpy, int* attrib_list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglDestroyStreamKHR", ExactSpelling = true)]
 			internal extern static unsafe bool eglDestroyStreamKHR(IntPtr dpy, IntPtr stream);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglStreamAttribKHR", ExactSpelling = true)]
 			internal extern static unsafe bool eglStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, int value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryStreamKHR", ExactSpelling = true)]
 			internal extern static unsafe bool eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "eglQueryStreamu64KHR", ExactSpelling = true)]
@@ -269,7 +269,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_stream")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr eglCreateStreamKHR(IntPtr dpy, int* attrib_list);
@@ -278,7 +278,7 @@ namespace OpenGL
 			internal static eglCreateStreamKHR peglCreateStreamKHR;
 
 			[RequiredByFeature("EGL_KHR_stream")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglDestroyStreamKHR(IntPtr dpy, IntPtr stream);
@@ -287,7 +287,7 @@ namespace OpenGL
 			internal static eglDestroyStreamKHR peglDestroyStreamKHR;
 
 			[RequiredByFeature("EGL_KHR_stream")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, int value);
@@ -296,7 +296,7 @@ namespace OpenGL
 			internal static eglStreamAttribKHR peglStreamAttribKHR;
 
 			[RequiredByFeature("EGL_KHR_stream")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglQueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, int* value);
@@ -305,7 +305,7 @@ namespace OpenGL
 			internal static eglQueryStreamKHR peglQueryStreamKHR;
 
 			[RequiredByFeature("EGL_KHR_stream")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);

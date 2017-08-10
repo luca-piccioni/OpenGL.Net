@@ -181,19 +181,19 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glLGPUNamedBufferSubDataNVX", ExactSpelling = true)]
 			internal extern static unsafe void glLGPUNamedBufferSubDataNVX(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glLGPUCopyImageSubDataNVX", ExactSpelling = true)]
 			internal extern static void glLGPUCopyImageSubDataNVX(UInt32 sourceGpu, UInt32 destinationGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srxY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glLGPUInterlockNVX", ExactSpelling = true)]
@@ -204,7 +204,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glLGPUNamedBufferSubDataNVX(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
@@ -214,7 +214,7 @@ namespace OpenGL
 			internal static glLGPUNamedBufferSubDataNVX pglLGPUNamedBufferSubDataNVX;
 
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glLGPUCopyImageSubDataNVX(UInt32 sourceGpu, UInt32 destinationGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srxY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
@@ -224,7 +224,7 @@ namespace OpenGL
 			internal static glLGPUCopyImageSubDataNVX pglLGPUCopyImageSubDataNVX;
 
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glLGPUInterlockNVX();

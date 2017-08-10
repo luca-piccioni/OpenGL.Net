@@ -254,44 +254,44 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenQueriesEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGenQueriesEXT(Int32 n, UInt32* ids);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteQueriesEXT", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteQueriesEXT(Int32 n, UInt32* ids);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsQueryEXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsQueryEXT(UInt32 id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBeginQueryEXT", ExactSpelling = true)]
 			internal extern static void glBeginQueryEXT(Int32 target, UInt32 id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glEndQueryEXT", ExactSpelling = true)]
 			internal extern static void glEndQueryEXT(Int32 target);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetQueryObjectuivEXT", ExactSpelling = true)]
@@ -303,7 +303,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGenQueriesEXT(Int32 n, UInt32* ids);
@@ -315,7 +315,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeleteQueriesEXT(Int32 n, UInt32* ids);
@@ -327,7 +327,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsQueryEXT(UInt32 id);
@@ -339,7 +339,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBeginQueryEXT(Int32 target, UInt32 id);
@@ -351,7 +351,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glEndQueryEXT(Int32 target);
@@ -363,7 +363,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
@@ -375,7 +375,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetQueryObjectuivEXT(UInt32 id, Int32 pname, UInt32* @params);

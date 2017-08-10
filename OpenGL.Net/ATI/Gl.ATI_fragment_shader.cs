@@ -1055,85 +1055,85 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenFragmentShadersATI", ExactSpelling = true)]
 			internal extern static UInt32 glGenFragmentShadersATI(UInt32 range);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindFragmentShaderATI", ExactSpelling = true)]
 			internal extern static void glBindFragmentShaderATI(UInt32 id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteFragmentShaderATI", ExactSpelling = true)]
 			internal extern static void glDeleteFragmentShaderATI(UInt32 id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBeginFragmentShaderATI", ExactSpelling = true)]
 			internal extern static void glBeginFragmentShaderATI();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glEndFragmentShaderATI", ExactSpelling = true)]
 			internal extern static void glEndFragmentShaderATI();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glPassTexCoordATI", ExactSpelling = true)]
 			internal extern static void glPassTexCoordATI(UInt32 dst, UInt32 coord, Int32 swizzle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSampleMapATI", ExactSpelling = true)]
 			internal extern static void glSampleMapATI(UInt32 dst, UInt32 interp, Int32 swizzle);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glColorFragmentOp1ATI", ExactSpelling = true)]
 			internal extern static void glColorFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glColorFragmentOp2ATI", ExactSpelling = true)]
 			internal extern static void glColorFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glColorFragmentOp3ATI", ExactSpelling = true)]
 			internal extern static void glColorFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glAlphaFragmentOp1ATI", ExactSpelling = true)]
 			internal extern static void glAlphaFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glAlphaFragmentOp2ATI", ExactSpelling = true)]
 			internal extern static void glAlphaFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glAlphaFragmentOp3ATI", ExactSpelling = true)]
 			internal extern static void glAlphaFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSetFragmentShaderConstantATI", ExactSpelling = true)]
@@ -1144,7 +1144,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glGenFragmentShadersATI(UInt32 range);
@@ -1154,7 +1154,7 @@ namespace OpenGL
 			internal static glGenFragmentShadersATI pglGenFragmentShadersATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBindFragmentShaderATI(UInt32 id);
@@ -1164,7 +1164,7 @@ namespace OpenGL
 			internal static glBindFragmentShaderATI pglBindFragmentShaderATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDeleteFragmentShaderATI(UInt32 id);
@@ -1174,7 +1174,7 @@ namespace OpenGL
 			internal static glDeleteFragmentShaderATI pglDeleteFragmentShaderATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBeginFragmentShaderATI();
@@ -1184,7 +1184,7 @@ namespace OpenGL
 			internal static glBeginFragmentShaderATI pglBeginFragmentShaderATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glEndFragmentShaderATI();
@@ -1194,7 +1194,7 @@ namespace OpenGL
 			internal static glEndFragmentShaderATI pglEndFragmentShaderATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glPassTexCoordATI(UInt32 dst, UInt32 coord, Int32 swizzle);
@@ -1204,7 +1204,7 @@ namespace OpenGL
 			internal static glPassTexCoordATI pglPassTexCoordATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSampleMapATI(UInt32 dst, UInt32 interp, Int32 swizzle);
@@ -1214,7 +1214,7 @@ namespace OpenGL
 			internal static glSampleMapATI pglSampleMapATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glColorFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod);
@@ -1224,7 +1224,7 @@ namespace OpenGL
 			internal static glColorFragmentOp1ATI pglColorFragmentOp1ATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glColorFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod);
@@ -1234,7 +1234,7 @@ namespace OpenGL
 			internal static glColorFragmentOp2ATI pglColorFragmentOp2ATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glColorFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMask, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod);
@@ -1244,7 +1244,7 @@ namespace OpenGL
 			internal static glColorFragmentOp3ATI pglColorFragmentOp3ATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glAlphaFragmentOp1ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod);
@@ -1254,7 +1254,7 @@ namespace OpenGL
 			internal static glAlphaFragmentOp1ATI pglAlphaFragmentOp1ATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glAlphaFragmentOp2ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod);
@@ -1264,7 +1264,7 @@ namespace OpenGL
 			internal static glAlphaFragmentOp2ATI pglAlphaFragmentOp2ATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glAlphaFragmentOp3ATI(Int32 op, UInt32 dst, UInt32 dstMod, UInt32 arg1, UInt32 arg1Rep, UInt32 arg1Mod, UInt32 arg2, UInt32 arg2Rep, UInt32 arg2Mod, UInt32 arg3, UInt32 arg3Rep, UInt32 arg3Mod);
@@ -1274,7 +1274,7 @@ namespace OpenGL
 			internal static glAlphaFragmentOp3ATI pglAlphaFragmentOp3ATI;
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSetFragmentShaderConstantATI(UInt32 dst, float* value);

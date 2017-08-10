@@ -100,7 +100,7 @@ namespace OpenGL.Objects
 					
 					structSection.ItemType = ArrayBufferItem.GetArrayType(field.FieldType);
 					structSection.Normalized = false;
-					structSection.Offset = Marshal.OffsetOf<T>(field.Name);
+					structSection.Offset = Marshal.OffsetOf(typeof(T), field.Name);
 					structSection.Stride = new IntPtr(itemSize);
 
 					typeSections.Add(structSection);

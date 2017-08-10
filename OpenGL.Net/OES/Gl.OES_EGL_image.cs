@@ -73,13 +73,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glEGLImageTargetTexture2DOES", ExactSpelling = true)]
 			internal extern static unsafe void glEGLImageTargetTexture2DOES(Int32 target, IntPtr image);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glEGLImageTargetRenderbufferStorageOES", ExactSpelling = true)]
@@ -90,7 +90,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glEGLImageTargetTexture2DOES(Int32 target, IntPtr image);
@@ -100,7 +100,7 @@ namespace OpenGL
 			internal static glEGLImageTargetTexture2DOES pglEGLImageTargetTexture2DOES;
 
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glEGLImageTargetRenderbufferStorageOES(Int32 target, IntPtr image);

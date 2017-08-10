@@ -20,7 +20,9 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
+#if HAVE_NUMERICS
 using System.Numerics;
+#endif
 
 namespace OpenGL.Objects.Collections
 {
@@ -87,7 +89,7 @@ namespace OpenGL.Objects.Collections
 						byte* srcPtrBase = (byte*)src;
 						ushort* srcPtr16;
 						int srcPtr16Len;
-
+#if HAVE_NUMERICS
 						if (Vector.IsHardwareAccelerated) {
 							int* srcPtrVec = (int*)srcPtrBase;
 							int srcPtrVecLen = len / (Vector<int>.Count * 4);
@@ -102,7 +104,7 @@ namespace OpenGL.Objects.Collections
 								srcPtrBase = (byte*)srcPtrVec;
 							}
 						}
-
+#endif
 						if (IntPtr.Size == 8) {
 							long hash64 = hash;
 							long* srcPtr64 = (long*)srcPtrBase;

@@ -24,6 +24,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace OpenGL
 {
@@ -752,7 +753,11 @@ namespace OpenGL
 			{
 				string result = string.Empty;
 				Type type = ev.GetType();
+#if !NETSTANDARD1_4
 				FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
+#else
+				FieldInfo[] fields = new List<FieldInfo>(type.GetTypeInfo().DeclaredFields).ToArray();
+#endif
 				for (int i = 0; i < fields.Length; i++) {
 					if (result != string.Empty) {
 						result += ", ";

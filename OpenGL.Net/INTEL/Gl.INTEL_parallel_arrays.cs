@@ -168,25 +168,25 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexPointervINTEL", ExactSpelling = true)]
 			internal extern static unsafe void glVertexPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormalPointervINTEL", ExactSpelling = true)]
 			internal extern static unsafe void glNormalPointervINTEL(Int32 type, IntPtr* pointer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glColorPointervINTEL", ExactSpelling = true)]
 			internal extern static unsafe void glColorPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoordPointervINTEL", ExactSpelling = true)]
@@ -197,7 +197,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
@@ -207,7 +207,7 @@ namespace OpenGL
 			internal static glVertexPointervINTEL pglVertexPointervINTEL;
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNormalPointervINTEL(Int32 type, IntPtr* pointer);
@@ -217,7 +217,7 @@ namespace OpenGL
 			internal static glNormalPointervINTEL pglNormalPointervINTEL;
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glColorPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
@@ -227,7 +227,7 @@ namespace OpenGL
 			internal static glColorPointervINTEL pglColorPointervINTEL;
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexCoordPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);

@@ -589,104 +589,104 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteMemoryObjectsEXT", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteMemoryObjectsEXT(Int32 n, UInt32* memoryObjects);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsMemoryObjectEXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsMemoryObjectEXT(UInt32 memoryObject);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateMemoryObjectsEXT", ExactSpelling = true)]
 			internal extern static unsafe void glCreateMemoryObjectsEXT(Int32 n, UInt32* memoryObjects);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMemoryObjectParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glMemoryObjectParameterivEXT(UInt32 memoryObject, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetMemoryObjectParameterivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetMemoryObjectParameterivEXT(UInt32 memoryObject, Int32 pname, Int32* @params);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexStorageMem2DEXT", ExactSpelling = true)]
 			internal extern static void glTexStorageMem2DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexStorageMem2DMultisampleEXT", ExactSpelling = true)]
 			internal extern static void glTexStorageMem2DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexStorageMem3DEXT", ExactSpelling = true)]
 			internal extern static void glTexStorageMem3DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexStorageMem3DMultisampleEXT", ExactSpelling = true)]
 			internal extern static void glTexStorageMem3DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBufferStorageMemEXT", ExactSpelling = true)]
 			internal extern static void glBufferStorageMemEXT(Int32 target, UInt32 size, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorageMem2DEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorageMem2DEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorageMem2DMultisampleEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorageMem2DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorageMem3DEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorageMem3DEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorageMem3DMultisampleEXT", ExactSpelling = true)]
 			internal extern static void glTextureStorageMem3DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedBufferStorageMemEXT", ExactSpelling = true)]
 			internal extern static void glNamedBufferStorageMemEXT(UInt32 buffer, UInt32 size, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexStorageMem1DEXT", ExactSpelling = true)]
 			internal extern static void glTexStorageMem1DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, UInt32 memory, UInt64 offset);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTextureStorageMem1DEXT", ExactSpelling = true)]
@@ -697,7 +697,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeleteMemoryObjectsEXT(Int32 n, UInt32* memoryObjects);
@@ -707,7 +707,7 @@ namespace OpenGL
 			internal static glDeleteMemoryObjectsEXT pglDeleteMemoryObjectsEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsMemoryObjectEXT(UInt32 memoryObject);
@@ -717,7 +717,7 @@ namespace OpenGL
 			internal static glIsMemoryObjectEXT pglIsMemoryObjectEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateMemoryObjectsEXT(Int32 n, UInt32* memoryObjects);
@@ -727,7 +727,7 @@ namespace OpenGL
 			internal static glCreateMemoryObjectsEXT pglCreateMemoryObjectsEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMemoryObjectParameterivEXT(UInt32 memoryObject, Int32 pname, Int32* @params);
@@ -737,7 +737,7 @@ namespace OpenGL
 			internal static glMemoryObjectParameterivEXT pglMemoryObjectParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetMemoryObjectParameterivEXT(UInt32 memoryObject, Int32 pname, Int32* @params);
@@ -747,7 +747,7 @@ namespace OpenGL
 			internal static glGetMemoryObjectParameterivEXT pglGetMemoryObjectParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorageMem2DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, UInt32 memory, UInt64 offset);
@@ -757,7 +757,7 @@ namespace OpenGL
 			internal static glTexStorageMem2DEXT pglTexStorageMem2DEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorageMem2DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
@@ -767,7 +767,7 @@ namespace OpenGL
 			internal static glTexStorageMem2DMultisampleEXT pglTexStorageMem2DMultisampleEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorageMem3DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, UInt32 memory, UInt64 offset);
@@ -777,7 +777,7 @@ namespace OpenGL
 			internal static glTexStorageMem3DEXT pglTexStorageMem3DEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorageMem3DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
@@ -787,7 +787,7 @@ namespace OpenGL
 			internal static glTexStorageMem3DMultisampleEXT pglTexStorageMem3DMultisampleEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBufferStorageMemEXT(Int32 target, UInt32 size, UInt32 memory, UInt64 offset);
@@ -797,7 +797,7 @@ namespace OpenGL
 			internal static glBufferStorageMemEXT pglBufferStorageMemEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorageMem2DEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, UInt32 memory, UInt64 offset);
@@ -807,7 +807,7 @@ namespace OpenGL
 			internal static glTextureStorageMem2DEXT pglTextureStorageMem2DEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorageMem2DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
@@ -817,7 +817,7 @@ namespace OpenGL
 			internal static glTextureStorageMem2DMultisampleEXT pglTextureStorageMem2DMultisampleEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorageMem3DEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, UInt32 memory, UInt64 offset);
@@ -827,7 +827,7 @@ namespace OpenGL
 			internal static glTextureStorageMem3DEXT pglTextureStorageMem3DEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorageMem3DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
@@ -837,7 +837,7 @@ namespace OpenGL
 			internal static glTextureStorageMem3DMultisampleEXT pglTextureStorageMem3DMultisampleEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNamedBufferStorageMemEXT(UInt32 buffer, UInt32 size, UInt32 memory, UInt64 offset);
@@ -847,7 +847,7 @@ namespace OpenGL
 			internal static glNamedBufferStorageMemEXT pglNamedBufferStorageMemEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorageMem1DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, UInt32 memory, UInt64 offset);
@@ -857,7 +857,7 @@ namespace OpenGL
 			internal static glTexStorageMem1DEXT pglTexStorageMem1DEXT;
 
 			[RequiredByFeature("GL_EXT_memory_object")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureStorageMem1DEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, UInt32 memory, UInt64 offset);

@@ -20,7 +20,9 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
+#if NET45
 using System.Threading.Tasks;
+#endif
 
 namespace OpenGL.Objects
 {
@@ -864,6 +866,8 @@ namespace OpenGL.Objects
 
 		#region Load
 
+#if NET45
+
 		#region LoadAsync(string)
 
 		/// <summary>
@@ -919,6 +923,8 @@ namespace OpenGL.Objects
 		/// Cancellation token used for cancelling <see cref="_LoadTask"/>.
 		/// </summary>
 		private CancellationTokenSource _LoadTaskCancel;
+
+#endif
 
 		#endregion
 

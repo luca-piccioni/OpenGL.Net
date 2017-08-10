@@ -132,13 +132,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glPixelDataRangeNV", ExactSpelling = true)]
 			internal extern static unsafe void glPixelDataRangeNV(Int32 target, Int32 length, IntPtr pointer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFlushPixelDataRangeNV", ExactSpelling = true)]
@@ -149,7 +149,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_pixel_data_range")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glPixelDataRangeNV(Int32 target, Int32 length, IntPtr pointer);
@@ -159,7 +159,7 @@ namespace OpenGL
 			internal static glPixelDataRangeNV pglPixelDataRangeNV;
 
 			[RequiredByFeature("GL_NV_pixel_data_range")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glFlushPixelDataRangeNV(Int32 target);

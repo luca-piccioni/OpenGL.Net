@@ -79,13 +79,13 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glLockArraysEXT", ExactSpelling = true)]
 			internal extern static void glLockArraysEXT(Int32 first, Int32 count);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glUnlockArraysEXT", ExactSpelling = true)]
@@ -96,7 +96,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glLockArraysEXT(Int32 first, Int32 count);
@@ -106,7 +106,7 @@ namespace OpenGL
 			internal static glLockArraysEXT pglLockArraysEXT;
 
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUnlockArraysEXT();

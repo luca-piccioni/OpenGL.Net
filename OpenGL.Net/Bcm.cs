@@ -452,19 +452,19 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "bcm_host_init")]
 			internal extern static void bcm_host_init();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "bcm_host_deinit")]
 			internal extern static void bcm_host_deinit();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "graphics_get_display_size")]
@@ -502,7 +502,7 @@ namespace OpenGL
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_resource_delete")]
 			//internal extern static int vc_dispmanx_resource_delete(DISPMANX_RESOURCE_HANDLE_T res);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "vc_dispmanx_display_open")]
@@ -532,19 +532,19 @@ namespace OpenGL
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_display_get_info")]
 			//internal extern static int vc_dispmanx_display_get_info(DISPMANX_DISPLAY_HANDLE_T display, DISPMANX_MODEINFO_T * pinfo);
 			
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "vc_dispmanx_display_close")]
 			internal extern static int vc_dispmanx_display_close(DISPMANX_DISPLAY_HANDLE_T display);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "vc_dispmanx_update_start")]
 			internal extern static DISPMANX_UPDATE_HANDLE_T vc_dispmanx_update_start(Int32 priority);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "vc_dispmanx_element_add")]
@@ -562,7 +562,7 @@ namespace OpenGL
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_element_modified")]
 			//internal extern static int vc_dispmanx_element_modified(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element, ref VC_RECT_T rect);
 			
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "vc_dispmanx_element_remove")]
@@ -572,7 +572,7 @@ namespace OpenGL
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_update_submit")]
 			//internal extern static int vc_dispmanx_update_submit(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_CALLBACK_FUNC_T cb_func, void *cb_arg);
 			
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "vc_dispmanx_update_submit_sync")]
@@ -609,63 +609,63 @@ namespace OpenGL
 
 		internal static partial class Delegates
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void bcm_host_init();
 
 			internal static bcm_host_init pbcm_host_init;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void bcm_host_deinit();
 
 			internal static bcm_host_deinit pbcm_host_deinit;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int graphics_get_display_size(Int16 display_number, out Int32 width, out Int32 height);
 
 			internal static graphics_get_display_size pgraphics_get_display_size;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate DISPMANX_DISPLAY_HANDLE_T vc_dispmanx_display_open(UInt32 device);
 
 			internal static vc_dispmanx_display_open pvc_dispmanx_display_open;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int vc_dispmanx_display_close(DISPMANX_DISPLAY_HANDLE_T display);
 
 			internal static vc_dispmanx_display_close pvc_dispmanx_display_close;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate DISPMANX_UPDATE_HANDLE_T vc_dispmanx_update_start(Int32 priority);
 
 			internal static vc_dispmanx_update_start pvc_dispmanx_update_start;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate DISPMANX_ELEMENT_HANDLE_T vc_dispmanx_element_add(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_DISPLAY_HANDLE_T display, Int32 layer, IntPtr dest_rect, DISPMANX_RESOURCE_HANDLE_T src, IntPtr src_rect, DISPMANX_PROTECTION_T protection, IntPtr alpha, IntPtr clamp, DISPMANX_TRANSFORM_T transform);
 
 			internal static vc_dispmanx_element_add pvc_dispmanx_element_add;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int vc_dispmanx_element_remove(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element);
 
 			internal static vc_dispmanx_element_remove pvc_dispmanx_element_remove;
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate int vc_dispmanx_update_submit_sync(DISPMANX_UPDATE_HANDLE_T update);

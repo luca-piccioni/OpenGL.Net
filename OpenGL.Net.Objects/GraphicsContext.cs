@@ -1,5 +1,5 @@
 ﻿
-  // Copyright (C) 2009-2017 Luca Piccioni
+// Copyright (C) 2009-2017 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -1199,14 +1199,15 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("bindingResource");
 
 #if ENABLE_LAZY_BINDING
-			WeakReference<IBindingResource> boundResourceRef;
+			WeakReference boundResourceRef;
 			int bindingTarget = bindingResource.GetBindingTarget(this);
 
 			if (bindingTarget != 0 && _BoundObjects.TryGetValue(bindingTarget, out boundResourceRef)) {
-				IBindingResource boundResource;
+				IBindingResource boundResource = null;
 
 				// It may be disposed
-				boundResourceRef.TryGetTarget(out boundResource);
+				if (boundResourceRef.IsAlive)
+					boundResource = (IBindingResource)boundResourceRef.Target;
 
 				if (ReferenceEquals(bindingResource, boundResource)) {
 #if GL_DEBUG_PEDANTIC
@@ -1223,7 +1224,7 @@ namespace OpenGL.Objects
 #if ENABLE_LAZY_BINDING
 			// Remind this object as bound
 			if (bindingTarget != 0)
-				_BoundObjects[bindingTarget] = new WeakReference<IBindingResource>(bindingResource);
+				_BoundObjects[bindingTarget] = new WeakReference(bindingResource);
 #endif
 		}
 
@@ -1250,7 +1251,7 @@ namespace OpenGL.Objects
 
 				// Remind this object as bound
 				if (bindingTarget != 0)
-					_BoundObjects[bindingTarget] = new WeakReference<IBindingResource>(bindingResource);
+					_BoundObjects[bindingTarget] = new WeakReference(bindingResource);
 #endif
 			} else
 				Bind(bindingResource);
@@ -1285,7 +1286,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Map between binding points.
 		/// </summary>
-		private readonly Dictionary<int, WeakReference<IBindingResource>> _BoundObjects = new Dictionary<int, WeakReference<IBindingResource>>();
+		private readonly Dictionary<int, WeakReference> _BoundObjects = new Dictionary<int, WeakReference>();
 
 		#endregion
 
@@ -1947,7 +1948,11 @@ namespace OpenGL.Objects
 			_ResourceContext.MakeCurrent(true);
 
 			while (_ResourceThreadStop == false) {
+#if NET45
 				if (_ResourceQueueSem.Wait(_ResourceThreadLatency) == true) {
+#else
+				if (_ResourceQueueSem.WaitOne(_ResourceThreadLatency) == true) {
+#endif
 					IGraphicsResource[] graphicResources;
 
 					// Copy current resources
@@ -1998,10 +2003,17 @@ namespace OpenGL.Objects
 		/// </summary>
 		private readonly object _ResourceQueueLock = new object();
 
+#if NET45
 		/// <summary>
 		/// Semaphore used for synchronizing accesses to <see cref="_ResourceQueue"/>.
 		/// </summary>
 		private readonly SemaphoreSlim _ResourceQueueSem = new SemaphoreSlim(0, 4);
+#else
+		/// <summary>
+		/// Semaphore used for synchronizing accesses to <see cref="_ResourceQueue"/>.
+		/// </summary>
+		private readonly Semaphore _ResourceQueueSem = new Semaphore(0, 4);
+#endif
 
 		#endregion
 

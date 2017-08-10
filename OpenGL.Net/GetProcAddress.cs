@@ -232,7 +232,7 @@ namespace OpenGL
 		/// </param>
 		public void AddLibraryDirectory(string libraryDirPath)
 		{
-#if !NETCORE
+#if !NETCORE && !NETSTANDARD1_4
 			string path = Environment.GetEnvironmentVariable("PATH");
 
 			Environment.SetEnvironmentVariable("PATH", String.Format("{0};{1}", path, libraryDirPath), EnvironmentVariableTarget.Process);

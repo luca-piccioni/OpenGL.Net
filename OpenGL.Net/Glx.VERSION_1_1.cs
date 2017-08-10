@@ -134,19 +134,19 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryExtensionsString", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXQueryServerString", ExactSpelling = true)]
 			internal extern static unsafe IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glXGetClientString", ExactSpelling = true)]
@@ -157,7 +157,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_1")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
@@ -166,7 +166,7 @@ namespace OpenGL
 			internal static glXQueryExtensionsString pglXQueryExtensionsString;
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
@@ -175,7 +175,7 @@ namespace OpenGL
 			internal static glXQueryServerString pglXQueryServerString;
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr glXGetClientString(IntPtr dpy, int name);

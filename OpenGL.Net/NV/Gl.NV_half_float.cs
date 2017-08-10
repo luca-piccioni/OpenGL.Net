@@ -1011,277 +1011,277 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertex2hNV", ExactSpelling = true)]
 			internal extern static void glVertex2hNV(UInt16 x, UInt16 y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertex2hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertex2hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertex3hNV", ExactSpelling = true)]
 			internal extern static void glVertex3hNV(UInt16 x, UInt16 y, UInt16 z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertex3hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertex3hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertex4hNV", ExactSpelling = true)]
 			internal extern static void glVertex4hNV(UInt16 x, UInt16 y, UInt16 z, UInt16 w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertex4hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertex4hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormal3hNV", ExactSpelling = true)]
 			internal extern static void glNormal3hNV(UInt16 nx, UInt16 ny, UInt16 nz);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNormal3hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glNormal3hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glColor3hNV", ExactSpelling = true)]
 			internal extern static void glColor3hNV(UInt16 red, UInt16 green, UInt16 blue);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glColor3hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glColor3hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glColor4hNV", ExactSpelling = true)]
 			internal extern static void glColor4hNV(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glColor4hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glColor4hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord1hNV", ExactSpelling = true)]
 			internal extern static void glTexCoord1hNV(UInt16 s);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord1hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord1hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord2hNV", ExactSpelling = true)]
 			internal extern static void glTexCoord2hNV(UInt16 s, UInt16 t);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord2hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord2hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord3hNV", ExactSpelling = true)]
 			internal extern static void glTexCoord3hNV(UInt16 s, UInt16 t, UInt16 r);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord3hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord3hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord4hNV", ExactSpelling = true)]
 			internal extern static void glTexCoord4hNV(UInt16 s, UInt16 t, UInt16 r, UInt16 q);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexCoord4hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glTexCoord4hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord1hNV", ExactSpelling = true)]
 			internal extern static void glMultiTexCoord1hNV(Int32 target, UInt16 s);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord1hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord1hvNV(Int32 target, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord2hNV", ExactSpelling = true)]
 			internal extern static void glMultiTexCoord2hNV(Int32 target, UInt16 s, UInt16 t);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord2hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord2hvNV(Int32 target, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord3hNV", ExactSpelling = true)]
 			internal extern static void glMultiTexCoord3hNV(Int32 target, UInt16 s, UInt16 t, UInt16 r);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord3hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord3hvNV(Int32 target, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord4hNV", ExactSpelling = true)]
 			internal extern static void glMultiTexCoord4hNV(Int32 target, UInt16 s, UInt16 t, UInt16 r, UInt16 q);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glMultiTexCoord4hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glMultiTexCoord4hvNV(Int32 target, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFogCoordhNV", ExactSpelling = true)]
 			internal extern static void glFogCoordhNV(UInt16 fog);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFogCoordhvNV", ExactSpelling = true)]
 			internal extern static unsafe void glFogCoordhvNV(UInt16* fog);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSecondaryColor3hNV", ExactSpelling = true)]
 			internal extern static void glSecondaryColor3hNV(UInt16 red, UInt16 green, UInt16 blue);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSecondaryColor3hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glSecondaryColor3hvNV(UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexWeighthNV", ExactSpelling = true)]
 			internal extern static void glVertexWeighthNV(UInt16 weight);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexWeighthvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexWeighthvNV(UInt16* weight);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttrib1hNV", ExactSpelling = true)]
 			internal extern static void glVertexAttrib1hNV(UInt32 index, UInt16 x);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttrib1hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexAttrib1hvNV(UInt32 index, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttrib2hNV", ExactSpelling = true)]
 			internal extern static void glVertexAttrib2hNV(UInt32 index, UInt16 x, UInt16 y);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttrib2hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexAttrib2hvNV(UInt32 index, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttrib3hNV", ExactSpelling = true)]
 			internal extern static void glVertexAttrib3hNV(UInt32 index, UInt16 x, UInt16 y, UInt16 z);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttrib3hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexAttrib3hvNV(UInt32 index, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttrib4hNV", ExactSpelling = true)]
 			internal extern static void glVertexAttrib4hNV(UInt32 index, UInt16 x, UInt16 y, UInt16 z, UInt16 w);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttrib4hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexAttrib4hvNV(UInt32 index, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttribs1hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexAttribs1hvNV(UInt32 index, Int32 n, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttribs2hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexAttribs2hvNV(UInt32 index, Int32 n, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttribs3hvNV", ExactSpelling = true)]
 			internal extern static unsafe void glVertexAttribs3hvNV(UInt32 index, Int32 n, UInt16* v);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVertexAttribs4hvNV", ExactSpelling = true)]
@@ -1292,7 +1292,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertex2hNV(UInt16 x, UInt16 y);
@@ -1302,7 +1302,7 @@ namespace OpenGL
 			internal static glVertex2hNV pglVertex2hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertex2hvNV(UInt16* v);
@@ -1312,7 +1312,7 @@ namespace OpenGL
 			internal static glVertex2hvNV pglVertex2hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertex3hNV(UInt16 x, UInt16 y, UInt16 z);
@@ -1322,7 +1322,7 @@ namespace OpenGL
 			internal static glVertex3hNV pglVertex3hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertex3hvNV(UInt16* v);
@@ -1332,7 +1332,7 @@ namespace OpenGL
 			internal static glVertex3hvNV pglVertex3hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertex4hNV(UInt16 x, UInt16 y, UInt16 z, UInt16 w);
@@ -1342,7 +1342,7 @@ namespace OpenGL
 			internal static glVertex4hNV pglVertex4hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertex4hvNV(UInt16* v);
@@ -1352,7 +1352,7 @@ namespace OpenGL
 			internal static glVertex4hvNV pglVertex4hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glNormal3hNV(UInt16 nx, UInt16 ny, UInt16 nz);
@@ -1362,7 +1362,7 @@ namespace OpenGL
 			internal static glNormal3hNV pglNormal3hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNormal3hvNV(UInt16* v);
@@ -1372,7 +1372,7 @@ namespace OpenGL
 			internal static glNormal3hvNV pglNormal3hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glColor3hNV(UInt16 red, UInt16 green, UInt16 blue);
@@ -1382,7 +1382,7 @@ namespace OpenGL
 			internal static glColor3hNV pglColor3hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glColor3hvNV(UInt16* v);
@@ -1392,7 +1392,7 @@ namespace OpenGL
 			internal static glColor3hvNV pglColor3hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glColor4hNV(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha);
@@ -1402,7 +1402,7 @@ namespace OpenGL
 			internal static glColor4hNV pglColor4hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glColor4hvNV(UInt16* v);
@@ -1412,7 +1412,7 @@ namespace OpenGL
 			internal static glColor4hvNV pglColor4hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexCoord1hNV(UInt16 s);
@@ -1422,7 +1422,7 @@ namespace OpenGL
 			internal static glTexCoord1hNV pglTexCoord1hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexCoord1hvNV(UInt16* v);
@@ -1432,7 +1432,7 @@ namespace OpenGL
 			internal static glTexCoord1hvNV pglTexCoord1hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexCoord2hNV(UInt16 s, UInt16 t);
@@ -1442,7 +1442,7 @@ namespace OpenGL
 			internal static glTexCoord2hNV pglTexCoord2hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexCoord2hvNV(UInt16* v);
@@ -1452,7 +1452,7 @@ namespace OpenGL
 			internal static glTexCoord2hvNV pglTexCoord2hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexCoord3hNV(UInt16 s, UInt16 t, UInt16 r);
@@ -1462,7 +1462,7 @@ namespace OpenGL
 			internal static glTexCoord3hNV pglTexCoord3hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexCoord3hvNV(UInt16* v);
@@ -1472,7 +1472,7 @@ namespace OpenGL
 			internal static glTexCoord3hvNV pglTexCoord3hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexCoord4hNV(UInt16 s, UInt16 t, UInt16 r, UInt16 q);
@@ -1482,7 +1482,7 @@ namespace OpenGL
 			internal static glTexCoord4hNV pglTexCoord4hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexCoord4hvNV(UInt16* v);
@@ -1492,7 +1492,7 @@ namespace OpenGL
 			internal static glTexCoord4hvNV pglTexCoord4hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord1hNV(Int32 target, UInt16 s);
@@ -1502,7 +1502,7 @@ namespace OpenGL
 			internal static glMultiTexCoord1hNV pglMultiTexCoord1hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord1hvNV(Int32 target, UInt16* v);
@@ -1512,7 +1512,7 @@ namespace OpenGL
 			internal static glMultiTexCoord1hvNV pglMultiTexCoord1hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord2hNV(Int32 target, UInt16 s, UInt16 t);
@@ -1522,7 +1522,7 @@ namespace OpenGL
 			internal static glMultiTexCoord2hNV pglMultiTexCoord2hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord2hvNV(Int32 target, UInt16* v);
@@ -1532,7 +1532,7 @@ namespace OpenGL
 			internal static glMultiTexCoord2hvNV pglMultiTexCoord2hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord3hNV(Int32 target, UInt16 s, UInt16 t, UInt16 r);
@@ -1542,7 +1542,7 @@ namespace OpenGL
 			internal static glMultiTexCoord3hNV pglMultiTexCoord3hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord3hvNV(Int32 target, UInt16* v);
@@ -1552,7 +1552,7 @@ namespace OpenGL
 			internal static glMultiTexCoord3hvNV pglMultiTexCoord3hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord4hNV(Int32 target, UInt16 s, UInt16 t, UInt16 r, UInt16 q);
@@ -1562,7 +1562,7 @@ namespace OpenGL
 			internal static glMultiTexCoord4hNV pglMultiTexCoord4hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord4hvNV(Int32 target, UInt16* v);
@@ -1572,7 +1572,7 @@ namespace OpenGL
 			internal static glMultiTexCoord4hvNV pglMultiTexCoord4hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glFogCoordhNV(UInt16 fog);
@@ -1582,7 +1582,7 @@ namespace OpenGL
 			internal static glFogCoordhNV pglFogCoordhNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glFogCoordhvNV(UInt16* fog);
@@ -1592,7 +1592,7 @@ namespace OpenGL
 			internal static glFogCoordhvNV pglFogCoordhvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSecondaryColor3hNV(UInt16 red, UInt16 green, UInt16 blue);
@@ -1602,7 +1602,7 @@ namespace OpenGL
 			internal static glSecondaryColor3hNV pglSecondaryColor3hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSecondaryColor3hvNV(UInt16* v);
@@ -1612,7 +1612,7 @@ namespace OpenGL
 			internal static glSecondaryColor3hvNV pglSecondaryColor3hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexWeighthNV(UInt16 weight);
@@ -1622,7 +1622,7 @@ namespace OpenGL
 			internal static glVertexWeighthNV pglVertexWeighthNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexWeighthvNV(UInt16* weight);
@@ -1632,7 +1632,7 @@ namespace OpenGL
 			internal static glVertexWeighthvNV pglVertexWeighthvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexAttrib1hNV(UInt32 index, UInt16 x);
@@ -1642,7 +1642,7 @@ namespace OpenGL
 			internal static glVertexAttrib1hNV pglVertexAttrib1hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttrib1hvNV(UInt32 index, UInt16* v);
@@ -1652,7 +1652,7 @@ namespace OpenGL
 			internal static glVertexAttrib1hvNV pglVertexAttrib1hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexAttrib2hNV(UInt32 index, UInt16 x, UInt16 y);
@@ -1662,7 +1662,7 @@ namespace OpenGL
 			internal static glVertexAttrib2hNV pglVertexAttrib2hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttrib2hvNV(UInt32 index, UInt16* v);
@@ -1672,7 +1672,7 @@ namespace OpenGL
 			internal static glVertexAttrib2hvNV pglVertexAttrib2hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexAttrib3hNV(UInt32 index, UInt16 x, UInt16 y, UInt16 z);
@@ -1682,7 +1682,7 @@ namespace OpenGL
 			internal static glVertexAttrib3hNV pglVertexAttrib3hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttrib3hvNV(UInt32 index, UInt16* v);
@@ -1692,7 +1692,7 @@ namespace OpenGL
 			internal static glVertexAttrib3hvNV pglVertexAttrib3hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexAttrib4hNV(UInt32 index, UInt16 x, UInt16 y, UInt16 z, UInt16 w);
@@ -1702,7 +1702,7 @@ namespace OpenGL
 			internal static glVertexAttrib4hNV pglVertexAttrib4hNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttrib4hvNV(UInt32 index, UInt16* v);
@@ -1712,7 +1712,7 @@ namespace OpenGL
 			internal static glVertexAttrib4hvNV pglVertexAttrib4hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttribs1hvNV(UInt32 index, Int32 n, UInt16* v);
@@ -1722,7 +1722,7 @@ namespace OpenGL
 			internal static glVertexAttribs1hvNV pglVertexAttribs1hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttribs2hvNV(UInt32 index, Int32 n, UInt16* v);
@@ -1732,7 +1732,7 @@ namespace OpenGL
 			internal static glVertexAttribs2hvNV pglVertexAttribs2hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttribs3hvNV(UInt32 index, Int32 n, UInt16* v);
@@ -1742,7 +1742,7 @@ namespace OpenGL
 			internal static glVertexAttribs3hvNV pglVertexAttribs3hvNV;
 
 			[RequiredByFeature("GL_NV_half_float")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVertexAttribs4hvNV(UInt32 index, Int32 n, UInt16* v);

@@ -168,7 +168,7 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glTexPageCommitmentARB", ExactSpelling = true)]
@@ -180,7 +180,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexPageCommitmentARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);

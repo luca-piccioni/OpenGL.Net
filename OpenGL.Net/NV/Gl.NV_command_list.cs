@@ -581,105 +581,105 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateStatesNV", ExactSpelling = true)]
 			internal extern static unsafe void glCreateStatesNV(Int32 n, UInt32* states);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteStatesNV", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteStatesNV(Int32 n, UInt32* states);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsStateNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsStateNV(UInt32 state);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glStateCaptureNV", ExactSpelling = true)]
 			internal extern static void glStateCaptureNV(UInt32 state, Int32 mode);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetCommandHeaderNV", ExactSpelling = true)]
 			internal extern static UInt32 glGetCommandHeaderNV(Int32 tokenID, UInt32 size);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetStageIndexNV", ExactSpelling = true)]
 			internal extern static UInt16 glGetStageIndexNV(Int32 shadertype);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDrawCommandsNV", ExactSpelling = true)]
 			internal extern static unsafe void glDrawCommandsNV(Int32 primitiveMode, UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32 count);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDrawCommandsAddressNV", ExactSpelling = true)]
 			internal extern static unsafe void glDrawCommandsAddressNV(Int32 primitiveMode, UInt64* indirects, Int32* sizes, UInt32 count);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDrawCommandsStatesNV", ExactSpelling = true)]
 			internal extern static unsafe void glDrawCommandsStatesNV(UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDrawCommandsStatesAddressNV", ExactSpelling = true)]
 			internal extern static unsafe void glDrawCommandsStatesAddressNV(UInt64* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCreateCommandListsNV", ExactSpelling = true)]
 			internal extern static unsafe void glCreateCommandListsNV(Int32 n, UInt32* lists);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteCommandListsNV", ExactSpelling = true)]
 			internal extern static unsafe void glDeleteCommandListsNV(Int32 n, UInt32* lists);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsCommandListNV", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsCommandListNV(UInt32 list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glListDrawCommandsStatesClientNV", ExactSpelling = true)]
 			internal extern static unsafe void glListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCommandListSegmentsNV", ExactSpelling = true)]
 			internal extern static void glCommandListSegmentsNV(UInt32 list, UInt32 segments);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCompileCommandListNV", ExactSpelling = true)]
 			internal extern static void glCompileCommandListNV(UInt32 list);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glCallCommandListNV", ExactSpelling = true)]
@@ -690,7 +690,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateStatesNV(Int32 n, UInt32* states);
@@ -700,7 +700,7 @@ namespace OpenGL
 			internal static glCreateStatesNV pglCreateStatesNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeleteStatesNV(Int32 n, UInt32* states);
@@ -710,7 +710,7 @@ namespace OpenGL
 			internal static glDeleteStatesNV pglDeleteStatesNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsStateNV(UInt32 state);
@@ -720,7 +720,7 @@ namespace OpenGL
 			internal static glIsStateNV pglIsStateNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glStateCaptureNV(UInt32 state, Int32 mode);
@@ -730,7 +730,7 @@ namespace OpenGL
 			internal static glStateCaptureNV pglStateCaptureNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glGetCommandHeaderNV(Int32 tokenID, UInt32 size);
@@ -740,7 +740,7 @@ namespace OpenGL
 			internal static glGetCommandHeaderNV pglGetCommandHeaderNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt16 glGetStageIndexNV(Int32 shadertype);
@@ -750,7 +750,7 @@ namespace OpenGL
 			internal static glGetStageIndexNV pglGetStageIndexNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawCommandsNV(Int32 primitiveMode, UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32 count);
@@ -760,7 +760,7 @@ namespace OpenGL
 			internal static glDrawCommandsNV pglDrawCommandsNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawCommandsAddressNV(Int32 primitiveMode, UInt64* indirects, Int32* sizes, UInt32 count);
@@ -770,7 +770,7 @@ namespace OpenGL
 			internal static glDrawCommandsAddressNV pglDrawCommandsAddressNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawCommandsStatesNV(UInt32 buffer, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
@@ -780,7 +780,7 @@ namespace OpenGL
 			internal static glDrawCommandsStatesNV pglDrawCommandsStatesNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawCommandsStatesAddressNV(UInt64* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
@@ -790,7 +790,7 @@ namespace OpenGL
 			internal static glDrawCommandsStatesAddressNV pglDrawCommandsStatesAddressNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCreateCommandListsNV(Int32 n, UInt32* lists);
@@ -800,7 +800,7 @@ namespace OpenGL
 			internal static glCreateCommandListsNV pglCreateCommandListsNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeleteCommandListsNV(Int32 n, UInt32* lists);
@@ -810,7 +810,7 @@ namespace OpenGL
 			internal static glDeleteCommandListsNV pglDeleteCommandListsNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsCommandListNV(UInt32 list);
@@ -820,7 +820,7 @@ namespace OpenGL
 			internal static glIsCommandListNV pglIsCommandListNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glListDrawCommandsStatesClientNV(UInt32 list, UInt32 segment, IntPtr* indirects, Int32* sizes, UInt32* states, UInt32* fbos, UInt32 count);
@@ -830,7 +830,7 @@ namespace OpenGL
 			internal static glListDrawCommandsStatesClientNV pglListDrawCommandsStatesClientNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCommandListSegmentsNV(UInt32 list, UInt32 segments);
@@ -840,7 +840,7 @@ namespace OpenGL
 			internal static glCommandListSegmentsNV pglCommandListSegmentsNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCompileCommandListNV(UInt32 list);
@@ -850,7 +850,7 @@ namespace OpenGL
 			internal static glCompileCommandListNV pglCompileCommandListNV;
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCallCommandListNV(UInt32 list);

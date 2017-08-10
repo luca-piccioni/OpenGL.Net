@@ -183,25 +183,25 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glFramebufferSamplePositionsfvAMD", ExactSpelling = true)]
 			internal extern static unsafe void glFramebufferSamplePositionsfvAMD(Int32 target, UInt32 numsamples, UInt32 pixelindex, float* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glNamedFramebufferSamplePositionsfvAMD", ExactSpelling = true)]
 			internal extern static unsafe void glNamedFramebufferSamplePositionsfvAMD(UInt32 framebuffer, UInt32 numsamples, UInt32 pixelindex, float* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetFramebufferParameterfvAMD", ExactSpelling = true)]
 			internal extern static unsafe void glGetFramebufferParameterfvAMD(Int32 target, Int32 pname, UInt32 numsamples, UInt32 pixelindex, Int32 size, float* values);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetNamedFramebufferParameterfvAMD", ExactSpelling = true)]
@@ -212,7 +212,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glFramebufferSamplePositionsfvAMD(Int32 target, UInt32 numsamples, UInt32 pixelindex, float* values);
@@ -222,7 +222,7 @@ namespace OpenGL
 			internal static glFramebufferSamplePositionsfvAMD pglFramebufferSamplePositionsfvAMD;
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNamedFramebufferSamplePositionsfvAMD(UInt32 framebuffer, UInt32 numsamples, UInt32 pixelindex, float* values);
@@ -232,7 +232,7 @@ namespace OpenGL
 			internal static glNamedFramebufferSamplePositionsfvAMD pglNamedFramebufferSamplePositionsfvAMD;
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetFramebufferParameterfvAMD(Int32 target, Int32 pname, UInt32 numsamples, UInt32 pixelindex, Int32 size, float* values);
@@ -242,7 +242,7 @@ namespace OpenGL
 			internal static glGetFramebufferParameterfvAMD pglGetFramebufferParameterfvAMD;
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetNamedFramebufferParameterfvAMD(UInt32 framebuffer, Int32 pname, UInt32 numsamples, UInt32 pixelindex, Int32 size, float* values);

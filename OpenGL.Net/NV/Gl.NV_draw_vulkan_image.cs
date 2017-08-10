@@ -146,31 +146,31 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDrawVkImageNV", ExactSpelling = true)]
 			internal extern static void glDrawVkImageNV(UInt64 vkImage, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVkProcAddrNV", ExactSpelling = true)]
 			internal extern static IntPtr glGetVkProcAddrNV(String name);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glWaitVkSemaphoreNV", ExactSpelling = true)]
 			internal extern static void glWaitVkSemaphoreNV(UInt64 vkSemaphore);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSignalVkSemaphoreNV", ExactSpelling = true)]
 			internal extern static void glSignalVkSemaphoreNV(UInt64 vkSemaphore);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSignalVkFenceNV", ExactSpelling = true)]
@@ -181,7 +181,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDrawVkImageNV(UInt64 vkImage, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
@@ -191,7 +191,7 @@ namespace OpenGL
 			internal static glDrawVkImageNV pglDrawVkImageNV;
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate IntPtr glGetVkProcAddrNV(String name);
@@ -201,7 +201,7 @@ namespace OpenGL
 			internal static glGetVkProcAddrNV pglGetVkProcAddrNV;
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glWaitVkSemaphoreNV(UInt64 vkSemaphore);
@@ -211,7 +211,7 @@ namespace OpenGL
 			internal static glWaitVkSemaphoreNV pglWaitVkSemaphoreNV;
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSignalVkSemaphoreNV(UInt64 vkSemaphore);
@@ -221,7 +221,7 @@ namespace OpenGL
 			internal static glSignalVkSemaphoreNV pglSignalVkSemaphoreNV;
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSignalVkFenceNV(UInt64 vkFence);

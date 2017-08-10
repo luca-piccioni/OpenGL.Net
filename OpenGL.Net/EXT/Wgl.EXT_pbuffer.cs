@@ -175,32 +175,32 @@ namespace OpenGL
 
 		public unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglCreatePbufferEXT", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglGetPbufferDCEXT", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglReleasePbufferDCEXT", ExactSpelling = true, SetLastError = true)]
 			internal extern static unsafe int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglDestroyPbufferEXT", ExactSpelling = true, SetLastError = true)]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			internal extern static unsafe bool wglDestroyPbufferEXT(IntPtr hPbuffer);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "wglQueryPbufferEXT", ExactSpelling = true, SetLastError = true)]
@@ -212,7 +212,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
@@ -222,7 +222,7 @@ namespace OpenGL
 			internal static wglCreatePbufferEXT pwglCreatePbufferEXT;
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
@@ -232,7 +232,7 @@ namespace OpenGL
 			internal static wglGetPbufferDCEXT pwglGetPbufferDCEXT;
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
@@ -242,7 +242,7 @@ namespace OpenGL
 			internal static wglReleasePbufferDCEXT pwglReleasePbufferDCEXT;
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglDestroyPbufferEXT(IntPtr hPbuffer);
@@ -252,7 +252,7 @@ namespace OpenGL
 			internal static wglDestroyPbufferEXT pwglDestroyPbufferEXT;
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate bool wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, int* piValue);

@@ -1716,254 +1716,254 @@ namespace OpenGL
 
 		internal unsafe static partial class UnsafeNativeMethods
 		{
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBeginVertexShaderEXT", ExactSpelling = true)]
 			internal extern static void glBeginVertexShaderEXT();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glEndVertexShaderEXT", ExactSpelling = true)]
 			internal extern static void glEndVertexShaderEXT();
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindVertexShaderEXT", ExactSpelling = true)]
 			internal extern static void glBindVertexShaderEXT(UInt32 id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenVertexShadersEXT", ExactSpelling = true)]
 			internal extern static UInt32 glGenVertexShadersEXT(UInt32 range);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDeleteVertexShaderEXT", ExactSpelling = true)]
 			internal extern static void glDeleteVertexShaderEXT(UInt32 id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glShaderOp1EXT", ExactSpelling = true)]
 			internal extern static void glShaderOp1EXT(Int32 op, UInt32 res, UInt32 arg1);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glShaderOp2EXT", ExactSpelling = true)]
 			internal extern static void glShaderOp2EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glShaderOp3EXT", ExactSpelling = true)]
 			internal extern static void glShaderOp3EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2, UInt32 arg3);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSwizzleEXT", ExactSpelling = true)]
 			internal extern static void glSwizzleEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glWriteMaskEXT", ExactSpelling = true)]
 			internal extern static void glWriteMaskEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glInsertComponentEXT", ExactSpelling = true)]
 			internal extern static void glInsertComponentEXT(UInt32 res, UInt32 src, UInt32 num);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glExtractComponentEXT", ExactSpelling = true)]
 			internal extern static void glExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGenSymbolsEXT", ExactSpelling = true)]
 			internal extern static UInt32 glGenSymbolsEXT(Int32 datatype, Int32 storagetype, Int32 range, UInt32 components);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSetInvariantEXT", ExactSpelling = true)]
 			internal extern static unsafe void glSetInvariantEXT(UInt32 id, Int32 type, IntPtr addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glSetLocalConstantEXT", ExactSpelling = true)]
 			internal extern static unsafe void glSetLocalConstantEXT(UInt32 id, Int32 type, IntPtr addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantbvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantbvEXT(UInt32 id, sbyte* addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantsvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantsvEXT(UInt32 id, Int16* addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantivEXT(UInt32 id, Int32* addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantfvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantfvEXT(UInt32 id, float* addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantdvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantdvEXT(UInt32 id, double* addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantubvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantubvEXT(UInt32 id, byte* addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantusvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantusvEXT(UInt32 id, UInt16* addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantuivEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantuivEXT(UInt32 id, UInt32* addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glVariantPointerEXT", ExactSpelling = true)]
 			internal extern static unsafe void glVariantPointerEXT(UInt32 id, Int32 type, UInt32 stride, IntPtr addr);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glEnableVariantClientStateEXT", ExactSpelling = true)]
 			internal extern static void glEnableVariantClientStateEXT(UInt32 id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glDisableVariantClientStateEXT", ExactSpelling = true)]
 			internal extern static void glDisableVariantClientStateEXT(UInt32 id);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindLightParameterEXT", ExactSpelling = true)]
 			internal extern static UInt32 glBindLightParameterEXT(Int32 light, Int32 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindMaterialParameterEXT", ExactSpelling = true)]
 			internal extern static UInt32 glBindMaterialParameterEXT(Int32 face, Int32 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindTexGenParameterEXT", ExactSpelling = true)]
 			internal extern static UInt32 glBindTexGenParameterEXT(Int32 unit, Int32 coord, Int32 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindTextureUnitParameterEXT", ExactSpelling = true)]
 			internal extern static UInt32 glBindTextureUnitParameterEXT(Int32 unit, Int32 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glBindParameterEXT", ExactSpelling = true)]
 			internal extern static UInt32 glBindParameterEXT(Int32 value);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glIsVariantEnabledEXT", ExactSpelling = true)]
 			[return: MarshalAs(UnmanagedType.U1)]
 			internal extern static bool glIsVariantEnabledEXT(UInt32 id, Int32 cap);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVariantBooleanvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetVariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVariantIntegervEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetVariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVariantFloatvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetVariantFloatvEXT(UInt32 id, Int32 value, float* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetVariantPointervEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetVariantPointervEXT(UInt32 id, Int32 value, IntPtr* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetInvariantBooleanvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetInvariantIntegervEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetInvariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetInvariantFloatvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetInvariantFloatvEXT(UInt32 id, Int32 value, float* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetLocalConstantBooleanvEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetLocalConstantBooleanvEXT(UInt32 id, Int32 value, bool* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetLocalConstantIntegervEXT", ExactSpelling = true)]
 			internal extern static unsafe void glGetLocalConstantIntegervEXT(UInt32 id, Int32 value, Int32* data);
 
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			[DllImport(Library, EntryPoint = "glGetLocalConstantFloatvEXT", ExactSpelling = true)]
@@ -1974,7 +1974,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBeginVertexShaderEXT();
@@ -1984,7 +1984,7 @@ namespace OpenGL
 			internal static glBeginVertexShaderEXT pglBeginVertexShaderEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glEndVertexShaderEXT();
@@ -1994,7 +1994,7 @@ namespace OpenGL
 			internal static glEndVertexShaderEXT pglEndVertexShaderEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBindVertexShaderEXT(UInt32 id);
@@ -2004,7 +2004,7 @@ namespace OpenGL
 			internal static glBindVertexShaderEXT pglBindVertexShaderEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glGenVertexShadersEXT(UInt32 range);
@@ -2014,7 +2014,7 @@ namespace OpenGL
 			internal static glGenVertexShadersEXT pglGenVertexShadersEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDeleteVertexShaderEXT(UInt32 id);
@@ -2024,7 +2024,7 @@ namespace OpenGL
 			internal static glDeleteVertexShaderEXT pglDeleteVertexShaderEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glShaderOp1EXT(Int32 op, UInt32 res, UInt32 arg1);
@@ -2034,7 +2034,7 @@ namespace OpenGL
 			internal static glShaderOp1EXT pglShaderOp1EXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glShaderOp2EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2);
@@ -2044,7 +2044,7 @@ namespace OpenGL
 			internal static glShaderOp2EXT pglShaderOp2EXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glShaderOp3EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2, UInt32 arg3);
@@ -2054,7 +2054,7 @@ namespace OpenGL
 			internal static glShaderOp3EXT pglShaderOp3EXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSwizzleEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
@@ -2064,7 +2064,7 @@ namespace OpenGL
 			internal static glSwizzleEXT pglSwizzleEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glWriteMaskEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
@@ -2074,7 +2074,7 @@ namespace OpenGL
 			internal static glWriteMaskEXT pglWriteMaskEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glInsertComponentEXT(UInt32 res, UInt32 src, UInt32 num);
@@ -2084,7 +2084,7 @@ namespace OpenGL
 			internal static glInsertComponentEXT pglInsertComponentEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num);
@@ -2094,7 +2094,7 @@ namespace OpenGL
 			internal static glExtractComponentEXT pglExtractComponentEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glGenSymbolsEXT(Int32 datatype, Int32 storagetype, Int32 range, UInt32 components);
@@ -2104,7 +2104,7 @@ namespace OpenGL
 			internal static glGenSymbolsEXT pglGenSymbolsEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSetInvariantEXT(UInt32 id, Int32 type, IntPtr addr);
@@ -2114,7 +2114,7 @@ namespace OpenGL
 			internal static glSetInvariantEXT pglSetInvariantEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSetLocalConstantEXT(UInt32 id, Int32 type, IntPtr addr);
@@ -2124,7 +2124,7 @@ namespace OpenGL
 			internal static glSetLocalConstantEXT pglSetLocalConstantEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantbvEXT(UInt32 id, sbyte* addr);
@@ -2134,7 +2134,7 @@ namespace OpenGL
 			internal static glVariantbvEXT pglVariantbvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantsvEXT(UInt32 id, Int16* addr);
@@ -2144,7 +2144,7 @@ namespace OpenGL
 			internal static glVariantsvEXT pglVariantsvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantivEXT(UInt32 id, Int32* addr);
@@ -2154,7 +2154,7 @@ namespace OpenGL
 			internal static glVariantivEXT pglVariantivEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantfvEXT(UInt32 id, float* addr);
@@ -2164,7 +2164,7 @@ namespace OpenGL
 			internal static glVariantfvEXT pglVariantfvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantdvEXT(UInt32 id, double* addr);
@@ -2174,7 +2174,7 @@ namespace OpenGL
 			internal static glVariantdvEXT pglVariantdvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantubvEXT(UInt32 id, byte* addr);
@@ -2184,7 +2184,7 @@ namespace OpenGL
 			internal static glVariantubvEXT pglVariantubvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantusvEXT(UInt32 id, UInt16* addr);
@@ -2194,7 +2194,7 @@ namespace OpenGL
 			internal static glVariantusvEXT pglVariantusvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantuivEXT(UInt32 id, UInt32* addr);
@@ -2204,7 +2204,7 @@ namespace OpenGL
 			internal static glVariantuivEXT pglVariantuivEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glVariantPointerEXT(UInt32 id, Int32 type, UInt32 stride, IntPtr addr);
@@ -2214,7 +2214,7 @@ namespace OpenGL
 			internal static glVariantPointerEXT pglVariantPointerEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glEnableVariantClientStateEXT(UInt32 id);
@@ -2224,7 +2224,7 @@ namespace OpenGL
 			internal static glEnableVariantClientStateEXT pglEnableVariantClientStateEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDisableVariantClientStateEXT(UInt32 id);
@@ -2234,7 +2234,7 @@ namespace OpenGL
 			internal static glDisableVariantClientStateEXT pglDisableVariantClientStateEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glBindLightParameterEXT(Int32 light, Int32 value);
@@ -2244,7 +2244,7 @@ namespace OpenGL
 			internal static glBindLightParameterEXT pglBindLightParameterEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glBindMaterialParameterEXT(Int32 face, Int32 value);
@@ -2254,7 +2254,7 @@ namespace OpenGL
 			internal static glBindMaterialParameterEXT pglBindMaterialParameterEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glBindTexGenParameterEXT(Int32 unit, Int32 coord, Int32 value);
@@ -2264,7 +2264,7 @@ namespace OpenGL
 			internal static glBindTexGenParameterEXT pglBindTexGenParameterEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glBindTextureUnitParameterEXT(Int32 unit, Int32 value);
@@ -2274,7 +2274,7 @@ namespace OpenGL
 			internal static glBindTextureUnitParameterEXT pglBindTextureUnitParameterEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt32 glBindParameterEXT(Int32 value);
@@ -2284,7 +2284,7 @@ namespace OpenGL
 			internal static glBindParameterEXT pglBindParameterEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsVariantEnabledEXT(UInt32 id, Int32 cap);
@@ -2294,7 +2294,7 @@ namespace OpenGL
 			internal static glIsVariantEnabledEXT pglIsVariantEnabledEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
@@ -2304,7 +2304,7 @@ namespace OpenGL
 			internal static glGetVariantBooleanvEXT pglGetVariantBooleanvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
@@ -2314,7 +2314,7 @@ namespace OpenGL
 			internal static glGetVariantIntegervEXT pglGetVariantIntegervEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVariantFloatvEXT(UInt32 id, Int32 value, float* data);
@@ -2324,7 +2324,7 @@ namespace OpenGL
 			internal static glGetVariantFloatvEXT pglGetVariantFloatvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetVariantPointervEXT(UInt32 id, Int32 value, IntPtr* data);
@@ -2334,7 +2334,7 @@ namespace OpenGL
 			internal static glGetVariantPointervEXT pglGetVariantPointervEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
@@ -2344,7 +2344,7 @@ namespace OpenGL
 			internal static glGetInvariantBooleanvEXT pglGetInvariantBooleanvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetInvariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
@@ -2354,7 +2354,7 @@ namespace OpenGL
 			internal static glGetInvariantIntegervEXT pglGetInvariantIntegervEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetInvariantFloatvEXT(UInt32 id, Int32 value, float* data);
@@ -2364,7 +2364,7 @@ namespace OpenGL
 			internal static glGetInvariantFloatvEXT pglGetInvariantFloatvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetLocalConstantBooleanvEXT(UInt32 id, Int32 value, bool* data);
@@ -2374,7 +2374,7 @@ namespace OpenGL
 			internal static glGetLocalConstantBooleanvEXT pglGetLocalConstantBooleanvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetLocalConstantIntegervEXT(UInt32 id, Int32 value, Int32* data);
@@ -2384,7 +2384,7 @@ namespace OpenGL
 			internal static glGetLocalConstantIntegervEXT pglGetLocalConstantIntegervEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
-			#if !NETCORE
+			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetLocalConstantFloatvEXT(UInt32 id, Int32 value, float* data);
