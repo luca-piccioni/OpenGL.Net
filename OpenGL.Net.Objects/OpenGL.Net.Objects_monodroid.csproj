@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA42B012-6AF3-487C-A2EA-8E59BBA8689B}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenGL.Net.Objects</RootNamespace>
+    <AssemblyName>OpenGL.Net.Objects</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\monodroid\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\monodroid</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;DEBUG;MONODROID</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\monodroid\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\monodroid</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;MONODROID</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="OpenTK" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlignedMemoryBuffer.cs" />
+    <Compile Include="ArrayBuffer.cs" />
+    <Compile Include="ArrayBufferBase.cs" />
+    <Compile Include="ArrayBufferInterleaved.cs" />
+    <Compile Include="ArrayBufferItem.cs" />
+    <Compile Include="Buffer.cs" />
+    <Compile Include="Collections\StringDictionary.cs" />
+    <Compile Include="ElementBuffer.cs" />
+    <Compile Include="FeedbackBuffer.cs" />
+    <Compile Include="FeedbackBufferFormat.cs" />
+    <Compile Include="Framebuffer.cs" />
+    <Compile Include="GraphicsContext.cs" />
+    <Compile Include="GraphicsContextFlags.cs" />
+    <Compile Include="GraphicsResource.cs" />
+    <Compile Include="GraphicsSurface.cs" />
+    <Compile Include="IBindingIndexResource.cs" />
+    <Compile Include="IBindingResource.cs" />
+    <Compile Include="IDisposableExtensions.cs" />
+    <Compile Include="IFont.cs" />
+    <Compile Include="IGraphicsDisposable.cs" />
+    <Compile Include="IGraphicsResource.cs" />
+    <Compile Include="IGraphicsResource.Extensions.cs" />
+    <Compile Include="IGraphicsSurface.cs" />
+    <Compile Include="IImageCodecPlugin.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="ImageCodec.cs" />
+    <Compile Include="ImageCodecCriteria.cs" />
+    <Compile Include="ImageFormat.cs" />
+    <Compile Include="ImageInfo.cs" />
+    <Compile Include="ImageSemantic.cs" />
+    <Compile Include="IMedia.cs" />
+    <Compile Include="IMediaCodecPlugin.cs" />
+    <Compile Include="IPlugin.cs" />
+    <Compile Include="IResource.cs" />
+    <Compile Include="IShaderUniformContainer.cs" />
+    <Compile Include="MediaCodec.cs" />
+    <Compile Include="MediaCodecCriteria.cs" />
+    <Compile Include="MediaFormatAttribute.cs" />
+    <Compile Include="MediaInfo.cs" />
+    <Compile Include="PluginLoader.cs" />
+    <Compile Include="Query.cs" />
+    <Compile Include="RenderBuffer.cs" />
+    <Compile Include="Resource.cs" />
+    <Compile Include="ResourceCollection.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sampler.cs" />
+    <Compile Include="SamplerParameters.cs" />
+    <Compile Include="Scene\BoundingBox.cs" />
+    <Compile Include="Scene\BoundingSphere.cs" />
+    <Compile Include="Scene\IBoundingVolume.cs" />
+    <Compile Include="Scene\SceneGraph.cs" />
+    <Compile Include="Scene\SceneGraphContext.cs" />
+    <Compile Include="Scene\SceneGraphFlags.cs" />
+    <Compile Include="Scene\SceneGraphSorter.cs" />
+    <Compile Include="Scene\SceneLightManager.cs" />
+    <Compile Include="Scene\SceneObject.cs" />
+    <Compile Include="Scene\SceneObjectBatch.cs" />
+    <Compile Include="Scene\SceneObjectCamera.cs" />
+    <Compile Include="Scene\SceneObjectCodec.cs" />
+    <Compile Include="Scene\SceneObjectCodecCriteria.cs" />
+    <Compile Include="Scene\SceneObjectCodecWavefront.cs" />
+    <Compile Include="Scene\SceneObjectFlags.cs" />
+    <Compile Include="Scene\SceneObjectFormat.cs" />
+    <Compile Include="Scene\SceneObjectGeometry.cs" />
+    <Compile Include="Scene\SceneObjectGeometryFlags.cs" />
+    <Compile Include="Scene\SceneObjectInfo.cs" />
+    <Compile Include="Scene\SceneObjectLight.cs" />
+    <Compile Include="Scene\SceneObjectLightDirectional.cs" />
+    <Compile Include="Scene\SceneObjectLightPoint.cs" />
+    <Compile Include="Scene\SceneObjectLightSpot.cs" />
+    <Compile Include="Scene\SceneObjectLightZone.cs" />
+    <Compile Include="Scene\ShadowMap.cs" />
+    <Compile Include="Shader.cs" />
+    <Compile Include="ShaderAttributeType.cs" />
+    <Compile Include="ShaderCompilerContext.cs" />
+    <Compile Include="ShaderException.cs" />
+    <Compile Include="ShaderExtension.cs" />
+    <Compile Include="ShaderExtensionBehavior.cs" />
+    <Compile Include="ShaderInclude.cs" />
+    <Compile Include="ShaderIncludeLibrary.cs" />
+    <Compile Include="ShaderIncludePreprocessor.cs" />
+    <Compile Include="ShaderProgram.cs" />
+    <Compile Include="ShaderProgram.GetUniform.cs" />
+    <Compile Include="ShaderProgram.SetUniform.cs" />
+    <Compile Include="ShaderProgram.Uniform.cs" />
+    <Compile Include="ShaderProgram.UniformBlock.cs" />
+    <Compile Include="ShaderProgram.VariantUniform.cs" />
+    <Compile Include="ShadersLibrary.cs" />
+    <Compile Include="ShaderStorageBuffer.cs" />
+    <Compile Include="ShaderUniformType.cs" />
+    <Compile Include="Single.Extensions.cs" />
+    <Compile Include="State\BlendState.cs" />
+    <Compile Include="State\CullFaceState.cs" />
+    <Compile Include="State\DepthTestState.cs" />
+    <Compile Include="State\GraphicsState.cs" />
+    <Compile Include="State\GraphicsStateSet.cs" />
+    <Compile Include="State\GraphicsStateSetStack.cs" />
+    <Compile Include="State\IGraphicsState.cs" />
+    <Compile Include="State\LightsState.cs" />
+    <Compile Include="State\MaterialState.cs" />
+    <Compile Include="State\PixelAlignmentState.cs" />
+    <Compile Include="State\PolygonModeState.cs" />
+    <Compile Include="State\PolygonOffsetState.cs" />
+    <Compile Include="State\PrimitiveRestartState.cs" />
+    <Compile Include="State\ShaderUniformState.cs" />
+    <Compile Include="State\ShadowsState.cs" />
+    <Compile Include="State\TransformState.cs" />
+    <Compile Include="State\TransformStateBase.cs" />
+    <Compile Include="State\TransformStateDouble.cs" />
+    <Compile Include="State\ViewportState.cs" />
+    <Compile Include="State\WriteMaskState.cs" />
+    <Compile Include="String.Extensions.cs" />
+    <Compile Include="Tessellator.cs" />
+    <Compile Include="Texture.cs" />
+    <Compile Include="Texture1d.cs" />
+    <Compile Include="Texture2d.cs" />
+    <Compile Include="Texture3d.cs" />
+    <Compile Include="TextureArray2d.cs" />
+    <Compile Include="TextureCube.cs" />
+    <Compile Include="TextureRectangle.cs" />
+    <Compile Include="TextureUnit.cs" />
+    <Compile Include="UniformBuffer.cs" />
+    <Compile Include="UniformBuffer.SetUniform.cs" />
+    <Compile Include="VertexArrays.Arrays.cs" />
+    <Compile Include="VertexArrays.cs" />
+    <Compile Include="VertexArrays.Elements.cs" />
+    <Compile Include="VertexArraySemantic.cs" />
+    <Compile Include="VertexArrayTexGen.cs" />
+    <Compile Include="Vincenty.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <EmbeddedResource Include="Shaders\Compatibility.glsl" />
+    <EmbeddedResource Include="Shaders\TransformState.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net35.csproj">
+      <Project>{abb8dfa8-473a-4fc1-85c0-e21680772a58}</Project>
+      <Name>OpenGL.Net_net35</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\CompatibilityNotes.txt" />
+    <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

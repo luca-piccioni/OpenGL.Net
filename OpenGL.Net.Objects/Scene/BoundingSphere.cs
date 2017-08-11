@@ -100,6 +100,25 @@ namespace OpenGL.Objects.Scene
 
 		}
 
+		Vertex3f IBoundingVolume.Position
+		{
+			get {
+				throw new NotImplementedException();
+			}
+		}
+
+		float IBoundingVolume.Radius
+		{
+			get {
+				throw new NotImplementedException();
+			}
+		}
+
+		bool IBoundingVolume.IsClipped(IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel)
+		{
+			throw new NotImplementedException();
+		}
+
 		#endregion
 	}
 }

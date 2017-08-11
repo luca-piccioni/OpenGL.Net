@@ -44,7 +44,9 @@ namespace OpenGL.Objects
 			// Common media description
 			ExtractDescriptions(typeof(ImageFormat));
 			// Core plugin always registered
+#if !MONODROID
 			RegisterPlugin(new CoreImagingImageCodecPlugin());
+#endif
 			// RegisterPlugin(new GdalImageCodecPlugin());
 		}
 

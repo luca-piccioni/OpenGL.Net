@@ -631,6 +631,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#if !MONODROID
+
 		#region Create(PixelLayout, Bitmap, layer)
 
 		/// <summary>
@@ -676,6 +678,8 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
+
+#endif
 
 		#endregion
 

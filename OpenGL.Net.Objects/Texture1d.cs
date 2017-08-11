@@ -452,6 +452,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#if !MONODROID
+
 		#region Create(Bitmap)
 
 		public void Create(Bitmap bitmap)
@@ -481,6 +483,8 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
+
+#endif
 
 		#region CreateFromResource(string, string)
 
