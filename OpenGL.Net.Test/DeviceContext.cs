@@ -309,6 +309,9 @@ namespace OpenGL.Test
 
 		private void TestUserCase3_Core()
 		{
+			if (DeviceContext.IsPBufferSupported == false)
+				Assert.Inconclusive("platform don't support P-Buffers");
+
 			using (INativePBuffer nativePBuffer = DeviceContext.CreatePBuffer(new DevicePixelFormat(24), 64, 64)) {
 				using (DeviceContext deviceContext = DeviceContext.Create(nativePBuffer)) {
 					// The pixel format is already defined by INativePBuffer

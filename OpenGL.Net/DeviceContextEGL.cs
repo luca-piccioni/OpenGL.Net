@@ -170,6 +170,14 @@ namespace OpenGL
 		#region Window Factory
 
 		/// <summary>
+		/// Determine whether the hosting platform is able to create a P-Buffer.
+		/// </summary>
+		public static new bool IsPBufferSupported
+		{
+			get { return (true); }
+		}
+
+		/// <summary>
 		/// Basic native EGL surface.
 		/// </summary>
 		/// <remarks>

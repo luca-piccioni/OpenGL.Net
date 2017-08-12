@@ -80,6 +80,25 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Determine whether the hosting platform is able to create a P-Buffer.
+		/// </summary>
+		public static bool IsPBufferSupported
+		{
+			get
+			{
+				if (Egl.IsRequired == false) {
+					switch (Platform.CurrentPlatformId) {
+						case Platform.Id.WindowsNT:
+							return (DeviceContextWGL.IsPBufferSupported);
+						default:
+							return (false);
+					}
+				} else
+					return (DeviceContextEGL.IsPBufferSupported);
+			}
+		}
+
+		/// <summary>
 		/// Create an off-screen buffer.
 		/// </summary>
 		/// <returns>
