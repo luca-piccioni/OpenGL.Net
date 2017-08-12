@@ -75,6 +75,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else {
+				Debug.Assert(DeviceContextEGL.IsPBufferSupported);
 				return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
 			}
 		}

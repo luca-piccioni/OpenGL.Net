@@ -32,6 +32,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test CreatePBuffer")]
 		public void TestCreatePBuffer()
 		{
+			if (DeviceContext.IsPBufferSupported == false)
+				Assert.Inconclusive("platform don't support P-Buffers");
+
 			// Inconclusive test?
 			switch (Platform.CurrentPlatformId) {
 				case Platform.Id.WindowsNT:
@@ -124,6 +127,9 @@ namespace OpenGL.Test
 
 		private void TestCreate3_Core()
 		{
+			if (DeviceContext.IsPBufferSupported == false)
+				Assert.Inconclusive("platform don't support P-Buffers");
+
 			DeviceContext deviceContext = null;
 
 			using (INativePBuffer nativePBuffer = DeviceContext.CreatePBuffer(new DevicePixelFormat(24), 64, 64)) {
