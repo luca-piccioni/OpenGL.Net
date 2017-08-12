@@ -51,8 +51,8 @@ namespace OpenGL
 		/// Initializes a new instance of the <see cref="DeviceContextEGL"/> class.
 		/// </summary>
 		/// <param name='windowHandle'>
-		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context. If it is <see cref="IntPtr.Zero"/>
-		/// the surface referenced by this NativeDeviceContext is a minimal PBuffer.
+		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context.  If it is <see cref="IntPtr.Zero"/>
+		/// the surface referenced by this NativeDeviceContext is a minimal PBuffer, or no surface at all in case EGL_KHR_surfaceless_context
 		/// </param>
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.

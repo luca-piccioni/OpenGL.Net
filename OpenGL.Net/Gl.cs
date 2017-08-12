@@ -83,7 +83,6 @@ namespace OpenGL
 			// eglGetProcAddress		EGL				GLES2+
 
 			try {
-#if PR57
 				// Determine whether use EGL as device context backend
 				if (Egl.IsAvailable) {
 					switch (Platform.CurrentPlatformId) {
@@ -93,7 +92,7 @@ namespace OpenGL
 							break;
 					}
 				}
-#endif
+
 				// Create native window for getting preliminary information on desktop systems
 				// This instance will be used for creating contexts without explictly specify a window
 				_NativeWindow = DeviceContext.CreateHiddenWindow();

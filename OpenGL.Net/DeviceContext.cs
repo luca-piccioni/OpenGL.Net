@@ -134,29 +134,32 @@ namespace OpenGL
 				}
 			} else {
 				// Create a surfaceless context
-				// TODO
+				if (Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
+					// OPENGL_NET_INIT environment set to NO?
+					if (Gl._NativeWindow == null)
+						throw new InvalidOperationException("OpenGL.Net not initialized", Gl._InitializationException);
 
-				// OPENGL_NET_INIT environment set to NO?
-				if (Gl._NativeWindow == null)
-					throw new InvalidOperationException("OpenGL.Net not initialized", Gl._InitializationException);
+					if (deviceContext == null) {
+						INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
+						if (nativeBuffer != null)
+							deviceContext = new DeviceContextEGL(nativeBuffer);
+					}
 
-				if (deviceContext == null) {
-					INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
-					if (nativeBuffer != null)
-						deviceContext = new DeviceContextEGL(nativeBuffer);
-				}
+					if (deviceContext == null) {
+						INativeWindow nativeWindow = Gl._NativeWindow as INativeWindow;
+						if (nativeWindow != null)
+							deviceContext = new DeviceContextEGL(nativeWindow.Handle);
+					}
 
-				if (deviceContext == null) {
-					INativeWindow nativeWindow = Gl._NativeWindow as INativeWindow;
-					if (nativeWindow != null)
-						deviceContext = new DeviceContextEGL(nativeWindow.Handle);
-				}
-
-				if (deviceContext == null) {
-					Debug.Fail("unsupported EGL surface");
-					throw new NotSupportedException("EGL surface not supported");
-				}
+					if (deviceContext == null) {
+						Debug.Fail("unsupported EGL surface");
+						throw new NotSupportedException("EGL surface not supported");
+					}
+				} else
+					deviceContext = new DeviceContextEGL(IntPtr.Zero);
 			}
+
+			Debug.Assert(deviceContext != null);
 
 			return (deviceContext);
 		}
