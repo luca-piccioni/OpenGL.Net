@@ -59,6 +59,7 @@ test:
       - Framework_KhronosVersion
       - Framework_RemovedByFeatureAttribute
       - Framework_RequiredByFeatureAttribute
+	  - Framework_DeviceContext
 
 after_test:
   - nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
