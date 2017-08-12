@@ -175,6 +175,17 @@ namespace OpenGL
 		#region Window Factory
 
 		/// <summary>
+		/// Determine whether the hosting platform is able to create a P-Buffer.
+		/// </summary>
+		public static new bool IsPBufferSupported
+		{
+			get
+			{
+				return (Wgl.CurrentExtensions.Pbuffer_ARB || Wgl.CurrentExtensions.Pbuffer_EXT);
+			}
+		}
+
+		/// <summary>
 		/// Native window implementation for Windows.
 		/// </summary>
 		internal class NativeWindow : INativeWindow
