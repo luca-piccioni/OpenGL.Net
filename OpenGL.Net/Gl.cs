@@ -322,7 +322,7 @@ namespace OpenGL
 		public static KhronosVersion QueryContextVersion()
 		{
 			IntPtr ctx = DeviceContext.GetCurrentContext();
-			if (ctx == null)
+			if (ctx == IntPtr.Zero)
 				throw new InvalidOperationException("no current context");
 
 			// Parse version string (effective for detecting Desktop and ES contextes)

@@ -362,7 +362,7 @@ namespace OpenGL
 			IntPtr libHandle = GetLibraryHandle(Library, false);
 			if (libHandle != IntPtr.Zero) {
 				IntPtr functionPtr = UnsafeNativeMethods.dlsym(libHandle, "glXGetProcAddress");
-				if (functionPtr != null)
+				if (functionPtr != IntPtr.Zero)
 					Delegates.pglXGetProcAddress = (Delegates.glXGetProcAddress)Marshal.GetDelegateForFunctionPointer(functionPtr, typeof(Delegates.glXGetProcAddress));
 			}
 		}
