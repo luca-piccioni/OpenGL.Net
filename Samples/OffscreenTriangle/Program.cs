@@ -19,7 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -74,7 +73,7 @@ namespace OffscreenTriangle
 			try {
 				// Create context and make current on this thread
 				if ((glContext = deviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
-					throw new System.ComponentModel.Win32Exception(System.Runtime.InteropServices.Marshal.GetLastWin32Error());	// XXX
+					throw new System.ComponentModel.Win32Exception(System.Runtime.InteropServices.Marshal.GetLastWin32Error()); // XXX
 				deviceContext.MakeCurrent(glContext);
 
 				// Create framebuffer resources
@@ -121,7 +120,7 @@ namespace OffscreenTriangle
 			try {
 				// Create context and make current on this thread
 				if ((glContext = deviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
-					throw new System.ComponentModel.Win32Exception(System.Runtime.InteropServices.Marshal.GetLastWin32Error());	// XXX
+					throw new System.ComponentModel.Win32Exception(System.Runtime.InteropServices.Marshal.GetLastWin32Error()); // XXX
 				deviceContext.MakeCurrent(glContext);
 
 				// Create framebuffer resources
