@@ -19,6 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+using System.Text;
+
 using Android.App;
 using Android.OS;
 using Android.Content.PM;
@@ -117,6 +120,8 @@ namespace HelloTriangle.Xamarin
 
 		private void Es2_ContextCreated()
 		{
+			int compilationStatus;
+
 			// Vertex shader
 			uint vertexShader = Gl.CreateShader(ShaderType.VertexShader);
 			Gl.ShaderSource(vertexShader, _Es2_ShaderVertexSource);
@@ -133,6 +138,29 @@ namespace HelloTriangle.Xamarin
 			Gl.AttachShader(_Es2_Program, fragmentShader);
 			Gl.LinkProgram(_Es2_Program);
 
+			// Check for linking errors
+			int lStatus;
+
+			Gl.GetProgram(_Es2_Program, Gl.LINK_STATUS, out lStatus);
+
+			if (lStatus != Gl.TRUE) {
+				const int MaxInfoLength = 4096;
+
+				StringBuilder logInfo = new StringBuilder(MaxInfoLength);
+				int logLength;
+
+				// Obtain compilation log
+				Gl.GetProgramInfoLog(_Es2_Program, MaxInfoLength, out logLength, logInfo);
+
+				// Stop link process
+				StringBuilder sb = new StringBuilder(logInfo.Capacity);
+
+				string[] compilerLogLines = logInfo.ToString().Split(new char[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
+				foreach (string logLine in compilerLogLines)
+					sb.AppendLine("  $ " + logLine);
+
+				throw new InvalidOperationException(sb.ToString());
+			}
 			_Es2_Program_Location_uMVP = Gl.GetUniformLocation(_Es2_Program, "uMVP");
 			_Es2_Program_Location_aPosition = Gl.GetAttribLocation(_Es2_Program, "aPosition");
 			_Es2_Program_Location_aColor = Gl.GetAttribLocation(_Es2_Program, "aColor");
@@ -186,6 +214,7 @@ namespace HelloTriangle.Xamarin
 		};
 
 		private readonly string[] _Es2_ShaderFragmentSource = new string[] {
+			"precision mediump float;\n",
 			"varying vec3 vColor;\n",
 			"void main() {\n",
 			"	gl_FragColor = vec4(vColor, 1.0);\n",

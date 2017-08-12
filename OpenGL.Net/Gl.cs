@@ -76,12 +76,24 @@ namespace OpenGL
 			// Supported platform: Linux
 			// glXGetProcAddress		GLX				GL
 			// glXGetProcAddress		GLX				GLES2+ (with GLX_create_context_es(2)?_profile_EXT)
+			// eglGetProcAddress		EGL				GLES2+
 			// ------------------------------------------------------
 			// Supported platform: Android
 			// eglGetProcAddress		EGL				GL
 			// eglGetProcAddress		EGL				GLES2+
 
 			try {
+#if PR57
+				// Determine whether use EGL as device context backend
+				if (Egl.IsAvailable) {
+					switch (Platform.CurrentPlatformId) {
+						case Platform.Id.Linux:
+							if (Glx.IsAvailable == false)
+								Egl.IsRequired = true;
+							break;
+					}
+				}
+#endif
 				// Create native window for getting preliminary information on desktop systems
 				// This instance will be used for creating contexts without explictly specify a window
 				_NativeWindow = DeviceContext.CreateHiddenWindow();
@@ -101,33 +113,37 @@ namespace OpenGL
 					string glVersion = GetString(StringName.Version);
 					_CurrentVersion = KhronosVersion.Parse(glVersion);
 
+					// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
+					_CurrentExtensions = new Extensions();
+					_CurrentExtensions.Query();
+					// Query platform extensions
+					windowDevice.QueryPlatformExtensions();
+					// Query OpenGL limits
+					_CurrentLimits = Limits.Query(Gl.CurrentVersion, _CurrentExtensions);
+
 					// Obtain current OpenGL Shading Language version
+					string glslVersion = null;
+
 					switch (_CurrentVersion.Api) {
 						case KhronosVersion.ApiGl:
+							if (_CurrentVersion >= Version_200 || _CurrentExtensions.ShadingLanguage100_ARB)
+								glslVersion = GetString(StringName.ShadingLanguageVersion);
+							break;
 						case KhronosVersion.ApiGles2:
-							string glslVersion = GetString(StringName.ShadingLanguageVersion);
-							_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+							glslVersion = GetString(StringName.ShadingLanguageVersion);
 							break;
 					}
+					if (glslVersion != null)
+						_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
 
 					// Vendor/Render information
 					_Vendor = GetString(StringName.Vendor);
 					_Renderer = GetString(StringName.Renderer);
 
-					// Query OpenGL extensions (current OpenGL implementation, CurrentCaps)
-					_CurrentExtensions = new Extensions();
-					_CurrentExtensions.Query();
-
 					if (EnvDebug || EnvExperimental) {
 						Debug.Assert(CurrentVersion != null && CurrentExtensions != null);
 						CheckExtensionCommands<Gl>(CurrentVersion, CurrentExtensions, EnvExperimental);
 					}
-
-					// Query OpenGL limits
-					_CurrentLimits = Limits.Query(Gl.CurrentVersion, _CurrentExtensions);
-
-					// Query platform extensions
-					windowDevice.QueryPlatformExtensions();
 
 					// Before deletion, make uncurrent
 					windowDevice.MakeCurrent(IntPtr.Zero);

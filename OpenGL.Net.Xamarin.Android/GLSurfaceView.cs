@@ -189,7 +189,7 @@ namespace OpenGL
 				foreach(EventHandler<GlSurfaceViewEventArgs> handler in _ContextCreated.GetInvocationList()) {
 					try {
 						handler(this, glControlEventArgs);
-					} catch (Exception) {
+					} catch (Exception e) {
 						// Fail-safe
 					}
 				}
