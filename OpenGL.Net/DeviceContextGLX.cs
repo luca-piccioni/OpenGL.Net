@@ -919,6 +919,8 @@ namespace OpenGL
 
 			_FBConfig = config;
 			_XVisualInfo = visual;
+
+			IsPixelFormatSet = true;
 		}
 
 		/// <summary>
@@ -937,6 +939,8 @@ namespace OpenGL
 
 			_FBConfig = pixelFormat.XFbConfig;
 			_XVisualInfo = pixelFormat.XVisualInfo;
+
+			IsPixelFormatSet = true;
 		}
 
 		#endregion

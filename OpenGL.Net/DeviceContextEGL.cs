@@ -103,6 +103,8 @@ namespace OpenGL
 				throw new ArgumentException("INativePBuffer not created with DeviceContext.CreatePBuffer");
 
 			_NativeSurface = nativePBuffer;
+
+			IsPixelFormatSet = true;
 		}
 
 		#endregion
@@ -1044,6 +1046,8 @@ namespace OpenGL
 			if (_NativeSurface.Handle != IntPtr.Zero)
 				throw new InvalidOperationException("pixel format already set");
 			_Config = ChoosePixelFormat(Display, Version, pixelFormat);
+
+			IsPixelFormatSet = true;
 		}
 
 		/// <summary>
@@ -1153,6 +1157,8 @@ namespace OpenGL
 				throw new InvalidOperationException("no available configuration");
 
 			_Config = configs[0];
+
+			IsPixelFormatSet = true;
 		}
 
 		/// <summary>
@@ -1163,15 +1169,16 @@ namespace OpenGL
 		/// </param>
 		protected override void Dispose(bool disposing)
 		{
+			// Base implementation
+			base.Dispose(disposing);
+
+			// Note: display must be disposed after device context disposition
 			if (disposing) {
 				if (_NativeSurface != null) {
 					_NativeSurface.Dispose();
 					_NativeSurface = null;
 				}
 			}
-
-			// Base implementation
-			base.Dispose(disposing);
 		}
 
 		/// <summary>

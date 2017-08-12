@@ -600,6 +600,20 @@ namespace OpenGL
 		/// </param>
 		public abstract void SetPixelFormat(DevicePixelFormat pixelFormat);
 
+		/// <summary>
+		/// Get the flag indicating whether this DeviceContext has a pixel format defined.
+		/// </summary>
+		public bool IsPixelFormatSet
+		{
+			get { return (_IsPixelFormatSet); }
+			protected set { _IsPixelFormatSet = value; }
+		}
+
+		/// <summary>
+		/// Flag indicating whether this DeviceContext has a pixel format defined.
+		/// </summary>
+		private bool _IsPixelFormatSet;
+
 		#endregion
 
 		#region Get Current Context
@@ -657,6 +671,7 @@ namespace OpenGL
 		protected virtual void Dispose(bool disposing)
 		{
 			if (disposing) {
+				Debug.Assert(DeviceContext.GetCurrentContext() == IntPtr.Zero, "leaving a context current");
 				// Mark as disposed
 				_Disposed = true;
 			}

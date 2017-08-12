@@ -67,7 +67,8 @@ namespace OpenGL
 				throw new InvalidOperationException("no underlying native window", Gl._InitializationException);
 
 			_WindowHandle = Gl._NativeWindow.Handle;
-			_PixelFormatSet = true;		// We do not want to reset pixel format
+
+			IsPixelFormatSet = true;		// We do not want to reset pixel format
 
 			_DeviceContext = Wgl.GetDC(_WindowHandle);
 			if (_DeviceContext == IntPtr.Zero)
@@ -140,6 +141,8 @@ namespace OpenGL
 			if (_DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get device context");
 			_DeviceContextPBuffer = true;
+
+			IsPixelFormatSet = true;
 		}
 
 		#endregion
@@ -1055,7 +1058,7 @@ namespace OpenGL
 		/// </param>
 		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
 		{
-			if (_PixelFormatSet == true)
+			if (IsPixelFormatSet == true)
 				throw new InvalidOperationException("pixel format already set");
 
 			// Choose pixel format
@@ -1066,6 +1069,8 @@ namespace OpenGL
 
 			if (Wgl.SetPixelFormat(_DeviceContext, pixelFormatIndex, ref pDescriptor) == false)
 				throw new InvalidOperationException("unable to set pixel format", GetPlatformException());
+
+			IsPixelFormatSet = true;
 		}
 
 		/// <summary>
@@ -1126,7 +1131,7 @@ namespace OpenGL
 		{
 			if (pixelFormat == null)
 				throw new ArgumentNullException("pixelFormat");
-			if (_PixelFormatSet == true)
+			if (IsPixelFormatSet == true)
 				throw new InvalidOperationException("pixel format already set");
 
 #if CHOOSE_PIXEL_FORMAT_FALLBACK
@@ -1152,8 +1157,7 @@ namespace OpenGL
 			}
 #endif
 
-			// Unable to set pixel format again
-			_PixelFormatSet = true;
+			IsPixelFormatSet = true;
 		}
 
 #if CHOOSE_PIXEL_FORMAT_FALLBACK
@@ -1189,11 +1193,6 @@ namespace OpenGL
 		}
 
 #endif
-
-		/// <summary>
-		/// Flag for checking whether the pixel format is set only once.
-		/// </summary>
-		private bool _PixelFormatSet;
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
