@@ -137,6 +137,12 @@ namespace OpenGL
 				}
 
 				_AvailableApis = clientApis.ToArray();
+
+				// Null device context for querying extensions
+				using (DeviceContextEGL deviceContext = new DeviceContextEGL(args.Display, IntPtr.Zero)) {
+					_CurrentExtensions = new Extensions();
+					_CurrentExtensions.Query(deviceContext);
+				}
 			} finally {
 				Terminate(eglDisplay);
 			}

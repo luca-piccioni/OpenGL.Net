@@ -34,6 +34,20 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		private DeviceContextEGL()
+		{
+			string[] availApis = GetAvailableApis();
+
+			if (availApis.Length == 0)
+				throw new InvalidOperationException("no API available");
+
+			if (Array.Exists(availApis, delegate(string api) { return (api == DefaultApi); }) == false)
+				_Api = availApis[0];
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="DeviceContextEGL"/> class.
 		/// </summary>
 		/// <param name='windowHandle'>
@@ -57,12 +71,14 @@ namespace OpenGL
 		/// </param>
 		/// <param name='windowHandle'>
 		/// A <see cref="IntPtr"/> that specifies the window handle used to create the device context. If it is <see cref="IntPtr.Zero"/>
-		/// the surface referenced by this NativeDeviceContext is a minimal PBuffer.
+		/// the surface referenced by this NativeDeviceContext is a minimal PBuffer, or no surface at all in case EGL_KHR_surfaceless_context
+		/// is supported.
 		/// </param>
 		/// <exception cref='InvalidOperationException'>
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
 		public DeviceContextEGL(IntPtr display, IntPtr windowHandle)
+			: this()
 		{
 			_NativeSurface = new NativeWindow(display, windowHandle);
 		}
@@ -77,6 +93,7 @@ namespace OpenGL
 		/// Exception thrown if <paramref name="nativeBuffer"/> is null.
 		/// </exception>
 		public DeviceContextEGL(INativePBuffer nativeBuffer)
+			: this()
 		{
 			if (nativeBuffer == null)
 				throw new ArgumentNullException("nativeBuffer");
@@ -100,12 +117,12 @@ namespace OpenGL
 		/// <summary>
 		/// Get the display connection.
 		/// </summary>
-		internal IntPtr Display { get { return (_NativeSurface._Display); } }
+		internal IntPtr Display { get { return (_NativeSurface != null ? _NativeSurface._Display : IntPtr.Zero); } }
 
 		/// <summary>
 		/// Get the EGL surface handle.
 		/// </summary>
-		private IntPtr EglSurface { get { return (_NativeSurface.Handle); } }
+		private IntPtr EglSurface { get { return (_NativeSurface != null ? _NativeSurface.Handle : new IntPtr(Egl.NO_DISPLAY)); } }
 
 		/// <summary>
 		/// The frame buffer configuration.
@@ -715,7 +732,7 @@ namespace OpenGL
 			IntPtr context;
 
 			// Select surface pixel format automatically
-			if (_NativeSurface.Handle != IntPtr.Zero) {
+			if (_NativeSurface != null && _NativeSurface.Handle != IntPtr.Zero) {
 				int[] configId = new int[1];
 
 				if (Egl.QuerySurface(Display, EglSurface, Egl.CONFIG_ID, configId) == false)
@@ -755,7 +772,7 @@ namespace OpenGL
 
 			// Create native surface (pixel format pending)
 			// @todo Back-buffer?
-			if (_NativeSurface.Handle == IntPtr.Zero)
+			if (_NativeSurface != null && _NativeSurface.Handle == IntPtr.Zero)
 				_NativeSurface.CreateHandle(_Config, new int[] { Egl.NONE });
 
 			return (context);
@@ -1021,6 +1038,9 @@ namespace OpenGL
 		/// </param>
 		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
 		{
+			if (_NativeSurface == null)
+				return; // Support EGL_KHR_surfaceless_context
+
 			if (_NativeSurface.Handle != IntPtr.Zero)
 				throw new InvalidOperationException("pixel format already set");
 			_Config = ChoosePixelFormat(Display, Version, pixelFormat);
@@ -1110,6 +1130,8 @@ namespace OpenGL
 		{
 			if (pixelFormat == null)
 				throw new ArgumentNullException("pixelFormat");
+			if (_NativeSurface == null)
+				return; // Support EGL_KHR_surfaceless_context
 			if (_NativeSurface.Handle != IntPtr.Zero)
 				throw new InvalidOperationException("pixel format already set");
 

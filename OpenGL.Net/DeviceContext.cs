@@ -75,49 +75,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else {
-				if (Egl.CurrentExtensions == null || Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
-					// Throw away P-Buffer
-					return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
-				} else {
-					// Surfaceless window
-					return (new DeviceContextEGL.NativeWindow(IntPtr.Zero));
-				}
-			}
-		}
-
-		/// <summary>
-		/// Create a native window.
-		/// </summary>
-		/// <returns>
-		/// It returns a <see cref="INativeWindow"/> that implements a native window on the underlying platform.
-		/// </returns>
-		/// <exception cref='NotSupportedException'>
-		/// Exception thrown if the current platform is not supported.
-		/// </exception>
-		private static INativeWindow CreateWindow(int x, int y, uint width, uint height)
-		{
-			if (Egl.IsRequired == false) {
-				switch (Platform.CurrentPlatformId) {
-					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL.NativeWindow(x, y, width, height));
-					case Platform.Id.Linux:
-						return (new DeviceContextGLX.NativeWindow(x, y, width, height));
-					case Platform.Id.MacOS:
-						if (Glx.IsRequired)
-							return (new DeviceContextGLX.NativeWindow(x, y, width, height));
-						else
-							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
-					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
-				}
-			} else {
-				if (Egl.CurrentExtensions == null || Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
-					// Throw away P-Buffer
-					return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), width, height));
-				} else {
-					// Surfaceless window
-					return (new DeviceContextEGL.NativeWindow(IntPtr.Zero));
-				}
+				return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
 			}
 		}
 
@@ -151,11 +109,13 @@ namespace OpenGL
 		/// </exception>
 		public static DeviceContext Create()
 		{
-			Debug.Assert(Gl._NativeWindow != null);
-
 			DeviceContext deviceContext = null;
 
 			if (IsEglRequired == false) {
+				// OPENGL_NET_INIT environment set to NO?
+				if (Gl._NativeWindow == null)
+					throw new InvalidOperationException("OpenGL.Net not initialized", Gl._InitializationException);
+
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
 						deviceContext = new DeviceContextWGL();
@@ -173,6 +133,13 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else {
+				// Create a surfaceless context
+				// TODO
+
+				// OPENGL_NET_INIT environment set to NO?
+				if (Gl._NativeWindow == null)
+					throw new InvalidOperationException("OpenGL.Net not initialized", Gl._InitializationException);
+
 				if (deviceContext == null) {
 					INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
 					if (nativeBuffer != null)
