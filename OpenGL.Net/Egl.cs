@@ -79,19 +79,19 @@ namespace OpenGL
 					break;
 				case Platform.Id.Linux:
 					// Note: on RPi libEGL.so depends on libGLESv2.so, so it's required to pre-load the shared library
-					GetProcAddressX11.GetLibraryHandle("libGLESv2.so", false);
+					GetProcAddressLinux.GetLibraryHandle("libGLESv2.so", false);
 					break;
 			}
 
 			// Include ANGLE path, if any
 			if (anglePath != null && Directory.Exists(anglePath))
-				OpenGL.GetProcAddress.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
+				OpenGL.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
 
 			// Load procedures
 			string platformLibrary = GetPlatformLibrary();
 			try {
 				LogComment("Querying EGL from {0}", platformLibrary);
-				BindAPI<Egl>(platformLibrary, OpenGL.GetProcAddress.GetProcAddressOS);
+				BindAPI<Egl>(platformLibrary, GetProcAddressOS);
 				LogComment("EGL availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */

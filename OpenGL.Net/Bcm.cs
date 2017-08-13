@@ -50,7 +50,7 @@ namespace OpenGL
 			// Load procedures
 			try {
 				LogComment("Querying BCM VideoCore from {0}", Library);
-				BindAPI<Bcm>(Library, GetProcAddress.GetProcAddressOS);
+				BindAPI<Bcm>(Library, GetProcAddressOS);
 				LogComment("BCM VideoCore availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due BCM access) */

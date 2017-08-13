@@ -113,68 +113,52 @@ namespace OpenGL
 		/// <summary>
 		/// Delegate used for getting a procedure address.
 		/// </summary>
-		/// <param name="path"></param>
-		/// <param name="function"></param>
-		/// <returns></returns>
-		protected delegate IntPtr GetAddressDelegate(string path, string function);
+		/// <param name="path">
+		/// A <see cref="String"/> that specifies the path of the library to load the procedure from.
+		/// </param>
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the name of the procedure to be loaded.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
+		/// returns <see cref="IntPtr.Zero"/>.
+		/// </returns>
+		internal delegate IntPtr GetAddressDelegate(string path, string function);
 
 		/// <summary>
-		/// Link delegates fields using import declarations, using platform specific method for determining procedures addresses.
+		/// Utility for <see cref="GetAddressDelegate"/> for loading procedures using the OS loader.
 		/// </summary>
-		/// <param name="imports">
-		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// <param name="path">
+		/// A <see cref="String"/> that specifies the path of the library to load the procedure from.
 		/// </param>
-		/// <param name="delegates">
-		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the name of the procedure to be loaded.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
-		/// </exception>
-		internal static void BindAPI<T>(string path, IGetProcAddress getProcAddress)
-		{
-			BindAPI<T>(path, getProcAddress, null, null);
-		}
+		/// <returns>
+		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
+		/// returns <see cref="IntPtr.Zero"/>.
+		/// </returns>
+		protected static IntPtr GetProcAddressOS(string path, string function) { return (OpenGL.GetProcAddressOS.GetProcAddress(path, function)); }
 
 		/// <summary>
-		/// Link delegates fields using import declarations, using platform specific method for determining procedures addresses.
+		/// Utility for <see cref="GetAddressDelegate"/> for loading procedures using the GL loader.
 		/// </summary>
-		/// <param name="imports">
-		/// A <see cref="ImportMap"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// <param name="path">
+		/// Ignored parameter.
 		/// </param>
-		/// <param name="delegates">
-		/// A <see cref="DelegateList"/> listing <see cref="FieldInfo"/> related to function delegates.
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the name of the procedure to be loaded.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="imports"/> or <paramref name="delegates"/> is null.
-		/// </exception>
-		internal static void BindAPI<T>(string path, IGetProcAddress getProcAddress, KhronosVersion version, ExtensionsCollection extensions)
-		{
-			BindAPI<T>(path, delegate(string libpath, string function) {
-				// Note: IGetProcAddress implementation may have GetOpenGLProcAddress equivalent to GetProcAddress
-				IntPtr procAddress = getProcAddress.GetOpenGLProcAddress(function);
-
-				if (procAddress == IntPtr.Zero)
-					return (GetProcAddress.GetProcAddressOS.GetProcAddress(libpath, function));
-
-				if (procAddress == IntPtr.Zero)
-					LogComment("Warning: no address for command {0}.", function);
-
-				return (procAddress);
-			}, version, extensions);
-		}
+		/// <returns>
+		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
+		/// returns <see cref="IntPtr.Zero"/>.
+		/// </returns>
+		protected static IntPtr GetProcAddressGL(string path, string function) { return (OpenGL.GetProcAddressGL.GetProcAddress(function)); }
 
 		/// <summary>
 		/// Link delegates field using import declaration, using platform specific method for determining procedures address.
 		/// </summary>
-		internal static void BindAPIFunction<T>(string path, string functionName, KhronosVersion version, ExtensionsCollection extensions)
-		{
-			BindAPIFunction<T>(path, functionName, GetProcAddress.GetProcAddressOS, version, extensions);
-		}
-
-		/// <summary>
-		/// Link delegates field using import declaration, using platform specific method for determining procedures address.
-		/// </summary>
-		internal static void BindAPIFunction<T>(string path, string functionName, IGetProcAddress getProcAddress, KhronosVersion version, ExtensionsCollection extensions)
+		internal static void BindAPIFunction<T>(string path, string functionName, GetAddressDelegate getProcAddress, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
@@ -210,15 +194,7 @@ namespace OpenGL
 				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
 #endif
 
-			BindAPIFunction(path, delegate (string libpath, string function) {
-				// Note: IGetProcAddress implementation may have GetOpenGLProcAddress equivalent to GetProcAddress
-				IntPtr procAddress = getProcAddress.GetOpenGLProcAddress(function);
-
-				if (procAddress == IntPtr.Zero)
-					return (GetProcAddress.GetProcAddressOS.GetProcAddress(libpath, function));
-
-				return (procAddress);
-			}, functionContext, functionField, version, extensions);
+			BindAPIFunction(path, getProcAddress, functionContext, functionField, version, extensions);
 		}
 
 		/// <summary>
@@ -228,12 +204,29 @@ namespace OpenGL
 		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
 		/// </param>
 		/// <param name="getAddress">
-		/// A <see cref="GetAddressDelegate"/> used for getting function pointers. This parameter is dependent on the currently running platform.
+		/// A <see cref="GetAddressDelegate"/> used for getting function pointers.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="path"/> or <paramref name="getAddress"/> is null.
 		/// </exception>
-		private static void BindAPI<T>(string path, GetAddressDelegate getAddress, KhronosVersion version, ExtensionsCollection extensions)
+		internal static void BindAPI<T>(string path, GetAddressDelegate getAddress)
+		{
+			BindAPI<T>(path, getAddress, null, null);
+		}
+
+		/// <summary>
+		/// Link delegates fields using import declarations.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
+		/// </param>
+		/// <param name="getAddress">
+		/// A <see cref="GetAddressDelegate"/> used for getting function pointers.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="path"/> or <paramref name="getAddress"/> is null.
+		/// </exception>
+		internal static void BindAPI<T>(string path, GetAddressDelegate getAddress, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
@@ -257,7 +250,7 @@ namespace OpenGL
 		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
 		/// </param>
 		/// <param name="getAddress">
-		/// A <see cref="GetAddressDelegate"/> used for getting function pointers. This parameter is dependent on the currently running platform.
+		/// A <see cref="GetAddressDelegate"/> used for getting function pointers.
 		/// </param>
 		/// <param name="functionContext">
 		/// A <see cref="FunctionContext"/> mapping a <see cref="MethodInfo"/> with the relative function name.

@@ -54,7 +54,7 @@ namespace OpenGL
 
 			// Load procedures
 			try {
-				BindAPI<Glx>(Library, OpenGL.GetProcAddress.GetProcAddressOS);
+				BindAPI<Glx>(Library, GetProcAddressOS);
 			} catch (Exception) {
 				/* Fail-safe (it may fail due Egl access) */
 			}

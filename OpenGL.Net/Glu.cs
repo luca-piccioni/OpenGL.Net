@@ -42,7 +42,7 @@ namespace OpenGL
 			string platformLibrary = GetPlatformLibrary();
 			try {
 				LogComment("Querying GLU from {0}", platformLibrary);
-				BindAPI<Glu>(platformLibrary, GetProcAddress.GetProcAddressOS);
+				BindAPI<Glu>(platformLibrary, GetProcAddressOS);
 				LogComment("GLU availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */

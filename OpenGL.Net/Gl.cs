@@ -308,11 +308,11 @@ namespace OpenGL
 		/// </summary>
 		public static void BindAPI()
 		{
-			BindAPI(QueryContextVersionCore(), Gl.CurrentExtensions, GetProcAddress.GetProcAddressGL);
+			BindAPI(QueryContextVersionCore(), CurrentExtensions);
 		}
 
 		/// <summary>
-		/// Bind the OpenGL delegates for the API corresponding to the specified OpenGL API.
+		/// Bind the OpenGL delegates to a specific API.
 		/// </summary>
 		/// <param name="version">
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
@@ -322,7 +322,10 @@ namespace OpenGL
 		/// </param>
 		public static void BindAPI(KhronosVersion version, ExtensionsCollection extensions)
 		{
-			BindAPI(version, extensions, GetProcAddress.GetProcAddressGL);
+			if (version == null)
+				throw new ArgumentNullException("version");
+
+			BindAPI<Gl>(GetPlatformLibrary(version), GetProcAddressGL, version, extensions);
 		}
 
 		/// <summary>
@@ -371,44 +374,18 @@ namespace OpenGL
 		private static KhronosVersion QueryContextVersionCore()
 		{
 			// Load minimal Gl functions for querying information
-			IGetProcAddress getProcAddress = GetProcAddress.GetProcAddressGL;
-
 			if (Egl.IsRequired == false) {
-				BindAPIFunction(Gl.Version_100, null, "glGetError", getProcAddress);
-				BindAPIFunction(Gl.Version_100, null, "glGetString", getProcAddress);
-				BindAPIFunction(Gl.Version_100, null, "glGetIntegerv", getProcAddress);
+				BindAPIFunction(Gl.Version_100, null, "glGetError");
+				BindAPIFunction(Gl.Version_100, null, "glGetString");
+				BindAPIFunction(Gl.Version_100, null, "glGetIntegerv");
 			} else {
-				BindAPIFunction(Gl.Version_320_ES, null, "glGetError", getProcAddress);
-				BindAPIFunction(Gl.Version_320_ES, null, "glGetString", getProcAddress);
-				BindAPIFunction(Gl.Version_320_ES, null, "glGetIntegerv", getProcAddress);
+				// ???
+				BindAPIFunction(Gl.Version_320_ES, null, "glGetError");
+				BindAPIFunction(Gl.Version_320_ES, null, "glGetString");
+				BindAPIFunction(Gl.Version_320_ES, null, "glGetIntegerv");
 			}
 
 			return (QueryContextVersion());
-		}
-
-		/// <summary>
-		/// Bind the OpenGL delegates to a specific API.
-		/// </summary>
-		/// <param name="version">
-		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
-		/// </param>
-		/// <param name="extensions">
-		/// A <see cref="ExtensionsCollection"/> that specifies the extensions supported. It can be null.
-		/// </param>
-		/// <param name="getProcAddress">
-		/// The <see cref="IGetProcAddress"/> used for loading function pointers.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="version"/> or <paramref name="getProcAddress"/> is null.
-		/// </exception>
-		private static void BindAPI(KhronosVersion version, ExtensionsCollection extensions, IGetProcAddress getProcAddress)
-		{
-			if (version == null)
-				throw new ArgumentNullException("version");
-			if (getProcAddress == null)
-				throw new ArgumentNullException("getProcAddress");
-
-			BindAPI<Gl>(GetPlatformLibrary(version), getProcAddress, version, extensions);
 		}
 
 		/// <summary>
@@ -417,15 +394,9 @@ namespace OpenGL
 		/// <param name="version">
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
 		/// </param>
-		/// <param name="getProcAddress">
-		/// The <see cref="IGetProcAddress"/> used for loading function pointers.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="version"/>, <paramref name="functionName"/> or <paramref name="getProcAddress"/> is null.
-		/// </exception>
-		internal static void BindAPIFunction(KhronosVersion version, ExtensionsCollection extensions, string functionName, IGetProcAddress getProcAddress)
+		internal static void BindAPIFunction(KhronosVersion version, ExtensionsCollection extensions, string functionName)
 		{
-			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, getProcAddress, version, extensions);
+			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, GetProcAddressGL, version, extensions);
 		}
 
 		/// <summary>

@@ -38,7 +38,7 @@ namespace OpenWF
 			switch (Platform.CurrentPlatformId) {
 				case Platform.Id.Linux:
 					// Note: on RPi libWFC.so depends on libGLESv2.so, so it's required to pre-load the shared library
-					GetProcAddressX11.GetLibraryHandle("libGLESv2.so");
+					GetProcAddressLinux.GetLibraryHandle("libGLESv2.so");
 					break;
 			}
 
@@ -46,7 +46,7 @@ namespace OpenWF
 			string platformLibrary = GetPlatformLibrary();
 			try {
 				LogComment("Querying OpenWF Compositor from {0}", platformLibrary);
-				BindAPI<Wfc>(platformLibrary, GetProcAddress.GetProcAddressOS);
+				BindAPI<Wfc>(platformLibrary, GetProcAddressOS);
 				LogComment("OpenWF Compositor availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */

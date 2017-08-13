@@ -296,6 +296,8 @@
     <Compile Include="EXT\Glx.EXT_libglvnd.cs" />
     <Compile Include="EXT\Wgl.EXT_colorspace.cs" />
     <Compile Include="FJ\Gl.FJ_shader_binary_GCCSO.cs" />
+    <Compile Include="GetProcAddressGL.cs" />
+    <Compile Include="GetProcAddressOS.cs" />
     <Compile Include="Gl.ES_VERSION_2_0.cs" />
     <Compile Include="Gl.ES_VERSION_3_2.cs" />
     <Compile Include="Gl.Limits.cs" />
@@ -435,7 +437,6 @@
     <Compile Include="EXT\Wgl.EXT_pixel_format.cs" />
     <Compile Include="EXT\Wgl.EXT_pixel_format_packed_float.cs" />
     <Compile Include="EXT\Wgl.EXT_swap_control.cs" />
-    <Compile Include="GetProcAddress.cs" />
     <Compile Include="Gl.cs">
       <SubType>Code</SubType>
     </Compile>

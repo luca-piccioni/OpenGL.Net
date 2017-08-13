@@ -246,7 +246,7 @@ namespace OpenGL
 
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						memoryCopyPtr = GetProcAddress.GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
+						memoryCopyPtr = GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
 						if (memoryCopyPtr != IntPtr.Zero) {
 							MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
 							return;
@@ -254,7 +254,7 @@ namespace OpenGL
 						
 						throw new NotSupportedException("no suitable memcpy support");
 					case Platform.Id.Linux:
-						memoryCopyPtr = GetProcAddress.GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
+						memoryCopyPtr = GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
 						if (memoryCopyPtr != IntPtr.Zero) {
 							MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
 							return;

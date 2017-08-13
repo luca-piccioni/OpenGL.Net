@@ -282,6 +282,7 @@
     <Compile Include="EXT\Gl.EXT_semaphore_win32.cs" />
     <Compile Include="EXT\Gl.EXT_texture_storage.cs" />
     <Compile Include="EXT\Gl.EXT_win32_keyed_mutex.cs" />
+    <Compile Include="GetProcAddressGL.cs" />
     <Compile Include="Gl.Limits.cs" />
     <Compile Include="Gl.SC_VERSION_2_0.cs" />
     <Compile Include="Gl.VERSION_4_6.cs" />
@@ -449,7 +450,7 @@
     <Compile Include="EXT\Wgl.EXT_pixel_format.cs" />
     <Compile Include="EXT\Wgl.EXT_pixel_format_packed_float.cs" />
     <Compile Include="EXT\Wgl.EXT_swap_control.cs" />
-    <Compile Include="GetProcAddress.cs" />
+    <Compile Include="GetProcAddressOS.cs" />
     <Compile Include="Gl.cs">
       <SubType>Code</SubType>
     </Compile>

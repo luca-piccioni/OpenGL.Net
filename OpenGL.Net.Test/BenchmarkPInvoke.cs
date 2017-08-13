@@ -97,7 +97,7 @@ namespace OpenGL.Test
 
 		private static void Initialize_GetDelegateForFunctionPointer()
 		{
-			IntPtr glFlushAddress = GetProcAddress.GetProcAddressGL.GetOpenGLProcAddress("glFlush");
+			IntPtr glFlushAddress = GetProcAddressGL.GetProcAddress("glFlush");
 			Assert.AreNotEqual(IntPtr.Zero, glFlushAddress);
 
 			Delegate delegatePtr = Marshal.GetDelegateForFunctionPointer(glFlushAddress, typeof(glFlushDelegate));
@@ -106,7 +106,7 @@ namespace OpenGL.Test
 			pglFlush = (glFlushDelegate)delegatePtr;
 			pglFlushHandle = glFlushAddress;
 
-			IntPtr glEnableAddress = GetProcAddress.GetProcAddressGL.GetOpenGLProcAddress("glFlush");
+			IntPtr glEnableAddress = GetProcAddressGL.GetProcAddress("glFlush");
 			Assert.AreNotEqual(IntPtr.Zero, glFlushAddress);
 
 			Delegate glEnableDelegate = Marshal.GetDelegateForFunctionPointer(glEnableAddress, typeof(glEnableDelegate));
