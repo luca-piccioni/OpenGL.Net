@@ -657,9 +657,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)" --assembly-overwrite --profile-es2
-copy "$(TargetPath)" "$(TargetDir)OpenGL.Net-ES2Profile.dll"
-copy "$(TargetDir)OpenGL.Net.xml" "$(TargetDir)OpenGL.Net-ES2Profile.xml"</PostBuildEvent>
+    <PostBuildEvent>rem $(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)" --assembly-overwrite --profile-es2</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -121,6 +121,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Objects_monodroid", "OpenGL.Net.Objects\OpenGL.Net.Objects_monodroid.csproj", "{DA42B012-6AF3-487C-A2EA-8E59BBA8689B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net_monodroid", "OpenGL.Net\OpenGL.Net_monodroid.csproj", "{6981BE72-A39A-4534-BD3F-132D813A461F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663} = {6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
