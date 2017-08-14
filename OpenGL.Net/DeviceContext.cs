@@ -205,16 +205,13 @@ namespace OpenGL
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
 						return (new DeviceContextWGL(windowHandle));
-						break;
 					case Platform.Id.Linux:
 						return (new DeviceContextGLX(display, windowHandle));
-						break;
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
 							return (new DeviceContextGLX(display, windowHandle));
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
-						break;
 					default:
 						throw new NotSupportedException("platform not supported");
 				}
