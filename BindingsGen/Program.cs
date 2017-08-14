@@ -200,7 +200,8 @@ namespace BindingsGen
 			_Namespace = "OpenWF";
 
 			// OpenWF(C)
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wfc"); }) >= 0)) {
+			// Note: you must setup CLI to generate this bindings
+			if ((args.Length > 0) && (Array.FindIndex(args, delegate(string item) { return (item == "--wfc"); }) >= 0)) {
 				Header headRegistry = new Header("Wfc");
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfc.h"));
 
