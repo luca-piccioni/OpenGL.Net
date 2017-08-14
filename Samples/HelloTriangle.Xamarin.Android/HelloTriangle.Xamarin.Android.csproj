@@ -86,9 +86,9 @@
       <Project>{e5afe227-06d5-4448-87d2-391e6b688f78}</Project>
       <Name>OpenGL.Net.Xamarin.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_net461.csproj">
-      <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
-      <Name>OpenGL.Net_net461</Name>
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_monodroid.csproj">
+      <Project>{6981be72-a39a-4534-bd3f-132d813a461f}</Project>
+      <Name>OpenGL.Net_monodroid</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

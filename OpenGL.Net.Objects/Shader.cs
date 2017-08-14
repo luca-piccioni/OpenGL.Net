@@ -625,6 +625,7 @@ namespace OpenGL.Objects
 			// Set shader source
 			Gl.ShaderSource(ObjectName, source.ToArray());
 
+#if !MONODROID
 			if (ctx.Extensions.ShadingLanguageInclude_ARB) {
 				string[] includePaths = new string[cctx.Includes.Count];
 
@@ -636,6 +637,10 @@ namespace OpenGL.Objects
 				// Compile shader object (includes are already preprocessed)
 				Gl.CompileShader(ObjectName);
 			}
+#else
+			// Compile shader object (includes are already preprocessed)
+			Gl.CompileShader(ObjectName);
+#endif
 
 			// Check for compilation errors
 			int compilationStatus;

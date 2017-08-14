@@ -251,6 +251,7 @@ namespace OpenGL.Objects
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
+#if !MONODROID
 			CheckCurrentContext(ctx);
 
 			if (ctx.Extensions.ShadingLanguageInclude_ARB) {
@@ -264,6 +265,7 @@ namespace OpenGL.Objects
 				// Create shader include
 				Gl.NamedStringARB(Gl.SHADER_INCLUDE_ARB, -1, IncludePath, -1, sb.ToString());
 			}
+#endif
 		}
 		
 		/// <summary>

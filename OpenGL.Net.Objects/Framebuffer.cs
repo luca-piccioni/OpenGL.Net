@@ -1004,8 +1004,10 @@ namespace OpenGL.Objects
 						throw new InvalidOperationException("framebuffer incomplete attachment");
 					case FramebufferStatus.FramebufferIncompleteMissingAttachment:
 						throw new InvalidOperationException("framebuffer incomplete missing attachment");
+#if !MONODROID
 					case FramebufferStatus.FramebufferIncompleteReadBuffer:
 						throw new InvalidOperationException("framebuffer incomplete read buffer");
+#endif
 					case FramebufferStatus.FramebufferUnsupported:
 						throw new InvalidOperationException("framebuffer unsupported");
 					case FramebufferStatus.FramebufferIncompleteMultisample:

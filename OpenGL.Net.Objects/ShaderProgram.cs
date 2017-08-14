@@ -364,6 +364,7 @@ namespace OpenGL.Objects
 						Gl.GetTransformFeedbackVarying(ObjectName, (uint)i, feebackVaryingsMaxLength, out length, out size, out type, sb);
 						_FeedbacksMap.Add(sb.ToString(), new FeedbackBinding((ShaderAttributeType)type, (uint)size));
 					}
+#if !MONODROID
 				} else if (Gl.CurrentExtensions.TransformFeedback2_NV) {
 					// Activate varyings
 					foreach (string feedbackVaryingName in _FeedbackVaryings) {
@@ -399,6 +400,7 @@ namespace OpenGL.Objects
 
 					// Map active feedback
 
+#endif
 				}
 
 				Debug.Assert(_FeedbacksMap.Count > 0);
