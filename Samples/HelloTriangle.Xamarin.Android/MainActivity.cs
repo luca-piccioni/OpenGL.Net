@@ -76,46 +76,6 @@ namespace HelloTriangle.Xamarin
 
 		#endregion
 
-		#region Rendering (ES 1.0)
-
-		private void Es1_ContextCreated()
-		{
-			// Here you can allocate resources or initialize state
-			Gl.MatrixMode(MatrixMode.Projection);
-			Gl.LoadIdentity();
-			Gl.Ortho(0.0, 1.0f, 0.0, 1.0, 0.0, 1.0);
-
-			Gl.MatrixMode(MatrixMode.Modelview);
-			Gl.LoadIdentity();
-		}
-
-		private void Es1_Render()
-		{
-			// Old school OpenGL 1.1
-			// Setup & enable client states to specify vertex arrays, and use Gl.DrawArrays instead of Gl.Begin/End paradigm
-			using (MemoryLock vertexArrayLock = new MemoryLock(_ArrayPosition)) 
-			using (MemoryLock vertexColorLock = new MemoryLock(_ArrayColor))
-			{
-				// Note: the use of MemoryLock objects is necessary to pin vertex arrays since they can be reallocated by GC
-				// at any time between the Gl.VertexPointer execution and the Gl.DrawArrays execution
-
-				Gl.VertexPointer(2, VertexPointerType.Float, 0, vertexArrayLock.Address);
-				Gl.EnableClientState(EnableCap.VertexArray);
-
-				Gl.ColorPointer(3, ColorPointerType.Float, 0, vertexColorLock.Address);
-				Gl.EnableClientState(EnableCap.ColorArray);
-
-				Gl.DrawArrays(PrimitiveType.Triangles, 0, 3);
-			}
-		}
-
-		private void Es1_ContextDestroying()
-		{
-			
-		}
-
-		#endregion
-
 		#region Rendering (ES 2.0)
 
 		private void Es2_ContextCreated()

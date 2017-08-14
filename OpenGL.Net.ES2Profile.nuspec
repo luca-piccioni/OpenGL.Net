@@ -71,6 +71,6 @@
         <file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.dll" target="lib\net461" />
         <!--<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-ES2Profile.xml" target="lib\net461" />-->
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net-ES2Profile.dll" target="lib\monoandroid" />
-        <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net-ES2Profile.xml" target="lib\monoandroid" />
+        <!--<file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net-ES2Profile.xml" target="lib\monoandroid" />-->
     </files>
 </package>
