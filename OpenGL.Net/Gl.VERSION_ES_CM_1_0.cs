@@ -62,9 +62,6 @@ namespace OpenGL
 		/// <param name="eqn">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.GetClipPlane"/>
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.Enable"/>
@@ -85,40 +82,35 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES1.1] glFrustumf: multiply the current matrix by a perspective matrix
 		/// </summary>
-		/// <param name="l">
-		/// A <see cref="T:float"/>.
+		/// <param name="left">
+		/// Specify the coordinates for the left and right vertical clipping planes.
 		/// </param>
-		/// <param name="r">
-		/// A <see cref="T:float"/>.
+		/// <param name="right">
+		/// Specify the coordinates for the left and right vertical clipping planes.
 		/// </param>
-		/// <param name="b">
-		/// A <see cref="T:float"/>.
+		/// <param name="bottom">
+		/// Specify the coordinates for the bottom and top horizontal clipping planes.
 		/// </param>
-		/// <param name="t">
-		/// A <see cref="T:float"/>.
+		/// <param name="top">
+		/// Specify the coordinates for the bottom and top horizontal clipping planes.
 		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:float"/>.
+		/// <param name="near">
+		/// Specify the distances to the near and far depth clipping planes. Both distances must be positive.
 		/// </param>
-		/// <param name="f">
-		/// A <see cref="T:float"/>.
+		/// <param name="far">
+		/// Specify the distances to the near and far depth clipping planes. Both distances must be positive.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="near"/> or <paramref name="far"/> is not positive, or if <paramref 
-		/// name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = <paramref name="top"/>, or <paramref 
-		/// name="near"/> = <paramref name="far"/>.
-		/// </exception>
 		/// <seealso cref="Gl.Ortho"/>
 		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		public static void Frustum(float l, float r, float b, float t, float n, float f)
+		public static void Frustum(float left, float right, float bottom, float top, float near, float far)
 		{
 			Debug.Assert(Delegates.pglFrustumf != null, "pglFrustumf not implemented");
-			Delegates.pglFrustumf(l, r, b, t, n, f);
-			LogCommand("glFrustumf", null, l, r, b, t, n, f			);
+			Delegates.pglFrustumf(left, right, bottom, top, near, far);
+			LogCommand("glFrustumf", null, left, right, bottom, top, near, far			);
 			DebugCheckErrors(null);
 		}
 
@@ -134,9 +126,6 @@ namespace OpenGL
 		/// Returns four fixed-point or floating-point values that are the coefficients of the plane equation of <paramref 
 		/// name="plane"/> in eye coordinates in the order p1, p2, p3, and p4. The initial value is (0, 0, 0, 0).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] float[] equation)
@@ -155,39 +144,37 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES1.1] glOrthof: multiply the current matrix with an orthographic matrix
 		/// </summary>
-		/// <param name="l">
-		/// A <see cref="T:float"/>.
+		/// <param name="left">
+		/// Specify the coordinates for the left and right vertical clipping planes.
 		/// </param>
-		/// <param name="r">
-		/// A <see cref="T:float"/>.
+		/// <param name="right">
+		/// Specify the coordinates for the left and right vertical clipping planes.
 		/// </param>
-		/// <param name="b">
-		/// A <see cref="T:float"/>.
+		/// <param name="bottom">
+		/// Specify the coordinates for the bottom and top horizontal clipping planes.
 		/// </param>
-		/// <param name="t">
-		/// A <see cref="T:float"/>.
+		/// <param name="top">
+		/// Specify the coordinates for the bottom and top horizontal clipping planes.
 		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:float"/>.
+		/// <param name="near">
+		/// Specify the distances to the nearer and farther depth clipping planes. These values are negative if the plane is to be 
+		/// behind the viewer.
 		/// </param>
-		/// <param name="f">
-		/// A <see cref="T:float"/>.
+		/// <param name="far">
+		/// Specify the distances to the nearer and farther depth clipping planes. These values are negative if the plane is to be 
+		/// behind the viewer.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = 
-		/// <paramref name="top"/>, or <paramref name="near"/> = <paramref name="far"/>.
-		/// </exception>
 		/// <seealso cref="Gl.Frustum"/>
 		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-		public static void Ortho(float l, float r, float b, float t, float n, float f)
+		public static void Ortho(float left, float right, float bottom, float top, float near, float far)
 		{
 			Debug.Assert(Delegates.pglOrthof != null, "pglOrthof not implemented");
-			Delegates.pglOrthof(l, r, b, t, n, f);
-			LogCommand("glOrthof", null, l, r, b, t, n, f			);
+			Delegates.pglOrthof(left, right, bottom, top, near, far);
+			LogCommand("glOrthof", null, left, right, bottom, top, near, far			);
 			DebugCheckErrors(null);
 		}
 
@@ -202,9 +189,6 @@ namespace OpenGL
 		/// Specifies the reference value that incoming alpha values are compared to. This value is clamped to the range [0, 1], 
 		/// where 0 represents the lowest possible alpha value and 1 the highest possible value. The initial reference value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="func"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.BlendFunc"/>
 		/// <seealso cref="Gl.Clear"/>
 		/// <seealso cref="Gl.DepthFunc"/>
@@ -278,9 +262,6 @@ namespace OpenGL
 		/// Specifies the address of an array of four fixed-point or floating-point values. These are the coefficients of a plane 
 		/// equation in object coordinates: p1, p2, p3, and p4, in that order.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.GetClipPlane"/>
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.Enable"/>
@@ -355,13 +336,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
-		/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.FOG_DENSITY, and <paramref name="params"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Fog(FogPName pname, IntPtr param)
@@ -381,13 +355,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value, or if <paramref name="pname"/> is 
-		/// Gl.FOG_MODE and <paramref name="params"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="pname"/> is Gl.FOG_DENSITY, and <paramref name="params"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Fog(FogPName pname, IntPtr[] param)
@@ -406,40 +373,35 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES1.1] glFrustumx: multiply the current matrix by a perspective matrix
 		/// </summary>
-		/// <param name="l">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="left">
+		/// Specify the coordinates for the left and right vertical clipping planes.
 		/// </param>
-		/// <param name="r">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="right">
+		/// Specify the coordinates for the left and right vertical clipping planes.
 		/// </param>
-		/// <param name="b">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="bottom">
+		/// Specify the coordinates for the bottom and top horizontal clipping planes.
 		/// </param>
-		/// <param name="t">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="top">
+		/// Specify the coordinates for the bottom and top horizontal clipping planes.
 		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="near">
+		/// Specify the distances to the near and far depth clipping planes. Both distances must be positive.
 		/// </param>
-		/// <param name="f">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="far">
+		/// Specify the distances to the near and far depth clipping planes. Both distances must be positive.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="near"/> or <paramref name="far"/> is not positive, or if <paramref 
-		/// name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = <paramref name="top"/>, or <paramref 
-		/// name="near"/> = <paramref name="far"/>.
-		/// </exception>
 		/// <seealso cref="Gl.Ortho"/>
 		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Frustum(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f)
+		public static void Frustum(IntPtr left, IntPtr right, IntPtr bottom, IntPtr top, IntPtr near, IntPtr far)
 		{
 			Debug.Assert(Delegates.pglFrustumx != null, "pglFrustumx not implemented");
-			Delegates.pglFrustumx(l, r, b, t, n, f);
-			LogCommand("glFrustumx", null, l, r, b, t, n, f			);
+			Delegates.pglFrustumx(left, right, bottom, top, near, far);
+			LogCommand("glFrustumx", null, left, right, bottom, top, near, far			);
 			DebugCheckErrors(null);
 		}
 
@@ -455,9 +417,6 @@ namespace OpenGL
 		/// Returns four fixed-point or floating-point values that are the coefficients of the plane equation of <paramref 
 		/// name="plane"/> in eye coordinates in the order p1, p2, p3, and p4. The initial value is (0, 0, 0, 0).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="plane"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] IntPtr[] equation)
@@ -482,9 +441,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.GetError"/>
 		/// <seealso cref="Gl.GetString"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -516,9 +472,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetLightxv(LightName light, LightParameter pname, [Out] IntPtr[] @params)
@@ -548,9 +501,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] IntPtr[] @params)
@@ -581,9 +531,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -613,10 +560,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns texture parameters.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
-		/// values.
-		/// </exception>
 		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, [Out] IntPtr[] @params)
@@ -641,9 +584,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -664,9 +604,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -697,14 +634,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if a spot exponent value is specified outside the range [0, 128], or if spot cutoff is 
-		/// specified outside the range [0, 90] (except for the special value 180), or if a negative attenuation factor is 
-		/// specified.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
@@ -731,14 +660,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if either <paramref name="light"/> or <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if a spot exponent value is specified outside the range [0, 128], or if spot cutoff is 
-		/// specified outside the range [0, 90] (except for the special value 180), or if a negative attenuation factor is 
-		/// specified.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.LightModel"/>
 		/// <seealso cref="Gl.Material"/>
@@ -762,9 +683,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// Specifies the width of rasterized lines. The initial value is 1.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than or equal to 0.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -812,12 +730,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if a specular exponent outside the range [0, 128] is specified.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
@@ -842,12 +754,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if either <paramref name="face"/> or <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if a specular exponent outside the range [0, 128] is specified.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Light"/>
 		/// <seealso cref="Gl.LightModel"/>
@@ -957,39 +863,37 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES1.1] glOrthox: multiply the current matrix with an orthographic matrix
 		/// </summary>
-		/// <param name="l">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="left">
+		/// Specify the coordinates for the left and right vertical clipping planes.
 		/// </param>
-		/// <param name="r">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="right">
+		/// Specify the coordinates for the left and right vertical clipping planes.
 		/// </param>
-		/// <param name="b">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="bottom">
+		/// Specify the coordinates for the bottom and top horizontal clipping planes.
 		/// </param>
-		/// <param name="t">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="top">
+		/// Specify the coordinates for the bottom and top horizontal clipping planes.
 		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="near">
+		/// Specify the distances to the nearer and farther depth clipping planes. These values are negative if the plane is to be 
+		/// behind the viewer.
 		/// </param>
-		/// <param name="f">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="far">
+		/// Specify the distances to the nearer and farther depth clipping planes. These values are negative if the plane is to be 
+		/// behind the viewer.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="left"/> = <paramref name="right"/>, or <paramref name="bottom"/> = 
-		/// <paramref name="top"/>, or <paramref name="near"/> = <paramref name="far"/>.
-		/// </exception>
 		/// <seealso cref="Gl.Frustum"/>
 		/// <seealso cref="Gl.MatrixMode"/>
 		/// <seealso cref="Gl.MultMatrix"/>
 		/// <seealso cref="Gl.PushMatrix"/>
 		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Orthox(IntPtr l, IntPtr r, IntPtr b, IntPtr t, IntPtr n, IntPtr f)
+		public static void Orthox(IntPtr left, IntPtr right, IntPtr bottom, IntPtr top, IntPtr near, IntPtr far)
 		{
 			Debug.Assert(Delegates.pglOrthox != null, "pglOrthox not implemented");
-			Delegates.pglOrthox(l, r, b, t, n, f);
-			LogCommand("glOrthox", null, l, r, b, t, n, f			);
+			Delegates.pglOrthox(left, right, bottom, top, near, far);
+			LogCommand("glOrthox", null, left, right, bottom, top, near, far			);
 			DebugCheckErrors(null);
 		}
 
@@ -1003,13 +907,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that the parameter will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if assigned values for Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
-		/// Gl.POINT_FADE_THRESHOLD_SIZE are less then Gl.o.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.Light"/>
@@ -1033,13 +930,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if assigned values for Gl.POINT_SIZE_MIN, Gl.POINT_SIZE_MAX, or 
-		/// Gl.POINT_FADE_THRESHOLD_SIZE are less then Gl.o.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Get"/>
 		/// <seealso cref="Gl.Light"/>
@@ -1064,9 +954,6 @@ namespace OpenGL
 		/// <param name="size">
 		/// Specifies the diameter of rasterized points. The initial value is 1.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is less than or equal to 0.
-		/// </exception>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1193,15 +1080,6 @@ namespace OpenGL
 		/// Gl.PREVIOUS, Gl.SRC_COLOR, Gl.ONE_MINUS_SRC_COLOR, Gl.SRC_ALPHA, Gl.ONE_MINUS_SRC_ALPHA, a single boolean value for the 
 		/// point sprite texture coordinate replacement, or 1.0, 2.0, or 4.0 when specifying the Gl.RGB_SCALE or Gl.ALPHA_SCALE.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted 
-		/// defined values, or when <paramref name="params"/> should have a defined constant value (based on the value of <paramref 
-		/// name="pname"/>) and does not.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if the <paramref name="params"/> value for Gl.RGB_SCALE or Gl.ALPHA_SCALE are not one of 
-		/// 1.0, 2.0, or 4.0.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
@@ -1234,15 +1112,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted 
-		/// defined values, or when <paramref name="params"/> should have a defined constant value (based on the value of <paramref 
-		/// name="pname"/>) and does not.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if the <paramref name="params"/> value for Gl.RGB_SCALE or Gl.ALPHA_SCALE are not one of 
-		/// 1.0, 2.0, or 4.0.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.CompressedTexImage2D"/>
 		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
@@ -1278,14 +1147,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
-		/// values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="param"/> should have a defined constant value (based on the value of 
-		/// <paramref name="pname"/>) and does not.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -1317,14 +1178,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not one of the accepted defined 
-		/// values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="param"/> should have a defined constant value (based on the value of 
-		/// <paramref name="pname"/>) and does not.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>

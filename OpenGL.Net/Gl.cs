@@ -332,7 +332,7 @@ namespace OpenGL
 		/// Query the version of the current OpenGL context.
 		/// </summary>
 		/// <returns>
-		/// It returns the <see cref="KhronosVersion"/> specifying the actual version of <paramref name="ctx"/>.
+		/// It returns the <see cref="KhronosVersion"/> specifying the actual version of the context current on this thread.
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if no GL context is current on the calling thread.
@@ -369,7 +369,7 @@ namespace OpenGL
 		/// Query the version of the current OpenGL context.
 		/// </summary>
 		/// <returns>
-		/// It returns the <see cref="KhronosVersion"/> specifying teh actual version of <paramref name="ctx"/>.
+		/// It returns the <see cref="KhronosVersion"/> specifying the actual version of the context current on this thread.
 		/// </returns>
 		private static KhronosVersion QueryContextVersionCore()
 		{
@@ -700,7 +700,7 @@ namespace OpenGL
 		/// Gl.INVALID_VALUE is generated if <paramref name="program"/> is not the name of a program object.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="bufferMode"/> is Gl.SEPARATE_ATTRIBS and <paramref name="count"/> is 
+		/// Gl.INVALID_VALUE is generated if <paramref name="bufferMode"/> is Gl.SEPARATE_ATTRIBS and the length of <paramref name="varyings"/> is 
 		/// greater than the implementation-dependent limit Gl.MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS.
 		/// </exception>
 		/// <seealso cref="Gl.BeginTransformFeedback"/>

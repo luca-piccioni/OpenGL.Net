@@ -148,7 +148,7 @@ namespace OpenGL
 		/// A <see cref="<#= className #>"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="<#= baseType #>[]"/> equivalent to <paramref name="a"/>.
+		/// A <see cref="T:<#= baseType #>[]"/> equivalent to <paramref name="a"/>.
 		/// </returns>
 		public static implicit operator <#= baseType #>[](<#= className #> a)
 		{

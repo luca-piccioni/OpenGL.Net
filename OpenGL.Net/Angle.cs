@@ -77,7 +77,7 @@ namespace OpenGL
 		/// A <see cref="Double"/> that specifies the angle to convert, in degress.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="Double"/> that is <paramref name="radians"/>, but expressed in radians.
+		/// It returns a <see cref="Double"/> that is <paramref name="degrees"/>, but expressed in radians.
 		/// </returns>
 		public static double ToRadians(double degrees)
 		{
@@ -91,7 +91,7 @@ namespace OpenGL
 		/// A <see cref="Single"/> that specifies the angle to convert, in degress.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="Single"/> that is <paramref name="radians"/>, but expressed in radians.
+		/// It returns a <see cref="Single"/> that is <paramref name="degrees"/>, but expressed in radians.
 		/// </returns>
 		public static float ToRadians(float degrees)
 		{

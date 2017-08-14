@@ -292,41 +292,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix2x3fvNV")]
@@ -365,41 +330,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix2x3fvNV")]
@@ -433,41 +363,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix3x2fvNV")]
@@ -506,41 +401,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix3x2fvNV")]
@@ -574,41 +434,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix2x4fvNV")]
@@ -647,41 +472,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix2x4fvNV")]
@@ -715,41 +505,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix4x2fvNV")]
@@ -788,41 +543,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix4x2fvNV")]
@@ -856,41 +576,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix3x4fvNV")]
@@ -929,41 +614,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix3x4fvNV")]
@@ -997,41 +647,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix4x3fvNV")]
@@ -1070,41 +685,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if there is no current program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the size of the uniform variable declared in the shader does not match the size 
-		/// indicated by the Gl.Uniform command.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed or unsigned integer variants of this function is used to load a 
-		/// uniform variable of type float, vec2, vec3, vec4, or an array of these, or if one of the floating-point variants of this 
-		/// function is used to load a uniform variable of type int, ivec2, ivec3, ivec4, unsigned int, uvec2, uvec3, uvec4, or an 
-		/// array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the signed integer variants of this function is used to load a uniform 
-		/// variable of type unsigned int, uvec2, uvec3, uvec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if one of the unsigned integer variants of this function is used to load a uniform 
-		/// variable of type int, ivec2, ivec3, ivec4, or an array of these.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="location"/> is an invalid uniform location for the current program 
-		/// object and <paramref name="location"/> is not equal to -1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="count"/> is greater than 1 and the indicated uniform variable is 
-		/// not an array variable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a sampler is loaded using a command other than Gl.Uniform1i and Gl.Uniform1iv.
-		/// </exception>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix4x3fvNV")]

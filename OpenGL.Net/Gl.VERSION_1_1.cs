@@ -1202,20 +1202,6 @@ namespace OpenGL
 		/// <param name="count">
 		/// Specifies the number of indices to be rendered.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		/// data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
-		/// input primitive type of the geometry shader in the currently installed program object.
-		/// </exception>
 		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
@@ -1253,20 +1239,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
-		/// input primitive type of the geometry shader in the currently installed program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		/// the buffer object's data store is currently mapped.
-		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
@@ -1302,20 +1274,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="count"/> is negative.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a geometry shader is active and <paramref name="mode"/> is incompatible with the 
-		/// input primitive type of the geometry shader in the currently installed program object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		/// the buffer object's data store is currently mapped.
-		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
@@ -1344,9 +1302,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
 		[AliasOf("glGetPointervEXT")]
 		[AliasOf("glGetPointervKHR")]
@@ -1383,9 +1338,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.DebugMessageCallback"/>
 		[AliasOf("glGetPointervEXT")]
 		[AliasOf("glGetPointervKHR")]
@@ -1419,10 +1371,6 @@ namespace OpenGL
 		/// <param name="units">
 		/// Is multiplied by an implementation-specific value to create a constant depth offset. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.PolygonOffset is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.DepthFunc"/>
 		/// <seealso cref="Gl.Enable"/>
 		/// <seealso cref="Gl.Get"/>
@@ -1472,37 +1420,6 @@ namespace OpenGL
 		/// <param name="border">
 		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2⁢max, where max is the returned value 
-		/// of Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="internalformat"/> is not an allowable value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than 0 or greater than 2 + Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if non-power-of-two textures are not supported and the <paramref name="width"/> cannot be 
-		/// represented as 2n+2⁡border for some integer value of n.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0 or 1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyTexImage1D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is Gl.DEPTH_COMPONENT, Gl.DEPTH_COMPONENT16, 
-		/// Gl.DEPTH_COMPONENT24, or Gl.DEPTH_COMPONENT32 and there is no depth buffer.
-		/// </exception>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
@@ -1569,39 +1486,6 @@ namespace OpenGL
 		/// <param name="border">
 		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
-		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, or Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2⁢max, where max is the returned value 
-		/// of Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than 0 or greater than 2 + Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if non-power-of-two textures are not supported and the <paramref name="width"/> or 
-		/// <paramref name="depth"/> cannot be represented as 2k+2⁡border for some integer k.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="border"/> is not 0 or 1.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="internalformat"/> is not an accepted format.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyTexImage2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="internalformat"/> is Gl.DEPTH_COMPONENT, Gl.DEPTH_COMPONENT16, 
-		/// Gl.DEPTH_COMPONENT24, or Gl.DEPTH_COMPONENT32 and there is no depth buffer.
-		/// </exception>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexSubImage1D"/>
@@ -1649,25 +1533,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if /<paramref name="target"/> is not Gl.TEXTURE_1D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous Gl\.TexImage1D or 
-		/// Gl\.CopyTexImage1D operation.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if level&gt;log2⁡max, where max is the returned value of Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if xoffset&lt;-b, or xoffset+width&gt;w-b, where w is the Gl.TEXTURE_WIDTH and b is the 
-		/// Gl.TEXTURE_BORDER of the texture image being modified. Note that w includes twice the border width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// </exception>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -1730,30 +1595,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the texture subimage.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, 
-		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, or Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous Gl\.TexImage2D or 
-		/// Gl\.CopyTexImage2D operation.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if level&gt;log2⁡max, where max is the returned value of Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, or yoffset+height&gt;h-b, where w 
-		/// is the Gl.TEXTURE_WIDTH, h is the Gl.TEXTURE_HEIGHT, and b is the Gl.TEXTURE_BORDER of the texture image being modified. 
-		/// Note that w and h include twice the border width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyTexSubImage2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -1813,65 +1654,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or the effective target of <paramref name="texture"/> is not 
-		/// one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated by Gl.TextureSubImage1D if <paramref name="texture"/> is not the name of an existing 
-		/// texture object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not an accepted format constant.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not a type constant.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2max, where max is the returned value 
-		/// of Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if xoffset&lt;-b, or if xoffset+width&gt;w-b, where w is the Gl.TEXTURE_WIDTH, and b is 
-		/// the width of the Gl.TEXTURE_BORDER of the texture image being modified. Note that w includes twice the border width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage1D operation.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is Gl.STENCIL_INDEX and the base internal format is not 
-		/// Gl.STENCIL_INDEX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="pixels"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
-		/// by <paramref name="type"/>.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -1925,65 +1707,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or the effective target of <paramref name="texture"/> is not 
-		/// one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated by Gl.TextureSubImage1D if <paramref name="texture"/> is not the name of an existing 
-		/// texture object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not an accepted format constant.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not a type constant.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2max, where max is the returned value 
-		/// of Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if xoffset&lt;-b, or if xoffset+width&gt;w-b, where w is the Gl.TEXTURE_WIDTH, and b is 
-		/// the width of the Gl.TEXTURE_BORDER of the texture image being modified. Note that w includes twice the border width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage1D operation.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is Gl.STENCIL_INDEX and the base internal format is not 
-		/// Gl.STENCIL_INDEX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="pixels"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
-		/// by <paramref name="type"/>.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -2049,67 +1772,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or the effective target of <paramref name="texture"/> is not 
-		/// Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.TEXTURE_1D_ARRAY.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated by Gl.TextureSubImage2D if <paramref name="texture"/> is not the name of an existing 
-		/// texture object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not an accepted format constant.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not a type constant.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2max, where max is the returned value 
-		/// of Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, or yoffset+height&gt;h-b, where w 
-		/// is the Gl.TEXTURE_WIDTH, h is the Gl.TEXTURE_HEIGHT, and b is the border width of the texture image being modified. Note 
-		/// that w and h include twice the border width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> or <paramref name="height"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage2D operation.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is Gl.STENCIL_INDEX and the base internal format is not 
-		/// Gl.STENCIL_INDEX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="pixels"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
-		/// by <paramref name="type"/>.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -2176,67 +1838,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or the effective target of <paramref name="texture"/> is not 
-		/// Gl.TEXTURE_2D, Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, 
-		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, or Gl.TEXTURE_1D_ARRAY.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated by Gl.TextureSubImage2D if <paramref name="texture"/> is not the name of an existing 
-		/// texture object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not an accepted format constant.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not a type constant.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="level"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if <paramref name="level"/> is greater than log2max, where max is the returned value 
-		/// of Gl.MAX_TEXTURE_SIZE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if xoffset&lt;-b, xoffset+width&gt;w-b, yoffset&lt;-b, or yoffset+height&gt;h-b, where w 
-		/// is the Gl.TEXTURE_WIDTH, h is the Gl.TEXTURE_HEIGHT, and b is the border width of the texture image being modified. Note 
-		/// that w and h include twice the border width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> or <paramref name="height"/> is less than 0.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if the texture array has not been defined by a previous glTexImage2D operation.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is Gl.STENCIL_INDEX and the base internal format is not 
-		/// Gl.STENCIL_INDEX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="pixels"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
-		/// by <paramref name="type"/>.
-		/// </exception>
 		/// <seealso cref="Gl.ActiveTexture"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -2279,17 +1880,6 @@ namespace OpenGL
 		/// <param name="texture">
 		/// Specifies the name of a texture.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="texture"/> is not a name returned from a previous call to 
-		/// glGenTextures.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="texture"/> was previously created with a target that doesn't match 
-		/// that of <paramref name="target"/>.
-		/// </exception>
 		/// <seealso cref="Gl.DeleteTextures"/>
 		/// <seealso cref="Gl.GenTextures"/>
 		/// <seealso cref="Gl.Get"/>
@@ -2324,9 +1914,6 @@ namespace OpenGL
 		/// <param name="textures">
 		/// Specifies an array of textures to be deleted.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -2360,9 +1947,6 @@ namespace OpenGL
 		/// <param name="textures">
 		/// Specifies an array in which the generated texture names are stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -2395,9 +1979,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenTextures: generate texture names
 		/// </para>
 		/// </summary>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
 		/// <seealso cref="Gl.CopyTexImage2D"/>
@@ -2459,13 +2040,6 @@ namespace OpenGL
 		/// <param name="i">
 		/// Specifies an index into the enabled vertex data arrays.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE may be generated if <paramref name="i"/> is negative.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		/// data store is currently mapped.
-		/// </exception>
 		/// <seealso cref="Gl.ClientActiveTexture"/>
 		/// <seealso cref="Gl.ColorPointer"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2508,15 +2082,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3 or 4.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.Color"/>
@@ -2568,15 +2133,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3 or 4.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.Color"/>
@@ -2619,13 +2175,6 @@ namespace OpenGL
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="cap"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.EnableClientState is not allowed between the execution of Gl\.Begin and the corresponding Gl\.End, but an error may 
-		/// or may not be generated. If no error is generated, the behavior is undefined.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.ClientActiveTexture"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -2662,9 +2211,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first edge flag in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -2706,9 +2252,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first edge flag in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -2750,13 +2293,6 @@ namespace OpenGL
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="cap"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.EnableClientState is not allowed between the execution of Gl\.Begin and the corresponding Gl\.End, but an error may 
-		/// or may not be generated. If no error is generated, the behavior is undefined.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.ClientActiveTexture"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -2797,12 +2333,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first index in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -2848,12 +2378,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first index in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -2901,12 +2425,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.ClientActiveTexture"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -2944,12 +2462,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.ClientActiveTexture"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -2991,12 +2503,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -3045,12 +2551,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -3104,15 +2604,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 1, 2, 3, or 4.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ClientActiveTexture"/>
@@ -3166,15 +2657,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 1, 2, 3, or 4.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ClientActiveTexture"/>
@@ -3233,15 +2715,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 2, 3, or 4.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -3296,15 +2769,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 2, 3, or 4.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -3349,17 +2813,6 @@ namespace OpenGL
 		/// Specifies an array in which the texture residence status is returned. The residence status of a texture named by an 
 		/// element of <paramref name="textures"/> is returned in the corresponding element of <paramref name="residences"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if any element in <paramref name="textures"/> is 0 or does not name a texture. In that 
-		/// case, the function returns Gl.FALSE and the contents of <paramref name="residences"/> is indeterminate.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.AreTexturesResident is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.GetTexParameter"/>
 		/// <seealso cref="Gl.PrioritizeTextures"/>
@@ -3397,13 +2850,6 @@ namespace OpenGL
 		/// Specifies an array containing the texture priorities. A priority given in an element of <paramref name="priorities"/> 
 		/// applies to the texture named by the corresponding element of <paramref name="textures"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.PrioritizeTextures is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.AreTexturesResident"/>
 		/// <seealso cref="Gl.BindTexture"/>
 		/// <seealso cref="Gl.CopyTexImage1D"/>
@@ -3473,12 +2919,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glPopClientAttrib: push and pop the client attribute stack
 		/// </summary>
-		/// <exception cref="KhronosException">
-		/// Gl.STACK_OVERFLOW is generated if Gl.PushClientAttrib is called while the attribute stack is full.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.STACK_UNDERFLOW is generated if Gl\.PopClientAttrib is called while the attribute stack is empty.
-		/// </exception>
 		/// <seealso cref="Gl.ColorPointer"/>
 		/// <seealso cref="Gl.DisableClientState"/>
 		/// <seealso cref="Gl.EdgeFlagPointer"/>
@@ -3509,12 +2949,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.STACK_OVERFLOW is generated if Gl.PushClientAttrib is called while the attribute stack is full.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.STACK_UNDERFLOW is generated if Gl\.PopClientAttrib is called while the attribute stack is empty.
-		/// </exception>
 		/// <seealso cref="Gl.ColorPointer"/>
 		/// <seealso cref="Gl.DisableClientState"/>
 		/// <seealso cref="Gl.EdgeFlagPointer"/>

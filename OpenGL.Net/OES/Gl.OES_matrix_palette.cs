@@ -47,9 +47,6 @@ namespace OpenGL
 		/// <param name="matrixpaletteindex">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is not between Gl. and Gl.MAX_PALETTE_MATRICES_OES - Gl..
-		/// </exception>
 		/// <seealso cref="Gl.LoadPaletteFromModelViewMatrix"/>
 		/// <seealso cref="Gl.MatrixIndexPointer"/>
 		/// <seealso cref="Gl.MatrixMode"/>
@@ -98,15 +95,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is greater than Gl.MAX_VERTEX_UNITS_OES.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -140,15 +128,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is greater than Gl.MAX_VERTEX_UNITS_OES.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -185,15 +164,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first weight of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is greater than Gl.MAX_VERTEX_UNITS_OES.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
@@ -228,15 +198,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first weight of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is greater than Gl.MAX_VERTEX_UNITS_OES.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>

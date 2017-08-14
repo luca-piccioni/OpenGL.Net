@@ -747,13 +747,6 @@ namespace OpenGL
 		/// <param name="dfactorAlpha">
 		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if either <paramref name="srcRGB"/> or <paramref name="dstRGB"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.BlendFuncSeparate is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.AlphaFunc"/>
 		/// <seealso cref="Gl.BlendColor"/>
 		/// <seealso cref="Gl.BlendFunc"/>
@@ -795,16 +788,6 @@ namespace OpenGL
 		/// <param name="drawcount">
 		/// Specifies the size of the first and count
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="drawcount"/> is negative.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array and the buffer object's 
-		/// data store is currently mapped.
-		/// </exception>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[AliasOf("glMultiDrawArraysEXT")]
@@ -845,16 +828,6 @@ namespace OpenGL
 		/// <param name="drawcount">
 		/// Specifies the size of the <paramref name="count"/> and <paramref name="indices"/> arrays.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="drawcount"/> is negative.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to an enabled array or the element array and 
-		/// the buffer object's data store is currently mapped.
-		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawRangeElements"/>
 		[AliasOf("glMultiDrawElementsEXT")]
@@ -888,13 +861,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// For Gl.PointParameterf and Gl.PointParameteri, specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if the value specified for Gl.POINT_FADE_THRESHOLD_SIZE is less than zero.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated If the value specified for Gl.POINT_SPRITE_COORD_ORIGIN is not Gl.LOWER_LEFT or 
-		/// Gl.UPPER_LEFT.
-		/// </exception>
 		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameterfARB")]
 		[AliasOf("glPointParameterfEXT")]
@@ -927,13 +893,6 @@ namespace OpenGL
 		/// For Gl.PointParameterfv and Gl.PointParameteriv, specifies a pointer to an array where the value or values to be 
 		/// assigned to <paramref name="pname"/> are stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if the value specified for Gl.POINT_FADE_THRESHOLD_SIZE is less than zero.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated If the value specified for Gl.POINT_SPRITE_COORD_ORIGIN is not Gl.LOWER_LEFT or 
-		/// Gl.UPPER_LEFT.
-		/// </exception>
 		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameterfvARB")]
 		[AliasOf("glPointParameterfvEXT")]
@@ -965,13 +924,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// For Gl.PointParameterf and Gl.PointParameteri, specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if the value specified for Gl.POINT_FADE_THRESHOLD_SIZE is less than zero.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated If the value specified for Gl.POINT_SPRITE_COORD_ORIGIN is not Gl.LOWER_LEFT or 
-		/// Gl.UPPER_LEFT.
-		/// </exception>
 		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameteriNV")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -994,13 +946,6 @@ namespace OpenGL
 		/// For Gl.PointParameterfv and Gl.PointParameteriv, specifies a pointer to an array where the value or values to be 
 		/// assigned to <paramref name="pname"/> are stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if the value specified for Gl.POINT_FADE_THRESHOLD_SIZE is less than zero.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated If the value specified for Gl.POINT_SPRITE_COORD_ORIGIN is not Gl.LOWER_LEFT or 
-		/// Gl.UPPER_LEFT.
-		/// </exception>
 		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameterivNV")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1124,12 +1069,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not either Gl.FLOAT or Gl.DOUBLE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -1177,12 +1116,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not either Gl.FLOAT or Gl.DOUBLE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -1667,15 +1600,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -1726,15 +1650,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="size"/> is not 3.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.ArrayElement"/>
 		/// <seealso cref="Gl.BindBuffer"/>
 		/// <seealso cref="Gl.ColorPointer"/>
@@ -1779,10 +1694,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1814,10 +1725,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1857,10 +1764,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1892,10 +1795,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1935,10 +1834,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -1970,10 +1865,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2013,10 +1904,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2048,10 +1935,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2094,10 +1977,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2129,10 +2008,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2175,10 +2050,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2210,10 +2081,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2256,10 +2123,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2291,10 +2154,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2337,10 +2196,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2372,10 +2227,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.WindowPos is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Bitmap"/>
 		/// <seealso cref="Gl.CopyPixels"/>
 		/// <seealso cref="Gl.DrawArrays"/>
@@ -2448,14 +2299,6 @@ namespace OpenGL
 		/// specifies how source and destination colors are combined. It must be Gl.FUNC_ADD, Gl.FUNC_SUBTRACT, 
 		/// Gl.FUNC_REVERSE_SUBTRACT, Gl.MIN, Gl.MAX.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="mode"/> is not one of Gl.FUNC_ADD, Gl.FUNC_SUBTRACT, 
-		/// Gl.FUNC_REVERSE_SUBTRACT, Gl.MAX, or Gl.MIN.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.BlendEquation is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetString"/>
 		/// <seealso cref="Gl.BlendColor"/>
 		/// <seealso cref="Gl.BlendFunc"/>

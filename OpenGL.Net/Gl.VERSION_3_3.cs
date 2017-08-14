@@ -207,22 +207,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to modify
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="colorNumber"/> is greater than or equal to Gl.MAX_DRAW_BUFFERS.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="colorNumber"/> is greater than or equal to 
-		/// Gl.MAX_DUAL_SOURCE_DRAW_BUFFERS and <paramref name="index"/> is greater than or equal to one.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than one.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="name"/> starts with the reserved Gl. prefix.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ogram is not the name of a program object.
-		/// </exception>
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.LinkProgram"/>
 		/// <seealso cref="Gl.GetFragDataLocation"/>
@@ -249,9 +233,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose index to query
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="program"/> is not the name of a program object.
-		/// </exception>
 		/// <seealso cref="Gl.CreateProgram"/>
 		/// <seealso cref="Gl.BindFragDataLocation"/>
 		/// <seealso cref="Gl.BindFragDataLocationIndexed"/>
@@ -280,9 +261,6 @@ namespace OpenGL
 		/// <param name="samplers">
 		/// Specifies an array in which the generated sampler object names are stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.BindSampler"/>
 		/// <seealso cref="Gl.IsSampler"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
@@ -307,9 +285,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenSamplers: generate sampler object names
 		/// </para>
 		/// </summary>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.BindSampler"/>
 		/// <seealso cref="Gl.IsSampler"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
@@ -331,9 +306,6 @@ namespace OpenGL
 		/// <param name="samplers">
 		/// Specifies an array of sampler objects to be deleted.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="n"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.GenSamplers"/>
 		/// <seealso cref="Gl.BindSampler"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
@@ -391,14 +363,6 @@ namespace OpenGL
 		/// <param name="sampler">
 		/// Specifies the name of a sampler.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="unit"/> is greater than or equal to the value of 
-		/// Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="sampler"/> is not zero or a name previously returned from a call to 
-		/// glGenSamplers, or if such a name has been deleted by a call to glDeleteSamplers.
-		/// </exception>
 		/// <seealso cref="Gl.GenSamplers"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
 		/// <seealso cref="Gl.Get"/>
@@ -600,13 +564,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
-		/// call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.SamplerParameter"/>
 		/// <seealso cref="Gl.GenSamplers"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
@@ -643,13 +600,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
-		/// call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.SamplerParameter"/>
 		/// <seealso cref="Gl.GenSamplers"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
@@ -690,13 +640,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
-		/// call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.SamplerParameter"/>
 		/// <seealso cref="Gl.GenSamplers"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
@@ -733,13 +676,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="sampler"/> is not the name of a sampler object returned from a previous 
-		/// call to glGenSamplers.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Gl.SamplerParameter"/>
 		/// <seealso cref="Gl.GenSamplers"/>
 		/// <seealso cref="Gl.DeleteSamplers"/>
@@ -774,17 +710,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Specify the counter to query. <paramref name="target"/> must be Gl.TIMESTAMP.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a query object that is already in use within a 
-		/// glBeginQuery / Gl.EndQuery block.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="id"/> is not the name of a query object returned from a previous call 
-		/// to glGenQueries.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.TIMESTAMP.
-		/// </exception>
 		/// <seealso cref="Gl.GenQueries"/>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.DeleteQueries"/>
@@ -819,19 +744,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
-		/// would cause data to be written beyond the bounds of that buffer's data store.
-		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
@@ -870,19 +782,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
-		/// would cause data to be written beyond the bounds of that buffer's data store.
-		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
@@ -921,19 +820,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
-		/// would cause data to be written beyond the bounds of that buffer's data store.
-		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
@@ -972,19 +858,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is not the name of a query object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="id"/> is the name of a currently active query object.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a buffer is currently bound to the Gl.QUERY_RESULT_BUFFER target and the command 
-		/// would cause data to be written beyond the bounds of that buffer's data store.
-		/// </exception>
 		/// <seealso cref="Gl.BeginQuery"/>
 		/// <seealso cref="Gl.GetQueryiv"/>
 		/// <seealso cref="Gl.IsQuery"/>
@@ -1020,10 +893,6 @@ namespace OpenGL
 		/// Specify the number of instances that will pass between updates of the generic attribute at slot <paramref 
 		/// name="index"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to the value of 
-		/// Gl.MAX_VERTEX_ATTRIBS.
-		/// </exception>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		[AliasOf("glVertexAttribDivisorANGLE")]
@@ -1063,16 +932,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
-		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
-		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -1134,16 +993,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
-		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
-		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -1205,16 +1054,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
-		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
-		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -1276,16 +1115,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="index"/> is greater than or equal to Gl.MAX_VERTEX_ATTRIBS.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribP* is used with a <paramref name="type"/> other than 
-		/// Gl.INT_2_10_10_10_REV, Gl.UNSIGNED_INT_2_10_10_10_REV, or Gl.UNSIGNED_INT_10F_11F_11F_REV.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if Gl.VertexAttribL is used with a <paramref name="type"/> other than Gl.DOUBLE.
-		/// </exception>
 		/// <seealso cref="Gl.BindAttribLocation"/>
 		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]

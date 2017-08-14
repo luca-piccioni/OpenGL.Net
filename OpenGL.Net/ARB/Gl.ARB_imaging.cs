@@ -659,45 +659,9 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="data">
+		/// Pointer to a one-dimensional array of pixel data that is processed to build the color table.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.TABLE_TOO_LARGE is generated if the requested color table is too large to be supported by the implementation, and 
-		/// <paramref name="target"/> is not a Gl.PROXY_* target.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ColorTable is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorSubTable"/>
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
@@ -707,11 +671,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr table)
+		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglColorTable != null, "pglColorTable not implemented");
-			Delegates.pglColorTable((Int32)target, (Int32)internalformat, width, (Int32)format, (Int32)type, table);
-			LogCommand("glColorTable", null, target, internalformat, width, format, type, table			);
+			Delegates.pglColorTable((Int32)target, (Int32)internalformat, width, (Int32)format, (Int32)type, data);
+			LogCommand("glColorTable", null, target, internalformat, width, format, type, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -744,45 +708,9 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
-		/// <param name="table">
-		/// A <see cref="T:Object"/>.
+		/// <param name="data">
+		/// Pointer to a one-dimensional array of pixel data that is processed to build the color table.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.TABLE_TOO_LARGE is generated if the requested color table is too large to be supported by the implementation, and 
-		/// <paramref name="target"/> is not a Gl.PROXY_* target.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ColorTable is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorSubTable"/>
 		/// <seealso cref="Gl.CopyColorTable"/>
 		/// <seealso cref="Gl.CopyColorSubTable"/>
@@ -792,9 +720,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, Object table)
+		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, Object data)
 		{
-			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
+			GCHandle pin_table = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
 				ColorTable(target, internalformat, width, format, type, pin_table.AddrOfPinnedObject());
 			} finally {
@@ -814,13 +742,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ColorTableParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glColorTableParameterfvSGI")]
@@ -851,13 +772,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ColorTableParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glColorTableParameterivSGI")]
@@ -899,22 +813,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The width of the pixel rectangle.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated when <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.TABLE_TOO_LARGE is generated if the requested color table is too large to be supported by the implementation.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyColorTable is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		/// <seealso cref="Gl.ReadPixels"/>
@@ -949,43 +847,6 @@ namespace OpenGL
 		/// <param name="table">
 		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="table"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetColorTable is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableEXT")]
@@ -1019,43 +880,6 @@ namespace OpenGL
 		/// <param name="table">
 		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="table"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetColorTable is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableEXT")]
@@ -1086,13 +910,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetColorTableParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
@@ -1127,13 +944,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> or <paramref name="pname"/> is not an acceptable value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetColorTableParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.TexParameter"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
@@ -1179,35 +989,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if start+count&gt;width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ColorSubTable is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		/// <seealso cref="Gl.CopyColorTable"/>
@@ -1250,35 +1031,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if start+count&gt;width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ColorSubTable is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		/// <seealso cref="Gl.CopyColorTable"/>
@@ -1315,19 +1067,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The number of table entries to replace.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is not a previously defined color table.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if start+x&gt;width.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyColorSubTable is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ColorSubTable"/>
 		/// <seealso cref="Gl.ColorTableParameter"/>
 		/// <seealso cref="Gl.CopyColorTable"/>
@@ -1371,54 +1110,9 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="data">
+		/// Pointer to a one-dimensional array of pixel data that is processed to build the convolution filter kernel.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
-		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_1D and name 
-		/// Gl.MAX_CONVOLUTION_WIDTH.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="type"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="type"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionFilter1D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
@@ -1426,11 +1120,11 @@ namespace OpenGL
 		[AliasOf("glConvolutionFilter1DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr image)
+		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter1D != null, "pglConvolutionFilter1D not implemented");
-			Delegates.pglConvolutionFilter1D((Int32)target, (Int32)internalformat, width, (Int32)format, (Int32)type, image);
-			LogCommand("glConvolutionFilter1D", null, target, internalformat, width, format, type, image			);
+			Delegates.pglConvolutionFilter1D((Int32)target, (Int32)internalformat, width, (Int32)format, (Int32)type, data);
+			LogCommand("glConvolutionFilter1D", null, target, internalformat, width, format, type, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -1462,54 +1156,9 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:Object"/>.
+		/// <param name="data">
+		/// Pointer to a one-dimensional array of pixel data that is processed to build the convolution filter kernel.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
-		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_1D and name 
-		/// Gl.MAX_CONVOLUTION_WIDTH.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="type"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="format"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="type"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionFilter1D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
@@ -1517,9 +1166,9 @@ namespace OpenGL
 		[AliasOf("glConvolutionFilter1DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, Object image)
+		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, Object data)
 		{
-			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
+			GCHandle pin_image = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
 				ConvolutionFilter1D(target, internalformat, width, format, type, pin_image.AddrOfPinnedObject());
 			} finally {
@@ -1558,59 +1207,9 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:IntPtr"/>.
+		/// <param name="data">
+		/// Pointer to a two-dimensional array of pixel data that is processed to build the convolution filter kernel.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
-		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
-		/// Gl.MAX_CONVOLUTION_WIDTH.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
-		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
-		/// Gl.MAX_CONVOLUTION_HEIGHT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionFilter2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
@@ -1618,11 +1217,11 @@ namespace OpenGL
 		[AliasOf("glConvolutionFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr image)
+		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter2D != null, "pglConvolutionFilter2D not implemented");
-			Delegates.pglConvolutionFilter2D((Int32)target, (Int32)internalformat, width, height, (Int32)format, (Int32)type, image);
-			LogCommand("glConvolutionFilter2D", null, target, internalformat, width, height, format, type, image			);
+			Delegates.pglConvolutionFilter2D((Int32)target, (Int32)internalformat, width, height, (Int32)format, (Int32)type, data);
+			LogCommand("glConvolutionFilter2D", null, target, internalformat, width, height, format, type, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -1657,59 +1256,9 @@ namespace OpenGL
 		/// Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, Gl.UNSIGNED_INT_8_8_8_8_REV, 
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
-		/// <param name="image">
-		/// A <see cref="T:Object"/>.
+		/// <param name="data">
+		/// Pointer to a two-dimensional array of pixel data that is processed to build the convolution filter kernel.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
-		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
-		/// Gl.MAX_CONVOLUTION_WIDTH.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
-		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
-		/// Gl.MAX_CONVOLUTION_HEIGHT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="data"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionFilter2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
@@ -1717,9 +1266,9 @@ namespace OpenGL
 		[AliasOf("glConvolutionFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object image)
+		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object data)
 		{
-			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
+			GCHandle pin_image = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
 				ConvolutionFilter2D(target, internalformat, width, height, format, type, pin_image.AddrOfPinnedObject());
 			} finally {
@@ -1739,20 +1288,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is Gl.CONVOLUTION_BORDER_MODE and <paramref name="params"/> is 
-		/// not one of Gl.REDUCE, Gl.CONSTANT_BORDER, or Gl.REPLICATE_BORDER.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
@@ -1780,20 +1315,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is Gl.CONVOLUTION_BORDER_MODE and <paramref name="params"/> is 
-		/// not one of Gl.REDUCE, Gl.CONSTANT_BORDER, or Gl.REPLICATE_BORDER.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
@@ -1826,20 +1347,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is Gl.CONVOLUTION_BORDER_MODE and <paramref name="params"/> is 
-		/// not one of Gl.REDUCE, Gl.CONSTANT_BORDER, or Gl.REPLICATE_BORDER.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
@@ -1867,20 +1374,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is Gl.CONVOLUTION_BORDER_MODE and <paramref name="params"/> is 
-		/// not one of Gl.REDUCE, Gl.CONSTANT_BORDER, or Gl.REPLICATE_BORDER.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ConvolutionParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
@@ -1924,21 +1417,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The width of the pixel array to copy.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_1D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
-		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_1D and name 
-		/// Gl.MAX_CONVOLUTION_WIDTH.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyConvolutionFilter1D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
@@ -1979,26 +1457,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// The height of the pixel array to copy.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.CONVOLUTION_2D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
-		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
-		/// Gl.MAX_CONVOLUTION_WIDTH.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
-		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.CONVOLUTION_2D and name 
-		/// Gl.MAX_CONVOLUTION_HEIGHT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.CopyConvolutionFilter2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.PixelTransfer"/>
@@ -2033,43 +1491,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// Pointer to storage for the output image.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="image"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetConvolutionFilter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
@@ -2103,43 +1524,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// Pointer to storage for the output image.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="image"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated by 
-		/// <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetConvolutionFilter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
@@ -2170,20 +1554,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is Gl.CONVOLUTION_1D and <paramref name="pname"/> is 
-		/// Gl.CONVOLUTION_HEIGHT or Gl.MAX_CONVOLUTION_HEIGHT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetConvolutionParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
@@ -2216,20 +1586,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is Gl.CONVOLUTION_1D and <paramref name="pname"/> is 
-		/// Gl.CONVOLUTION_HEIGHT or Gl.MAX_CONVOLUTION_HEIGHT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetConvolutionParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.GetSeparableFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
@@ -2273,43 +1629,6 @@ namespace OpenGL
 		/// <param name="span">
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="row"/> or <paramref name="column"/> is not evenly divisible into the number of bytes needed to store in 
-		/// memory a datum indicated by <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetSeparableFilter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
@@ -2348,43 +1667,6 @@ namespace OpenGL
 		/// <param name="span">
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="row"/> or <paramref name="column"/> is not evenly divisible into the number of bytes needed to store in 
-		/// memory a datum indicated by <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetSeparableFilter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetConvolutionFilter"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
 		/// <seealso cref="Gl.SeparableFilter2D"/>
@@ -2442,56 +1724,6 @@ namespace OpenGL
 		/// <param name="column">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
-		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.SEPARABLE_2D and name 
-		/// Gl.MAX_CONVOLUTION_WIDTH.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
-		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.SEPARABLE_2D and name 
-		/// Gl.MAX_CONVOLUTION_HEIGHT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="row"/> or <paramref name="column"/> is not evenly divisible into the number of bytes needed to store in 
-		/// memory a datum indicated by <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.SeparableFilter2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
@@ -2546,56 +1778,6 @@ namespace OpenGL
 		/// <param name="column">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.SEPARABLE_2D.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or greater than the maximum supported value. 
-		/// This value may be queried with Gl\.GetConvolutionParameter using target Gl.SEPARABLE_2D and name 
-		/// Gl.MAX_CONVOLUTION_WIDTH.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="height"/> is less than zero or greater than the maximum supported 
-		/// value. This value may be queried with Gl\.GetConvolutionParameter using target Gl.SEPARABLE_2D and name 
-		/// Gl.MAX_CONVOLUTION_HEIGHT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="height"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and the 
-		/// data would be unpacked from the buffer object such that the memory reads required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_UNPACK_BUFFER target and 
-		/// <paramref name="row"/> or <paramref name="column"/> is not evenly divisible into the number of bytes needed to store in 
-		/// memory a datum indicated by <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.SeparableFilter2D is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.ConvolutionFilter1D"/>
 		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		/// <seealso cref="Gl.ConvolutionParameter"/>
@@ -2639,43 +1821,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="values"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
-		/// by <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetHistogram is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Histogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2711,43 +1856,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="type"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="values"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
-		/// by <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetHistogram is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Histogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2775,16 +1883,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the returned values.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetHistogramParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2815,16 +1913,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the returned values.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetHistogramParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2861,43 +1949,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned values.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="types"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="types"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="types"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="values"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
-		/// by <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetMinmax is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2929,43 +1980,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned values.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="format"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="types"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="types"/> is one of Gl.UNSIGNED_BYTE_3_3_2, 
-		/// Gl.UNSIGNED_BYTE_2_3_3_REV, Gl.UNSIGNED_SHORT_5_6_5, or Gl.UNSIGNED_SHORT_5_6_5_REV and <paramref name="format"/> is not 
-		/// Gl.RGB.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if <paramref name="types"/> is one of Gl.UNSIGNED_SHORT_4_4_4_4, 
-		/// Gl.UNSIGNED_SHORT_4_4_4_4_REV, Gl.UNSIGNED_SHORT_5_5_5_1, Gl.UNSIGNED_SHORT_1_5_5_5_REV, Gl.UNSIGNED_INT_8_8_8_8, 
-		/// Gl.UNSIGNED_INT_8_8_8_8_REV, Gl.UNSIGNED_INT_10_10_10_2, or Gl.UNSIGNED_INT_2_10_10_10_REV and <paramref name="format"/> 
-		/// is neither Gl.RGBA nor Gl.BGRA.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// buffer object's data store is currently mapped.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and the 
-		/// data would be packed to the buffer object such that the memory writes required would exceed the data store size.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if a non-zero buffer object name is bound to the Gl.PIXEL_PACK_BUFFER target and 
-		/// <paramref name="values"/> is not evenly divisible into the number of bytes needed to store in memory a datum indicated 
-		/// by <paramref name="type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetMinmax is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2991,16 +2005,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetMinmaxParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -3029,16 +2033,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="pname"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.GetMinmaxParameter is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -3075,23 +2069,6 @@ namespace OpenGL
 		/// If Gl.TRUE, pixels will be consumed by the histogramming process and no drawing or texture loading will take place. If 
 		/// Gl.FALSE, pixels will proceed to the minmax process after histogramming.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="width"/> is less than zero or is not a power of 2.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.TABLE_TOO_LARGE is generated if <paramref name="target"/> is Gl.HISTOGRAM and the histogram table specified is too 
-		/// large for the implementation.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.Histogram is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetHistogram"/>
 		/// <seealso cref="Gl.ResetHistogram"/>
 		[AliasOf("glHistogramEXT")]
@@ -3122,16 +2099,6 @@ namespace OpenGL
 		/// If Gl.TRUE, pixels will be consumed by the minmax process and no drawing or texture loading will take place. If 
 		/// Gl.FALSE, pixels will proceed to the final conversion process after minmax.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="internalformat"/> is not one of the allowable values.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.Minmax is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.GetMinmax"/>
 		/// <seealso cref="Gl.ResetMinmax"/>
 		[AliasOf("glMinmaxEXT")]
@@ -3151,13 +2118,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Must be Gl.HISTOGRAM.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.HISTOGRAM.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ResetHistogram is executed between the execution of Gl\.Begin and the 
-		/// corresponding execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Histogram"/>
 		[AliasOf("glResetHistogramEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -3176,13 +2136,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Must be Gl.MINMAX.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="target"/> is not Gl.MINMAX.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_OPERATION is generated if Gl.ResetMinmax is executed between the execution of Gl\.Begin and the corresponding 
-		/// execution of Gl\.End.
-		/// </exception>
 		/// <seealso cref="Gl.Minmax"/>
 		[AliasOf("glResetMinmaxEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]

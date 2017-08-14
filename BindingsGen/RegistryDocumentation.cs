@@ -216,6 +216,7 @@ namespace BindingsGen
 
 			#region Errors
 
+#if false
 			IEnumerable<string> errorsDoc = docHandlers[0].QueryCommandErrors(ctx, command);
 			List<string> errorsLines = new List<string>(errorsDoc);
 
@@ -226,6 +227,7 @@ namespace BindingsGen
 					sw.WriteLine("/// </exception>");
 				}
 			}
+#endif
 
 			#endregion
 

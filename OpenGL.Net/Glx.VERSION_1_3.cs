@@ -712,10 +712,6 @@ namespace OpenGL
 		/// <param name="nelements">
 		/// Returns the number of elements in the list returned by Glx.ChooseFBConfig.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx. is returned if an undefined GLX attribute is encountered in <paramref name="attrib_list"/>, if <paramref 
-		/// name="screen"/> is invalid, or if <paramref name="dpy"/> does not support the GLX extension.
-		/// </exception>
 		/// <seealso cref="Glx.GetFBConfigAttrib"/>
 		/// <seealso cref="Glx.GetFBConfigs"/>
 		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
@@ -753,10 +749,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension. Glx.BAD_ATTRIBUTE is returned 
-		/// if <paramref name="attribute"/> is not a valid GLX attribute.
-		/// </exception>
 		/// <seealso cref="Glx.GetFBConfigs"/>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
@@ -794,10 +786,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.NO_EXTENSION is returned if <paramref name="dpy"/> does not support the GLX extension. Glx.BAD_ATTRIBUTE is returned 
-		/// if <paramref name="attribute"/> is not a valid GLX attribute.
-		/// </exception>
 		/// <seealso cref="Glx.GetFBConfigs"/>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
@@ -829,9 +817,6 @@ namespace OpenGL
 		/// <param name="config">
 		/// Specifies the GLX frame buffer configuration.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Returns Glx. if <paramref name="config"/> is not a valid GLXFBConfig.
-		/// </exception>
 		/// <seealso cref="Glx.GetFBConfigAttrib"/>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.ChooseVisual"/>
@@ -864,28 +849,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Currently unused. This must be set to Glx. or be an empty list (i.e., one in which the first element is Glx.).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.atch is generated if <paramref name="win"/> was not created with a visual that corresponds to <paramref 
-		/// name="config"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.atch is generated if <paramref name="config"/> does not support rendering to windows (i.e., Glx.DRAWABLE_TYPE does 
-		/// not contain Glx.WINDOW_BIT).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.indow is generated if <paramref name="win"/> is not a valid pixmap XID.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.lloc is generated if there is already a GLXFBConfig associated with <paramref name="win"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.lloc is generated if the X server cannot allocate a new GLX window.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adFBConfig is generated if <paramref name="config"/> is not a valid GLXFBConfig.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.DestroyPixmap"/>
 		/// <seealso cref="Glx.MakeContextCurrent"/>
@@ -916,9 +879,6 @@ namespace OpenGL
 		/// <param name="win">
 		/// Specifies the GLXWindow to be destroyed.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adWindow is generated if <paramref name="win"/> is not a valid GLXPixmap.
-		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.CreateWindow"/>
 		/// <seealso cref="Glx.MakeContextCurrent"/>
@@ -946,26 +906,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Currently unused. This must be set to Glx. or be an empty list (i.e., one in which the first element is Glx.).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.atch is generated if <paramref name="pixmap"/> was not created with a visual that corresponds to <paramref 
-		/// name="config"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.atch is generated if <paramref name="config"/> does not support rendering to windows (e.g., Glx.DRAWABLE_TYPE does 
-		/// not contain Glx.WINDOW_BIT).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.indow is generated if <paramref name="pixmap"/> is not a valid window XID. Glx.lloc is generated if there is already 
-		/// a GLXFBConfig associated with <paramref name="pixmap"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.lloc is generated if the X server cannot allocate a new GLX window.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adFBConfig is generated if <paramref name="config"/> is not a valid GLXFBConfig.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.CreateGLXPixmap"/>
 		/// <seealso cref="Glx.DestroyWindow"/>
@@ -997,9 +937,6 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// Specifies the GLXPixmap to be destroyed.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adPixmap is generated if <paramref name="pixmap"/> is not a valid GLXPixmap.
-		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.CreatePixmap"/>
 		/// <seealso cref="Glx.DestroyGLXPixmap"/>
@@ -1026,16 +963,6 @@ namespace OpenGL
 		/// Specifies a list of attribute value pairs, which must be terminated with Glx. or Glx.. Accepted attributes are 
 		/// Glx.PBUFFER_WIDTH, Glx.PBUFFER_HEIGHT, Glx.PRESERVED_CONTENTS, and Glx.LARGEST_PBUFFER.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.lloc is generated if there are insufficient resources to allocate the requested GLXPbuffer.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adFBConfig is generated if <paramref name="config"/> is not a valid GLXFBConfig.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.atch is generated if <paramref name="config"/> does not support rendering to pixel buffers (e.g., Glx.DRAWABLE_TYPE 
-		/// does not contain Glx.PBUFFER_BIT).
-		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.MakeContextCurrent"/>
 		/// <seealso cref="Glx.SelectEvent"/>
@@ -1066,9 +993,6 @@ namespace OpenGL
 		/// <param name="pbuf">
 		/// Specifies the GLXPbuffer to be destroyed.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adPbuffer is generated if <paramref name="pbuf"/> is not a valid GLXPbuffer.
-		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.CreatePbuffer"/>
 		/// <seealso cref="Glx.MakeContextCurrent"/>
@@ -1097,9 +1021,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// A Glx.adDrawable is generated if <paramref name="draw"/> is not a valid GLXDrawable.
-		/// </exception>
 		/// <seealso cref="Glx.CreateWindow"/>
 		/// <seealso cref="Glx.CreatePixmap"/>
 		/// <seealso cref="Glx.CreatePbuffer"/>
@@ -1137,26 +1058,6 @@ namespace OpenGL
 		/// <param name="direct">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx. is returned if execution fails on the client side.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adContext is generated if <paramref name="render_type"/> is not a GLX context and is not Glx..
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adFBConfig is generated if <paramref name="config"/> is not a valid GLXFBConfig.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.atch is generated if the context to be created would not share the address space or the screen of the context 
-		/// specified by <paramref name="render_type"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.lloc is generated if the server does not have enough resources to allocate the new context.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.alue is generated if <paramref name="config"/> is not a valid visual (for example, if a particular GLX 
-		/// implementation does not support it).
-		/// </exception>
 		/// <seealso cref="Glx.ChooseFBConfig"/>
 		/// <seealso cref="Glx.CreateContext"/>
 		/// <seealso cref="Glx.DestroyContext"/>
@@ -1192,51 +1093,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context to be bound to <paramref name="read"/> and <paramref name="ctx"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.atch is generated if <paramref name="draw"/> and <paramref name="read"/> are not compatible.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.ccess is generated if <paramref name="ctx"/> is current to some other thread.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.ontextState is generated if there is a current rendering context and its render mode is either Glx.FEEDBACK or 
-		/// Glx.SELECT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adContext is generated if <paramref name="ctx"/> is not a valid GLX rendering context.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adDrawable is generated if <paramref name="draw"/> or <paramref name="read"/> is not a valid GLX drawable.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adWindow is generated if the underlying X window for either <paramref name="draw"/> or <paramref name="read"/> is no 
-		/// longer valid.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.adCurrentDrawable is generated if the previous context of the calling thread has unflushed commands and the previous 
-		/// drawable is no longer valid.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.lloc is generated if the X server does not have enough resources to allocate the buffers.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.atch is generated if:
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// <paramref name="draw"/> and <paramref name="read"/> cannot fit into frame buffer memory simultaneously.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// <paramref name="draw"/> or <paramref name="read"/> is a GLXPixmap and <paramref name="ctx"/> is a direct-rendering 
-		/// context.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// <paramref name="draw"/> or <paramref name="read"/> is a GLXPixmap and <paramref name="ctx"/> was previously bound to a 
-		/// GLXWindow or GLXPbuffer.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// <paramref name="draw"/> or <paramref name="read"/> is a GLXWindow or GLXPbuffer and <paramref name="ctx"/> was 
-		/// previously bound to a GLXPixmap.
-		/// </exception>
 		/// <seealso cref="Glx.CreateNewContext"/>
 		/// <seealso cref="Glx.CreateWindow"/>
 		/// <seealso cref="Glx.CreatePixmap"/>
@@ -1295,9 +1151,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
-		/// </exception>
 		/// <seealso cref="Glx.CreateNewContext"/>
 		/// <seealso cref="Glx.GetCurrentContext"/>
 		/// <seealso cref="Glx.QueryVersion"/>
@@ -1332,9 +1185,6 @@ namespace OpenGL
 		/// <param name="event_mask">
 		/// Specifies the events to be returned for <paramref name="draw"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adDrawable is generated if <paramref name="draw"/> is not a valid window or a valid GLX pixel buffer.
-		/// </exception>
 		/// <seealso cref="Glx.CreatePbuffer"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static void SelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask)
@@ -1357,9 +1207,6 @@ namespace OpenGL
 		/// <param name="event_mask">
 		/// Returns the events that are selected for <paramref name="draw"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adDrawable is generated if <paramref name="draw"/> is not a valid window or a valid GLX pixel buffer.
-		/// </exception>
 		/// <seealso cref="Glx.SelectEvent"/>
 		/// <seealso cref="Glx.CreatePbuffer"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]

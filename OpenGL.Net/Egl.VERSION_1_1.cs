@@ -201,20 +201,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the texture image data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ACCESS is generated if <paramref name="buffer"/> is already bound to a texture.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the surface attribute Egl.TEXTURE_FORMAT is set to Egl.NO_TEXTURE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="buffer"/> is not a valid buffer (currently only Egl.BACK_BUFFER may be 
-		/// specified).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface, or is not a pbuffer surface supporting 
-		/// texture binding.
-		/// </exception>
 		/// <seealso cref="Egl.ReleaseTexImage"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool BindTexImage(IntPtr dpy, IntPtr surface, int buffer)
@@ -241,16 +227,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the texture image data.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the surface attribute Egl.TEXTURE_FORMAT is set to Egl.NO_TEXTURE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="buffer"/> is not a valid buffer (currently only Egl.BACK_BUFFER may be 
-		/// specified).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface, or is not a bound pbuffer surface.
-		/// </exception>
 		/// <seealso cref="Egl.BindTexImage"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool ReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer)
@@ -280,31 +256,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the attributes required value.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="attribute"/> is Egl.MULTISAMPLE_RESOLVE, <paramref name="value"/> is 
-		/// Egl.MULTISAMPLE_RESOLVE_BOX, and the Egl.SURFACE_TYPE attribute of the EGLConfig used to create <paramref 
-		/// name="surface"/> does not contain Egl.MULTISAMPLE_RESOLVE_BOX_BIT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="attribute"/> is Egl.SWAP_BEHAVIOR, <paramref name="value"/> is 
-		/// Egl.BUFFER_PRESERVED, and the Egl.SURFACE_TYPE attribute of the EGLConfig used to create <paramref name="surface"/> does 
-		/// not contain Egl.SWAP_BEHAVIOR_PRESERVED_BIT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid surface attribute.
-		/// </exception>
 		/// <seealso cref="Egl.CreatePbufferSurface"/>
 		/// <seealso cref="Egl.CreatePixmapSurface"/>
 		/// <seealso cref="Egl.CreateWindowSurface"/>
@@ -332,15 +283,6 @@ namespace OpenGL
 		/// <param name="interval">
 		/// Specifies the minimum number of video frames that are displayed before a buffer swap will occur.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONTEXT is generated if there is no current context on the calling thread.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if there is no surface bound to the current context.
-		/// </exception>
 		/// <seealso cref="Egl.SwapBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool SwapInterval(IntPtr dpy, int interval)

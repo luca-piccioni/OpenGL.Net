@@ -129,7 +129,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="float[]"/> equivalent to <paramref name="a"/>.
+		/// A <see cref="T:float[]"/> equivalent to <paramref name="a"/>.
 		/// </returns>
 		public static implicit operator float[](Vertex3 a)
 		{
@@ -343,7 +343,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3Double"/> to be converted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="double[]"/> equivalent to <paramref name="a"/>.
+		/// A <see cref="T:double[]"/> equivalent to <paramref name="a"/>.
 		/// </returns>
 		public static implicit operator double[](Vertex3Double a)
 		{

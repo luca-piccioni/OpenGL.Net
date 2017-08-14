@@ -90,12 +90,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the point size of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.PointParameter"/>
@@ -124,12 +118,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the point size of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_ENUM is generated if <paramref name="type"/> is is not an accepted value.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Gl.INVALID_VALUE is generated if <paramref name="stride"/> is negative.
-		/// </exception>
 		/// <seealso cref="Gl.DrawArrays"/>
 		/// <seealso cref="Gl.DrawElements"/>
 		/// <seealso cref="Gl.PointParameter"/>

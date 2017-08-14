@@ -651,8 +651,7 @@ namespace OpenGL
 			// Keep into account the SwapIntervalEXT and SwapIntervalSGI entry points, relative to
 			// two equivalent GLX extensions
 
-			return (true);
-
+#if false
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
 				if (Glx.Delegates.pglXSwapIntervalEXT != null) {
 					Glx.SwapIntervalEXT(Display, _WindowHandle, interval);
@@ -662,6 +661,9 @@ namespace OpenGL
 				else
 					throw new InvalidOperationException("binding point SwapInterval{EXT|SGI} cannot be found");
 			}
+#else
+			return (false);
+#endif
 		}
 
 		/// <summary>

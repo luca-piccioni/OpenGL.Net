@@ -262,13 +262,6 @@ namespace OpenGL
 		/// <param name="api">
 		/// Specifies the client API to bind, one of Egl.OPENGL_API, Egl.OPENGL_ES_API, or Egl.OPENVG_API.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_PARAMETER is generated if <paramref name="api"/> is not one of the accepted tokens, or if the specified client 
-		/// API is not supported by the EGL implementation.
-		/// </exception>
 		/// <seealso cref="Egl.CreateContext"/>
 		/// <seealso cref="Egl.GetCurrentContext"/>
 		/// <seealso cref="Egl.GetCurrentDisplay"/>
@@ -293,9 +286,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglQueryAPI: Query the current rendering API
 		/// </summary>
-		/// <exception cref="KhronosException">
-		/// None.
-		/// </exception>
 		/// <seealso cref="Egl.BindAPI"/>
 		/// <seealso cref="Egl.CreateContext"/>
 		/// <seealso cref="Egl.GetCurrentContext"/>
@@ -336,63 +326,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixel buffer surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.NO_SURFACE is returned if creation of the context fails.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_PARAMETER is generated if <paramref name="buftype"/> is not Egl.OPENVG_IMAGE, or if <paramref name="buffer"/> is 
-		/// not a valid handle to a VGImage object in the currently bound OpenVG context.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ACCESS is generated if there is no current OpenVG context, or if <paramref name="buffer"/> is already bound to 
-		/// another pixel buffer or in use by OpenVG as discussed in the Notes section above.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid pixel buffer attribute or if an 
-		/// attribute value is not recognized or out of range.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains any of the attributes Egl.MIPMAP_TEXTURE, 
-		/// Egl.TEXTURE_FORMAT, or Egl.TEXTURE_TARGET, and <paramref name="config"/> does not support OpenGL ES rendering (e.g. the 
-		/// EGL version is 1.2 or later, and the Egl.RENDERABLE_TYPE attribute of <paramref name="config"/> does not include at 
-		/// least one of Egl.OPENGL_ES_BIT or Egl.OPENGL_ES2_BIT).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support rendering to pixel buffers (the 
-		/// Egl.SURFACE_TYPE attribute does not contain Egl.PBUFFER_BIT).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the buffers contained in <paramref name="buffer"/> do not match the bit depths for those 
-		/// buffers specified by <paramref name="config"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the Egl.TEXTURE_FORMAT attribute is not Egl.NO_TEXTURE, and Egl.WIDTH and/or Egl.HEIGHT 
-		/// specify an invalid size (e.g., the texture size is not a power of 2, and the underlying OpenGL ES implementation does 
-		/// not support non-power-of-two textures).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the Egl.TEXTURE_FORMAT attribute is Egl.NO_TEXTURE, and Egl.TEXTURE_TARGET is something 
-		/// other than Egl.NO_TEXTURE; or, Egl.TEXTURE_FORMAT is something other than Egl.NO_TEXTURE, and Egl.TEXTURE_TARGET is 
-		/// Egl.NO_TEXTURE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the implementation has additional constraints on which types of client API buffers may be 
-		/// bound to pixel buffer surfaces. For example, it is possible that the OpenVG implementation might not support a VGImage 
-		/// being bound to a pixel buffer which will be used as a mipmapped OpenGL ES texture (e.g. whose Egl.MIPMAP_TEXTURE 
-		/// attribute is Egl.). Any such constraints should be documented by the implementation release notes.
-		/// </exception>
 		/// <seealso cref="Egl.DestroySurface"/>
 		/// <seealso cref="Egl.ChooseConfig"/>
 		/// <seealso cref="Egl.CreatePbufferSurface"/>
@@ -420,15 +353,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglReleaseThread: Release EGL per-thread state
 		/// </summary>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. There are no defined conditions under which failure will occur. 
-		/// Even if EGL is not initialized on any EGLDisplay, Egl.ReleaseThread should succeed.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// However, platform-dependent failures may be signaled through the value returned from Egl.GetError. Unless the 
-		/// platform-dependent behavior is known, a failed call to Egl.ReleaseThread should be assumed to leave the current 
-		/// rendering API, and the currently bound contexts for each supported client API, in an unknown state.
-		/// </exception>
 		/// <seealso cref="Egl.BindAPI"/>
 		/// <seealso cref="Egl.GetError"/>
 		/// <seealso cref="Egl.MakeCurrent"/>
@@ -448,16 +372,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglWaitClient: Complete client API execution prior to subsequent native rendering calls
 		/// </summary>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned if Egl.WaitClient fails, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// If there is no current context for the current rendering API, the function has no effect but still returns Egl.TRUE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CURRENT_SURFACE is generated if the surface associated with the current context has a native window or pixmap, 
-		/// and that window or pixmap is no longer valid.
-		/// </exception>
 		/// <seealso cref="Egl.glFinish"/>
 		/// <seealso cref="Egl.glFlush"/>
 		/// <seealso cref="Egl.WaitGL"/>

@@ -241,6 +241,14 @@
 		<param id="b"><rename>blue</rename></param>
 		<param id="a"><rename>alpha</rename></param>
 	</command>
+    
+	<command name="^glColorTable$">
+		<param id="table"><rename>data</rename></param>
+	</command>
+    
+    <command name="^glConvolutionFilter[123]D">
+		<param id="image"><rename>data</rename></param>
+	</command>
 
 	<command name="^glDepthRange$">
 		<param id="near"><rename>nearVal</rename></param>
@@ -261,6 +269,19 @@
 	
 	<command name="^glFramebufferTexture3D$">
 		<param id="zoffset"><rename>layer</rename></param>
+	</command>
+    
+    <command name="^gl(Frustum|Ortho)[fx]$">
+		<param id="l"><rename>left</rename></param>
+        <param id="r"><rename>right</rename></param>
+        <param id="t"><rename>top</rename></param>
+        <param id="b"><rename>bottom</rename></param>
+        <param id="n"><rename>near</rename></param>
+        <param id="f"><rename>far</rename></param>
+	</command>
+
+	<command name="^glGetMinMax$">
+		<param id="type"><rename>types</rename></param>
 	</command>
 	
 	<command name="^glGet(Program|Shader)InfoLog$">
@@ -288,6 +309,11 @@
 		<param id="fail"><rename>sfail</rename></param>
 		<param id="zfail"><rename>dpfail</rename></param>
 		<param id="zpass"><rename>dppass</rename></param>
+	</command>
+    
+    <command name="^glTexImage[123]D$">
+		<param id="internalformat"><rename>internalFormat</rename></param>
+        <param id="pixels"><rename>data</rename></param>
 	</command>
 	
 	<!-- WGL -->

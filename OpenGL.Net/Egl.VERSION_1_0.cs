@@ -602,23 +602,6 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of frame buffer configurations returned.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="configs"/> and <paramref name="num_config"/> are 
-		/// not modified when Egl.FALSE is returned.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute_list"/> contains an invalid frame buffer configuration 
-		/// attribute or an attribute value that is unrecognized or out of range.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_PARAMETER is generated if <paramref name="num_config"/> is Egl..
-		/// </exception>
 		/// <seealso cref="Egl.CreateContext"/>
 		/// <seealso cref="Egl.CreatePbufferSurface"/>
 		/// <seealso cref="Egl.CreatePixmapSurface"/>
@@ -659,32 +642,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned if swapping of the surface buffers fails, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL drawing surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_NATIVE_PIXMAP is generated if the implementation does not support native pixmaps.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_NATIVE_PIXMAP may be generated if <paramref name="native_pixmap"/> is not a valid native pixmap.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the format of <paramref name="native_pixmap"/> is not compatible with the color buffer of 
-		/// <paramref name="surface"/>.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.CONTEXT_LOST is generated if a power management event has occurred. The application must destroy all contexts and 
-		/// reinitialise OpenGL ES state and objects to continue rendering.
-		/// </exception>
 		/// <seealso cref="Egl.glFlush"/>
 		/// <seealso cref="Egl.SwapBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -718,42 +675,6 @@ namespace OpenGL
 		/// Specifies attributes and attribute values for the context being created. Only the attribute Egl.CONTEXT_CLIENT_VERSION 
 		/// may be specified.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.NO_CONTEXT is returned if creation of the context fails.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the current rendering API is Egl.NONE (this can only arise in an EGL implementation which 
-		/// does not support OpenGL ES, prior to the first call to Egl.BindAPI).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the server context state for <paramref name="share_context"/> exists in an address space 
-		/// which cannot be shared with the newly created context, if <paramref name="share_context"/> was created on a different 
-		/// display than the one referenced by <paramref name="config"/>, or if the contexts are otherwise incompatible.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration, or does not support 
-		/// the current rendering API. This includes requesting creation of an OpenGL ES 1.x context when the Egl.RENDERABLE_TYPE 
-		/// attribute of <paramref name="config"/> does not contain Egl.OPENGL_ES_BIT, or creation of an OpenGL ES 2.x context when 
-		/// the attribute does not contain Egl.OPENGL_ES2_BIT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONTEXT is generated if <paramref name="share_context"/> is not an EGL rendering context of the same client API 
-		/// type as the newly created context and is not Egl.NO_CONTEXT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid context attribute or if an 
-		/// attribute is not recognized or out of range. Note that attribute Egl.CONTEXT_CLIENT_VERSION is only valid when the 
-		/// current rendering API is Egl.OPENGL_ES_API.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new context.
-		/// </exception>
 		/// <seealso cref="Egl.DestroyContext"/>
 		/// <seealso cref="Egl.ChooseConfig"/>
 		/// <seealso cref="Egl.GetConfigs"/>
@@ -788,52 +709,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixel buffer surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.NO_SURFACE is returned if creation of the context fails.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid pixel buffer attribute or if an 
-		/// attribute value is not recognized or out of range.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains any of the attributes Egl.MIPMAP_TEXTURE, 
-		/// Egl.TEXTURE_FORMAT, or Egl.TEXTURE_TARGET, and <paramref name="config"/> does not support OpenGL ES rendering (e.g. the 
-		/// EGL version is 1.2 or later, and the Egl.RENDERABLE_TYPE attribute of <paramref name="config"/> does not include at 
-		/// least one of Egl.OPENGL_ES_BIT or Egl.OPENGL_ES2_BIT).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support rendering to pixel buffers (the 
-		/// Egl.SURFACE_TYPE attribute does not contain Egl.PBUFFER_BIT).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the Egl.TEXTURE_FORMAT attribute is not Egl.NO_TEXTURE, and Egl.WIDTH and/or Egl.HEIGHT 
-		/// specify an invalid size (e.g., the texture size is not a power of 2, and the underlying OpenGL ES implementation does 
-		/// not support non-power-of-two textures).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the Egl.TEXTURE_FORMAT attribute is Egl.NO_TEXTURE, and Egl.TEXTURE_TARGET is something 
-		/// other than Egl.NO_TEXTURE; or, Egl.TEXTURE_FORMAT is something other than Egl.NO_TEXTURE, and Egl.TEXTURE_TARGET is 
-		/// Egl.NO_TEXTURE.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support the specified OpenVG alpha format attribute 
-		/// (the value of Egl.VG_ALPHA_FORMAT is Egl.VG_ALPHA_FORMAT_PRE and the Egl.VG_ALPHA_FORMAT_PRE_BIT is not set in the 
-		/// Egl.SURFACE_TYPE attribute of <paramref name="config"/>) or colorspace attribute (the value of Egl.VG_COLORSPACE is 
-		/// Egl.VG_COLORSPACE_LINEAR and the Egl.VG_COLORSPACE_LINEAR_IT is not set in the Egl.SURFACE_TYPE attribute of <paramref 
-		/// name="config"/>).
-		/// </exception>
 		/// <seealso cref="Egl.DestroySurface"/>
 		/// <seealso cref="Egl.ChooseConfig"/>
 		/// <seealso cref="Egl.GetConfigs"/>
@@ -872,40 +747,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixmap surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.NO_SURFACE is returned if creation of the context fails.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL config.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_NATIVE_PIXMAP may be generated if <paramref name="native_pixmap"/> is not a valid native pixmap.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid pixmap attribute or if an attribute 
-		/// value is not recognized or out of range.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the attributes of <paramref name="native_pixmap"/> do not correspond to <paramref 
-		/// name="config"/> or if <paramref name="config"/> does not support rendering to pixmaps (the Egl.SURFACE_TYPE attribute 
-		/// does not contain Egl.PIXMAP_BIT).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support the specified OpenVG alpha format attribute 
-		/// (the value of Egl.VG_ALPHA_FORMAT is Egl.VG_ALPHA_FORMAT_PRE and the Egl.VG_ALPHA_FORMAT_PRE_BIT is not set in the 
-		/// Egl.SURFACE_TYPE attribute of <paramref name="config"/>) or colorspace attribute (the value of Egl.VG_COLORSPACE is 
-		/// Egl.VG_COLORSPACE_LINEAR and the Egl.VG_COLORSPACE_LINEAR_IT is not set in the Egl.SURFACE_TYPE attribute of <paramref 
-		/// name="config"/>).
-		/// </exception>
 		/// <seealso cref="Egl.DestroySurface"/>
 		/// <seealso cref="Egl.ChooseConfig"/>
 		/// <seealso cref="Egl.GetConfigs"/>
@@ -944,40 +785,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies window surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.NO_SURFACE is returned if creation of the context fails.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_NATIVE_WINDOW may be generated if <paramref name="native_window"/> is not a valid native window.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attrib_list"/> contains an invalid window attribute or if an attribute 
-		/// value is not recognized or is out of range.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ALLOC is generated if there are not enough resources to allocate the new surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if the attributes of <paramref name="native_window"/> do not correspond to <paramref 
-		/// name="config"/> or if <paramref name="config"/> does not support rendering to windows (the Egl.SURFACE_TYPE attribute 
-		/// does not contain Egl.WINDOW_BIT).
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="config"/> does not support the specified OpenVG alpha format attribute 
-		/// (the value of Egl.VG_ALPHA_FORMAT is Egl.VG_ALPHA_FORMAT_PRE and the Egl.VG_ALPHA_FORMAT_PRE_BIT is not set in the 
-		/// Egl.SURFACE_TYPE attribute of <paramref name="config"/>) or colorspace attribute (the value of Egl.VG_COLORSPACE is 
-		/// Egl.VG_COLORSPACE_LINEAR and the Egl.VG_COLORSPACE_LINEAR_IT is not set in the Egl.SURFACE_TYPE attribute of <paramref 
-		/// name="config"/>).
-		/// </exception>
 		/// <seealso cref="Egl.DestroySurface"/>
 		/// <seealso cref="Egl.ChooseConfig"/>
 		/// <seealso cref="Egl.GetConfigs"/>
@@ -1010,18 +817,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned if destruction of the context fails, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONTEXT is generated if <paramref name="context"/> is not an EGL rendering context.
-		/// </exception>
 		/// <seealso cref="Egl.CreateContext"/>
 		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -1046,18 +841,6 @@ namespace OpenGL
 		/// <param name="surface">
 		/// Specifies the EGL surface to be destroyed.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned if destruction of the surface fails, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface.
-		/// </exception>
 		/// <seealso cref="Egl.CreatePbufferSurface"/>
 		/// <seealso cref="Egl.CreatePixmapSurface"/>
 		/// <seealso cref="Egl.CreateWindowSurface"/>
@@ -1090,22 +873,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="value"/> is not modified when Egl.FALSE is 
-		/// returned.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid frame buffer configuration attribute.
-		/// </exception>
 		/// <seealso cref="Egl.ChooseConfig"/>
 		/// <seealso cref="Egl.GetConfigs"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -1141,22 +908,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="value"/> is not modified when Egl.FALSE is 
-		/// returned.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONFIG is generated if <paramref name="config"/> is not an EGL frame buffer configuration.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid frame buffer configuration attribute.
-		/// </exception>
 		/// <seealso cref="Egl.ChooseConfig"/>
 		/// <seealso cref="Egl.GetConfigs"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -1192,19 +943,6 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of configs returned.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="configs"/> and <paramref name="num_config"/> are 
-		/// not modified when Egl.FALSE is returned.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_PARAMETER is generated if <paramref name="num_config"/> is Egl..
-		/// </exception>
 		/// <seealso cref="Egl.CreateContext"/>
 		/// <seealso cref="Egl.CreatePbufferSurface"/>
 		/// <seealso cref="Egl.CreatePixmapSurface"/>
@@ -1245,19 +983,6 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of configs returned.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="configs"/> and <paramref name="num_config"/> are 
-		/// not modified when Egl.FALSE is returned.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_PARAMETER is generated if <paramref name="num_config"/> is Egl..
-		/// </exception>
 		/// <seealso cref="Egl.CreateContext"/>
 		/// <seealso cref="Egl.CreatePbufferSurface"/>
 		/// <seealso cref="Egl.CreatePixmapSurface"/>
@@ -1347,9 +1072,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglGetError: return error information
 		/// </summary>
-		/// <exception cref="KhronosException">
-		/// A call to Egl.GetError sets the error to Egl.SUCCESS.
-		/// </exception>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static int GetError()
 		{
@@ -1395,16 +1117,6 @@ namespace OpenGL
 		/// <param name="minor">
 		/// Returns the minor version number of the EGL implementation. May be Egl..
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned if Egl.Initialize fails, Egl.TRUE otherwise. <paramref name="major"/> and <paramref name="minor"/> 
-		/// are not modified when Egl.FALSE is returned.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> cannot be initialized.
-		/// </exception>
 		/// <seealso cref="Egl.GetDisplay"/>
 		/// <seealso cref="Egl.Terminate"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -1441,51 +1153,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. If Egl.FALSE is returned, the previously current rendering context 
-		/// and surfaces (if any) remain unchanged.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if <paramref name="draw"/> or <paramref name="read"/> is not an EGL surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONTEXT is generated if <paramref name="context"/> is not an EGL rendering context.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_MATCH is generated if <paramref name="draw"/> or <paramref name="read"/> are not compatible with <paramref 
-		/// name="context"/>, or if <paramref name="context"/> is set to Egl.NO_CONTEXT and <paramref name="draw"/> or <paramref 
-		/// name="read"/> are not set to Egl.NO_SURFACE, or if <paramref name="draw"/> or <paramref name="read"/> are set to 
-		/// Egl.NO_SURFACE and <paramref name="context"/> is not set to Egl.NO_CONTEXT.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ACCESS is generated if <paramref name="context"/> is current to some other thread.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_NATIVE_PIXMAP may be generated if a native pixmap underlying either <paramref name="draw"/> or <paramref 
-		/// name="read"/> is no longer valid.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_NATIVE_WINDOW may be generated if a native window underlying either <paramref name="draw"/> or <paramref 
-		/// name="read"/> is no longer valid.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CURRENT_SURFACE is generated if the previous context has unflushed commands and the previous surface is no 
-		/// longer valid.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ALLOC may be generated if allocation of ancillary buffers for <paramref name="draw"/> or <paramref name="read"/> 
-		/// were delayed until Egl.MakeCurrent is called, and there are not enough resources to allocate them.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.CONTEXT_LOST is generated if a power management event has occurred. The application must destroy all contexts and 
-		/// reinitialise OpenGL ES state and objects to continue rendering.
-		/// </exception>
 		/// <seealso cref="Egl.glReadPixels"/>
 		/// <seealso cref="Egl.opyTexImage2D"/>
 		/// <seealso cref="Egl.opyTexSubImage2D"/>
@@ -1526,22 +1193,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="value"/> is not modified when Egl.FALSE is 
-		/// returned.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CONTEXT is generated if <paramref name="context"/> is not an EGL rendering context.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid context attribute.
-		/// </exception>
 		/// <seealso cref="Egl.CreateContext"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool QueryContext(IntPtr dpy, IntPtr ctx, int attribute, int[] value)
@@ -1570,18 +1221,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies a symbolic constant, one of Egl.CLIENT_APIS, Egl.VENDOR, Egl.VERSION, or Egl.EXTENSIONS.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl. is returned on failure.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_PARAMETER is generated if <paramref name="name"/> is not an accepted value.
-		/// </exception>
 		/// <seealso cref="Egl.BindAPI"/>
 		/// <seealso cref="Egl.GetDisplay"/>
 		/// <seealso cref="Egl.Initialize"/>
@@ -1613,22 +1252,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned on failure, Egl.TRUE otherwise. <paramref name="value"/> is not modified when Egl.FALSE is 
-		/// returned.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_ATTRIBUTE is generated if <paramref name="attribute"/> is not a valid surface attribute.
-		/// </exception>
 		/// <seealso cref="Egl.CreatePbufferSurface"/>
 		/// <seealso cref="Egl.CreatePixmapSurface"/>
 		/// <seealso cref="Egl.CreateWindowSurface"/>
@@ -1661,22 +1284,6 @@ namespace OpenGL
 		/// <param name="surface">
 		/// Specifies the EGL drawing surface whose buffers are to be swapped.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned if swapping of the surface buffers fails, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.NOT_INITIALIZED is generated if <paramref name="display"/> has not been initialized.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_SURFACE is generated if <paramref name="surface"/> is not an EGL drawing surface.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.CONTEXT_LOST is generated if a power management event has occurred. The application must destroy all contexts and 
-		/// reinitialise OpenGL ES state and objects to continue rendering.
-		/// </exception>
 		/// <seealso cref="Egl.glFlush"/>
 		/// <seealso cref="Egl.CopyBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -1698,12 +1305,6 @@ namespace OpenGL
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned if Egl.Terminate fails, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_DISPLAY is generated if <paramref name="display"/> is not an EGL display connection.
-		/// </exception>
 		/// <seealso cref="Egl.Initialize"/>
 		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
@@ -1722,13 +1323,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglWaitGL: Complete GL execution prior to subsequent native rendering calls
 		/// </summary>
-		/// <exception cref="KhronosException">
-		/// Egl.FALSE is returned if Egl.WaitGL fails, Egl.TRUE otherwise.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CURRENT_SURFACE is generated if the surface associated with the current context has a native window or pixmap, 
-		/// and that window or pixmap is no longer valid.
-		/// </exception>
 		/// <seealso cref="Egl.glFinish"/>
 		/// <seealso cref="Egl.WaitClient"/>
 		/// <seealso cref="Egl.WaitNative"/>
@@ -1751,13 +1345,6 @@ namespace OpenGL
 		/// <param name="engine">
 		/// Specifies a particular marking engine to be waited on. Must be Egl.CORE_NATIVE_ENGINE.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_PARAMETER is generated if <paramref name="engine"/> is not a recognized marking engine.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Egl.BAD_CURRENT_SURFACE is generated if the surface associated with the current context has a native window or pixmap, 
-		/// and that window or pixmap is no longer valid.
-		/// </exception>
 		/// <seealso cref="Egl.glFinish"/>
 		/// <seealso cref="Egl.glFlush"/>
 		/// <seealso cref="Egl.WaitClient"/>

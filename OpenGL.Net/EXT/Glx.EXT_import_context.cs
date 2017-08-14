@@ -73,15 +73,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// Glx.BAD_ATTRIBUTE is returned if <paramref name="attribute"/> is not a valid GLX context attribute.
-		/// </exception>
-		/// <exception cref="KhronosException">
-		/// fred Glx.BAD_CONTEXT is returned if <paramref name="attribute"/> is not a valid context.
-		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
 		/// <seealso cref="Glx.QueryVersion"/>
 		/// <seealso cref="Glx.QueryExtensionsString"/>
@@ -109,10 +100,6 @@ namespace OpenGL
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx. is returned if <paramref name="ctx"/> is Glx.. Otherwise, if <paramref name="ctx"/> does not refer to a valid 
-		/// context, undefined behavior results.
-		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
 		/// <seealso cref="Glx.QueryVersion"/>
 		/// <seealso cref="Glx.QueryExtensionsString"/>
@@ -138,9 +125,6 @@ namespace OpenGL
 		/// <param name="contextID">
 		/// Specifies a GLX rendering context.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adContext is generated if <paramref name="contextID"/> does not refer to a valid context.
-		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
 		/// <seealso cref="Glx.QueryVersion"/>
 		/// <seealso cref="Glx.QueryExtensionsString"/>
@@ -168,9 +152,6 @@ namespace OpenGL
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <exception cref="KhronosException">
-		/// Glx.adContext is generated if <paramref name="ctx"/> does not refer to a valid context.
-		/// </exception>
 		/// <seealso cref="Glx.CreateContext"/>
 		/// <seealso cref="Glx.QueryVersion"/>
 		/// <seealso cref="Glx.QueryExtensionsString"/>
