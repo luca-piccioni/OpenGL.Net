@@ -325,7 +325,7 @@ namespace OpenGL
 			if (version == null)
 				throw new ArgumentNullException("version");
 
-			BindAPI<Gl>(GetPlatformLibrary(version), GetProcAddressGL, version, extensions);
+			BindAPI<Gl>(GetPlatformLibrary(version), GetProcAddressGLOS, version, extensions);
 		}
 
 		/// <summary>
@@ -396,7 +396,7 @@ namespace OpenGL
 		/// </param>
 		internal static void BindAPIFunction(KhronosVersion version, ExtensionsCollection extensions, string functionName)
 		{
-			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, GetProcAddressGL, version, extensions);
+			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, GetProcAddressGLOS, version, extensions);
 		}
 
 		/// <summary>

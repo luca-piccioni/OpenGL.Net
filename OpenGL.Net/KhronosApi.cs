@@ -156,6 +156,32 @@ namespace OpenGL
 		protected static IntPtr GetProcAddressGL(string path, string function) { return (OpenGL.GetProcAddressGL.GetProcAddress(function)); }
 
 		/// <summary>
+		/// Utility for <see cref="GetAddressDelegate"/> for loading procedures using the GL loader, and eventually with the OS
+		/// loader.
+		/// </summary>
+		/// <param name="path">
+		/// Ignored parameter.
+		/// </param>
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the name of the procedure to be loaded.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
+		/// returns <see cref="IntPtr.Zero"/>.
+		/// </returns>
+		protected static IntPtr GetProcAddressGLOS(string path, string function)
+		{
+			IntPtr funcPtr = OpenGL.GetProcAddressGL.GetProcAddress(function);
+			
+			// Fallback to OS loader in case GL loader is unable to load function pointer
+			// Note: on AppVeyor seems that wglGetProcAddress is unable to load function pointers
+			if (funcPtr == IntPtr.Zero)
+				funcPtr = OpenGL.GetProcAddressOS.GetProcAddress(path, function);
+
+			return (funcPtr);
+		}
+
+		/// <summary>
 		/// Link delegates field using import declaration, using platform specific method for determining procedures address.
 		/// </summary>
 		internal static void BindAPIFunction<T>(string path, string functionName, GetAddressDelegate getProcAddress, KhronosVersion version, ExtensionsCollection extensions)
