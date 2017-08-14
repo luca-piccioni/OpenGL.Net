@@ -60,9 +60,9 @@ namespace OpenGL
 		#region API Binding
 
 		/// <summary>
-		/// Bind Windows GL delegates.
+		/// Bind Windows WGL delegates.
 		/// </summary>
-		private static void BindAPI()
+		internal static void BindAPI()
 		{
 			Debug.Assert(GetCurrentContext() != IntPtr.Zero, "binding WGL without a current OpenGL context");
 

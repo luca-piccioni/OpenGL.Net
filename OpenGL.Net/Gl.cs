@@ -460,6 +460,41 @@ namespace OpenGL
 
 		#endregion
 
+		#region Multi-threading support
+
+		/// <summary>
+		/// Initialize LTS information for the calling thread.
+		/// </summary>
+		public static void InitializeThread()
+		{
+#if !MONODROID
+			if (Egl.IsRequired) {
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
+						Wgl.BindAPI();
+						break;
+					case Platform.Id.Linux:
+						Glx.BindAPI();
+						break;
+					case Platform.Id.MacOS:
+						if (Glx.IsRequired)
+							Glx.BindAPI();
+						else
+							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
+						break;
+					case Platform.Id.Android:
+						Egl.BindAPI();
+						break;
+					default:
+						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+				}
+			} else
+#endif
+				Egl.BindAPI();
+		}
+
+		#endregion
+
 		#region Error Handling
 
 		/// <summary>

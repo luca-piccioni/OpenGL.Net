@@ -88,15 +88,7 @@ namespace OpenGL
 				OpenGL.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
 
 			// Load procedures
-			string platformLibrary = GetPlatformLibrary();
-			try {
-				LogComment("Querying EGL from {0}", platformLibrary);
-				BindAPI<Egl>(platformLibrary, GetProcAddressOS);
-				LogComment("EGL availability: {0}", IsAvailable);
-			} catch (Exception exception) {
-				/* Fail-safe (it may fail due Egl access) */
-				LogComment("EGL not available:\n{0}", exception.ToString());
-			}
+			BindAPI();
 
 			if (IsAvailable == false)
 				return;
@@ -222,6 +214,22 @@ namespace OpenGL
 		/// Flag for requesting an EGL device context, if available.
 		/// </summary>
 		private static bool _IsRequired;
+
+		/// <summary>
+		/// Bind Windows EGL delegates.
+		/// </summary>
+		internal static void BindAPI()
+		{
+			string platformLibrary = GetPlatformLibrary();
+			try {
+				LogComment("Querying EGL from {0}", platformLibrary);
+				BindAPI<Egl>(platformLibrary, GetProcAddressOS);
+				LogComment("EGL availability: {0}", IsAvailable);
+			} catch (Exception exception) {
+				/* Fail-safe (it may fail due Egl access) */
+				LogComment("EGL not available:\n{0}", exception.ToString());
+			}
+		}
 
 		/// <summary>
 		/// Get the library name used for loading OpenGL functions.

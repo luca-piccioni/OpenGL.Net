@@ -53,11 +53,7 @@ namespace OpenGL
 			_Initialized = true;
 
 			// Load procedures
-			try {
-				BindAPI<Glx>(Library, GetProcAddressOS);
-			} catch (Exception) {
-				/* Fail-safe (it may fail due Egl access) */
-			}
+			BindAPI();
 		}
 
 		/// <summary>
@@ -97,6 +93,18 @@ namespace OpenGL
 		/// Flag for requesting an EGL device context, if available.
 		/// </summary>
 		private static bool _IsRequired;
+
+		/// <summary>
+		/// Bind Windows EGL delegates.
+		/// </summary>
+		internal static void BindAPI()
+		{
+			try {
+				BindAPI<Glx>(Library, GetProcAddressOS);
+			} catch (Exception) {
+				/* Fail-safe (it may fail due Egl access) */
+			}
+		}
 
 		/// <summary>
 		/// Default import library.
