@@ -39,6 +39,7 @@ namespace OpenGL
 			{
 				get
 				{
+#if !MONODROID
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
@@ -54,6 +55,7 @@ namespace OpenGL
 								return (false);
 						}
 					} else
+#endif
 						return (false);
 				}
 			}
@@ -65,6 +67,7 @@ namespace OpenGL
 			{
 				get
 				{
+#if !MONODROID
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
@@ -80,6 +83,7 @@ namespace OpenGL
 								return (false);
 						}
 					} else
+#endif
 						return (false);
 				}
 			}
@@ -91,6 +95,7 @@ namespace OpenGL
 			{
 				get
 				{
+#if !MONODROID
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
@@ -106,6 +111,7 @@ namespace OpenGL
 								return (false);
 						}
 					} else
+#endif
 						return (false);
 				}
 			}
@@ -117,6 +123,7 @@ namespace OpenGL
 			{
 				get
 				{
+#if !MONODROID
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
@@ -132,6 +139,7 @@ namespace OpenGL
 								return (false);
 						}
 					} else
+#endif
 						return (false);
 				}
 			}
@@ -143,6 +151,7 @@ namespace OpenGL
 			{
 				get
 				{
+#if !MONODROID
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
@@ -158,6 +167,7 @@ namespace OpenGL
 								return (false);
 						}
 					} else
+#endif
 						return (false);
 				}
 			}
@@ -169,6 +179,7 @@ namespace OpenGL
 			{
 				get
 				{
+#if !MONODROID
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
@@ -184,6 +195,7 @@ namespace OpenGL
 								return (false);
 						}
 					} else
+#endif
 						return (false);
 				}
 			}
@@ -195,6 +207,7 @@ namespace OpenGL
 			{
 				get
 				{
+#if !MONODROID
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
@@ -210,6 +223,7 @@ namespace OpenGL
 								return (false);
 						}
 					} else
+#endif
 						return (false);
 				}
 			}

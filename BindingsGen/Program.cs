@@ -49,16 +49,27 @@ namespace BindingsGen
 
 			if ((args.Length > 0) && ((index = Array.FindIndex(args, delegate(string item) { return (item == "--assembly"); })) >= 0)) {
 				string assemblyPath = args[index + 1];
+				bool overwriteAssembly = Array.Exists(args, delegate(string item) { return (item.StartsWith("--assembly-overwrite")); });
+				bool profileOnlyOpts = Array.Exists(args, delegate(string item) { return (item.StartsWith("--profile-")); });
 
 				List<RegistryAssemblyConfiguration> cfgs = new List<RegistryAssemblyConfiguration>();
 
-				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.CoreProfile.xml"));
-				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.ES2Profile.xml"));
-				cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.SC2Profile.xml"));
+				if (profileOnlyOpts == false) {
+					cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.CoreProfile.xml"));
+					cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.ES2Profile.xml"));
+					cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.SC2Profile.xml"));
+				} else {
+					if (Array.Exists(args, delegate(string item) { return (item.StartsWith("--profile-core")); }))
+						cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.CoreProfile.xml"));
+					if (Array.Exists(args, delegate(string item) { return (item.StartsWith("--profile-es2")); }))
+						cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.ES2Profile.xml"));
+					if (Array.Exists(args, delegate(string item) { return (item.StartsWith("--profile-sc2")); }))
+						cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.SC2Profile.xml"));
+				}
 
 				foreach (RegistryAssemblyConfiguration cfg in cfgs) {
 					try {
-						RegistryAssembly.CleanAssembly(assemblyPath, cfg);
+						RegistryAssembly.CleanAssembly(assemblyPath, cfg, overwriteAssembly);
 					} catch (Exception exception) {
 						Console.WriteLine("Unable to process assembly: {0}.", exception.Message);
 					}

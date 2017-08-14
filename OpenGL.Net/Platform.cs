@@ -92,6 +92,7 @@ namespace OpenGL
 		/// </returns>
 		private static Id GetCurrentPlatform()
 		{
+#if !MONODROID
 #if !NETCORE && !NETSTANDARD1_4
 			// Framework platform
 			switch (Environment.OSVersion.Platform) {
@@ -125,6 +126,9 @@ namespace OpenGL
 				return (Id.MacOS);
 			else
 				return (Id.Unknown);
+#endif
+#else		// !MONODROID
+			return (Id.Android);
 #endif
 		}
 

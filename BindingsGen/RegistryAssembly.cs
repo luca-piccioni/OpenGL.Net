@@ -32,7 +32,7 @@ namespace BindingsGen
 	/// </summary>
 	class RegistryAssembly
 	{
-		public static void CleanAssembly(string path, RegistryAssemblyConfiguration cfg)
+		public static void CleanAssembly(string path, RegistryAssemblyConfiguration cfg, bool overwrite)
 		{
 			Console.WriteLine("*** Generate assembly {0}", cfg.Name);
 
@@ -96,7 +96,11 @@ namespace BindingsGen
 			// Export
 			string baseDirPath = Path.GetDirectoryName(path);
 
-			assembly.Write(Path.Combine(baseDirPath, String.Format("OpenGL.Net-{0}.dll", cfg.Name)));
+			if (overwrite == false) {
+				assembly.Write(Path.Combine(baseDirPath, String.Format("OpenGL.Net-{0}.dll", cfg.Name)));
+			} else {
+				assembly.Write(Path.Combine(baseDirPath, "OpenGL.Net.dll"));
+			}
 		}
 
 		private static void CleanTypeDefinition(TypeDefinition type, RegistryAssemblyConfiguration cfg)

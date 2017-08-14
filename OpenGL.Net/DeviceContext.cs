@@ -60,6 +60,7 @@ namespace OpenGL
 		/// </exception>
 		internal static INativeWindow CreateHiddenWindow()
 		{
+#if !MONODROID
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
@@ -78,6 +79,10 @@ namespace OpenGL
 				Debug.Assert(DeviceContextEGL.IsPBufferSupported);
 				return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
 			}
+#else
+			Debug.Assert(DeviceContextEGL.IsPBufferSupported);
+			return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
+#endif
 		}
 
 		/// <summary>
@@ -87,6 +92,7 @@ namespace OpenGL
 		{
 			get
 			{
+#if !MONODROID
 				if (Egl.IsRequired == false) {
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.WindowsNT:
@@ -95,6 +101,7 @@ namespace OpenGL
 							return (false);
 					}
 				} else
+#endif
 					return (DeviceContextEGL.IsPBufferSupported);
 			}
 		}
@@ -110,6 +117,7 @@ namespace OpenGL
 		/// </exception>
 		public static INativePBuffer CreatePBuffer(DevicePixelFormat pixelFormat, uint width, uint height)
 		{
+#if !MONODROID
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
@@ -118,6 +126,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else
+#endif
 				return (new DeviceContextEGL.NativePBuffer(pixelFormat, width, height));
 		}
 
@@ -129,8 +138,7 @@ namespace OpenGL
 		/// </exception>
 		public static DeviceContext Create()
 		{
-			DeviceContext deviceContext = null;
-
+#if !MONODROID
 			if (IsEglRequired == false) {
 				// OPENGL_NET_INIT environment set to NO?
 				if (Gl._NativeWindow == null)
@@ -138,14 +146,14 @@ namespace OpenGL
 
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						deviceContext = new DeviceContextWGL();
+						return (new DeviceContextWGL());
 						break;
 					case Platform.Id.Linux:
-						deviceContext = new DeviceContextGLX();
+						return (new DeviceContextGLX());
 						break;
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							deviceContext = new DeviceContextGLX();
+							return (new DeviceContextGLX());
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 						break;
@@ -153,35 +161,28 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else {
+#endif
 				// Create a surfaceless context
 				if (Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
 					// OPENGL_NET_INIT environment set to NO?
 					if (Gl._NativeWindow == null)
 						throw new InvalidOperationException("OpenGL.Net not initialized", Gl._InitializationException);
 
-					if (deviceContext == null) {
-						INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
-						if (nativeBuffer != null)
-							deviceContext = new DeviceContextEGL(nativeBuffer);
-					}
+					INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
+					if (nativeBuffer != null)
+						return (new DeviceContextEGL(nativeBuffer));
 
-					if (deviceContext == null) {
-						INativeWindow nativeWindow = Gl._NativeWindow as INativeWindow;
-						if (nativeWindow != null)
-							deviceContext = new DeviceContextEGL(nativeWindow.Handle);
-					}
+					INativeWindow nativeWindow = Gl._NativeWindow as INativeWindow;
+					if (nativeWindow != null)
+						return (new DeviceContextEGL(nativeWindow.Handle));
 
-					if (deviceContext == null) {
-						Debug.Fail("unsupported EGL surface");
-						throw new NotSupportedException("EGL surface not supported");
-					}
+					Debug.Fail("unsupported EGL surface");
+					throw new NotSupportedException("EGL surface not supported");
 				} else
-					deviceContext = new DeviceContextEGL(IntPtr.Zero);
+					return (new DeviceContextEGL(IntPtr.Zero));
+#if !MONODROID
 			}
-
-			Debug.Assert(deviceContext != null);
-
-			return (deviceContext);
+#endif
 		}
 
 		/// <summary>
@@ -202,19 +203,18 @@ namespace OpenGL
 		/// </exception>
 		public static DeviceContext Create(IntPtr display, IntPtr windowHandle)
 		{
-			DeviceContext deviceContext = null;
-
+#if !MONODROID
 			if (IsEglRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						deviceContext = new DeviceContextWGL(windowHandle);
+						return (new DeviceContextWGL(windowHandle));
 						break;
 					case Platform.Id.Linux:
-						deviceContext = new DeviceContextGLX(display, windowHandle);
+						return (new DeviceContextGLX(display, windowHandle));
 						break;
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							deviceContext = new DeviceContextGLX(display, windowHandle);
+							return (new DeviceContextGLX(display, windowHandle));
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 						break;
@@ -222,9 +222,8 @@ namespace OpenGL
 						throw new NotSupportedException("platform not supported");
 				}
 			} else
-				deviceContext = new DeviceContextEGL(display, windowHandle);
-
-			return (deviceContext);
+#endif
+				return (new DeviceContextEGL(display, windowHandle));
 		}
 
 		/// <summary>
@@ -239,20 +238,17 @@ namespace OpenGL
 		/// </exception>
 		public static DeviceContext Create(INativePBuffer nativeBuffer)
 		{
-			DeviceContext deviceContext = null;
-
+#if !MONODROID
 			if (IsEglRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						deviceContext = new DeviceContextWGL(nativeBuffer);
-						break;
+						return (new DeviceContextWGL(nativeBuffer));
 					default:
 						throw new NotSupportedException("platform not supported");
 				}
 			} else
-				deviceContext = new DeviceContextEGL(nativeBuffer);
-
-			return (deviceContext);
+#endif
+				return (new DeviceContextEGL(nativeBuffer));
 		}
 
 		/// <summary>
@@ -262,6 +258,7 @@ namespace OpenGL
 		{
 			get
 			{
+#if !MONODROID
 				// Default API management
 				// - Select eglRequired if EGL is the only device API available
 				// - Select eglRequired if desktop device does not support ES context creation
@@ -306,6 +303,9 @@ namespace OpenGL
 				}
 
 				return (eglRequired);
+#else
+				return (true);
+#endif
 			}
 		}
 
@@ -650,6 +650,7 @@ namespace OpenGL
 		/// </returns>
 		public static IntPtr GetCurrentContext()
 		{
+#if !MONODROID
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
@@ -665,6 +666,7 @@ namespace OpenGL
 						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 				}
 			} else
+#endif
 				return (Egl.GetCurrentContext());
 		}
 

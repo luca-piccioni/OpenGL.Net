@@ -171,7 +171,9 @@ namespace OpenGL
 
 		#endregion
 
-		#region Platform Specific
+#if !MONODROID
+
+		#region Platform Specific (GLX)
 
 		/// <summary>
 		/// GLX framebuffer configuration (valid only for X11).
@@ -190,6 +192,8 @@ namespace OpenGL
 		internal Glx.XVisualInfo XVisualInfo;
 
 		#endregion
+
+#endif
 
 		#region Copy
 

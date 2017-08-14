@@ -57,6 +57,7 @@ namespace OpenGL
 		/// </summary>
 		public static IntPtr GetProcAddress(string function)
 		{
+#if !MONODROID
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
@@ -73,6 +74,9 @@ namespace OpenGL
 				}
 			} else
 				return (GetGLProcAddressEGL.Instance.GetProcAddress(function));
+#else
+			return (GetGLProcAddressEGL.Instance.GetProcAddress(function));
+#endif
 		}
 
 		#endregion

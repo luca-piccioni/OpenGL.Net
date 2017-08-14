@@ -562,7 +562,9 @@ namespace OpenGL
 		/// </param>
 		/// <param name="context">
 		/// </param>
+#if !MONODROID
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
+#endif
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("HalfFloat.mBits", _Bits);
