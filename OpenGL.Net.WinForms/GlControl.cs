@@ -1105,6 +1105,9 @@ namespace OpenGL
 		{
 			if (DesignMode == false) {
 				try {
+					// Support multi-threading
+					Gl.InitializeThread();
+
 					// Create device context
 					CreateDeviceContext();
 					// Create OpenGL context

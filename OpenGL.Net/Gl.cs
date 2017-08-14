@@ -468,7 +468,7 @@ namespace OpenGL
 		public static void InitializeThread()
 		{
 #if !MONODROID
-			if (Egl.IsRequired) {
+			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
 						Wgl.BindAPI();
