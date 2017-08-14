@@ -473,6 +473,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#if !MONODROID
+
 		#region Set Uniform (double-precision floating-point vector data)
 
 		/// <summary>
@@ -577,6 +579,8 @@ namespace OpenGL.Objects
 		void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble4x4 m);
 
 		#endregion
+
+#endif
 
 		#region Set Uniform (generic object)
 

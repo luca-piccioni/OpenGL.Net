@@ -463,6 +463,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		private StringBuilder GetInfoLog()
 		{
+#if !MONODROID
 			const int MaxInfoLength = 64 * 1024;		// 64 KB
 
 			StringBuilder logInfo = new StringBuilder(MaxInfoLength);
@@ -478,6 +479,9 @@ namespace OpenGL.Objects
 				sb.AppendFormat("  {0}: {1}\n", _SourcePath, logLine);
 			
 			return (sb);
+#else
+			return (new StringBuilder());
+#endif
 		}
 		
 		/// <summary>

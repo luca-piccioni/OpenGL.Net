@@ -399,6 +399,8 @@ namespace OpenGL.Objects
 			throw new NotImplementedException();
 		}
 
+#if !MONODROID
+
 		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, double v)
 		{
 			throw new NotImplementedException();
@@ -433,6 +435,8 @@ namespace OpenGL.Objects
 		{
 			throw new NotImplementedException();
 		}
+
+#endif
 
 		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, object value)
 		{

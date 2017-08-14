@@ -219,10 +219,14 @@ namespace OpenGL.Objects
 			if (!base.Exists(ctx))
 				return (false);
 
+#if !MONODROID
 			if (ctx.Extensions.ShadingLanguageInclude_ARB == true)
 				return (Gl.IsNamedStringARB(IncludePath.Length, IncludePath));
 
 			return (true);
+#else
+			return (false);
+#endif
 		}
 
 		/// <summary>

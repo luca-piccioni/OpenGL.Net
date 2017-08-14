@@ -721,6 +721,8 @@ namespace OpenGL.Objects
 
 			#endregion
 
+#if !MONODROID
+
 			#region Set/Get Uniform (double-precision floating-point vector data)
 
 			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, double v);
@@ -754,6 +756,8 @@ namespace OpenGL.Objects
 			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble4x4 m);
 
 			#endregion
+
+#endif
 		}
 
 		/// <summary>
@@ -1139,6 +1143,8 @@ namespace OpenGL.Objects
 
 			#endregion
 
+#if !MONODROID
+
 			#region Set/Get Uniform (double-precision floating-point vector data)
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, double v)
@@ -1277,6 +1283,8 @@ namespace OpenGL.Objects
 			}
 
 			#endregion
+
+#endif
 
 			#endregion
 		}
@@ -1659,6 +1667,8 @@ namespace OpenGL.Objects
 
 			#endregion
 
+#if !MONODROID
+
 			#region Set/Get Uniform (double-precision floating-point vector data)
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, double v)
@@ -1797,6 +1807,8 @@ namespace OpenGL.Objects
 			}
 
 			#endregion
+
+#endif
 
 			#endregion
 		}

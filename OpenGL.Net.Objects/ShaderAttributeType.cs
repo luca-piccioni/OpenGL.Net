@@ -133,6 +133,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		UIntVec4 = Gl.UNSIGNED_INT_VEC4,
 
+#if !MONODROID
 		/// <summary>
 		/// A single double-precision floating-point value.
 		/// </summary>
@@ -197,6 +198,8 @@ namespace OpenGL.Objects
 		/// A matrix of three rows and four columns of double-precision floating-point values.
 		/// </summary>
 		DoubleMat4x3 = Gl.DOUBLE_MAT4x3,
+
+#endif
 	}
 
 	/// <summary>
@@ -233,6 +236,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.Mat4x3:
 				case ShaderAttributeType.Mat4x4:
 					return (VertexBaseType.Float);
+#if !MONODROID
 				case ShaderAttributeType.Double:
 				case ShaderAttributeType.DoubleVec2:
 				case ShaderAttributeType.DoubleVec3:
@@ -247,6 +251,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat4x3:
 				case ShaderAttributeType.DoubleMat4x4:
 					return (VertexBaseType.Double);
+#endif
 				case ShaderAttributeType.Int:
 				case ShaderAttributeType.IntVec2:
 				case ShaderAttributeType.IntVec3:
@@ -280,45 +285,59 @@ namespace OpenGL.Objects
 		{
 			switch (shaderAttributeType) {
 				case ShaderAttributeType.Float:
+#if !MONODROID
 				case ShaderAttributeType.Double:
+#endif
 				case ShaderAttributeType.Int:
 				case ShaderAttributeType.UInt:
 					return (1);
 				case ShaderAttributeType.Vec2:
+#if !MONODROID
 				case ShaderAttributeType.DoubleVec2:
+#endif
 				case ShaderAttributeType.IntVec2:
 				case ShaderAttributeType.UIntVec2:
 					return (2);
 				case ShaderAttributeType.Vec3:
+#if !MONODROID
 				case ShaderAttributeType.DoubleVec3:
+#endif
 				case ShaderAttributeType.IntVec3:
 				case ShaderAttributeType.UIntVec3:
 					return (3);
 				case ShaderAttributeType.Vec4:
+#if !MONODROID
 				case ShaderAttributeType.DoubleVec4:
+#endif
 				case ShaderAttributeType.IntVec4:
 				case ShaderAttributeType.UIntVec4:
 					return (4);
 				case ShaderAttributeType.Mat2x2:
 				case ShaderAttributeType.Mat2x3:
 				case ShaderAttributeType.Mat2x4:
+#if !MONODROID
 				case ShaderAttributeType.DoubleMat2x2:
 				case ShaderAttributeType.DoubleMat2x3:
 				case ShaderAttributeType.DoubleMat2x4:
+#endif
 					return (2);
 				case ShaderAttributeType.Mat3x2:
 				case ShaderAttributeType.Mat3x3:
 				case ShaderAttributeType.Mat3x4:
+#if !MONODROID
 				case ShaderAttributeType.DoubleMat3x2:
 				case ShaderAttributeType.DoubleMat3x3:
 				case ShaderAttributeType.DoubleMat3x4:
+#endif
 					return (3);
 				case ShaderAttributeType.Mat4x2:
 				case ShaderAttributeType.Mat4x3:
 				case ShaderAttributeType.Mat4x4:
+#if !MONODROID
 				case ShaderAttributeType.DoubleMat4x2:
 				case ShaderAttributeType.DoubleMat4x3:
 				case ShaderAttributeType.DoubleMat4x4:
+#endif
 					return (4);
 				default:
 					throw new NotSupportedException("unsupported vertex array length of " + shaderAttributeType);
@@ -342,38 +361,52 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.Mat2x2:
 				case ShaderAttributeType.Mat3x2:
 				case ShaderAttributeType.Mat4x2:
+#if !MONODROID
 				case ShaderAttributeType.DoubleMat2x2:
 				case ShaderAttributeType.DoubleMat3x2:
 				case ShaderAttributeType.DoubleMat4x2:
+#endif
 					return (2);
 				case ShaderAttributeType.Mat2x3:
 				case ShaderAttributeType.Mat3x3:
 				case ShaderAttributeType.Mat4x3:
+#if !MONODROID
 				case ShaderAttributeType.DoubleMat2x3:
 				case ShaderAttributeType.DoubleMat3x3:
 				case ShaderAttributeType.DoubleMat4x3:
+#endif
 					return (3);
 				case ShaderAttributeType.Mat2x4:
 				case ShaderAttributeType.Mat3x4:
 				case ShaderAttributeType.Mat4x4:
+#if !MONODROID
 				case ShaderAttributeType.DoubleMat2x4:
 				case ShaderAttributeType.DoubleMat3x4:
 				case ShaderAttributeType.DoubleMat4x4:
+#endif
 					return (4);
 				case ShaderAttributeType.Float:
+#if !MONODROID
 				case ShaderAttributeType.Double:
+#endif
 				case ShaderAttributeType.Int:
 				case ShaderAttributeType.UInt:
 				case ShaderAttributeType.Vec2:
+#if !MONODROID
 				case ShaderAttributeType.DoubleVec2:
+#endif
 				case ShaderAttributeType.IntVec2:
 				case ShaderAttributeType.UIntVec2:
 				case ShaderAttributeType.Vec3:
+#if !MONODROID
 				case ShaderAttributeType.DoubleVec3:
+#endif
 				case ShaderAttributeType.IntVec3:
 				case ShaderAttributeType.UIntVec3:
 				case ShaderAttributeType.Vec4:
+#if !MONODROID
 				case ShaderAttributeType.DoubleVec4:
+#endif
 				case ShaderAttributeType.IntVec4:
 				case ShaderAttributeType.UIntVec4:
 					return (1);
@@ -448,6 +481,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.Mat4x3:
 				case ShaderAttributeType.Mat4x4:
 					return ShaderAttributeType.Vec4;
+#if !MONODROID
 				case ShaderAttributeType.DoubleMat2x2:
 				case ShaderAttributeType.DoubleMat2x3:
 				case ShaderAttributeType.DoubleMat2x4:
@@ -460,6 +494,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat4x3:
 				case ShaderAttributeType.DoubleMat4x4:
 					return ShaderAttributeType.DoubleVec4;
+#endif
 				default:
 					throw new ArgumentException();
 			}

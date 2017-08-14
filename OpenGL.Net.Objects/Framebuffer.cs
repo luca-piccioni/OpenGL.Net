@@ -939,7 +939,9 @@ namespace OpenGL.Objects
 		{
 			// Switch to default framebuffer
 			Gl.BindFramebuffer(FramebufferTarget.DrawFramebuffer, InvalidObjectName);
+#if !MONODROID
 			Gl.DrawBuffers(Gl.BACK_LEFT);
+#endif
 			// Gl.DrawBuffer(DrawBufferMode.BackLeft);
 		}
 

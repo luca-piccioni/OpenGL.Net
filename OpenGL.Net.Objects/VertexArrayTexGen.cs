@@ -168,7 +168,6 @@ namespace OpenGL.Objects
 				Debug.Assert(x >= 0.0f && x <= 1.0f);
 				Debug.Assert(y >= 0.0f && y <= 1.0f);
 
-				return (new Vertex2f(x, y));
 				return (new Vertex2f(x * Repeat.x, y * Repeat.y));
 			}
 

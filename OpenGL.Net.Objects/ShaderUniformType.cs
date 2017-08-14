@@ -52,6 +52,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#if !MONODROID
+
 		#region Double Precision Floating-Point Types
 
 		/// <summary>
@@ -72,6 +74,8 @@ namespace OpenGL.Objects
 		DoubleVec4 = Gl.DOUBLE_VEC4,
 
 		#endregion
+
+#endif
 
 		#region Signed Integer Types
 
@@ -182,6 +186,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#if !MONODROID
+
 		#region Square Double-Precision Floating-Point Matrix Types
 
 		/// <summary>
@@ -228,20 +234,26 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#endif
+
 		#region Floating-Point (Normalized) Texture Samplers
 
+#if !MONODROID
 		/// <summary>
 		/// Texture 1D sampler.
 		/// </summary>
 		Sampler1D = Gl.SAMPLER_1D,
+#endif
 		/// <summary>
 		/// Texture 2D sampler.
 		/// </summary>
 		Sampler2D = Gl.SAMPLER_2D,
+#if !MONODROID
 		/// <summary>
 		/// Texture rectangle sampler.
 		/// </summary>
 		Sampler2DRect = Gl.SAMPLER_2D_RECT,
+#endif
 		/// <summary>
 		/// Texture 3D sampler.
 		/// </summary>
@@ -255,24 +267,30 @@ namespace OpenGL.Objects
 
 		#region Shadow Texture Samplers
 
+#if !MONODROID
 		/// <summary>
 		/// Depth texture 1D sampler.
 		/// </summary>
 		Sampler1DShadow = Gl.SAMPLER_1D_SHADOW,
+#endif
 		/// <summary>
 		/// Depth texture 2D sampler.
 		/// </summary>
 		Sampler2DShadow = Gl.SAMPLER_2D_SHADOW,
+#if !MONODROID
 		/// <summary>
 		/// Depth texture rectangle sampler.
 		/// </summary>
 		Sampler2DRectShadow = Gl.SAMPLER_2D_RECT_SHADOW,
+#endif
 		/// <summary>
 		/// Depth texture cube sampler.
 		/// </summary>
 		SamplerCubeShadow = Gl.SAMPLER_CUBE_SHADOW,
 
 		#endregion
+
+#if !MONODROID
 
 		#region Texture Array Samplers
 
@@ -287,12 +305,16 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#endif
+
 		#region Shadow Texture Array Samplers
 
+#if !MONODROID
 		/// <summary>
 		/// Depth texture 1D array sampler.
 		/// </summary>
 		Sampler1DArrayShadow = Gl.SAMPLER_1D_ARRAY_SHADOW,
+#endif
 		/// <summary>
 		/// Depth texture 2D array sampler.
 		/// </summary>
@@ -324,18 +346,22 @@ namespace OpenGL.Objects
 
 		#region Integer Texture Sampler
 
+#if !MONODROID
 		/// <summary>
 		/// Texture 1D sampler.
 		/// </summary>
 		IntSampler1D = Gl.INT_SAMPLER_1D,
+#endif
 		/// <summary>
 		/// Texture 2D sampler.
 		/// </summary>
 		IntSampler2D = Gl.INT_SAMPLER_2D,
+#if !MONODROID
 		/// <summary>
 		/// Texture rectangle sampler.
 		/// </summary>
 		IntSampler2DRect = Gl.INT_SAMPLER_2D_RECT,
+#endif
 		/// <summary>
 		/// Texture 3D sampler.
 		/// </summary>
@@ -349,10 +375,12 @@ namespace OpenGL.Objects
 
 		#region Integer Texture Array Sampler
 
+#if !MONODROID
 		/// <summary>
 		/// Texture 1D sampler.
 		/// </summary>
 		IntSampler1DArray = Gl.INT_SAMPLER_1D_ARRAY,
+#endif
 		/// <summary>
 		/// Texture 2D sampler.
 		/// </summary>
@@ -362,18 +390,22 @@ namespace OpenGL.Objects
 
 		#region Unsigned Integer Texture Sampler
 
+#if !MONODROID
 		/// <summary>
 		/// Texture 1D sampler.
 		/// </summary>
 		UIntSampler1D = Gl.UNSIGNED_INT_SAMPLER_1D,
+#endif
 		/// <summary>
 		/// Texture 2D sampler.
 		/// </summary>
 		UIntSampler2D = Gl.UNSIGNED_INT_SAMPLER_2D,
+#if !MONODROID
 		/// <summary>
 		/// Texture rectangle sampler.
 		/// </summary>
 		UIntSampler2DRect = Gl.UNSIGNED_INT_SAMPLER_2D_RECT,
+#endif
 		/// <summary>
 		/// Texture 3D sampler.
 		/// </summary>

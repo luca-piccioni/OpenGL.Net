@@ -238,6 +238,7 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Vec4:
 					SetUniform(ctx, uniformName, x, y, z, w);
 					break;
+#if !MONODROID
 				case ShaderUniformType.Double:
 					SetUniform(ctx, uniformName, (double)x);
 					break;
@@ -250,6 +251,7 @@ namespace OpenGL.Objects
 				case ShaderUniformType.DoubleVec4:
 					SetUniform(ctx, uniformName, (double)x, (double)y, (double)z, (double)w);
 					break;
+#endif
 				case ShaderUniformType.Int:
 					SetUniform(ctx, uniformName, (int)x);
 					break;
@@ -418,7 +420,7 @@ namespace OpenGL.Objects
 		/// </remarks>
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, double x)
 		{
-			SetUniform(ctx, uniformName, x, 0.0, 0.0, 0.0);
+			SetVariantUniform(ctx, uniformName, x, 0.0, 0.0, 0.0);
 		}
 
 		/// <summary>
@@ -452,7 +454,7 @@ namespace OpenGL.Objects
 		/// </remarks>
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, double x, double y)
 		{
-			SetUniform(ctx, uniformName, x, y, 0.0, 0.0);
+			SetVariantUniform(ctx, uniformName, x, y, 0.0, 0.0);
 		}
 
 		/// <summary>
@@ -489,7 +491,7 @@ namespace OpenGL.Objects
 		/// </remarks>
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, double x, double y, double z)
 		{
-			SetUniform(ctx, uniformName, x, y, z, 0.00);
+			SetVariantUniform(ctx, uniformName, x, y, z, 0.00);
 		}
 
 		/// <summary>
@@ -547,6 +549,7 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Vec4:
 					SetUniform(ctx, uniformName, (float)x, (float)y, (float)z, (float)w);
 					break;
+#if !MONODROID
 				case ShaderUniformType.Double:
 					SetUniform(ctx, uniformName, x);
 					break;
@@ -559,6 +562,7 @@ namespace OpenGL.Objects
 				case ShaderUniformType.DoubleVec4:
 					SetUniform(ctx, uniformName, x, y, z, w);
 					break;
+#endif
 				case ShaderUniformType.Int:
 					SetUniform(ctx, uniformName, (int)x);
 					break;
@@ -666,9 +670,11 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Mat3x3:
 					SetUniform(ctx, uniformName, m);
 					break;
+#if !MONODROID
 				case ShaderUniformType.DoubleMat3x3:
 					SetUniform(ctx, uniformName, (MatrixDouble3x3)m);
 					break;
+#endif
 				default:
 					throw new ShaderException("unable to set single-precision floating-point matrix 3x3 data to uniform of type {0}", uniform.UniformType);
 			}
@@ -697,9 +703,11 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Mat4x4:
 					SetUniform(ctx, uniformName, m);
 					break;
+#if !MONODROID
 				case ShaderUniformType.DoubleMat4x4:
 					SetUniform(ctx, uniformName, (MatrixDouble4x4)m);
 					break;
+#endif
 				default:
 					throw new ShaderException("unable to set single-precision floating-point matrix 4x4 data to uniform of type {0}", uniform.UniformType);
 			}
@@ -732,9 +740,11 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Mat3x3:
 					SetUniform(ctx, uniformName, (Matrix3x3)m);
 					break;
+#if !MONODROID
 				case ShaderUniformType.DoubleMat3x3:
 					SetUniform(ctx, uniformName, m);
 					break;
+#endif
 				default:
 					throw new ShaderException("unable to set double-precision floating-point matrix 3x3 data to uniform of type {0}", uniform.UniformType);
 			}
@@ -763,9 +773,11 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Mat4x4:
 					SetUniform(ctx, uniformName, (Matrix4x4)m);
 					break;
+#if !MONODROID
 				case ShaderUniformType.DoubleMat4x4:
 					SetUniform(ctx, uniformName, m);
 					break;
+#endif
 				default:
 					throw new ShaderException("unable to set double-precision floating-point matrix 4x4 data to uniform of type {0}", uniform.UniformType);
 			}
@@ -798,9 +810,11 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Mat3x3:
 					SetUniform(ctx, uniformName, (Matrix3x3)m);
 					break;
+#if !MONODROID
 				case ShaderUniformType.DoubleMat3x3:
 					SetUniform(ctx, uniformName, (MatrixDouble3x3)m);
 					break;
+#endif
 				default:
 					throw new ShaderException("unable to set double-precision floating-point matrix 3x3 data to uniform of type {0}", uniform.UniformType);
 			}
@@ -829,9 +843,11 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Mat4x4:
 					SetUniform(ctx, uniformName, (Matrix4x4)m);
 					break;
+#if !MONODROID
 				case ShaderUniformType.DoubleMat4x4:
 					SetUniform(ctx, uniformName, (MatrixDouble4x4)m);
 					break;
+#endif
 				default:
 					throw new ShaderException("unable to set double-precision floating-point matrix 4x4 data to uniform of type {0}", uniform.UniformType);
 			}

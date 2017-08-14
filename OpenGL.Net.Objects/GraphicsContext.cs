@@ -397,6 +397,7 @@ namespace OpenGL.Objects
 
 		private IntPtr CreateContextDesktop(KhronosVersion version, IntPtr sharedContext, GraphicsContextFlags flags)
 		{
+#if !MONODROID
 			#region Check Requirements
 
 			// (WGL|GLX)_ARB_create_context
@@ -525,6 +526,9 @@ namespace OpenGL.Objects
 			} else {
 				return (_DeviceContext.CreateContext(sharedContext));
 			}
+#else
+			return (_DeviceContext.CreateContext(sharedContext));
+#endif
 		}
 
 		private IntPtr CreateContextNative(KhronosVersion version, IntPtr sharedContext, GraphicsContextFlags flags)
@@ -682,12 +686,14 @@ namespace OpenGL.Objects
 			// Context flags.
 			Gl.Get(Gl.CONTEXT_FLAGS, out contextFlags);
 
+#if !MONODROID
 			if ((contextFlags & Wgl.CONTEXT_DEBUG_BIT_ARB) != 0)
 				_ContextFlags |= GraphicsContextFlags.Debug;
 			if ((contextFlags & Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB) != 0)
 				_ContextFlags |= GraphicsContextFlags.ForwardCompatible;
 			if ((contextFlags & Wgl.CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB) != 0)
 				_ContextFlags |= GraphicsContextFlags.CompatibilityProfile;
+#endif
 		}
 
 		/// <summary>

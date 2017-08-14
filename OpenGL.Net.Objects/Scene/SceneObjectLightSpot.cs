@@ -293,7 +293,9 @@ namespace OpenGL.Objects.Scene
 				LinkResource(_ShadowMap = new Texture2d(_ShadowMapSize, _ShadowMapSize, ShadowMapFormat));
 				_ShadowMap.SamplerParams.MinFilter = TextureMinFilter.Nearest;
 				_ShadowMap.SamplerParams.MagFilter = TextureMagFilter.Nearest;
+#if !MONODROID
 				_ShadowMap.SamplerParams.WrapCoordS = _ShadowMap.SamplerParams.WrapCoordT = TextureWrapMode.Clamp;
+#endif
 				_ShadowMap.SamplerParams.CompareMode = true;
 				_ShadowMap.SamplerParams.CompareFunc = DepthFunction.Less;
 			}

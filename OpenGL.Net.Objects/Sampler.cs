@@ -101,10 +101,12 @@ namespace OpenGL.Objects
 				_ObjectParams.WrapCoordT = samplerParams.WrapCoordT;
 			}
 
+#if !MONODROID
 			if (samplerParams.CompareMode != _ObjectParams.CompareMode) {
 				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureCompareMode, samplerParams.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
 				_ObjectParams.CompareMode = samplerParams.CompareMode;
 			}
+#endif
 
 			if (samplerParams.CompareFunc != _ObjectParams.CompareFunc) {
 				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureCompareFunc, (int)samplerParams.CompareFunc);

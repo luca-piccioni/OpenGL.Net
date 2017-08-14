@@ -318,6 +318,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.UIntVec3:
 				case ShaderAttributeType.UIntVec4:
 					return (VertexBaseType.UInt);
+#if !MONODROID
 				case ShaderAttributeType.Double:
 				case ShaderAttributeType.DoubleVec2:
 				case ShaderAttributeType.DoubleVec3:
@@ -332,6 +333,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat4x2:
 				case ShaderAttributeType.DoubleMat4x3:
 					return (VertexBaseType.Double);
+#endif
 				default:
 					throw new ArgumentException(String.Format("unrecognized shader attribute type {0}", shaderAttributeType));
 			}
