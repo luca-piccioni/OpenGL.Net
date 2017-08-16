@@ -1648,7 +1648,7 @@ namespace OpenGL.Objects
 			{
 				unsafe
 				{
-					Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, 1, false, (double*)&m);
+					Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, 1, false, (float*)&m);
 				}
 			}
 
@@ -1661,7 +1661,7 @@ namespace OpenGL.Objects
 			{
 				unsafe
 				{
-					Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, 1, false, (double*)&m);
+					Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, 1, false, (float*)&m);
 				}
 			}
 

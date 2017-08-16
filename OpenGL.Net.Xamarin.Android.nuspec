@@ -12,23 +12,22 @@
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <summary>Modern OpenGL bindings for C# - Xamarin.Android utilities.</summary>
         <description>
-            Modern OpenGL bindings for C#, Xamarin.Android utilities..
-
-            It includes an SurfaceView implementation that ease the OpenGL context creation on Android.
+Modern OpenGL bindings for C#, Xamarin.Android utilities..
+It includes an SurfaceView implementation that ease the OpenGL context creation on Android.
         </description>
         <releaseNotes>
-            * v0.6.0
-            - Licenced under MIT
+* v0.6.0
+- Licenced under MIT
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
-        <tags>Android Xamarin OpenGL OpenGL-ES GLSL GLES EGL C# .Net Graphics 3D</tags>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono Android Xamarin GPU Graphics 3D</tags>
         <dependencies>
             <dependency id="OpenGL.Net" version="$version$" />
         </dependencies>
     </metadata>
     <files>
-        <file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.dll" target="lib\MonoAndroid" />
-        <file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.xml" target="lib\MonoAndroid" />
-        <file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.pdb" target="lib\MonoAndroid" />
+        <file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.dll" target="lib\monoandroid" />
+        <file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.xml" target="lib\monoandroid" />
+        <file src="OpenGL.Net.Xamarin.Android/bin/Release/OpenGL.Net.Xamarin.Android.pdb" target="lib\monoandroid" />
     </files>
 </package>

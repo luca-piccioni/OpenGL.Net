@@ -12,53 +12,48 @@
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <summary>Modern OpenGL bindings for C# - Core Profile.</summary>
         <description>
-            Modern OpenGL bindings for C#.
-
-            It supports the following APIs:
-            - OpenGL 4.6 and relative extensions.
-            - OpenGL for Windows (WGL) with relative extensions.
-            - OpenGL for X11 1.4 (XGL) with relative extensions.
-            - Native Platform Interface 1.5 (EGL) with relative extensions.
-            - Support Broadcom VideoCore IV (Raspberry PI 2)
-
-            No user interface is included in this package. The following UI backends are supported in separated packages:
-            - System.Window.Forms (Windows, Linux) via OpenGL.Net.WinForms
-            - Xamarin.Forms (Android) via OpenGL.Net.Xamarin.Android
-            - Broadcom VideoCore IV (Raspberry PI 2) via OpenGL.Net.VideoCore
-
-            Note: this binary defines only a specific a subset of the OpenGL specification. The constants and commands removed are:
-            - Compatibility profile related symbols..
-            - OpenGL ES related symbols. Only desktop environment.
-            - Extensions methods that affect only the core profile.
+Modern OpenGL bindings for C#.
+It supports OpenGL 4.6 with relative extensions, OpenGL for Windows (WGL) with relative extensions, OpenGL for X11 1.4 (XGL) with relative extensions, Native Platform Interface 1.5 (EGL) with relative extensions, Broadcom VideoCore IV (Raspberry PI 2). Specifications updated to Aug 5, 2017.
+No graphical toolkit integration is included in this package. UI backends are supported in separated packages (Windows.Forms, Xamarin.Forms, Broadcom VideoCore IV (Raspberry PI 2)).
+Note: this package has removed a specific a subset of the OpenGL specification. The binary includes only the symbols required by OpenGL Core Profile, removing all deprecated symbols of the Compatibility profile.
         </description>
         <releaseNotes>
-            * v0.6.0
-            - Licenced under MIT
-            - Support OpenGL 4.6
-            
-            * v0.5.2
-            - Documentation tagged with source reference page, for each member;
-            - Completed GL limits support class, automatically generated with gl.xml information;
-            - More coherent procedure loader (ensure priority: Core -> ARB -> EXT -> Vendor);
-            - Added extensions: WGL_ARB_create_context_no_error - GLX_ARB_create_context_no_error - GL_EXT_memory_object - GL_EXT_memory_object_fd - GL_EXT_memory_object_win32 - GL_EXT_semaphore - GL_EXT_semaphore_fd - GL_EXT_semaphore_win32 - GL_EXT_win32_keyed_mutex - GL_EXT_texture_storage (alias of GL_APPLE_texture_format_BGRA8888);
-            - Added OpenGL SC 2 API metadata, binding SC2 over other GL implementations;
-            - Un-aliased GL_CLIP_DISTANCE* enumerations from GL_CLIP_PLANE: they have different requirements;
-            - Added GL_DEPTH_STENCIL_ATTACHMENT in FramebufferAttachment enumeration;
-            - MemoryBarrier and MemoryBarrierByRegion uses MemoryBarrierMask enumeration;
+* v0.6.0
+- Licenced under MIT
+- Support OpenGL 4.6
+- Fixed multithreading support
+- Specific target for Xamarin/MonoAndroid framework
 
-            * v0.5.1
-            - Added enumeration arguments and return types; (more will be);
-            - Renamed enumerations from ARB or EXT suffixes for core enumerations;
-            - Loads only the required commands for the current GL context; faster load times;
-            - Logging has a cleaner and extensible interface;
-            - EGL initialization event for passing custom arguments; other APIs may have their own event;
-            - Optional library initialization via environment variables;
-            - Updated specification (but with strong customization due enums);
-            - More documentation from GLES3.2 manual;
-            - Commands and enumerations are documented with multiple manuals;
+* v0.5.2
+- Documentation tagged with source reference page, for each member;
+- Completed GL limits support class, automatically generated with gl.xml information;
+- More coherent procedure loader (ensure priority: Core -> ARB -> EXT -> Vendor);
+- Added extensions: WGL_ARB_create_context_no_error - GLX_ARB_create_context_no_error - GL_EXT_memory_object - GL_EXT_memory_object_fd - GL_EXT_memory_object_win32 - GL_EXT_semaphore - GL_EXT_semaphore_fd - GL_EXT_semaphore_win32 - GL_EXT_win32_keyed_mutex - GL_EXT_texture_storage (alias of GL_APPLE_texture_format_BGRA8888);
+- Added OpenGL SC 2 API metadata, binding SC2 over other GL implementations;
+- Un-aliased GL_CLIP_DISTANCE* enumerations from GL_CLIP_PLANE: they have different requirements;
+- Added GL_DEPTH_STENCIL_ATTACHMENT in FramebufferAttachment enumeration;
+- MemoryBarrier and MemoryBarrierByRegion uses MemoryBarrierMask enumeration;
+
+* v0.5.1
+- Added enumeration arguments and return types; (more will be);
+- Renamed enumerations from ARB or EXT suffixes for core enumerations;
+- Loads only the required commands for the current GL context; faster load times;
+- Logging has a cleaner and extensible interface;
+- EGL initialization event for passing custom arguments; other APIs may have their own event;
+- Optional library initialization via environment variables;
+- Updated specification (but with strong customization due enums);
+- More documentation from GLES3.2 manual;
+- Commands and enumerations are documented with multiple manuals;
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
-        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono Android Xamarin GPU Graphics 3D</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System" />
+            <frameworkAssembly assemblyName="System.Core" targetFramework="monoandroid" />
+            <frameworkAssembly assemblyName="System.Drawing" targetFramework="net35" />
+            <frameworkAssembly assemblyName="System.Drawing" targetFramework="net461" />
+            <frameworkAssembly assemblyName="System.Xml" />
+        </frameworkAssemblies>
         <dependencies>
             <group targetFramework="net461">
                 <dependency id="System.Numerics.Vectors" version="4.3.0" />
@@ -71,7 +66,5 @@
         <!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\net35" />-->
         <file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.dll" target="lib\net461" />
         <!--<file src="OpenGL.Net/bin/net461/Release/OpenGL.Net-CoreProfile.xml" target="lib\net461" />-->
-        <file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.dll" target="lib\MonoAndroid" />
-        <!--<file src="OpenGL.Net/bin/net35/Release/OpenGL.Net-CoreProfile.xml" target="lib\MonoAndroid" />-->
     </files>
 </package>

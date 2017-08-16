@@ -351,6 +351,8 @@ namespace OpenGL.Objects
 			#endregion
 		}
 
+#if !MONODROID
+
 		/// <summary>
 		/// Texture attachment to Framebuffer (specialization for <see cref="TextureRectangle"/>).
 		/// </summary>
@@ -375,6 +377,8 @@ namespace OpenGL.Objects
 
 			#endregion
 		}
+
+#endif
 
 		/// <summary>
 		/// Texture attachment to Framebuffer (specialization for <see cref="TextureCube"/>).
@@ -564,6 +568,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#if !MONODROID
+
 		#region AttachColor(TextureRectangle)
 
 		/// <summary>
@@ -581,6 +587,8 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
+
+#endif
 
 		#region AttachColor(TextureCube)
 
@@ -687,10 +695,14 @@ namespace OpenGL.Objects
 			AttachDepth(new TextureAttachment(texture, level));
 		}
 
+#if !MONODROID
+
 		public void AttachDepth(TextureRectangle texture)
 		{
 			AttachDepth(new TextureRectangleAttachment(texture));
 		}
+
+#endif
 
 		private void AttachDepth(Attachment attachment)
 		{

@@ -248,6 +248,7 @@ namespace OpenGL.Objects
 								arrayStride, arraySection.Offset
 								);
 							break;
+#if !MONODROID
 						case VertexBaseType.Double:
 							Gl.VertexAttribLPointer(
 								location,
@@ -255,6 +256,7 @@ namespace OpenGL.Objects
 								arrayStride, arraySection.Offset
 								);
 							break;
+#endif
 						default:
 							throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
 					}

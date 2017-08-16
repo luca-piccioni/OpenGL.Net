@@ -238,6 +238,7 @@ namespace OpenGL.Objects
 			return (x & (x - 1)) == 0;
 		}
 
+#if !MONODROID
 		/// <summary>
 		/// Download Texture data to an Image instance.
 		/// </summary>
@@ -282,6 +283,7 @@ namespace OpenGL.Objects
 
 			return (image);
 		}
+#endif
 
 		#endregion
 

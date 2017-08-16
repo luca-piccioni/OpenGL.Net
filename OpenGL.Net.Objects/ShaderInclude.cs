@@ -281,9 +281,11 @@ namespace OpenGL.Objects
 
 			// Base implementation
 			base.Delete(ctx);
+#if !MONODROID
 			// Delete named string
 			if (ctx.Extensions.ShadingLanguageInclude_ARB)
 				Gl.DeleteNamedStringARB(-1, IncludePath);
+#endif
 		}
 
 		#endregion

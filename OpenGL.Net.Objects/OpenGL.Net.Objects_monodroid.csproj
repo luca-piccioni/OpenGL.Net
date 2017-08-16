@@ -162,12 +162,10 @@
     <Compile Include="State\WriteMaskState.cs" />
     <Compile Include="String.Extensions.cs" />
     <Compile Include="Texture.cs" />
-    <Compile Include="Texture1d.cs" />
     <Compile Include="Texture2d.cs" />
     <Compile Include="Texture3d.cs" />
     <Compile Include="TextureArray2d.cs" />
     <Compile Include="TextureCube.cs" />
-    <Compile Include="TextureRectangle.cs" />
     <Compile Include="TextureUnit.cs" />
     <Compile Include="UniformBuffer.cs" />
     <Compile Include="UniformBuffer.SetUniform.cs" />

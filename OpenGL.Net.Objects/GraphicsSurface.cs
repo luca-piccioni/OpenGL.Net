@@ -174,8 +174,13 @@ namespace OpenGL.Objects
 			// Update clear values (only what is necessary)
 			if ((bufferMask & ClearBufferMask.ColorBufferBit) != 0)
 				Gl.ClearColor(mClearColor.Red, mClearColor.Green, mClearColor.Blue, mClearColor.Alpha);
+#if !MONODROID
 			if ((bufferMask & ClearBufferMask.DepthBufferBit) != 0)
 				Gl.ClearDepth(mClearDepth);
+#else
+			if ((bufferMask & ClearBufferMask.DepthBufferBit) != 0)
+				Gl.ClearDepth((float)mClearDepth);
+#endif
 			if ((bufferMask & ClearBufferMask.StencilBufferBit) != 0)
 				Gl.ClearStencil(mClearStencil);
 			

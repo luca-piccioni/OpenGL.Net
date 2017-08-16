@@ -935,6 +935,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#if !MONODROID
+
 		#region Texture Download
 
 		/// <summary>
@@ -958,6 +960,8 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
+
+#endif
 
 		#region Texture Overrides
 

@@ -289,12 +289,12 @@ namespace OpenGL.Objects
 				Gl.TexParameter(textureTarget, TextureParameterName.TextureWrapT, (int)texParameters.WrapCoordT);
 				_CurrentSamplerParams.WrapCoordT = texParameters.WrapCoordT;
 			}
-
+#if !MONODROID
 			if (texParameters.CompareMode != _CurrentSamplerParams.CompareMode) {
 				Gl.TexParameter(textureTarget, TextureParameterName.TextureCompareMode, texParameters.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
 				_CurrentSamplerParams.CompareMode = texParameters.CompareMode;
 			}
-
+#endif
 			if (texParameters.CompareFunc != _CurrentSamplerParams.CompareFunc) {
 				Gl.TexParameter(textureTarget, TextureParameterName.TextureCompareFunc, (int)texParameters.CompareFunc);
 				_CurrentSamplerParams.CompareFunc = texParameters.CompareFunc;

@@ -637,10 +637,6 @@ namespace OpenGL.Objects
 				// Compile shader object (includes are already preprocessed)
 				Gl.CompileShader(ObjectName);
 			}
-#else
-			// Compile shader object (includes are already preprocessed)
-			Gl.CompileShader(ObjectName);
-#endif
 
 			// Check for compilation errors
 			int compilationStatus;
@@ -668,7 +664,10 @@ namespace OpenGL.Objects
 				if (sb.Length > 0)
 					Log("Shader object \"{0}\" compilation warning: {1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
 			}
-
+#else
+			// Compile shader object (includes are already preprocessed)
+			Gl.CompileShader(ObjectName);
+#endif
 			_Compiled = true;
 		}
 

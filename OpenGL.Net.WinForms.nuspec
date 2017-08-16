@@ -12,28 +12,21 @@
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <summary>Modern OpenGL bindings for C# - WinForms utilities.</summary>
         <description>
-            Modern OpenGL bindings for C#, System.Windows.Forms utilities.
-            
-            It includes an UserControl implementation that ease the OpenGL context creation using WinForms UI designers.
-
-            It supports the following OSes:
-            - MS Windows
-            - GNU/Linux
-            
-            The package depends on OpenGL.Net.
+Modern OpenGL bindings for C#, System.Windows.Forms utilities.
+It includes an UserControl implementation that ease the OpenGL context creation using WinForms UI designers.
+It supports Windows and GNU/Linux.
         </description>
         <releaseNotes>
-            v0.6.0
-            - Licenced under MIT
-            
-            v0.5.2
-            - Fixed GlControl.ContextVersion designer property serialization.
-
-            v0.5.1
-            - Added continuos animation support.
+* v0.6.0
+- Licenced under MIT
+- Fixed multithreading support
+* v0.5.2
+- Fixed GlControl.ContextVersion designer property serialization
+* v0.5.1
+- Added continuos animation support
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
-        <tags>WinForms OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Graphics 3D</tags>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono WinForms GPU Graphics 3D</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Windows.Forms" />
         </frameworkAssemblies>
@@ -41,6 +34,8 @@
             <group>
                 <dependency id="OpenGL.Net" version="$version$" />
             </group>
+            <group targetFramework="net35"/>
+            <group targetFramework="net461"/>
         </dependencies>
     </metadata>
     <files>

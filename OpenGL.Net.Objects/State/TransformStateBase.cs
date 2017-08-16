@@ -207,6 +207,7 @@ namespace OpenGL.Objects.State
 
 				// Fixed pipeline rendering requires server state
 				
+#if !MONODROID
 				if (ctx.Extensions.DirectStateAccess_EXT) {
 					// Set projection and model-view matrix
 					Gl.MatrixLoadEXT(MatrixMode.Projection, Projection.ToArray());
@@ -219,6 +220,9 @@ namespace OpenGL.Objects.State
 					Gl.MatrixMode(MatrixMode.Modelview);
 					Gl.LoadMatrix(ModelView.ToArray());
 				}
+#else
+				throw new NotSupportedException("fixed pipeline not supported");
+#endif
 			} else {
 				// Shader implementation (TransformState.glsl)
 				ctx.Bind(shaderProgram);

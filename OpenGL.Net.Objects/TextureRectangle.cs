@@ -180,6 +180,7 @@ namespace OpenGL.Objects
 		{
 			get
 			{
+#if !MONODROID
 				if (PixelLayout.IsGlIntegerPixel()) {
 					if (PixelLayout.IsGlSignedIntegerPixel())
 						return (Gl.INT_SAMPLER_2D_RECT);
@@ -188,6 +189,7 @@ namespace OpenGL.Objects
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));
 				} else
+#endif
 					return (Gl.SAMPLER_2D_RECT);
 			}
 		}
