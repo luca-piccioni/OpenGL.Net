@@ -8,12 +8,14 @@
         <owners>Luca Piccioni</owners>
         <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
-        <iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net-Logo.gif</iconUrl>
+        <iconUrl>http://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net-Logo.gif?raw=true</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <summary>Modern OpenGL bindings for C#.</summary>
         <description>
 Modern OpenGL bindings for C#.
+
 It supports OpenGL 4.6 with relative extensions, OpenGL for Windows (WGL) with relative extensions, OpenGL for X11 1.4 (XGL) with relative extensions, Native Platform Interface 1.5 (EGL) with relative extensions, Broadcom VideoCore IV (Raspberry PI 2). Specifications updated to Aug 5, 2017.
+
 No graphical toolkit integration is included in this package. UI backends are supported in separated packages (Windows.Forms, Xamarin.Forms, Broadcom VideoCore IV (Raspberry PI 2)).
         </description>
         <releaseNotes>

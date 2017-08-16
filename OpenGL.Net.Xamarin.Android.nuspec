@@ -8,11 +8,12 @@
         <owners>Luca Piccioni</owners>
         <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
-        <iconUrl>https://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net-Logo.gif</iconUrl>
+        <iconUrl>http://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net-Logo.gif?raw=true</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <summary>Modern OpenGL bindings for C# - Xamarin.Android utilities.</summary>
         <description>
-Modern OpenGL bindings for C#, Xamarin.Android utilities..
+Modern OpenGL bindings for C#, Xamarin.Android utilities.
+
 It includes an SurfaceView implementation that ease the OpenGL context creation on Android.
         </description>
         <releaseNotes>
