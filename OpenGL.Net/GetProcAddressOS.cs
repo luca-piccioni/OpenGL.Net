@@ -70,7 +70,19 @@ namespace OpenGL
 		/// </summary>
 		static GetProcAddressOS()
 		{
-			_GetProcAddressOS = CreateOS();
+			string envOsLoader = Environment.GetEnvironmentVariable("OPENGL_NET_OSLOADER");
+			
+			switch (envOsLoader) {
+				case "EGL":
+					// Force using eglGetProcAddress
+					_GetProcAddressOS = new GetGLProcAddressEGL();
+					// Use EGL backend as default
+					Egl.IsRequired = true;
+					break;
+				default:
+					_GetProcAddressOS = CreateOS();
+					break;
+			}
 		}
 
 		/// <summary>
@@ -86,24 +98,17 @@ namespace OpenGL
 		/// </returns>
 		private static IGetProcAddressOS CreateOS()
 		{
-			string envOsLoader = Environment.GetEnvironmentVariable("OPENGL_NET_OSLOADER");
-			
-			switch (envOsLoader) {
-				case "EGL":
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
+					return new GetProcAddressWindows();
+				case Platform.Id.Linux:
+					return new GetProcAddressLinux();
+				case Platform.Id.MacOS:
+					return new GetProcAddressOSX();
+				case Platform.Id.Android:
 					return new GetGLProcAddressEGL();
 				default:
-					switch (Platform.CurrentPlatformId) {
-						case Platform.Id.WindowsNT:
-							return new GetProcAddressWindows();
-						case Platform.Id.Linux:
-							return new GetProcAddressLinux();
-						case Platform.Id.MacOS:
-							return new GetProcAddressOSX();
-						case Platform.Id.Android:
-							return new GetGLProcAddressEGL();
-						default:
-							throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
-					}
+					throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
 			}
 		}
 
