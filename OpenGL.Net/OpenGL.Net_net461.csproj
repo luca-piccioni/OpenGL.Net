@@ -29,7 +29,6 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ReleaseVersion>0.2.3</ReleaseVersion>
     <TargetFrameworkProfile />
     <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
   </PropertyGroup>
