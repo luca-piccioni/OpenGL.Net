@@ -173,10 +173,12 @@ namespace OpenGL.Objects
 		protected override uint CreateName(GraphicsContext ctx)
 		{
 			switch (mTarget) {
+#if !MONODROID
 				case QueryTarget.SamplesPassed:
 					if (!ctx.Extensions.OcclusionQuery_ARB)
 						throw new InvalidOperationException("occlusion query not available");
 					break;
+#endif
 				case QueryTarget.TimeElapsed:
 					if (!ctx.Extensions.TimerQuery_ARB)
 						throw new InvalidOperationException("timer query not available");

@@ -208,15 +208,19 @@ namespace OpenGL.Objects
 			_UniformMap.Clear();
 
 			// Query
+#if !MONODROID
 			if      (ctx.Extensions.ProgramInterfaceQuery_ARB)
 				CollectActiveUniforms_ProgramInterfaceQuery(ctx);
 			else if (ctx.Extensions.UniformBufferObject_ARB)
 				CollectActiveUniforms_UniformBufferObject(ctx);
 			else
+#endif
 				CollectActiveUniforms_Compatible(ctx);
 
 			LogActiveUniforms();
 		}
+
+#if !MONODROID
 
 		/// <summary>
 		/// Collect uniform information using GL_ARB_program_interface_query.
@@ -337,6 +341,8 @@ namespace OpenGL.Objects
 				CheckStructuredUniform(uniformBinding);
 			}
 		}
+
+#endif
 
 		/// <summary>
 		/// Collect uniform information using GL_ARB_shader_objects.

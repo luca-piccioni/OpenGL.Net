@@ -290,6 +290,7 @@ namespace OpenGL.Objects
 									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
 									);
 								break;
+#if !MONODROID
 							case VertexBaseType.Double:
 								Gl.VertexAttribLPointer(
 									(uint)(location + i),
@@ -297,6 +298,7 @@ namespace OpenGL.Objects
 									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
 									);
 								break;
+#endif
 							default:
 								throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
 						}
@@ -330,6 +332,8 @@ namespace OpenGL.Objects
 			}
 
 			#endregion
+
+#if !MONODROID
 
 			#region Fixed Pipeline Attributes
 
@@ -425,6 +429,8 @@ namespace OpenGL.Objects
 
 			#endregion
 
+#endif
+
 			#endregion
 
 			#region IVertexArray Implementation
@@ -480,6 +486,7 @@ namespace OpenGL.Objects
 					else
 						DisableVertexAttribute(ctx, programAttrib.Location);
 				} else {
+#if !MONODROID
 					switch (attributeName) {
 						case VertexArraySemantic.Position:
 							SetPositionAttribute(ctx);
@@ -496,6 +503,9 @@ namespace OpenGL.Objects
 						default:
 							throw new NotSupportedException(String.Format("attribute {0} not supported on fixed pipeline", attributeName));
 					}
+#else
+					throw new NotSupportedException("fixed pipeline not supported");
+#endif
 				}
 
 				// Next time do not set bindings and array state if GL_ARB_vertex_array_object is supported

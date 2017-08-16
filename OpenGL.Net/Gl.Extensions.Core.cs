@@ -34,6 +34,7 @@ namespace OpenGL
 			/// Core support for primitive restart.
 			/// </summary>
 			[CoreExtension(3, 1)]
+			[CoreExtension(3, 0, KhronosVersion.ApiGles2)]
 			public bool PrimitiveRestart;
 
 			/// <summary>

@@ -177,22 +177,26 @@ namespace OpenGL.Objects
 		{
 			// Texture maximum size
 			switch (TextureTarget) {
+#if !MONODROID
 				case TextureTarget.Texture1d:
 					if (width > Gl.CurrentLimits.MaxTextureSize)
 						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTextureSize));
 					break;
+#endif
 				case TextureTarget.Texture2d:
 					if (width > Gl.CurrentLimits.MaxTextureSize)
 						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTextureSize));
 					if (height > Gl.CurrentLimits.MaxTextureSize)
 						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", Gl.CurrentLimits.MaxTextureSize));
 					break;
+#if !MONODROID
 				case TextureTarget.TextureRectangle:
 					if (width > Gl.CurrentLimits.MaxRectangleTextureSize)
 						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.MaxRectangleTextureSize));
 					if (height > Gl.CurrentLimits.MaxRectangleTextureSize)
 						throw new ArgumentException(String.Format("height greater than maximum allowed ({0})", Gl.CurrentLimits.MaxRectangleTextureSize));
 					break;
+#endif
 				case TextureTarget.Texture3d:
 					if (width > Gl.CurrentLimits.Max3dTextureSize)
 						throw new ArgumentException(String.Format("width greater than maximum allowed ({0})", Gl.CurrentLimits.Max3dTextureSize));
@@ -646,6 +650,8 @@ namespace OpenGL.Objects
 
 		#endregion
 
+#if !MONODROID
+
 		#region Swizzle
 
 		/// <summary>
@@ -754,6 +760,8 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
+
+#endif
 
 		#region Technique
 
@@ -899,26 +907,26 @@ namespace OpenGL.Objects
 
 			// All-in-one implementation for all targets
 			switch ((int)TextureTarget) {
+#if !MONODROID
 				case Gl.TEXTURE_1D:
 					return (Gl.TEXTURE_BINDING_1D);
+#endif
 				case Gl.TEXTURE_2D:
 					return (Gl.TEXTURE_BINDING_2D);
 				case Gl.TEXTURE_3D:
 					return (Gl.TEXTURE_BINDING_3D);
-
 				case Gl.TEXTURE_CUBE_MAP:
 					return (Gl.TEXTURE_BINDING_CUBE_MAP);
-
+#if !MONODROID
 				case Gl.TEXTURE_RECTANGLE:
 					return (Gl.TEXTURE_BINDING_RECTANGLE);
-
 				case Gl.TEXTURE_1D_ARRAY:
 					return (Gl.TEXTURE_BINDING_1D_ARRAY);
+#endif
 				case Gl.TEXTURE_2D_ARRAY:
 					return (Gl.TEXTURE_BINDING_2D_ARRAY);
 				case Gl.TEXTURE_CUBE_MAP_ARRAY:
 					return (Gl.TEXTURE_BINDING_CUBE_MAP_ARRAY);
-
 				case Gl.TEXTURE_2D_MULTISAMPLE:
 					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE);
 				case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
@@ -1059,8 +1067,10 @@ namespace OpenGL.Objects
 			
 			// Mipmap levels, if any
 			SetMipmapLevelRange(ctx);
+#if !MONODROID
 			// Swizzle, if supported
 			ApplySwizzle(ctx);
+#endif
 		}
 
 		#endregion

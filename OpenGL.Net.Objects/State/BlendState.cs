@@ -201,7 +201,7 @@ namespace OpenGL.Objects.State
 					blendRgbEquation = blendAlphaEquation = (int)BlendEquationMode.FuncAdd;
 				}
 			}
-
+#if !MONODROID
 			if (ctx.Extensions.BlendFuncSeparate_EXT) {
 				// Blend source function (RGB)
 				Gl.Get(Gl.BLEND_SRC_RGB, out blendRgbSrcFunct);
@@ -219,7 +219,16 @@ namespace OpenGL.Objects.State
 				Gl.Get(GetPName.BlendDst, out blendRgbDstFunct);
 				blendAlphaDstFunct = blendRgbDstFunct;
 			}
-
+#else
+			// Blend source function (RGB)
+			Gl.Get(Gl.BLEND_SRC_RGB, out blendRgbSrcFunct);
+			// Blend source function (Alpha)
+			Gl.Get(Gl.BLEND_SRC_ALPHA, out blendAlphaSrcFunct);
+			// Blend destination function (RGB)
+			Gl.Get(Gl.BLEND_DST_RGB, out blendRgbDstFunct);
+			// Blend destination function (Alpha)
+			Gl.Get(Gl.BLEND_DST_ALPHA, out blendAlphaDstFunct);
+#endif
 			// Store blending equation
 			_RgbEquation = (BlendEquationMode)blendRgbEquation;
 			_AlphaEquation = (BlendEquationMode)blendAlphaEquation;

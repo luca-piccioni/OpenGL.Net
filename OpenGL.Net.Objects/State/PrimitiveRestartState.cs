@@ -130,6 +130,7 @@ namespace OpenGL.Objects.State
 		{
 			if (Enabled) {
 				// Enable
+#if !MONODROID
 				if (Gl.CurrentExtensions.PrimitiveRestart) {
 					Gl.Enable(EnableCap.PrimitiveRestart);
 					Gl.PrimitiveRestartIndex(RestartIndex);
@@ -138,14 +139,27 @@ namespace OpenGL.Objects.State
 					Gl.PrimitiveRestartIndexNV(RestartIndex);
 				} else
 					throw new InvalidOperationException("primitive restart not supported");
+#else
+				if (Gl.CurrentExtensions.PrimitiveRestart)
+					Gl.Enable(EnableCap.PrimitiveRestartFixedIndex);
+				else
+					throw new InvalidOperationException("primitive restart not supported");
+#endif
 			} else {
 				// Disable
+#if !MONODROID
 				if (Gl.CurrentExtensions.PrimitiveRestart) {
 					Gl.Disable(EnableCap.PrimitiveRestart);
 				} else if (Gl.CurrentExtensions.PrimitiveRestart_NV) {
 					Gl.DisableClientState(EnableCap.PrimitiveRestartNv);
 				} else
 					throw new InvalidOperationException("primitive restart not supported");
+#else
+				if (Gl.CurrentExtensions.PrimitiveRestart)
+					Gl.Disable(EnableCap.PrimitiveRestartFixedIndex);
+				else
+					throw new InvalidOperationException("primitive restart not supported");
+#endif
 			}
 		}
 
@@ -153,22 +167,36 @@ namespace OpenGL.Objects.State
 		{
 			if (Enabled != currentState.Enabled) {
 				if (Enabled) {
+#if !MONODROID
 					if (Gl.CurrentExtensions.PrimitiveRestart) {
 						Gl.Enable(EnableCap.PrimitiveRestart);
 					} else if (Gl.CurrentExtensions.PrimitiveRestart_NV) {
 						Gl.EnableClientState(EnableCap.PrimitiveRestartNv);
 					} else
 						throw new InvalidOperationException("primitive restart not supported");
+#else
+					if (Gl.CurrentExtensions.PrimitiveRestart)
+						Gl.Enable(EnableCap.PrimitiveRestartFixedIndex);
+					else
+						throw new InvalidOperationException("primitive restart not supported");
+#endif
 				} else {
+#if !MONODROID
 					if (Gl.CurrentExtensions.PrimitiveRestart) {
 						Gl.Disable(EnableCap.PrimitiveRestart);
 					} else if (Gl.CurrentExtensions.PrimitiveRestart_NV) {
 						Gl.DisableClientState(EnableCap.PrimitiveRestartNv);
 					} else
 						throw new InvalidOperationException("primitive restart not supported");
+#else
+					if (Gl.CurrentExtensions.PrimitiveRestart)
+						Gl.Disable(EnableCap.PrimitiveRestartFixedIndex);
+					else
+						throw new InvalidOperationException("primitive restart not supported");
+#endif
 				}
 			}
-
+#if !MONODROID
 			if (RestartIndex != currentState.RestartIndex) {
 				if (Gl.CurrentExtensions.PrimitiveRestart) {
 					Gl.PrimitiveRestartIndex(RestartIndex);
@@ -177,6 +205,7 @@ namespace OpenGL.Objects.State
 				} else
 					throw new InvalidOperationException("primitive restart not supported");
 			}
+#endif
 		}
 
 		/// <summary>
