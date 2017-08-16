@@ -68,7 +68,7 @@ namespace OpenGL
 		public static bool IsAvailable { get { return (Delegates.pbcm_host_init != null); } }
 
 		/// <summary>
-		/// Get or set whether <see cref="DeviceContextFactory"/> should create an EGL device context bound to BCM, if available.
+		/// Get or set whether <see cref="DeviceContext"/> should create an EGL handles, if available.
 		/// </summary>
 		public static bool IsRequired
 		{

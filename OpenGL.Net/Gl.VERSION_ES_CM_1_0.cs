@@ -62,9 +62,6 @@ namespace OpenGL
 		/// <param name="eqn">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetClipPlane"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void ClipPlane(ClipPlaneName p, float[] eqn)
 		{
@@ -100,11 +97,6 @@ namespace OpenGL
 		/// <param name="far">
 		/// Specify the distances to the near and far depth clipping planes. Both distances must be positive.
 		/// </param>
-		/// <seealso cref="Gl.Ortho"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void Frustum(float left, float right, float bottom, float top, float near, float far)
 		{
@@ -126,7 +118,6 @@ namespace OpenGL
 		/// Returns four fixed-point or floating-point values that are the coefficients of the plane equation of <paramref 
 		/// name="plane"/> in eye coordinates in the order p1, p2, p3, and p4. The initial value is (0, 0, 0, 0).
 		/// </param>
-		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] float[] equation)
 		{
@@ -164,11 +155,6 @@ namespace OpenGL
 		/// Specify the distances to the nearer and farther depth clipping planes. These values are negative if the plane is to be 
 		/// behind the viewer.
 		/// </param>
-		/// <seealso cref="Gl.Frustum"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void Ortho(float left, float right, float bottom, float top, float near, float far)
 		{
@@ -189,11 +175,6 @@ namespace OpenGL
 		/// Specifies the reference value that incoming alpha values are compared to. This value is clamped to the range [0, 1], 
 		/// where 0 represents the lowest possible alpha value and 1 the highest possible value. The initial reference value is 0.
 		/// </param>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void AlphaFunc(AlphaFunction func, IntPtr @ref)
 		{
@@ -218,10 +199,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specify the red, green, blue, and alpha values used when the color buffer is cleared. The initial values are all 0.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.ColorMask"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void ClearColor(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha)
 		{
@@ -237,11 +214,6 @@ namespace OpenGL
 		/// <param name="depth">
 		/// Specifies the depth value used when the depth buffer is cleared. The initial value is 1.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.DepthMask"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void ClearDepth(IntPtr depth)
 		{
@@ -262,9 +234,6 @@ namespace OpenGL
 		/// Specifies the address of an array of four fixed-point or floating-point values. These are the coefficients of a plane 
 		/// equation in object coordinates: p1, p2, p3, and p4, in that order.
 		/// </param>
-		/// <seealso cref="Gl.GetClipPlane"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void ClipPlane(ClipPlaneName plane, IntPtr[] equation)
 		{
@@ -294,9 +263,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specify new red, green, blue, and alpha values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Color4(IntPtr red, IntPtr green, IntPtr blue, IntPtr alpha)
 		{
@@ -315,9 +281,6 @@ namespace OpenGL
 		/// <param name="f">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.PolygonOffset"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void DepthRange(IntPtr n, IntPtr f)
 		{
@@ -336,7 +299,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Fog(FogPName pname, IntPtr param)
 		{
@@ -355,7 +317,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Fog(FogPName pname, IntPtr[] param)
 		{
@@ -391,11 +352,6 @@ namespace OpenGL
 		/// <param name="far">
 		/// Specify the distances to the near and far depth clipping planes. Both distances must be positive.
 		/// </param>
-		/// <seealso cref="Gl.Ortho"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Frustum(IntPtr left, IntPtr right, IntPtr bottom, IntPtr top, IntPtr near, IntPtr far)
 		{
@@ -417,7 +373,6 @@ namespace OpenGL
 		/// Returns four fixed-point or floating-point values that are the coefficients of the plane equation of <paramref 
 		/// name="plane"/> in eye coordinates in the order p1, p2, p3, and p4. The initial value is (0, 0, 0, 0).
 		/// </param>
-		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] IntPtr[] equation)
 		{
@@ -441,8 +396,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetString"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetFixed(GetPName pname, [Out] IntPtr[] @params)
 		{
@@ -472,7 +425,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetLightxv(LightName light, LightParameter pname, [Out] IntPtr[] @params)
 		{
@@ -501,7 +453,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] IntPtr[] @params)
 		{
@@ -531,8 +482,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetTexEnv(TextureEnvTarget target, TextureEnvParameter pname, [Out] IntPtr[] @params)
 		{
@@ -560,7 +509,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, [Out] IntPtr[] @params)
 		{
@@ -584,8 +532,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LightModel(LightModelParameter pname, IntPtr param)
 		{
@@ -604,8 +550,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LightModel(LightModelParameter pname, IntPtr[] param)
 		{
@@ -634,9 +578,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Lightx(LightName light, LightParameter pname, IntPtr param)
 		{
@@ -660,9 +601,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Lightxv(LightName light, LightParameter pname, IntPtr[] @params)
 		{
@@ -683,8 +621,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// Specifies the width of rasterized lines. The initial value is 1.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LineWidth(IntPtr width)
 		{
@@ -700,10 +636,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4x4 column-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LoadMatrixx(IntPtr[] m)
 		{
@@ -730,9 +662,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Material(MaterialFace face, MaterialParameter pname, IntPtr param)
 		{
@@ -754,9 +683,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Material(MaterialFace face, MaterialParameter pname, IntPtr[] param)
 		{
@@ -777,10 +703,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4x4 column-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void MultMatrixx(IntPtr[] m)
 		{
@@ -817,12 +739,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void MultiTexCoord4(TextureUnit texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q)
 		{
@@ -847,10 +763,6 @@ namespace OpenGL
 		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of the new current normal. 
 		/// The initial value is (0, 0, 1).
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Normal3(IntPtr nx, IntPtr ny, IntPtr nz)
 		{
@@ -883,11 +795,6 @@ namespace OpenGL
 		/// Specify the distances to the nearer and farther depth clipping planes. These values are negative if the plane is to be 
 		/// behind the viewer.
 		/// </param>
-		/// <seealso cref="Gl.Frustum"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Orthox(IntPtr left, IntPtr right, IntPtr bottom, IntPtr top, IntPtr near, IntPtr far)
 		{
@@ -907,10 +814,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that the parameter will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PointParameter(Int32 pname, IntPtr param)
 		{
@@ -930,10 +833,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PointParameter(Int32 pname, IntPtr[] @params)
 		{
@@ -954,8 +853,6 @@ namespace OpenGL
 		/// <param name="size">
 		/// Specifies the diameter of rasterized points. The initial value is 1.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PointSize(IntPtr size)
 		{
@@ -974,8 +871,6 @@ namespace OpenGL
 		/// <param name="units">
 		/// Is multiplied by an implementation-specific value to create a constant depth offset. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void PolygonOffset(IntPtr factor, IntPtr units)
 		{
@@ -1000,11 +895,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a vector, respectively.
 		/// </param>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Scale"/>
-		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Rotate(IntPtr angle, IntPtr x, IntPtr y, IntPtr z)
 		{
@@ -1025,7 +915,6 @@ namespace OpenGL
 		/// Specifies whether the modification mask implied by <paramref name="value"/> is inverted or not. The initial value is 
 		/// Gl.FALSE.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void SampleCoverage(Int32 value, bool invert)
 		{
@@ -1047,12 +936,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify scale factors along the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> axes, respectively.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Rotate"/>
-		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Scale(IntPtr x, IntPtr y, IntPtr z)
 		{
@@ -1080,14 +963,6 @@ namespace OpenGL
 		/// Gl.PREVIOUS, Gl.SRC_COLOR, Gl.ONE_MINUS_SRC_COLOR, Gl.SRC_ALPHA, Gl.ONE_MINUS_SRC_ALPHA, a single boolean value for the 
 		/// point sprite texture coordinate replacement, or 1.0, 2.0, or 4.0 when specifying the Gl.RGB_SCALE or Gl.ALPHA_SCALE.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, IntPtr param)
 		{
@@ -1112,14 +987,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, IntPtr[] @params)
 		{
@@ -1147,15 +1014,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.PixelStorei"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void TexParameter(TextureTarget target, GetTextureParameter pname, IntPtr param)
 		{
@@ -1178,15 +1036,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.PixelStorei"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void TexParameter(TextureTarget target, GetTextureParameter pname, IntPtr[] @params)
 		{
@@ -1213,11 +1062,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the <paramref name="x"/>, <paramref name="y"/>, and <paramref name="z"/> coordinates of a translation vector.
 		/// </param>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Rotate"/>
-		/// <seealso cref="Gl.Scale"/>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void Translate(IntPtr x, IntPtr y, IntPtr z)
 		{

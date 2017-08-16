@@ -49,11 +49,6 @@ namespace OpenGL
 			/// Bitwise OR of masks that indicate the buffers to be cleared. The three masks are Gl.COLOR_BUFFER_BIT, 
 			/// Gl.DEPTH_BUFFER_BIT, and Gl.STENCIL_BUFFER_BIT.
 			/// </param>
-			/// <seealso cref="Gl.ColorMask"/>
-			/// <seealso cref="Gl.DepthMask"/>
-			/// <seealso cref="Gl.DrawBuffer"/>
-			/// <seealso cref="Gl.Scissor"/>
-			/// <seealso cref="Gl.StencilMask"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -85,7 +80,6 @@ namespace OpenGL
 			/// Specify the width and height of the viewport. When a GL context is first attached to a window, <paramref name="width"/> 
 			/// and <paramref name="height"/> are set to the dimensions of that window.
 			/// </param>
-			/// <seealso cref="Gl.DepthRange"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -124,12 +118,6 @@ namespace OpenGL
 			/// <param name="bitmap">
 			/// Specifies the address of the bitmap image.
 			/// </param>
-			/// <seealso cref="Gl.BindBuffer"/>
-			/// <seealso cref="Gl.DrawPixels"/>
-			/// <seealso cref="Gl.PixelStore"/>
-			/// <seealso cref="Gl.PixelTransfer"/>
-			/// <seealso cref="Gl.RasterPos"/>
-			/// <seealso cref="Gl.WindowPos"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Bitmap(Int32 width, Int32 height, float xorig, float yorig, float xmove, float ymove, byte[] bitmap)
@@ -151,8 +139,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(double c)
@@ -168,8 +154,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(double[] c)
@@ -191,8 +175,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(float c)
@@ -208,8 +190,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(float[] c)
@@ -231,8 +211,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int32 c)
@@ -248,8 +226,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int32[] c)
@@ -271,8 +247,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int16 c)
@@ -288,8 +262,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int16[] c)
@@ -317,7 +289,6 @@ namespace OpenGL
 			/// <param name="param">
 			/// Specifies the value that <paramref name="pname"/> will be set to.
 			/// </param>
-			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -341,7 +312,6 @@ namespace OpenGL
 			/// <param name="params">
 			/// A <see cref="T:float[]"/>.
 			/// </param>
-			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -368,7 +338,6 @@ namespace OpenGL
 			/// <param name="param">
 			/// Specifies the value that <paramref name="pname"/> will be set to.
 			/// </param>
-			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Fog(FogParameter pname, Int32 param)
@@ -389,7 +358,6 @@ namespace OpenGL
 			/// <param name="params">
 			/// A <see cref="T:Int32[]"/>.
 			/// </param>
-			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Fog(FogParameter pname, Int32[] @params)
@@ -416,15 +384,6 @@ namespace OpenGL
 			/// Specifies a floating-point value used in the accumulation buffer operation. <paramref name="op"/> determines how 
 			/// <paramref name="value"/> is used.
 			/// </param>
-			/// <seealso cref="Gl.Clear"/>
-			/// <seealso cref="Gl.ClearAccum"/>
-			/// <seealso cref="Gl.CopyPixels"/>
-			/// <seealso cref="Gl.DrawBuffer"/>
-			/// <seealso cref="Gl.Get"/>
-			/// <seealso cref="Gl.ReadBuffer"/>
-			/// <seealso cref="Gl.ReadPixels"/>
-			/// <seealso cref="Gl.Scissor"/>
-			/// <seealso cref="Gl.StencilOp"/>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Accum(AccumOp op, float value)
@@ -441,8 +400,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(byte c)
@@ -458,8 +415,6 @@ namespace OpenGL
 			/// <param name="c">
 			/// Specifies the new value for the current color index.
 			/// </param>
-			/// <seealso cref="Gl.Color"/>
-			/// <seealso cref="Gl.IndexPointer"/>
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(byte[] c)
@@ -484,7 +439,6 @@ namespace OpenGL
 			/// <param name="param">
 			/// Specifies the value that <paramref name="pname"/> will be set to.
 			/// </param>
-			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			public static void Fog(FogPName pname, IntPtr param)
 			{
@@ -503,7 +457,6 @@ namespace OpenGL
 			/// <param name="param">
 			/// Specifies the value that <paramref name="pname"/> will be set to.
 			/// </param>
-			/// <seealso cref="Gl.Enable"/>
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			public static void Fog(FogPName pname, IntPtr[] param)
 			{
@@ -538,8 +491,6 @@ namespace OpenGL
 			/// If Gl.TRUE, pixels will be consumed by the histogramming process and no drawing or texture loading will take place. If 
 			/// Gl.FALSE, pixels will proceed to the minmax process after histogramming.
 			/// </param>
-			/// <seealso cref="Gl.GetHistogram"/>
-			/// <seealso cref="Gl.ResetHistogram"/>
 			[AliasOf("glHistogramEXT")]
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -568,8 +519,6 @@ namespace OpenGL
 			/// If Gl.TRUE, pixels will be consumed by the minmax process and no drawing or texture loading will take place. If 
 			/// Gl.FALSE, pixels will proceed to the final conversion process after minmax.
 			/// </param>
-			/// <seealso cref="Gl.GetMinmax"/>
-			/// <seealso cref="Gl.ResetMinmax"/>
 			[AliasOf("glMinmaxEXT")]
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]

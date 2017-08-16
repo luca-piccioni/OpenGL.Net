@@ -1202,9 +1202,6 @@ namespace OpenGL
 		/// <param name="count">
 		/// Specifies the number of indices to be rendered.
 		/// </param>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[AliasOf("glDrawArraysEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1239,10 +1236,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
-		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1274,10 +1267,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
-		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1302,7 +1291,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.DebugMessageCallback"/>
 		[AliasOf("glGetPointervEXT")]
 		[AliasOf("glGetPointervKHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -1338,7 +1326,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.DebugMessageCallback"/>
 		[AliasOf("glGetPointervEXT")]
 		[AliasOf("glGetPointervKHR")]
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -1371,10 +1358,6 @@ namespace OpenGL
 		/// <param name="units">
 		/// Is multiplied by an implementation-specific value to create a constant depth offset. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1420,19 +1403,6 @@ namespace OpenGL
 		/// <param name="border">
 		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCopyTexImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
@@ -1486,19 +1456,6 @@ namespace OpenGL
 		/// <param name="border">
 		/// Specifies the width of the border. Must be either 0 or 1.
 		/// </param>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCopyTexImage2DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1533,23 +1490,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
 		/// </param>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glCopyTexSubImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
@@ -1595,23 +1535,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the texture subimage.
 		/// </param>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glCopyTexSubImage2DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1654,19 +1577,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glTexSubImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_subtexture")]
@@ -1707,19 +1617,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glTexSubImage1DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_subtexture")]
@@ -1772,19 +1669,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexSubImage2DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1838,19 +1722,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexSubImage2DEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1880,18 +1751,6 @@ namespace OpenGL
 		/// <param name="texture">
 		/// Specifies the name of a texture.
 		/// </param>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsTexture"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexBuffer"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glBindTextureEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1914,15 +1773,6 @@ namespace OpenGL
 		/// <param name="textures">
 		/// Specifies an array of textures to be deleted.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1947,16 +1797,6 @@ namespace OpenGL
 		/// <param name="textures">
 		/// Specifies an array in which the generated texture names are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1979,16 +1819,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenTextures: generate texture names
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -2008,17 +1838,6 @@ namespace OpenGL
 		/// <param name="texture">
 		/// Specifies a value that may be the name of a texture.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -2040,18 +1859,6 @@ namespace OpenGL
 		/// <param name="i">
 		/// Specifies an index into the enabled vertex data arrays.
 		/// </param>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.GetPointerv"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glArrayElementEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
@@ -2082,27 +1889,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2133,27 +1919,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2175,21 +1940,6 @@ namespace OpenGL
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.GetPointerv"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2211,27 +1961,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first edge flag in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EdgeFlagPointer(Int32 stride, IntPtr pointer)
@@ -2252,27 +1981,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first edge flag in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EdgeFlagPointer(Int32 stride, Object pointer)
@@ -2293,21 +2001,6 @@ namespace OpenGL
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.GetPointerv"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2333,27 +2026,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first index in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void IndexPointer(IndexPointerType type, Int32 stride, IntPtr pointer)
@@ -2378,27 +2050,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first index in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void IndexPointer(IndexPointerType type, Int32 stride, Object pointer)
@@ -2425,19 +2076,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.GetPointerv"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void InterleavedArrays(InterleavedArrayFormat format, Int32 stride, IntPtr pointer)
@@ -2462,19 +2100,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.GetPointerv"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void InterleavedArrays(InterleavedArrayFormat format, Int32 stride, Object pointer)
@@ -2503,27 +2128,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2551,27 +2155,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first normal in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2604,29 +2187,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2657,29 +2217,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first texture coordinate set in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2715,27 +2252,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2769,27 +2285,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first vertex in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2813,13 +2308,6 @@ namespace OpenGL
 		/// Specifies an array in which the texture residence status is returned. The residence status of a texture named by an 
 		/// element of <paramref name="textures"/> is returned in the corresponding element of <paramref name="residences"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.PrioritizeTextures"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static bool AreTexturesResident(UInt32[] textures, [Out] bool[] residences)
@@ -2850,14 +2338,6 @@ namespace OpenGL
 		/// Specifies an array containing the texture priorities. A priority given in an element of <paramref name="priorities"/> 
 		/// applies to the texture named by the corresponding element of <paramref name="textures"/>.
 		/// </param>
-		/// <seealso cref="Gl.AreTexturesResident"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glPrioritizeTexturesEXT")]
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture_object")]
@@ -2882,8 +2362,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(byte c)
@@ -2899,8 +2377,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(byte[] c)
@@ -2919,20 +2395,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glPopClientAttrib: push and pop the client attribute stack
 		/// </summary>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.NewList"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PushAttrib"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PopClientAttrib()
@@ -2949,20 +2411,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.
 		/// </param>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.NewList"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PushAttrib"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PushClientAttrib(ClientAttribMask mask)

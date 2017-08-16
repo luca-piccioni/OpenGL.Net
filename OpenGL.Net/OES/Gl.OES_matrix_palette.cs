@@ -47,10 +47,6 @@ namespace OpenGL
 		/// <param name="matrixpaletteindex">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <seealso cref="Gl.LoadPaletteFromModelViewMatrix"/>
-		/// <seealso cref="Gl.MatrixIndexPointer"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.WeightPointer"/>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public static void CurrentPaletteMatrixOES(UInt32 matrixpaletteindex)
 		{
@@ -64,10 +60,6 @@ namespace OpenGL
 		/// [GLES1.1] glLoadPaletteFromModelViewMatrixOES: copies the current model view matrix to a matrix in the current matrix 
 		/// palette
 		/// </summary>
-		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
-		/// <seealso cref="Gl.MatrixIndexPointer"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.WeightPointer"/>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public static void LoadPaletteFromModelViewMatrixOES()
 		{
@@ -95,12 +87,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.LoadPaletteFromModelViewMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.WeightPointer"/>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public static void MatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer)
 		{
@@ -128,12 +114,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.LoadPaletteFromModelViewMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.WeightPointer"/>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public static void MatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, Object pointer)
 		{
@@ -164,12 +144,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first weight of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.LoadPaletteFromModelViewMatrix"/>
-		/// <seealso cref="Gl.MatrixIndexPointer"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public static void WeightPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer)
 		{
@@ -198,12 +172,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first weight of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <seealso cref="Gl.CurrentPaletteMatrix"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.LoadPaletteFromModelViewMatrix"/>
-		/// <seealso cref="Gl.MatrixIndexPointer"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public static void WeightPointerOES(Int32 size, Int32 type, Int32 stride, Object pointer)
 		{

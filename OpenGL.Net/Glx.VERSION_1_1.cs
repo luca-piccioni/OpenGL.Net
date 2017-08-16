@@ -62,10 +62,6 @@ namespace OpenGL
 		/// <param name="screen">
 		/// Specifies the screen number.
 		/// </param>
-		/// <seealso cref="Glx.etString"/>
-		/// <seealso cref="Glx.QueryVersion"/>
-		/// <seealso cref="Glx.QueryServerString"/>
-		/// <seealso cref="Glx.GetClientString"/>
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public static string QueryExtensionsString(IntPtr dpy, int screen)
 		{
@@ -91,9 +87,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies which string is returned: one of Glx.VENDOR, Glx.VERSION, or Glx.EXTENSIONS.
 		/// </param>
-		/// <seealso cref="Glx.QueryVersion"/>
-		/// <seealso cref="Glx.GetClientString"/>
-		/// <seealso cref="Glx.QueryExtensionsString"/>
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public static string QueryServerString(IntPtr dpy, int screen, int name)
 		{
@@ -116,9 +109,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies which string is returned. The symbolic constants Glx.VENDOR, Glx.VERSION, and Glx.EXTENSIONS are accepted.
 		/// </param>
-		/// <seealso cref="Glx.QueryVersion"/>
-		/// <seealso cref="Glx.QueryExtensionsString"/>
-		/// <seealso cref="Glx.QueryServerString"/>
 		[RequiredByFeature("GLX_VERSION_1_1")]
 		public static string GetClientString(IntPtr dpy, int name)
 		{

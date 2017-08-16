@@ -194,7 +194,7 @@ namespace OpenGL
 		public static bool IsAvailable { get { return (Delegates.peglInitialize != null); } }
 
 		/// <summary>
-		/// Get or set whether <see cref="DeviceContextFactory"/> should create an EGL device context, if available.
+		/// Get or set whether <see cref="DeviceContext"/> should create an EGL handles, if available.
 		/// </summary>
 		public static bool IsRequired
 		{
@@ -307,12 +307,24 @@ namespace OpenGL
 		[StructLayout(LayoutKind.Sequential)]
 		public struct ClientPixmap
 		{
+			/// <summary>
+			/// Pointer to the client pixmap data.
+			/// </summary>
 			public IntPtr Data;
 
+			/// <summary>
+			/// Width of client pixmap, in pixels.
+			/// </summary>
 			public Int32 Width;
 
+			/// <summary>
+			/// Height of client pixmap, in pixels.
+			/// </summary>
 			public Int32 Height;
 
+			/// <summary>
+			/// Stride of the client pixmap row, in bytes.
+			/// </summary>
 			public Int32 Stride;
 		}
 

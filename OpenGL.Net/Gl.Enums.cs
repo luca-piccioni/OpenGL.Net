@@ -3624,6 +3624,14 @@ namespace OpenGL
 		PrimitiveRestartNv = Gl.PRIMITIVE_RESTART_NV,
 
 		/// <summary>
+		/// Strongly typed for value GL_PRIMITIVE_RESTART_FIXED_INDEX.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
+		PrimitiveRestartFixedIndex = Gl.PRIMITIVE_RESTART_FIXED_INDEX,
+
+		/// <summary>
 		/// Strongly typed for value GL_RASTERIZER_DISCARD.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]

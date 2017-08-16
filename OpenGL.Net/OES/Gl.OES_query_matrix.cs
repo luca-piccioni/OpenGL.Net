@@ -44,9 +44,6 @@ namespace OpenGL
 		/// <param name="exponent">
 		/// Returns the exponents of the current matrix.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.MatrixMode"/>
 		[RequiredByFeature("GL_OES_query_matrix", Api = "gl|gles1")]
 		public static UInt32 QueryMatrixxOES(IntPtr[] mantissa, Int32[] exponent)
 		{

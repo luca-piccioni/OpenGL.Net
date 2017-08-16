@@ -451,8 +451,6 @@ namespace OpenGL
 		/// <param name="attribList">
 		/// Specifies a list of boolean attributes and integer attribute/value pairs. The last attribute must be Glx..
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.GetConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static Glx.XVisualInfo ChooseVisual(IntPtr dpy, int screen, int[] attribList)
 		{
@@ -488,10 +486,6 @@ namespace OpenGL
 		/// Specifies whether rendering is to be done with a direct connection to the graphics system if possible (Glx.) or through 
 		/// the X server (Glx.e).
 		/// </param>
-		/// <seealso cref="Glx.DestroyContext"/>
-		/// <seealso cref="Glx.GetConfig"/>
-		/// <seealso cref="Glx.IsDirect"/>
-		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static IntPtr CreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct)
 		{
@@ -514,9 +508,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context to be destroyed.
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.CreateNewContext"/>
-		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void DestroyContext(IntPtr dpy, IntPtr ctx)
 		{
@@ -538,13 +529,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies a GLX rendering context that is to be attached to <paramref name="drawable"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.CreateGLXPixmap"/>
-		/// <seealso cref="Glx.GetCurrentContext"/>
-		/// <seealso cref="Glx.GetCurrentDisplay"/>
-		/// <seealso cref="Glx.GetCurrentDrawable"/>
-		/// <seealso cref="Glx.GetCurrentReadDrawable"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static bool MakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx)
 		{
@@ -573,9 +557,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies which portions of <paramref name="src"/> state are to be copied to <paramref name="dst"/>.
 		/// </param>
-		/// <seealso cref="Glx.ushAttrib"/>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.IsDirect"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void CopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask)
 		{
@@ -594,7 +575,6 @@ namespace OpenGL
 		/// <param name="drawable">
 		/// Specifies the drawable whose buffers are to be swapped.
 		/// </param>
-		/// <seealso cref="Glx.glFlush"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void SwapBuffers(IntPtr dpy, IntPtr drawable)
 		{
@@ -616,11 +596,6 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// Specifies the X pixmap that will be used as the front left color buffer of the off-screen rendering area.
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.CreatePixmap"/>
-		/// <seealso cref="Glx.DestroyGLXPixmap"/>
-		/// <seealso cref="Glx.IsDirect"/>
-		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static IntPtr CreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap)
 		{
@@ -643,9 +618,6 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreateGLXPixmap"/>
-		/// <seealso cref="Glx.DestroyPixmap"/>
-		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void DestroyGLXPixmap(IntPtr dpy, IntPtr pixmap)
 		{
@@ -667,7 +639,6 @@ namespace OpenGL
 		/// <param name="event">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		/// <seealso cref="Glx.QueryVersion"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static bool Query(IntPtr dpy, int[] errorb, int[] @event)
 		{
@@ -699,7 +670,6 @@ namespace OpenGL
 		/// <param name="min">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		/// <seealso cref="Glx.QueryExtension"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static bool QueryVersion(IntPtr dpy, int[] maj, int[] min)
 		{
@@ -728,8 +698,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context that is being queried.
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.CreateNewContext"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static bool IsDirect(IntPtr dpy, IntPtr ctx)
 		{
@@ -758,8 +726,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Glx.ChooseVisual"/>
-		/// <seealso cref="Glx.CreateContext"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static int GetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, [Out] int[] value)
 		{
@@ -781,10 +747,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glXGetCurrentContext: return the current context
 		/// </summary>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.GetCurrentDisplay"/>
-		/// <seealso cref="Glx.GetCurrentDrawable"/>
-		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static IntPtr GetCurrentContext()
 		{
@@ -801,11 +763,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glXGetCurrentDrawable: return the current drawable
 		/// </summary>
-		/// <seealso cref="Glx.CreateGLXPixmap"/>
-		/// <seealso cref="Glx.GetCurrentContext"/>
-		/// <seealso cref="Glx.GetCurrentDisplay"/>
-		/// <seealso cref="Glx.GetCurrentReadDrawable"/>
-		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static IntPtr GetCurrentDrawable()
 		{
@@ -822,9 +779,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glXWaitGL: complete GL execution prior to subsequent X calls
 		/// </summary>
-		/// <seealso cref="Glx.glFinish"/>
-		/// <seealso cref="Glx.glFlush"/>
-		/// <seealso cref="Glx.WaitX"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void WaitGL()
 		{
@@ -837,9 +791,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glXWaitX: complete X execution prior to subsequent GL calls
 		/// </summary>
-		/// <seealso cref="Glx.glFinish"/>
-		/// <seealso cref="Glx.glFlush"/>
-		/// <seealso cref="Glx.WaitGL"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void WaitX()
 		{
@@ -864,8 +815,6 @@ namespace OpenGL
 		/// <param name="list">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <seealso cref="Glx.glBitmap"/>
-		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_0")]
 		public static void UseXFont(Int32 font, int first, int count, int list)
 		{

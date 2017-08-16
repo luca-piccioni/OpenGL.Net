@@ -662,10 +662,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the color table.
 		/// </param>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.CopyColorTable"/>
-		/// <seealso cref="Gl.CopyColorSubTable"/>
-		/// <seealso cref="Gl.GetColorTable"/>
 		[AliasOf("glColorTableEXT")]
 		[AliasOf("glColorTableSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -711,10 +707,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the color table.
 		/// </param>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.CopyColorTable"/>
-		/// <seealso cref="Gl.CopyColorSubTable"/>
-		/// <seealso cref="Gl.GetColorTable"/>
 		[AliasOf("glColorTableEXT")]
 		[AliasOf("glColorTableSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -742,8 +734,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glColorTableParameterfvSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_SGI_color_table")]
@@ -772,8 +762,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameters are stored.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glColorTableParameterivSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_SGI_color_table")]
@@ -813,9 +801,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The width of the pixel rectangle.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorTableParameter"/>
-		/// <seealso cref="Gl.ReadPixels"/>
 		[AliasOf("glCopyColorTableSGI")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_SGI_color_table")]
@@ -847,8 +832,6 @@ namespace OpenGL
 		/// <param name="table">
 		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
@@ -880,8 +863,6 @@ namespace OpenGL
 		/// <param name="table">
 		/// Pointer to a one-dimensional array of pixel data containing the contents of the color table.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
@@ -910,9 +891,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableParameterfvEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
@@ -944,9 +922,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to an array where the values of the parameter will be stored.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.ColorTableParameter"/>
 		[AliasOf("glGetColorTableParameterivEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
@@ -989,11 +964,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorTableParameter"/>
-		/// <seealso cref="Gl.CopyColorTable"/>
-		/// <seealso cref="Gl.CopyColorSubTable"/>
-		/// <seealso cref="Gl.GetColorTable"/>
 		[AliasOf("glColorSubTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_color_subtable")]
@@ -1031,11 +1001,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to replace the specified region of the color table.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorTableParameter"/>
-		/// <seealso cref="Gl.CopyColorTable"/>
-		/// <seealso cref="Gl.CopyColorSubTable"/>
-		/// <seealso cref="Gl.GetColorTable"/>
 		[AliasOf("glColorSubTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_color_subtable")]
@@ -1067,10 +1032,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The number of table entries to replace.
 		/// </param>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ColorTableParameter"/>
-		/// <seealso cref="Gl.CopyColorTable"/>
-		/// <seealso cref="Gl.GetColorTable"/>
 		[AliasOf("glCopyColorSubTableEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_color_subtable")]
@@ -1113,10 +1074,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the convolution filter kernel.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glConvolutionFilter1DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1159,10 +1116,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the convolution filter kernel.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glConvolutionFilter1DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1210,10 +1163,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a two-dimensional array of pixel data that is processed to build the convolution filter kernel.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glConvolutionFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1259,10 +1208,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Pointer to a two-dimensional array of pixel data that is processed to build the convolution filter kernel.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glConvolutionFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1288,10 +1233,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[AliasOf("glConvolutionParameterfEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1315,10 +1256,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[AliasOf("glConvolutionParameterfvEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1347,10 +1284,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[AliasOf("glConvolutionParameteriEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1374,10 +1307,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The parameter value. Must be one of Gl.REDUCE, Gl.CONSTANT_BORDER, Gl.REPLICATE_BORDER.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.GetConvolutionParameter"/>
 		[AliasOf("glConvolutionParameterivEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1417,9 +1346,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// The width of the pixel array to copy.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glCopyConvolutionFilter1DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1457,9 +1383,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// The height of the pixel array to copy.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glCopyConvolutionFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1491,10 +1414,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// Pointer to storage for the output image.
 		/// </param>
-		/// <seealso cref="Gl.GetSeparableFilter"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, IntPtr image)
 		{
@@ -1524,10 +1443,6 @@ namespace OpenGL
 		/// <param name="image">
 		/// Pointer to storage for the output image.
 		/// </param>
-		/// <seealso cref="Gl.GetSeparableFilter"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, Object image)
 		{
@@ -1554,9 +1469,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
-		/// <seealso cref="Gl.GetConvolutionFilter"/>
-		/// <seealso cref="Gl.GetSeparableFilter"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] float[] @params)
 		{
@@ -1586,9 +1498,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
-		/// <seealso cref="Gl.GetConvolutionFilter"/>
-		/// <seealso cref="Gl.GetSeparableFilter"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] Int32[] @params)
 		{
@@ -1629,9 +1538,6 @@ namespace OpenGL
 		/// <param name="span">
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
-		/// <seealso cref="Gl.GetConvolutionFilter"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
@@ -1667,9 +1573,6 @@ namespace OpenGL
 		/// <param name="span">
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
-		/// <seealso cref="Gl.GetConvolutionFilter"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, Object row, Object column, Object span)
 		{
@@ -1724,10 +1627,6 @@ namespace OpenGL
 		/// <param name="column">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glSeparableFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1778,10 +1677,6 @@ namespace OpenGL
 		/// <param name="column">
 		/// Pointer to a one-dimensional array of pixel data that is processed to build the column filter kernel.
 		/// </param>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.ConvolutionParameter"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[AliasOf("glSeparableFilter2DEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
@@ -1821,8 +1716,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.ResetHistogram"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
@@ -1856,8 +1749,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.ResetHistogram"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
@@ -1883,8 +1774,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the returned values.
 		/// </param>
-		/// <seealso cref="Gl.GetHistogram"/>
-		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetHistogramParameter(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, [Out] float[] @params)
 		{
@@ -1913,8 +1802,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Pointer to storage for the returned values.
 		/// </param>
-		/// <seealso cref="Gl.GetHistogram"/>
-		/// <seealso cref="Gl.Histogram"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetHistogramParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
 		{
@@ -1949,8 +1836,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned values.
 		/// </param>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
@@ -1980,8 +1865,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A pointer to storage for the returned values.
 		/// </param>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.ResetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
@@ -2005,8 +1888,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetMinmaxParameter(MinmaxTarget target, Int32 pname, [Out] float[] @params)
 		{
@@ -2033,8 +1914,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.GetMinmax"/>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		public static void GetMinmaxParameter(MinmaxTarget target, Int32 pname, [Out] Int32[] @params)
 		{
@@ -2069,8 +1948,6 @@ namespace OpenGL
 		/// If Gl.TRUE, pixels will be consumed by the histogramming process and no drawing or texture loading will take place. If 
 		/// Gl.FALSE, pixels will proceed to the minmax process after histogramming.
 		/// </param>
-		/// <seealso cref="Gl.GetHistogram"/>
-		/// <seealso cref="Gl.ResetHistogram"/>
 		[AliasOf("glHistogramEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
@@ -2099,8 +1976,6 @@ namespace OpenGL
 		/// If Gl.TRUE, pixels will be consumed by the minmax process and no drawing or texture loading will take place. If 
 		/// Gl.FALSE, pixels will proceed to the final conversion process after minmax.
 		/// </param>
-		/// <seealso cref="Gl.GetMinmax"/>
-		/// <seealso cref="Gl.ResetMinmax"/>
 		[AliasOf("glMinmaxEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
@@ -2118,7 +1993,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Must be Gl.HISTOGRAM.
 		/// </param>
-		/// <seealso cref="Gl.Histogram"/>
 		[AliasOf("glResetHistogramEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
@@ -2136,7 +2010,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Must be Gl.MINMAX.
 		/// </param>
-		/// <seealso cref="Gl.Minmax"/>
 		[AliasOf("glResetMinmaxEXT")]
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]

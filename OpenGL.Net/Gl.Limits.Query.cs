@@ -45,7 +45,7 @@ namespace OpenGL
 			/// implementation.
 			/// </param>
 			/// <returns>
-			/// It returns a <see cref="GraphicsLimits"/> that specify the current OpenGL implementation limits.
+			/// It returns a <see cref="Gl.Limits"/> that specify the current OpenGL implementation limits.
 			/// </returns>
 			/// <remarks>
 			/// It is assumed to have a valid OpenGL context current on the calling thread.

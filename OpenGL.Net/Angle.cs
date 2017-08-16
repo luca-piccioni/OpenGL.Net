@@ -73,7 +73,7 @@ namespace OpenGL
 		/// <summary>
 		/// Convert angle from degree units to radian units.
 		/// </summary>
-		/// <param name="radians">
+		/// <param name="degrees">
 		/// A <see cref="Double"/> that specifies the angle to convert, in degress.
 		/// </param>
 		/// <returns>
@@ -87,7 +87,7 @@ namespace OpenGL
 		/// <summary>
 		/// Convert angle from degree units to radian units.
 		/// </summary>
-		/// <param name="radians">
+		/// <param name="degrees">
 		/// A <see cref="Single"/> that specifies the angle to convert, in degress.
 		/// </param>
 		/// <returns>

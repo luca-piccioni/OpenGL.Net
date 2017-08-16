@@ -320,7 +320,7 @@ namespace OpenGL
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
 		/// </param>
 		/// <param name="extensions">
-		/// A <see cref="ExtensionsCollection"/> that specifies the extensions supported. It can be null.
+		/// A <see cref="KhronosApi.ExtensionsCollection"/> that specifies the extensions supported. It can be null.
 		/// </param>
 		public static void BindAPI(KhronosVersion version, ExtensionsCollection extensions)
 		{
@@ -395,6 +395,12 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="version">
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
+		/// </param>
+		/// <param name="extensions">
+		/// A <see cref="KhronosApi.ExtensionsCollection"/> that specifies the extensions supported. It can be null.
+		/// </param>
+		/// <param name="functionName">
+		/// A <see cref="String"/> that specifies the name of the function to bind.
 		/// </param>
 		internal static void BindAPIFunction(KhronosVersion version, ExtensionsCollection extensions, string functionName)
 		{
@@ -500,9 +506,6 @@ namespace OpenGL
 		/// <summary>
 		/// OpenGL error checking.
 		/// </summary>
-		/// <param name="returnValue">
-		/// A <see cref="Object"/> that specifies the function returned value, if any.
-		/// </param>
 		public static void CheckErrors()
 		{
 			ErrorCode error = GetError();
@@ -724,7 +727,7 @@ namespace OpenGL
 		/// The name of the target program object.
 		/// </param>
 		/// <param name="varyings">
-		/// An array of <paramref name="count"/> zero-terminated strings specifying the names of the varying variables to use for 
+		/// An array of zero-terminated strings specifying the names of the varying variables to use for 
 		/// transform feedback.
 		/// </param>
 		/// <param name="bufferMode">
@@ -743,7 +746,10 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.EndTransformFeedback"/>
 		/// <seealso cref="Gl.GetTransformFeedbackVarying"/>
+		[AliasOf("glTransformFeedbackVaryingsEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
 		public static void TransformFeedbackVaryings(UInt32 program, IntPtr[] varyings, Int32 bufferMode)
 		{
 			unsafe
@@ -766,6 +772,9 @@ namespace OpenGL
 			internal delegate void glTransformFeedbackVaryings_Unmanaged(UInt32 program, Int32 count, IntPtr* varyings, Int32 bufferMode);
 			[AliasOf("glTransformFeedbackVaryings")]
 			[AliasOf("glTransformFeedbackVaryingsEXT")]
+			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[ThreadStatic]
 			internal static glTransformFeedbackVaryings_Unmanaged pglTransformFeedbackVaryings_Unmanaged;
 		}

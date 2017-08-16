@@ -1285,7 +1285,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
@@ -1321,7 +1320,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
@@ -1354,10 +1352,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		public static void GetActiveAtomicCounterBuffer(UInt32 program, UInt32 bufferIndex, AtomicCounterBufferPName pname, [Out] Int32[] @params)
@@ -1400,14 +1394,6 @@ namespace OpenGL
 		/// <param name="format">
 		/// Specifies the format that the elements of the image will be treated as for the purposes of formatted stores.
 		/// </param>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.BindTexture"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -1427,12 +1413,6 @@ namespace OpenGL
 		/// <param name="barriers">
 		/// Specifies the barriers to insert.
 		/// </param>
-		/// <seealso cref="Gl.BindImageTexture"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.FlushMappedBufferRange"/>
-		/// <seealso cref="Gl.moryBarrier"/>
 		[AliasOf("glMemoryBarrierEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1554,12 +1534,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the geometry to render.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawTransformFeedback"/>
-		/// <seealso cref="Gl.DrawTransformFeedbackStreamInstanced"/>
 		[AliasOf("glDrawTransformFeedbackInstancedEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
@@ -1590,12 +1564,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the geometry to render.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawTransformFeedback"/>
-		/// <seealso cref="Gl.DrawTransformFeedbackStream"/>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
 		public static void DrawTransformFeedbackStreamInstanced(PrimitiveType mode, UInt32 id, UInt32 stream, Int32 primcount)

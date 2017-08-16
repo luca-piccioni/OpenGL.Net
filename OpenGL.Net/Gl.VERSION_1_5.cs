@@ -476,8 +476,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array in which the generated query object names are stored.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
 		[AliasOf("glGenQueriesARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -500,8 +498,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenQueries: generate query object names
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
 		[AliasOf("glGenQueriesARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -521,10 +517,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of query objects to be deleted.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
 		[AliasOf("glDeleteQueriesARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -550,9 +542,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies a value that may be the name of a query object.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GenQueries"/>
 		[AliasOf("glIsQueryARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -582,12 +571,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a query object.
 		/// </param>
-		/// <seealso cref="Gl.BeginQueryIndexed"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[AliasOf("glBeginQueryARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -610,12 +593,6 @@ namespace OpenGL
 		/// constant must be one of Gl.SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED, Gl.ANY_SAMPLES_PASSED_CONSERVATIVE, 
 		/// Gl.PRIMITIVES_GENERATED, Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN, or Gl.TIME_ELAPSED.
 		/// </param>
-		/// <seealso cref="Gl.BeginQueryIndexed"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[AliasOf("glEndQueryARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -645,8 +622,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[AliasOf("glGetQueryivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -681,8 +656,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[AliasOf("glGetQueryivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -716,10 +689,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[AliasOf("glGetQueryObjectivARB")]
 		[AliasOf("glGetQueryObjectivEXT")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -754,10 +723,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[AliasOf("glGetQueryObjectivARB")]
 		[AliasOf("glGetQueryObjectivEXT")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -794,10 +759,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[AliasOf("glGetQueryObjectuivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -833,10 +794,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[AliasOf("glGetQueryObjectuivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -866,14 +823,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of a buffer object.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.IsBuffer"/>
 		[AliasOf("glBindBufferARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -896,9 +845,6 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// Specifies an array of buffer objects to be deleted.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.Get"/>
 		[AliasOf("glDeleteBuffersARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -925,9 +871,6 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// Specifies an array in which the generated buffer object names are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.Get"/>
 		[AliasOf("glGenBuffersARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -952,9 +895,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenBuffers: generate buffer object names
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.Get"/>
 		[AliasOf("glGenBuffersARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -976,10 +916,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies a value that may be the name of a buffer object.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.Get"/>
 		[AliasOf("glIsBufferARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1017,10 +953,6 @@ namespace OpenGL
 		/// Specifies the expected usage pattern of the data store. The symbolic constant must be Gl.STREAM_DRAW, Gl.STREAM_READ, 
 		/// Gl.STREAM_COPY, Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glBufferDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1054,10 +986,6 @@ namespace OpenGL
 		/// Specifies the expected usage pattern of the data store. The symbolic constant must be Gl.STREAM_DRAW, Gl.STREAM_READ, 
 		/// Gl.STREAM_COPY, Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glBufferDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1092,11 +1020,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1129,11 +1052,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1166,11 +1084,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the location where buffer object data is returned.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glGetBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
@@ -1198,11 +1111,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the location where buffer object data is returned.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glGetBufferSubDataARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
@@ -1228,14 +1136,6 @@ namespace OpenGL
 		/// write to, or both read from and write to the buffer object's mapped data store. The symbolic constant must be 
 		/// Gl.READ_ONLY, Gl.WRITE_ONLY, or Gl.READ_WRITE.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glMapBufferARB")]
 		[AliasOf("glMapBufferOES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -1265,10 +1165,6 @@ namespace OpenGL
 		/// Specifies the target to which the buffer object is bound for Gl.UnmapBuffer, which must be one of the buffer binding 
 		/// targets in the following table:
 		/// </param>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
 		[AliasOf("glUnmapBufferARB")]
 		[AliasOf("glUnmapBufferOES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -1302,11 +1198,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the requested parameter.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glGetBufferParameterivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1341,11 +1232,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the requested parameter.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glGetBufferParameterivARB")]
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1380,8 +1266,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.MapBuffer"/>
 		[AliasOf("glGetBufferPointervARB")]
 		[AliasOf("glGetBufferPointervOES")]
 		[RequiredByFeature("GL_VERSION_1_5")]
@@ -1416,8 +1300,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.MapBuffer"/>
 		[AliasOf("glGetBufferPointervARB")]
 		[AliasOf("glGetBufferPointervOES")]
 		[RequiredByFeature("GL_VERSION_1_5")]

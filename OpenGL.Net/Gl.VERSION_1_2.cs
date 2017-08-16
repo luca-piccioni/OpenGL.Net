@@ -550,9 +550,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
 		[AliasOf("glDrawRangeElementsEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -592,9 +589,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
 		[AliasOf("glDrawRangeElementsEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -662,33 +656,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -753,33 +720,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -837,19 +777,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexSubImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -905,19 +832,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glTexSubImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -962,23 +876,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the texture subimage.
 		/// </param>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glCopyTexSubImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]

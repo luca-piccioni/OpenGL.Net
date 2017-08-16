@@ -73,9 +73,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.QueryVersion"/>
-		/// <seealso cref="Glx.QueryExtensionsString"/>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static int QueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int[] value)
 		{
@@ -100,9 +97,6 @@ namespace OpenGL
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.QueryVersion"/>
-		/// <seealso cref="Glx.QueryExtensionsString"/>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static IntPtr GetContextIDEXT(IntPtr context)
 		{
@@ -125,11 +119,6 @@ namespace OpenGL
 		/// <param name="contextID">
 		/// Specifies a GLX rendering context.
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.QueryVersion"/>
-		/// <seealso cref="Glx.QueryExtensionsString"/>
-		/// <seealso cref="Glx.GetContextIDEXT"/>
-		/// <seealso cref="Glx.FreeContextEXT"/>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static IntPtr ImportContextEXT(IntPtr dpy, IntPtr contextID)
 		{
@@ -152,10 +141,6 @@ namespace OpenGL
 		/// <param name="context">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.QueryVersion"/>
-		/// <seealso cref="Glx.QueryExtensionsString"/>
-		/// <seealso cref="Glx.ImportContextEXT"/>
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public static void FreeContextEXT(IntPtr dpy, IntPtr context)
 		{

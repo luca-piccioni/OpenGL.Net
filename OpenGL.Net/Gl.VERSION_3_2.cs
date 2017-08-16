@@ -725,11 +725,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
-		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[AliasOf("glDrawElementsBaseVertexEXT")]
 		[AliasOf("glDrawElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -768,11 +763,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
-		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[AliasOf("glDrawElementsBaseVertexEXT")]
 		[AliasOf("glDrawElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -819,11 +809,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
-		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[AliasOf("glDrawRangeElementsBaseVertexEXT")]
 		[AliasOf("glDrawRangeElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -868,11 +853,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
-		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[AliasOf("glDrawRangeElementsBaseVertexEXT")]
 		[AliasOf("glDrawRangeElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -917,11 +897,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
-		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[AliasOf("glDrawElementsInstancedBaseVertexEXT")]
 		[AliasOf("glDrawElementsInstancedBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -964,11 +939,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawRangeElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
-		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[AliasOf("glDrawElementsInstancedBaseVertexEXT")]
 		[AliasOf("glDrawElementsInstancedBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -1011,10 +981,6 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// Specifies a pointer to the location where the base vertices are stored.
 		/// </param>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glMultiDrawElementsBaseVertexEXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
@@ -1067,10 +1033,6 @@ namespace OpenGL
 		/// this operation and <paramref name="flags"/> must be zero.<paramref name="flags"/> is a placeholder for anticipated 
 		/// future extensions of fence sync object capabilities.
 		/// </param>
-		/// <seealso cref="Gl.DeleteSync"/>
-		/// <seealso cref="Gl.GetSync"/>
-		/// <seealso cref="Gl.WaitSync"/>
-		/// <seealso cref="Gl.ClientWaitSync"/>
 		[AliasOf("glFenceSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1096,10 +1058,6 @@ namespace OpenGL
 		/// <param name="sync">
 		/// Specifies a value that may be the name of a sync object.
 		/// </param>
-		/// <seealso cref="Gl.FenceSync"/>
-		/// <seealso cref="Gl.WaitSync"/>
-		/// <seealso cref="Gl.ClientWaitSync"/>
-		/// <seealso cref="Gl.DeleteSync"/>
 		[AliasOf("glIsSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1125,9 +1083,6 @@ namespace OpenGL
 		/// <param name="sync">
 		/// The sync object to be deleted.
 		/// </param>
-		/// <seealso cref="Gl.FenceSync"/>
-		/// <seealso cref="Gl.WaitSync"/>
-		/// <seealso cref="Gl.ClientWaitSync"/>
 		[AliasOf("glDeleteSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1156,9 +1111,6 @@ namespace OpenGL
 		/// The timeout, specified in nanoseconds, for which the implementation should wait for <paramref name="sync"/> to become 
 		/// signaled.
 		/// </param>
-		/// <seealso cref="Gl.FenceSync"/>
-		/// <seealso cref="Gl.IsSync"/>
-		/// <seealso cref="Gl.WaitSync"/>
 		[AliasOf("glClientWaitSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1191,8 +1143,6 @@ namespace OpenGL
 		/// Specifies the timeout that the server should wait before continuing. <paramref name="timeout"/> must be 
 		/// Gl.TIMEOUT_IGNORED.
 		/// </param>
-		/// <seealso cref="Gl.FenceSync"/>
-		/// <seealso cref="Gl.ClientWaitSync"/>
 		[AliasOf("glWaitSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1218,30 +1168,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1272,30 +1198,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1326,30 +1228,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1380,30 +1258,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1442,9 +1296,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of an array to receive the values of the queried parameter.
 		/// </param>
-		/// <seealso cref="Gl.FenceSync"/>
-		/// <seealso cref="Gl.WaitSync"/>
-		/// <seealso cref="Gl.ClientWaitSync"/>
 		[AliasOf("glGetSyncivAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1481,9 +1332,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of an array to receive the values of the queried parameter.
 		/// </param>
-		/// <seealso cref="Gl.FenceSync"/>
-		/// <seealso cref="Gl.WaitSync"/>
-		/// <seealso cref="Gl.ClientWaitSync"/>
 		[AliasOf("glGetSyncivAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1518,30 +1366,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void Get(Int32 target, UInt32 index, [Out] Int64[] data)
@@ -1572,30 +1396,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void Get(Int32 target, UInt32 index, out Int64 data)
@@ -1626,11 +1426,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the requested parameter.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void GetBufferParameter(BufferTarget target, Int32 value, [Out] Int64[] data)
@@ -1663,10 +1458,6 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[AliasOf("glFramebufferTextureARB")]
 		[AliasOf("glFramebufferTextureEXT")]
 		[AliasOf("glFramebufferTextureOES")]
@@ -1709,8 +1500,6 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 		public static void TexImage2DMultisample(TextureTarget target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
@@ -1749,8 +1538,6 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 		public static void TexImage3DMultisample(TextureTarget target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
@@ -1775,8 +1562,6 @@ namespace OpenGL
 		/// <param name="val">
 		/// Specifies the address of an array to receive the position of the sample.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
 		[AliasOf("glGetMultisamplefvNV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1806,11 +1591,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies the new value of the mask sub-word.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]

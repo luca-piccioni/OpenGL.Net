@@ -90,10 +90,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the point size of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.PointParameter"/>
-		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 		public static void PointSizePointerOES(Int32 type, Int32 stride, IntPtr pointer)
 		{
@@ -118,10 +114,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the point size of the first vertex in the array. The initial value is Gl..
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.PointParameter"/>
-		/// <seealso cref="Gl.PointSize"/>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 		public static void PointSizePointerOES(Int32 type, Int32 stride, Object pointer)
 		{

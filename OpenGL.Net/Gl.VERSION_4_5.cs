@@ -256,10 +256,6 @@ namespace OpenGL
 		/// <param name="depth">
 		/// Specifies the clip control depth mode. Must be one of Gl.NEGATIVE_ONE_TO_ONE or Gl.ZERO_TO_ONE.
 		/// </param>
-		/// <seealso cref="Gl._ClipDistance"/>
-		/// <seealso cref="Gl._CullDistance"/>
-		/// <seealso cref="Gl._FrontFacing"/>
-		/// <seealso cref="Gl.DepthRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		public static void ClipControl(ClipControlOrigin origin, ClipControlDepth depth)
@@ -276,13 +272,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array in which names of the new transform feedback objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
-		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
-		/// <seealso cref="Gl.GenTransformFeedbacks"/>
-		/// <seealso cref="Gl.IsTransformFeedback"/>
-		/// <seealso cref="Gl.PauseTransformFeedback"/>
-		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateTransformFeedbacks(UInt32[] ids)
@@ -301,13 +290,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glCreateTransformFeedbacks: create transform feedback objects
 		/// </summary>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
-		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
-		/// <seealso cref="Gl.GenTransformFeedbacks"/>
-		/// <seealso cref="Gl.IsTransformFeedback"/>
-		/// <seealso cref="Gl.PauseTransformFeedback"/>
-		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateTransformFeedback()
@@ -329,9 +311,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Name of the buffer object to bind to the specified binding point.
 		/// </param>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.TransformFeedbackBufferRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TransformFeedbackBufferBase(UInt32 xfb, UInt32 index, UInt32 buffer)
@@ -361,9 +340,6 @@ namespace OpenGL
 		/// The amount of data in basic machine units that can be read from or written to the buffer object while used as an indexed 
 		/// target.
 		/// </param>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.TransformFeedbackBufferBase"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TransformFeedbackBufferRange(UInt32 xfb, UInt32 index, UInt32 buffer, IntPtr offset, UInt32 size)
@@ -388,11 +364,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// The address of a buffer into which will be written the requested state information.
 		/// </param>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBuffersBase"/>
-		/// <seealso cref="Gl.BindBuffersRange"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTransformFeedback(UInt32 xfb, TransformFeedbackPName pname, [Out] Int32[] param)
@@ -425,11 +396,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// The address of a buffer into which will be written the requested state information.
 		/// </param>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBuffersBase"/>
-		/// <seealso cref="Gl.BindBuffersRange"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTransformFeedback(UInt32 xfb, TransformFeedbackPName pname, UInt32 index, [Out] Int32[] param)
@@ -462,11 +428,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// The address of a buffer into which will be written the requested state information.
 		/// </param>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBuffersBase"/>
-		/// <seealso cref="Gl.BindBuffersRange"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTransformFeedback(UInt32 xfb, TransformFeedbackPName pname, UInt32 index, [Out] Int64[] param)
@@ -488,14 +449,6 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// Specifies an array in which names of the new buffer objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.IsBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateBuffers(UInt32[] buffers)
@@ -514,14 +467,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glCreateBuffers: create buffer objects
 		/// </summary>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.IsBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateBuffer()
@@ -549,10 +494,6 @@ namespace OpenGL
 		/// Gl.DYNAMIC_STORAGE_BIT, Gl.MAP_READ_BITGl.MAP_WRITE_BIT, Gl.MAP_PERSISTENT_BIT, Gl.MAP_COHERENT_BIT, and 
 		/// Gl.CLIENT_STORAGE_BIT.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -583,10 +524,6 @@ namespace OpenGL
 		/// Gl.DYNAMIC_STORAGE_BIT, Gl.MAP_READ_BITGl.MAP_WRITE_BIT, Gl.MAP_PERSISTENT_BIT, Gl.MAP_COHERENT_BIT, and 
 		/// Gl.CLIENT_STORAGE_BIT.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -618,10 +555,6 @@ namespace OpenGL
 		/// Specifies the expected usage pattern of the data store. The symbolic constant must be Gl.STREAM_DRAW, Gl.STREAM_READ, 
 		/// Gl.STREAM_COPY, Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferData(UInt32 buffer, UInt32 size, IntPtr data, BufferUsage usage)
@@ -649,10 +582,6 @@ namespace OpenGL
 		/// Specifies the expected usage pattern of the data store. The symbolic constant must be Gl.STREAM_DRAW, Gl.STREAM_READ, 
 		/// Gl.STREAM_COPY, Gl.STATIC_DRAW, Gl.STATIC_READ, Gl.STATIC_COPY, Gl.DYNAMIC_DRAW, Gl.DYNAMIC_READ, or Gl.DYNAMIC_COPY.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedBufferData(UInt32 buffer, UInt32 size, Object data, BufferUsage usage)
@@ -680,11 +609,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -712,11 +636,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -753,13 +672,6 @@ namespace OpenGL
 		/// Specifies the size, in basic machine units, of the data to be copied from the source buffer object to the destination 
 		/// buffer object.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CopyNamedBufferSubData(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
@@ -788,7 +700,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address of a memory location storing the data to be replicated into the buffer's data store.
 		/// </param>
-		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedBufferData(UInt32 buffer, InternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
@@ -817,7 +728,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address of a memory location storing the data to be replicated into the buffer's data store.
 		/// </param>
-		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedBufferData(UInt32 buffer, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
@@ -854,7 +764,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address of a memory location storing the data to be replicated into the buffer's data store.
 		/// </param>
-		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedBufferSubData(UInt32 buffer, InternalFormat internalformat, IntPtr offset, UInt32 size, PixelFormat format, PixelType type, IntPtr data)
@@ -889,7 +798,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address of a memory location storing the data to be replicated into the buffer's data store.
 		/// </param>
-		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedBufferSubData(UInt32 buffer, InternalFormat internalformat, IntPtr offset, UInt32 size, PixelFormat format, PixelType type, Object data)
@@ -913,14 +821,6 @@ namespace OpenGL
 		/// write to, or both read from and write to the buffer object's mapped data store. The symbolic constant must be 
 		/// Gl.READ_ONLY, Gl.WRITE_ONLY, or Gl.READ_WRITE.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static IntPtr MapNamedBuffer(UInt32 buffer, BufferAccess access)
@@ -950,11 +850,6 @@ namespace OpenGL
 		/// <param name="access">
 		/// Specifies a combination of access flags indicating the desired access to the mapped range.
 		/// </param>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
-		/// <seealso cref="Gl.FlushMappedBufferRange"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferStorage"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static IntPtr MapNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access)
@@ -975,10 +870,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object for Gl.UnmapNamedBuffer.
 		/// </param>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static bool UnmapNamedBuffer(UInt32 buffer)
@@ -1005,9 +896,6 @@ namespace OpenGL
 		/// <param name="length">
 		/// Specifies the length of the buffer subrange, in basic machine units.
 		/// </param>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void FlushMappedNamedBufferRange(UInt32 buffer, IntPtr offset, UInt32 length)
@@ -1030,11 +918,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the requested parameter.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferParameter(UInt32 buffer, VertexBufferObjectParameter value, [Out] Int32[] data)
@@ -1062,11 +945,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the requested parameter.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferParameter(UInt32 buffer, VertexBufferObjectParameter value, [Out] Int64[] data)
@@ -1094,8 +972,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the pointer value specified by <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.MapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferPointer(UInt32 buffer, VertexBufferObjectParameter pname, [Out] IntPtr[] @params)
@@ -1126,11 +1002,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the location where buffer object data is returned.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
@@ -1156,11 +1027,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the location where buffer object data is returned.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
@@ -1179,13 +1045,6 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// Specifies an array in which names of the new framebuffer objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTextureLayer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
-		/// <seealso cref="Gl.IsFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateFramebuffers(UInt32[] framebuffers)
@@ -1204,13 +1063,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glCreateFramebuffers: create framebuffer objects
 		/// </summary>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTextureLayer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
-		/// <seealso cref="Gl.IsFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateFramebuffer()
@@ -1235,10 +1087,6 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// Specifies the name of an existing renderbuffer object of type <paramref name="renderbuffertarget"/> to attach.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferRenderbuffer(UInt32 framebuffer, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
@@ -1261,12 +1109,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// The new value for the parameter named <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.CreateFramebuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferParameter(UInt32 framebuffer, FramebufferParameterName pname, Int32 param)
@@ -1292,10 +1134,6 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferTexture(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level)
@@ -1325,10 +1163,6 @@ namespace OpenGL
 		/// <param name="layer">
 		/// Specifies the layer of the texture object to attach.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferTextureLayer(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 layer)
@@ -1353,11 +1187,6 @@ namespace OpenGL
 		/// framebuffer objects, Gl.COLOR_ATTACHMENT$m$ and Gl.NONE enums are accepted, where Gl. is a value between 0 and 
 		/// Gl.MAX_COLOR_ATTACHMENTS.
 		/// </param>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.ColorMask"/>
-		/// <seealso cref="Gl.DrawBuffers"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferDrawBuffer(UInt32 framebuffer, ColorBuffer buf)
@@ -1381,11 +1210,6 @@ namespace OpenGL
 		/// Points to an array of symbolic constants specifying the buffers into which fragment colors or data values will be 
 		/// written.
 		/// </param>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.ColorMask"/>
-		/// <seealso cref="Gl.DrawBuffers"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferDrawBuffers(UInt32 framebuffer, Int32 n, Int32[] bufs)
@@ -1411,13 +1235,6 @@ namespace OpenGL
 		/// Specifies a color buffer. Accepted values are Gl.FRONT_LEFT, Gl.FRONT_RIGHT, Gl.BACK_LEFT, Gl.BACK_RIGHT, Gl.FRONT, 
 		/// Gl.BACK, Gl.LEFT, Gl.RIGHT, and the constants Gl.COLOR_ATTACHMENTi.
 		/// </param>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedFramebufferReadBuffer(UInt32 framebuffer, ColorBuffer mode)
@@ -1440,11 +1257,6 @@ namespace OpenGL
 		/// <param name="attachments">
 		/// Specifies a pointer to an array identifying the attachments to be invalidated.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexSubImage"/>
-		/// <seealso cref="Gl.InvalidateTexImage"/>
-		/// <seealso cref="Gl.InvalidateBufferSubData"/>
-		/// <seealso cref="Gl.InvalidateBufferData"/>
-		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void InvalidateNamedFramebufferData(UInt32 framebuffer, Int32 numAttachments, Int32[] attachments)
@@ -1485,11 +1297,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the region to be invalidated.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexSubImage"/>
-		/// <seealso cref="Gl.InvalidateTexImage"/>
-		/// <seealso cref="Gl.InvalidateBufferSubData"/>
-		/// <seealso cref="Gl.InvalidateBufferData"/>
-		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void InvalidateNamedFramebufferSubData(UInt32 framebuffer, Int32 numAttachments, Int32[] attachments, Int32 x, Int32 y, Int32 width, Int32 height)
@@ -1520,10 +1327,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedFramebuffer(UInt32 framebuffer, Buffer buffer, Int32 drawbuffer, Int32[] value)
@@ -1554,10 +1357,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedFramebuffer(UInt32 framebuffer, Buffer buffer, Int32 drawbuffer, UInt32[] value)
@@ -1588,10 +1387,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedFramebuffer(UInt32 framebuffer, Buffer buffer, Int32 drawbuffer, float[] value)
@@ -1625,10 +1420,6 @@ namespace OpenGL
 		/// <param name="stencil">
 		/// The value to clear the stencil buffer to.
 		/// </param>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void ClearNamedFramebuffer(UInt32 framebuffer, Buffer buffer, Int32 drawbuffer, float depth, Int32 stencil)
@@ -1679,11 +1470,6 @@ namespace OpenGL
 		/// <param name="filter">
 		/// Specifies the interpolation to be applied if the image is stretched. Must be Gl.NEAREST or Gl.LINEAR.
 		/// </param>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.CheckFramebufferStatus"/>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void BlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, BlitFramebufferFilter filter)
@@ -1704,9 +1490,6 @@ namespace OpenGL
 		/// Specify the target to which the framebuffer is bound for Gl.CheckFramebufferStatus, and the target against which 
 		/// framebuffer completeness of <paramref name="framebuffer"/> is checked for Gl.CheckNamedFramebufferStatus.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static FramebufferStatus CheckNamedFramebufferStatus(UInt32 framebuffer, FramebufferTarget target)
@@ -1733,8 +1516,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.FramebufferParameteri"/>
-		/// <seealso cref="Gl.GetFramebufferAttachmentParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedFramebufferParameter(UInt32 framebuffer, GetFramebufferParameter pname, [Out] Int32[] param)
@@ -1765,9 +1546,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of parameter <paramref name="pname"/> for <paramref name="attachment"/>.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedFramebufferAttachmentParameter(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] Int32[] @params)
@@ -1789,12 +1567,6 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// Specifies an array in which names of the new renderbuffer objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.IsRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateRenderbuffers(UInt32[] renderbuffers)
@@ -1813,12 +1585,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glCreateRenderbuffers: create renderbuffer objects
 		/// </summary>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.IsRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateRenderbuffer()
@@ -1843,11 +1609,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the renderbuffer, in pixels.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedRenderbufferStorage(UInt32 renderbuffer, InternalFormat internalformat, Int32 width, Int32 height)
@@ -1877,11 +1638,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the renderbuffer, in pixels.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void NamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height)
@@ -1904,11 +1660,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of parameter <paramref name="pname"/> for the renderbuffer object.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedRenderbufferParameter(UInt32 renderbuffer, RenderbufferParameterName pname, [Out] Int32[] @params)
@@ -1936,19 +1687,6 @@ namespace OpenGL
 		/// <param name="textures">
 		/// Specifies an array in which names of the new texture objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsTexture"/>
-		/// <seealso cref="Gl.TexBuffer"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateTextures(TextureTarget target, Int32 n, UInt32[] textures)
@@ -1973,19 +1711,6 @@ namespace OpenGL
 		/// <param name="textures">
 		/// Specifies an array in which names of the new texture objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsTexture"/>
-		/// <seealso cref="Gl.TexBuffer"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateTextures(TextureTarget target, UInt32[] textures)
@@ -2007,19 +1732,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Specifies the effective texture target of each created texture.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsTexture"/>
-		/// <seealso cref="Gl.TexBuffer"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateTexture(TextureTarget target)
@@ -2041,13 +1753,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureBuffer(UInt32 texture, InternalFormat internalformat, UInt32 buffer)
@@ -2076,7 +1781,6 @@ namespace OpenGL
 		/// <param name="size">
 		/// Specifies the size of the range of the buffer's data store to attach.
 		/// </param>
-		/// <seealso cref="Gl.TexBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureBufferRange(UInt32 texture, InternalFormat internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
@@ -2194,10 +1898,6 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureStorage2DMultisample(UInt32 texture, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
@@ -2234,11 +1934,6 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2DMultisample"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureStorage3DMultisample(UInt32 texture, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
@@ -2279,19 +1974,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
@@ -2332,19 +2014,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
@@ -2393,19 +2062,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
@@ -2452,19 +2108,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
@@ -2519,19 +2162,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
@@ -2584,19 +2214,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void TextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
@@ -2633,24 +2250,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
@@ -2685,24 +2284,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage1D(UInt32 texture, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object data)
@@ -2745,24 +2326,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
@@ -2803,24 +2366,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage2D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object data)
@@ -2869,24 +2414,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
@@ -2933,24 +2460,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CompressedTextureSubImage3D(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
@@ -3229,9 +2738,6 @@ namespace OpenGL
 		/// <param name="texture">
 		/// Specifies the texture object name for Gl.GenerateTextureMipmap.
 		/// </param>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.GenTextures"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GenerateTextureMipmap(UInt32 texture)
@@ -3251,18 +2757,6 @@ namespace OpenGL
 		/// <param name="texture">
 		/// Specifies the name of a texture.
 		/// </param>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsTexture"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexBuffer"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void BindTextureUnit(UInt32 unit, UInt32 texture)
@@ -3354,21 +2848,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Returns the compressed texture image.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, IntPtr pixels)
@@ -3396,21 +2875,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Returns the compressed texture image.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, Object pixels)
@@ -3442,20 +2906,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, Int32 pname, [Out] float[] @params)
@@ -3490,20 +2940,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
@@ -3538,20 +2974,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, GetTextureParameter pname, out Int32 @params)
@@ -3586,11 +3008,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameter(UInt32 texture, GetTextureParameter pname, [Out] float[] @params)
@@ -3625,11 +3042,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameterI(UInt32 texture, GetTextureParameter pname, [Out] Int32[] @params)
@@ -3664,11 +3076,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameterI(UInt32 texture, GetTextureParameter pname, out Int32 @params)
@@ -3703,11 +3110,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameterI(UInt32 texture, GetTextureParameter pname, [Out] UInt32[] @params)
@@ -3742,11 +3144,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameterI(UInt32 texture, GetTextureParameter pname, out UInt32 @params)
@@ -3781,11 +3178,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameter(UInt32 texture, GetTextureParameter pname, [Out] Int32[] @params)
@@ -3820,11 +3212,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetTextureParameter(UInt32 texture, GetTextureParameter pname, out Int32 @params)
@@ -3846,12 +3233,6 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// Specifies an array in which names of the new vertex array objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexArray"/>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.GenVertexArrays"/>
-		/// <seealso cref="Gl.IsVertexArray"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateVertexArrays(UInt32[] arrays)
@@ -3870,12 +3251,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glCreateVertexArrays: create vertex array objects
 		/// </summary>
-		/// <seealso cref="Gl.BindVertexArray"/>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.GenVertexArrays"/>
-		/// <seealso cref="Gl.IsVertexArray"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateVertexArray()
@@ -3894,13 +3269,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be enabled or disabled.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void DisableVertexArrayAttrib(UInt32 vaobj, UInt32 index)
@@ -3920,13 +3288,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the generic vertex attribute to be enabled or disabled.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void EnableVertexArrayAttrib(UInt32 vaobj, UInt32 index)
@@ -3946,8 +3307,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object to use for the element array buffer binding.
 		/// </param>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetVertexArrayiv"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayElementBuffer(UInt32 vaobj, UInt32 buffer)
@@ -3976,10 +3335,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// The distance between elements within the buffer.
 		/// </param>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribFormat"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayVertexBuffer(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride)
@@ -4011,10 +3366,6 @@ namespace OpenGL
 		/// <param name="strides">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayVertexBuffers(UInt32 vaobj, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, Int32[] strides)
@@ -4044,10 +3395,6 @@ namespace OpenGL
 		/// <param name="bindingindex">
 		/// The index of the vertex buffer binding with which to associate the generic vertex attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribFormat"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayAttribBinding(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex)
@@ -4080,11 +3427,6 @@ namespace OpenGL
 		/// <param name="relativeoffset">
 		/// The distance between elements within the buffer.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribType type, bool normalized, UInt32 relativeoffset)
@@ -4113,11 +3455,6 @@ namespace OpenGL
 		/// <param name="relativeoffset">
 		/// The distance between elements within the buffer.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribType type, UInt32 relativeoffset)
@@ -4146,11 +3483,6 @@ namespace OpenGL
 		/// <param name="relativeoffset">
 		/// The distance between elements within the buffer.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribType type, UInt32 relativeoffset)
@@ -4173,11 +3505,6 @@ namespace OpenGL
 		/// <param name="divisor">
 		/// The new value for the instance step rate to apply.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void VertexArrayBindingDivisor(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor)
@@ -4234,9 +3561,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, VertexArrayPName pname, [Out] Int32[] param)
@@ -4271,9 +3595,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void GetVertexArrayIndexed(UInt32 vaobj, UInt32 index, VertexArrayPName pname, [Out] Int64[] param)
@@ -4295,15 +3616,6 @@ namespace OpenGL
 		/// <param name="samplers">
 		/// Specifies an array in which names of the new sampler objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetSamplerParameter"/>
-		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateSamplers(UInt32[] samplers)
@@ -4322,15 +3634,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glCreateSamplers: create sampler objects
 		/// </summary>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetSamplerParameter"/>
-		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateSampler()
@@ -4346,14 +3649,6 @@ namespace OpenGL
 		/// <param name="pipelines">
 		/// Specifies an array in which names of the new program pipeline objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindProgramPipeline"/>
-		/// <seealso cref="Gl.CreateShader"/>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.CompileShader"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.GenProgramPipelines"/>
-		/// <seealso cref="Gl.DeleteProgramPipelines"/>
-		/// <seealso cref="Gl.IsProgramPipeline"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateProgramPipelines(UInt32[] pipelines)
@@ -4372,14 +3667,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glCreateProgramPipelines: create program pipeline objects
 		/// </summary>
-		/// <seealso cref="Gl.BindProgramPipeline"/>
-		/// <seealso cref="Gl.CreateShader"/>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.CompileShader"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.GenProgramPipelines"/>
-		/// <seealso cref="Gl.DeleteProgramPipelines"/>
-		/// <seealso cref="Gl.IsProgramPipeline"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateProgramPipeline()
@@ -4401,13 +3688,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array in which names of the new query objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.BeginQueryIndexed"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateQueries(QueryTarget target, Int32 n, UInt32[] ids)
@@ -4432,13 +3712,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array in which names of the new query objects are stored.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.BeginQueryIndexed"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static void CreateQueries(QueryTarget target, UInt32[] ids)
@@ -4460,13 +3733,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Specifies the target of each created query object.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.BeginQueryIndexed"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateQuery(QueryTarget target)
@@ -4584,12 +3850,6 @@ namespace OpenGL
 		/// <param name="barriers">
 		/// Specifies the barriers to insert.
 		/// </param>
-		/// <seealso cref="Gl.BindImageTexture"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.FlushMappedBufferRange"/>
-		/// <seealso cref="Gl.moryBarrier"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_1_compatibility", Api = "gl|glcore")]
@@ -4647,14 +3907,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Returns the texture subimage. Should be a pointer to an array of the type specified by <paramref name="type"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Int32 bufSize, IntPtr pixels)
@@ -4711,14 +3963,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Returns the texture subimage. Should be a pointer to an array of the type specified by <paramref name="type"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 		public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Int32 bufSize, Object pixels)
@@ -4770,14 +4014,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Returns the texture subimage. Should be a pointer to an array of the type specified by type.
 		/// </param>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 		public static void GetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, IntPtr pixels)
@@ -4827,14 +4063,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Returns the texture subimage. Should be a pointer to an array of the type specified by type.
 		/// </param>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
 		public static void GetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, Object pixels)
@@ -4853,7 +4081,6 @@ namespace OpenGL
 		/// issues
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.GetError"/>
 		[AliasOf("glGetGraphicsResetStatusEXT")]
 		[AliasOf("glGetGraphicsResetStatusKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -4894,21 +4121,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Returns the compressed texture image.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		public static void GetnCompressedTexImage(TextureTarget target, Int32 lod, Int32 bufSize, IntPtr pixels)
 		{
@@ -4938,21 +4150,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Returns the compressed texture image.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		public static void GetnCompressedTexImage(TextureTarget target, Int32 lod, Int32 bufSize, Object pixels)
 		{
@@ -5041,9 +4238,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		public static void GetnUniform(UInt32 program, Int32 location, Int32 bufSize, [Out] double[] @params)
 		{
@@ -5075,9 +4269,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
 		[AliasOf("glGetnUniformfvEXT")]
 		[AliasOf("glGetnUniformfvKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -5116,9 +4307,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
 		[AliasOf("glGetnUniformivEXT")]
 		[AliasOf("glGetnUniformivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -5157,9 +4345,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
 		[AliasOf("glGetnUniformuivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -5728,7 +4913,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glTextureBarrier: controls the ordering of reads and writes to rendered fragments across drawing commands
 		/// </summary>
-		/// <seealso cref="Gl.MemoryBarrier"/>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_texture_barrier", Api = "gl|glcore")]
 		public static void TextureBarrier()

@@ -207,11 +207,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to modify
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.GetFragDataLocation"/>
-		/// <seealso cref="Gl.GetFragDataIndex"/>
-		/// <seealso cref="Gl.BindFragDataLocation"/>
 		[AliasOf("glBindFragDataLocationIndexedEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
@@ -233,10 +228,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose index to query
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.BindFragDataLocation"/>
-		/// <seealso cref="Gl.BindFragDataLocationIndexed"/>
-		/// <seealso cref="Gl.GetFragDataLocation"/>
 		[AliasOf("glGetFragDataIndexEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
@@ -261,9 +252,6 @@ namespace OpenGL
 		/// <param name="samplers">
 		/// Specifies an array in which the generated sampler object names are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.IsSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -285,9 +273,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenSamplers: generate sampler object names
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.IsSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -306,10 +291,6 @@ namespace OpenGL
 		/// <param name="samplers">
 		/// Specifies an array of sampler objects to be deleted.
 		/// </param>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.IsSampler"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -334,9 +315,6 @@ namespace OpenGL
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -363,14 +341,6 @@ namespace OpenGL
 		/// <param name="sampler">
 		/// Specifies the name of a sampler.
 		/// </param>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.SamplerParameter"/>
-		/// <seealso cref="Gl.GetSamplerParameter"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -564,10 +534,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		/// <seealso cref="Gl.SamplerParameter"/>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -600,10 +566,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		/// <seealso cref="Gl.SamplerParameter"/>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.SamplerParameter"/>
 		[AliasOf("glGetSamplerParameterIivEXT")]
 		[AliasOf("glGetSamplerParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -640,10 +602,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		/// <seealso cref="Gl.SamplerParameter"/>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.SamplerParameter"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -676,10 +634,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		/// <seealso cref="Gl.SamplerParameter"/>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.SamplerParameter"/>
 		[AliasOf("glGetSamplerParameterIuivEXT")]
 		[AliasOf("glGetSamplerParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -710,12 +664,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Specify the counter to query. <paramref name="target"/> must be Gl.TIMESTAMP.
 		/// </param>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.Get"/>
 		[AliasOf("glQueryCounterEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
@@ -744,10 +692,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[AliasOf("glGetQueryObjecti64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
@@ -782,10 +726,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[AliasOf("glGetQueryObjecti64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
@@ -820,10 +760,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[AliasOf("glGetQueryObjectui64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
@@ -858,10 +794,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
-		/// <seealso cref="Gl.QueryCounter"/>
 		[AliasOf("glGetQueryObjectui64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
@@ -893,8 +825,6 @@ namespace OpenGL
 		/// Specify the number of instances that will pass between updates of the generic attribute at slot <paramref 
 		/// name="index"/>.
 		/// </param>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
 		[AliasOf("glVertexAttribDivisorANGLE")]
 		[AliasOf("glVertexAttribDivisorARB")]
 		[AliasOf("glVertexAttribDivisorEXT")]
@@ -932,8 +862,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP1(UInt32 index, PackedVertexType type, bool normalized, UInt32 value)
@@ -993,8 +921,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP2(UInt32 index, PackedVertexType type, bool normalized, UInt32 value)
@@ -1054,8 +980,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP3(UInt32 index, PackedVertexType type, bool normalized, UInt32 value)
@@ -1115,8 +1039,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// For the packed commands, specifies the new packed value to be used for the specified vertex attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP4(UInt32 index, PackedVertexType type, bool normalized, UInt32 value)

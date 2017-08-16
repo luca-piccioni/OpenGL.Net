@@ -237,6 +237,7 @@ namespace OpenGL
 		/// This is the main discriminant of the KhronosVersion instances. Two KhronoVersion instances
 		/// are not comparable if their API doesn't match.
 		/// </para>
+		/// </remarks>
 		public readonly string Api;
 
 		#endregion

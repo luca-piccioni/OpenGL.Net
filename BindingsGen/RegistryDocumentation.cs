@@ -231,7 +231,10 @@ namespace BindingsGen
 
 			#endregion
 
+			
 			#region See Also
+
+#if false
 
 			IEnumerable<string> seealsoDoc = docHandlers[0].QueryCommandSeeAlso(ctx, command);
 			List<string> seealsoLines = new List<string>(seealsoDoc);
@@ -240,6 +243,8 @@ namespace BindingsGen
 				foreach (string seealsoLine in seealsoLines)
 					sw.WriteLine("/// {0}", seealsoLine);
 			}
+
+#endif
 
 			#endregion
 

@@ -292,8 +292,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix2x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -330,8 +328,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix2x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -363,8 +359,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix3x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -401,8 +395,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix3x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -434,8 +426,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix2x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -472,8 +462,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix2x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -505,8 +493,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix4x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -543,8 +529,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix4x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -576,8 +560,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix3x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -614,8 +596,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix3x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -647,8 +627,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix4x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -685,8 +663,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniformMatrix4x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]

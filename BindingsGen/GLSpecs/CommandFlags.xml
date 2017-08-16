@@ -7,6 +7,7 @@
 		<add_enum>GL_FRAMEBUFFER_SRGB</add_enum>
 		<add_enum>GL_PRIMITIVE_RESTART</add_enum>
 		<add_enum>GL_PRIMITIVE_RESTART_NV</add_enum>
+        <add_enum>GL_PRIMITIVE_RESTART_FIXED_INDEX</add_enum>
 		<add_enum>GL_RASTERIZER_DISCARD</add_enum>
 	</enumerant>
 	

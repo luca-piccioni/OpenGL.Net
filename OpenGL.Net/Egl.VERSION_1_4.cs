@@ -99,8 +99,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglGetCurrentContext: return the current EGL rendering context
 		/// </summary>
-		/// <seealso cref="Egl.CreateContext"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_4")]
 		public static IntPtr GetCurrentContext()
 		{

@@ -893,7 +893,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the rate at which samples are shaded within each covered pixel.
 		/// </param>
-		/// <seealso cref="Gl.removedTypes"/>
 		[AliasOf("glMinSampleShadingARB")]
 		[AliasOf("glMinSampleShadingOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -1044,10 +1043,6 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
@@ -1072,10 +1067,6 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
@@ -1105,11 +1096,6 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawArraysIndirect"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
@@ -1137,11 +1123,6 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// Specifies the address of a structure containing the draw parameters.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawArraysIndirect"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
@@ -1952,9 +1933,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void GetUniform(UInt32 program, Int32 location, [Out] double[] @params)
@@ -1984,10 +1962,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the name of the subroutine uniform whose index to query.
 		/// </param>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static Int32 GetSubroutineUniformLocation(UInt32 program, ShaderType shadertype, String name)
@@ -2015,9 +1989,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the name of the subroutine uniform whose index to query.
 		/// </param>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static UInt32 GetSubroutineIndex(UInt32 program, ShaderType shadertype, String name)
@@ -2052,9 +2023,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of a into which the queried value or values will be placed.
 		/// </param>
-		/// <seealso cref="Gl.GetSubroutineIndex"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
-		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static void GetActiveSubroutineUniform(UInt32 program, ShaderType shadertype, UInt32 index, SubroutineParameterName pname, [Out] Int32[] values)
@@ -2092,9 +2060,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the address of a buffer that will receive the name of the specified shader subroutine uniform.
 		/// </param>
-		/// <seealso cref="Gl.GetSubroutineIndex"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
-		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static void GetActiveSubroutineUniformName(UInt32 program, ShaderType shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
@@ -2131,9 +2096,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies the address of an array into which the name of the shader subroutine uniform will be written.
 		/// </param>
-		/// <seealso cref="Gl.GetSubroutineIndex"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
-		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static void GetActiveSubroutineName(UInt32 program, ShaderType shadertype, UInt32 index, Int32 bufsize, out Int32 length, [Out] StringBuilder name)
@@ -2162,10 +2124,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies the address of an array holding the indices to load into the shader subroutine variables.
 		/// </param>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
-		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static void UniformSubroutines(ShaderType shadertype, Int32 count, UInt32[] indices)
@@ -2191,10 +2149,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies the address of an array holding the indices to load into the shader subroutine variables.
 		/// </param>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
-		/// <seealso cref="Gl.GetProgramStage"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static void UniformSubroutines(ShaderType shadertype, UInt32[] indices)
@@ -2224,10 +2178,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniform"/>
-		/// <seealso cref="Gl.GetActiveSubroutineUniformName"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static void GetUniformSubroutine(ShaderType shadertype, Int32 location, out UInt32 @params)
@@ -2261,7 +2211,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of a variable into which the queried value or values will be placed.
 		/// </param>
-		/// <seealso cref="Gl.GetProgram"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 		public static void GetProgramStage(UInt32 program, ShaderType shadertype, ProgramStagePName pname, out Int32 values)
@@ -2289,10 +2238,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the new value for the parameter given by <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[AliasOf("glPatchParameteriEXT")]
 		[AliasOf("glPatchParameteriOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -2318,10 +2263,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of an array containing the new values for the parameter given by <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 		public static void PatchParameter(PatchParameterName pname, float[] values)
@@ -2349,12 +2290,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object reserved by glGenTransformFeedbacks.
 		/// </param>
-		/// <seealso cref="Gl.GenTransformFeedbacks"/>
-		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
-		/// <seealso cref="Gl.IsTransformFeedback"/>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.PauseTransformFeedback"/>
-		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -2374,12 +2309,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of names of transform feedback objects to delete.
 		/// </param>
-		/// <seealso cref="Gl.GenTransformFeedbacks"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
-		/// <seealso cref="Gl.IsTransformFeedback"/>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.PauseTransformFeedback"/>
-		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[AliasOf("glDeleteTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2406,12 +2335,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of into which the reserved names will be written.
 		/// </param>
-		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
-		/// <seealso cref="Gl.IsTransformFeedback"/>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.PauseTransformFeedback"/>
-		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[AliasOf("glGenTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2435,12 +2358,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenTransformFeedbacks: reserve transform feedback object names
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
-		/// <seealso cref="Gl.IsTransformFeedback"/>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.PauseTransformFeedback"/>
-		/// <seealso cref="Gl.ResumeTransformFeedback"/>
 		[AliasOf("glGenTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2461,9 +2378,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies a value that may be the name of a transform feedback object.
 		/// </param>
-		/// <seealso cref="Gl.GenTransformFeedbacks"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
-		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		[AliasOf("glIsTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2486,11 +2400,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glPauseTransformFeedback: pause transform feedback operations
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.GenTransformFeedbacks"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.ResumeTransformFeedback"/>
-		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		[AliasOf("glPauseTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2509,11 +2418,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glResumeTransformFeedback: resume transform feedback operations
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.GenTransformFeedbacks"/>
-		/// <seealso cref="Gl.BindTransformFeedback"/>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.PauseTransformFeedback"/>
-		/// <seealso cref="Gl.DeleteTransformFeedbacks"/>
 		[AliasOf("glResumeTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2538,11 +2442,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawTransformFeedbackStream"/>
 		[AliasOf("glDrawTransformFeedbackEXT")]
 		[AliasOf("glDrawTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -2572,11 +2471,6 @@ namespace OpenGL
 		/// <param name="stream">
 		/// Specifies the index of the transform feedback stream from which to retrieve a primitive count.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawTransformFeedback"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
 		public static void DrawTransformFeedbackStream(PrimitiveType mode, UInt32 id, UInt32 stream)
@@ -2601,12 +2495,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a query object.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
 		public static void BeginQueryIndexed(QueryTarget target, UInt32 index, UInt32 id)
@@ -2628,12 +2516,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the query target upon which to begin the query.
 		/// </param>
-		/// <seealso cref="Gl.BeginQuery"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
 		public static void EndQueryIndexed(QueryTarget target, UInt32 index)
@@ -2662,8 +2544,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.IsQuery"/>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
 		public static void GetQueryIndexed(QueryTarget target, UInt32 index, QueryParameterName pname, [Out] Int32[] @params)

@@ -2577,9 +2577,6 @@ namespace OpenGL
 		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
 		/// indicating that the color components are written.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.DepthMask"/>
-		/// <seealso cref="Gl.StencilMask"/>
 		[AliasOf("glColorMaskIndexedEXT")]
 		[AliasOf("glColorMaskiEXT")]
 		[AliasOf("glColorMaskiOES")]
@@ -2611,30 +2608,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetBooleanIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2668,30 +2641,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetBooleanIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2725,30 +2674,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetBooleanIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2782,30 +2707,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetBooleanIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -2839,30 +2740,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetIntegerIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -2898,30 +2775,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[AliasOf("glGetIntegerIndexedvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -3011,8 +2864,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the capability.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Get"/>
 		[AliasOf("glIsEnabledIndexedEXT")]
 		[AliasOf("glIsEnablediEXT")]
 		[AliasOf("glIsEnablediNV")]
@@ -3100,12 +2951,6 @@ namespace OpenGL
 		/// <param name="size">
 		/// The amount of data in machine units that can be read from the buffer object while used as an indexed target.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glBindBufferRangeEXT")]
 		[AliasOf("glBindBufferRangeNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -3137,12 +2982,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// The name of a buffer object to bind to the specified binding point.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glBindBufferBaseEXT")]
 		[AliasOf("glBindBufferBaseNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -3175,8 +3014,6 @@ namespace OpenGL
 		/// Identifies the mode used to capture the varying variables when transform feedback is active. <paramref 
 		/// name="bufferMode"/> must be Gl.INTERLEAVED_ATTRIBS or Gl.SEPARATE_ATTRIBS.
 		/// </param>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.GetTransformFeedbackVarying"/>
 		[AliasOf("glTransformFeedbackVaryingsEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3217,9 +3054,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The address of a buffer into which will be written the name of the varying.
 		/// </param>
-		/// <seealso cref="Gl.BeginTransformFeedback"/>
-		/// <seealso cref="Gl.TransformFeedbackVaryings"/>
-		/// <seealso cref="Gl.GetProgram"/>
 		[AliasOf("glGetTransformFeedbackVaryingEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3269,9 +3103,6 @@ namespace OpenGL
 		/// <param name="mode">
 		/// Specifies how Gl.BeginConditionalRender interprets the results of the occlusion query.
 		/// </param>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.BeginQuery"/>
 		[AliasOf("glBeginConditionalRenderNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_conditional_render", Api = "gl|glcore|gles2")]
@@ -3286,9 +3117,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glEndConditionalRender: start conditional rendering
 		/// </summary>
-		/// <seealso cref="Gl.GenQueries"/>
-		/// <seealso cref="Gl.DeleteQueries"/>
-		/// <seealso cref="Gl.BeginQuery"/>
 		[AliasOf("glEndConditionalRenderNV")]
 		[AliasOf("glEndConditionalRenderNVX")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -3330,15 +3158,6 @@ namespace OpenGL
 		/// Specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the 
 		/// buffer currently bound to the Gl.ARRAY_BUFFER target. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
 		[AliasOf("glVertexAttribIPointerEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3379,15 +3198,6 @@ namespace OpenGL
 		/// Specifies a offset of the first component of the first generic vertex attribute in the array in the data store of the 
 		/// buffer currently bound to the Gl.ARRAY_BUFFER target. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
 		[AliasOf("glVertexAttribIPointerEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3419,12 +3229,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
-		/// <seealso cref="Gl.VertexAttribDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glGetVertexAttribIivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3459,12 +3263,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
-		/// <seealso cref="Gl.VertexAttribDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glGetVertexAttribIuivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3491,8 +3289,6 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI1iEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3516,8 +3312,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI2iEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3544,8 +3338,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI3iEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3577,8 +3369,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4iEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3600,8 +3390,6 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI1uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3625,8 +3413,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI2uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3653,8 +3439,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI3uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3686,8 +3470,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3710,8 +3492,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI1ivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3738,8 +3518,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI2ivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3766,8 +3544,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI3ivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3796,8 +3572,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4ivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3825,8 +3599,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI1uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3853,8 +3625,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI2uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3881,8 +3651,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI3uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3911,8 +3679,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -3940,8 +3706,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4bvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3968,8 +3732,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4svEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -3996,8 +3758,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4ubvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -4024,8 +3784,6 @@ namespace OpenGL
 		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
 		/// attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindAttribLocation"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glVertexAttribI4usvEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
@@ -4056,9 +3814,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
 		[AliasOf("glGetUniformuivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4088,8 +3843,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to modify
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.GetFragDataLocation"/>
 		[AliasOf("glBindFragDataLocationEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
@@ -4113,8 +3866,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to query
 		/// </param>
-		/// <seealso cref="Gl.CreateProgram"/>
-		/// <seealso cref="Gl.BindFragDataLocation"/>
 		[AliasOf("glGetFragDataLocationEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4142,8 +3893,6 @@ namespace OpenGL
 		/// <param name="v0">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform1uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4170,8 +3919,6 @@ namespace OpenGL
 		/// <param name="v1">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform2uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4201,8 +3948,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform3uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4235,8 +3980,6 @@ namespace OpenGL
 		/// <param name="v3">
 		/// For the scalar commands, specifies the new values to be used for the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform4uiEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4265,8 +4008,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform1uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4300,8 +4041,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform1uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4330,8 +4069,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform2uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4365,8 +4102,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform2uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4395,8 +4130,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform3uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4430,8 +4163,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform3uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4460,8 +4191,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform4uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4495,8 +4224,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[AliasOf("glUniform4uivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -4596,11 +4323,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[AliasOf("glGetTexParameterIivEXT")]
 		[AliasOf("glGetTexParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -4644,11 +4366,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[AliasOf("glGetTexParameterIivEXT")]
 		[AliasOf("glGetTexParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -4692,11 +4409,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[AliasOf("glGetTexParameterIuivEXT")]
 		[AliasOf("glGetTexParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -4740,11 +4452,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[AliasOf("glGetTexParameterIuivEXT")]
 		[AliasOf("glGetTexParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -4782,10 +4489,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void ClearBuffer(Buffer buffer, Int32 drawbuffer, Int32[] value)
@@ -4818,10 +4521,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void ClearBuffer(Buffer buffer, Int32 drawbuffer, UInt32[] value)
@@ -4854,10 +4553,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A pointer to the value or values to clear the buffer to.
 		/// </param>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void ClearBuffer(Buffer buffer, Int32 drawbuffer, float[] value)
@@ -4893,10 +4588,6 @@ namespace OpenGL
 		/// <param name="stencil">
 		/// The value to clear the stencil buffer to.
 		/// </param>
-		/// <seealso cref="Gl.ClearColor"/>
-		/// <seealso cref="Gl.ClearDepth"/>
-		/// <seealso cref="Gl.ClearStencil"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void ClearBuffer(Buffer buffer, Int32 drawbuffer, float depth, Int32 stencil)
@@ -4941,10 +4632,6 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// Specifies a value that may be the name of a renderbuffer object.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[AliasOf("glIsRenderbufferEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -4973,11 +4660,6 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// Specifies the name of the renderbuffer object to bind.
 		/// </param>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.IsRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -4998,10 +4680,6 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// A pointer to an array containing <paramref name="n"/> renderbuffer objects to be deleted.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[AliasOf("glDeleteRenderbuffersEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5028,8 +4706,6 @@ namespace OpenGL
 		/// <param name="renderbuffers">
 		/// Specifies an array in which the generated renderbuffer object names are stored.
 		/// </param>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[AliasOf("glGenRenderbuffersEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5054,8 +4730,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenRenderbuffers: generate renderbuffer object names
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[AliasOf("glGenRenderbuffersEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5086,11 +4760,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the renderbuffer, in pixels.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[AliasOf("glRenderbufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5123,11 +4792,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of parameter <paramref name="pname"/> for the renderbuffer object.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.RenderbufferStorageMultisample"/>
 		[AliasOf("glGetRenderbufferParameterivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5155,9 +4819,6 @@ namespace OpenGL
 		/// <param name="framebuffer">
 		/// Specifies a value that may be the name of a framebuffer object.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[AliasOf("glIsFramebufferEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5186,12 +4847,6 @@ namespace OpenGL
 		/// <param name="framebuffer">
 		/// Specifies the name of the framebuffer object to bind.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.FramebufferTextureLayer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
-		/// <seealso cref="Gl.IsFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -5212,9 +4867,6 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A pointer to an array containing <paramref name="n"/> framebuffer objects to be deleted.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.CheckFramebufferStatus"/>
 		[AliasOf("glDeleteFramebuffersEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5241,8 +4893,6 @@ namespace OpenGL
 		/// <param name="framebuffers">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[AliasOf("glGenFramebuffersEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5267,8 +4917,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenFramebuffers: generate framebuffer object names
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[AliasOf("glGenFramebuffersEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5291,9 +4939,6 @@ namespace OpenGL
 		/// Specify the target to which the framebuffer is bound for Gl.CheckFramebufferStatus, and the target against which 
 		/// framebuffer completeness of <paramref name="framebuffer"/> is checked for Gl.CheckNamedFramebufferStatus.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
 		[AliasOf("glCheckFramebufferStatusEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5331,10 +4976,6 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[AliasOf("glFramebufferTexture1DEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
@@ -5372,10 +5013,6 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[AliasOf("glFramebufferTexture2DEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5412,10 +5049,6 @@ namespace OpenGL
 		/// <param name="layer">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[AliasOf("glFramebufferTexture3DEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
@@ -5448,10 +5081,6 @@ namespace OpenGL
 		/// <param name="renderbuffer">
 		/// Specifies the name of an existing renderbuffer object of type <paramref name="renderbuffertarget"/> to attach.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[AliasOf("glFramebufferRenderbufferEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5486,9 +5115,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of parameter <paramref name="pname"/> for <paramref name="attachment"/>.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[AliasOf("glGetFramebufferAttachmentParameterivEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5521,9 +5147,6 @@ namespace OpenGL
 		/// Gl.TEXTURE_2D, Gl.TEXTURE_3D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_CUBE_MAP, or 
 		/// Gl.TEXTURE_CUBE_MAP_ARRAY.
 		/// </param>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.GenTextures"/>
 		[AliasOf("glGenerateMipmapEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5577,11 +5200,6 @@ namespace OpenGL
 		/// <param name="filter">
 		/// Specifies the interpolation to be applied if the image is stretched. Must be Gl.NEAREST or Gl.LINEAR.
 		/// </param>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.CheckFramebufferStatus"/>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.DeleteFramebuffers"/>
 		[AliasOf("glBlitFramebufferEXT")]
 		[AliasOf("glBlitFramebufferNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -5618,11 +5236,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the renderbuffer, in pixels.
 		/// </param>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.BindRenderbuffer"/>
-		/// <seealso cref="Gl.RenderbufferStorage"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.DeleteRenderbuffers"/>
 		[AliasOf("glRenderbufferStorageMultisampleEXT")]
 		[AliasOf("glRenderbufferStorageMultisampleNV")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -5662,10 +5275,6 @@ namespace OpenGL
 		/// <param name="layer">
 		/// Specifies the layer of the texture object to attach.
 		/// </param>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.GenRenderbuffers"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
 		[AliasOf("glFramebufferTextureLayerARB")]
 		[AliasOf("glFramebufferTextureLayerEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -5703,11 +5312,6 @@ namespace OpenGL
 		/// <param name="access">
 		/// Specifies a combination of access flags indicating the desired access to the mapped range.
 		/// </param>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
-		/// <seealso cref="Gl.FlushMappedBufferRange"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferStorage"/>
 		[AliasOf("glMapBufferRangeEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -5740,9 +5344,6 @@ namespace OpenGL
 		/// <param name="length">
 		/// Specifies the length of the buffer subrange, in basic machine units.
 		/// </param>
-		/// <seealso cref="Gl.MapBufferRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glFlushMappedBufferRangeAPPLE")]
 		[AliasOf("glFlushMappedBufferRangeEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -5766,11 +5367,6 @@ namespace OpenGL
 		/// <param name="array">
 		/// Specifies the name of the vertex array to bind.
 		/// </param>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
-		/// <seealso cref="Gl.EnableVertexAttribArray"/>
-		/// <seealso cref="Gl.GenVertexArrays"/>
-		/// <seealso cref="Gl.IsVertexArray"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[AliasOf("glBindVertexArrayOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -5792,9 +5388,6 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// Specifies the address of an array containing the <paramref name="n"/> names of the objects to be deleted.
 		/// </param>
-		/// <seealso cref="Gl.GenVertexArrays"/>
-		/// <seealso cref="Gl.IsVertexArray"/>
-		/// <seealso cref="Gl.BindVertexArray"/>
 		[AliasOf("glDeleteVertexArraysAPPLE")]
 		[AliasOf("glDeleteVertexArraysOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -5823,8 +5416,6 @@ namespace OpenGL
 		/// <param name="arrays">
 		/// Specifies an array in which the generated vertex array object names are stored.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexArray"/>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
 		[AliasOf("glGenVertexArraysAPPLE")]
 		[AliasOf("glGenVertexArraysOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -5850,8 +5441,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenVertexArrays: generate vertex array object names
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.BindVertexArray"/>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
 		[AliasOf("glGenVertexArraysAPPLE")]
 		[AliasOf("glGenVertexArraysOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -5874,9 +5463,6 @@ namespace OpenGL
 		/// <param name="array">
 		/// Specifies a value that may be the name of a vertex array object.
 		/// </param>
-		/// <seealso cref="Gl.GenVertexArrays"/>
-		/// <seealso cref="Gl.BindVertexArray"/>
-		/// <seealso cref="Gl.DeleteVertexArrays"/>
 		[AliasOf("glIsVertexArrayAPPLE")]
 		[AliasOf("glIsVertexArrayOES")]
 		[RequiredByFeature("GL_VERSION_3_0")]

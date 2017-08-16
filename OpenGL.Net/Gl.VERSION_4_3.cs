@@ -2545,7 +2545,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address of a memory location storing the data to be replicated into the buffer's data store.
 		/// </param>
-		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 		public static void ClearBufferData(BufferTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
@@ -2575,7 +2574,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address of a memory location storing the data to be replicated into the buffer's data store.
 		/// </param>
-		/// <seealso cref="Gl.ClearBufferSubData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 		public static void ClearBufferData(BufferTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
@@ -2613,7 +2611,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address of a memory location storing the data to be replicated into the buffer's data store.
 		/// </param>
-		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 		public static void ClearBufferSubData(Int32 target, InternalFormat internalformat, IntPtr offset, UInt32 size, PixelFormat format, PixelType type, IntPtr data)
@@ -2649,7 +2646,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address of a memory location storing the data to be replicated into the buffer's data store.
 		/// </param>
-		/// <seealso cref="Gl.ClearBufferData"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
 		public static void ClearBufferSubData(Int32 target, InternalFormat internalformat, IntPtr offset, UInt32 size, PixelFormat format, PixelType type, Object data)
@@ -2676,7 +2672,6 @@ namespace OpenGL
 		/// <param name="num_groups_z">
 		/// The number of work groups to be launched in the Z dimension.
 		/// </param>
-		/// <seealso cref="Gl.DispatchComputeIndirect"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
@@ -2697,7 +2692,6 @@ namespace OpenGL
 		/// The offset into the buffer object currently bound to the Gl.DISPATCH_INDIRECT_BUFFER buffer target at which the dispatch 
 		/// parameters are stored.
 		/// </param>
-		/// <seealso cref="Gl.DispatchCompute"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
@@ -2759,7 +2753,6 @@ namespace OpenGL
 		/// <param name="srcDepth">
 		/// The depth of the region to be copied.
 		/// </param>
-		/// <seealso cref="Gl.DispatchComputeIndirect"/>
 		[AliasOf("glCopyImageSubDataEXT")]
 		[AliasOf("glCopyImageSubDataOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -2792,12 +2785,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// The new value for the parameter named <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.BindFramebuffer"/>
-		/// <seealso cref="Gl.CreateFramebuffers"/>
-		/// <seealso cref="Gl.FramebufferRenderbuffer"/>
-		/// <seealso cref="Gl.FramebufferTexture"/>
-		/// <seealso cref="Gl.GenFramebuffers"/>
-		/// <seealso cref="Gl.GetFramebufferParameter"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
@@ -2826,8 +2813,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of parameter <paramref name="pname"/> for the framebuffer object.
 		/// </param>
-		/// <seealso cref="Gl.FramebufferParameteri"/>
-		/// <seealso cref="Gl.GetFramebufferAttachmentParameter"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
@@ -2865,7 +2850,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public static void GetInternalformat(TextureTarget target, InternalFormat internalformat, InternalFormatPName pname, Int32 bufSize, [Out] Int64[] @params)
@@ -2898,7 +2882,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public static void GetInternalformat(TextureTarget target, InternalFormat internalformat, InternalFormatPName pname, [Out] Int64[] @params)
@@ -2941,11 +2924,6 @@ namespace OpenGL
 		/// <param name="depth">
 		/// The depth of the region to be invalidated.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexImage"/>
-		/// <seealso cref="Gl.InvalidateBufferSubData"/>
-		/// <seealso cref="Gl.InvalidateBufferData"/>
-		/// <seealso cref="Gl.InvalidateFramebuffer"/>
-		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth)
@@ -2965,11 +2943,6 @@ namespace OpenGL
 		/// <param name="level">
 		/// The level of detail of the texture object to invalidate.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexSubImage"/>
-		/// <seealso cref="Gl.InvalidateBufferSubData"/>
-		/// <seealso cref="Gl.InvalidateBufferData"/>
-		/// <seealso cref="Gl.InvalidateFramebuffer"/>
-		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateTexImage(UInt32 texture, Int32 level)
@@ -2992,11 +2965,6 @@ namespace OpenGL
 		/// <param name="length">
 		/// The length of the range within the buffer's data store to be invalidated.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexSubImage"/>
-		/// <seealso cref="Gl.InvalidateTexImage"/>
-		/// <seealso cref="Gl.InvalidateBufferData"/>
-		/// <seealso cref="Gl.InvalidateFramebuffer"/>
-		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateBufferSubData(UInt32 buffer, IntPtr offset, UInt32 length)
@@ -3013,11 +2981,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// The name of a buffer object whose data store to invalidate.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexSubImage"/>
-		/// <seealso cref="Gl.InvalidateTexImage"/>
-		/// <seealso cref="Gl.InvalidateBufferSubData"/>
-		/// <seealso cref="Gl.InvalidateFramebuffer"/>
-		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
 		public static void InvalidateBufferData(UInt32 buffer)
@@ -3045,11 +3008,6 @@ namespace OpenGL
 		/// <param name="attachments">
 		/// Specifies a pointer to an array identifying the attachments to be invalidated.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexSubImage"/>
-		/// <seealso cref="Gl.InvalidateTexImage"/>
-		/// <seealso cref="Gl.InvalidateBufferSubData"/>
-		/// <seealso cref="Gl.InvalidateBufferData"/>
-		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
@@ -3080,11 +3038,6 @@ namespace OpenGL
 		/// <param name="attachments">
 		/// Specifies a pointer to an array identifying the attachments to be invalidated.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexSubImage"/>
-		/// <seealso cref="Gl.InvalidateTexImage"/>
-		/// <seealso cref="Gl.InvalidateBufferSubData"/>
-		/// <seealso cref="Gl.InvalidateBufferData"/>
-		/// <seealso cref="Gl.InvalidateSubFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
@@ -3127,11 +3080,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the region to be invalidated.
 		/// </param>
-		/// <seealso cref="Gl.InvalidateTexSubImage"/>
-		/// <seealso cref="Gl.InvalidateTexImage"/>
-		/// <seealso cref="Gl.InvalidateBufferSubData"/>
-		/// <seealso cref="Gl.InvalidateBufferData"/>
-		/// <seealso cref="Gl.InvalidateFramebuffer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
@@ -3165,12 +3113,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// Specifies the distance in basic machine units between elements of the draw parameter array.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawArraysIndirect"/>
-		/// <seealso cref="Gl.MultiDrawElementsIndirect"/>
 		[AliasOf("glMultiDrawArraysIndirectAMD")]
 		[AliasOf("glMultiDrawArraysIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3202,12 +3144,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// Specifies the distance in basic machine units between elements of the draw parameter array.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawArraysIndirect"/>
-		/// <seealso cref="Gl.MultiDrawElementsIndirect"/>
 		[AliasOf("glMultiDrawArraysIndirectAMD")]
 		[AliasOf("glMultiDrawArraysIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3244,13 +3180,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// Specifies the distance in basic machine units between elements of the draw parameter array.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawArraysIndirect"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawElementsIndirect"/>
-		/// <seealso cref="Gl.MultiDrawArraysIndirect"/>
 		[AliasOf("glMultiDrawElementsIndirectAMD")]
 		[AliasOf("glMultiDrawElementsIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3285,13 +3214,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// Specifies the distance in basic machine units between elements of the draw parameter array.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
-		/// <seealso cref="Gl.DrawArraysIndirect"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawElementsIndirect"/>
-		/// <seealso cref="Gl.MultiDrawArraysIndirect"/>
 		[AliasOf("glMultiDrawElementsIndirectAMD")]
 		[AliasOf("glMultiDrawElementsIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3325,10 +3247,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The address of a variable to retrieve the value of <paramref name="pname"/> for the program interface.
 		/// </param>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
-		/// <seealso cref="Gl.GetObjectLabel"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -3362,10 +3280,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// The address of a variable to retrieve the value of <paramref name="pname"/> for the program interface.
 		/// </param>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
-		/// <seealso cref="Gl.GetObjectLabel"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -3397,10 +3311,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the resource to query the index of.
 		/// </param>
-		/// <seealso cref="Gl.GetProgramResourceName"/>
-		/// <seealso cref="Gl.GetProgramResource"/>
-		/// <seealso cref="Gl.GetProgramResourceLocation"/>
-		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -3439,10 +3349,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The address of a character array into which will be written the name of the resource.
 		/// </param>
-		/// <seealso cref="Gl.GetProgramResourceIndex"/>
-		/// <seealso cref="Gl.GetProgramResource"/>
-		/// <seealso cref="Gl.GetProgramResourceLocation"/>
-		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -3490,10 +3396,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetProgramResourceName"/>
-		/// <seealso cref="Gl.GetProgramResourceIndex"/>
-		/// <seealso cref="Gl.GetProgramResourceLocation"/>
-		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -3537,10 +3439,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetProgramResourceName"/>
-		/// <seealso cref="Gl.GetProgramResourceIndex"/>
-		/// <seealso cref="Gl.GetProgramResourceLocation"/>
-		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -3574,10 +3472,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the resource to query the location of.
 		/// </param>
-		/// <seealso cref="Gl.GetProgramResourceName"/>
-		/// <seealso cref="Gl.GetProgramResourceIndex"/>
-		/// <seealso cref="Gl.GetProgramResource"/>
-		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -3606,10 +3500,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the resource to query the location of.
 		/// </param>
-		/// <seealso cref="Gl.GetProgramResourceName"/>
-		/// <seealso cref="Gl.GetProgramResourceIndex"/>
-		/// <seealso cref="Gl.GetProgramResource"/>
-		/// <seealso cref="Gl.GetProgramResourceLocationIndex"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		public static Int32 GetProgramResourceLocationIndex(UInt32 program, ProgramInterface programInterface, String name)
@@ -3666,7 +3556,6 @@ namespace OpenGL
 		/// <param name="size">
 		/// Specifies the size of the range of the buffer's data store to attach.
 		/// </param>
-		/// <seealso cref="Gl.TexBuffer"/>
 		[AliasOf("glTexBufferRangeEXT")]
 		[AliasOf("glTexBufferRangeOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3707,10 +3596,6 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
@@ -3750,11 +3635,6 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2DMultisample"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
 		[AliasOf("glTexStorage3DMultisampleOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -3795,10 +3675,6 @@ namespace OpenGL
 		/// <param name="numlayers">
 		/// Specifies the number of layers to include in the view.
 		/// </param>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
 		[AliasOf("glTextureViewEXT")]
 		[AliasOf("glTextureViewOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -3830,10 +3706,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// The distance between elements within the buffer.
 		/// </param>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribFormat"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
@@ -3866,11 +3738,6 @@ namespace OpenGL
 		/// <param name="relativeoffset">
 		/// The distance between elements within the buffer.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
@@ -3899,11 +3766,6 @@ namespace OpenGL
 		/// <param name="relativeoffset">
 		/// The distance between elements within the buffer.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
@@ -3930,11 +3792,6 @@ namespace OpenGL
 		/// <param name="relativeoffset">
 		/// The distance between elements within the buffer.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
 		public static void VertexAttribLFormat(UInt32 attribindex, Int32 size, VertexAttribType type, UInt32 relativeoffset)
@@ -3959,10 +3816,6 @@ namespace OpenGL
 		/// <param name="bindingindex">
 		/// The index of the vertex buffer binding with which to associate the generic vertex attribute.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribFormat"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
@@ -3985,11 +3838,6 @@ namespace OpenGL
 		/// <param name="divisor">
 		/// The new value for the instance step rate to apply.
 		/// </param>
-		/// <seealso cref="Gl.BindVertexBuffer"/>
-		/// <seealso cref="Gl.VertexAttribBinding"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexBindingDivisor"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
@@ -4024,9 +3872,6 @@ namespace OpenGL
 		/// <param name="enabled">
 		/// A Boolean flag determining whether the selected messages should be enabled or disabled.
 		/// </param>
-		/// <seealso cref="Gl.DebugMessageInsert"/>
-		/// <seealso cref="Gl.DebugMessageCallback"/>
-		/// <seealso cref="Gl.GetDebugMessageLog"/>
 		[AliasOf("glDebugMessageControlARB")]
 		[AliasOf("glDebugMessageControlKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -4067,9 +3912,6 @@ namespace OpenGL
 		/// <param name="enabled">
 		/// A Boolean flag determining whether the selected messages should be enabled or disabled.
 		/// </param>
-		/// <seealso cref="Gl.DebugMessageInsert"/>
-		/// <seealso cref="Gl.DebugMessageCallback"/>
-		/// <seealso cref="Gl.GetDebugMessageLog"/>
 		[AliasOf("glDebugMessageControlARB")]
 		[AliasOf("glDebugMessageControlKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -4113,9 +3955,6 @@ namespace OpenGL
 		/// <param name="buf">
 		/// A <see cref="T:String"/>.
 		/// </param>
-		/// <seealso cref="Gl.DebugMessageControl"/>
-		/// <seealso cref="Gl.DebugMessageCallback"/>
-		/// <seealso cref="Gl.GetDebugMessageLog"/>
 		[AliasOf("glDebugMessageInsertARB")]
 		[AliasOf("glDebugMessageInsertKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -4142,9 +3981,6 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A user supplied pointer that will be passed on each invocation of <paramref name="callback"/>.
 		/// </param>
-		/// <seealso cref="Gl.DebugMessageControl"/>
-		/// <seealso cref="Gl.DebugMessageInsert"/>
-		/// <seealso cref="Gl.GetDebugMessageLog"/>
 		[AliasOf("glDebugMessageCallbackARB")]
 		[AliasOf("glDebugMessageCallbackKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -4171,9 +4007,6 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A user supplied pointer that will be passed on each invocation of <paramref name="callback"/>.
 		/// </param>
-		/// <seealso cref="Gl.DebugMessageControl"/>
-		/// <seealso cref="Gl.DebugMessageInsert"/>
-		/// <seealso cref="Gl.GetDebugMessageLog"/>
 		[AliasOf("glDebugMessageCallbackARB")]
 		[AliasOf("glDebugMessageCallbackKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -4217,9 +4050,6 @@ namespace OpenGL
 		/// <param name="messageLog">
 		/// The address of an array of characters that will receive the messages.
 		/// </param>
-		/// <seealso cref="Gl.DebugMessageInsert"/>
-		/// <seealso cref="Gl.DebugMessageCallback"/>
-		/// <seealso cref="Gl.DebugMessageControl"/>
 		[AliasOf("glGetDebugMessageLogARB")]
 		[AliasOf("glGetDebugMessageLogKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -4265,9 +4095,6 @@ namespace OpenGL
 		/// <param name="message">
 		/// The a string containing the message to be sent to the debug output stream.
 		/// </param>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
-		/// <seealso cref="Gl.ObjectPtrLabel"/>
 		[AliasOf("glPushDebugGroupKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -4286,9 +4113,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glPopDebugGroup: pop the active debug group
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
-		/// <seealso cref="Gl.ObjectPtrLabel"/>
 		[AliasOf("glPopDebugGroupKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -4319,9 +4143,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string containing the label to assign to the object.
 		/// </param>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectPtrLabel"/>
 		[AliasOf("glObjectLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -4355,10 +4176,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string that will receive the object label.
 		/// </param>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
-		/// <seealso cref="Gl.GetObjectPtrLabel"/>
 		[AliasOf("glGetObjectLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -4391,9 +4208,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string containing the label to assign to the object.
 		/// </param>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
 		[AliasOf("glObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -4421,9 +4235,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string containing the label to assign to the object.
 		/// </param>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
 		[AliasOf("glObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -4456,10 +4267,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string that will receive the object label.
 		/// </param>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
-		/// <seealso cref="Gl.GetObjectLabel"/>
 		[AliasOf("glGetObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -4495,10 +4302,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string that will receive the object label.
 		/// </param>
-		/// <seealso cref="Gl.PushDebugGroup"/>
-		/// <seealso cref="Gl.PopDebugGroup"/>
-		/// <seealso cref="Gl.ObjectLabel"/>
-		/// <seealso cref="Gl.GetObjectLabel"/>
 		[AliasOf("glGetObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]

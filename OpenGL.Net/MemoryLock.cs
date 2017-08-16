@@ -61,7 +61,7 @@ namespace OpenGL
 
 		#region IDisposable Implementation
 
-		// <summary>
+		/// <summary>
 		/// Releases all resource used by the <see cref="MemoryLock"/> object.
 		/// </summary>
 		/// <remarks>

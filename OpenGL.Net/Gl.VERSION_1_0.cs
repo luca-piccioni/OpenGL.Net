@@ -5478,8 +5478,6 @@ namespace OpenGL
 		/// Specifies whether front- or back-facing facets are candidates for culling. Symbolic constants Gl.FRONT, Gl.BACK, and 
 		/// Gl.FRONT_AND_BACK are accepted. The initial value is Gl.BACK.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.FrontFace"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5500,7 +5498,6 @@ namespace OpenGL
 		/// <param name="mode">
 		/// Specifies the orientation of front-facing polygons. Gl.CW and Gl.CCW are accepted. The initial value is Gl.CCW.
 		/// </param>
-		/// <seealso cref="Gl.CullFace"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5545,7 +5542,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// Specifies the width of rasterized lines. The initial value is 1.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5566,8 +5562,6 @@ namespace OpenGL
 		/// <param name="size">
 		/// Specifies the diameter of rasterized points. The initial value is 1.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.PointParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void PointSize(float size)
@@ -5589,8 +5583,6 @@ namespace OpenGL
 		/// Specifies how polygons will be rasterized. Accepted values are Gl.POINT, Gl.LINE, and Gl.FILL. The initial value is 
 		/// Gl.FILL for both front- and back-facing polygons.
 		/// </param>
-		/// <seealso cref="Gl.LineWidth"/>
-		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPolygonModeNV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
@@ -5621,8 +5613,6 @@ namespace OpenGL
 		/// Specify the width and height of the scissor box. When a GL context is first attached to a window, <paramref 
 		/// name="width"/> and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5652,26 +5642,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PrioritizeTextures"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5701,26 +5671,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PrioritizeTextures"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5755,26 +5705,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value of <paramref name="pname"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PrioritizeTextures"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5804,26 +5734,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PrioritizeTextures"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5883,27 +5793,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexImage1D(TextureTarget target, Int32 level, InternalFormat internalFormat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr data)
 		{
@@ -5955,27 +5844,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void TexImage1D(TextureTarget target, Int32 level, InternalFormat internalFormat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object data)
 		{
@@ -6038,28 +5906,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6122,28 +5968,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6167,11 +5991,6 @@ namespace OpenGL
 		/// framebuffer objects, Gl.COLOR_ATTACHMENT$m$ and Gl.NONE enums are accepted, where Gl. is a value between 0 and 
 		/// Gl.MAX_COLOR_ATTACHMENTS.
 		/// </param>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.ColorMask"/>
-		/// <seealso cref="Gl.DrawBuffers"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void DrawBuffer(DrawBufferMode buf)
 		{
@@ -6190,11 +6009,6 @@ namespace OpenGL
 		/// Bitwise OR of masks that indicate the buffers to be cleared. The three masks are Gl.COLOR_BUFFER_BIT, 
 		/// Gl.DEPTH_BUFFER_BIT, and Gl.STENCIL_BUFFER_BIT.
 		/// </param>
-		/// <seealso cref="Gl.ColorMask"/>
-		/// <seealso cref="Gl.DepthMask"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.Scissor"/>
-		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6224,8 +6038,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specify the red, green, blue, and alpha values used when the color buffers are cleared. The initial values are all 0.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.removedTypes"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6246,13 +6058,6 @@ namespace OpenGL
 		/// <param name="s">
 		/// Specifies the index used when the stencil buffer is cleared. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.StencilFunc"/>
-		/// <seealso cref="Gl.StencilFuncSeparate"/>
-		/// <seealso cref="Gl.StencilMask"/>
-		/// <seealso cref="Gl.StencilMaskSeparate"/>
-		/// <seealso cref="Gl.StencilOp"/>
-		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6271,8 +6076,6 @@ namespace OpenGL
 		/// <param name="depth">
 		/// Specifies the depth value used when the depth buffer is cleared. The initial value is 1.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.removedTypes"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void ClearDepth(double depth)
 		{
@@ -6291,13 +6094,6 @@ namespace OpenGL
 		/// Specifies a bit mask to enable and disable writing of individual bits in the stencil planes. Initially, the mask is all 
 		/// 1's.
 		/// </param>
-		/// <seealso cref="Gl.ColorMask"/>
-		/// <seealso cref="Gl.DepthMask"/>
-		/// <seealso cref="Gl.StencilFunc"/>
-		/// <seealso cref="Gl.StencilFuncSeparate"/>
-		/// <seealso cref="Gl.StencilMaskSeparate"/>
-		/// <seealso cref="Gl.StencilOp"/>
-		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6331,9 +6127,6 @@ namespace OpenGL
 		/// Specify whether red, green, blue, and alpha are to be written into the frame buffer. The initial values are all Gl.TRUE, 
 		/// indicating that the color components are written.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.DepthMask"/>
-		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6355,10 +6148,6 @@ namespace OpenGL
 		/// Specifies whether the depth buffer is enabled for writing. If <paramref name="flag"/> is Gl.FALSE, depth buffer writing 
 		/// is disabled. Otherwise, it is enabled. Initially, depth buffer writing is enabled.
 		/// </param>
-		/// <seealso cref="Gl.ColorMask"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.DepthRange"/>
-		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6379,40 +6168,6 @@ namespace OpenGL
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.AlphaFunc"/>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.ClipPlane"/>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.CullFace"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.DepthRange"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.Fog"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.LineWidth"/>
-		/// <seealso cref="Gl.LineStipple"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PointSize"/>
-		/// <seealso cref="Gl.PolygonMode"/>
-		/// <seealso cref="Gl.PolygonOffset"/>
-		/// <seealso cref="Gl.PolygonStipple"/>
-		/// <seealso cref="Gl.SampleCoverage"/>
-		/// <seealso cref="Gl.Scissor"/>
-		/// <seealso cref="Gl.StencilFunc"/>
-		/// <seealso cref="Gl.StencilOp"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6433,40 +6188,6 @@ namespace OpenGL
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.AlphaFunc"/>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.ClipPlane"/>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.CullFace"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.DepthRange"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.Fog"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.LineWidth"/>
-		/// <seealso cref="Gl.LineStipple"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PointSize"/>
-		/// <seealso cref="Gl.PolygonMode"/>
-		/// <seealso cref="Gl.PolygonOffset"/>
-		/// <seealso cref="Gl.PolygonStipple"/>
-		/// <seealso cref="Gl.SampleCoverage"/>
-		/// <seealso cref="Gl.Scissor"/>
-		/// <seealso cref="Gl.StencilFunc"/>
-		/// <seealso cref="Gl.StencilOp"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6484,7 +6205,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glFinish: block until all GL execution is complete
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.Flush"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6502,7 +6222,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glFlush: force execution of GL commands in finite time
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.Finish"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6532,15 +6251,6 @@ namespace OpenGL
 		/// Gl.SRC_ALPHA, Gl.ONE_MINUS_SRC_ALPHA, Gl.DST_ALPHA, Gl.ONE_MINUS_DST_ALPHA. Gl.CONSTANT_COLOR, 
 		/// Gl.ONE_MINUS_CONSTANT_COLOR, Gl.CONSTANT_ALPHA, and Gl.ONE_MINUS_CONSTANT_ALPHA. The initial value is Gl.ZERO.
 		/// </param>
-		/// <seealso cref="Gl.AlphaFunc"/>
-		/// <seealso cref="Gl.BlendColor"/>
-		/// <seealso cref="Gl.BlendEquation"/>
-		/// <seealso cref="Gl.BlendFuncSeparate"/>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6566,10 +6276,6 @@ namespace OpenGL
 		/// Gl.COPY, Gl.COPY_INVERTED, Gl.NOOP, Gl.INVERT, Gl.AND, Gl.NAND, Gl.OR, Gl.NOR, Gl.XOR, Gl.EQUIV, Gl.AND_REVERSE, 
 		/// Gl.AND_INVERTED, Gl.OR_REVERSE, and Gl.OR_INVERTED. The initial value is Gl.COPY.
 		/// </param>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.StencilOp"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LogicOp(LogicOp opcode)
@@ -6597,15 +6303,6 @@ namespace OpenGL
 		/// Specifies a mask that is ANDed with both the reference value and the stored stencil value when the test is done. The 
 		/// initial value is all 1's.
 		/// </param>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.StencilFuncSeparate"/>
-		/// <seealso cref="Gl.StencilMask"/>
-		/// <seealso cref="Gl.StencilMaskSeparate"/>
-		/// <seealso cref="Gl.StencilOp"/>
-		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6636,15 +6333,6 @@ namespace OpenGL
 		/// either there is no depth buffer or depth testing is not enabled. <paramref name="dppass"/> accepts the same symbolic 
 		/// constants as <paramref name="sfail"/>. The initial value is Gl.KEEP.
 		/// </param>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.StencilFunc"/>
-		/// <seealso cref="Gl.StencilFuncSeparate"/>
-		/// <seealso cref="Gl.StencilMask"/>
-		/// <seealso cref="Gl.StencilMaskSeparate"/>
-		/// <seealso cref="Gl.StencilOpSeparate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6666,9 +6354,6 @@ namespace OpenGL
 		/// Specifies the depth comparison function. Symbolic constants Gl.NEVER, Gl.LESS, Gl.EQUAL, Gl.LEQUAL, Gl.GREATER, 
 		/// Gl.NOTEQUAL, Gl.GEQUAL, and Gl.ALWAYS are accepted. The initial value is Gl.LESS.
 		/// </param>
-		/// <seealso cref="Gl.DepthRange"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.PolygonOffset"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6694,27 +6379,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PixelZoom"/>
-		/// <seealso cref="Gl.PolygonStipple"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void PixelStore(PixelStoreParameter pname, float param)
 		{
@@ -6739,27 +6403,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PixelZoom"/>
-		/// <seealso cref="Gl.PolygonStipple"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6781,13 +6424,6 @@ namespace OpenGL
 		/// Specifies a color buffer. Accepted values are Gl.FRONT_LEFT, Gl.FRONT_RIGHT, Gl.BACK_LEFT, Gl.BACK_RIGHT, Gl.FRONT, 
 		/// Gl.BACK, Gl.LEFT, Gl.RIGHT, and the constants Gl.COLOR_ATTACHMENTi.
 		/// </param>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void ReadBuffer(ReadBufferMode mode)
@@ -6837,12 +6473,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the pixel data.
 		/// </param>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6866,30 +6496,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6919,30 +6525,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6972,30 +6554,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7025,30 +6583,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7076,30 +6610,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void Get(Int32 pname, [Out] double[] data)
 		{
@@ -7124,30 +6634,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void Get(GetPName pname, [Out] double[] data)
 		{
@@ -7172,30 +6658,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void Get(Int32 pname, out double data)
 		{
@@ -7220,30 +6682,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void Get(GetPName pname, out double data)
 		{
@@ -7290,30 +6728,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7343,30 +6757,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7396,30 +6786,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7449,30 +6815,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7502,30 +6844,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7555,30 +6873,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7608,30 +6902,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7661,30 +6931,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetAttachedShaders"/>
-		/// <seealso cref="Gl.GetAttribLocation"/>
-		/// <seealso cref="Gl.GetBufferParameter"/>
-		/// <seealso cref="Gl.GetBufferPointerv"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.GetCompressedTexImage"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.GetProgramInfoLog"/>
-		/// <seealso cref="Gl.GetQueryiv"/>
-		/// <seealso cref="Gl.GetQueryObject"/>
-		/// <seealso cref="Gl.GetShader"/>
-		/// <seealso cref="Gl.GetShaderInfoLog"/>
-		/// <seealso cref="Gl.GetShaderSource"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.GetVertexAttrib"/>
-		/// <seealso cref="Gl.GetVertexAttribPointerv"/>
-		/// <seealso cref="Gl.IsEnabled"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7753,18 +6999,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, IntPtr pixels)
 		{
@@ -7800,18 +7034,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void GetTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Object pixels)
 		{
@@ -7846,11 +7068,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7891,11 +7108,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7936,11 +7148,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the texture parameters.
 		/// </param>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TextureView"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7986,20 +7193,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, [Out] float[] @params)
@@ -8043,20 +7236,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
@@ -8100,20 +7279,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, out Int32 @params)
@@ -8137,8 +7302,6 @@ namespace OpenGL
 		/// <param name="cap">
 		/// Specifies a symbolic constant indicating a GL capability.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Get"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -8164,10 +7327,6 @@ namespace OpenGL
 		/// <param name="farVal">
 		/// Specifies the mapping of the far clipping plane to window coordinates. The initial value is 1.
 		/// </param>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.PolygonOffset"/>
-		/// <seealso cref="Gl.Viewport"/>
-		/// <seealso cref="Gl.removedTypes"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		public static void DepthRange(double nearVal, double farVal)
 		{
@@ -8196,7 +7355,6 @@ namespace OpenGL
 		/// Specify the width and height of the viewport. When a GL context is first attached to a window, <paramref name="width"/> 
 		/// and <paramref name="height"/> are set to the dimensions of that window.
 		/// </param>
-		/// <seealso cref="Gl.DepthRange"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -8218,10 +7376,6 @@ namespace OpenGL
 		/// <param name="mode">
 		/// Specifies the compilation mode, which can be Gl.COMPILE or Gl.COMPILE_AND_EXECUTE.
 		/// </param>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.CallLists"/>
-		/// <seealso cref="Gl.DeleteLists"/>
-		/// <seealso cref="Gl.GenLists"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void NewList(UInt32 list, ListMode mode)
@@ -8235,10 +7389,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glEndList: create or replace a display list
 		/// </summary>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.CallLists"/>
-		/// <seealso cref="Gl.DeleteLists"/>
-		/// <seealso cref="Gl.GenLists"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EndList()
@@ -8255,11 +7405,6 @@ namespace OpenGL
 		/// <param name="list">
 		/// Specifies the integer name of the display list to be executed.
 		/// </param>
-		/// <seealso cref="Gl.DeleteLists"/>
-		/// <seealso cref="Gl.GenLists"/>
-		/// <seealso cref="Gl.NewList"/>
-		/// <seealso cref="Gl.PushAttrib"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void CallList(UInt32 list)
@@ -8283,13 +7428,6 @@ namespace OpenGL
 		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
 		/// be bytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>.
 		/// </param>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.DeleteLists"/>
-		/// <seealso cref="Gl.GenLists"/>
-		/// <seealso cref="Gl.ListBase"/>
-		/// <seealso cref="Gl.NewList"/>
-		/// <seealso cref="Gl.PushAttrib"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void CallLists(Int32 n, ListNameType type, IntPtr lists)
@@ -8313,13 +7451,6 @@ namespace OpenGL
 		/// Specifies the address of an array of name offsets in the display list. The pointer type is void because the offsets can 
 		/// be bytes, shorts, ints, or floats, depending on the value of <paramref name="type"/>.
 		/// </param>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.DeleteLists"/>
-		/// <seealso cref="Gl.GenLists"/>
-		/// <seealso cref="Gl.ListBase"/>
-		/// <seealso cref="Gl.NewList"/>
-		/// <seealso cref="Gl.PushAttrib"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void CallLists(Int32 n, ListNameType type, Object lists)
@@ -8341,11 +7472,6 @@ namespace OpenGL
 		/// <param name="range">
 		/// Specifies the number of display lists to delete.
 		/// </param>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.CallLists"/>
-		/// <seealso cref="Gl.GenLists"/>
-		/// <seealso cref="Gl.IsList"/>
-		/// <seealso cref="Gl.NewList"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void DeleteLists(UInt32 list, Int32 range)
@@ -8362,10 +7488,6 @@ namespace OpenGL
 		/// <param name="range">
 		/// Specifies the number of contiguous empty display lists to be generated.
 		/// </param>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.CallLists"/>
-		/// <seealso cref="Gl.DeleteLists"/>
-		/// <seealso cref="Gl.NewList"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static UInt32 GenLists(Int32 range)
@@ -8387,7 +7509,6 @@ namespace OpenGL
 		/// Specifies an integer offset that will be added to Gl\.CallLists offsets to generate display-list names. The initial 
 		/// value is 0.
 		/// </param>
-		/// <seealso cref="Gl.CallLists"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ListBase(UInt32 @base)
@@ -8406,22 +7527,6 @@ namespace OpenGL
 		/// Gl\.End. Ten symbolic constants are accepted: Gl.POINTS, Gl.LINES, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.TRIANGLES, 
 		/// Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.QUADS, Gl.QUAD_STRIP, and Gl.POLYGON.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.CallLists"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Begin(PrimitiveType mode)
@@ -8457,12 +7562,6 @@ namespace OpenGL
 		/// <param name="bitmap">
 		/// Specifies the address of the bitmap image.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Bitmap(Int32 width, Int32 height, float xorig, float yorig, float xmove, float ymove, byte[] bitmap)
@@ -8490,8 +7589,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(sbyte red, sbyte green, sbyte blue)
@@ -8507,8 +7604,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(sbyte[] v)
@@ -8536,8 +7631,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(double red, double green, double blue)
@@ -8553,8 +7646,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(double[] v)
@@ -8582,8 +7673,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(float red, float green, float blue)
@@ -8599,8 +7688,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(float[] v)
@@ -8628,8 +7715,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int32 red, Int32 green, Int32 blue)
@@ -8645,8 +7730,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int32[] v)
@@ -8674,8 +7757,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int16 red, Int16 green, Int16 blue)
@@ -8691,8 +7772,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int16[] v)
@@ -8720,8 +7799,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(byte red, byte green, byte blue)
@@ -8737,8 +7814,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(byte[] v)
@@ -8766,8 +7841,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt32 red, UInt32 green, UInt32 blue)
@@ -8783,8 +7856,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt32[] v)
@@ -8812,8 +7883,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current color.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt16 red, UInt16 green, UInt16 blue)
@@ -8829,8 +7898,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt16[] v)
@@ -8861,8 +7928,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specifies a new alpha value for the current color. Included only in the four-argument Gl.Color4 commands.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(sbyte red, sbyte green, sbyte blue, sbyte alpha)
@@ -8878,8 +7943,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(sbyte[] v)
@@ -8910,8 +7973,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specifies a new alpha value for the current color. Included only in the four-argument Gl.Color4 commands.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(double red, double green, double blue, double alpha)
@@ -8927,8 +7988,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(double[] v)
@@ -8961,8 +8020,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specifies a new alpha value for the current color. Included only in the four-argument Gl.Color4 commands.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -8979,8 +8036,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(float[] v)
@@ -9011,8 +8066,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specifies a new alpha value for the current color. Included only in the four-argument Gl.Color4 commands.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int32 red, Int32 green, Int32 blue, Int32 alpha)
@@ -9028,8 +8081,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int32[] v)
@@ -9060,8 +8111,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specifies a new alpha value for the current color. Included only in the four-argument Gl.Color4 commands.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int16 red, Int16 green, Int16 blue, Int16 alpha)
@@ -9077,8 +8126,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int16[] v)
@@ -9111,8 +8158,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specifies a new alpha value for the current color. Included only in the four-argument Gl.Color4 commands.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -9129,8 +8174,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(byte[] v)
@@ -9161,8 +8204,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specifies a new alpha value for the current color. Included only in the four-argument Gl.Color4 commands.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha)
@@ -9178,8 +8219,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt32[] v)
@@ -9210,8 +8249,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// Specifies a new alpha value for the current color. Included only in the four-argument Gl.Color4 commands.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha)
@@ -9227,8 +8264,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt16[] v)
@@ -9250,8 +8285,6 @@ namespace OpenGL
 		/// <param name="flag">
 		/// Specifies the current edge flag value, either Gl.TRUE or Gl.FALSE. The initial value is Gl.TRUE.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.PolygonMode"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EdgeFlag(bool flag)
@@ -9267,8 +8300,6 @@ namespace OpenGL
 		/// <param name="flag">
 		/// Specifies the current edge flag value, either Gl.TRUE or Gl.FALSE. The initial value is Gl.TRUE.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.PolygonMode"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EdgeFlag(bool[] flag)
@@ -9287,22 +8318,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glEnd: delimit the vertices of a primitive or a group of like primitives
 		/// </summary>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.CallLists"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.VertexAttrib"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void End()
@@ -9319,8 +8334,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(double c)
@@ -9336,8 +8349,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(double[] c)
@@ -9359,8 +8370,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(float c)
@@ -9376,8 +8385,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(float[] c)
@@ -9399,8 +8406,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int32 c)
@@ -9416,8 +8421,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int32[] c)
@@ -9439,8 +8442,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int16 c)
@@ -9456,8 +8457,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the new value for the current color index.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.IndexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int16[] c)
@@ -9488,13 +8487,6 @@ namespace OpenGL
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
 		/// vector, (0, 0, 1).
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(sbyte nx, sbyte ny, sbyte nz)
@@ -9510,13 +8502,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(sbyte[] v)
@@ -9547,13 +8532,6 @@ namespace OpenGL
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
 		/// vector, (0, 0, 1).
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(double nx, double ny, double nz)
@@ -9569,13 +8547,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(double[] v)
@@ -9608,13 +8579,6 @@ namespace OpenGL
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
 		/// vector, (0, 0, 1).
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -9631,13 +8595,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(float[] v)
@@ -9668,13 +8625,6 @@ namespace OpenGL
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
 		/// vector, (0, 0, 1).
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int32 nx, Int32 ny, Int32 nz)
@@ -9690,13 +8640,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int32[] v)
@@ -9727,13 +8670,6 @@ namespace OpenGL
 		/// Specify the x, y, and z coordinates of the new current normal. The initial value of the current normal is the unit 
 		/// vector, (0, 0, 1).
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int16 nx, Int16 ny, Int16 nz)
@@ -9749,13 +8685,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int16[] v)
@@ -9780,17 +8709,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(double x, double y)
@@ -9807,17 +8725,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(double[] v)
@@ -9842,17 +8749,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(float x, float y)
@@ -9869,17 +8765,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(float[] v)
@@ -9904,17 +8789,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int32 x, Int32 y)
@@ -9931,17 +8805,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int32[] v)
@@ -9966,17 +8829,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int16 x, Int16 y)
@@ -9993,17 +8845,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int16[] v)
@@ -10031,17 +8872,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(double x, double y, double z)
@@ -10058,17 +8888,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(double[] v)
@@ -10096,17 +8915,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(float x, float y, float z)
@@ -10123,17 +8931,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(float[] v)
@@ -10161,17 +8958,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int32 x, Int32 y, Int32 z)
@@ -10188,17 +8974,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int32[] v)
@@ -10226,17 +9001,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int16 x, Int16 y, Int16 z)
@@ -10253,17 +9017,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int16[] v)
@@ -10294,17 +9047,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(double x, double y, double z, double w)
@@ -10321,17 +9063,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(double[] v)
@@ -10362,17 +9093,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(float x, float y, float z, float w)
@@ -10389,17 +9109,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(float[] v)
@@ -10430,17 +9139,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int32 x, Int32 y, Int32 z, Int32 w)
@@ -10457,17 +9155,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int32[] v)
@@ -10498,17 +9185,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify the x, y, z, and w object coordinates (if present) for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int16 x, Int16 y, Int16 z, Int16 w)
@@ -10525,17 +9201,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int16[] v)
@@ -10566,8 +9231,6 @@ namespace OpenGL
 		/// <param name="y2">
 		/// Specify the opposite vertex of the rectangle.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(double x1, double y1, double x2, double y2)
@@ -10587,8 +9250,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(double[] v1, double[] v2)
@@ -10620,8 +9281,6 @@ namespace OpenGL
 		/// <param name="y2">
 		/// Specify the opposite vertex of the rectangle.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(float x1, float y1, float x2, float y2)
@@ -10641,8 +9300,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(float[] v1, float[] v2)
@@ -10674,8 +9331,6 @@ namespace OpenGL
 		/// <param name="y2">
 		/// Specify the opposite vertex of the rectangle.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int32 x1, Int32 y1, Int32 x2, Int32 y2)
@@ -10695,8 +9350,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int32[] v1, Int32[] v2)
@@ -10728,8 +9381,6 @@ namespace OpenGL
 		/// <param name="y2">
 		/// Specify the opposite vertex of the rectangle.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int16 x1, Int16 y1, Int16 x2, Int16 y2)
@@ -10749,8 +9400,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int16[] v1, Int16[] v2)
@@ -10773,8 +9422,6 @@ namespace OpenGL
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(double s)
@@ -10790,8 +9437,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(double[] v)
@@ -10813,8 +9458,6 @@ namespace OpenGL
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(float s)
@@ -10830,8 +9473,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(float[] v)
@@ -10853,8 +9494,6 @@ namespace OpenGL
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int32 s)
@@ -10870,8 +9509,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int32[] v)
@@ -10893,8 +9530,6 @@ namespace OpenGL
 		/// <param name="s">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int16 s)
@@ -10910,8 +9545,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int16[] v)
@@ -10936,8 +9569,6 @@ namespace OpenGL
 		/// <param name="t">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(double s, double t)
@@ -10953,8 +9584,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(double[] v)
@@ -10979,8 +9608,6 @@ namespace OpenGL
 		/// <param name="t">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(float s, float t)
@@ -10996,8 +9623,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(float[] v)
@@ -11022,8 +9647,6 @@ namespace OpenGL
 		/// <param name="t">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int32 s, Int32 t)
@@ -11039,8 +9662,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int32[] v)
@@ -11065,8 +9686,6 @@ namespace OpenGL
 		/// <param name="t">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int16 s, Int16 t)
@@ -11082,8 +9701,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int16[] v)
@@ -11111,8 +9728,6 @@ namespace OpenGL
 		/// <param name="r">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(double s, double t, double r)
@@ -11128,8 +9743,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(double[] v)
@@ -11157,8 +9770,6 @@ namespace OpenGL
 		/// <param name="r">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(float s, float t, float r)
@@ -11174,8 +9785,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(float[] v)
@@ -11203,8 +9812,6 @@ namespace OpenGL
 		/// <param name="r">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int32 s, Int32 t, Int32 r)
@@ -11220,8 +9827,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int32[] v)
@@ -11249,8 +9854,6 @@ namespace OpenGL
 		/// <param name="r">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int16 s, Int16 t, Int16 r)
@@ -11266,8 +9869,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int16[] v)
@@ -11298,8 +9899,6 @@ namespace OpenGL
 		/// <param name="q">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(double s, double t, double r, double q)
@@ -11315,8 +9914,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(double[] v)
@@ -11347,8 +9944,6 @@ namespace OpenGL
 		/// <param name="q">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(float s, float t, float r, float q)
@@ -11364,8 +9959,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(float[] v)
@@ -11396,8 +9989,6 @@ namespace OpenGL
 		/// <param name="q">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int32 s, Int32 t, Int32 r, Int32 q)
@@ -11413,8 +10004,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int32[] v)
@@ -11445,8 +10034,6 @@ namespace OpenGL
 		/// <param name="q">
 		/// Specify s, t, r, and q texture coordinates. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int16 s, Int16 t, Int16 r, Int16 q)
@@ -11462,8 +10049,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int16[] v)
@@ -11488,19 +10073,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(double x, double y)
@@ -11516,19 +10088,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(double[] v)
@@ -11553,19 +10112,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(float x, float y)
@@ -11581,19 +10127,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(float[] v)
@@ -11618,19 +10151,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int32 x, Int32 y)
@@ -11646,19 +10166,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int32[] v)
@@ -11683,19 +10190,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int16 x, Int16 y)
@@ -11711,19 +10205,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int16[] v)
@@ -11751,19 +10232,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(double x, double y, double z)
@@ -11779,19 +10247,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(double[] v)
@@ -11819,19 +10274,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(float x, float y, float z)
@@ -11847,19 +10289,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(float[] v)
@@ -11887,19 +10316,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int32 x, Int32 y, Int32 z)
@@ -11915,19 +10331,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int32[] v)
@@ -11955,19 +10358,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int16 x, Int16 y, Int16 z)
@@ -11983,19 +10373,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int16[] v)
@@ -12026,19 +10403,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(double x, double y, double z, double w)
@@ -12054,19 +10418,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(double[] v)
@@ -12097,19 +10448,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(float x, float y, float z, float w)
@@ -12125,19 +10463,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(float[] v)
@@ -12168,19 +10493,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int32 x, Int32 y, Int32 z, Int32 w)
@@ -12196,19 +10508,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int32[] v)
@@ -12239,19 +10538,6 @@ namespace OpenGL
 		/// <param name="w">
 		/// Specify x, y, z, and w coordinates of a vertex. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int16 x, Int16 y, Int16 z, Int16 w)
@@ -12267,19 +10553,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.EdgeFlag"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Material"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.Rect"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int16[] v)
@@ -12306,7 +10579,6 @@ namespace OpenGL
 		/// Specifies the address of an array of four double-precision floating-point values. These values are interpreted as a 
 		/// plane equation.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ClipPlane(ClipPlaneName plane, double[] equation)
@@ -12333,15 +10605,6 @@ namespace OpenGL
 		/// Specifies which of several material parameters track the current color. Accepted values are Gl.EMISSION, Gl.AMBIENT, 
 		/// Gl.DIFFUSE, Gl.SPECULAR, and Gl.AMBIENT_AND_DIFFUSE. The initial value is Gl.AMBIENT_AND_DIFFUSE.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ColorMaterial(MaterialFace face, ColorMaterialParameter mode)
@@ -12364,7 +10627,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12388,7 +10650,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12415,7 +10676,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Fog(FogParameter pname, Int32 param)
@@ -12436,7 +10696,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Fog(FogParameter pname, Int32[] @params)
@@ -12468,9 +10727,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12498,9 +10754,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12531,9 +10784,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter <paramref name="pname"/> of light source <paramref name="light"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Light(LightName light, LightParameter pname, Int32 param)
@@ -12558,9 +10808,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.LightModel"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Light(LightName light, LightParameter pname, Int32[] @params)
@@ -12588,8 +10835,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12613,8 +10858,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12641,8 +10884,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="param"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LightModel(LightModelParameter pname, Int32 param)
@@ -12663,8 +10904,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LightModel(LightModelParameter pname, Int32[] @params)
@@ -12692,8 +10931,6 @@ namespace OpenGL
 		/// Specifies a 16-bit integer whose bit pattern determines which fragments of a line will be drawn when the line is 
 		/// rasterized. Bit zero is used first; the default pattern is all 1's.
 		/// </param>
-		/// <seealso cref="Gl.LineWidth"/>
-		/// <seealso cref="Gl.PolygonStipple"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LineStipple(Int32 factor, UInt16 pattern)
@@ -12718,9 +10955,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12745,9 +10979,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12776,9 +11007,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Material(MaterialFace face, MaterialParameter pname, Int32 param)
@@ -12800,9 +11028,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ColorMaterial"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Material(MaterialFace face, MaterialParameter pname, Int32[] @params)
@@ -12824,10 +11049,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.LineStipple"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PolygonStipple(byte[] mask)
@@ -12852,10 +11073,6 @@ namespace OpenGL
 		/// Specifies a symbolic value representing a shading technique. Accepted values are Gl.FLAT and Gl.SMOOTH. The initial 
 		/// value is Gl.SMOOTH.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Light"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12888,20 +11105,6 @@ namespace OpenGL
 		/// coordinate replacement, a single floating-point value for the texture level-of-detail bias, or 1.0, 2.0, or 4.0 when 
 		/// specifying the Gl.RGB_SCALE or Gl.ALPHA_SCALE.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12930,20 +11133,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -12981,20 +11170,6 @@ namespace OpenGL
 		/// coordinate replacement, a single floating-point value for the texture level-of-detail bias, or 1.0, 2.0, or 4.0 when 
 		/// specifying the Gl.RGB_SCALE or Gl.ALPHA_SCALE.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -13023,20 +11198,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -13066,20 +11227,6 @@ namespace OpenGL
 		/// Specifies a single-valued texture generation parameter, one of Gl.OBJECT_LINEAR, Gl.EYE_LINEAR, Gl.SPHERE_MAP, 
 		/// Gl.NORMAL_MAP, or Gl.REFLECTION_MAP.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, double param)
@@ -13102,20 +11249,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, double[] @params)
@@ -13144,20 +11277,6 @@ namespace OpenGL
 		/// Specifies a single-valued texture generation parameter, one of Gl.OBJECT_LINEAR, Gl.EYE_LINEAR, Gl.SPHERE_MAP, 
 		/// Gl.NORMAL_MAP, or Gl.REFLECTION_MAP.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, float param)
@@ -13180,20 +11299,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, float[] @params)
@@ -13222,20 +11327,6 @@ namespace OpenGL
 		/// Specifies a single-valued texture generation parameter, one of Gl.OBJECT_LINEAR, Gl.EYE_LINEAR, Gl.SPHERE_MAP, 
 		/// Gl.NORMAL_MAP, or Gl.REFLECTION_MAP.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, Int32 param)
@@ -13258,20 +11349,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexGen(TextureCoordName coord, TextureGenParameter pname, Int32[] @params)
@@ -13300,12 +11377,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Returns the feedback data.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.LineStipple"/>
-		/// <seealso cref="Gl.PassThrough"/>
-		/// <seealso cref="Gl.PolygonMode"/>
-		/// <seealso cref="Gl.RenderMode"/>
-		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void FeedbackBuffer(Int32 size, FeedbackType type, params float[] buffer)
@@ -13331,12 +11402,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Returns the feedback data.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.LineStipple"/>
-		/// <seealso cref="Gl.PassThrough"/>
-		/// <seealso cref="Gl.PolygonMode"/>
-		/// <seealso cref="Gl.RenderMode"/>
-		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void FeedbackBuffer(FeedbackType type, params float[] buffer)
@@ -13358,11 +11423,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Returns the selection data.
 		/// </param>
-		/// <seealso cref="Gl.FeedbackBuffer"/>
-		/// <seealso cref="Gl.InitNames"/>
-		/// <seealso cref="Gl.LoadName"/>
-		/// <seealso cref="Gl.PushName"/>
-		/// <seealso cref="Gl.RenderMode"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SelectBuffer(params UInt32[] buffer)
@@ -13385,12 +11445,6 @@ namespace OpenGL
 		/// Specifies the rasterization mode. Three values are accepted: Gl.RENDER, Gl.SELECT, and Gl.FEEDBACK. The initial value is 
 		/// Gl.RENDER.
 		/// </param>
-		/// <seealso cref="Gl.FeedbackBuffer"/>
-		/// <seealso cref="Gl.InitNames"/>
-		/// <seealso cref="Gl.LoadName"/>
-		/// <seealso cref="Gl.PassThrough"/>
-		/// <seealso cref="Gl.PushName"/>
-		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static Int32 RenderMode(RenderingMode mode)
@@ -13408,10 +11462,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glInitNames: initialize the name stack
 		/// </summary>
-		/// <seealso cref="Gl.LoadName"/>
-		/// <seealso cref="Gl.PushName"/>
-		/// <seealso cref="Gl.RenderMode"/>
-		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void InitName()
@@ -13428,10 +11478,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies a name that will replace the top value on the name stack.
 		/// </param>
-		/// <seealso cref="Gl.InitNames"/>
-		/// <seealso cref="Gl.PushName"/>
-		/// <seealso cref="Gl.RenderMode"/>
-		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadName(UInt32 name)
@@ -13448,8 +11494,6 @@ namespace OpenGL
 		/// <param name="token">
 		/// Specifies a marker value to be placed in the feedback buffer following a Gl.PASS_THROUGH_TOKEN.
 		/// </param>
-		/// <seealso cref="Gl.FeedbackBuffer"/>
-		/// <seealso cref="Gl.RenderMode"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PassThrough(float token)
@@ -13463,10 +11507,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glPopName: push and pop the name stack
 		/// </summary>
-		/// <seealso cref="Gl.InitNames"/>
-		/// <seealso cref="Gl.LoadName"/>
-		/// <seealso cref="Gl.RenderMode"/>
-		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PopName()
@@ -13483,10 +11523,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies a name that will be pushed onto the name stack.
 		/// </param>
-		/// <seealso cref="Gl.InitNames"/>
-		/// <seealso cref="Gl.LoadName"/>
-		/// <seealso cref="Gl.RenderMode"/>
-		/// <seealso cref="Gl.SelectBuffer"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PushName(UInt32 name)
@@ -13516,8 +11552,6 @@ namespace OpenGL
 		/// Specify the red, green, blue, and alpha values used when the accumulation buffer is cleared. The initial values are all 
 		/// 0.
 		/// </param>
-		/// <seealso cref="Gl.Accum"/>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ClearAccum(float red, float green, float blue, float alpha)
@@ -13534,7 +11568,6 @@ namespace OpenGL
 		/// <param name="c">
 		/// Specifies the index used when the color index buffers are cleared. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ClearIndex(float c)
@@ -13552,12 +11585,6 @@ namespace OpenGL
 		/// Specifies a bit mask to enable and disable the writing of individual bits in the color index buffers. Initially, the 
 		/// mask is all 1's.
 		/// </param>
-		/// <seealso cref="Gl.ColorMask"/>
-		/// <seealso cref="Gl.DepthMask"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.StencilMask"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void IndexMask(UInt32 mask)
@@ -13579,15 +11606,6 @@ namespace OpenGL
 		/// Specifies a floating-point value used in the accumulation buffer operation. <paramref name="op"/> determines how 
 		/// <paramref name="value"/> is used.
 		/// </param>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.ClearAccum"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.Scissor"/>
-		/// <seealso cref="Gl.StencilOp"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Accum(AccumOp op, float value)
@@ -13601,22 +11619,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glPopAttrib: push and pop the server attribute stack
 		/// </summary>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetClipPlane"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetLight"/>
-		/// <seealso cref="Gl.GetMap"/>
-		/// <seealso cref="Gl.GetMaterial"/>
-		/// <seealso cref="Gl.GetPixelMap"/>
-		/// <seealso cref="Gl.GetPolygonStipple"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexEnv"/>
-		/// <seealso cref="Gl.GetTexGen"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PopAttrib()
@@ -13633,22 +11635,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// Specifies a mask that indicates which attributes to save. Values for <paramref name="mask"/> are listed below.
 		/// </param>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetClipPlane"/>
-		/// <seealso cref="Gl.GetError"/>
-		/// <seealso cref="Gl.GetLight"/>
-		/// <seealso cref="Gl.GetMap"/>
-		/// <seealso cref="Gl.GetMaterial"/>
-		/// <seealso cref="Gl.GetPixelMap"/>
-		/// <seealso cref="Gl.GetPolygonStipple"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.GetTexEnv"/>
-		/// <seealso cref="Gl.GetTexGen"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.GetTexLevelParameter"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PushAttrib(AttribMask mask)
@@ -13687,17 +11673,6 @@ namespace OpenGL
 		/// <param name="points">
 		/// Specifies a pointer to the array of control points.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Map1(EvaluatorTarget target, double u1, double u2, Int32 stride, Int32 order, double[] points)
@@ -13741,17 +11716,6 @@ namespace OpenGL
 		/// <param name="points">
 		/// Specifies a pointer to the array of control points.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Map1(EvaluatorTarget target, float u1, float u2, Int32 stride, Int32 order, float[] points)
@@ -13812,17 +11776,6 @@ namespace OpenGL
 		/// <param name="points">
 		/// Specifies a pointer to the array of control points.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Map2(EvaluatorTarget target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double[] points)
@@ -13883,17 +11836,6 @@ namespace OpenGL
 		/// <param name="points">
 		/// Specifies a pointer to the array of control points.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Map2(EvaluatorTarget target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float[] points)
@@ -13922,11 +11864,6 @@ namespace OpenGL
 		/// <param name="u2">
 		/// Specify the mappings for integer grid domain values i=0 and i=un.
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MapGrid1(Int32 un, double u1, double u2)
@@ -13950,11 +11887,6 @@ namespace OpenGL
 		/// <param name="u2">
 		/// Specify the mappings for integer grid domain values i=0 and i=un.
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MapGrid1(Int32 un, float u1, float u2)
@@ -13988,11 +11920,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// Specify the mappings for integer grid domain values j=0 and j=vn (Gl.MapGrid2 only).
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MapGrid2(Int32 un, double u1, double u2, Int32 vn, double v1, double v2)
@@ -14026,11 +11953,6 @@ namespace OpenGL
 		/// <param name="v2">
 		/// Specify the mappings for integer grid domain values j=0 and j=vn (Gl.MapGrid2 only).
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MapGrid2(Int32 un, float u1, float u2, Int32 vn, float v1, float v2)
@@ -14048,18 +11970,6 @@ namespace OpenGL
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
 		/// command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(double u)
@@ -14076,18 +11986,6 @@ namespace OpenGL
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
 		/// command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(double[] u)
@@ -14110,18 +12008,6 @@ namespace OpenGL
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
 		/// command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(float u)
@@ -14138,18 +12024,6 @@ namespace OpenGL
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
 		/// command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(float[] u)
@@ -14176,18 +12050,6 @@ namespace OpenGL
 		/// Specifies a value that is the domain coordinate v to the basis function defined in a previous Gl\.Map2 command. This 
 		/// argument is not present in a Gl.EvalCoord1 command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(double u, double v)
@@ -14204,18 +12066,6 @@ namespace OpenGL
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
 		/// command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(double[] u)
@@ -14242,18 +12092,6 @@ namespace OpenGL
 		/// Specifies a value that is the domain coordinate v to the basis function defined in a previous Gl\.Map2 command. This 
 		/// argument is not present in a Gl.EvalCoord1 command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(float u, float v)
@@ -14270,18 +12108,6 @@ namespace OpenGL
 		/// Specifies a value that is the domain coordinate u to the basis function defined in a previous Gl\.Map1 or Gl\.Map2 
 		/// command.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
-		/// <seealso cref="Gl.Normal"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(float[] u)
@@ -14310,12 +12136,6 @@ namespace OpenGL
 		/// <param name="i2">
 		/// Specify the first and last integer values for grid domain variable i.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalMesh1(MeshMode1 mode, Int32 i1, Int32 i2)
@@ -14332,11 +12152,6 @@ namespace OpenGL
 		/// <param name="i">
 		/// Specifies the integer value for grid domain variable i.
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalPoint1(Int32 i)
@@ -14365,12 +12180,6 @@ namespace OpenGL
 		/// <param name="j2">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <seealso cref="Gl.Begin"/>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalPoint"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalMesh2(MeshMode2 mode, Int32 i1, Int32 i2, Int32 j1, Int32 j2)
@@ -14390,11 +12199,6 @@ namespace OpenGL
 		/// <param name="j">
 		/// Specifies the integer value for grid domain variable j (Gl.EvalPoint2 only).
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.EvalMesh"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
-		/// <seealso cref="Gl.MapGrid"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalPoint2(Int32 i, Int32 j)
@@ -14417,11 +12221,6 @@ namespace OpenGL
 		/// Specifies the reference value that incoming alpha values are compared to. This value is clamped to the range 01, where 0 
 		/// represents the lowest possible alpha value and 1 the highest possible value. The initial reference value is 0.
 		/// </param>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.StencilFunc"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14442,8 +12241,6 @@ namespace OpenGL
 		/// <param name="yfactor">
 		/// Specify the x and y zoom factors for pixel write operations.
 		/// </param>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawPixels"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelZoom(float xfactor, float yfactor)
@@ -14465,29 +12262,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.NewList"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelZoom"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelTransfer(PixelTransferParameter pname, float param)
@@ -14509,29 +12283,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// Specifies the value that <paramref name="pname"/> is set to.
 		/// </param>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.NewList"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelZoom"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelTransfer(PixelTransferParameter pname, Int32 param)
@@ -14556,28 +12307,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, float[] values)
@@ -14604,28 +12333,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, float[] values)
@@ -14655,28 +12362,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt32[] values)
@@ -14703,28 +12388,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, UInt32[] values)
@@ -14754,28 +12417,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, Int32 mapsize, UInt16[] values)
@@ -14802,28 +12443,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies an array of <paramref name="mapsize"/> values.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.Histogram"/>
-		/// <seealso cref="Gl.Minmax"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void PixelMap(PixelMap map, UInt16[] values)
@@ -14858,22 +12477,6 @@ namespace OpenGL
 		/// Specifies whether color values, depth values, or stencil values are to be copied. Symbolic constants Gl.COLOR, Gl.DEPTH, 
 		/// and Gl.STENCIL are accepted.
 		/// </param>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PixelZoom"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.ReadBuffer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.StencilFunc"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void CopyPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelCopyType type)
@@ -14907,20 +12510,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Gl.AlphaFunc"/>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PixelZoom"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.Scissor"/>
-		/// <seealso cref="Gl.StencilFunc"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void DrawPixels(Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
@@ -14954,20 +12543,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <seealso cref="Gl.AlphaFunc"/>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DepthFunc"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PixelZoom"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.Scissor"/>
-		/// <seealso cref="Gl.StencilFunc"/>
-		/// <seealso cref="Gl.WindowPos"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void DrawPixels(Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
@@ -14992,7 +12567,6 @@ namespace OpenGL
 		/// Returns four double-precision values that are the coefficients of the plane equation of <paramref name="plane"/> in eye 
 		/// coordinates. The initial value is (0, 0, 0, 0).
 		/// </param>
-		/// <seealso cref="Gl.ClipPlane"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] double[] equation)
@@ -15026,7 +12600,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15059,7 +12632,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.Light"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetLight(LightName light, LightParameter pname, [Out] Int32[] @params)
@@ -15090,9 +12662,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMap(EvaluatorTarget target, GetMapQuery query, [Out] double[] v)
@@ -15123,9 +12692,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMap(EvaluatorTarget target, GetMapQuery query, [Out] float[] v)
@@ -15156,9 +12722,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.EvalCoord"/>
-		/// <seealso cref="Gl.Map1"/>
-		/// <seealso cref="Gl.Map2"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMap(EvaluatorTarget target, GetMapQuery query, [Out] Int32[] v)
@@ -15193,7 +12756,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15224,7 +12786,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.Material"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] Int32[] @params)
@@ -15251,34 +12812,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyColorSubTable"/>
-		/// <seealso cref="Gl.CopyColorTable"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.GetHistogram"/>
-		/// <seealso cref="Gl.GetMinmax"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetPixelMap(PixelMap map, [Out] float[] values)
@@ -15305,34 +12838,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyColorSubTable"/>
-		/// <seealso cref="Gl.CopyColorTable"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.GetHistogram"/>
-		/// <seealso cref="Gl.GetMinmax"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetPixelMap(PixelMap map, [Out] UInt32[] values)
@@ -15359,34 +12864,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ColorSubTable"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.ConvolutionFilter2D"/>
-		/// <seealso cref="Gl.CopyColorSubTable"/>
-		/// <seealso cref="Gl.CopyColorTable"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.GetHistogram"/>
-		/// <seealso cref="Gl.GetMinmax"/>
-		/// <seealso cref="Gl.GetTexImage"/>
-		/// <seealso cref="Gl.PixelMap"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.SeparableFilter2D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetPixelMap(PixelMap map, [Out] UInt16[] values)
@@ -15408,10 +12885,6 @@ namespace OpenGL
 		/// <param name="mask">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.PolygonStipple"/>
-		/// <seealso cref="Gl.ReadPixels"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetPolygonStipple([Out] byte[] mask)
@@ -15444,8 +12917,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15479,8 +12950,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.TexEnv"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15510,8 +12979,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] double[] @params)
@@ -15540,8 +13007,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] float[] @params)
@@ -15570,8 +13035,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the requested data.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.TexGen"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetTexGen(TextureCoordName coord, TextureGenParameter pname, [Out] Int32[] @params)
@@ -15593,11 +13056,6 @@ namespace OpenGL
 		/// <param name="list">
 		/// Specifies a potential display list name.
 		/// </param>
-		/// <seealso cref="Gl.CallList"/>
-		/// <seealso cref="Gl.CallLists"/>
-		/// <seealso cref="Gl.DeleteLists"/>
-		/// <seealso cref="Gl.GenLists"/>
-		/// <seealso cref="Gl.NewList"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static bool IsList(UInt32 list)
@@ -15633,11 +13091,6 @@ namespace OpenGL
 		/// <param name="zFar">
 		/// A <see cref="T:double"/>.
 		/// </param>
-		/// <seealso cref="Gl.Ortho"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Frustum(double left, double right, double bottom, double top, double zNear, double zFar)
@@ -15653,12 +13106,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] glLoadIdentity: replace the current matrix with the identity matrix
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.LoadTransposeMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15678,11 +13125,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15705,11 +13147,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadMatrix(double[] m)
@@ -15735,12 +13172,6 @@ namespace OpenGL
 		/// Gl.PROJECTION, and Gl.TEXTURE. The initial value is Gl.MODELVIEW. Additionally, if the ARB_imaging extension is 
 		/// supported, Gl.COLOR is also accepted.
 		/// </param>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.LoadTransposeMatrix"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.PopMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15760,12 +13191,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.LoadTransposeMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15788,12 +13213,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.LoadTransposeMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultMatrix(double[] m)
@@ -15830,11 +13249,6 @@ namespace OpenGL
 		/// <param name="zFar">
 		/// A <see cref="T:double"/>.
 		/// </param>
-		/// <seealso cref="Gl.Frustum"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Ortho(double left, double right, double bottom, double top, double zNear, double zFar)
@@ -15850,18 +13264,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] glPopMatrix: push and pop the current matrix stack
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.Frustum"/>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.LoadTransposeMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.Ortho"/>
-		/// <seealso cref="Gl.Rotate"/>
-		/// <seealso cref="Gl.Scale"/>
-		/// <seealso cref="Gl.Translate"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15878,18 +13280,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] glPushMatrix: push and pop the current matrix stack
 		/// </para>
 		/// </summary>
-		/// <seealso cref="Gl.Frustum"/>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.LoadTransposeMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.Ortho"/>
-		/// <seealso cref="Gl.Rotate"/>
-		/// <seealso cref="Gl.Scale"/>
-		/// <seealso cref="Gl.Translate"/>
-		/// <seealso cref="Gl.Viewport"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15916,11 +13306,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, and z coordinates of a vector, respectively.
 		/// </param>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Scale"/>
-		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rotate(double angle, double x, double y, double z)
@@ -15948,11 +13333,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, and z coordinates of a vector, respectively.
 		/// </param>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Scale"/>
-		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15976,11 +13356,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify scale factors along the x, y, and z axes, respectively.
 		/// </param>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Rotate"/>
-		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Scale(double x, double y, double z)
@@ -16005,11 +13380,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify scale factors along the x, y, and z axes, respectively.
 		/// </param>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Rotate"/>
-		/// <seealso cref="Gl.Translate"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16033,11 +13403,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, and z coordinates of a translation vector.
 		/// </param>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Rotate"/>
-		/// <seealso cref="Gl.Scale"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Translate(double x, double y, double z)
@@ -16062,11 +13427,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, and z coordinates of a translation vector.
 		/// </param>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
-		/// <seealso cref="Gl.Rotate"/>
-		/// <seealso cref="Gl.Scale"/>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]

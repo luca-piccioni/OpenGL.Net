@@ -643,9 +643,6 @@ namespace OpenGL
 		/// <param name="nelements">
 		/// Returns the number of GLXFBConfigs returned.
 		/// </param>
-		/// <seealso cref="Glx.GetFBConfigAttrib"/>
-		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static unsafe IntPtr* GetFBConfigs(IntPtr dpy, int screen, [Out] int[] nelements)
 		{
@@ -676,9 +673,6 @@ namespace OpenGL
 		/// <param name="nelements">
 		/// Returns the number of GLXFBConfigs returned.
 		/// </param>
-		/// <seealso cref="Glx.GetFBConfigAttrib"/>
-		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static unsafe IntPtr* GetFBConfigs(IntPtr dpy, int screen, out int nelements)
 		{
@@ -712,9 +706,6 @@ namespace OpenGL
 		/// <param name="nelements">
 		/// Returns the number of elements in the list returned by Glx.ChooseFBConfig.
 		/// </param>
-		/// <seealso cref="Glx.GetFBConfigAttrib"/>
-		/// <seealso cref="Glx.GetFBConfigs"/>
-		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static unsafe IntPtr* ChooseFBConfig(IntPtr dpy, int screen, int[] attrib_list, int[] nelements)
 		{
@@ -749,10 +740,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Glx.GetFBConfigs"/>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
-		/// <seealso cref="Glx.GetConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static int GetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, [Out] int[] value)
 		{
@@ -786,10 +773,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Glx.GetFBConfigs"/>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.GetVisualFromFBConfig"/>
-		/// <seealso cref="Glx.GetConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static int GetFBConfigAttrib(IntPtr dpy, IntPtr config, int attribute, out int value)
 		{
@@ -817,10 +800,6 @@ namespace OpenGL
 		/// <param name="config">
 		/// Specifies the GLX frame buffer configuration.
 		/// </param>
-		/// <seealso cref="Glx.GetFBConfigAttrib"/>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.ChooseVisual"/>
-		/// <seealso cref="Glx.GetConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static Glx.XVisualInfo GetVisualFromFBConfig(IntPtr dpy, IntPtr config)
 		{
@@ -849,9 +828,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Currently unused. This must be set to Glx. or be an empty list (i.e., one in which the first element is Glx.).
 		/// </param>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.DestroyPixmap"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static IntPtr CreateWindow(IntPtr dpy, IntPtr config, IntPtr win, int[] attrib_list)
 		{
@@ -879,9 +855,6 @@ namespace OpenGL
 		/// <param name="win">
 		/// Specifies the GLXWindow to be destroyed.
 		/// </param>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.CreateWindow"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static void DestroyWindow(IntPtr dpy, IntPtr win)
 		{
@@ -906,10 +879,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Currently unused. This must be set to Glx. or be an empty list (i.e., one in which the first element is Glx.).
 		/// </param>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.CreateGLXPixmap"/>
-		/// <seealso cref="Glx.DestroyWindow"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static IntPtr CreatePixmap(IntPtr dpy, IntPtr config, IntPtr pixmap, int[] attrib_list)
 		{
@@ -937,10 +906,6 @@ namespace OpenGL
 		/// <param name="pixmap">
 		/// Specifies the GLXPixmap to be destroyed.
 		/// </param>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.CreatePixmap"/>
-		/// <seealso cref="Glx.DestroyGLXPixmap"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static void DestroyPixmap(IntPtr dpy, IntPtr pixmap)
 		{
@@ -963,9 +928,6 @@ namespace OpenGL
 		/// Specifies a list of attribute value pairs, which must be terminated with Glx. or Glx.. Accepted attributes are 
 		/// Glx.PBUFFER_WIDTH, Glx.PBUFFER_HEIGHT, Glx.PRESERVED_CONTENTS, and Glx.LARGEST_PBUFFER.
 		/// </param>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
-		/// <seealso cref="Glx.SelectEvent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static IntPtr CreatePbuffer(IntPtr dpy, IntPtr config, int[] attrib_list)
 		{
@@ -993,9 +955,6 @@ namespace OpenGL
 		/// <param name="pbuf">
 		/// Specifies the GLXPbuffer to be destroyed.
 		/// </param>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.CreatePbuffer"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static void DestroyPbuffer(IntPtr dpy, IntPtr pbuf)
 		{
@@ -1021,11 +980,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreateWindow"/>
-		/// <seealso cref="Glx.CreatePixmap"/>
-		/// <seealso cref="Glx.CreatePbuffer"/>
-		/// <seealso cref="Glx.GetFBConfigAttrib"/>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static void QueryDrawable(IntPtr dpy, IntPtr draw, int attribute, UInt32[] value)
 		{
@@ -1058,13 +1012,6 @@ namespace OpenGL
 		/// <param name="direct">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		/// <seealso cref="Glx.ChooseFBConfig"/>
-		/// <seealso cref="Glx.CreateContext"/>
-		/// <seealso cref="Glx.DestroyContext"/>
-		/// <seealso cref="Glx.GetFBConfigs"/>
-		/// <seealso cref="Glx.GetFBConfigAttrib"/>
-		/// <seealso cref="Glx.IsDirect"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static IntPtr CreateNewContext(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct)
 		{
@@ -1093,16 +1040,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// Specifies the GLX context to be bound to <paramref name="read"/> and <paramref name="ctx"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreateNewContext"/>
-		/// <seealso cref="Glx.CreateWindow"/>
-		/// <seealso cref="Glx.CreatePixmap"/>
-		/// <seealso cref="Glx.CreatePbuffer"/>
-		/// <seealso cref="Glx.DestroyContext"/>
-		/// <seealso cref="Glx.GetCurrentContext"/>
-		/// <seealso cref="Glx.GetCurrentDisplay"/>
-		/// <seealso cref="Glx.GetCurrentDrawable"/>
-		/// <seealso cref="Glx.GetCurrentReadDrawable"/>
-		/// <seealso cref="Glx.MakeCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static bool MakeContextCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx)
 		{
@@ -1119,10 +1056,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] glXGetCurrentReadDrawable: return the current drawable
 		/// </summary>
-		/// <seealso cref="Glx.GetCurrentContext"/>
-		/// <seealso cref="Glx.GetCurrentDisplay"/>
-		/// <seealso cref="Glx.GetCurrentDrawable"/>
-		/// <seealso cref="Glx.MakeContextCurrent"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static IntPtr GetCurrentReadDrawable()
 		{
@@ -1151,10 +1084,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreateNewContext"/>
-		/// <seealso cref="Glx.GetCurrentContext"/>
-		/// <seealso cref="Glx.QueryVersion"/>
-		/// <seealso cref="Glx.QueryExtensionsString"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static int QueryContext(IntPtr dpy, IntPtr ctx, int attribute, int[] value)
 		{
@@ -1185,7 +1114,6 @@ namespace OpenGL
 		/// <param name="event_mask">
 		/// Specifies the events to be returned for <paramref name="draw"/>.
 		/// </param>
-		/// <seealso cref="Glx.CreatePbuffer"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static void SelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask)
 		{
@@ -1207,8 +1135,6 @@ namespace OpenGL
 		/// <param name="event_mask">
 		/// Returns the events that are selected for <paramref name="draw"/>.
 		/// </param>
-		/// <seealso cref="Glx.SelectEvent"/>
-		/// <seealso cref="Glx.CreatePbuffer"/>
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static void GetSelectedEvent(IntPtr dpy, IntPtr draw, [Out] UInt32[] event_mask)
 		{

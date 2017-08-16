@@ -30,18 +30,51 @@ namespace OpenGL
 	{
 		#region Constructors
 
+		/// <summary>
+		/// Create a ColorRGBA with all components initialized to a single value.
+		/// </summary>
+		/// <param name="v">
+		/// A <see cref="Single"/> that specifies the value of the components.
+		/// </param>
 		public ColorRGBA(float v)
 			: this(v, v, v, v)
 		{
 
 		}
 
+		/// <summary>
+		/// Create a ColorRGBA specifying the R, G and B components. Alpha components implicitly defined as 1.
+		/// </summary>
+		/// <param name="r">
+		/// A <see cref="Single"/> that specifies the red component.
+		/// </param>
+		/// <param name="g">
+		/// A <see cref="Single"/> that specifies the green component.
+		/// </param>
+		/// <param name="b">
+		/// A <see cref="Single"/> that specifies the blue component.
+		/// </param>
 		public ColorRGBA(float r, float g, float b)
 			: this(r, g, b, 1.0f)
 		{
 
 		}
 
+		/// <summary>
+		/// Create a ColorRGBA specifying the R, G, B and A components.
+		/// </summary>
+		/// <param name="r">
+		/// A <see cref="Single"/> that specifies the red component.
+		/// </param>
+		/// <param name="g">
+		/// A <see cref="Single"/> that specifies the green component.
+		/// </param>
+		/// <param name="b">
+		/// A <see cref="Single"/> that specifies the blue component.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="Single"/> that specifies the blue component.
+		/// </param>
 		public ColorRGBA(float r, float g, float b, float a)
 		{
 			Red = r;
@@ -50,6 +83,12 @@ namespace OpenGL
 			Alpha = a;
 		}
 
+		/// <summary>
+		/// Create a ColorRGBA from another ColorRGBA.
+		/// </summary>
+		/// <param name="c">
+		/// The <see cref="ColorRGBA"/> to be copied.
+		/// </param>
 		public ColorRGBA(ColorRGBA c)
 		{
 			Red = c.Red;
@@ -58,6 +97,12 @@ namespace OpenGL
 			Alpha = c.Alpha;
 		}
 
+		/// <summary>
+		/// Create a ColorRGBA from another <see cref="ColorRGBAF"/>.
+		/// </summary>
+		/// <param name="c">
+		/// The <see cref="ColorRGBAF"/> to be copied.
+		/// </param>
 		public ColorRGBA(ColorRGBAF c)
 		{
 			Red = c.Red;

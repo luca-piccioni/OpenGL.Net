@@ -59,8 +59,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the width and height of the affected screen rectangle in pixels.
 		/// </param>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height)
 		{
@@ -88,8 +86,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the width and height of the affected screen rectangle in pixels.
 		/// </param>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height)
 		{
@@ -117,8 +113,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the width and height of the affected screen rectangle in pixels.
 		/// </param>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height)
 		{
@@ -134,8 +128,6 @@ namespace OpenGL
 		/// <param name="coords">
 		/// Specifies a pointer to the coords for the affected screen rectangle.
 		/// </param>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(Int16[] coords)
 		{
@@ -156,8 +148,6 @@ namespace OpenGL
 		/// <param name="coords">
 		/// Specifies a pointer to the coords for the affected screen rectangle.
 		/// </param>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(Int32[] coords)
 		{
@@ -178,8 +168,6 @@ namespace OpenGL
 		/// <param name="coords">
 		/// Specifies a pointer to the coords for the affected screen rectangle.
 		/// </param>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(IntPtr[] coords)
 		{
@@ -212,8 +200,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the width and height of the affected screen rectangle in pixels.
 		/// </param>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(float x, float y, float z, float width, float height)
 		{
@@ -229,8 +215,6 @@ namespace OpenGL
 		/// <param name="coords">
 		/// Specifies a pointer to the coords for the affected screen rectangle.
 		/// </param>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(float[] coords)
 		{

@@ -1271,30 +1271,6 @@ namespace OpenGL
 		/// least 80. <paramref name="texture"/> must be one of Gl.TEXTUREi, where i ranges from zero to the value of 
 		/// Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS minus one. The initial value is Gl.TEXTURE0.
 		/// </param>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.IsTexture"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glActiveTextureARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1321,8 +1297,6 @@ namespace OpenGL
 		/// Specify a single boolean value representing if the coverage masks should be inverted. Gl.TRUE and Gl.FALSE are accepted. 
 		/// The initial value is Gl.FALSE.
 		/// </param>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.removedTypes"/>
 		[AliasOf("glSampleCoverageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1375,31 +1349,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage3DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1450,31 +1399,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage3DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1524,31 +1448,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1597,31 +1496,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1663,32 +1537,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -1726,32 +1574,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ColorTable"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ConvolutionFilter1D"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.PixelTransfer"/>
-		/// <seealso cref="Gl.TexEnv"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -1804,24 +1626,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage3DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1873,24 +1677,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage3DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1939,24 +1725,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2005,24 +1773,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2063,24 +1813,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -2116,24 +1848,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.CopyTexImage1D"/>
-		/// <seealso cref="Gl.CopyTexImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage1D"/>
-		/// <seealso cref="Gl.CopyTexSubImage2D"/>
-		/// <seealso cref="Gl.CopyTexSubImage3D"/>
-		/// <seealso cref="Gl.PixelStore"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[AliasOf("glCompressedTexSubImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -2164,21 +1878,6 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glGetCompressedTexImageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -2207,21 +1906,6 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.CompressedTexImage1D"/>
-		/// <seealso cref="Gl.CompressedTexImage2D"/>
-		/// <seealso cref="Gl.CompressedTexImage3D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage1D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage2D"/>
-		/// <seealso cref="Gl.CompressedTexSubImage3D"/>
-		/// <seealso cref="Gl.ReadPixels"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexParameter"/>
-		/// <seealso cref="Gl.TexSubImage1D"/>
-		/// <seealso cref="Gl.TexSubImage2D"/>
-		/// <seealso cref="Gl.TexSubImage3D"/>
 		[AliasOf("glGetCompressedTexImageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -2248,11 +1932,6 @@ namespace OpenGL
 		/// least two. <paramref name="texture"/> must be one of Gl.TEXTUREi, where i ranges from 0 to the value of 
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value. The initial value is Gl.TEXTURE0.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
 		[AliasOf("glClientActiveTextureARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2278,11 +1957,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2305,11 +1979,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2339,11 +2008,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2366,11 +2030,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2400,11 +2059,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2427,11 +2081,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2461,11 +2110,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2488,11 +2132,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord1svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2526,11 +2165,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2553,11 +2187,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2591,11 +2220,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2618,11 +2242,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2656,11 +2275,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2683,11 +2297,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2721,11 +2330,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2748,11 +2352,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord2svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2790,11 +2389,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2817,11 +2411,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2859,11 +2448,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2886,11 +2470,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2928,11 +2507,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2955,11 +2529,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2997,11 +2566,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3024,11 +2588,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord3svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3070,11 +2629,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3097,11 +2651,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3145,11 +2694,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -3173,11 +2717,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3219,11 +2758,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3246,11 +2780,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3292,11 +2821,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3319,11 +2843,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.ActiveTexture"/>
-		/// <seealso cref="Gl.ClientActiveTexture"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glMultiTexCoord4svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -3347,12 +2866,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[AliasOf("glLoadTransposeMatrixfARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
@@ -3376,12 +2889,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.MultMatrix"/>
-		/// <seealso cref="Gl.MultTransposeMatrix"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[AliasOf("glLoadTransposeMatrixdARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
@@ -3405,11 +2912,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.LoadTransposeMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[AliasOf("glMultTransposeMatrixfARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
@@ -3433,11 +2935,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		/// <seealso cref="Gl.LoadIdentity"/>
-		/// <seealso cref="Gl.LoadMatrix"/>
-		/// <seealso cref="Gl.LoadTransposeMatrix"/>
-		/// <seealso cref="Gl.MatrixMode"/>
-		/// <seealso cref="Gl.PushMatrix"/>
 		[AliasOf("glMultTransposeMatrixdARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]

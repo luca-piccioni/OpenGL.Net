@@ -673,7 +673,7 @@ namespace OpenGL
 		/// Get the array components base type of the vertex array attribute item type.
 		/// </summary>
 		/// <param name="vertexArrayType">
-		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
+		/// A <see cref="ArrayBufferItemType"/> that describe the vertex array attribute item type.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of
@@ -707,7 +707,7 @@ namespace OpenGL
 		/// Get the array components base type of the vertex array attribute item type.
 		/// </summary>
 		/// <param name="vertexArrayType">
-		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
+		/// A <see cref="ArrayBufferItemType"/> that describe the vertex array attribute item type.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of
@@ -735,7 +735,7 @@ namespace OpenGL
 		/// Get the array components base type of the vertex array attribute item type.
 		/// </summary>
 		/// <param name="vertexArrayType">
-		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
+		/// A <see cref="ArrayBufferItemType"/> that describe the vertex array attribute item type.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="VertexBaseType"/> indicating  the type of the components of

@@ -747,15 +747,6 @@ namespace OpenGL
 		/// <param name="dfactorAlpha">
 		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
-		/// <seealso cref="Gl.AlphaFunc"/>
-		/// <seealso cref="Gl.BlendColor"/>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.BlendEquation"/>
-		/// <seealso cref="Gl.Clear"/>
-		/// <seealso cref="Gl.DrawBuffer"/>
-		/// <seealso cref="Gl.Enable"/>
-		/// <seealso cref="Gl.LogicOp"/>
-		/// <seealso cref="Gl.StencilFunc"/>
 		[AliasOf("glBlendFuncSeparateEXT")]
 		[AliasOf("glBlendFuncSeparateINGR")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -788,8 +779,6 @@ namespace OpenGL
 		/// <param name="drawcount">
 		/// Specifies the size of the first and count
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[AliasOf("glMultiDrawArraysEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
@@ -828,8 +817,6 @@ namespace OpenGL
 		/// <param name="drawcount">
 		/// Specifies the size of the <paramref name="count"/> and <paramref name="indices"/> arrays.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
 		[AliasOf("glMultiDrawElementsEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
@@ -861,7 +848,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// For Gl.PointParameterf and Gl.PointParameteri, specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameterfARB")]
 		[AliasOf("glPointParameterfEXT")]
 		[AliasOf("glPointParameterfSGIS")]
@@ -893,7 +879,6 @@ namespace OpenGL
 		/// For Gl.PointParameterfv and Gl.PointParameteriv, specifies a pointer to an array where the value or values to be 
 		/// assigned to <paramref name="pname"/> are stored.
 		/// </param>
-		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameterfvARB")]
 		[AliasOf("glPointParameterfvEXT")]
 		[AliasOf("glPointParameterfvSGIS")]
@@ -924,7 +909,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// For Gl.PointParameterf and Gl.PointParameteri, specifies the value that <paramref name="pname"/> will be set to.
 		/// </param>
-		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameteriNV")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_NV_point_sprite")]
@@ -946,7 +930,6 @@ namespace OpenGL
 		/// For Gl.PointParameterfv and Gl.PointParameteriv, specifies a pointer to an array where the value or values to be 
 		/// assigned to <paramref name="pname"/> are stored.
 		/// </param>
-		/// <seealso cref="Gl.PointSize"/>
 		[AliasOf("glPointParameterivNV")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_NV_point_sprite")]
@@ -969,9 +952,6 @@ namespace OpenGL
 		/// <param name="coord">
 		/// Specify the fog distance.
 		/// </param>
-		/// <seealso cref="Gl.Fog"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glFogCoordfEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
@@ -989,9 +969,6 @@ namespace OpenGL
 		/// <param name="coord">
 		/// Specify the fog distance.
 		/// </param>
-		/// <seealso cref="Gl.Fog"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glFogCoordfvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
@@ -1015,9 +992,6 @@ namespace OpenGL
 		/// <param name="coord">
 		/// Specify the fog distance.
 		/// </param>
-		/// <seealso cref="Gl.Fog"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glFogCoorddEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
@@ -1035,9 +1009,6 @@ namespace OpenGL
 		/// <param name="coord">
 		/// Specify the fog distance.
 		/// </param>
-		/// <seealso cref="Gl.Fog"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glFogCoorddvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
@@ -1069,27 +1040,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glFogCoordPointerEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
@@ -1116,27 +1066,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first coordinate of the first fog coordinate in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoord"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColorPointer"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glFogCoordPointerEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
@@ -1163,10 +1092,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3bEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1184,10 +1109,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3bvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1217,10 +1138,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3dEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1238,10 +1155,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3dvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1271,10 +1184,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3fEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1292,10 +1201,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3fvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1325,10 +1230,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3iEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1346,10 +1247,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3ivEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1379,10 +1276,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3sEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1400,10 +1293,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3svEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1433,10 +1322,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3ubEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1454,10 +1339,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3ubvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1487,10 +1368,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3uiEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1508,10 +1385,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3uivEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1541,10 +1414,6 @@ namespace OpenGL
 		/// <param name="blue">
 		/// Specify new red, green, and blue values for the current secondary color.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3usEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1562,10 +1431,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:UInt16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Color"/>
-		/// <seealso cref="Gl.Index"/>
-		/// <seealso cref="Gl.IsEnabled"/>
-		/// <seealso cref="Gl.LightModel"/>
 		[AliasOf("glSecondaryColor3usvEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1600,27 +1465,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glSecondaryColorPointerEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1650,27 +1494,6 @@ namespace OpenGL
 		/// <param name="pointer">
 		/// Specifies a pointer to the first component of the first color element in the array. The initial value is 0.
 		/// </param>
-		/// <seealso cref="Gl.ArrayElement"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.ColorPointer"/>
-		/// <seealso cref="Gl.DisableClientState"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.EdgeFlagPointer"/>
-		/// <seealso cref="Gl.EnableClientState"/>
-		/// <seealso cref="Gl.FogCoordPointer"/>
-		/// <seealso cref="Gl.IndexPointer"/>
-		/// <seealso cref="Gl.InterleavedArrays"/>
-		/// <seealso cref="Gl.MultiDrawArrays"/>
-		/// <seealso cref="Gl.MultiDrawElements"/>
-		/// <seealso cref="Gl.NormalPointer"/>
-		/// <seealso cref="Gl.PopClientAttrib"/>
-		/// <seealso cref="Gl.PushClientAttrib"/>
-		/// <seealso cref="Gl.SecondaryColor"/>
-		/// <seealso cref="Gl.TexCoordPointer"/>
-		/// <seealso cref="Gl.VertexAttribPointer"/>
-		/// <seealso cref="Gl.VertexPointer"/>
 		[AliasOf("glSecondaryColorPointerEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
@@ -1694,17 +1517,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos2dARB")]
 		[AliasOf("glWindowPos2dMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1725,17 +1537,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos2dvARB")]
 		[AliasOf("glWindowPos2dvMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1764,17 +1565,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos2fARB")]
 		[AliasOf("glWindowPos2fMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1795,17 +1585,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos2fvARB")]
 		[AliasOf("glWindowPos2fvMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1834,17 +1613,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos2iARB")]
 		[AliasOf("glWindowPos2iMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1865,17 +1633,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos2ivARB")]
 		[AliasOf("glWindowPos2ivMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1904,17 +1661,6 @@ namespace OpenGL
 		/// <param name="y">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos2sARB")]
 		[AliasOf("glWindowPos2sMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1935,17 +1681,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos2svARB")]
 		[AliasOf("glWindowPos2svMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -1977,17 +1712,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos3dARB")]
 		[AliasOf("glWindowPos3dMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -2008,17 +1732,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos3dvARB")]
 		[AliasOf("glWindowPos3dvMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -2050,17 +1763,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos3fARB")]
 		[AliasOf("glWindowPos3fMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -2081,17 +1783,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos3fvARB")]
 		[AliasOf("glWindowPos3fvMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -2123,17 +1814,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos3iARB")]
 		[AliasOf("glWindowPos3iMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -2154,17 +1834,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos3ivARB")]
 		[AliasOf("glWindowPos3ivMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -2196,17 +1865,6 @@ namespace OpenGL
 		/// <param name="z">
 		/// Specify the x, y, z coordinates for the raster position.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos3sARB")]
 		[AliasOf("glWindowPos3sMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -2227,17 +1885,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.Bitmap"/>
-		/// <seealso cref="Gl.CopyPixels"/>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawRangeElements"/>
-		/// <seealso cref="Gl.DrawPixels"/>
-		/// <seealso cref="Gl.MultiTexCoord"/>
-		/// <seealso cref="Gl.RasterPos"/>
-		/// <seealso cref="Gl.TexCoord"/>
-		/// <seealso cref="Gl.TexGen"/>
-		/// <seealso cref="Gl.Vertex"/>
 		[AliasOf("glWindowPos3svARB")]
 		[AliasOf("glWindowPos3svMESA")]
 		[RequiredByFeature("GL_VERSION_1_4")]
@@ -2274,10 +1921,6 @@ namespace OpenGL
 		/// <param name="alpha">
 		/// specify the components of Gl.BLEND_COLOR
 		/// </param>
-		/// <seealso cref="Gl.BlendEquation"/>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.removedTypes"/>
 		[AliasOf("glBlendColorEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -2299,10 +1942,6 @@ namespace OpenGL
 		/// specifies how source and destination colors are combined. It must be Gl.FUNC_ADD, Gl.FUNC_SUBTRACT, 
 		/// Gl.FUNC_REVERSE_SUBTRACT, Gl.MIN, Gl.MAX.
 		/// </param>
-		/// <seealso cref="Gl.GetString"/>
-		/// <seealso cref="Gl.BlendColor"/>
-		/// <seealso cref="Gl.BlendFunc"/>
-		/// <seealso cref="Gl.BlendFuncSeparate"/>
 		[AliasOf("glBlendEquationEXT")]
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]

@@ -602,14 +602,6 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of frame buffer configurations returned.
 		/// </param>
-		/// <seealso cref="Egl.CreateContext"/>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.CreatePixmapSurface"/>
-		/// <seealso cref="Egl.CreateWindowSurface"/>
-		/// <seealso cref="Egl.GetConfigs"/>
-		/// <seealso cref="Egl.GetConfigAttrib"/>
-		/// <seealso cref="Egl.SurfaceAttrib"/>
-		/// <seealso cref="Egl.SwapInterval"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool ChooseConfig(IntPtr dpy, int[] attrib_list, IntPtr[] configs, int config_size, int[] num_config)
 		{
@@ -642,8 +634,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Egl.glFlush"/>
-		/// <seealso cref="Egl.SwapBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool CopyBuffers(IntPtr dpy, IntPtr surface, IntPtr target)
 		{
@@ -675,10 +665,6 @@ namespace OpenGL
 		/// Specifies attributes and attribute values for the context being created. Only the attribute Egl.CONTEXT_CLIENT_VERSION 
 		/// may be specified.
 		/// </param>
-		/// <seealso cref="Egl.DestroyContext"/>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.GetConfigs"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreateContext(IntPtr dpy, IntPtr config, IntPtr share_context, int[] attrib_list)
 		{
@@ -709,11 +695,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixel buffer surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
-		/// <seealso cref="Egl.DestroySurface"/>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.GetConfigs"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
-		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreatePbufferSurface(IntPtr dpy, IntPtr config, int[] attrib_list)
 		{
@@ -747,11 +728,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixmap surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
-		/// <seealso cref="Egl.DestroySurface"/>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.GetConfigs"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
-		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreatePixmapSurface(IntPtr dpy, IntPtr config, IntPtr pixmap, int[] attrib_list)
 		{
@@ -785,11 +761,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies window surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
-		/// <seealso cref="Egl.DestroySurface"/>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.GetConfigs"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
-		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr CreateWindowSurface(IntPtr dpy, IntPtr config, IntPtr win, int[] attrib_list)
 		{
@@ -817,8 +788,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Egl.CreateContext"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool DestroyContext(IntPtr dpy, IntPtr ctx)
 		{
@@ -841,10 +810,6 @@ namespace OpenGL
 		/// <param name="surface">
 		/// Specifies the EGL surface to be destroyed.
 		/// </param>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.CreatePixmapSurface"/>
-		/// <seealso cref="Egl.CreateWindowSurface"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool DestroySurface(IntPtr dpy, IntPtr surface)
 		{
@@ -873,8 +838,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.GetConfigs"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, [Out] int[] value)
 		{
@@ -908,8 +871,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.GetConfigs"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool GetConfigAttrib(IntPtr dpy, IntPtr config, int attribute, out int value)
 		{
@@ -943,12 +904,6 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of configs returned.
 		/// </param>
-		/// <seealso cref="Egl.CreateContext"/>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.CreatePixmapSurface"/>
-		/// <seealso cref="Egl.CreateWindowSurface"/>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.GetConfigAttrib"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool GetConfigs(IntPtr dpy, [Out] IntPtr[] configs, int config_size, [Out] int[] num_config)
 		{
@@ -983,12 +938,6 @@ namespace OpenGL
 		/// <param name="num_config">
 		/// Returns the number of configs returned.
 		/// </param>
-		/// <seealso cref="Egl.CreateContext"/>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.CreatePixmapSurface"/>
-		/// <seealso cref="Egl.CreateWindowSurface"/>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.GetConfigAttrib"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool GetConfigs(IntPtr dpy, [Out] IntPtr[] configs, int config_size, out int num_config)
 		{
@@ -1011,9 +960,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglGetCurrentDisplay: return the display for the current EGL rendering context
 		/// </summary>
-		/// <seealso cref="Egl.GetDisplay"/>
-		/// <seealso cref="Egl.Initialize"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetCurrentDisplay()
 		{
@@ -1033,10 +979,6 @@ namespace OpenGL
 		/// <param name="readdraw">
 		/// Specifies whether the EGL read or draw surface is to be returned.
 		/// </param>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.CreatePixmapSurface"/>
-		/// <seealso cref="Egl.CreateWindowSurface"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetCurrentSurface(int readdraw)
 		{
@@ -1056,7 +998,6 @@ namespace OpenGL
 		/// <param name="display_id">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Egl.Initialize"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetDisplay(IntPtr display_id)
 		{
@@ -1090,8 +1031,6 @@ namespace OpenGL
 		/// <param name="procname">
 		/// Specifies the name of the function to return.
 		/// </param>
-		/// <seealso cref="Egl.etString"/>
-		/// <seealso cref="Egl.QueryString"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static IntPtr GetProcAddress(string procname)
 		{
@@ -1117,8 +1056,6 @@ namespace OpenGL
 		/// <param name="minor">
 		/// Returns the minor version number of the EGL implementation. May be Egl..
 		/// </param>
-		/// <seealso cref="Egl.GetDisplay"/>
-		/// <seealso cref="Egl.Terminate"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool Initialize(IntPtr dpy, int[] major, int[] minor)
 		{
@@ -1153,18 +1090,6 @@ namespace OpenGL
 		/// <param name="ctx">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Egl.glReadPixels"/>
-		/// <seealso cref="Egl.opyTexImage2D"/>
-		/// <seealso cref="Egl.opyTexSubImage2D"/>
-		/// <seealso cref="Egl.CreateContext"/>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.CreatePixmapSurface"/>
-		/// <seealso cref="Egl.CreateWindowSurface"/>
-		/// <seealso cref="Egl.GetCurrentContext"/>
-		/// <seealso cref="Egl.GetCurrentDisplay"/>
-		/// <seealso cref="Egl.GetCurrentSurface"/>
-		/// <seealso cref="Egl.GetDisplay"/>
-		/// <seealso cref="Egl.Initialize"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool MakeCurrent(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx)
 		{
@@ -1193,7 +1118,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Egl.CreateContext"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool QueryContext(IntPtr dpy, IntPtr ctx, int attribute, int[] value)
 		{
@@ -1221,9 +1145,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// Specifies a symbolic constant, one of Egl.CLIENT_APIS, Egl.VENDOR, Egl.VERSION, or Egl.EXTENSIONS.
 		/// </param>
-		/// <seealso cref="Egl.BindAPI"/>
-		/// <seealso cref="Egl.GetDisplay"/>
-		/// <seealso cref="Egl.Initialize"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static string QueryString(IntPtr dpy, int name)
 		{
@@ -1252,11 +1173,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Returns the requested value.
 		/// </param>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.CreatePixmapSurface"/>
-		/// <seealso cref="Egl.CreateWindowSurface"/>
-		/// <seealso cref="Egl.SurfaceAttrib"/>
-		/// <seealso cref="Egl.SwapBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool QuerySurface(IntPtr dpy, IntPtr surface, int attribute, int[] value)
 		{
@@ -1284,8 +1200,6 @@ namespace OpenGL
 		/// <param name="surface">
 		/// Specifies the EGL drawing surface whose buffers are to be swapped.
 		/// </param>
-		/// <seealso cref="Egl.glFlush"/>
-		/// <seealso cref="Egl.CopyBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool SwapBuffers(IntPtr dpy, IntPtr surface)
 		{
@@ -1305,8 +1219,6 @@ namespace OpenGL
 		/// <param name="dpy">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		/// <seealso cref="Egl.Initialize"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool Terminate(IntPtr dpy)
 		{
@@ -1323,9 +1235,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglWaitGL: Complete GL execution prior to subsequent native rendering calls
 		/// </summary>
-		/// <seealso cref="Egl.glFinish"/>
-		/// <seealso cref="Egl.WaitClient"/>
-		/// <seealso cref="Egl.WaitNative"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool WaitGL()
 		{
@@ -1345,10 +1254,6 @@ namespace OpenGL
 		/// <param name="engine">
 		/// Specifies a particular marking engine to be waited on. Must be Egl.CORE_NATIVE_ENGINE.
 		/// </param>
-		/// <seealso cref="Egl.glFinish"/>
-		/// <seealso cref="Egl.glFlush"/>
-		/// <seealso cref="Egl.WaitClient"/>
-		/// <seealso cref="Egl.WaitGL"/>
 		[RequiredByFeature("EGL_VERSION_1_0")]
 		public static bool WaitNative(int engine)
 		{

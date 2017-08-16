@@ -677,8 +677,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElementsInstanced"/>
 		[AliasOf("glDrawArraysInstancedANGLE")]
 		[AliasOf("glDrawArraysInstancedARB")]
 		[AliasOf("glDrawArraysInstancedEXT")]
@@ -721,8 +719,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[AliasOf("glDrawElementsInstancedANGLE")]
 		[AliasOf("glDrawElementsInstancedARB")]
 		[AliasOf("glDrawElementsInstancedEXT")]
@@ -765,8 +761,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawArraysInstanced"/>
 		[AliasOf("glDrawElementsInstancedANGLE")]
 		[AliasOf("glDrawElementsInstancedARB")]
 		[AliasOf("glDrawElementsInstancedEXT")]
@@ -802,13 +796,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
 		[AliasOf("glTexBufferARB")]
 		[AliasOf("glTexBufferEXT")]
 		[AliasOf("glTexBufferOES")]
@@ -832,10 +819,6 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the value to be interpreted as the primitive restart index.
 		/// </param>
-		/// <seealso cref="Gl.DrawArrays"/>
-		/// <seealso cref="Gl.DrawElements"/>
-		/// <seealso cref="Gl.DrawElementsBaseVertex"/>
-		/// <seealso cref="Gl.DrawElementsInstancedBaseVertex"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		public static void PrimitiveRestartIndex(UInt32 index)
 		{
@@ -872,13 +855,6 @@ namespace OpenGL
 		/// Specifies the size, in basic machine units, of the data to be copied from the source buffer object to the destination 
 		/// buffer object.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferData"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.GetBufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.MapBufferRange"/>
 		[AliasOf("glCopyBufferSubDataNV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -909,9 +885,6 @@ namespace OpenGL
 		/// <param name="uniformIndices">
 		/// Specifies the address of an array that will receive the indices of the uniforms.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetActiveUniformName"/>
-		/// <seealso cref="Gl.LinkProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
@@ -953,12 +926,6 @@ namespace OpenGL
 		/// Specifies the address of an array of <paramref name="uniformCount"/> integers which are to receive the value of 
 		/// <paramref name="pname"/> for each uniform in <paramref name="uniformIndices"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
@@ -997,12 +964,6 @@ namespace OpenGL
 		/// Specifies the address of an array of <paramref name="uniformCount"/> integers which are to receive the value of 
 		/// <paramref name="pname"/> for each uniform in <paramref name="uniformIndices"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetUniform"/>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetUniformLocation"/>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.Uniform"/>
-		/// <seealso cref="Gl.UseProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
@@ -1041,10 +1002,6 @@ namespace OpenGL
 		/// Specifies the address of a buffer into which the GL will place the name of the active uniform at <paramref 
 		/// name="uniformIndex"/> within <paramref name="program"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniform"/>
-		/// <seealso cref="Gl.GetUniformIndices"/>
-		/// <seealso cref="Gl.GetProgram"/>
-		/// <seealso cref="Gl.LinkProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 		public static void GetActiveUniformName(UInt32 program, UInt32 uniformIndex, Int32 bufSize, out Int32 length, [Out] StringBuilder uniformName)
@@ -1071,9 +1028,6 @@ namespace OpenGL
 		/// <param name="uniformBlockName">
 		/// Specifies the address an array of characters to containing the name of the uniform block whose index to retrieve.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniformBlockName"/>
-		/// <seealso cref="Gl.GetActiveUniformBlock"/>
-		/// <seealso cref="Gl.LinkProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
@@ -1106,9 +1060,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Specifies the address of a variable to receive the result of the query.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniformBlockName"/>
-		/// <seealso cref="Gl.GetUniformBlockIndex"/>
-		/// <seealso cref="Gl.LinkProgram"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
@@ -1147,8 +1098,6 @@ namespace OpenGL
 		/// Specifies the address an array of characters to receive the name of the uniform block at <paramref 
 		/// name="uniformBlockIndex"/>.
 		/// </param>
-		/// <seealso cref="Gl.GetActiveUniformBlock"/>
-		/// <seealso cref="Gl.GetUniformBlockIndex"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
@@ -1180,10 +1129,6 @@ namespace OpenGL
 		/// Specifies the binding point to which to bind the uniform block with index <paramref name="uniformBlockIndex"/> within 
 		/// <paramref name="program"/>.
 		/// </param>
-		/// <seealso cref="Gl.LinkProgram"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.GetActiveUniformBlock"/>
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]

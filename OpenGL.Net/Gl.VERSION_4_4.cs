@@ -232,10 +232,6 @@ namespace OpenGL
 		/// Gl.DYNAMIC_STORAGE_BIT, Gl.MAP_READ_BITGl.MAP_WRITE_BIT, Gl.MAP_PERSISTENT_BIT, Gl.MAP_COHERENT_BIT, and 
 		/// Gl.CLIENT_STORAGE_BIT.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
@@ -267,10 +263,6 @@ namespace OpenGL
 		/// Gl.DYNAMIC_STORAGE_BIT, Gl.MAP_READ_BITGl.MAP_WRITE_BIT, Gl.MAP_PERSISTENT_BIT, Gl.MAP_COHERENT_BIT, and 
 		/// Gl.CLIENT_STORAGE_BIT.
 		/// </param>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BufferSubData"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[AliasOf("glBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
@@ -303,13 +295,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address in memory of the data to be used to clear the specified region.
 		/// </param>
-		/// <seealso cref="Gl.ClearTexSubImage"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
 		[AliasOf("glClearTexImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
@@ -340,13 +325,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address in memory of the data to be used to clear the specified region.
 		/// </param>
-		/// <seealso cref="Gl.ClearTexSubImage"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
 		[AliasOf("glClearTexImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
@@ -397,13 +375,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address in memory of the data to be used to clear the specified region.
 		/// </param>
-		/// <seealso cref="Gl.ClearTexImage"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
 		[AliasOf("glClearTexSubImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
@@ -452,13 +423,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address in memory of the data to be used to clear the specified region.
 		/// </param>
-		/// <seealso cref="Gl.ClearTexImage"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage3D"/>
 		[AliasOf("glClearTexSubImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
@@ -489,14 +453,6 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBuffersRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindBuffersBase(BufferTarget target, UInt32 first, Int32 count, UInt32[] buffers)
@@ -525,14 +481,6 @@ namespace OpenGL
 		/// <param name="buffers">
 		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBuffersRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindBuffersBase(BufferTarget target, UInt32 first, UInt32[] buffers)
@@ -572,14 +520,6 @@ namespace OpenGL
 		/// A pointer to an array of sizes of the corresponding buffer in <paramref name="buffers"/> to bind, or Gl.L if <paramref 
 		/// name="buffers"/> is Gl.L.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBuffersRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindBuffersRange(BufferTarget target, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
@@ -618,14 +558,6 @@ namespace OpenGL
 		/// A pointer to an array of sizes of the corresponding buffer in <paramref name="buffers"/> to bind, or Gl.L if <paramref 
 		/// name="buffers"/> is Gl.L.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.BindBufferBase"/>
-		/// <seealso cref="Gl.BindBufferRange"/>
-		/// <seealso cref="Gl.BindBuffersRange"/>
-		/// <seealso cref="Gl.MapBuffer"/>
-		/// <seealso cref="Gl.UnmapBuffer"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindBuffersRange(BufferTarget target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
@@ -652,19 +584,6 @@ namespace OpenGL
 		/// <param name="textures">
 		/// Specifies the address of an array of names of existing texture objects.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsTexture"/>
-		/// <seealso cref="Gl.TexImage1D"/>
-		/// <seealso cref="Gl.TexImage2D"/>
-		/// <seealso cref="Gl.TexImage2DMultisample"/>
-		/// <seealso cref="Gl.TexImage3D"/>
-		/// <seealso cref="Gl.TexImage3DMultisample"/>
-		/// <seealso cref="Gl.TexBuffer"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindTextures(UInt32 first, params UInt32[] textures)
@@ -689,15 +608,6 @@ namespace OpenGL
 		/// <param name="samplers">
 		/// Specifies the address of an array of names of existing sampler objects.
 		/// </param>
-		/// <seealso cref="Gl.GenSamplers"/>
-		/// <seealso cref="Gl.BindSampler"/>
-		/// <seealso cref="Gl.DeleteSamplers"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.SamplerParameter"/>
-		/// <seealso cref="Gl.GetSamplerParameter"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindSamplers(UInt32 first, params UInt32[] samplers)
@@ -722,20 +632,6 @@ namespace OpenGL
 		/// <param name="textures">
 		/// Specifies the address of an array of names of existing texture objects.
 		/// </param>
-		/// <seealso cref="Gl.BindTexture"/>
-		/// <seealso cref="Gl.BindTextures"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
-		/// <seealso cref="Gl.GenTextures"/>
-		/// <seealso cref="Gl.Get"/>
-		/// <seealso cref="Gl.GetTexParameter"/>
-		/// <seealso cref="Gl.IsTexture"/>
-		/// <seealso cref="Gl.TexStorage1D"/>
-		/// <seealso cref="Gl.TexStorage2D"/>
-		/// <seealso cref="Gl.TexStorage2DMultisample"/>
-		/// <seealso cref="Gl.TexStorage3D"/>
-		/// <seealso cref="Gl.TexStorage3DMultisample"/>
-		/// <seealso cref="Gl.TexBuffer"/>
-		/// <seealso cref="Gl.TexParameter"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindImageTextures(UInt32 first, params UInt32[] textures)
@@ -766,10 +662,6 @@ namespace OpenGL
 		/// <param name="strides">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		/// <seealso cref="Gl.GenBuffers"/>
-		/// <seealso cref="Gl.BindBuffer"/>
-		/// <seealso cref="Gl.DeleteBuffers"/>
-		/// <seealso cref="Gl.DeleteTextures"/>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 		public static void BindVertexBuffers(UInt32 first, UInt32[] buffers, IntPtr[] offsets, params Int32[] strides)

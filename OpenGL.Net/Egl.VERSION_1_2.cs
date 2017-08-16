@@ -262,14 +262,6 @@ namespace OpenGL
 		/// <param name="api">
 		/// Specifies the client API to bind, one of Egl.OPENGL_API, Egl.OPENGL_ES_API, or Egl.OPENVG_API.
 		/// </param>
-		/// <seealso cref="Egl.CreateContext"/>
-		/// <seealso cref="Egl.GetCurrentContext"/>
-		/// <seealso cref="Egl.GetCurrentDisplay"/>
-		/// <seealso cref="Egl.GetCurrentSurface"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
-		/// <seealso cref="Egl.QueryAPI"/>
-		/// <seealso cref="Egl.WaitClient"/>
-		/// <seealso cref="Egl.WaitNative"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static bool BindAPI(uint api)
 		{
@@ -286,14 +278,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglQueryAPI: Query the current rendering API
 		/// </summary>
-		/// <seealso cref="Egl.BindAPI"/>
-		/// <seealso cref="Egl.CreateContext"/>
-		/// <seealso cref="Egl.GetCurrentContext"/>
-		/// <seealso cref="Egl.GetCurrentDisplay"/>
-		/// <seealso cref="Egl.GetCurrentSurface"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
-		/// <seealso cref="Egl.WaitClient"/>
-		/// <seealso cref="Egl.WaitNative"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static uint QueryAPI()
 		{
@@ -326,12 +310,6 @@ namespace OpenGL
 		/// <param name="attrib_list">
 		/// Specifies pixel buffer surface attributes. May be Egl. or empty (first attribute is Egl.NONE).
 		/// </param>
-		/// <seealso cref="Egl.DestroySurface"/>
-		/// <seealso cref="Egl.ChooseConfig"/>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.GetConfigs"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
-		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static IntPtr CreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int[] attrib_list)
 		{
@@ -353,9 +331,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglReleaseThread: Release EGL per-thread state
 		/// </summary>
-		/// <seealso cref="Egl.BindAPI"/>
-		/// <seealso cref="Egl.GetError"/>
-		/// <seealso cref="Egl.MakeCurrent"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static bool ReleaseThread()
 		{
@@ -372,11 +347,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] eglWaitClient: Complete client API execution prior to subsequent native rendering calls
 		/// </summary>
-		/// <seealso cref="Egl.glFinish"/>
-		/// <seealso cref="Egl.glFlush"/>
-		/// <seealso cref="Egl.WaitGL"/>
-		/// <seealso cref="Egl.WaitNative"/>
-		/// <seealso cref="Egl.vgFinish"/>
 		[RequiredByFeature("EGL_VERSION_1_2")]
 		public static bool WaitClient()
 		{

@@ -201,7 +201,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the texture image data.
 		/// </param>
-		/// <seealso cref="Egl.ReleaseTexImage"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool BindTexImage(IntPtr dpy, IntPtr surface, int buffer)
 		{
@@ -227,7 +226,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the texture image data.
 		/// </param>
-		/// <seealso cref="Egl.BindTexImage"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool ReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer)
 		{
@@ -256,10 +254,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the attributes required value.
 		/// </param>
-		/// <seealso cref="Egl.CreatePbufferSurface"/>
-		/// <seealso cref="Egl.CreatePixmapSurface"/>
-		/// <seealso cref="Egl.CreateWindowSurface"/>
-		/// <seealso cref="Egl.QuerySurface"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool SurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value)
 		{
@@ -283,7 +277,6 @@ namespace OpenGL
 		/// <param name="interval">
 		/// Specifies the minimum number of video frames that are displayed before a buffer swap will occur.
 		/// </param>
-		/// <seealso cref="Egl.SwapBuffers"/>
 		[RequiredByFeature("EGL_VERSION_1_1")]
 		public static bool SwapInterval(IntPtr dpy, int interval)
 		{

@@ -498,9 +498,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES3.2] glBlendBarrier: specifies a boundary between advanced blending passes
 		/// </summary>
-		/// <seealso cref="Gl.BlendEquation"/>
-		/// <seealso cref="Gl.BlendEquationi"/>
-		/// <seealso cref="Gl.Get"/>
 		[AliasOf("glBlendBarrierKHR")]
 		[AliasOf("glBlendBarrierNV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
