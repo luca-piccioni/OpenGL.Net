@@ -86,17 +86,24 @@ namespace OpenGL
 		/// </returns>
 		private static IGetProcAddressOS CreateOS()
 		{
-			switch (Platform.CurrentPlatformId) {
-				case Platform.Id.WindowsNT:
-					return new GetProcAddressWindows();
-				case Platform.Id.Linux:
-					return new GetProcAddressLinux();
-				case Platform.Id.MacOS:
-					return new GetProcAddressOSX();
-				case Platform.Id.Android:
+			string envOsLoader = Environment.GetEnvironmentVariable("OPENGL_NET_OSLOADER");
+			
+			switch (envOsLoader) {
+				case "EGL":
 					return new GetGLProcAddressEGL();
 				default:
-					throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+					switch (Platform.CurrentPlatformId) {
+						case Platform.Id.WindowsNT:
+							return new GetProcAddressWindows();
+						case Platform.Id.Linux:
+							return new GetProcAddressLinux();
+						case Platform.Id.MacOS:
+							return new GetProcAddressOSX();
+						case Platform.Id.Android:
+							return new GetGLProcAddressEGL();
+						default:
+							throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+					}
 			}
 		}
 
