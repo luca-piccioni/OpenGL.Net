@@ -9,7 +9,7 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenGL.Net.Objects</RootNamespace>
+    <RootNamespace>OpenGL.Objects</RootNamespace>
     <AssemblyName>OpenGL.Net.Objects</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
@@ -92,7 +92,6 @@
     <Compile Include="RenderBuffer.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="ResourceCollection.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sampler.cs" />
     <Compile Include="SamplerParameters.cs" />
@@ -177,12 +176,37 @@
     <Compile Include="Vincenty.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
     <EmbeddedResource Include="Shaders\Compatibility.glsl" />
     <EmbeddedResource Include="Shaders\TransformState.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Values\Strings.xml" />
+    <EmbeddedResource Include="Shaders\Font\Fragment.FontPatch.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Fragment.FontTextureArray.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Vertex.FontPatch.glsl" />
+    <EmbeddedResource Include="Shaders\Font\Vertex.FontTextureArray.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightDirectional.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightDirectionalImpl.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightMulti.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightPoint.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightPointImpl.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightSpot.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightSpotImpl.glsl" />
+    <EmbeddedResource Include="Shaders\Light\LightState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\MaterialState.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadingLambert.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadingPhong.glsl" />
+    <EmbeddedResource Include="Shaders\Light\ShadowState.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Geometry.glsl" />
+    <EmbeddedResource Include="Shaders\Line\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Shadow\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Shadow\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Skybox\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Skybox\Vertex.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\DepthFragment.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\DepthVertex.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\TextureFragment.glsl" />
+    <EmbeddedResource Include="Shaders\Specialized\TextureVertex.glsl" />
+    <EmbeddedResource Include="Shaders\Standard\Fragment.glsl" />
+    <EmbeddedResource Include="Shaders\Standard\Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\CompatibilityNotes.txt" />
@@ -193,6 +217,14 @@
       <Project>{6981be72-a39a-4534-bd3f-132d813a461f}</Project>
       <Name>OpenGL.Net_monodroid</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Shaders\Font\_ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\Light\_ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\Shadow\_ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\Skybox\_ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\Specialized\_ShadersLibrary.xml" />
+    <EmbeddedResource Include="Shaders\Standard\_ShadersLibrary.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

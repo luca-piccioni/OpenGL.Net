@@ -261,10 +261,26 @@ namespace OpenGL
 						}
 						
 						throw new NotSupportedException("no suitable memcpy support");
+					case Platform.Id.Android:
+						MemoryCopyPointer = MemoryCopyDelegate_Managed;
+						break;
 					default:
 						throw new NotSupportedException("no suitable memcpy support");
 				}
 			}
+		}
+
+		private static unsafe void MemoryCopyDelegate_Managed(void *dst, void* src, ulong bytes)
+		{
+			uint *dstPtr4 = (uint*)dst, srcPtr4 = (uint*)dst;
+
+			for (; bytes >= 4; bytes -= 4)
+				*dstPtr4++ = *srcPtr4++;
+
+			byte *dstPtr1 = (byte*)dstPtr4, srcPtr1 = (byte*)srcPtr4;
+
+			for (; bytes >= 1; bytes -= 1)
+				*dstPtr1++ = *srcPtr1++;
 		}
 
 		#endregion

@@ -160,7 +160,7 @@ namespace OpenGL
 			} else {
 #endif
 				// Create a surfaceless context
-				if (Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
+				if (Egl.CurrentExtensions == null || Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
 					// OPENGL_NET_INIT environment set to NO?
 					if (Gl._NativeWindow == null)
 						throw new InvalidOperationException("OpenGL.Net not initialized", Gl._InitializationException);

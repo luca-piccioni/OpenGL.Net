@@ -42,6 +42,11 @@ namespace OpenGL
 		/// </summary>
 		static Gl()
 		{
+			// Optional initialization
+			string envGlStaticInit = Environment.GetEnvironmentVariable("OPENGL_NET_GL_STATIC_INIT");
+			if (envGlStaticInit != null && envGlStaticInit == "NO")
+				return;
+
 			try {
 				Initialize();
 			} catch (NotSupportedException) {

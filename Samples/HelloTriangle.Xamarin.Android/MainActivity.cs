@@ -35,12 +35,12 @@ namespace HelloTriangle.Xamarin
 	{
 		#region Rendering
 
-		private void SurfaceView_ContextCreated(object sender, GlSurfaceViewEventArgs e)
+		private void SurfaceView_ContextCreated(object sender, GLSurfaceViewEventArgs e)
 		{
 			Es2_ContextCreated();
 		}
 
-		private void SurfaceView_Render(object sender, GlSurfaceViewEventArgs e)
+		private void SurfaceView_Render(object sender, GLSurfaceViewEventArgs e)
 		{
 			GLSurfaceView glSurfaceView = (GLSurfaceView)sender;
 
@@ -51,7 +51,7 @@ namespace HelloTriangle.Xamarin
 			Es2_Render();
 		}
 
-		private void SurfaceView_ContextDestroying(object sender, GlSurfaceViewEventArgs e)
+		private void SurfaceView_ContextDestroying(object sender, GLSurfaceViewEventArgs e)
 		{
 			Es2_ContextDestroying();
 		}

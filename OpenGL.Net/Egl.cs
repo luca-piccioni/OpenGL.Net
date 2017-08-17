@@ -43,6 +43,12 @@ namespace OpenGL
 		/// </summary>
 		static Egl()
 		{
+			// Optional initialization
+			string envEglStaticInit = Environment.GetEnvironmentVariable("OPENGL_NET_EGL_STATIC_INIT");
+			if (envEglStaticInit != null && envEglStaticInit == "NO")
+				return;
+
+			// Do not automatically initialize Egl on Android & Debug configurations
 			Initialize();
 		}
 

@@ -167,7 +167,7 @@ namespace OpenGL
 		/// <summary>
 		/// Event raised on control creation time, allow user to allocate resource on control.
 		/// </summary>
-		public event EventHandler<GlSurfaceViewEventArgs> ContextCreated
+		public event EventHandler<GLSurfaceViewEventArgs> ContextCreated
 		{
 			add { _ContextCreated += value; }
 			remove { _ContextCreated -= value; }
@@ -176,7 +176,7 @@ namespace OpenGL
 		/// <summary>
 		/// Underlying EventHandler for <see cref="ContextCreated"/>.
 		/// </summary>
-		private EventHandler<GlSurfaceViewEventArgs> _ContextCreated;
+		private EventHandler<GLSurfaceViewEventArgs> _ContextCreated;
 
 		/// <summary>
 		/// Raise the event <see cref="ContextCreated"/>.
@@ -184,9 +184,9 @@ namespace OpenGL
 		protected virtual void OnContextCreated()
 		{
 			if (_ContextCreated != null) {
-				GlSurfaceViewEventArgs glControlEventArgs = new GlSurfaceViewEventArgs(_DeviceContext, _RenderContext);
+				GLSurfaceViewEventArgs glControlEventArgs = new GLSurfaceViewEventArgs(_DeviceContext, _RenderContext);
 
-				foreach(EventHandler<GlSurfaceViewEventArgs> handler in _ContextCreated.GetInvocationList()) {
+				foreach(EventHandler<GLSurfaceViewEventArgs> handler in _ContextCreated.GetInvocationList()) {
 					try {
 						handler(this, glControlEventArgs);
 					} catch (Exception e) {
@@ -201,7 +201,7 @@ namespace OpenGL
 		/// <summary>
 		/// Event raised on control disposition time, allow user to dispose resources on control.
 		/// </summary>
-		public event EventHandler<GlSurfaceViewEventArgs> ContextDestroying;
+		public event EventHandler<GLSurfaceViewEventArgs> ContextDestroying;
 
 		/// <summary>
 		/// Raise the event <see cref="ContextDestroying"/>.
@@ -209,13 +209,13 @@ namespace OpenGL
 		protected virtual void OnContextDestroying()
 		{
 			if (ContextDestroying != null)
-				ContextDestroying(this, new GlSurfaceViewEventArgs(_DeviceContext, _RenderContext));
+				ContextDestroying(this, new GLSurfaceViewEventArgs(_DeviceContext, _RenderContext));
 		}
 
 		/// <summary>
 		/// Event raised on control render time, allow user to draw on control.
 		/// </summary>
-		public event EventHandler<GlSurfaceViewEventArgs> Render;
+		public event EventHandler<GLSurfaceViewEventArgs> Render;
 
 		/// <summary>
 		/// Raise the event <see cref="Render"/>.
@@ -223,7 +223,7 @@ namespace OpenGL
 		protected virtual void OnRender()
 		{
 			if (Render != null && _DeviceContext != null && _RenderContext != IntPtr.Zero) {
-				Render(this, new GlSurfaceViewEventArgs(_DeviceContext, _RenderContext));
+				Render(this, new GLSurfaceViewEventArgs(_DeviceContext, _RenderContext));
 
 				_DeviceContext.SwapBuffers();
 			}
@@ -346,50 +346,6 @@ namespace OpenGL
 		/// Surface holder.
 		/// </summary>
 		private ISurfaceHolder _Holder;
-
-		#endregion
-	}
-
-	/// <summary>
-	/// Arguments for <see cref="GLSurfaceView"/> events.
-	/// </summary>
-	public class GlSurfaceViewEventArgs : EventArgs
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Construct a GlSurfaceViewEventArgs.
-		/// </summary>
-		/// <param name="deviceContext">
-		/// The <see cref="DeviceContext"/> used for the underlying <see cref="GLSurfaceView"/>.
-		/// </param>
-		/// <param name="renderContext">
-		/// The OpenGL context used for rendering.
-		/// </param>
-		public GlSurfaceViewEventArgs(DeviceContext deviceContext, IntPtr renderContext)
-		{
-			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
-			if (renderContext == IntPtr.Zero)
-				throw new ArgumentException("renderContext");
-
-			DeviceContext = deviceContext;
-			RenderContext = renderContext;
-		}
-
-		#endregion
-
-		#region Event Arguments
-
-		/// <summary>
-		/// The <see cref="DeviceContext"/> used for the underlying <see cref="GLSurfaceView"/>.
-		/// </summary>
-		public readonly DeviceContext DeviceContext;
-
-		/// <summary>
-		/// The OpenGL context used for rendering.
-		/// </summary>
-		public readonly IntPtr RenderContext;
 
 		#endregion
 	}
