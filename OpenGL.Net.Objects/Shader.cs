@@ -217,7 +217,7 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
-		
+
 		#region Source Generation
 
 		/// <summary>
@@ -253,6 +253,9 @@ namespace OpenGL.Objects
 			// Append imposed header - Every source shall compile with this header
 			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
 
+			// Special ES2+ preprocessor symbol... not aware of compiler symbols
+			if (ctx.Version.Api == KhronosVersion.ApiGles2)
+				shaderSource.Add("#define GLO_OPENGL_ES\n");
 			// Append required #define statments
 			if (cctx.Defines != null) {
 				foreach (string def in cctx.Defines) {
@@ -338,48 +341,52 @@ namespace OpenGL.Objects
 			if (sourceLines == null)
 				throw new ArgumentNullException("sLines");
 			
-			// Prepend required shader version
-			if (version >= 150) {
-				// Starting from GLSL 1.50, profiles are implemented
+			if ((ctx.Flags & GraphicsContextFlags.EmbeddedProfile) == 0) {
+				// Prepend required shader version
+				if (version >= 150) {
+					// Starting from GLSL 1.50, profiles are implemented
 				
-				if ((ctx.Flags & GraphicsContextFlags.ForwardCompatible) != 0)
-					sourceLines.Add(String.Format("#version {0} core\n", version));
-				else
-					sourceLines.Add(String.Format("#version {0} compatibility\n", version));
-			} else {
-				sourceLines.Add(String.Format("#version {0}\n", version));
-			}
+					if ((ctx.Flags & GraphicsContextFlags.ForwardCompatible) != 0)
+						sourceLines.Add(String.Format("#version {0} core\n", version));
+					else
+						sourceLines.Add(String.Format("#version {0} compatibility\n", version));
+				} else {
+					sourceLines.Add(String.Format("#version {0}\n", version));
+				}
 			
-			// #extension
-			if (ctx.Extensions.ShadingLanguageInclude_ARB)
-				sourceLines.Add("#extension GL_ARB_shading_language_include : require\n");
+				// #extension
+				if (ctx.Extensions.ShadingLanguageInclude_ARB)
+					sourceLines.Add("#extension GL_ARB_shading_language_include : require\n");
 
-			if (ctx.Extensions.UniformBufferObject_ARB)
-				sourceLines.Add("#extension GL_ARB_uniform_buffer_object : enable\n");
-			else
-				sourceLines.Add("#define DISABLE_GL_ARB_uniform_buffer_object\n");
+				if (ctx.Extensions.UniformBufferObject_ARB)
+					sourceLines.Add("#extension GL_ARB_uniform_buffer_object : enable\n");
+				else
+					sourceLines.Add("#define DISABLE_GL_ARB_uniform_buffer_object\n");
 
-			if (ObjectStage == ShaderType.GeometryShader && ctx.Extensions.GeometryShader4_ARB)
-				sourceLines.Add("#extension GL_ARB_geometry_shader4 : enable\n");
+				if (ObjectStage == ShaderType.GeometryShader && ctx.Extensions.GeometryShader4_ARB)
+					sourceLines.Add("#extension GL_ARB_geometry_shader4 : enable\n");
 
-			foreach (ShaderExtension shaderExtension in cctx.Extensions) {
-				// Do not include any #extension directive on extensions not supported by driver
-				if (ctx.Extensions.HasExtensions(shaderExtension.Name) == false)
-					continue;
-				sourceLines.Add(String.Format(
-					"#extension {0} : {1}\n", shaderExtension.Name, shaderExtension.Behavior.ToString().ToLowerInvariant())
-				);
-			}
+				foreach (ShaderExtension shaderExtension in cctx.Extensions) {
+					// Do not include any #extension directive on extensions not supported by driver
+					if (ctx.Extensions.HasExtensions(shaderExtension.Name) == false)
+						continue;
+					sourceLines.Add(String.Format(
+						"#extension {0} : {1}\n", shaderExtension.Name, shaderExtension.Behavior.ToString().ToLowerInvariant())
+					);
+				}
 
-			// #pragma
+				// #pragma
 #if DEBUG
-			// Debug directives
-			sourceLines.Add("#pragma optimization(off)\n");
-			sourceLines.Add("#pragma debug(on)\n");
+				// Debug directives
+				sourceLines.Add("#pragma optimization(off)\n");
+				sourceLines.Add("#pragma debug(on)\n");
 #else
-			sourceLines.Add("#pragma optimization(on)\n");
-			sourceLines.Add("#pragma debug(off)\n");
+				sourceLines.Add("#pragma optimization(on)\n");
+				sourceLines.Add("#pragma debug(off)\n");
 #endif
+			} else {
+				sourceLines.Add("precision mediump float;\n");
+			}
 		}
 
 		/// <summary>
@@ -463,15 +470,17 @@ namespace OpenGL.Objects
 		/// </returns>
 		private StringBuilder GetInfoLog()
 		{
-#if !MONODROID
 			const int MaxInfoLength = 64 * 1024;		// 64 KB
 
 			StringBuilder logInfo = new StringBuilder(MaxInfoLength);
 			int logLength;
 
 			// Obtain compilation log
+#if !MONODROID
 			Gl.GetInfoLogARB(ObjectName, MaxInfoLength - 1, out logLength, logInfo);
-
+#else
+			Gl.GetShaderInfoLog(ObjectName, MaxInfoLength - 1, out logLength, logInfo);
+#endif
 			StringBuilder sb = new StringBuilder(logInfo.Capacity);
 
 			string[] compilerLogLines = logInfo.ToString().Split(new char[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
@@ -479,9 +488,6 @@ namespace OpenGL.Objects
 				sb.AppendFormat("  {0}: {1}\n", _SourcePath, logLine);
 			
 			return (sb);
-#else
-			return (new StringBuilder());
-#endif
 		}
 		
 		/// <summary>
@@ -637,11 +643,19 @@ namespace OpenGL.Objects
 				// Compile shader object (includes are already preprocessed)
 				Gl.CompileShader(ObjectName);
 			}
+#else
+			// Compile shader object (includes are already preprocessed)
+			Gl.CompileShader(ObjectName);
+#endif
 
 			// Check for compilation errors
 			int compilationStatus;
 
+#if !MONODROID
 			Gl.GetObjectParameterARB(ObjectName, Gl.COMPILE_STATUS, out compilationStatus);
+#else
+			Gl.GetShader(ObjectName, ShaderParameterName.CompileStatus, out compilationStatus);
+#endif
 
 			if (compilationStatus != Gl.TRUE) {
 				StringBuilder sb = GetInfoLog();
@@ -664,10 +678,7 @@ namespace OpenGL.Objects
 				if (sb.Length > 0)
 					Log("Shader object \"{0}\" compilation warning: {1}", _SourcePath ?? "<Hardcoded>", sb.ToString());
 			}
-#else
-			// Compile shader object (includes are already preprocessed)
-			Gl.CompileShader(ObjectName);
-#endif
+
 			_Compiled = true;
 		}
 

@@ -32,7 +32,7 @@ namespace OpenGL.Objects
 	/// </summary>
 	static class ShaderIncludePreprocessor
 	{
-		#region Shader Include Preprocessor
+		#region Includer
 
 		/// <summary>
 		/// 
@@ -220,17 +220,17 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex _RegexInclude = new Regex("^\\s*#include *[<\"].*[>\"]", RegexOptions.Compiled);
+		private static readonly Regex _RegexInclude = new Regex("^\\s*#include *[<\"].*[>\"]");
 
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex _RegexIncludeAngular = new Regex("^\\s*#include *[<\"].*[>\"]", RegexOptions.Compiled);
+		private static readonly Regex _RegexIncludeAngular = new Regex("^\\s*#include *[<\"].*[>\"]");
 
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex _RegexIncludePathSplit = new Regex("[<>\"\\n]", RegexOptions.Compiled);
+		private static readonly Regex _RegexIncludePathSplit = new Regex("[<>\"\\n]");
 
 		#endregion
 	}

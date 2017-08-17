@@ -41,7 +41,7 @@
 		<!-- Standard+Color -->
 		<Program Id="OpenGL.Standard+Color">
 			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" >
 				<Symbols>
 					<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				</Symbols>
