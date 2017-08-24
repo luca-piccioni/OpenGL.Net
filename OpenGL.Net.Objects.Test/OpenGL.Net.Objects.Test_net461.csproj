@@ -60,11 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BenchmarkStringHash.cs" />
     <Compile Include="BufferObject.cs" />
     <Compile Include="GraphicsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shader.cs" />
+    <Compile Include="ShaderPreprocessorParser.cs" />
     <Compile Include="ShaderProgram.cs" />
     <Compile Include="ShadersLibrary.cs" />
     <Compile Include="TestBase.cs" />
@@ -74,7 +74,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenGL.Net.Objects\OpenGL.Net.Objects.csproj">
+    <ProjectReference Include="..\OpenGL.Net.Objects\OpenGL.Net.Objects_net461.csproj">
       <Project>{01314a39-ae2a-44f6-ba14-8c961583c75c}</Project>
       <Name>OpenGL.Net.Objects</Name>
     </ProjectReference>

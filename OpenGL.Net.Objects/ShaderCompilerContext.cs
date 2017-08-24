@@ -336,9 +336,9 @@ namespace OpenGL.Objects
 		private readonly List<string> _Includes = new List<string>();
 
 		#endregion
-		
+
 		#region Common Extension Behavior
-		
+
 		/// <summary>
 		/// The extensions behavior used for compiling a <see cref="ShaderProgram"/>.
 		/// </summary>

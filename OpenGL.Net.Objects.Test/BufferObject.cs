@@ -28,7 +28,7 @@ namespace OpenGL.Objects.Test
 	{
 		public void ExampleCreateArrayBufferObject(GraphicsContext ctx)
 		{
-			using (ArrayBuffer<Vertex3f> vertexPosition = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw)) {
+			using (ArrayBuffer<Vertex3f> vertexPosition = new ArrayBuffer<Vertex3f>(BufferUsage.StaticDraw)) {
 				// Define CPU data
 				vertexPosition.Create(new Vertex3f[] {
 					Vertex3f.UnitX, Vertex3f.UnitY, Vertex3f.UnitZ
@@ -37,7 +37,7 @@ namespace OpenGL.Objects.Test
 				vertexPosition.Create(ctx);
 			}
 			
-			using (ArrayBuffer<ColorRGBAF> vertexColor = new ArrayBuffer<ColorRGBAF>(BufferHint.DynamicCpuDraw)) {
+			using (ArrayBuffer<ColorRGBAF> vertexColor = new ArrayBuffer<ColorRGBAF>(BufferUsage.StaticDraw)) {
 				// Define GPU items count
 				vertexColor.Create(256);
 				// Reserve GPU memory
@@ -47,7 +47,7 @@ namespace OpenGL.Objects.Test
 			}
 
 			// By ArrayBufferItemType
-			using (ArrayBuffer buffer = ArrayBuffer.CreateArrayObject(ArrayBufferItemType.Float3x3, BufferHint.StaticCpuDraw)) {
+			using (ArrayBuffer buffer = ArrayBuffer.CreateArrayObject(ArrayBufferItemType.Float3x3, BufferUsage.StaticDraw)) {
 				// ...
 			}
 		}
@@ -61,9 +61,9 @@ namespace OpenGL.Objects.Test
 		private static Buffer CreateInstance()
 		{
 			if (typeof(T) == typeof(ArrayBuffer))
-				return (new ArrayBuffer(ArrayBufferItemType.Float3, BufferHint.StaticCpuDraw));
+				return (new ArrayBuffer(ArrayBufferItemType.Float3, BufferUsage.StaticDraw));
 			else if (typeof(T) == typeof(ElementBuffer))
-				return (new ElementBuffer(DrawElementsType.UnsignedInt, BufferHint.StaticCpuDraw));
+				return (new ElementBuffer(DrawElementsType.UnsignedInt, BufferUsage.StaticDraw));
 
 			Assert.Inconclusive("Type argument not implemented");
 
@@ -216,7 +216,7 @@ namespace OpenGL.Objects.Test
 				// Initially not existing
 				Assert.IsFalse(buffer.Exists(_Context));
 				// Now it is possible to map
-				Assert.Throws(Is.InstanceOf<Exception>(), delegate () { buffer.Map(_Context, BufferAccessARB.ReadWrite); });
+				Assert.Throws(Is.InstanceOf<Exception>(), delegate () { buffer.Map(_Context, BufferAccess.ReadWrite); });
 
 				// Create a client instance
 				CreateClientInstance(buffer);
@@ -224,7 +224,7 @@ namespace OpenGL.Objects.Test
 				Assert.IsFalse(buffer.Exists(_Context), "BufferObject not existing (client)");
 
 				// Now it is possible to map
-				Assert.Throws<InvalidOperationException>(delegate () { buffer.Map(_Context, BufferAccessARB.ReadWrite); });
+				Assert.Throws<InvalidOperationException>(delegate () { buffer.Map(_Context, BufferAccess.ReadWrite); });
 				// We are notmapped
 				Assert.IsFalse(buffer.IsMapped);
 
@@ -239,7 +239,7 @@ namespace OpenGL.Objects.Test
 				Assert.IsTrue(buffer.Exists(_Context));
 
 				// Now it is possible to map
-				Assert.DoesNotThrow(delegate () { buffer.Map(_Context, BufferAccessARB.ReadWrite); });
+				Assert.DoesNotThrow(delegate () { buffer.Map(_Context, BufferAccess.ReadWrite); });
 				// We are mapped
 				Assert.IsTrue(buffer.IsMapped);
 

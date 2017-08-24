@@ -32,7 +32,7 @@ namespace OpenGL.Objects.Test
 		public void ExampleCreateObject(GraphicsContext ctx)
 		{
 			// Create a Shader instance, specifying the execution stage
-			Shader shaderObject = new Shader(ShaderStage.Vertex);
+			Shader shaderObject = new Shader(ShaderType.VertexShader);
 			// Specify directly the shader source
 			shaderObject.LoadSource(new string[] {
 				"uniform mat4 my_ModelViewProjection;",
@@ -48,7 +48,7 @@ namespace OpenGL.Objects.Test
 		public void ExampleCreateObjectFromStream(GraphicsContext ctx)
 		{
 			// Create a Shader instance, specifying the execution stage
-			Shader shaderObject = new Shader(ShaderStage.Vertex);
+			Shader shaderObject = new Shader(ShaderType.VertexShader);
 			// Specify the shader source using Stream
 			using (System.IO.FileStream fs = new System.IO.FileStream("shaderPath.glsl", System.IO.FileMode.Open, System.IO.FileAccess.Read)) {
 				shaderObject.LoadSource(fs);
@@ -60,7 +60,7 @@ namespace OpenGL.Objects.Test
 		public void ExampleCreateObjectFromResource(GraphicsContext ctx)
 		{
 			// Create a Shader instance, specifying the execution stage
-			Shader shaderObject = new Shader(ShaderStage.Vertex);
+			Shader shaderObject = new Shader(ShaderType.VertexShader);
 			// Specify shader source using embedded resource
 			shaderObject.LoadSource("SampleNamespace.Subnamespace.ResourceName");
 			// Compile the shader source

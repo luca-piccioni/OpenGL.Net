@@ -269,7 +269,7 @@ namespace OpenGL.Objects
 
 			// Manage #include preprocessor directives in the case GL_ARB_shading_language_include is not supported
 			if (ctx.Extensions.ShadingLanguageInclude_ARB == false)
-				shaderSource = ShaderIncludePreprocessor.Process(ctx.IncludeLibrary, cctx, shaderSource);
+				shaderSource = ShaderPreprocessor.ProcessIncludes(ctx.IncludeLibrary, cctx, shaderSource);
 
 			// Remove comment lines
 			shaderSource = CleanSource(shaderSource);

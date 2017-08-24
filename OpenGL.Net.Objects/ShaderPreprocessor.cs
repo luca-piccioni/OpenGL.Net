@@ -28,9 +28,9 @@ using System.Text.RegularExpressions;
 namespace OpenGL.Objects
 {
 	/// <summary>
-	/// Preprocess #include directives using a shader include library.
+	/// Preprocess GLSL source code.
 	/// </summary>
-	static class ShaderIncludePreprocessor
+	static class ShaderPreprocessor
 	{
 		#region Includer
 
@@ -69,7 +69,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="includeLibrary"/>, <paramref name="cctx"/> or <paramref name="shaderSource"/> is null.
 		/// </exception>
-		public static List<string> Process(ShaderIncludeLibrary includeLibrary, ShaderCompilerContext cctx, List<string> shaderSource)
+		public static List<string> ProcessIncludes(ShaderIncludeLibrary includeLibrary, ShaderCompilerContext cctx, List<string> shaderSource)
 		{
 			if (includeLibrary == null)
 				throw new ArgumentNullException("includeLibrary");
@@ -80,17 +80,17 @@ namespace OpenGL.Objects
 
 			IncludeProcessorContext ictx = new IncludeProcessorContext();
 
-			return (Process(includeLibrary, cctx, ictx, shaderSource));
+			return (ProcessIncludes(includeLibrary, cctx, ictx, shaderSource));
 		}
 
-		private static List<string> Process(ShaderIncludeLibrary includeLibrary, ShaderCompilerContext cctx, IncludeProcessorContext ictx, IEnumerable<string> shaderSource)
+		private static List<string> ProcessIncludes(ShaderIncludeLibrary includeLibrary, ShaderCompilerContext cctx, IncludeProcessorContext ictx, IEnumerable<string> shaderSource)
 		{
 			if (includeLibrary == null)
 				throw new ArgumentNullException("includeLibrary");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
 			if (shaderSource == null)
-				throw new ArgumentNullException("sSource");
+				throw new ArgumentNullException("shaderSource");
 			
 			List<string> processedSource = new List<string>();
 
@@ -159,7 +159,7 @@ namespace OpenGL.Objects
 					System.Diagnostics.Debug.Assert(String.IsNullOrEmpty(canonicalPath) == false);
 					ictxRecurse.CurrentPath = canonicalPath;
 
-					processedSource.AddRange(Process(includeLibrary, cctx, ictxRecurse, shaderInclude.Source));
+					processedSource.AddRange(ProcessIncludes(includeLibrary, cctx, ictxRecurse, shaderInclude.Source));
 				} else
 					processedSource.Add(line);
 			}
@@ -231,6 +231,179 @@ namespace OpenGL.Objects
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
 		private static readonly Regex _RegexIncludePathSplit = new Regex("[<>\"\\n]");
+
+		#endregion
+
+		#region Processor
+
+		/// <summary>
+		/// Context collecting the required state for processing a source file.
+		/// </summary>
+		private class ExpressionContext
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a ExpressionContext.
+			/// </summary>
+			public ExpressionContext()
+			{
+				_ActiveStack.Push(true);
+			}
+
+			#endregion
+
+			#region Activeness
+
+			public bool IsActive
+			{
+				get { return (_ActiveStack.Peek()); }
+			}
+
+			public void PushActive()
+			{
+				_ActiveStack.Push(IsActive);
+			}
+
+			public void PopActive()
+			{
+				_ActiveStack.Pop();
+				if (_ActiveStack.Count == 0)
+					throw new InvalidOperationException("stack underflow");
+			}
+
+			public void SetActive(bool active)
+			{
+				_ActiveStack.Pop();
+				_ActiveStack.Push(active);
+			}
+
+			private Stack<bool> _ActiveStack = new Stack<bool>();
+
+			#endregion
+
+			#region Symbols Vector
+
+			public void Define(string statement)
+			{
+
+			}
+
+			public void Define(string symbol, string value)
+			{
+				ExpressionSymbol expSymbol;
+
+				if (_Symbols.TryGetValue(symbol, out expSymbol) == false) {
+
+				}
+			}
+
+			public void Undef(string symbol)
+			{
+				_Symbols.Remove(symbol);
+			}
+
+			public string GetSymbol(string symbol)
+			{
+				ExpressionSymbol expSymbol;
+
+				if (_Symbols.TryGetValue(symbol, out expSymbol) == false)
+					return (expSymbol.Value);
+
+				return (null);
+			}
+
+			private readonly Dictionary<string, ExpressionSymbol> _Symbols = new Dictionary<string, ExpressionSymbol>();
+
+			#endregion
+		}
+
+		/// <summary>
+		/// Preprocessor symbol/value pair.
+		/// </summary>
+		private class ExpressionSymbol
+		{
+			public ExpressionSymbol(string name)
+			{
+				Name = name;
+				Value = "1";
+			}
+
+			public readonly string Name;
+
+			public string Value;
+		}
+
+		/// <summary>
+		/// Process a source using the preprocessor.
+		/// </summary>
+		/// <param name="shaderSource"></param>
+		/// <returns></returns>
+		public static List<string> Process(List<string> shaderSource, ShaderCompilerContext cctx)
+		{
+			if (shaderSource == null)
+				throw new ArgumentNullException("shaderSource");
+			if (cctx == null)
+				throw new ArgumentNullException("cctx");
+			
+			ShaderPreprocessorParser expressionEvaluator = new ShaderPreprocessorParser();
+			List<string> processedSource = new List<string>();
+
+			// Define system preprocessor symbols
+			expressionEvaluator.Define("__VERSION__", cctx.ShaderVersion.VersionId.ToString());
+			// Define user preprocessor symbols
+			foreach (string symbol in cctx.Defines)
+				expressionEvaluator.Define(symbol);
+
+			foreach (string sourceLine in shaderSource) {
+				Match match;
+
+				if ((match = _RegexPreprocessorExpression.Match(sourceLine)).Success) {
+					string op = match.Groups["Op"].Value;
+					string expr = match.Groups["Expr"].Value;
+
+					switch (op) {
+						case "if":
+							expressionEvaluator.PushActive();
+							expressionEvaluator.SetActive(expressionEvaluator.EvaluateExpression(expr));
+							break;
+						case "ifdef":
+							expressionEvaluator.PushActive();
+							expressionEvaluator.SetActive(expressionEvaluator.EvaluateExpression(expr));
+							break;
+						case "elif":
+							expressionEvaluator.PopActive();
+							expressionEvaluator.PushActive();
+							expressionEvaluator.SetActive(expressionEvaluator.EvaluateExpression(expr));
+							break;
+						case "else":
+							expressionEvaluator.SetActive(!expressionEvaluator.IsActive);
+							break;
+						case "endif":
+							expressionEvaluator.PopActive();
+							break;
+						case "define":
+							expressionEvaluator.Define(expr);
+							break;
+						case "undef":
+							expressionEvaluator.Undef(expr);
+							break;
+						default:
+							throw new NotSupportedException("preprocessor token " + op + " not supported");
+					}
+				} else {
+					if (expressionEvaluator.IsActive)
+						processedSource.Add(sourceLine);
+				}
+			}
+
+			return (processedSource);
+		}
+
+		/// <summary>
+		/// Regular expression used for recognizing #include preprocessor directives.
+		/// </summary>
+		private static readonly Regex _RegexPreprocessorExpression = new Regex(@" *# *(?<Op>if|ifdef|elif|else|endif|define|undef) (?<Expr>.*)");
 
 		#endregion
 	}

@@ -16,6 +16,8 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +41,10 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Pegasus.Common">
+      <HintPath>..\packages\Pegasus.4.1.0-alpha0006\lib\net40\Pegasus.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="OpenTK" />
@@ -128,7 +134,8 @@
     <Compile Include="ShaderExtensionBehavior.cs" />
     <Compile Include="ShaderInclude.cs" />
     <Compile Include="ShaderIncludeLibrary.cs" />
-    <Compile Include="ShaderIncludePreprocessor.cs" />
+    <Compile Include="ShaderPreprocessor.cs" />
+    <Compile Include="ShaderPreprocessorParser.cs" />
     <Compile Include="ShaderProgram.cs" />
     <Compile Include="ShaderProgram.GetUniform.cs" />
     <Compile Include="ShaderProgram.SetUniform.cs" />
@@ -209,6 +216,8 @@
     <EmbeddedResource Include="Shaders\Standard\Vertex.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+    <PegGrammar Include="ShaderPreprocessorParser.peg" />
     <None Include="Shaders\CompatibilityNotes.txt" />
     <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
   </ItemGroup>
@@ -227,6 +236,13 @@
     <EmbeddedResource Include="Shaders\Standard\_ShadersLibrary.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="..\packages\Pegasus.4.1.0-alpha0006\build\Pegasus.targets" Condition="Exists('..\packages\Pegasus.4.1.0-alpha0006\build\Pegasus.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Questo progetto fa riferimento a uno o più pacchetti NuGet che non sono presenti in questo computer. Usare lo strumento di ripristino dei pacchetti NuGet per scaricarli. Per altre informazioni, vedere http://go.microsoft.com/fwlink/?LinkID=322105. Il file mancante è {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Pegasus.4.1.0-alpha0006\build\Pegasus.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Pegasus.4.1.0-alpha0006\build\Pegasus.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

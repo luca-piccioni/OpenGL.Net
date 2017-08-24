@@ -1,0 +1,42 @@
+﻿@namespace OpenGL.Objects
+@classname ShaderPreprocessorParser
+@accessibility internal
+
+start <int>
+	= _ value:relational _ EOF { value }
+
+relational <int> -memoize
+	= left:relational _ "<" _ right:additive { left < right ? 1 : 0 }
+	/ left:relational _ ">" _ right:additive { left > right ? 1 : 0 }
+	/ left:relational _ "<=" _ right:additive { left <= right ? 1 : 0 }
+	/ left:relational _ ">=" _ right:additive { left >= right ? 1 : 0 }
+	/ left:relational _ "==" _ right:additive { left == right ? 1 : 0 }
+	/ left:relational _ "!=" _ right:additive { left != right ? 1 : 0 }
+	/ additive
+
+additive <int> -memoize
+	= left:additive _ "+" _ right:multiplicative { left + right }
+	/ left:additive _ "-" _ right:multiplicative { left - right }
+	/ multiplicative
+
+multiplicative <int> -memoize
+	= left:multiplicative _ "*" _ right:primary { left * right }
+	/ left:multiplicative _ "/" _ right:primary { left / right }
+	/ primary
+
+primary <int> -memoize
+	= "defined" _ "(" _ symbol:symbol _ ")" { symbol }
+	/ symbol
+	/ "!" primary:primary { primary != 0 ? 0 : 1 }
+	/ "-" primary:primary { -primary }
+	/ "(" _ primary:relational _ ")" { primary }
+
+symbol <int>
+	= value:("" [0-9]+) { Int32.Parse(value) }
+	/ value:("" [A-Za-z][A-Za-z0-9_]*) { Int32.Parse(GetSymbol(value)) }
+
+_ = [ \t\r\n]*
+
+EOF
+  = !.
+  / unexpected:. #error{ "Unexpected character '" + unexpected + "'." }

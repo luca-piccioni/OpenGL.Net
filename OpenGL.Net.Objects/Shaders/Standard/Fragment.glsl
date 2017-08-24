@@ -60,8 +60,6 @@ void main()
 #endif
 }
 
-vec4 ComputeLightShading(glo_MaterialType material, vec4 eyePosition, vec3 normal);
-
 void mainLightingPerFragment()
 {
 	// Material initially defined by uniform colors

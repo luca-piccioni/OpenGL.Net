@@ -11,8 +11,8 @@ namespace OpenGL.Objects.Test
 		public void ExampleCreateVertexArrays(GraphicsContext ctx)
 		{
 			VertexArrays vao = new VertexArrays();
-			ArrayBuffer<Vertex3f> aboPosition = new ArrayBuffer<Vertex3f>(BufferHint.StaticCpuDraw);
-			ArrayBuffer<ColorRGBAF> aboColor = new ArrayBuffer<ColorRGBAF>(BufferHint.StaticCpuDraw);
+			ArrayBuffer<Vertex3f> aboPosition = new ArrayBuffer<Vertex3f>(BufferUsage.StaticDraw);
+			ArrayBuffer<ColorRGBAF> aboColor = new ArrayBuffer<ColorRGBAF>(BufferUsage.StaticDraw);
 			
 			// ... create buffers ...
 			
@@ -56,7 +56,7 @@ namespace OpenGL.Objects.Test
 			
 		// ... create and setup buffers ...
 
-		ElementBuffer<int> indexBuffer = new ElementBuffer<int>(BufferHint.StaticCpuDraw);
+		ElementBuffer<int> indexBuffer = new ElementBuffer<int>(BufferUsage.StaticDraw);
 
 		indexBuffer.Create(new int[] { 0, 1, 2, 3, 2, 1 });
 
