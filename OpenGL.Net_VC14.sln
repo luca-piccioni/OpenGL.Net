@@ -101,8 +101,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle.CoreUI", "Sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Objects_net461", "OpenGL.Net.Objects\OpenGL.Net.Objects_net461.csproj", "{01314A39-AE2A-44F6-BA14-8C961583C75C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Objects_net35", "OpenGL.Net.Objects\OpenGL.Net.Objects_net35.csproj", "{A73EE465-4E0D-4513-882D-29CA79F734F5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloObjects_net461", "Samples\HelloObjects\HelloObjects_net461.csproj", "{F8ADB90D-C402-448D-A0E9-60F71883FFAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{0483B87E-5DFD-4E7C-A581-46CB9E719D0C}"
@@ -128,6 +126,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.WinForms.Test", "OpenGL.Net.WinForms.Test\OpenGL.Net.WinForms.Test.csproj", "{9C7DE463-47E4-49E3-9ECC-E892B48851D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloObjects_monodroid", "Samples\HelloObjects\HelloObjects_monodroid.csproj", "{0E0C62CB-3C9D-4632-B4C5-4B9DA8A7B7CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Objects.Test_net461", "OpenGL.Net.Objects.Test\OpenGL.Net.Objects.Test_net461.csproj", "{F53609AC-A012-4067-B122-7436832021BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -365,14 +365,6 @@ Global
 		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Release|x86.ActiveCfg = Release|x86
 		{01314A39-AE2A-44F6-BA14-8C961583C75C}.Release|x86.Build.0 = Release|x86
-		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Debug|x86.ActiveCfg = Debug|x86
-		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Debug|x86.Build.0 = Debug|x86
-		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Release|x86.ActiveCfg = Release|x86
-		{A73EE465-4E0D-4513-882D-29CA79F734F5}.Release|x86.Build.0 = Release|x86
 		{F8ADB90D-C402-448D-A0E9-60F71883FFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8ADB90D-C402-448D-A0E9-60F71883FFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8ADB90D-C402-448D-A0E9-60F71883FFAC}.Debug|x86.ActiveCfg = Debug|x86
@@ -417,6 +409,14 @@ Global
 		{0E0C62CB-3C9D-4632-B4C5-4B9DA8A7B7CC}.Release|x86.ActiveCfg = Release|Any CPU
 		{0E0C62CB-3C9D-4632-B4C5-4B9DA8A7B7CC}.Release|x86.Build.0 = Release|Any CPU
 		{0E0C62CB-3C9D-4632-B4C5-4B9DA8A7B7CC}.Release|x86.Deploy.0 = Release|Any CPU
+		{F53609AC-A012-4067-B122-7436832021BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53609AC-A012-4067-B122-7436832021BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F53609AC-A012-4067-B122-7436832021BB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F53609AC-A012-4067-B122-7436832021BB}.Debug|x86.Build.0 = Debug|Any CPU
+		{F53609AC-A012-4067-B122-7436832021BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F53609AC-A012-4067-B122-7436832021BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F53609AC-A012-4067-B122-7436832021BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{F53609AC-A012-4067-B122-7436832021BB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -451,5 +451,6 @@ Global
 		{F8ADB90D-C402-448D-A0E9-60F71883FFAC} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{9C7DE463-47E4-49E3-9ECC-E892B48851D2} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
 		{0E0C62CB-3C9D-4632-B4C5-4B9DA8A7B7CC} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
+		{F53609AC-A012-4067-B122-7436832021BB} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
 	EndGlobalSection
 EndGlobal
