@@ -158,7 +158,55 @@ namespace OpenGL
 			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
 
-			return (new GlslVersion(versionMajor, versionMinor, versionRev, KhronosVersion.ApiGlsl));
+			string api = ApiGlsl;
+
+			if (Regex.IsMatch(input, @"\sES\s"))
+				api = ApiEssl;
+
+			return (new GlslVersion(versionMajor, versionMinor, versionRev, api));
+		}
+
+		/// <summary>
+		/// Parse a GlslVersion from a string.
+		/// </summary>
+		/// <param name="input">
+		/// A <see cref="String"/> that specifies the API version.
+		/// </param>
+		/// <param name="api">
+		/// 
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="KhronosVersion"/> based on the pattern recognized in <paramref name="input"/>.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="input"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if no pattern is recognized in <paramref name="input"/>.
+		/// </exception>
+		public static new GlslVersion Parse(string input, string api)
+		{
+			if (input == null)
+				throw new ArgumentNullException("input");
+
+			GlslVersion glslVersion = Parse(input);
+
+			switch (api) {
+				case null:
+					break;
+				case ApiGl:
+				case ApiGlsl:
+					glslVersion = new GlslVersion(glslVersion.Major, glslVersion.Minor, glslVersion.Revision, ApiGlsl);
+					break;
+				case ApiGles2:
+				case ApiEssl:
+					glslVersion = new GlslVersion(glslVersion.Major, glslVersion.Minor, glslVersion.Revision, ApiEssl);
+					break;
+				default:
+					throw new NotSupportedException("api '" + api + "' not supported");
+			}
+
+			return (glslVersion);
 		}
 
 		#endregion

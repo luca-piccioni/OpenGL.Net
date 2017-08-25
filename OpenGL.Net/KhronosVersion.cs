@@ -215,9 +215,14 @@ namespace OpenGL
 		public const string ApiVg = "vg";
 
 		/// <summary>
-		/// OpenGL GLSL. Not really an API, but let KhronosVersion be consistent.
+		/// OpenGL GLSL.
 		/// </summary>
 		public const string ApiGlsl = "glsl";
+
+		/// <summary>
+		/// OpenGL ESSL.
+		/// </summary>
+		public const string ApiEssl = "essl";
 
 		/// <summary>
 		/// OpenWF Composition API.

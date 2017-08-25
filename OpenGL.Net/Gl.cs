@@ -139,8 +139,9 @@ namespace OpenGL
 							glslVersion = GetString(StringName.ShadingLanguageVersion);
 							break;
 					}
+
 					if (glslVersion != null)
-						_CurrentShadingVersion = GlslVersion.Parse(glslVersion);
+						_CurrentShadingVersion = GlslVersion.Parse(glslVersion, _CurrentVersion.Api);
 
 					// Vendor/Render information
 					_Vendor = GetString(StringName.Vendor);
