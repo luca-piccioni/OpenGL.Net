@@ -133,128 +133,6 @@ namespace OpenGL.Objects
 		#region Preprocessor Symbols
 
 		/// <summary>
-		/// Set a preprocessor symbol controlling the shader compilation.
-		/// </summary>
-		/// <param name="def">
-		/// A <see cref="String"/> representing the symbol string. This string will be
-		/// presented after a <i>#define</i> preprocessor directive (i.e. "SYMBOL 1").
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="def"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if the parameter <paramref name="def"/> does not define a symbol
-		/// name (i.e. an empty string) or if <paramref name="def"/> defines a symbol already defined.
-		/// </exception>
-		public void DefineSymbol(string def)
-		{
-			if (def == null)
-				throw new ArgumentNullException("def");
-
-			string symbol = GetDefineSymbol(def);
-
-			if (IsDefinedSymbol(symbol))
-				throw new ArgumentException(String.Format("symbol '{0}' already defined", symbol), "def");
-
-			// Set symbol
-			_Define.Add(def);
-		}
-
-		/// <summary>
-		/// Set a preprocessor symbol controlling the shader compilation.
-		/// </summary>
-		/// <param name="def">
-		/// A <see cref="String"/> representing the symbol string. This string will be
-		/// presented after a <i>#define</i> preprocessor directive (i.e. "SYMBOL 1").
-		/// </param>
-		/// <param name="override">
-		/// A <see cref="Boolean"/> indicating whether <paramref name="def"/> shall override
-		/// the already registered symbol, if any.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="def"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if the parameter <paramref name="def"/> does not define a symbol
-		/// name (i.e. an empty string) or if <paramref name="def"/> defines a symbol already defined.
-		/// </exception>
-		public void DefineSymbol(string def, bool @override)
-		{
-			// Override symbol
-			if (@override) {
-				string symbol = GetDefineSymbol(def);
-
-				if (IsDefinedSymbol(symbol))
-					RemoveSymbol(symbol);
-			}
-
-			DefineSymbol(def);
-		}
-
-		/// <summary>
-		/// Check whether a specific preprocessor symbol is defined.
-		/// </summary>
-		/// <param name="symbol">
-		/// A <see cref="String"/> representing the symbol string. Only the first token of the symbol
-		/// has to be specified.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether <paramref name="symbol"/> is defined or not.
-		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="symbol"/> is null.
-		/// </exception>
-		public bool IsDefinedSymbol(string symbol)
-		{
-			if (symbol == null)
-				throw new ArgumentNullException("symbol");
-
-			return (_Define.Exists(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); }));
-		}
-
-		public string GetSymbol(string symbol)
-		{
-			if (symbol == null)
-				throw new ArgumentNullException("symbol");
-
-			return (_Define.Find(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); }));
-		}
-
-		/// <summary>
-		/// Remove a symbol definition.
-		/// </summary>
-		/// <param name="symbol">
-		/// A <see cref="String"/> representing the symbol string. Only the first token of the symbol
-		/// has to be specified.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="symbol"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// This exception is thrown if the parameter <paramref name="symbol"/> is not defined.
-		/// </exception>
-		public void RemoveSymbol(string symbol)
-		{
-			if (symbol == null)
-				throw new ArgumentNullException("symbol");
-
-			int symbolIndex = _Define.FindIndex(delegate(string item) { return (Regex.IsMatch(item, String.Format(@"{0}(\s+|\(|$)", symbol))); });
-
-			if (symbolIndex < 0)
-				throw new ArgumentException("not defined", "symbol");
-
-			_Define.RemoveAt(symbolIndex);
-		}
-
-		/// <summary>
-		/// Remove all symbols definition.
-		/// </summary>
-		public void RemoveSymbols()
-		{
-			_Define.Clear();
-		}
-
-		/// <summary>
 		/// #define preprocessor directives used for compilation.
 		/// </summary>
 		[XmlElement("PreprocessorSymbol")]
@@ -268,31 +146,9 @@ namespace OpenGL.Objects
 			}
 		}
 
-		private static string GetDefineSymbol(string define)
-		{
-			if (define == null)
-				throw new ArgumentNullException("define");
-
-			string[] defTokens = define.Split(new char[] { ' ', '\t', '(' }, StringSplitOptions.RemoveEmptyEntries);
-
-			if (defTokens.Length <= 0)
-				throw new ArgumentException(String.Format("invalid value '{0}'", define), "define");
-
-			return (defTokens[0]);
-		}
-
 		/// <summary>
 		/// #define preprocessor directives used for compilation.
 		/// </summary>
-		/// <remarks>
-		/// <para>
-		/// The list has to be sorted for being independent on symbols order. This is mandatory for
-		/// managing shaders caching.
-		/// </para>
-		/// <para>
-		/// This imply that the symbol
-		/// </para>
-		/// </remarks>
 		private readonly List<string> _Define = new List<string>();
 
 		#endregion

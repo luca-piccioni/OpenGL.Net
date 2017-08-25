@@ -26,7 +26,7 @@ namespace OpenGL.Objects.Test
 	/// <summary>
 	/// Test ShadersLibrary class.
 	/// </summary>
-	[TestFixture]
+	[TestFixture(Category = @"Objects\ShadersLibrary")]
 	class ShadersLibraryTest : TestBase
 	{
 		[Test(Description = "Test CreateProgram(string)")]

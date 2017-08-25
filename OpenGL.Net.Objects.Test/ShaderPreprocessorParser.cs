@@ -21,17 +21,23 @@ namespace OpenGL.Objects.Test
 			
 			// Symbols can be undefined
 			Assert.IsFalse(parser.IsDefined("SYMBOL"));
-			Assert.IsFalse(parser.IsDefined("defined(SYMBOL)"));
+			// Trying to get the value of an undefined symbol will throw an exception
+			Assert.Throws<InvalidOperationException>(delegate() { parser.GetSymbol("SYMBOL"); });
 
 			// Symbol can be defined without associating a value
 			parser.Define("SYMBOL", null);
-
 			Assert.IsTrue(parser.IsDefined("SYMBOL"));
+			// Trying to get the value of an null symbol will throw an exception
+			Assert.Throws<InvalidOperationException>(delegate() { parser.GetSymbol("SYMBOL"); });
 
 			// If symbol is already defined, do not throw any exception
 			Assert.DoesNotThrow(delegate() { parser.Define("SYMBOL", null); });
+			Assert.IsTrue(parser.IsDefined("SYMBOL"));
+
 			Assert.DoesNotThrow(delegate() { parser.Define("SYMBOL", "115"); });
 			Assert.IsTrue(parser.IsDefined("SYMBOL"));
+			Assert.DoesNotThrow(delegate() { parser.GetSymbol("SYMBOL"); });
+			Assert.AreEqual("115", parser.GetSymbol("SYMBOL"));
 		}
 
 		[Test(Description = "Test EvaluateExpression method")]
@@ -40,38 +46,30 @@ namespace OpenGL.Objects.Test
 			ShaderPreprocessorParser parser = new ShaderPreprocessorParser();
 			
 			// Symbols can be undefined
-			Assert.IsFalse(parser.EvaluateExpression("SYMBOL"));
+			Assert.Throws<InvalidOperationException>(delegate() { parser.EvaluateExpression("SYMBOL"); });
 			Assert.IsFalse(parser.EvaluateExpression("defined(SYMBOL)"));
+			Assert.IsFalse(parser.EvaluateExpression("defined SYMBOL"));
+			Assert.IsFalse(parser.EvaluateExpression("defined ( SYMBOL )"));
 
 			// Symbol can be defined without associating a value
 			parser.Define("SYMBOL", null);
+
+			Assert.Throws<InvalidOperationException>(delegate() { parser.EvaluateExpression("SYMBOL"); });
+			Assert.Throws<InvalidOperationException>(delegate() { parser.EvaluateExpression("(SYMBOL)"); });
+			Assert.Throws<InvalidOperationException>(delegate() { parser.EvaluateExpression("( SYMBOL )"); });
+			Assert.IsTrue(parser.EvaluateExpression("defined(SYMBOL)"));
+			Assert.IsTrue(parser.EvaluateExpression("defined SYMBOL"));
+			Assert.IsTrue(parser.EvaluateExpression("defined ( SYMBOL )"));
+
+			// Symbol can be re-defined
+			parser.Define("SYMBOL", "1");
 
 			Assert.IsTrue(parser.EvaluateExpression("SYMBOL"));
 			Assert.IsTrue(parser.EvaluateExpression("(SYMBOL)"));
 			Assert.IsTrue(parser.EvaluateExpression("( SYMBOL )"));
 			Assert.IsTrue(parser.EvaluateExpression("defined(SYMBOL)"));
+			Assert.IsTrue(parser.EvaluateExpression("defined SYMBOL"));
 			Assert.IsTrue(parser.EvaluateExpression("defined ( SYMBOL )"));
-
-			parser.Define("SYMBOL", "115");
-
-			Assert.IsTrue(parser.EvaluateExpression("SYMBOL == 115"));
-			Assert.IsTrue(parser.EvaluateExpression("(SYMBOL == 115)"));
-			Assert.IsTrue(parser.EvaluateExpression("( SYMBOL == 115 )"));
-			Assert.IsFalse(parser.EvaluateExpression("SYMBOL != 115"));
-			Assert.IsFalse(parser.EvaluateExpression("(SYMBOL != 115)"));
-			Assert.IsFalse(parser.EvaluateExpression("( SYMBOL != 115 )"));
-			Assert.IsTrue(parser.EvaluateExpression("SYMBOL >= 115"));
-			Assert.IsTrue(parser.EvaluateExpression("(SYMBOL >= 115)"));
-			Assert.IsTrue(parser.EvaluateExpression("( SYMBOL >= 115 )"));
-			Assert.IsTrue(parser.EvaluateExpression("SYMBOL <= 115"));
-			Assert.IsTrue(parser.EvaluateExpression("(SYMBOL <= 115)"));
-			Assert.IsTrue(parser.EvaluateExpression("( SYMBOL <= 115 )"));
-			Assert.IsFalse(parser.EvaluateExpression("SYMBOL < 115"));
-			Assert.IsFalse(parser.EvaluateExpression("(SYMBOL < 115)"));
-			Assert.IsFalse(parser.EvaluateExpression("( SYMBOL < 115 )"));
-			Assert.IsFalse(parser.EvaluateExpression("SYMBOL > 115"));
-			Assert.IsFalse(parser.EvaluateExpression("(SYMBOL > 115)"));
-			Assert.IsFalse(parser.EvaluateExpression("( SYMBOL > 115 )"));
 		}
 
 		[Test(Description = "Test EvaluateExpression method")]
@@ -80,25 +78,14 @@ namespace OpenGL.Objects.Test
 			ShaderPreprocessorParser parser = new ShaderPreprocessorParser();
 
 			Assert.IsTrue(parser.EvaluateExpression("1"));
+			Assert.IsTrue(parser.EvaluateExpression("(1)"));
+
 			Assert.IsTrue(parser.EvaluateExpression("2"));
+			Assert.IsTrue(parser.EvaluateExpression("(2)"));
+
 			Assert.IsFalse(parser.EvaluateExpression("0"));
-		}
-
-		[Test(Description = "Test EvaluateExpression method")]
-		public void TestEvaluateExpression_Symbol()
-		{
-			ShaderPreprocessorParser parser = new ShaderPreprocessorParser();
-
-			Assert.IsFalse(parser.EvaluateExpression("SYMBOL"));
-
-			parser.Define("SYMBOL", "1");
-			Assert.IsTrue(parser.EvaluateExpression("SYMBOL"));
-
-			parser.Define("SYMBOL", "2");
-			Assert.IsTrue(parser.EvaluateExpression("SYMBOL"));
-
-			parser.Define("SYMBOL", "0");
-			Assert.IsFalse(parser.EvaluateExpression("SYMBOL"));
+			Assert.IsFalse(parser.EvaluateExpression("(0)"));
+			Assert.IsFalse(parser.EvaluateExpression("( 0 )"));
 		}
 
 		[Test(Description = "Test EvaluateExpression method")]
@@ -108,8 +95,6 @@ namespace OpenGL.Objects.Test
 
 			Assert.IsFalse(parser.EvaluateExpression("0 > 1"));
 			Assert.IsTrue (parser.EvaluateExpression("1 > 0"));
-
-			parser.Define("__VERSION__", "150");
 		}
 	}
 }

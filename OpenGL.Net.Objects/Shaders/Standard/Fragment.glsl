@@ -41,24 +41,7 @@ SHADER_IN vec4 glo_VertexPositionModelView;
 // Fragment color
 OUT vec4		glo_FragColor;
 
-void mainLightingPerFragment();
-void mainLightingPerVertex();
-void mainTextured();
-
-void main()
-{
 #if defined(GLO_LIGHTING_PER_FRAGMENT)
-	mainLightingPerFragment();
-#elif defined(GLO_LIGHTING_PER_VERTEX)
-	mainLightingPerVertex();
-#elif defined(GLO_COLOR_PER_VERTEX)
-	glo_FragColor = glo_VertexColor;
-#elif defined(GLO_TEXTURED)
-	mainTextured();
-#else
-	glo_FragColor = glo_UniformColor;
-#endif
-}
 
 void mainLightingPerFragment()
 {
@@ -112,6 +95,10 @@ void mainLightingPerFragment()
 #endif
 }
 
+#endif
+
+#if defined(GLO_LIGHTING_PER_VERTEX)
+
 void mainLightingPerVertex()
 {
 	int index;
@@ -127,6 +114,10 @@ void mainLightingPerVertex()
 		glo_FragColor = TEXTURE_2D(glo_FrontMaterialDiffuseTexture, glo_VertexTexCoord[index]) * glo_FragColor;
 }
 
+#endif
+
+#if defined(GLO_TEXTURED)
+
 uniform sampler2D glo_Texture;
 
 void mainTextured()
@@ -138,4 +129,21 @@ void mainTextured()
 #endif
 
 	glo_FragColor = TEXTURE_2D(glo_Texture, glo_VertexTexCoord[0]) * envColor;
+}
+
+#endif
+
+void main()
+{
+#if defined(GLO_LIGHTING_PER_FRAGMENT)
+	mainLightingPerFragment();
+#elif defined(GLO_LIGHTING_PER_VERTEX)
+	mainLightingPerVertex();
+#elif defined(GLO_COLOR_PER_VERTEX)
+	glo_FragColor = glo_VertexColor;
+#elif defined(GLO_TEXTURED)
+	mainTextured();
+#else
+	glo_FragColor = glo_UniformColor;
+#endif
 }

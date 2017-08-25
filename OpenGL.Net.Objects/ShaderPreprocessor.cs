@@ -32,7 +32,53 @@ namespace OpenGL.Objects
 	/// </summary>
 	static class ShaderPreprocessor
 	{
-		#region Includer
+		#region Text Processing
+
+		/// <summary>
+		/// Text processing stages.
+		/// </summary>
+		[Flags]
+		public enum Stage
+		{
+			/// <summary>
+			/// Process #include directives.
+			/// </summary>
+			Includes =			0x01,
+			/// <summary>
+			/// Process conditional directives.
+			/// </summary>
+			Conditionals =		0x02,
+			/// <summary>
+			/// All implemented stages.
+			/// </summary>
+			All = Includes | Conditionals
+		}
+
+		/// <summary>
+		/// Process a source using the preprocessor.
+		/// </summary>
+		/// <param name="shaderSource"></param>
+		/// <returns></returns>
+		public static List<string> Process(List<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary, Stage stages)
+		{
+			if (shaderSource == null)
+				throw new ArgumentNullException("shaderSource");
+			if (cctx == null)
+				throw new ArgumentNullException("cctx");
+
+			List<string> processedSource = shaderSource;
+
+			if ((stages & Stage.Includes) != 0)
+				processedSource = ProcessIncludes(processedSource, cctx, includeLibrary);
+			if ((stages & Stage.Conditionals) != 0)
+				processedSource = ProcessConditionals(processedSource, cctx);
+
+			return (processedSource);
+		}
+
+		#endregion
+
+		#region Includes
 
 		/// <summary>
 		/// 
@@ -48,15 +94,15 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Process shader source lines to resolve #include directives.
 		/// </summary>
-		/// <param name="includeLibrary">
-		/// A <see cref="ShaderIncludeLibrary"/> determining the shader include file system.
+		/// <param name="shaderSource">
+		/// A <see cref="IEnumerable{String}"/> that specify the shader source lines. Null items in the enumeration
+		/// will be ignored.
 		/// </param>
 		/// <param name="cctx">
 		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameteres.
 		/// </param>
-		/// <param name="shaderSource">
-		/// A <see cref="IEnumerable{String}"/> that specify the shader source lines. Null items in the enumeration
-		/// will be ignored.
+		/// <param name="includeLibrary">
+		/// A <see cref="ShaderIncludeLibrary"/> determining the shader include file system.
 		/// </param>
 		/// <returns>
 		/// It returns the processed source lines <paramref name="shaderSource"/>, but without any #include directive. Each #include
@@ -69,7 +115,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="includeLibrary"/>, <paramref name="cctx"/> or <paramref name="shaderSource"/> is null.
 		/// </exception>
-		public static List<string> ProcessIncludes(ShaderIncludeLibrary includeLibrary, ShaderCompilerContext cctx, List<string> shaderSource)
+		private static List<string> ProcessIncludes(List<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary)
 		{
 			if (includeLibrary == null)
 				throw new ArgumentNullException("includeLibrary");
@@ -80,10 +126,10 @@ namespace OpenGL.Objects
 
 			IncludeProcessorContext ictx = new IncludeProcessorContext();
 
-			return (ProcessIncludes(includeLibrary, cctx, ictx, shaderSource));
+			return (ProcessIncludes(shaderSource, cctx, includeLibrary, ictx));
 		}
 
-		private static List<string> ProcessIncludes(ShaderIncludeLibrary includeLibrary, ShaderCompilerContext cctx, IncludeProcessorContext ictx, IEnumerable<string> shaderSource)
+		private static List<string> ProcessIncludes(IEnumerable<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary, IncludeProcessorContext ictx)
 		{
 			if (includeLibrary == null)
 				throw new ArgumentNullException("includeLibrary");
@@ -91,14 +137,15 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("cctx");
 			if (shaderSource == null)
 				throw new ArgumentNullException("shaderSource");
-			
+
 			List<string> processedSource = new List<string>();
 
 			// Shader includes not supported. Process them manually before submitting shader source text lines.
 
 			foreach (string line in shaderSource) {
 				// Ignore null items
-				if (line == null) continue;
+				if (line == null)
+					continue;
 
 				if ((_RegexInclude.Match(line)).Success) {
 					ShaderInclude shaderInclude = null;
@@ -159,7 +206,7 @@ namespace OpenGL.Objects
 					System.Diagnostics.Debug.Assert(String.IsNullOrEmpty(canonicalPath) == false);
 					ictxRecurse.CurrentPath = canonicalPath;
 
-					processedSource.AddRange(ProcessIncludes(includeLibrary, cctx, ictxRecurse, shaderInclude.Source));
+					processedSource.AddRange(ProcessIncludes(shaderInclude.Source, cctx, includeLibrary, ictxRecurse));
 				} else
 					processedSource.Add(line);
 			}
@@ -176,7 +223,9 @@ namespace OpenGL.Objects
 			string[] tokens = _RegexIncludePathSplit.Split(directive);
 
 			// Remove empty lines
-			tokens = Array.FindAll(tokens, delegate (string s) { return (String.IsNullOrEmpty(s) == false); });
+			tokens = Array.FindAll(tokens, delegate (string s) {
+				return (String.IsNullOrEmpty(s) == false);
+			});
 			if (tokens.Length != 2)
 				throw new ArgumentException("include path contains double-quotes or angle-bracket character");
 
@@ -234,159 +283,96 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Processor
-
-		/// <summary>
-		/// Context collecting the required state for processing a source file.
-		/// </summary>
-		private class ExpressionContext
-		{
-			#region Constructors
-
-			/// <summary>
-			/// Construct a ExpressionContext.
-			/// </summary>
-			public ExpressionContext()
-			{
-				_ActiveStack.Push(true);
-			}
-
-			#endregion
-
-			#region Activeness
-
-			public bool IsActive
-			{
-				get { return (_ActiveStack.Peek()); }
-			}
-
-			public void PushActive()
-			{
-				_ActiveStack.Push(IsActive);
-			}
-
-			public void PopActive()
-			{
-				_ActiveStack.Pop();
-				if (_ActiveStack.Count == 0)
-					throw new InvalidOperationException("stack underflow");
-			}
-
-			public void SetActive(bool active)
-			{
-				_ActiveStack.Pop();
-				_ActiveStack.Push(active);
-			}
-
-			private Stack<bool> _ActiveStack = new Stack<bool>();
-
-			#endregion
-
-			#region Symbols Vector
-
-			public void Define(string statement)
-			{
-
-			}
-
-			public void Define(string symbol, string value)
-			{
-				ExpressionSymbol expSymbol;
-
-				if (_Symbols.TryGetValue(symbol, out expSymbol) == false) {
-
-				}
-			}
-
-			public void Undef(string symbol)
-			{
-				_Symbols.Remove(symbol);
-			}
-
-			public string GetSymbol(string symbol)
-			{
-				ExpressionSymbol expSymbol;
-
-				if (_Symbols.TryGetValue(symbol, out expSymbol) == false)
-					return (expSymbol.Value);
-
-				return (null);
-			}
-
-			private readonly Dictionary<string, ExpressionSymbol> _Symbols = new Dictionary<string, ExpressionSymbol>();
-
-			#endregion
-		}
-
-		/// <summary>
-		/// Preprocessor symbol/value pair.
-		/// </summary>
-		private class ExpressionSymbol
-		{
-			public ExpressionSymbol(string name)
-			{
-				Name = name;
-				Value = "1";
-			}
-
-			public readonly string Name;
-
-			public string Value;
-		}
+		#region Conditionals
 
 		/// <summary>
 		/// Process a source using the preprocessor.
 		/// </summary>
 		/// <param name="shaderSource"></param>
 		/// <returns></returns>
-		public static List<string> Process(List<string> shaderSource, ShaderCompilerContext cctx)
+		private static List<string> ProcessConditionals(List<string> shaderSource, ShaderCompilerContext cctx)
 		{
 			if (shaderSource == null)
 				throw new ArgumentNullException("shaderSource");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
-			
+
 			ShaderPreprocessorParser expressionEvaluator = new ShaderPreprocessorParser();
 			List<string> processedSource = new List<string>();
 
 			// Define system preprocessor symbols
+			// TODO: support __FILE__ and __LINE__
 			expressionEvaluator.Define("__VERSION__", cctx.ShaderVersion.VersionId.ToString());
+			if (cctx.ShaderVersion.Api == KhronosVersion.ApiGles2)
+				expressionEvaluator.Define("GL_ES", "1");
 			// Define user preprocessor symbols
 			foreach (string symbol in cctx.Defines)
-				expressionEvaluator.Define(symbol);
+				expressionEvaluator.Define(symbol, "1");
 
 			foreach (string sourceLine in shaderSource) {
 				Match match;
 
 				if ((match = _RegexPreprocessorExpression.Match(sourceLine)).Success) {
 					string op = match.Groups["Op"].Value;
-					string expr = match.Groups["Expr"].Value;
+					string expr = match.Groups["Expr"].Success ? match.Groups["Expr"].Value : null;
+
+					// TODO: support empty # directive
 
 					switch (op) {
 						case "if":
-							expressionEvaluator.PushActive();
-							expressionEvaluator.SetActive(expressionEvaluator.EvaluateExpression(expr));
+							if (expr == null)
+								throw new InvalidOperationException("invalid #if directive");
+							expressionEvaluator.If(expr);
 							break;
 						case "ifdef":
-							expressionEvaluator.PushActive();
-							expressionEvaluator.SetActive(expressionEvaluator.EvaluateExpression(expr));
+							if (expr == null)
+								throw new InvalidOperationException("invalid #ifdef directive");
+							expressionEvaluator.IfDef(expr);
+							break;
+						case "ifndef":
+							if (expr == null)
+								throw new InvalidOperationException("invalid #ifndef directive");
+							expressionEvaluator.IfNDef(expr);
 							break;
 						case "elif":
-							expressionEvaluator.PopActive();
-							expressionEvaluator.PushActive();
-							expressionEvaluator.SetActive(expressionEvaluator.EvaluateExpression(expr));
+							if (expr == null)
+								throw new InvalidOperationException("invalid #elif directive");
+							expressionEvaluator.ElIf(expr);
 							break;
 						case "else":
-							expressionEvaluator.SetActive(!expressionEvaluator.IsActive);
+							if (expr != null)
+								throw new InvalidOperationException("invalid #else directive");
+							expressionEvaluator.Else();
 							break;
 						case "endif":
-							expressionEvaluator.PopActive();
+							if (expr != null)
+								throw new InvalidOperationException("invalid #endif directive");
+							expressionEvaluator.Endif();
 							break;
 						case "define":
-							expressionEvaluator.Define(expr);
+							if (expr == null)
+								throw new InvalidOperationException("invalid #define directive");
+							if (expressionEvaluator.IsActive) {
+								expressionEvaluator.Define(expr);
+								processedSource.Add(sourceLine);
+							}
 							break;
 						case "undef":
-							expressionEvaluator.Undef(expr);
+							if (expr == null)
+								throw new InvalidOperationException("invalid #undef directive");
+							if (expressionEvaluator.IsActive) {
+								expressionEvaluator.Undef(expr);
+								processedSource.Add(sourceLine);
+							}
+							break;
+						case "line":		// TODO: support __LINE__
+						case "version":		// TODO: support __VERSION__ warning (mismatch with cctx.ShaderVersion)
+						case "error":
+						case "pragma":
+						case "extension":
+							// Note: above directives are output as they are, only if the preprocessor is active
+							if (expressionEvaluator.IsActive)
+								processedSource.Add(sourceLine);
 							break;
 						default:
 							throw new NotSupportedException("preprocessor token " + op + " not supported");
@@ -403,7 +389,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Regular expression used for recognizing #include preprocessor directives.
 		/// </summary>
-		private static readonly Regex _RegexPreprocessorExpression = new Regex(@" *# *(?<Op>if|ifdef|elif|else|endif|define|undef) (?<Expr>.*)");
+		private static readonly Regex _RegexPreprocessorExpression = new Regex(@" *# *(?<Op>if|ifdef|ifndef|elif|else|endif|define|undef|error|pragma|extension|version|line)(\n| (?<Expr>.*))");
 
 		#endregion
 	}

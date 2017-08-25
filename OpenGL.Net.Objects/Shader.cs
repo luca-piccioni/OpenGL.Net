@@ -253,13 +253,10 @@ namespace OpenGL.Objects
 			// Append imposed header - Every source shall compile with this header
 			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
 
-			// Special ES2+ preprocessor symbol... not aware of compiler symbols
-			if (ctx.Version.Api == KhronosVersion.ApiGles2)
-				shaderSource.Add("#define GLO_OPENGL_ES\n");
 			// Append required #define statments
 			if (cctx.Defines != null) {
 				foreach (string def in cctx.Defines) {
-					shaderSource.Add(String.Format("#define {0}\n", def));
+					shaderSource.Add(String.Format("#define {0} 1\n", def));
 					Log("  Symbol: {0}", def);
 				}
 			}
@@ -267,12 +264,14 @@ namespace OpenGL.Objects
 			// Append specific source for composing shader essence
 			AppendSourceStrings(shaderSource, shaderSourceStrings);
 
-			// Manage #include preprocessor directives in the case GL_ARB_shading_language_include is not supported
-			if (ctx.Extensions.ShadingLanguageInclude_ARB == false)
-				shaderSource = ShaderPreprocessor.ProcessIncludes(ctx.IncludeLibrary, cctx, shaderSource);
-
 			// Remove comment lines
 			shaderSource = CleanSource(shaderSource);
+
+			// Preprocessing
+			// Manage #include preprocessor directives in the case GL_ARB_shading_language_include is not supported
+			// When #include are replaced, conditionals are processed too
+			if (ctx.Extensions.ShadingLanguageInclude_ARB == false)
+				shaderSource = ShaderPreprocessor.Process(shaderSource, cctx, ctx.IncludeLibrary, ShaderPreprocessor.Stage.All);
 
 			return (shaderSource);
 		}
@@ -339,7 +338,7 @@ namespace OpenGL.Objects
 			if (cctx == null)
 				throw new ArgumentNullException("ctx");
 			if (sourceLines == null)
-				throw new ArgumentNullException("sLines");
+				throw new ArgumentNullException("sourceLines");
 			
 			if ((ctx.Flags & GraphicsContextFlags.EmbeddedProfile) == 0) {
 				// Prepend required shader version
@@ -587,7 +586,7 @@ namespace OpenGL.Objects
 		public override void Create(GraphicsContext ctx)
 		{
 			// Create default compilation
-			_CompilationParams = new ShaderCompilerContext();
+			_CompilationParams = new ShaderCompilerContext(ctx.ShadingVersion);
 			// Base implementation
 			base.Create(ctx);
 		}

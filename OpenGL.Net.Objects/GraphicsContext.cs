@@ -592,14 +592,17 @@ namespace OpenGL.Objects
 			// Get the current OpenGL Shading Language implementation version
 			switch (_Version.Api) {
 				case KhronosVersion.ApiGl:
-				case KhronosVersion.ApiGles2:
 					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
-					Resource.Log("  Shading Language: {0}", _ShadingVersion);
+					break;
+				case KhronosVersion.ApiGles2:
+					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiEssl);
 					break;
 				default:
 					// No Shading Language support
 					break;
 			}
+
+			Resource.Log("  Shading Language: {0}", _ShadingVersion.ToString() ?? "None");
 			
 			// Reserved object name space
 			InitializeNamespace();
@@ -814,7 +817,7 @@ namespace OpenGL.Objects
 		{
 			List<GraphicsContext> namespaceContextes;
 
-			Debug.Assert(_ContextByNamespace.ContainsKey(ObjectNameSpace));
+			// Context may not be indexed by namespace due exceptions in constructors
 			if (_ContextByNamespace.TryGetValue(ObjectNameSpace, out namespaceContextes) == false)
 				return;
 

@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace OpenGL.Objects
@@ -29,30 +30,119 @@ namespace OpenGL.Objects
 	{
 		#region Activeness
 
+		/// <summary>
+		/// Get whether the preprocessor is currently active (i.e. source lines are output).
+		/// </summary>
 		public bool IsActive
 		{
-			get { return (_ActiveStack.Peek()); }
+			get
+			{
+				if (_ConditionStack.Count > 0) {
+					foreach (ConditionalState conditionalState in _ConditionStack)
+						if (!conditionalState.Active)
+							return (false);
+
+					return (true);
+				} else
+					return (true);
+			}
 		}
 
-		public void PushActive()
+		#endregion
+
+		#region Conditional State
+
+		class ConditionalState
 		{
-			_ActiveStack.Push(IsActive);
+			public ConditionalState(string directive, bool active)
+			{
+				Directive = directive;
+				Active = Branched = active;
+			}
+
+			public string Directive;
+
+			public bool Active;
+
+			public bool Branched;
 		}
 
-		public void PopActive()
+		public void If(string statement)
 		{
-			_ActiveStack.Pop();
-			if (_ActiveStack.Count == 0)
-				throw new InvalidOperationException("stack underflow");
+			_ConditionStack.Push(new ConditionalState("if", EvaluateExpression(statement)));
 		}
 
-		public void SetActive(bool active)
+		public void IfDef(string statement)
 		{
-			_ActiveStack.Pop();
-			_ActiveStack.Push(active);
+			_ConditionStack.Push(new ConditionalState("ifdef", IsDefined(statement)));
 		}
 
-		private Stack<bool> _ActiveStack = new Stack<bool>();
+		public void IfNDef(string statement)
+		{
+			_ConditionStack.Push(new ConditionalState("ifndef", !IsDefined(statement)));
+		}
+
+		public void ElIf(string statement)
+		{
+			if (_ConditionStack.Count == 0)
+				throw new InvalidOperationException("#else without the corresponding conditional");
+
+			switch (CurrentDirective) {
+				case "ifdef":
+				case "ifndef":
+				case "else":
+					throw new InvalidOperationException("#elif without the corresponding conditional");
+			}
+
+			if (CurrentCondition.Branched == false)
+				CurrentCondition.Branched |= CurrentCondition.Active = EvaluateExpression(statement);
+		}
+
+		public void Else()
+		{
+			if (_ConditionStack.Count == 0)
+				throw new InvalidOperationException("#else without the corresponding conditional");
+
+			CurrentCondition.Branched |= CurrentCondition.Active = !CurrentCondition.Active;
+			Debug.Assert(CurrentCondition.Branched);
+		}
+
+		public void Endif()
+		{
+			if (_ConditionStack.Count == 0)
+				throw new InvalidOperationException("#endif without the corresponding conditional");
+
+			_ConditionStack.Pop();
+		}
+
+		private string CurrentDirective
+		{
+			get
+			{
+				if (_ConditionStack.Count > 0) {
+					return (CurrentCondition.Directive);
+				} else
+					return (null);
+			}
+
+			set
+			{
+				_ConditionStack.Peek().Directive = value;
+			}
+		}
+
+		private ConditionalState CurrentCondition
+		{
+			get
+			{
+				if (_ConditionStack.Count > 0) {
+					return (_ConditionStack.Peek());
+				} else
+					return (null);
+			}
+		}
+
+		private Stack<ConditionalState> _ConditionStack = new Stack<ConditionalState>();
 
 		#endregion
 
@@ -197,10 +287,13 @@ namespace OpenGL.Objects
 
 			Symbol expSymbol;
 
-			if (_Symbols.TryGetValue(symbol, out expSymbol))
-				return (expSymbol.Value ?? "1");
+			if (_Symbols.TryGetValue(symbol, out expSymbol)) {
+				if (expSymbol.Value == null)
+					throw new InvalidOperationException("undefined symbol '" + symbol + "'");
+				return (expSymbol.Value);
+			}
 
-			return ("0");
+			throw new InvalidOperationException("unknown symbol '" + symbol + "'");
 		}
 
 		/// <summary>
