@@ -68,6 +68,14 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Bind Windows WGL delegates, using a custom delegate.
+		/// </summary>
+		private static void BindAPI(GetAddressDelegate getAddress)
+		{
+			BindAPI<Wgl>(Library, getAddress);
+		}
+
+		/// <summary>
 		/// Default import library.
 		/// </summary>
 		private const string Library = "opengl32.dll";
@@ -131,10 +139,8 @@ namespace OpenGL
 			bool retvalue = MakeCurrentCore(hDc, newContext);
 
 			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
-				// After having a current context on the caller thread, synchronize Gl.Delegates pointers to the actual implementation
-				// Gl.BindAPI(Gl.Version_100, OpenGL.GetProcAddress.GetProcAddressOS);
 				// Get WGL functions pointers (now that the context is current there is changes to load additional procedures using wglGetprocAddress)
-				BindAPI();
+				BindAPI(GetProcAddressGLOS);
 			}
 
 			return (retvalue);
