@@ -204,7 +204,6 @@ namespace OpenGL
 			internal unsafe delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
-			[ThreadStatic]
 			internal static wglCreateImageBufferI3D pwglCreateImageBufferI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
@@ -214,7 +213,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
-			[ThreadStatic]
 			internal static wglDestroyImageBufferI3D pwglDestroyImageBufferI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
@@ -224,7 +222,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, Int32* pSize, UInt32 count);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
-			[ThreadStatic]
 			internal static wglAssociateImageBufferEventsI3D pwglAssociateImageBufferEventsI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
@@ -234,7 +231,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, UInt32 count);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
-			[ThreadStatic]
 			internal static wglReleaseImageBufferEventsI3D pwglReleaseImageBufferEventsI3D;
 
 		}

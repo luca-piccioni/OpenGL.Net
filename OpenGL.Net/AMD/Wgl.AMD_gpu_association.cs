@@ -389,7 +389,6 @@ namespace OpenGL
 			internal unsafe delegate UInt32 wglGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglGetGPUIDsAMD pwglGetGPUIDsAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -399,7 +398,6 @@ namespace OpenGL
 			internal unsafe delegate Int32 wglGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglGetGPUInfoAMD pwglGetGPUInfoAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -409,7 +407,6 @@ namespace OpenGL
 			internal unsafe delegate UInt32 wglGetContextGPUIDAMD(IntPtr hglrc);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglGetContextGPUIDAMD pwglGetContextGPUIDAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -419,7 +416,6 @@ namespace OpenGL
 			internal delegate IntPtr wglCreateAssociatedContextAMD(UInt32 id);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglCreateAssociatedContextAMD pwglCreateAssociatedContextAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -429,7 +425,6 @@ namespace OpenGL
 			internal unsafe delegate IntPtr wglCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int* attribList);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglCreateAssociatedContextAttribsAMD pwglCreateAssociatedContextAttribsAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -439,7 +434,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDeleteAssociatedContextAMD(IntPtr hglrc);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglDeleteAssociatedContextAMD pwglDeleteAssociatedContextAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -449,7 +443,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglMakeAssociatedContextCurrentAMD(IntPtr hglrc);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglMakeAssociatedContextCurrentAMD pwglMakeAssociatedContextCurrentAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -459,7 +452,6 @@ namespace OpenGL
 			internal delegate IntPtr wglGetCurrentAssociatedContextAMD();
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglGetCurrentAssociatedContextAMD pwglGetCurrentAssociatedContextAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
@@ -469,7 +461,6 @@ namespace OpenGL
 			internal unsafe delegate void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
-			[ThreadStatic]
 			internal static wglBlitContextFramebufferAMD pwglBlitContextFramebufferAMD;
 
 		}

@@ -70,7 +70,6 @@ namespace OpenGL
 			internal delegate IntPtr wglGetExtensionsStringEXT();
 
 			[RequiredByFeature("WGL_EXT_extensions_string")]
-			[ThreadStatic]
 			internal static wglGetExtensionsStringEXT pwglGetExtensionsStringEXT;
 
 		}

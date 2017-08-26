@@ -224,7 +224,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_I3D_gamma")]
-			[ThreadStatic]
 			internal static wglGetGammaTableParametersI3D pwglGetGammaTableParametersI3D;
 
 			[RequiredByFeature("WGL_I3D_gamma")]
@@ -234,7 +233,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglSetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_I3D_gamma")]
-			[ThreadStatic]
 			internal static wglSetGammaTableParametersI3D pwglSetGammaTableParametersI3D;
 
 			[RequiredByFeature("WGL_I3D_gamma")]
@@ -244,7 +242,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
 
 			[RequiredByFeature("WGL_I3D_gamma")]
-			[ThreadStatic]
 			internal static wglGetGammaTableI3D pwglGetGammaTableI3D;
 
 			[RequiredByFeature("WGL_I3D_gamma")]
@@ -254,7 +251,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglSetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
 
 			[RequiredByFeature("WGL_I3D_gamma")]
-			[ThreadStatic]
 			internal static wglSetGammaTableI3D pwglSetGammaTableI3D;
 
 		}

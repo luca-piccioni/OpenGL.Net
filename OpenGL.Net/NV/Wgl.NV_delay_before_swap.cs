@@ -77,7 +77,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDelayBeforeSwapNV(IntPtr hDC, float seconds);
 
 			[RequiredByFeature("WGL_NV_delay_before_swap")]
-			[ThreadStatic]
 			internal static wglDelayBeforeSwapNV pwglDelayBeforeSwapNV;
 
 		}

@@ -161,7 +161,6 @@ namespace OpenGL
 			internal unsafe delegate int wglEnumerateVideoDevicesNV(IntPtr hDC, IntPtr* phDeviceList);
 
 			[RequiredByFeature("WGL_NV_present_video")]
-			[ThreadStatic]
 			internal static wglEnumerateVideoDevicesNV pwglEnumerateVideoDevicesNV;
 
 			[RequiredByFeature("WGL_NV_present_video")]
@@ -171,7 +170,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglBindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
 
 			[RequiredByFeature("WGL_NV_present_video")]
-			[ThreadStatic]
 			internal static wglBindVideoDeviceNV pwglBindVideoDeviceNV;
 
 			[RequiredByFeature("WGL_NV_present_video")]
@@ -181,7 +179,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglQueryCurrentContextNV(int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_NV_present_video")]
-			[ThreadStatic]
 			internal static wglQueryCurrentContextNV pwglQueryCurrentContextNV;
 
 		}

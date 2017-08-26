@@ -155,7 +155,6 @@ namespace OpenGL
 			internal delegate bool wglCreateDisplayColorTableEXT(UInt16 id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			[ThreadStatic]
 			internal static wglCreateDisplayColorTableEXT pwglCreateDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
@@ -165,7 +164,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			[ThreadStatic]
 			internal static wglLoadDisplayColorTableEXT pwglLoadDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
@@ -175,7 +173,6 @@ namespace OpenGL
 			internal delegate bool wglBindDisplayColorTableEXT(UInt16 id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			[ThreadStatic]
 			internal static wglBindDisplayColorTableEXT pwglBindDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
@@ -185,7 +182,6 @@ namespace OpenGL
 			internal delegate void wglDestroyDisplayColorTableEXT(UInt16 id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			[ThreadStatic]
 			internal static wglDestroyDisplayColorTableEXT pwglDestroyDisplayColorTableEXT;
 
 		}

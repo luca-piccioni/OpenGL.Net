@@ -295,7 +295,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetSyncValuesOML(IntPtr hdc, Int64* ust, Int64* msc, Int64* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
-			[ThreadStatic]
 			internal static wglGetSyncValuesOML pwglGetSyncValuesOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
@@ -305,7 +304,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetMscRateOML(IntPtr hdc, Int32* numerator, Int32* denominator);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
-			[ThreadStatic]
 			internal static wglGetMscRateOML pwglGetMscRateOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
@@ -315,7 +313,6 @@ namespace OpenGL
 			internal unsafe delegate Int64 wglSwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
-			[ThreadStatic]
 			internal static wglSwapBuffersMscOML pwglSwapBuffersMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
@@ -325,7 +322,6 @@ namespace OpenGL
 			internal unsafe delegate Int64 wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
-			[ThreadStatic]
 			internal static wglSwapLayerBuffersMscOML pwglSwapLayerBuffersMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
@@ -335,7 +331,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglWaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64* ust, Int64* msc, Int64* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
-			[ThreadStatic]
 			internal static wglWaitForMscOML pwglWaitForMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
@@ -345,7 +340,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglWaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64* ust, Int64* msc, Int64* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
-			[ThreadStatic]
 			internal static wglWaitForSbcOML pwglWaitForSbcOML;
 
 		}

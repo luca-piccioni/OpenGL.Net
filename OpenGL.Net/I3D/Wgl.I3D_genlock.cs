@@ -478,7 +478,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglEnableGenlockI3D(IntPtr hDC);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglEnableGenlockI3D pwglEnableGenlockI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -488,7 +487,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDisableGenlockI3D(IntPtr hDC);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglDisableGenlockI3D pwglDisableGenlockI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -498,7 +496,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglIsEnabledGenlockI3D(IntPtr hDC, bool* pFlag);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglIsEnabledGenlockI3D pwglIsEnabledGenlockI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -508,7 +505,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGenlockSourceI3D(IntPtr hDC, UInt32 uSource);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglGenlockSourceI3D pwglGenlockSourceI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -518,7 +514,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetGenlockSourceI3D(IntPtr hDC, UInt32* uSource);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglGetGenlockSourceI3D pwglGetGenlockSourceI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -528,7 +523,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGenlockSourceEdgeI3D(IntPtr hDC, UInt32 uEdge);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglGenlockSourceEdgeI3D pwglGenlockSourceEdgeI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -538,7 +532,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetGenlockSourceEdgeI3D(IntPtr hDC, UInt32* uEdge);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglGetGenlockSourceEdgeI3D pwglGetGenlockSourceEdgeI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -548,7 +541,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGenlockSampleRateI3D(IntPtr hDC, UInt32 uRate);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglGenlockSampleRateI3D pwglGenlockSampleRateI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -558,7 +550,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetGenlockSampleRateI3D(IntPtr hDC, UInt32* uRate);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglGetGenlockSampleRateI3D pwglGetGenlockSampleRateI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -568,7 +559,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGenlockSourceDelayI3D(IntPtr hDC, UInt32 uDelay);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglGenlockSourceDelayI3D pwglGenlockSourceDelayI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -578,7 +568,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglGetGenlockSourceDelayI3D(IntPtr hDC, UInt32* uDelay);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglGetGenlockSourceDelayI3D pwglGetGenlockSourceDelayI3D;
 
 			[RequiredByFeature("WGL_I3D_genlock")]
@@ -588,7 +577,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglQueryGenlockMaxSourceDelayI3D(IntPtr hDC, UInt32* uMaxLineDelay, UInt32* uMaxPixelDelay);
 
 			[RequiredByFeature("WGL_I3D_genlock")]
-			[ThreadStatic]
 			internal static wglQueryGenlockMaxSourceDelayI3D pwglQueryGenlockMaxSourceDelayI3D;
 
 		}

@@ -96,7 +96,6 @@ namespace OpenGL
 			internal delegate bool wglSwapIntervalEXT(int interval);
 
 			[RequiredByFeature("WGL_EXT_swap_control")]
-			[ThreadStatic]
 			internal static wglSwapIntervalEXT pwglSwapIntervalEXT;
 
 			[RequiredByFeature("WGL_EXT_swap_control")]
@@ -106,7 +105,6 @@ namespace OpenGL
 			internal delegate int wglGetSwapIntervalEXT();
 
 			[RequiredByFeature("WGL_EXT_swap_control")]
-			[ThreadStatic]
 			internal static wglGetSwapIntervalEXT pwglGetSwapIntervalEXT;
 
 		}

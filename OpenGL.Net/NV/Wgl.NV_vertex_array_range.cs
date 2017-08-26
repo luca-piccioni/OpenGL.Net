@@ -103,7 +103,6 @@ namespace OpenGL
 			internal delegate IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
-			[ThreadStatic]
 			internal static wglAllocateMemoryNV pwglAllocateMemoryNV;
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
@@ -113,7 +112,6 @@ namespace OpenGL
 			internal unsafe delegate void wglFreeMemoryNV(IntPtr pointer);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
-			[ThreadStatic]
 			internal static wglFreeMemoryNV pwglFreeMemoryNV;
 
 		}

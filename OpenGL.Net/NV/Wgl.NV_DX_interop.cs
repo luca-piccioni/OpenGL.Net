@@ -318,7 +318,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			[ThreadStatic]
 			internal static wglDXSetResourceShareHandleNV pwglDXSetResourceShareHandleNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
@@ -328,7 +327,6 @@ namespace OpenGL
 			internal unsafe delegate IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			[ThreadStatic]
 			internal static wglDXOpenDeviceNV pwglDXOpenDeviceNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
@@ -338,7 +336,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDXCloseDeviceNV(IntPtr hDevice);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			[ThreadStatic]
 			internal static wglDXCloseDeviceNV pwglDXCloseDeviceNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
@@ -348,7 +345,6 @@ namespace OpenGL
 			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			[ThreadStatic]
 			internal static wglDXRegisterObjectNV pwglDXRegisterObjectNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
@@ -358,7 +354,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			[ThreadStatic]
 			internal static wglDXUnregisterObjectNV pwglDXUnregisterObjectNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
@@ -368,7 +363,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			[ThreadStatic]
 			internal static wglDXObjectAccessNV pwglDXObjectAccessNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
@@ -378,7 +372,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			[ThreadStatic]
 			internal static wglDXLockObjectsNV pwglDXLockObjectsNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
@@ -388,7 +381,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
-			[ThreadStatic]
 			internal static wglDXUnlockObjectsNV pwglDXUnlockObjectsNV;
 
 		}

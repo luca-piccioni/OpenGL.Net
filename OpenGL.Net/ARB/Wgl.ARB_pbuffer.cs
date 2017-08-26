@@ -268,7 +268,6 @@ namespace OpenGL
 			internal unsafe delegate IntPtr wglCreatePbufferARB(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[ThreadStatic]
 			internal static wglCreatePbufferARB pwglCreatePbufferARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
@@ -278,7 +277,6 @@ namespace OpenGL
 			internal unsafe delegate IntPtr wglGetPbufferDCARB(IntPtr hPbuffer);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[ThreadStatic]
 			internal static wglGetPbufferDCARB pwglGetPbufferDCARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
@@ -288,7 +286,6 @@ namespace OpenGL
 			internal unsafe delegate int wglReleasePbufferDCARB(IntPtr hPbuffer, IntPtr hDC);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[ThreadStatic]
 			internal static wglReleasePbufferDCARB pwglReleasePbufferDCARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
@@ -298,7 +295,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglDestroyPbufferARB(IntPtr hPbuffer);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[ThreadStatic]
 			internal static wglDestroyPbufferARB pwglDestroyPbufferARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
@@ -308,7 +304,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglQueryPbufferARB(IntPtr hPbuffer, int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[ThreadStatic]
 			internal static wglQueryPbufferARB pwglQueryPbufferARB;
 
 		}

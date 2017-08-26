@@ -338,7 +338,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
-			[ThreadStatic]
 			internal static wglBindTexImageARB pwglBindTexImageARB;
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
@@ -348,7 +347,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
-			[ThreadStatic]
 			internal static wglReleaseTexImageARB pwglReleaseTexImageARB;
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
@@ -358,7 +356,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
-			[ThreadStatic]
 			internal static wglSetPbufferAttribARB pwglSetPbufferAttribARB;
 
 		}

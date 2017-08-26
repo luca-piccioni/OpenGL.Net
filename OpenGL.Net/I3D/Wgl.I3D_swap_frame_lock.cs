@@ -156,7 +156,6 @@ namespace OpenGL
 			internal delegate bool wglEnableFrameLockI3D();
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			[ThreadStatic]
 			internal static wglEnableFrameLockI3D pwglEnableFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
@@ -166,7 +165,6 @@ namespace OpenGL
 			internal delegate bool wglDisableFrameLockI3D();
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			[ThreadStatic]
 			internal static wglDisableFrameLockI3D pwglDisableFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
@@ -176,7 +174,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglIsEnabledFrameLockI3D(bool* pFlag);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			[ThreadStatic]
 			internal static wglIsEnabledFrameLockI3D pwglIsEnabledFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
@@ -186,7 +183,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglQueryFrameLockMasterI3D(bool* pFlag);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			[ThreadStatic]
 			internal static wglQueryFrameLockMasterI3D pwglQueryFrameLockMasterI3D;
 
 		}

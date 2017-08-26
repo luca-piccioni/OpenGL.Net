@@ -116,7 +116,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglMakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
 
 			[RequiredByFeature("WGL_ARB_make_current_read")]
-			[ThreadStatic]
 			internal static wglMakeContextCurrentARB pwglMakeContextCurrentARB;
 
 			[RequiredByFeature("WGL_ARB_make_current_read")]
@@ -126,7 +125,6 @@ namespace OpenGL
 			internal delegate IntPtr wglGetCurrentReadDCARB();
 
 			[RequiredByFeature("WGL_ARB_make_current_read")]
-			[ThreadStatic]
 			internal static wglGetCurrentReadDCARB pwglGetCurrentReadDCARB;
 
 		}

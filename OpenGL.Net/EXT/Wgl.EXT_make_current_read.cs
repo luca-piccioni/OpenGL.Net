@@ -102,7 +102,6 @@ namespace OpenGL
 			internal unsafe delegate bool wglMakeContextCurrentEXT(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
 
 			[RequiredByFeature("WGL_EXT_make_current_read")]
-			[ThreadStatic]
 			internal static wglMakeContextCurrentEXT pwglMakeContextCurrentEXT;
 
 			[RequiredByFeature("WGL_EXT_make_current_read")]
@@ -112,7 +111,6 @@ namespace OpenGL
 			internal delegate IntPtr wglGetCurrentReadDCEXT();
 
 			[RequiredByFeature("WGL_EXT_make_current_read")]
-			[ThreadStatic]
 			internal static wglGetCurrentReadDCEXT pwglGetCurrentReadDCEXT;
 
 		}
