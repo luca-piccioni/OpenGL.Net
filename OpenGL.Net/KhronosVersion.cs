@@ -553,6 +553,9 @@ namespace OpenGL
 			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
 			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
 
+			if (versionMinor >= 10 && versionMinor % 10 == 0)
+				versionMinor /= 10;
+
 			if (Regex.IsMatch(input, "ES")) {
 				switch (versionMajor) {
 					case 1:
