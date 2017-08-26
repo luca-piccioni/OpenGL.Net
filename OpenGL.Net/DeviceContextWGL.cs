@@ -812,7 +812,7 @@ namespace OpenGL
 			if (Wgl.CurrentExtensions.SwapControl_EXT == false)
 				throw new InvalidOperationException("WGL_EXT_swap_control not supported");
 			if ((interval == -1) && (Wgl.CurrentExtensions.SwapControlTear_EXT == false))
-				throw new InvalidOperationException("WGL_EXT_swap_control_ttear not supported");
+				throw new InvalidOperationException("WGL_EXT_swap_control_tear not supported");
 
 			return (Wgl.SwapIntervalEXT(interval));
 		}
