@@ -32,7 +32,7 @@ using Mat4x4 = System.Numerics.Matrix4x4;
 
 namespace OpenGL.Test
 {
-	[TestFixture]
+	[TestFixture()]
 	class Matrix4x4Test : TestBaseBenchmark
 	{
 		#region Constructors
@@ -203,6 +203,7 @@ namespace OpenGL.Test
 		#region GetInverse()
 
 		[Test]
+		[Ignore]
 		public void BenchmarkMatrix4x4_GetInverse_Correctness()
 		{
 			Matrix4x4 matIdentity = new Matrix4x4();
@@ -232,6 +233,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
+		[Ignore]
 		public void BenchmarkMatrix4x4_GetInverse()
 		{
 			RunBenchmarks<Matrix4x4Test>("BenchmarkMatrix4x4_GetInverse");

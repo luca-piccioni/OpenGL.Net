@@ -97,10 +97,6 @@
     <Compile Include="BenchmarkAttribute.cs" />
     <Compile Include="BenchmarkPInvoke.cs" />
     <Compile Include="DeviceContext.cs" />
-    <Compile Include="Gl.VERSION_3_0_ES.cs" />
-    <Compile Include="Gl.VERSION_2_0_ES.cs" />
-    <Compile Include="Gl.VERSION_1_5_ES.cs" />
-    <Compile Include="Gl.VERSION_1_0_ES.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
     <Compile Include="Gl.VERSION_2_0.cs" />
