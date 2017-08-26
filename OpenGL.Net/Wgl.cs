@@ -68,14 +68,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Bind Windows WGL delegates.
-		/// </summary>
-		internal static void BindAPI(GetAddressDelegate getProcAddress)
-		{
-			BindAPI<Wgl>(Library, getProcAddress);
-		}
-
-		/// <summary>
 		/// Default import library.
 		/// </summary>
 		private const string Library = "opengl32.dll";
@@ -93,57 +85,6 @@ namespace OpenGL
 			{
 				return (Delegates.pwglGetExtensionsStringARB != null);
 			}
-		}
-
-		/// <summary>
-		/// The MakeCurrent function makes a specified OpenGL rendering context the calling thread's current rendering context. All subsequent OpenGL
-		/// calls made by the thread are drawn on the device identified by hdc. You can also use MakeCurrent to change the calling thread's current
-		/// rendering context so it's no longer current.
-		/// </summary>
-		/// <param name="hDc">
-		/// Handle to a device context. Subsequent OpenGL calls made by the calling thread are drawn on the device identified by hdc.
-		/// </param>
-		/// <param name="newContext">
-		/// Handle to an OpenGL rendering context that the function sets as the calling thread's rendering context. If hglrc is NULL, the function makes
-		/// the calling thread's current rendering context no longer current, and releases the device context that is used by the rendering context. In this
-		/// case, hdc is ignored. 
-		/// </param>
-		/// <returns>
-		/// When the MakeCurrent function succeeds, the return value is Gl.TRUE; otherwise the return value is Gl.FALSE. To get extended error information, call GetLastError.
-		/// </returns>
-		/// <remarks>
-		/// <para>
-		/// The hdc parameter must refer to a drawing surface supported by OpenGL. It need not be the same hdc that was passed to Wgl.CreateContext when hglrc was created,
-		/// but it must be on the same device and have the same pixel format. GDI transformation and clipping in hdc are not supported by the rendering context. The current
-		/// rendering context uses the hdc device context until the rendering context is no longer current.
-		/// </para>
-		/// <para>
-		/// Before switching to the new rendering context, OpenGL flushes any previous rendering context that was current to the calling thread.
-		/// </para>
-		/// <para>
-		/// A thread can have one current rendering context. A process can have multiple rendering contexts by means of multithreading. A thread must set a current rendering
-		/// context before calling any OpenGL functions. Otherwise, all OpenGL calls are ignored.
-		/// </para>
-		/// <para>
-		/// A rendering context can be current to only one thread at a time. You cannot make a rendering context current to multiple threads.
-		/// </para>
-		/// <para>
-		/// An application can perform multithread drawing by making different rendering contexts current to different threads, supplying each thread with its own rendering
-		/// context and device context.
-		/// </para>
-		/// If an error occurs, the MakeCurrent function makes the thread's current rendering context not current before returning.
-		/// </remarks>
-		public static bool MakeCurrent(IntPtr hDc, IntPtr newContext)
-		{
-			// Make current on device context
-			bool retvalue = MakeCurrentCore(hDc, newContext);
-
-			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
-				// Get WGL functions pointers
-				BindAPI(GetProcAddressGLOS);
-			}
-
-			return (retvalue);
 		}
 
 		#endregion

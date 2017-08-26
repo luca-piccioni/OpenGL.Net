@@ -477,7 +477,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		private static bool MakeCurrentCore(IntPtr hDc, IntPtr newContext)
+		public static bool MakeCurrent(IntPtr hDc, IntPtr newContext)
 		{
 			bool retValue;
 

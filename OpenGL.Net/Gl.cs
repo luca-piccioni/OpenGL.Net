@@ -115,6 +115,17 @@ namespace OpenGL
 					if (windowDevice.MakeCurrent(renderContext) == false)
 						throw new InvalidOperationException("unable to make current", windowDevice.GetPlatformException());
 
+#if !MONODROID
+					// Reload platform function pointers, if required
+					if (Egl.IsRequired == false) {
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
+								Wgl.BindAPI();
+								break;
+						}
+					}
+#endif
+
 					// Query OpenGL informations
 					string glVersion = GetString(StringName.Version);
 					_CurrentVersion = KhronosVersion.Parse(glVersion);

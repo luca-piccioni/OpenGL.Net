@@ -320,9 +320,6 @@
 	<!-- WGL -->
 	
 	<command name="^wglMakeCurrent$">
-		<!-- Overrides implementation name since it's manually implemented in Wgl.cs -->
-		<rename>MakeCurrentCore</rename>
-		<visibility>private</visibility>
 		<!-- WGL commands errors won't be automatically checked by bindings -->
 		<flags>NoGetError</flags>
 	</command>
