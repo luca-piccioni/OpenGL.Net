@@ -48,6 +48,9 @@ namespace OpenGL
 
 				string wglExtensions = null;
 
+				BindAPIFunction<Wgl>(Library, "wglGetExtensionsStringARB", GetProcAddressGL, null, null);
+				BindAPIFunction<Wgl>(Library, "wglGetExtensionsStringEXT", GetProcAddressGL, null, null);
+
 				if (Delegates.pwglGetExtensionsStringARB != null) {
 					wglExtensions = GetExtensionsStringARB(deviceContext.DeviceContext);
 				} else if (Delegates.pwglGetExtensionsStringEXT != null) {

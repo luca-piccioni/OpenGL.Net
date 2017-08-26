@@ -64,15 +64,15 @@ namespace OpenGL
 		/// </summary>
 		internal static void BindAPI()
 		{
-			BindAPI<Wgl>(Library, GetProcAddressOS);
+			BindAPI<Wgl>(Library, GetProcAddressGLOS);
 		}
 
 		/// <summary>
-		/// Bind Windows WGL delegates, using a custom delegate.
+		/// Bind Windows WGL delegates.
 		/// </summary>
-		private static void BindAPI(GetAddressDelegate getAddress)
+		internal static void BindAPI(GetAddressDelegate getProcAddress)
 		{
-			BindAPI<Wgl>(Library, getAddress);
+			BindAPI<Wgl>(Library, getProcAddress);
 		}
 
 		/// <summary>
@@ -139,7 +139,7 @@ namespace OpenGL
 			bool retvalue = MakeCurrentCore(hDc, newContext);
 
 			if ((retvalue == true) && (newContext != IntPtr.Zero)) {
-				// Get WGL functions pointers (now that the context is current there is changes to load additional procedures using wglGetprocAddress)
+				// Get WGL functions pointers
 				BindAPI(GetProcAddressGLOS);
 			}
 
