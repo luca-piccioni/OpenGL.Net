@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -36,7 +37,7 @@ namespace OpenGL.Test
 		{
 			using (TestForm testForm = new TestForm()) {
 				using (System.Threading.Timer taskDelay = new System.Threading.Timer(delegate (object state) {
-					testForm.Close();
+					testForm.Invoke(new Action(delegate() { testForm.Close(); }));
 				}, null, 7500, Timeout.Infinite)) {
 					Application.Run(testForm);
 				}
@@ -46,11 +47,13 @@ namespace OpenGL.Test
 		[Test(Description = "Test Single thread management")]
 		public void TestMultithread()
 		{
+			int closeTimeout = Debugger.IsAttached ? 60000 * 5 : 7500;
+
 			Thread uiThread = new Thread(delegate () {
 				using (TestForm testForm = new TestForm()) {
 					using (System.Threading.Timer taskDelay = new System.Threading.Timer(delegate (object state) {
 						testForm.Close();
-					}, null, 7500, Timeout.Infinite)) {
+					}, null, closeTimeout, Timeout.Infinite)) {
 						Application.Run(testForm);
 					}
 				}
@@ -62,7 +65,7 @@ namespace OpenGL.Test
 				using (TestForm testForm = new TestForm()) {
 					using (System.Threading.Timer taskDelay = new System.Threading.Timer(delegate (object state) {
 						testForm.Close();
-					}, null, 7500, Timeout.Infinite)) {
+					}, null, closeTimeout, Timeout.Infinite)) {
 						Application.Run(testForm);
 					}
 				}
