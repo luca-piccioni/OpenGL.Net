@@ -576,6 +576,38 @@ namespace OpenGL
 
 		#endregion
 
+		#region Compatibility
+
+		/// <summary>
+		/// Check whether this version is compatible with another instance.
+		/// </summary>
+		/// <param name="other">
+		/// A <see cref="KhronosVersion"/> to check for compatibility.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether this KhronosVersion is compatible with <paramref name="other"/>.
+		/// </returns>
+		public bool IsCompatible(KhronosVersion other)
+		{
+			if (other == null)
+				throw new ArgumentNullException("other");
+
+			// Different API are incompatible
+			if (Api != other.Api)
+				return (false);
+
+			if (Major < other.Major)
+				return (false);
+			if (Minor < other.Minor)
+				return (false);
+			if (Revision < other.Revision)
+				return (false);
+
+			return (true);
+		}
+
+		#endregion
+
 		#region Object Overrides
 
 		///<summary>
