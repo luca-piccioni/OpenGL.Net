@@ -24,7 +24,6 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Reflection;
-using System.Collections.Generic;
 
 namespace OpenGL
 {
@@ -40,26 +39,12 @@ namespace OpenGL
 		/// </summary>
 		static Glx()
 		{
-			Initialize();
-		}
-
-		/// <summary>
-		/// Initialize OpenGL namespace static environment. This method shall be called before any other classes methods.
-		/// </summary>
-		public static void Initialize()
-		{
-			if (_Initialized == true)
-				return; // Already initialized
-			_Initialized = true;
-
-			// Load procedures
 			BindAPI();
 		}
 
-		/// <summary>
-		/// Flag indicating whether <see cref="Glx"/> has been initialized.
-		/// </summary>
-		private static bool _Initialized;
+		#endregion
+
+		#region Platform Extensions
 
 		/// <summary>
 		/// OpenGL extension support.
@@ -97,7 +82,7 @@ namespace OpenGL
 		/// <summary>
 		/// Bind Windows EGL delegates.
 		/// </summary>
-		internal static void BindAPI()
+		private static void BindAPI()
 		{
 			try {
 				BindAPI<Glx>(Library, GetProcAddressOS);

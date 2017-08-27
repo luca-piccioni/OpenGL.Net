@@ -45,13 +45,17 @@ namespace OpenGL
 			BindAPI();
 		}
 
+		#endregion
+
+		#region Platform Extensions
+
 		/// <summary>
-		/// OpenGL extension support.
+		/// WGL extension support.
 		/// </summary>
 		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
 
 		/// <summary>
-		/// OpenGL extension support.
+		/// WGL extension support.
 		/// </summary>
 		internal static Extensions _CurrentExtensions;
 
@@ -62,7 +66,17 @@ namespace OpenGL
 		/// <summary>
 		/// Bind Windows WGL delegates.
 		/// </summary>
-		internal static void BindAPI()
+		/// <remarks>
+		/// <para>
+		/// This method will load WGL function pointers. Basic function pointers are loaded at Wgl initialization (i.e. static constructor),
+		/// but the complete set of function pointers can be loaded only when a GL context is made current.
+		/// </para>
+		/// <para>
+		/// In the case OpenGL.Net is initializing (i.e. OPENGL_NET_INIT is not set to NOT), this function doesn't need to be called manually.
+		/// Otherwise, users should call this method after making a GL context current in order to load WGL extensions methods.
+		/// </para>
+		/// </remarks>
+		public static void BindAPI()
 		{
 			BindAPI<Wgl>(Library, GetProcAddressGLOS);
 		}

@@ -27,7 +27,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace OpenGL
 {
@@ -153,7 +152,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region Versions, Extensions and Limits
+		#region Versions & Platform Extensions
 
 		/// <summary>
 		/// EGL version currently implemented.
@@ -224,7 +223,7 @@ namespace OpenGL
 		/// <summary>
 		/// Bind Windows EGL delegates.
 		/// </summary>
-		internal static void BindAPI()
+		private static void BindAPI()
 		{
 			string platformLibrary = GetPlatformLibrary();
 			try {
