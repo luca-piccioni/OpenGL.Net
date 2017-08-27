@@ -23,7 +23,7 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\monodroid\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\monodroid</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;MONODROID</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;MONODROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
