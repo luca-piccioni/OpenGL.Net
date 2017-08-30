@@ -18,6 +18,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -296,8 +297,8 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || _GpuBuffer != null);
-			if (ctx.Extensions.VertexBufferObject_ARB) {
+			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) || _GpuBuffer != null);
+			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES)) {
 				BindCore(ctx);
 
 				_MappedBuffer = Gl.MapBuffer(Target, mask);
@@ -340,7 +341,7 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-			if (ctx.Extensions.VertexBufferObject_ARB) {
+			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES)) {
 				// Unmap buffer object data (resident on server)
 				bool uncorrupted = Gl.UnmapBuffer(Target);
 
@@ -574,7 +575,7 @@ namespace OpenGL.Objects
 			if (base.Exists(ctx) == false)
 				return (false);
 
-			return (ctx.Extensions.VertexBufferObject_ARB ? Gl.IsBuffer(ObjectName) : _GpuBuffer != null);
+			return (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) ? Gl.IsBuffer(ObjectName) : _GpuBuffer != null);
 		}
 
 		/// <summary>
@@ -596,7 +597,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB);
+			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES));
 
 			return (Gl.GenBuffer());
 		}
@@ -623,7 +624,7 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB);
+			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES));
 
 			// Delete buffer object
 			Gl.DeleteBuffers(name);
@@ -668,7 +669,7 @@ namespace OpenGL.Objects
 			// Buffer must be bound
 			ctx.Bind(this, true);
 
-			if (ctx.Extensions.VertexBufferObject_ARB)
+			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES))
 				CreateObject_VertexArrayObjectARB(ctx, clientBufferSize);
 			else
 				CreateObject_Compatible(ctx, clientBufferSize);
@@ -761,7 +762,7 @@ namespace OpenGL.Objects
 		int IBindingResource.GetBindingTarget(GraphicsContext ctx)
 		{
 			// Cannot lazy binding on buffer objects if GL_ARB_vertex_array_object is not supported
-			if (ctx.Extensions.VertexArrayObject_ARB == false)
+			if (!ctx.Extensions.VertexArrayObject_ARB && !ctx.Version.IsCompatible(Gl.Version_200_ES))
 				return (0);
 				
 			// All-in-one implementation for all targets
@@ -801,7 +802,7 @@ namespace OpenGL.Objects
 		/// </param>
 		protected virtual void BindCore(GraphicsContext ctx)
 		{
-			if (ctx.Extensions.VertexBufferObject_ARB)
+			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES))
 				Gl.BindBuffer(Target, ObjectName);
 		}
 
@@ -826,7 +827,7 @@ namespace OpenGL.Objects
 		/// </param>
 		protected virtual void UnbindCore(GraphicsContext ctx)
 		{
-			if (ctx.Extensions.VertexBufferObject_ARB)
+			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES))
 				Gl.BindBuffer(Target, InvalidObjectName);
 		}
 

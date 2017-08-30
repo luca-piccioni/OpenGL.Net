@@ -235,6 +235,7 @@
     <EmbeddedResource Include="Shaders\Light\LightPointImpl.glsl" />
     <EmbeddedResource Include="Shaders\Light\LightSpot.glsl" />
     <EmbeddedResource Include="Shaders\Light\LightSpotImpl.glsl" />
+    <EmbeddedResource Include="Shaders\Viewport.glsl" />
     <PegGrammar Include="ShaderPreprocessorParser.peg" />
   </ItemGroup>
   <ItemGroup>

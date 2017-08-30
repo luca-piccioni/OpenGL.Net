@@ -66,6 +66,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\RB-BumbleBee.mtl" />
+    <AndroidAsset Include="Assets\RB-BumbleBee.obj" />
+    <AndroidAsset Include="Assets\VH-BumbleBee.mtl" />
+    <AndroidAsset Include="Assets\VH-BumbleBee.obj" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
@@ -96,6 +100,18 @@
       <Project>{abb8dfa8-473a-4fc1-85c0-e21680772a58}</Project>
       <Name>OpenGL.Net_net35</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\RB_Bumblebee_TEXTSET_Color_NormX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\RB_BumblebeeEye_MASK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\VH_BumblebeeEngineCasters_TEXTSET_Color_NormX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\VH_BumblebeeNew_TEXTSET_Color_NormX.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

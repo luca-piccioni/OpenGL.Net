@@ -18,7 +18,7 @@
 
 using System;
 using System.Collections.Generic;
-
+using System.Text;
 using NUnit.Framework;
 
 namespace OpenGL.Objects.Test
@@ -77,14 +77,50 @@ namespace OpenGL.Objects.Test
 			}
 		}
 
+		/// <summary>
+		/// Object context.
+		/// </summary>
+		public class ObjectContext
+		{
+			public ObjectContext(string id, ShaderType type)
+			{
+				ObjectId = id;
+				ObjectType = type;
+			}
+
+			/// <summary>
+			/// The identifier of the shader to be compiled.
+			/// </summary>
+			public readonly string ObjectId;
+
+			/// <summary>
+			/// The <see cref="ShaderType"/> of the shader.
+			/// </summary>
+			public readonly ShaderType ObjectType;
+
+			/// <summary>
+			/// Shader compiler parameters.
+			/// </summary>
+			public ShaderCompilerContext CompilerParams;
+
+			public override string ToString()
+			{
+				StringBuilder sb = new StringBuilder();
+
+				sb.AppendFormat("{0}/{1}", ObjectId, ObjectType);
+
+				return (sb.ToString());
+			}
+		}
+
 		[Test(Description = "Test ShaderLibrary objects compilation")]
 		[TestCaseSource("ObjectIds")]
-		public void TestCreateObject(string objectId)
+		public void TestCreateObject(ObjectContext ctx)
 		{
-			ShadersLibrary.Object shaderObjectInfo = ShadersLibrary.Instance.GetObject(objectId);
+			ShadersLibrary.Object shaderObjectInfo = ShadersLibrary.Instance.GetObject(ctx.ObjectId);
 			Assert.IsNotNull(shaderObjectInfo);
 
-			Shader shaderObject = shaderObjectInfo.Create();
+			Shader shaderObject = shaderObjectInfo.Create(ctx.ObjectType);
 			try {
 				Assert.IsNotNull(shaderObject);
 				Assert.DoesNotThrow(delegate { shaderObject.Create(_Context); });
@@ -94,11 +130,20 @@ namespace OpenGL.Objects.Test
 			}
 		}
 
-		public string[] ObjectIds
+		public ObjectContext[] ObjectIds
 		{
 			get
 			{
-				return (ShadersLibrary.Instance.Objects.ConvertAll(delegate (ShadersLibrary.Object item) { return (item.Path); }).ToArray());
+				List<ObjectContext> objectIds = new List<ObjectContext>();
+
+				foreach (ShadersLibrary.Object obj in ShadersLibrary.Instance.Objects) {
+					ObjectContext objContext;
+
+					foreach (ShaderType objStage in obj.Stages)
+						objectIds.Add(new ObjectContext(obj.Path, objStage));
+				}
+
+				return (objectIds.ToArray());
 			}
 		}
 	}

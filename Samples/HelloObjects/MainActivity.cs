@@ -21,6 +21,11 @@ namespace HelloObjects_monodroid
 	{
 		protected override void OnCreate(Bundle bundle)
 		{
+#if DEBUG
+			KhronosApi.Log += KhronosApi_Log;
+			KhronosApi.LogEnabled = true;
+#endif
+
 			// Base implementation
 			base.OnCreate(bundle);
 
@@ -35,17 +40,29 @@ namespace HelloObjects_monodroid
 			glSurface.Render += GlSurface_Render;
 		}
 
+		private void KhronosApi_Log(object sender, KhronosLogEventArgs e)
+		{
+			System.Console.WriteLine(e.ToString());
+		}
+
 		private void GlSurface_ContextCreated(object sender, GLSurfaceViewEventArgs e)
 		{
 			// Wrap GL context with GraphicsContext
 			_Context = new GraphicsContext(e.DeviceContext, e.RenderContext);
 
-			_CubeScene = new SceneGraph();
+			_CubeScene = new SceneGraph(SceneGraphFlags.None);
 			_CubeScene.SceneRoot = new SceneObjectGeometry();
 			_CubeScene.SceneRoot.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 
 			_CubeScene.CurrentView = new SceneObjectCamera();
 			_CubeScene.SceneRoot.Link(_CubeScene.CurrentView);
+
+			SceneObjectGeometry geometry = new SceneObjectGeometry();
+
+			geometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard");
+			geometry.AddGeometry(VertexArrays.CreateSphere(3.0f, 8, 8));
+
+			_CubeScene.SceneRoot.Link(geometry);
 
 			_CubeScene.Create(_Context);
 
@@ -61,15 +78,15 @@ namespace HelloObjects_monodroid
 			Gl.Viewport(0, 0, senderControl.Width, senderControl.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
-			//_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.1f, 100.0f);
-			//_CubeScene.CurrentView.LocalModel.SetIdentity();
-			//_CubeScene.CurrentView.LocalModel.Translate(_ViewStrideLat, _ViewStrideAlt, 0.0f);
-			//_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
-			//_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
-			//_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
-			//_CubeScene.UpdateViewMatrix();
+			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.1f, 100.0f);
+			_CubeScene.CurrentView.LocalModel.SetIdentity();
+			_CubeScene.CurrentView.LocalModel.Translate(_ViewStrideLat, _ViewStrideAlt, 0.0f);
+			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
+			_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
+			_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
+			_CubeScene.UpdateViewMatrix();
 
-			//_CubeScene.Draw(_Context);
+			_CubeScene.Draw(_Context);
 		}
 
 		private void GlSurface_ContextDestroying(object sender, GLSurfaceViewEventArgs e)
@@ -101,7 +118,7 @@ namespace HelloObjects_monodroid
 		/// <summary>
 		/// lever arm of the view-point.
 		/// </summary>
-		private float _ViewLever = 4.0f;
+		private float _ViewLever = 14.0f;
 
 		private float _ViewStrideLat, _ViewStrideAlt;
 	}

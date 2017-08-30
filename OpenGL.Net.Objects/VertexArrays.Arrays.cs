@@ -215,7 +215,7 @@ namespace OpenGL.Objects
 			internal virtual void EnableVertexAttribute(GraphicsContext ctx, uint location, ShaderAttributeType type)
 			{
 				// Avoid rendundant buffer binding and relative vertex array setup
-				if (ctx.Extensions.VertexArrayObject_ARB && IsDirty == false) {
+				if ((ctx.Extensions.VertexArrayObject_ARB || ctx.Version.IsCompatible(Gl.Version_300_ES)) && IsDirty == false) {
 					// CheckVertexAttribute(ctx, location);
 					return;
 				}
@@ -231,6 +231,8 @@ namespace OpenGL.Objects
 					VertexAttribType arrayBaseType = (VertexAttribType)arraySection.ItemType.GetVertexBaseType();
 					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 
+					// Enable vertex attribute
+					Gl.EnableVertexAttribArray(location);
 					// Bind varying attribute to currently bound buffer object
 					switch (ArrayBufferItem.GetArrayBaseType(type)) {
 						case VertexBaseType.Float:
@@ -261,8 +263,6 @@ namespace OpenGL.Objects
 							throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
 					}
 
-					// Enable vertex attribute
-					Gl.EnableVertexAttribArray(location);
 					// Set attribute divisor
 					SetAttributeDivisor(ctx, location, type);
 				} else {
@@ -273,6 +273,8 @@ namespace OpenGL.Objects
 					int arrayLength = (int)columnType.GetArrayLength();
 
 					for (int i = 0; i < arrayRank; i++) {
+						// Enable vertex attribute
+						Gl.EnableVertexAttribArray((uint)(location + i));
 						// Bind varying attribute to currently bound buffer object
 						switch (ArrayBufferItem.GetArrayBaseType(type)) {
 							case VertexBaseType.Float:
@@ -302,8 +304,6 @@ namespace OpenGL.Objects
 							default:
 								throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
 						}
-						// Enable vertex attribute
-						Gl.EnableVertexAttribArray((uint)(location + i));
 						// Set attribute divisor
 						SetAttributeDivisor(ctx, (uint)(location + i), type);
 					}

@@ -99,10 +99,34 @@ namespace OpenGL.Objects
 			public string Path;
 
 			/// <summary>
-			/// Shader object stage.
+			/// Shader object stage. Meaninful only if used under /ShadersLibrary/Programs.
 			/// </summary>
 			[XmlAttribute("Stage")]
 			public ShaderType Stage = ShaderType.VertexShader;
+
+			/// <summary>
+			/// Shader object stages used for testing compilation. Multiple stages are specified by
+			/// separating with spaces stage identifiers (<see cref="ShaderType"/>)
+			/// </summary>
+			[XmlAttribute("TestStage")]
+			public string TestStage;
+
+			/// <summary>
+			/// Shader object stages used for testing compilation.
+			/// </summary>
+			public IEnumerable<ShaderType> Stages
+			{
+				get
+				{
+					if (TestStage != null) {
+						string[] stages = TestStage.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+						foreach (string stage in stages)
+							yield return ((ShaderType)Enum.Parse(typeof(ShaderType), stage));
+					} else
+						yield return (Stage);
+				}
+			}
 
 			/// <summary>
 			/// Preprocessor symbols affecting the shader object compilation.
@@ -117,7 +141,16 @@ namespace OpenGL.Objects
 			/// <returns></returns>
 			public Shader Create()
 			{
-				Shader shaderObject = new Shader(Stage);
+				return (Create(Stage));
+			}
+
+			/// <summary>
+			/// Create a shader object from this Object.
+			/// </summary>
+			/// <returns></returns>
+			public Shader Create(ShaderType stage)
+			{
+				Shader shaderObject = new Shader(stage);
 
 				// Load source
 				shaderObject.LoadSource(Path);

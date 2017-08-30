@@ -161,10 +161,10 @@ namespace OpenGL.Objects
 					ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
 
 					IVertexArray currentVertexArray = _VertexArrayState[attributeBinding.Location];
-					if (ReferenceEquals(shaderVertexArray, currentVertexArray) == false) {
+					//if (ReferenceEquals(shaderVertexArray, currentVertexArray) == false) {
 						shaderVertexArray.SetVertexAttribute(ctx, attributeBinding, attributeName);
 						_VertexArrayState[attributeBinding.Location] = shaderVertexArray;
-					}
+					//}
 					
 					attributesSet++;
 				}
@@ -699,7 +699,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
 
-			return (ctx.Extensions.VertexArrayObject_ARB);
+			return (ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES);
 		}
 
 		/// <summary>
@@ -724,7 +724,7 @@ namespace OpenGL.Objects
 			if (ctx.IsCurrent == false)
 				throw new ArgumentException("not current");
 
-			Debug.Assert(ctx.Extensions.VertexArrayObject_ARB);
+			Debug.Assert(ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES || ctx.Version.IsCompatible(Gl.Version_300_ES));
 
 			return (Gl.GenVertexArray());
 		}
@@ -751,7 +751,7 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(ctx.Extensions.VertexArrayObject_ARB);
+			Debug.Assert(ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES || ctx.Version.IsCompatible(Gl.Version_300_ES));
 
 			// Delete buffer object
 			Gl.DeleteVertexArrays(name);
@@ -796,8 +796,6 @@ namespace OpenGL.Objects
 				_FeedbackBuffer.Create(ctx);
 
 			ctx.Bind(this);
-
-
 		}
 
 		/// <summary>
@@ -835,7 +833,7 @@ namespace OpenGL.Objects
 		int IBindingResource.GetBindingTarget(GraphicsContext ctx)
 		{
 			// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
-			if (ctx.Extensions.VertexArrayObject_ARB == false)
+			if (!ctx.Extensions.VertexArrayObject_ARB && !ctx.Extensions.VertexArrayObject_OES && !ctx.Version.IsCompatible(Gl.Version_300_ES))
 				return (0);
 
 			return (Gl.VERTEX_ARRAY_BINDING);
@@ -849,7 +847,7 @@ namespace OpenGL.Objects
 		/// </param>
 		void IBindingResource.Bind(GraphicsContext ctx)
 		{
-			if (ctx.Extensions.VertexArrayObject_ARB)
+			if (ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES || ctx.Version.IsCompatible(Gl.Version_300_ES))
 				Gl.BindVertexArray(ObjectName);
 		}
 
@@ -861,7 +859,7 @@ namespace OpenGL.Objects
 		/// </param>
 		void IBindingResource.Unbind(GraphicsContext ctx)
 		{
-			if (ctx.Extensions.VertexArrayObject_ARB) {
+			if (ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES || ctx.Version.IsCompatible(Gl.Version_300_ES)) {
 				CheckThisExistence(ctx);
 				Gl.BindVertexArray(InvalidObjectName);
 			}

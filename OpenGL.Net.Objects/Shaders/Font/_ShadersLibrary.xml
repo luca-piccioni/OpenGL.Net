@@ -3,10 +3,10 @@
 
 	<!-- Program Objects -->
 	<Objects>
-		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" TestStage="FragmentShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" TestStage="FragmentShader" />
 	</Objects>
 
 	<Programs>

@@ -38,13 +38,13 @@ uniform sampler2DShadow glo_ShadowMap2D;
 SHADER_IN vec4 glo_VertexPosition_ShadowMap;
 
 // Ambient, diffuse and specular
-void ComputeSpotLight(glo_LightType light, vec3 eye, vec3 ecPos3, vec3 normal, float materialShininess, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
+void ComputeSpotLight(glo_LightType light, vec3 normal, float materialShininess, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular);
 
 void ComputeLightContributions(vec4 eyePosition, in vec3 normal, float materialShininess, inout vec4 ambient, inout vec4 diffuse, inout vec4 specular)
 {
 	float shadowFactor = 1.0;
 
-	ComputeDirectionalLight(glo_Light, normal, materialShininess, ambient, diffuse, specular);
+	ComputeSpotLight(glo_Light, normal, materialShininess, ambient, diffuse, specular);
 
 #if defined(GLO_SHADOWMAP)
 	// Shadow mapping

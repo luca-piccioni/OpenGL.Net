@@ -161,7 +161,7 @@ namespace OpenGL.Objects
 				}
 
 				if (resourceStream == null)
-					throw new ArgumentException("resource path not found", "resourcePath");
+					throw new ArgumentException("resource " + resourcePath + " not found", "resourcePath");
 
 				return (LoadSourceLines(resourceStream));
 			} finally {
@@ -273,6 +273,8 @@ namespace OpenGL.Objects
 			if (ctx.Extensions.ShadingLanguageInclude_ARB == false)
 				shaderSource = ShaderPreprocessor.Process(shaderSource, cctx, ctx.IncludeLibrary, ShaderPreprocessor.Stage.All);
 
+			shaderSource = CleanSource(shaderSource);
+
 			return (shaderSource);
 		}
 
@@ -295,6 +297,8 @@ namespace OpenGL.Objects
 					continue;
 				// C comment
 				if (_RegexCCommentLine.IsMatch(item))
+					continue;
+				if (item.TrimStart().Length == 0)
 					continue;
 
 				cleanSource.Add(item);
@@ -340,7 +344,7 @@ namespace OpenGL.Objects
 			if (sourceLines == null)
 				throw new ArgumentNullException("sourceLines");
 			
-			if ((ctx.Flags & GraphicsContextFlags.EmbeddedProfile) == 0) {
+			if (ctx.ShadingVersion.Api == KhronosVersion.ApiGlsl) {
 				// Prepend required shader version
 				if (version >= 150) {
 					// Starting from GLSL 1.50, profiles are implemented
@@ -365,6 +369,9 @@ namespace OpenGL.Objects
 				if (ObjectStage == ShaderType.GeometryShader && ctx.Extensions.GeometryShader4_ARB)
 					sourceLines.Add("#extension GL_ARB_geometry_shader4 : enable\n");
 
+				if (ctx.Extensions.ShaderDrawParameters_ARB)
+					sourceLines.Add("#extension GL_ARB_shader_draw_parameters : enable\n");
+
 				foreach (ShaderExtension shaderExtension in cctx.Extensions) {
 					// Do not include any #extension directive on extensions not supported by driver
 					if (ctx.Extensions.HasExtensions(shaderExtension.Name) == false)
@@ -384,7 +391,12 @@ namespace OpenGL.Objects
 				sourceLines.Add("#pragma debug(off)\n");
 #endif
 			} else {
-				sourceLines.Add("precision mediump float;\n");
+				switch (ObjectStage) {
+					case ShaderType.FragmentShader:
+						sourceLines.Add("precision mediump float;\n");
+						break;
+				}
+				
 			}
 		}
 

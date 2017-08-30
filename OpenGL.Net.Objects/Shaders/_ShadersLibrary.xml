@@ -9,6 +9,9 @@
 		<Include Id="/OpenGL/TransformState.glsl">
 			<Path>OpenGL.Objects.Shaders.TransformState.glsl</Path>
 		</Include>
+		<Include Id="/OpenGL/Viewport.glsl">
+			<Path>OpenGL.Objects.Shaders.Viewport.glsl</Path>
+		</Include>
 	</Includes>
 	
 	<!-- Program Objects -->
@@ -16,19 +19,14 @@
 		
 		<!-- Line -->
 
-		<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl">
+		<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" TestStage="GeometryShader" />
+		<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" TestStage="FragmentShader">
 			<Symbols>
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 			</Symbols>
 		</Object>
 		
-		<!-- Geometry Clipmap -->
-		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.Vertex.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.Fragment.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.GeometryClipmap.ClipmapTexFragment.glsl" />
-	
 	</Objects>
 
 	<Programs>

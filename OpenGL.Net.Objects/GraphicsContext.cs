@@ -26,6 +26,12 @@
 // Symbol for enabling redundant bind operations reduction via IBindingIndexResource
 #define ENABLE_LAZY_BINDING_INDEX
 
+#if MONODROID
+// #undef ENABLE_LAZY_SERVER_STATE
+#undef ENABLE_LAZY_BINDING
+#undef ENABLE_LAZY_BINDING_INDEX
+#endif
+
 // Symbol for disabling at compile-time features derived from GL_ARB_draw_instanced
 #undef DISABLE_GL_ARB_draw_instanced
 // Symbol for disabling at compile-time features derived from GL_ARB_shading_language_include
@@ -1417,11 +1423,11 @@ namespace OpenGL.Objects
 				if (bindingIndexResource == null)
 					throw new ArgumentNullException("bindingIndexResource");
 
-#if ENABLE_LAZY_BINDING_INDEX
 				BufferTarget bindingTarget = bindingIndexResource.GetBindingTarget(ctx);
 				if (bindingTarget != Target)
 					throw new ArgumentException("target mismatch", "bindingIndexResource");
 
+#if ENABLE_LAZY_BINDING_INDEX
 				IBindingIndexResource previousUniformBuffer = Bindings[bindingIndex];
 
 				// Bind the uniform buffer

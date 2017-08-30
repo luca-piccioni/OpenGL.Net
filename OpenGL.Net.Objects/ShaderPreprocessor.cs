@@ -303,7 +303,7 @@ namespace OpenGL.Objects
 			// Define system preprocessor symbols
 			// TODO: support __FILE__ and __LINE__
 			expressionEvaluator.Define("__VERSION__", cctx.ShaderVersion.VersionId.ToString());
-			if (cctx.ShaderVersion.Api == KhronosVersion.ApiGles2)
+			if (cctx.ShaderVersion.Api == KhronosVersion.ApiEssl)
 				expressionEvaluator.Define("GL_ES", "1");
 			// Define user preprocessor symbols
 			foreach (string symbol in cctx.Defines)
