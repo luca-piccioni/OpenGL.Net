@@ -355,7 +355,7 @@ namespace OpenGL
 		/// Get the APIs available on this device context. The API tokens are space separated, and they can be
 		/// found in <see cref="KhronosVersion"/> definition.
 		/// </summary>
-		public override IEnumerable<string> AvailableApis
+		public override IEnumerable<string> AvailableAPIs
 		{
 			get { return (GetAvailableApis()); }
 		}
@@ -372,7 +372,7 @@ namespace OpenGL
 			deviceApi.Add(KhronosVersion.ApiGl);
 			deviceApi.Add(KhronosVersion.ApiGlsc2);
 			// OpenGL ES via GLX_EXT_create_context_es(2)?_profile
-			if (Glx.CurrentExtensions.CreateContextEsProfile_EXT) {
+			if (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContextEsProfile_EXT) {
 				deviceApi.Add(KhronosVersion.ApiGles1);
 				deviceApi.Add(KhronosVersion.ApiGles2);
 			}
@@ -477,7 +477,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _Api)));
+			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _API)));
 		}
 
 		/// <summary>

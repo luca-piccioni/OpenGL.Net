@@ -548,10 +548,10 @@ namespace OpenGL
 
 			switch (_ProfileType) {
 				case ProfileType.Embedded:
-					DeviceContext.DefaultApi = KhronosVersion.ApiGles2;
+					DeviceContext.DefaultAPI = KhronosVersion.ApiGles2;
 					break;
 				case ProfileType.SecurityCritical2:
-					DeviceContext.DefaultApi = KhronosVersion.ApiGlsc2;
+					DeviceContext.DefaultAPI = KhronosVersion.ApiGlsc2;
 					break;
 			}
 

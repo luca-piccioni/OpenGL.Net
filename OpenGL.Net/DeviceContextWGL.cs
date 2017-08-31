@@ -508,7 +508,7 @@ namespace OpenGL
 		/// Get the APIs available on this device context. The API tokens are space separated, and they can be
 		/// found in <see cref="KhronosVersion"/> definition.
 		/// </summary>
-		public override IEnumerable<string> AvailableApis
+		public override IEnumerable<string> AvailableAPIs
 		{
 			get { return (GetAvailableApis()); }
 		}
@@ -523,11 +523,12 @@ namespace OpenGL
 
 			// Default
 			deviceApi.Add(KhronosVersion.ApiGl);
-			deviceApi.Add(KhronosVersion.ApiGlsc2);
 			// OpenGL ES via WGL_EXT_create_context_es(2)?_profile
-			if (Wgl.CurrentExtensions.CreateContextEsProfile_EXT) {
+			if (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContextEsProfile_EXT) {
 				deviceApi.Add(KhronosVersion.ApiGles1);
 				deviceApi.Add(KhronosVersion.ApiGles2);
+				// OpenGL SC2 is based on OpenGL ES2
+				deviceApi.Add(KhronosVersion.ApiGlsc2);
 			}
 
 			return (deviceApi.ToArray());
@@ -553,6 +554,7 @@ namespace OpenGL
 			IntPtr renderContext = IntPtr.Zero;
 
 			if (Wgl.CurrentExtensions == null || Wgl.CurrentExtensions.CreateContext_ARB == false) {
+				// Fallback for compatibility
 				try {
 					renderContext = Wgl.CreateContext(_DeviceContext);
 					if ((renderContext != IntPtr.Zero) && (sharedContext != IntPtr.Zero)) {
@@ -596,7 +598,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			return (CreateContextAttrib(sharedContext, attribsList, null));
+			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _API)));
 		}
 
 		/// <summary>
@@ -646,6 +648,7 @@ namespace OpenGL
 						break;
 					case KhronosVersion.ApiGles1:
 					case KhronosVersion.ApiGles2:
+					case KhronosVersion.ApiGlsc2:
 						if (Wgl.CurrentExtensions.CreateContextEsProfile_EXT == false)
 							throw new NotSupportedException("OpenGL ES API not supported");
 						break;
@@ -683,6 +686,9 @@ namespace OpenGL
 						profileMask |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
 						break;
 					case KhronosVersion.ApiGles2:
+					case KhronosVersion.ApiGlsc2:
+						major = 2;
+						minor = 0;
 						profileMask |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
 						break;
 					default:
@@ -707,12 +713,14 @@ namespace OpenGL
 				else
 					adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_MINOR_VERSION_ARB, api.Minor });
 
-				if ((profileMaskIndex = adulteredAttribs.FindIndex(delegate (int item) {
-					return (item == Wgl.CONTEXT_PROFILE_MASK_ARB);
-				})) >= 0)
-					adulteredAttribs[profileMaskIndex + 1] = profileMask;
-				else
-					adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_PROFILE_MASK_ARB, profileMask });
+				if (profileMask != 0) {
+					if ((profileMaskIndex = adulteredAttribs.FindIndex(delegate (int item) {
+						return (item == Wgl.CONTEXT_PROFILE_MASK_ARB);
+					})) >= 0)
+						adulteredAttribs[profileMaskIndex + 1] = profileMask;
+					else
+						adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_PROFILE_MASK_ARB, profileMask });
+				}
 
 				// Restore trailing 0
 				adulteredAttribs.Add(Gl.NONE);

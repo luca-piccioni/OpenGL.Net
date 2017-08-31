@@ -43,8 +43,8 @@ namespace OpenGL
 			if (availApis.Length == 0)
 				throw new InvalidOperationException("no API available");
 
-			if (Array.Exists(availApis, delegate(string api) { return (api == DefaultApi); }) == false)
-				_Api = availApis[0];
+			if (Array.Exists(availApis, delegate(string api) { return (api == DefaultAPI); }) == false)
+				_API = availApis[0];
 		}
 
 		/// <summary>
@@ -606,7 +606,7 @@ namespace OpenGL
 		/// Get the APIs available on this device context. The API tokens are space separated, and they can be
 		/// found in <see cref="KhronosVersion"/> definition.
 		/// </summary>
-		public override IEnumerable<string> AvailableApis
+		public override IEnumerable<string> AvailableAPIs
 		{
 			get
 			{
@@ -616,7 +616,7 @@ namespace OpenGL
 					string clientApisString = Egl.QueryString(Display, Egl.CLIENT_APIS);
 					string[] clientApiTokens = Regex.Split(clientApisString, " ");
 
-					foreach (string api in ConvertApiNames(clientApis))
+					foreach (string api in ConvertApiNames(clientApiTokens))
 						clientApis.Add(api);
 				}
 
@@ -702,7 +702,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _Api)));
+			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _API)));
 		}
 
 		/// <summary>

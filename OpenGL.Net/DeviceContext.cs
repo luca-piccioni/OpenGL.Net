@@ -39,7 +39,7 @@ namespace OpenGL
 		{
 			// The default API is GLES2 in the case Egl.IsRequired is initialized to true
 			if (Egl.IsRequired)
-				_DefaultApi = KhronosVersion.ApiGles2;
+				_DefaultAPI = KhronosVersion.ApiGles2;
 
 			// Required for correct static initialization sequences
 			Gl.Initialize();
@@ -246,7 +246,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get whether EGL device context is is required for implementing <see cref="DefaultApi"/>.
+		/// Get whether EGL device context is is required for implementing <see cref="DefaultAPI"/>.
 		/// </summary>
 		private static bool IsEglRequired
 		{
@@ -260,7 +260,7 @@ namespace OpenGL
 				bool eglRequired = Egl.IsRequired;
 
 				if (eglRequired == false) {
-					switch (_DefaultApi) {
+					switch (_DefaultAPI) {
 						case KhronosVersion.ApiGl:
 							// Leave EGL requirement to the system (i.e. ANDROID or Broadcom)
 							break;
@@ -286,7 +286,7 @@ namespace OpenGL
 							}
 							Debug.Assert(desktopAvailableApi != null);
 
-							if (Array.FindIndex(desktopAvailableApi, delegate(string item) { return (item == _DefaultApi); }) < 0)
+							if (Array.FindIndex(desktopAvailableApi, delegate(string item) { return (item == _DefaultAPI); }) < 0)
 								eglRequired = true;
 							break;
 						case KhronosVersion.ApiVg:
@@ -371,9 +371,9 @@ namespace OpenGL
 		/// Get or set the default API, driving device context creation using <see cref="Create"/>,
 		/// <see cref="Create(IntPtr, IntPtr)"/> or <see cref="Create(INativePBuffer)"/>.
 		/// </summary>
-		public static string DefaultApi
+		public static string DefaultAPI
 		{
-			get { return (_DefaultApi); }
+			get { return (_DefaultAPI); }
 			set
 			{
 				switch (value) {
@@ -387,19 +387,19 @@ namespace OpenGL
 					default:
 						throw new InvalidOperationException("unsupported API");
 				}
-				_DefaultApi = value;
+				_DefaultAPI = value;
 			}
 		}
 
 		/// <summary>
 		/// The default API driving device context creation.
 		/// </summary>
-		private static string _DefaultApi = KhronosVersion.ApiGl;
+		private static string _DefaultAPI = KhronosVersion.ApiGl;
 
 		/// <summary>
 		/// The default API driving device context creation.
 		/// </summary>
-		protected string _Api = _DefaultApi;
+		protected string _API = _DefaultAPI;
 
 		#endregion
 
@@ -420,14 +420,53 @@ namespace OpenGL
 		internal abstract IntPtr CreateSimpleContext();
 
 		/// <summary>
+		///  Get the APIs available on this host.
+		/// </summary>
+		/// <returns>
+		/// It returns the list of the APIs available on the current host.
+		/// </returns>
+		public static IEnumerable<string> GetAvailableAPIs()
+		{
+			List<string> availableAPIs = new List<string>();
+
+			// Uses the default device
+			using (DeviceContext deviceContext = DeviceContext.Create()) {
+				availableAPIs.AddRange(deviceContext.AvailableAPIs);
+			}
+#if INTEGRATES_EGL
+			// Consider EGL availability
+			if (!Egl.IsRequired && Egl.IsAvailable) {
+				// Integrates EGL device context APIss
+
+				Egl.IsRequired = true;
+				try {
+					if (Egl.IsRequired == true) {
+						using (DeviceContext deviceContext = DeviceContext.Create()) {
+							foreach (string availableAPI in deviceContext.AvailableAPIs)
+								if (!availableAPIs.Contains(availableAPI))
+									availableAPIs.Add(availableAPI);
+						}
+					}
+				} finally {
+					Egl.IsRequired = false;
+				}
+			} else {
+
+			}
+#endif
+
+			return (availableAPIs);
+		}
+
+		/// <summary>
 		/// Get the APIs available on this device context. The API tokens are space separated, and they can be
 		/// found in <see cref="KhronosVersion"/> definition. The returned value can be null; in this case only
 		/// the explicit API is implemented.
 		/// </summary>
-		public virtual IEnumerable<string> AvailableApis { get { return (null); } }
+		public virtual IEnumerable<string> AvailableAPIs { get { throw new NotImplementedException(); } }
 
 		/// <summary>
-		/// Creates a context.
+		/// Creates a compatible context.
 		/// </summary>
 		/// <param name="sharedContext">
 		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
@@ -444,7 +483,7 @@ namespace OpenGL
 		public abstract IntPtr CreateContext(IntPtr sharedContext);
 
 		/// <summary>
-		/// Creates a context, specifying attributes, using the default API (see <see cref="DefaultApi"/>).
+		/// Creates a context, specifying attributes, using the default API (see <see cref="DefaultAPI"/>).
 		/// </summary>
 		/// <param name="sharedContext">
 		/// A <see cref="IntPtr"/> that specify a context that will share objects with the returned one. If
@@ -515,9 +554,10 @@ namespace OpenGL
 
 			// Link OpenGL procedures on Gl
 			if ((ctx != IntPtr.Zero) && (current == true)) {
-				switch (DefaultApi) {
+				switch (DefaultAPI) {
 					case KhronosVersion.ApiGlsc2:
 						// Special OpenGL SC2 management: loads only SC2 requirements
+						// Note: in order to work, DefaultAPI should stay set to SC2! Otherwise user shall call BindAPI manually
 						Gl.BindAPI(Gl.Version_200_SC, null);
 						break;
 					default:
