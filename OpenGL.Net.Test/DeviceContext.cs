@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -58,25 +59,14 @@ namespace OpenGL.Test
 		[Test(Description = "Test Create()")]
 		public void TestCreate1()
 		{
-			// Ensure running without EGL
-			Egl.IsRequired = false;
-			if (Egl.IsRequired == true)
-				Assert.Inconclusive("EGL-only platform");
-
+			EnsurePlatform();
 			TestCreate1_Core();
 		}
 
 		[Test(Description = "Test Create() [EGL]")]
 		public void TestCreate1_EGL()
 		{
-			if (Egl.IsAvailable == false)
-				Assert.Inconclusive("EGL not available");
-
-			// Ensure running without EGL
-			Egl.IsRequired = true;
-			if (Egl.IsRequired == false)
-				Assert.Inconclusive("EGL not available");
-
+			EnsureEGL();
 			TestCreate1_Core();
 		}
 
@@ -103,25 +93,14 @@ namespace OpenGL.Test
 		[Test(Description = "Test Create(INativePBuffer)")]
 		public void TestCreate3()
 		{
-			// Ensure running without EGL
-			Egl.IsRequired = false;
-			if (Egl.IsRequired == true)
-				Assert.Inconclusive("EGL-only platform");
-
+			EnsurePlatform();
 			TestCreate3_Core();
 		}
 
 		[Test(Description = "Test Create(INativePBuffer) [EGL]")]
 		public void TestCreate3_EGL()
 		{
-			if (Egl.IsAvailable == false)
-				Assert.Inconclusive("EGL not available");
-
-			// Ensure running without EGL
-			Egl.IsRequired = true;
-			if (Egl.IsRequired == false)
-				Assert.Inconclusive("EGL not available");
-
+			EnsureEGL();
 			TestCreate3_Core();
 		}
 
@@ -141,32 +120,6 @@ namespace OpenGL.Test
 				// Release resources
 				deviceContext.Dispose();
 			}
-		}
-
-		[Test(Description = "Test DefaultApi")]
-		public void TestDefaultApi()
-		{
-			// Cannot be initialized to null
-			Assert.IsNotNull(DeviceContext.DefaultApi);
-			// Cannot be set to null
-			Assert.Throws<InvalidOperationException>(delegate () {
-				DeviceContext.DefaultApi = null;
-			}, "unsupported API");
-			// Can be set to allowed values
-			DeviceContext.DefaultApi = KhronosVersion.ApiGles1;
-			Assert.AreEqual(KhronosVersion.ApiGles1, DeviceContext.DefaultApi);
-			DeviceContext.DefaultApi = KhronosVersion.ApiGles2;
-			Assert.AreEqual(KhronosVersion.ApiGles2, DeviceContext.DefaultApi);
-			DeviceContext.DefaultApi = KhronosVersion.ApiGlsc2;
-			Assert.AreEqual(KhronosVersion.ApiGlsc2, DeviceContext.DefaultApi);
-			DeviceContext.DefaultApi = KhronosVersion.ApiVg;
-			Assert.AreEqual(KhronosVersion.ApiVg, DeviceContext.DefaultApi);
-			DeviceContext.DefaultApi = KhronosVersion.ApiGl;					// Restore default
-			Assert.AreEqual(KhronosVersion.ApiGl, DeviceContext.DefaultApi);
-			// Cannot be set to unknown values
-			Assert.Throws<InvalidOperationException>(delegate () {
-				DeviceContext.DefaultApi = "OtherAPI";
-			}, "unsupported API");
 		}
 
 		[Test(Description = "Test RefCount, IncRef, DecRef")]
@@ -197,28 +150,279 @@ namespace OpenGL.Test
 			}
 		}
 
-		[Test(Description = "Test GetCurrentContext()")]
-		public void TestGetCurrentContext()
+		[Test(Description = "Test UseCase 1")]
+		public void TestUserCase1()
+		{
+			EnsurePlatform();
+			TestUserCase1_Core();
+		}
+
+		[Test(Description = "Test UseCase 1 (EGL)")]
+		public void TestUserCase1_EGL()
+		{
+			EnsureEGL();
+			TestUserCase1_Core();
+		}
+
+		private void TestUserCase1_Core()
+		{
+			using (DeviceContext deviceContext = DeviceContext.Create()) {
+				if (deviceContext.IsPixelFormatSet == false)
+					deviceContext.ChoosePixelFormat(new DevicePixelFormat(24));
+
+				IntPtr glContext = deviceContext.CreateContext(IntPtr.Zero);
+
+				deviceContext.MakeCurrent(glContext);
+				// Perform drawing...
+				deviceContext.MakeCurrent(IntPtr.Zero);
+				deviceContext.DeleteContext(glContext);
+			}
+		}
+
+		[Test(Description = "Test UseCase 3")]
+		public void TestUserCase3()
+		{
+			EnsurePlatform();
+			TestUserCase3_Core();
+		}
+
+		[Test(Description = "Test UseCase 3 [EGL]")]
+		public void TestUserCase3_EGL()
+		{
+			EnsureEGL();
+			TestUserCase3_Core();
+		}
+
+		private void TestUserCase3_Core()
+		{
+			if (DeviceContext.IsPBufferSupported == false)
+				Assert.Inconclusive("platform don't support P-Buffers");
+
+			using (INativePBuffer nativePBuffer = DeviceContext.CreatePBuffer(new DevicePixelFormat(24), 64, 64)) {
+				using (DeviceContext deviceContext = DeviceContext.Create(nativePBuffer)) {
+					// The pixel format is already defined by INativePBuffer
+					Assert.IsTrue(deviceContext.IsPixelFormatSet);
+
+					IntPtr glContext = deviceContext.CreateContext(IntPtr.Zero);
+
+					deviceContext.MakeCurrent(glContext);
+					// Perform drawing...
+					deviceContext.MakeCurrent(IntPtr.Zero);
+					deviceContext.DeleteContext(glContext);
+				}
+			}
+		}
+
+		[Test(Description = "Test AvailableAPIs")]
+		public void TestAvailableAPIs()
+		{
+			EnsurePlatform();
+			TestAvailableAPIs_Core();
+		}
+
+		[Test(Description = "Test AvailableAPIs [EGL]")]
+		public void TestAvailableAPIs_EGL()
+		{
+			EnsureEGL();
+			TestAvailableAPIs_Core();
+		}
+
+		private void TestAvailableAPIs_Core()
+		{
+			using (DeviceContext deviceContext = DeviceContext.Create()) {
+				if (deviceContext.IsPixelFormatSet == false)
+					deviceContext.ChoosePixelFormat(new DevicePixelFormat(24));
+
+				Assert.IsNotNull(deviceContext.AvailableAPIs);
+				CollectionAssert.IsNotEmpty(deviceContext.AvailableAPIs);
+			}
+		}
+
+		[Test(Description = "Test GetAvailableAPIs")]
+		public void TestGetAvailableAPIs()
+		{
+			EnsurePlatform();
+			TestGetAvailableAPIs_Core();
+		}
+
+		[Test(Description = "Test GetAvailableAPIs [EGL]")]
+		public void TestGetAvailableAPIs_EGL()
+		{
+			EnsureEGL();
+			TestGetAvailableAPIs_Core();
+		}
+
+		private void TestGetAvailableAPIs_Core()
+		{
+			IEnumerable<string> availableAPIs = DeviceContext.GetAvailableAPIs();
+
+			Assert.IsNotNull(availableAPIs);
+			CollectionAssert.IsNotEmpty(availableAPIs);
+
+			Console.WriteLine("Available APIs:");
+			foreach (string api in availableAPIs)
+				Console.WriteLine("- " + api);
+		}
+
+		[Test(Description = "Test DefaultAPI")]
+		public void TestDefaultAPI_Core()
+		{
+			// Cannot be initialized to null
+			Assert.IsNotNull(DeviceContext.DefaultAPI);
+			// Cannot be set to null
+			Assert.Throws<InvalidOperationException>(delegate () {
+				DeviceContext.DefaultAPI = null;
+			}, "unsupported API");
+			// Can be set to allowed values
+			DeviceContext.DefaultAPI = KhronosVersion.ApiGles1;
+			Assert.AreEqual(KhronosVersion.ApiGles1, DeviceContext.DefaultAPI);
+			DeviceContext.DefaultAPI = KhronosVersion.ApiGles2;
+			Assert.AreEqual(KhronosVersion.ApiGles2, DeviceContext.DefaultAPI);
+			DeviceContext.DefaultAPI = KhronosVersion.ApiGlsc2;
+			Assert.AreEqual(KhronosVersion.ApiGlsc2, DeviceContext.DefaultAPI);
+			DeviceContext.DefaultAPI = KhronosVersion.ApiVg;
+			Assert.AreEqual(KhronosVersion.ApiVg, DeviceContext.DefaultAPI);
+			DeviceContext.DefaultAPI = KhronosVersion.ApiGl;					// Restore default
+			Assert.AreEqual(KhronosVersion.ApiGl, DeviceContext.DefaultAPI);
+			// Cannot be set to unknown values
+			Assert.Throws<InvalidOperationException>(delegate () {
+				DeviceContext.DefaultAPI = "OtherAPI";
+			}, "unsupported API");
+		}
+
+		[Test(Description = "Test CreateContext(IntPtr)")]
+		public void TestCreateContext()
 		{
 			// Ensure running without EGL
 			Egl.IsRequired = false;
 			if (Egl.IsRequired == true)
 				Assert.Inconclusive("EGL-only platform");
 
+			TestCreateContext_Core();
+		}
+
+		[Test(Description = "Test CreateContext(IntPtr) [EGL]")]
+		public void TestCreateContext_EGL()
+		{
+			EnsureEGL();
+			TestCreateContext_Core();
+		}
+
+		private void TestCreateContext_Core()
+		{
+			using (DeviceContext deviceContext = DeviceContext.Create()) {
+				if (deviceContext.IsPixelFormatSet == false)
+					deviceContext.ChoosePixelFormat(new DevicePixelFormat(24));
+
+				IntPtr glContext = IntPtr.Zero;
+
+				Assert.DoesNotThrow(delegate() { glContext = deviceContext.CreateContext(IntPtr.Zero); });
+				try {
+					Assert.AreNotEqual(IntPtr.Zero, glContext);
+					Assert.DoesNotThrow(delegate() { deviceContext.MakeCurrent(glContext); });
+
+					Assert.DoesNotThrow(delegate() { deviceContext.MakeCurrent(IntPtr.Zero); });
+				} finally {
+					if (glContext != IntPtr.Zero)
+						deviceContext.DeleteContext(glContext);
+				}
+			}
+		}
+
+		[Test(Description = "Test CreateContext(IntPtr)")]
+		[TestCaseSource("TestDefaultAPIs")]
+		public void TestCreateContext_DefaultAPI(string api)
+		{
+			EnsurePlatform();
+			DeviceContext.DefaultAPI = api;
+			TestCreateContext_DefaultAPI_Core(api);
+		}
+
+		[Test(Description = "Test CreateContext(IntPtr) [EGL]")]
+		[TestCaseSource("TestDefaultAPIs")]
+		public void TestCreateContext_DefaultAPI_EGL(string api)
+		{
+			EnsureEGL();
+			DeviceContext.DefaultAPI = api;
+			TestCreateContext_DefaultAPI_Core(api);
+		}
+
+		private static IEnumerable<string> TestDefaultAPIs
+		{
+			get { return (DeviceContext.GetAvailableAPIs()); }
+		}
+
+		private void TestCreateContext_DefaultAPI_Core(string api)
+		{
+			using (DeviceContext deviceContext = DeviceContext.Create()) {
+				List<string> availableAPIs = new List<string>(deviceContext.AvailableAPIs);
+
+				if (availableAPIs.Contains(api) == false)
+					Assert.Inconclusive("underlying device is unable to support '" + api + "'");
+
+				if (deviceContext.IsPixelFormatSet == false)
+					deviceContext.ChoosePixelFormat(new DevicePixelFormat(24));
+
+				IntPtr glContext = deviceContext.CreateContext(IntPtr.Zero);;
+				Assert.AreNotEqual(IntPtr.Zero, glContext);
+
+				try {
+					if (deviceContext.MakeCurrent(glContext) == false)
+						Assert.Fail("unable to make current");
+					
+					string glVersionString = Gl.GetString(StringName.Version);
+					KhronosVersion glVersion = KhronosVersion.Parse(glVersionString);
+
+					switch (api) {
+						case KhronosVersion.ApiGlsc2:
+							// SC2 is a special case: based on ES2
+							Assert.AreEqual(KhronosVersion.ApiGles2, glVersion.Api);
+							break;
+						default:
+							Assert.AreEqual(api, glVersion.Api);
+							break;
+					}
+
+					deviceContext.MakeCurrent(IntPtr.Zero);
+				} finally {
+					if (glContext != IntPtr.Zero)
+						deviceContext.DeleteContext(glContext);
+				}
+			}
+		}
+
+		private void TestCreateContextAttrib_Core()
+		{
+			using (DeviceContext deviceContext = DeviceContext.Create()) {
+				if (deviceContext.IsPixelFormatSet == false)
+					deviceContext.ChoosePixelFormat(new DevicePixelFormat(24));
+
+				IntPtr glContext = IntPtr.Zero;
+
+				Assert.DoesNotThrow(delegate() { glContext = deviceContext.CreateContext(IntPtr.Zero); });
+				try {
+					Assert.AreNotEqual(IntPtr.Zero, glContext);
+					Assert.DoesNotThrow(delegate() { deviceContext.MakeCurrent(glContext); });
+
+					Assert.DoesNotThrow(delegate() { deviceContext.MakeCurrent(IntPtr.Zero); });
+				} finally {
+					if (glContext != IntPtr.Zero)
+						deviceContext.DeleteContext(glContext);
+				}
+			}
+		}
+
+		[Test(Description = "Test GetCurrentContext()")]
+		public void TestGetCurrentContext()
+		{
+			EnsurePlatform();
 			TestGetCurrentContext_Core();
 		}
 
 		[Test(Description = "Test GetCurrentContext() [EGL]")]
 		public void TestGetCurrentContext_EGL()
 		{
-			if (Egl.IsAvailable == false)
-				Assert.Inconclusive("EGL not available");
-
-			// Ensure running without EGL
-			Egl.IsRequired = true;
-			if (Egl.IsRequired == false)
-				Assert.Inconclusive("EGL not available");
-
+			EnsureEGL();
 			TestGetCurrentContext_Core();
 		}
 
@@ -248,19 +452,17 @@ namespace OpenGL.Test
 			}
 		}
 
-		[Test(Description = "Test UseCase 1")]
-		public void TestUserCase1()
+		#region Common
+
+		private static void EnsurePlatform()
 		{
 			// Ensure running without EGL
 			Egl.IsRequired = false;
 			if (Egl.IsRequired == true)
 				Assert.Inconclusive("EGL-only platform");
-
-			TestUserCase1_Core();
 		}
 
-		[Test(Description = "Test UseCase 1 (EGL)")]
-		public void TestUserCase1_EGL()
+		private static void EnsureEGL()
 		{
 			if (Egl.IsAvailable == false)
 				Assert.Inconclusive("EGL not available");
@@ -269,68 +471,8 @@ namespace OpenGL.Test
 			Egl.IsRequired = true;
 			if (Egl.IsRequired == false)
 				Assert.Inconclusive("EGL not available");
-
-			TestUserCase1_Core();
 		}
 
-		private void TestUserCase1_Core()
-		{
-			using (DeviceContext deviceContext = DeviceContext.Create()) {
-				if (deviceContext.IsPixelFormatSet == false)
-					deviceContext.ChoosePixelFormat(new DevicePixelFormat(24));
-
-				IntPtr glContext = deviceContext.CreateContext(IntPtr.Zero);
-
-				deviceContext.MakeCurrent(glContext);
-				// Perform drawing...
-				deviceContext.MakeCurrent(IntPtr.Zero);
-				deviceContext.DeleteContext(glContext);
-			}
-		}
-
-		[Test(Description = "Test UseCase 3")]
-		public void TestUserCase3()
-		{
-			// Ensure running without EGL
-			Egl.IsRequired = false;
-			if (Egl.IsRequired == true)
-				Assert.Inconclusive("EGL-only platform");
-
-			TestUserCase3_Core();
-		}
-
-		[Test(Description = "Test UseCase 3 [EGL]")]
-		public void TestUserCase3_EGL()
-		{
-			if (Egl.IsAvailable == false)
-				Assert.Inconclusive("EGL not available");
-
-			// Ensure running without EGL
-			Egl.IsRequired = true;
-			if (Egl.IsRequired == false)
-				Assert.Inconclusive("EGL not available");
-
-			TestUserCase3_Core();
-		}
-
-		private void TestUserCase3_Core()
-		{
-			if (DeviceContext.IsPBufferSupported == false)
-				Assert.Inconclusive("platform don't support P-Buffers");
-
-			using (INativePBuffer nativePBuffer = DeviceContext.CreatePBuffer(new DevicePixelFormat(24), 64, 64)) {
-				using (DeviceContext deviceContext = DeviceContext.Create(nativePBuffer)) {
-					// The pixel format is already defined by INativePBuffer
-					Assert.IsTrue(deviceContext.IsPixelFormatSet);
-
-					IntPtr glContext = deviceContext.CreateContext(IntPtr.Zero);
-
-					deviceContext.MakeCurrent(glContext);
-					// Perform drawing...
-					deviceContext.MakeCurrent(IntPtr.Zero);
-					deviceContext.DeleteContext(glContext);
-				}
-			}
-		}
+		#endregion
 	}
 }
