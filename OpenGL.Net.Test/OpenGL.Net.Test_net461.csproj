@@ -106,6 +106,7 @@
     <Compile Include="BenchmarkAttribute.cs" />
     <Compile Include="BenchmarkPInvoke.cs" />
     <Compile Include="DeviceContext.cs" />
+    <Compile Include="Gl.cs" />
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs" />
     <Compile Include="RequiredByFeatureAttribute.cs" />
