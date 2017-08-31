@@ -225,6 +225,22 @@ namespace OpenGL.Test
 			Assert.AreEqual(1, v.Revision);
 			Assert.AreEqual(KhronosVersion.ApiGl, v.Api);
 			Assert.AreEqual(null, v.Profile);
+
+			// Parse x.y.z ES
+			v = KhronosVersion.Parse("2.0.17 ES");
+			Assert.AreEqual(2, v.Major);
+			Assert.AreEqual(0, v.Minor);
+			Assert.AreEqual(17, v.Revision);
+			Assert.AreEqual(KhronosVersion.ApiGles2, v.Api);
+			Assert.AreEqual(null, v.Profile);
+
+			// Parse x.y.z ES
+			v = KhronosVersion.Parse("4.50");
+			Assert.AreEqual(4, v.Major);
+			Assert.AreEqual(5, v.Minor);
+			Assert.AreEqual(0, v.Revision);
+			Assert.AreEqual(KhronosVersion.ApiGl, v.Api);
+			Assert.AreEqual(null, v.Profile);
 		}
 
 		[Test(Description = "Parse(string input) ArgumentNullException")]
