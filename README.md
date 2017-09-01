@@ -1,26 +1,23 @@
-[![build](https://ci.appveyor.com/api/projects/status/0xf5kf47uj3q586j?svg=true)](https://ci.appveyor.com/project/luca-piccioni/opengl-net)
-[![build](https://travis-ci.org/luca-piccioni/OpenGL.Net.svg?branch=master)]
-[![nuget](https://img.shields.io/nuget/v/OpenGL.Net.svg?colorB=22CC22)](https://www.nuget.org/packages/OpenGL.Net/)
-[![NuGet](https://img.shields.io/nuget/dt/OpenGL.Net.svg?colorB=22CC22&label=nuget%20downloads)](https://www.nuget.org/packages/OpenGL.Net/)
+[![build](https://ci.appveyor.com/api/projects/status/0xf5kf47uj3q586j?svg=true)](https://ci.appveyor.com/project/luca-piccioni/opengl-net) ![build](https://travis-ci.org/luca-piccioni/OpenGL.Net.svg?branch=master) [![nuget](https://img.shields.io/nuget/v/OpenGL.Net.svg?colorB=22CC22)](https://www.nuget.org/packages/OpenGL.Net/) [![NuGet](https://img.shields.io/nuget/dt/OpenGL.Net.svg?colorB=22CC22&label=nuget%20downloads)](https://www.nuget.org/packages/OpenGL.Net/)
 
-[![wiki](https://img.shields.io/badge/browse-the%20wiki-brown.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
+[![wiki](https://img.shields.io/badge/browse-the%20wiki-blue.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
 
 # OpenGL.Net
 Modern OpenGL bindings for C#.
 
 ### OpenGL and related API
-- [OpenGL 4.6](https://www.opengl.org/registry/), including compatibility profile
-- [OpenGL ES 3.2](https://www.khronos.org/registry/gles/), including OpenGL ES 1.0
+- [OpenGL 4.6](https://www.opengl.org/registry/), including compatibility profile.
+- [OpenGL ES 3.2](https://www.khronos.org/registry/gles/), including OpenGL ES 1.0.
 - [OpenGL SC 2.0](https://www.khronos.org/openglsc/); OpenGL SC 1.0 is not supported.
 - WGL, GLX 1.4 and [EGL (Native Platform Interface) 1.5](https://www.khronos.org/registry/egl/) as platform APIs.
-- [Broadcom VideoCore IV](http://elinux.org/Raspberry_Pi_VideoCore_APIs)
-- [OpenWF Composition](https://www.khronos.org/openwf/)
-- [GLU](https://www.opengl.org/resources/libraries/) (only tessellator commands)
+- [Broadcom VideoCore IV](http://elinux.org/Raspberry_Pi_VideoCore_APIs).
+- [OpenWF Composition](https://www.khronos.org/openwf/).
+- [GLU](https://www.opengl.org/resources/libraries/) (only tessellator commands).
 
 ### Features
 - Generated from the lastest official XML specification
 - Function pointer wrappers, with safe and unsafe parameters, pinning managed memory when necessary;
-- Automatic entry points aliasing management: function loader is aware of the current OpenGL context;
+- Automatic entry points aliasing management: function loader is aware of the current OpenGL context; you can share code for OpenGL and OpenGL ES;
 - Strongly typed enumerants;
 - OpenGL entry points overloading;
 - Fully documented OpenGL entry points with the official manual pages;
@@ -28,9 +25,9 @@ Modern OpenGL bindings for C#.
 - Automatic OpenGL extensions and implementation limits query;
 - Checking errors after each OpenGL command (Debug builds only);
 - Integrated entry points call logging (Debug builds only);
-- Support ANGLE backend
+- Support ANGLE backend (for OpenGL ES on DirectX);
 
-If you need more [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming) in OpenGL, you can give a try to [OpenGL.Net.Objects](https://github.com/luca-piccioni/OpenGL.Net.Objects).
+If you need more [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming) with OpenGL, you can give a try to [OpenGL.Net.Objects](https://github.com/luca-piccioni/OpenGL.Net/tree/master/OpenGL.Net.Objects).
 
 ### Frameworks
 _OpenGL.Net_ is running on a number of .NET frameworks:
@@ -38,6 +35,8 @@ _OpenGL.Net_ is running on a number of .NET frameworks:
 - .NET Framework 4.6.1
 - .NET Core 1.1
 - .NET Core 2.0
+- .NET Standard 2.0
+- Xamarin/Android
 
 ### Toolkits
 _OpenGL.Net_ is not aware(*) about the underlying platform or graphical toolkit you're running on. To create a GL context, users are required to provide a window handle and a display handle. There are sub-projects that automate the GL viewport definition and creation.
