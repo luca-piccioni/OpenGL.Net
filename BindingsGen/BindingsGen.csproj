@@ -85,6 +85,7 @@
     <Compile Include="..\OpenGL.Net\KhronosVersion.cs">
       <Link>KhronosVersion.cs</Link>
     </Compile>
+    <Compile Include="GLSpecs\IFeatureExtensions.cs" />
     <Compile Include="RegistryAssembly.cs" />
     <Compile Include="GLSpecs\Command.cs" />
     <Compile Include="GLSpecs\CommandBlock.cs" />

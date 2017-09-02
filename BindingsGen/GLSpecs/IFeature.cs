@@ -1,5 +1,5 @@
 
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -43,36 +43,5 @@ namespace BindingsGen.GLSpecs
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
 		IEnumerable<FeatureCommand> Requirements { get; }
-	}
-
-	static class IFeatureExtensions
-	{
-		public static string GetRequiredByFeature(this IFeature feature, string classDefaultApi)
-		{
-			string requiredByFeature = String.Format("[RequiredByFeature(\"{0}\"", feature.Name);
-
-			if (feature.Api != null && feature.Api != classDefaultApi)
-				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
-			if (feature.Profile != null)
-				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
-
-			requiredByFeature += ")]";
-
-			return (requiredByFeature);
-		}
-
-		public static string GetRemovedByFeature(this IFeature feature, string classDefaultApi)
-		{
-			string requiredByFeature = String.Format("[RemovedByFeature(\"{0}\"", feature.Name);
-
-			if (feature.Api != null && feature.Api != classDefaultApi)
-				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
-			if (feature.Profile != null)
-				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
-
-			requiredByFeature += ")]";
-
-			return (requiredByFeature);
-		}
 	}
 }
