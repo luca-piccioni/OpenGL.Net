@@ -417,6 +417,20 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		public bool IsEnum
+		{
+			get
+			{
+				switch (Type) {
+					case "GLenum":
+					case "EGLenum":
+						return (true);
+					default:
+						return (false);
+				}
+			}
+		}
+
 		#endregion
 
 		#region Information Linkage
