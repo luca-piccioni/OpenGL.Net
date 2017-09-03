@@ -129,6 +129,50 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (Requirements); } }
 
+		/// <summary>
+		/// Generate the RequiredByFeatureAttribute source code.
+		/// </summary>
+		/// <param name="command">
+		/// The <see cref="Command"/> which generates the underlying fields applicable for the attribute.
+		/// </param>
+		/// <param name="defaultAPI">
+		/// A <see cref="String"/> that specifies the feature API, if <see cref="IFeature.Api"/> is not specified.
+		/// </param>
+		/// <returns></returns>
+		string IFeature.GenerateRequiredByAttribute(Command command, string defaultAPI)
+		{
+			IFeature feature = this;
+			string requiredByFeature = String.Format("[RequiredByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != defaultAPI)
+				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+
+			requiredByFeature += ")]";
+
+			return (requiredByFeature);
+		}
+
+		/// <summary>
+		/// Generate the RemovedByFeatureAttribute source code.
+		/// </summary>
+		/// <returns></returns>
+		string IFeature.GenerateRemovedByAttribute(string defaultAPI)
+		{
+			IFeature feature = this;
+			string removedByFeature = String.Format("[RemovedByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != defaultAPI)
+				removedByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				removedByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+
+			removedByFeature += ")]";
+
+			return (removedByFeature);
+		}
+
 		public bool Equals(IFeature other)
 		{
 			if (ReferenceEquals(this, other))
@@ -232,6 +276,50 @@ namespace BindingsGen.GLSpecs
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
 		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (_Feature.Requirements); } }
+
+		/// <summary>
+		/// Generate the RequiredByFeatureAttribute source code.
+		/// </summary>
+		/// <param name="command">
+		/// The <see cref="Command"/> which generates the underlying fields applicable for the attribute.
+		/// </param>
+		/// <param name="defaultAPI">
+		/// A <see cref="String"/> that specifies the feature API, if <see cref="IFeature.Api"/> is not specified.
+		/// </param>
+		/// <returns></returns>
+		string IFeature.GenerateRequiredByAttribute(Command command, string defaultAPI)
+		{
+			IFeature feature = this;
+			string requiredByFeature = String.Format("[RequiredByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != defaultAPI)
+				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+
+			requiredByFeature += ")]";
+
+			return (requiredByFeature);
+		}
+
+		/// <summary>
+		/// Generate the RemovedByFeatureAttribute source code.
+		/// </summary>
+		/// <returns></returns>
+		string IFeature.GenerateRemovedByAttribute(string defaultAPI)
+		{
+			IFeature feature = this;
+			string removedByFeature = String.Format("[RemovedByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != defaultAPI)
+				removedByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				removedByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+
+			removedByFeature += ")]";
+
+			return (removedByFeature);
+		}
 
 		public bool Equals(IFeature other)
 		{

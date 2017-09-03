@@ -45,7 +45,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED symbol.
 		/// </summary>
-		[AliasOf("GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED_OES")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
@@ -57,8 +56,6 @@ namespace OpenGL
 		/// Gl.TEXTURE_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
 		/// Gl.BindBuffer.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_BINDING_EXT")]
-		[AliasOf("GL_TEXTURE_BUFFER_BINDING_OES")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
@@ -68,7 +65,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAP_PERSISTENT_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_MAP_PERSISTENT_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -78,7 +74,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAP_COHERENT_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_MAP_COHERENT_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -88,7 +83,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DYNAMIC_STORAGE_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_DYNAMIC_STORAGE_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -98,7 +92,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLIENT_STORAGE_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_CLIENT_STORAGE_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -108,7 +101,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -119,7 +111,6 @@ namespace OpenGL
 		/// [GL4] Gl.GetBufferParameter: params returns a boolean flag indicating whether the buffer object is immutable. The 
 		/// initial value is Gl.FALSE.
 		/// </summary>
-		[AliasOf("GL_BUFFER_IMMUTABLE_STORAGE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -131,7 +122,6 @@ namespace OpenGL
 		/// If the data store was established with glBufferData, the value will be Gl.MAP_READ_BIT | Gl.MAP_WRITE_BIT | 
 		/// Gl.DYNAMIC_STORAGE_BIT | Gl.MAP_WRITE_BIT. The initial value is zero.
 		/// </summary>
-		[AliasOf("GL_BUFFER_STORAGE_FLAGS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -168,7 +158,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_QUERY_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_BUFFER_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_query_buffer_object")]
@@ -185,7 +174,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_QUERY_BUFFER_BINDING symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_BUFFER_BINDING_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_query_buffer_object")]
@@ -196,7 +184,6 @@ namespace OpenGL
 		/// return non-zero), then params returns the value of the query object's passed samples counter, otherwise, the data 
 		/// referred to by params is not modified. The initial value is 0.
 		/// </summary>
-		[AliasOf("GL_QUERY_RESULT_NO_WAIT_AMD")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_query_buffer_object")]
@@ -205,8 +192,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MIRROR_CLAMP_TO_EDGE symbol.
 		/// </summary>
-		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_ATI")]
-		[AliasOf("GL_MIRROR_CLAMP_TO_EDGE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_texture_mirror_clamp_to_edge", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ATI_texture_mirror_once")]
@@ -232,7 +217,6 @@ namespace OpenGL
 		/// Gl.DYNAMIC_STORAGE_BIT, Gl.MAP_READ_BITGl.MAP_WRITE_BIT, Gl.MAP_PERSISTENT_BIT, Gl.MAP_COHERENT_BIT, and 
 		/// Gl.CLIENT_STORAGE_BIT.
 		/// </param>
-		[AliasOf("glBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -263,7 +247,6 @@ namespace OpenGL
 		/// Gl.DYNAMIC_STORAGE_BIT, Gl.MAP_READ_BITGl.MAP_WRITE_BIT, Gl.MAP_PERSISTENT_BIT, Gl.MAP_COHERENT_BIT, and 
 		/// Gl.CLIENT_STORAGE_BIT.
 		/// </param>
-		[AliasOf("glBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
@@ -295,7 +278,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address in memory of the data to be used to clear the specified region.
 		/// </param>
-		[AliasOf("glClearTexImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
@@ -325,7 +307,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address in memory of the data to be used to clear the specified region.
 		/// </param>
-		[AliasOf("glClearTexImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
@@ -375,7 +356,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address in memory of the data to be used to clear the specified region.
 		/// </param>
-		[AliasOf("glClearTexSubImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
@@ -423,7 +403,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// The address in memory of the data to be used to clear the specified region.
 		/// </param>
-		[AliasOf("glClearTexSubImageEXT")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
@@ -741,49 +720,43 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2", EntryPoint = "glBufferStorageEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glBufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
 
-			[AliasOf("glBufferStorage")]
-			[AliasOf("glBufferStorageEXT")]
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2", EntryPoint = "glBufferStorageEXT")]
 			[ThreadStatic]
 			internal static glBufferStorage pglBufferStorage;
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2", EntryPoint = "glClearTexImageEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data);
 
-			[AliasOf("glClearTexImage")]
-			[AliasOf("glClearTexImageEXT")]
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2", EntryPoint = "glClearTexImageEXT")]
 			[ThreadStatic]
 			internal static glClearTexImage pglClearTexImage;
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2", EntryPoint = "glClearTexSubImageEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data);
 
-			[AliasOf("glClearTexSubImage")]
-			[AliasOf("glClearTexSubImageEXT")]
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2", EntryPoint = "glClearTexSubImageEXT")]
 			[ThreadStatic]
 			internal static glClearTexSubImage pglClearTexSubImage;
 

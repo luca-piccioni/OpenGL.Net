@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_SPARSE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SPARSE_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		public const int TEXTURE_SPARSE_ARB = 0x91A6;
@@ -46,7 +45,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_VIRTUAL_PAGE_SIZE_INDEX_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_INDEX_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		public const int VIRTUAL_PAGE_SIZE_INDEX_ARB = 0x91A7;
@@ -54,7 +52,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_NUM_SPARSE_LEVELS_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_NUM_SPARSE_LEVELS_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		public const int NUM_SPARSE_LEVELS_ARB = 0x91AA;
@@ -62,7 +59,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_NUM_VIRTUAL_PAGE_SIZES_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_NUM_VIRTUAL_PAGE_SIZES_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		public const int NUM_VIRTUAL_PAGE_SIZES_ARB = 0x91A8;
@@ -70,8 +66,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_VIRTUAL_PAGE_SIZE_X_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_X_EXT")]
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_X_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_sparse_texture")]
@@ -80,8 +74,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_VIRTUAL_PAGE_SIZE_Y_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Y_EXT")]
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Y_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_sparse_texture")]
@@ -90,8 +82,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_VIRTUAL_PAGE_SIZE_Z_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Z_EXT")]
-		[AliasOf("GL_VIRTUAL_PAGE_SIZE_Z_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_sparse_texture")]
@@ -100,8 +90,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_SPARSE_TEXTURE_SIZE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_SPARSE_TEXTURE_SIZE_EXT")]
-		[AliasOf("GL_MAX_SPARSE_TEXTURE_SIZE_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_sparse_texture")]
@@ -110,8 +98,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_SPARSE_3D_TEXTURE_SIZE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT")]
-		[AliasOf("GL_MAX_SPARSE_3D_TEXTURE_SIZE_AMD")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_sparse_texture")]
@@ -120,7 +106,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		public const int SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB = 0x91A9;
@@ -155,7 +140,6 @@ namespace OpenGL
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		[AliasOf("glTexPageCommitmentEXT")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 		public static void TexPageCommitmentARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit)
@@ -179,16 +163,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2", EntryPoint = "glTexPageCommitmentEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexPageCommitmentARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit);
 
-			[AliasOf("glTexPageCommitmentARB")]
-			[AliasOf("glTexPageCommitmentEXT")]
 			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2", EntryPoint = "glTexPageCommitmentEXT")]
 			[ThreadStatic]
 			internal static glTexPageCommitmentARB pglTexPageCommitmentARB;
 

@@ -210,8 +210,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
 		/// tesselation control shader.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
@@ -223,8 +221,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
 		/// tesselation evaluation shader.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
@@ -236,8 +232,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counter buffers that may be accessed by a 
 		/// geometry shader.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
@@ -274,8 +268,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation 
 		/// control shaders.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
@@ -287,8 +279,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to tessellation 
 		/// evaluation shaders.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
@@ -299,8 +289,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum number of atomic counters available to geometry shaders.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTERS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_ATOMIC_COUNTERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
@@ -374,7 +362,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -385,7 +372,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ELEMENT_ARRAY_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_ELEMENT_ARRAY_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -396,7 +382,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNIFORM_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_UNIFORM_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -407,7 +392,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_FETCH_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_FETCH_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -418,7 +402,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SHADER_IMAGE_ACCESS_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_SHADER_IMAGE_ACCESS_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -429,7 +412,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMMAND_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_COMMAND_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -440,7 +422,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PIXEL_BUFFER_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_PIXEL_BUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -451,7 +432,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_UPDATE_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_UPDATE_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -462,7 +442,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_BUFFER_UPDATE_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_BUFFER_UPDATE_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -473,7 +452,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FRAMEBUFFER_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -484,7 +462,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TRANSFORM_FEEDBACK_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -495,7 +472,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ATOMIC_COUNTER_BARRIER_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_ATOMIC_COUNTER_BARRIER_BIT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -506,7 +482,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ALL_BARRIER_BITS symbol.
 		/// </summary>
-		[AliasOf("GL_ALL_BARRIER_BITS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -517,7 +492,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_IMAGE_UNITS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_IMAGE_UNITS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -527,7 +501,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
@@ -537,7 +510,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_BINDING_NAME symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_BINDING_NAME_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -547,7 +519,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_BINDING_LEVEL symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_BINDING_LEVEL_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -558,7 +529,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, corresponding to whether the image bound to the indexed image unit is layered 
 		/// or not.
 		/// </summary>
-		[AliasOf("GL_IMAGE_BINDING_LAYERED_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -568,7 +538,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_BINDING_LAYER symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_BINDING_LAYER_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -578,7 +547,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_BINDING_ACCESS symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_BINDING_ACCESS_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -588,7 +556,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_1D symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -597,7 +564,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_2D symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -607,7 +573,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_3D symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -617,7 +582,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -626,7 +590,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_CUBE symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -636,8 +599,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_BUFFER_EXT")]
-		[AliasOf("GL_IMAGE_BUFFER_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -649,7 +610,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -658,7 +618,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -668,8 +627,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_CUBE_MAP_ARRAY_EXT")]
-		[AliasOf("GL_IMAGE_CUBE_MAP_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -681,7 +638,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_2D_MULTISAMPLE symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -690,7 +646,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -699,7 +654,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_1D symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -708,7 +662,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_2D symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -718,7 +671,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_3D symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -728,7 +680,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -737,7 +688,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_CUBE symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -747,8 +697,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_BUFFER_EXT")]
-		[AliasOf("GL_INT_IMAGE_BUFFER_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -760,7 +708,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -769,7 +716,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -779,8 +725,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_CUBE_MAP_ARRAY_EXT")]
-		[AliasOf("GL_INT_IMAGE_CUBE_MAP_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -792,7 +736,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_2D_MULTISAMPLE symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -801,7 +744,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -810,7 +752,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_1D symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_1D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -819,7 +760,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -829,7 +769,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_3D symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -839,7 +778,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -848,7 +786,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_CUBE symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_CUBE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -858,8 +795,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_BUFFER_EXT")]
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_BUFFER_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -871,7 +806,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_1D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_1D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -880,7 +814,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -890,8 +823,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT")]
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -903,7 +834,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -912,7 +842,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -921,7 +850,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_IMAGE_SAMPLES symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_IMAGE_SAMPLES_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
@@ -930,7 +858,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IMAGE_BINDING_FORMAT symbol.
 		/// </summary>
-		[AliasOf("GL_IMAGE_BINDING_FORMAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -981,8 +908,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in tesselation control 
 		/// shaders.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -994,8 +919,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in tesselation evaluation 
 		/// shaders.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -1006,8 +929,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of image variables in geometry shaders.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_IMAGE_UNIFORMS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_IMAGE_UNIFORMS_OES")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -1035,8 +956,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_BPTC_UNORM symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_BPTC_UNORM_ARB")]
-		[AliasOf("GL_COMPRESSED_RGBA_BPTC_UNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
@@ -1045,8 +964,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB")]
-		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
@@ -1055,8 +972,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB")]
-		[AliasOf("GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
@@ -1065,8 +980,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB")]
-		[AliasOf("GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_compression_bptc", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_compression_bptc", Api = "gles2")]
@@ -1082,7 +995,6 @@ namespace OpenGL
 		/// size. initial value is Gl.FALSE. See Gl.TexStorage2D.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_IMMUTABLE_FORMAT_EXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -1108,7 +1020,6 @@ namespace OpenGL
 		/// <param name="baseinstance">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[AliasOf("glDrawArraysInstancedBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
@@ -1141,7 +1052,6 @@ namespace OpenGL
 		/// <param name="baseinstance">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[AliasOf("glDrawElementsInstancedBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
@@ -1174,7 +1084,6 @@ namespace OpenGL
 		/// <param name="baseinstance">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[AliasOf("glDrawElementsInstancedBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
@@ -1212,7 +1121,6 @@ namespace OpenGL
 		/// <param name="baseinstance">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[AliasOf("glDrawElementsInstancedBaseVertexBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
@@ -1248,7 +1156,6 @@ namespace OpenGL
 		/// <param name="baseinstance">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[AliasOf("glDrawElementsInstancedBaseVertexBaseInstanceEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
@@ -1413,7 +1320,6 @@ namespace OpenGL
 		/// <param name="barriers">
 		/// Specifies the barriers to insert.
 		/// </param>
-		[AliasOf("glMemoryBarrierEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
@@ -1441,7 +1347,6 @@ namespace OpenGL
 		/// <param name="width">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[AliasOf("glTexStorage1DEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
@@ -1471,7 +1376,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[AliasOf("glTexStorage2DEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -1506,7 +1410,6 @@ namespace OpenGL
 		/// <param name="depth">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[AliasOf("glTexStorage3DEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
@@ -1534,7 +1437,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the geometry to render.
 		/// </param>
-		[AliasOf("glDrawTransformFeedbackInstancedEXT")]
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
@@ -1654,49 +1556,43 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawArraysInstancedBaseInstanceEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDrawArraysInstancedBaseInstance(Int32 mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance);
 
-			[AliasOf("glDrawArraysInstancedBaseInstance")]
-			[AliasOf("glDrawArraysInstancedBaseInstanceEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawArraysInstancedBaseInstanceEXT")]
 			[ThreadStatic]
 			internal static glDrawArraysInstancedBaseInstance pglDrawArraysInstancedBaseInstance;
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseInstanceEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawElementsInstancedBaseInstance(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, UInt32 baseinstance);
 
-			[AliasOf("glDrawElementsInstancedBaseInstance")]
-			[AliasOf("glDrawElementsInstancedBaseInstanceEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseInstanceEXT")]
 			[ThreadStatic]
 			internal static glDrawElementsInstancedBaseInstance pglDrawElementsInstancedBaseInstance;
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexBaseInstanceEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawElementsInstancedBaseVertexBaseInstance(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance);
 
-			[AliasOf("glDrawElementsInstancedBaseVertexBaseInstance")]
-			[AliasOf("glDrawElementsInstancedBaseVertexBaseInstanceEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexBaseInstanceEXT")]
 			[ThreadStatic]
 			internal static glDrawElementsInstancedBaseVertexBaseInstance pglDrawElementsInstancedBaseVertexBaseInstance;
 
@@ -1743,34 +1639,30 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_shader_image_load_store")]
+			[RequiredByFeature("GL_EXT_shader_image_load_store", EntryPoint = "glMemoryBarrierEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMemoryBarrier(UInt32 barriers);
 
-			[AliasOf("glMemoryBarrier")]
-			[AliasOf("glMemoryBarrierEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_shader_image_load_store")]
+			[RequiredByFeature("GL_EXT_shader_image_load_store", EntryPoint = "glMemoryBarrierEXT")]
 			[ThreadStatic]
 			internal static glMemoryBarrier pglMemoryBarrier;
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage1DEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorage1D(Int32 target, Int32 levels, Int32 internalformat, Int32 width);
 
-			[AliasOf("glTexStorage1D")]
-			[AliasOf("glTexStorage1DEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage1DEXT")]
 			[ThreadStatic]
 			internal static glTexStorage1D pglTexStorage1D;
 
@@ -1778,53 +1670,47 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage2DEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorage2D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
-			[AliasOf("glTexStorage2D")]
-			[AliasOf("glTexStorage2DEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage2DEXT")]
 			[ThreadStatic]
 			internal static glTexStorage2D pglTexStorage2D;
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage3DEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorage3D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
-			[AliasOf("glTexStorage3D")]
-			[AliasOf("glTexStorage3DEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage3DEXT")]
 			[ThreadStatic]
 			internal static glTexStorage3D pglTexStorage3D;
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2", EntryPoint = "glDrawTransformFeedbackInstancedEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDrawTransformFeedbackInstanced(Int32 mode, UInt32 id, Int32 instancecount);
 
-			[AliasOf("glDrawTransformFeedbackInstanced")]
-			[AliasOf("glDrawTransformFeedbackInstancedEXT")]
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2", EntryPoint = "glDrawTransformFeedbackInstancedEXT")]
 			[ThreadStatic]
 			internal static glDrawTransformFeedbackInstanced pglDrawTransformFeedbackInstanced;
 

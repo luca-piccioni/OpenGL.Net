@@ -85,7 +85,7 @@ namespace OpenGL
 		private static void BindAPI()
 		{
 			try {
-				BindAPI<Glx>(Library, GetProcAddressOS);
+				BindAPI<Glx>(Library, GetProcAddressOS, null);
 			} catch (Exception) {
 				/* Fail-safe (it may fail due Egl access) */
 			}

@@ -139,7 +139,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ANY_SAMPLES_PASSED_CONSERVATIVE symbol.
 		/// </summary>
-		[AliasOf("GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
@@ -320,8 +319,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_OUTPUT_SYNCHRONOUS symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB")]
-		[AliasOf("GL_DEBUG_OUTPUT_SYNCHRONOUS_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -332,8 +329,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single value, the length, including the NULL terminator, of the oldest message in the 
 		/// debug log.
 		/// </summary>
-		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB")]
-		[AliasOf("GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -344,8 +339,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.GetPointer: Returns the current callback function set with the callback argument of 
 		/// Gl.DebugMessageCallback.
 		/// </summary>
-		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_ARB")]
-		[AliasOf("GL_DEBUG_CALLBACK_FUNCTION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -356,8 +349,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.GetPointer: Returns the user parameter to the current callback function set with the userParam argument 
 		/// of Gl.DebugMessageCallback.
 		/// </summary>
-		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_ARB")]
-		[AliasOf("GL_DEBUG_CALLBACK_USER_PARAM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -367,8 +358,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SOURCE_API symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_API_ARB")]
-		[AliasOf("GL_DEBUG_SOURCE_API_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -378,8 +367,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SOURCE_WINDOW_SYSTEM symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB")]
-		[AliasOf("GL_DEBUG_SOURCE_WINDOW_SYSTEM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -389,8 +376,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SOURCE_SHADER_COMPILER symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_ARB")]
-		[AliasOf("GL_DEBUG_SOURCE_SHADER_COMPILER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -400,8 +385,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SOURCE_THIRD_PARTY symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_ARB")]
-		[AliasOf("GL_DEBUG_SOURCE_THIRD_PARTY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -411,8 +394,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SOURCE_APPLICATION symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_ARB")]
-		[AliasOf("GL_DEBUG_SOURCE_APPLICATION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -422,8 +403,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SOURCE_OTHER symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SOURCE_OTHER_ARB")]
-		[AliasOf("GL_DEBUG_SOURCE_OTHER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -433,8 +412,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_ERROR symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_ERROR_ARB")]
-		[AliasOf("GL_DEBUG_TYPE_ERROR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -444,8 +421,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB")]
-		[AliasOf("GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -455,8 +430,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB")]
-		[AliasOf("GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -466,8 +439,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_PORTABILITY symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_ARB")]
-		[AliasOf("GL_DEBUG_TYPE_PORTABILITY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -477,8 +448,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_PERFORMANCE symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_ARB")]
-		[AliasOf("GL_DEBUG_TYPE_PERFORMANCE_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -488,8 +457,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_OTHER symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_OTHER_ARB")]
-		[AliasOf("GL_DEBUG_TYPE_OTHER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -500,9 +467,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single value, the maximum length of a debug message string, including its null 
 		/// terminator.
 		/// </summary>
-		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_AMD")]
-		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_ARB")]
-		[AliasOf("GL_MAX_DEBUG_MESSAGE_LENGTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -513,9 +477,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES3.2] Gl.Get: data returns a single value, the maximum number of messages stored in the debug message log.
 		/// </summary>
-		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_AMD")]
-		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_ARB")]
-		[AliasOf("GL_MAX_DEBUG_LOGGED_MESSAGES_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -526,9 +487,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES3.2] Gl.Get: data returns a single value, the number of messages currently in the debug log.
 		/// </summary>
-		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_AMD")]
-		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_ARB")]
-		[AliasOf("GL_DEBUG_LOGGED_MESSAGES_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -539,9 +497,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SEVERITY_HIGH symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SEVERITY_HIGH_AMD")]
-		[AliasOf("GL_DEBUG_SEVERITY_HIGH_ARB")]
-		[AliasOf("GL_DEBUG_SEVERITY_HIGH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -552,9 +507,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SEVERITY_MEDIUM symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_AMD")]
-		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_ARB")]
-		[AliasOf("GL_DEBUG_SEVERITY_MEDIUM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -565,9 +517,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SEVERITY_LOW symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SEVERITY_LOW_AMD")]
-		[AliasOf("GL_DEBUG_SEVERITY_LOW_ARB")]
-		[AliasOf("GL_DEBUG_SEVERITY_LOW_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -578,7 +527,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_MARKER symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_MARKER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -587,7 +535,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_PUSH_GROUP symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_PUSH_GROUP_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -596,7 +543,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_TYPE_POP_GROUP symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_TYPE_POP_GROUP_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -605,7 +551,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_SEVERITY_NOTIFICATION symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_SEVERITY_NOTIFICATION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -614,7 +559,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the maximum depth of the debug message group stack.
 		/// </summary>
-		[AliasOf("GL_MAX_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -623,7 +567,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the current depth of the debug message group stack.
 		/// </summary>
-		[AliasOf("GL_DEBUG_GROUP_STACK_DEPTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -632,7 +575,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_BUFFER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -641,7 +583,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_SHADER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -650,7 +591,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PROGRAM symbol.
 		/// </summary>
-		[AliasOf("GL_PROGRAM_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -659,7 +599,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_QUERY symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -668,7 +607,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PROGRAM_PIPELINE symbol.
 		/// </summary>
-		[AliasOf("GL_PROGRAM_PIPELINE_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -677,7 +615,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLER symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
@@ -693,7 +630,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single value, the maximum length of a label string.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_MAX_LABEL_LENGTH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -702,7 +638,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEBUG_OUTPUT symbol.
 		/// </summary>
-		[AliasOf("GL_DEBUG_OUTPUT_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -711,7 +646,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CONTEXT_FLAG_DEBUG_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_CONTEXT_FLAG_DEBUG_BIT_KHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
@@ -799,8 +733,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.GetFramebufferParameter: params returns the value of Gl.FRAMEBUFFER_DEFAULT_LAYERS for the framebuffer.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_DEFAULT_LAYERS_EXT")]
-		[AliasOf("GL_FRAMEBUFFER_DEFAULT_LAYERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
@@ -900,8 +832,6 @@ namespace OpenGL
 		/// must be at least 256. See Gl.FramebufferParameteri.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_MAX_FRAMEBUFFER_LAYERS_EXT")]
-		[AliasOf("GL_MAX_FRAMEBUFFER_LAYERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
@@ -2070,8 +2000,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_REFERENCED_BY_TESS_CONTROL_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_REFERENCED_BY_TESS_CONTROL_SHADER_EXT")]
-		[AliasOf("GL_REFERENCED_BY_TESS_CONTROL_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -2082,8 +2010,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_REFERENCED_BY_TESS_EVALUATION_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_REFERENCED_BY_TESS_EVALUATION_SHADER_EXT")]
-		[AliasOf("GL_REFERENCED_BY_TESS_EVALUATION_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -2094,8 +2020,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_REFERENCED_BY_GEOMETRY_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_REFERENCED_BY_GEOMETRY_SHADER_EXT")]
-		[AliasOf("GL_REFERENCED_BY_GEOMETRY_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -2146,7 +2070,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LOCATION_INDEX symbol.
 		/// </summary>
-		[AliasOf("GL_LOCATION_INDEX_EXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
@@ -2155,8 +2078,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_IS_PER_PATCH symbol.
 		/// </summary>
-		[AliasOf("GL_IS_PER_PATCH_EXT")]
-		[AliasOf("GL_IS_PER_PATCH_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
@@ -2217,8 +2138,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
 		/// a geometry shader.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
@@ -2230,8 +2149,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
 		/// a tessellation control shader.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
@@ -2243,8 +2160,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of active shader storage blocks that may be accessed by 
 		/// a tessellation evaluation shader.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
@@ -2346,8 +2261,6 @@ namespace OpenGL
 		/// bound to a buffer texture. See Gl.TexBufferRange
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_EXT")]
-		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
@@ -2365,8 +2278,6 @@ namespace OpenGL
 		/// buffer bound to a buffer texture. See Gl.TexBufferRange
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_SIZE_EXT")]
-		[AliasOf("GL_TEXTURE_BUFFER_SIZE_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
@@ -2378,8 +2289,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the minimum required alignment for texture buffer sizes and offset. 
 		/// The initial value is 1. See Gl.UniformBlockBinding.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT")]
-		[AliasOf("GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
@@ -2391,8 +2300,6 @@ namespace OpenGL
 		/// [GL4] Gl.GetTexParameter: Returns a single-valued base level of a texture view relative to its parent. The initial value 
 		/// is 0. See Gl.TextureView.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_VIEW_MIN_LEVEL_EXT")]
-		[AliasOf("GL_TEXTURE_VIEW_MIN_LEVEL_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
@@ -2402,8 +2309,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] Gl.GetTexParameter: Returns a single-valued number of levels of detail of a texture view. See Gl.TextureView.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_VIEW_NUM_LEVELS_EXT")]
-		[AliasOf("GL_TEXTURE_VIEW_NUM_LEVELS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
@@ -2414,8 +2319,6 @@ namespace OpenGL
 		/// [GL4] Gl.GetTexParameter: Returns a single-valued first level of a texture array view relative to its parent. See 
 		/// Gl.TextureView.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_VIEW_MIN_LAYER_EXT")]
-		[AliasOf("GL_TEXTURE_VIEW_MIN_LAYER_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
@@ -2425,8 +2328,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] Gl.GetTexParameter: Returns a single-valued number of layers in a texture array view. See Gl.TextureView.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_VIEW_NUM_LAYERS_EXT")]
-		[AliasOf("GL_TEXTURE_VIEW_NUM_LAYERS_OES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
@@ -2753,8 +2654,6 @@ namespace OpenGL
 		/// <param name="srcDepth">
 		/// The depth of the region to be copied.
 		/// </param>
-		[AliasOf("glCopyImageSubDataEXT")]
-		[AliasOf("glCopyImageSubDataOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
@@ -3113,8 +3012,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// Specifies the distance in basic machine units between elements of the draw parameter array.
 		/// </param>
-		[AliasOf("glMultiDrawArraysIndirectAMD")]
-		[AliasOf("glMultiDrawArraysIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
@@ -3144,8 +3041,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// Specifies the distance in basic machine units between elements of the draw parameter array.
 		/// </param>
-		[AliasOf("glMultiDrawArraysIndirectAMD")]
-		[AliasOf("glMultiDrawArraysIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
@@ -3180,8 +3075,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// Specifies the distance in basic machine units between elements of the draw parameter array.
 		/// </param>
-		[AliasOf("glMultiDrawElementsIndirectAMD")]
-		[AliasOf("glMultiDrawElementsIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
@@ -3214,8 +3107,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// Specifies the distance in basic machine units between elements of the draw parameter array.
 		/// </param>
-		[AliasOf("glMultiDrawElementsIndirectAMD")]
-		[AliasOf("glMultiDrawElementsIndirectEXT")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
@@ -3556,8 +3447,6 @@ namespace OpenGL
 		/// <param name="size">
 		/// Specifies the size of the range of the buffer's data store to attach.
 		/// </param>
-		[AliasOf("glTexBufferRangeEXT")]
-		[AliasOf("glTexBufferRangeOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
@@ -3635,7 +3524,6 @@ namespace OpenGL
 		/// Specifies whether the image will use identical sample locations and the same number of samples for all texels in the 
 		/// image, and the sample locations will not depend on the internal format or size of the image.
 		/// </param>
-		[AliasOf("glTexStorage3DMultisampleOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
@@ -3675,8 +3563,6 @@ namespace OpenGL
 		/// <param name="numlayers">
 		/// Specifies the number of layers to include in the view.
 		/// </param>
-		[AliasOf("glTextureViewEXT")]
-		[AliasOf("glTextureViewOES")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
@@ -3872,8 +3758,6 @@ namespace OpenGL
 		/// <param name="enabled">
 		/// A Boolean flag determining whether the selected messages should be enabled or disabled.
 		/// </param>
-		[AliasOf("glDebugMessageControlARB")]
-		[AliasOf("glDebugMessageControlKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
@@ -3912,8 +3796,6 @@ namespace OpenGL
 		/// <param name="enabled">
 		/// A Boolean flag determining whether the selected messages should be enabled or disabled.
 		/// </param>
-		[AliasOf("glDebugMessageControlARB")]
-		[AliasOf("glDebugMessageControlKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
@@ -3955,8 +3837,6 @@ namespace OpenGL
 		/// <param name="buf">
 		/// A <see cref="T:String"/>.
 		/// </param>
-		[AliasOf("glDebugMessageInsertARB")]
-		[AliasOf("glDebugMessageInsertKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
@@ -3981,8 +3861,6 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A user supplied pointer that will be passed on each invocation of <paramref name="callback"/>.
 		/// </param>
-		[AliasOf("glDebugMessageCallbackARB")]
-		[AliasOf("glDebugMessageCallbackKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
@@ -4007,8 +3885,6 @@ namespace OpenGL
 		/// <param name="userParam">
 		/// A user supplied pointer that will be passed on each invocation of <paramref name="callback"/>.
 		/// </param>
-		[AliasOf("glDebugMessageCallbackARB")]
-		[AliasOf("glDebugMessageCallbackKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
@@ -4050,8 +3926,6 @@ namespace OpenGL
 		/// <param name="messageLog">
 		/// The address of an array of characters that will receive the messages.
 		/// </param>
-		[AliasOf("glGetDebugMessageLogARB")]
-		[AliasOf("glGetDebugMessageLogKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
@@ -4095,7 +3969,6 @@ namespace OpenGL
 		/// <param name="message">
 		/// The a string containing the message to be sent to the debug output stream.
 		/// </param>
-		[AliasOf("glPushDebugGroupKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -4113,7 +3986,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glPopDebugGroup: pop the active debug group
 		/// </para>
 		/// </summary>
-		[AliasOf("glPopDebugGroupKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -4143,7 +4015,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string containing the label to assign to the object.
 		/// </param>
-		[AliasOf("glObjectLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -4176,7 +4047,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string that will receive the object label.
 		/// </param>
-		[AliasOf("glGetObjectLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -4208,7 +4078,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string containing the label to assign to the object.
 		/// </param>
-		[AliasOf("glObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -4235,7 +4104,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string containing the label to assign to the object.
 		/// </param>
-		[AliasOf("glObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -4267,7 +4135,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string that will receive the object label.
 		/// </param>
-		[AliasOf("glGetObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -4302,7 +4169,6 @@ namespace OpenGL
 		/// <param name="label">
 		/// The address of a string that will receive the object label.
 		/// </param>
-		[AliasOf("glGetObjectPtrLabelKHR")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
@@ -4636,21 +4502,18 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_copy_image", Api = "gles2")]
-			[RequiredByFeature("GL_OES_copy_image", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_copy_image", Api = "gles2", EntryPoint = "glCopyImageSubDataEXT")]
+			[RequiredByFeature("GL_OES_copy_image", Api = "gles2", EntryPoint = "glCopyImageSubDataOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCopyImageSubData(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
 
-			[AliasOf("glCopyImageSubData")]
-			[AliasOf("glCopyImageSubDataEXT")]
-			[AliasOf("glCopyImageSubDataOES")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_copy_image", Api = "gles2")]
-			[RequiredByFeature("GL_OES_copy_image", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_copy_image", Api = "gles2", EntryPoint = "glCopyImageSubDataEXT")]
+			[RequiredByFeature("GL_OES_copy_image", Api = "gles2", EntryPoint = "glCopyImageSubDataOES")]
 			[ThreadStatic]
 			internal static glCopyImageSubData pglCopyImageSubData;
 
@@ -4771,40 +4634,34 @@ namespace OpenGL
 			internal static glInvalidateSubFramebuffer pglInvalidateSubFramebuffer;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_AMD_multi_draw_indirect")]
+			[RequiredByFeature("GL_AMD_multi_draw_indirect", EntryPoint = "glMultiDrawArraysIndirectAMD")]
 			[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2", EntryPoint = "glMultiDrawArraysIndirectEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiDrawArraysIndirect(Int32 mode, IntPtr indirect, Int32 drawcount, Int32 stride);
 
-			[AliasOf("glMultiDrawArraysIndirect")]
-			[AliasOf("glMultiDrawArraysIndirectAMD")]
-			[AliasOf("glMultiDrawArraysIndirectEXT")]
 			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_AMD_multi_draw_indirect")]
+			[RequiredByFeature("GL_AMD_multi_draw_indirect", EntryPoint = "glMultiDrawArraysIndirectAMD")]
 			[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2", EntryPoint = "glMultiDrawArraysIndirectEXT")]
 			[ThreadStatic]
 			internal static glMultiDrawArraysIndirect pglMultiDrawArraysIndirect;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_AMD_multi_draw_indirect")]
+			[RequiredByFeature("GL_AMD_multi_draw_indirect", EntryPoint = "glMultiDrawElementsIndirectAMD")]
 			[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2", EntryPoint = "glMultiDrawElementsIndirectEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiDrawElementsIndirect(Int32 mode, Int32 type, IntPtr indirect, Int32 drawcount, Int32 stride);
 
-			[AliasOf("glMultiDrawElementsIndirect")]
-			[AliasOf("glMultiDrawElementsIndirectAMD")]
-			[AliasOf("glMultiDrawElementsIndirectEXT")]
 			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_AMD_multi_draw_indirect")]
+			[RequiredByFeature("GL_AMD_multi_draw_indirect", EntryPoint = "glMultiDrawElementsIndirectAMD")]
 			[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2", EntryPoint = "glMultiDrawElementsIndirectEXT")]
 			[ThreadStatic]
 			internal static glMultiDrawElementsIndirect pglMultiDrawElementsIndirect;
 
@@ -4905,21 +4762,18 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferRangeEXT")]
+			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferRangeOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexBufferRange(Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 
-			[AliasOf("glTexBufferRange")]
-			[AliasOf("glTexBufferRangeEXT")]
-			[AliasOf("glTexBufferRangeOES")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferRangeEXT")]
+			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferRangeOES")]
 			[ThreadStatic]
 			internal static glTexBufferRange pglTexBufferRange;
 
@@ -4940,37 +4794,32 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2", EntryPoint = "glTexStorage3DMultisampleOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexStorage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
-			[AliasOf("glTexStorage3DMultisample")]
-			[AliasOf("glTexStorage3DMultisampleOES")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2", EntryPoint = "glTexStorage3DMultisampleOES")]
 			[ThreadStatic]
 			internal static glTexStorage3DMultisample pglTexStorage3DMultisample;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_view", Api = "gles2", EntryPoint = "glTextureViewEXT")]
+			[RequiredByFeature("GL_OES_texture_view", Api = "gles2", EntryPoint = "glTextureViewOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTextureView(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers);
 
-			[AliasOf("glTextureView")]
-			[AliasOf("glTextureViewEXT")]
-			[AliasOf("glTextureViewOES")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_view", Api = "gles2", EntryPoint = "glTextureViewEXT")]
+			[RequiredByFeature("GL_OES_texture_view", Api = "gles2", EntryPoint = "glTextureViewOES")]
 			[ThreadStatic]
 			internal static glTextureView pglTextureView;
 
@@ -5058,7 +4907,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageControlARB")]
 			[RequiredByFeature("GL_KHR_debug")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			#if !NETCORE && !NETSTANDARD1_4
@@ -5066,12 +4915,9 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glDebugMessageControl(Int32 source, Int32 type, Int32 severity, Int32 count, UInt32* ids, bool enabled);
 
-			[AliasOf("glDebugMessageControl")]
-			[AliasOf("glDebugMessageControlARB")]
-			[AliasOf("glDebugMessageControlKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageControlARB")]
 			[RequiredByFeature("GL_KHR_debug")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
@@ -5079,7 +4925,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageInsertARB")]
 			[RequiredByFeature("GL_KHR_debug")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			#if !NETCORE && !NETSTANDARD1_4
@@ -5087,12 +4933,9 @@ namespace OpenGL
 			#endif
 			internal delegate void glDebugMessageInsert(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf);
 
-			[AliasOf("glDebugMessageInsert")]
-			[AliasOf("glDebugMessageInsertARB")]
-			[AliasOf("glDebugMessageInsertKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageInsertARB")]
 			[RequiredByFeature("GL_KHR_debug")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
@@ -5100,7 +4943,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageCallbackARB")]
 			[RequiredByFeature("GL_KHR_debug")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			#if !NETCORE && !NETSTANDARD1_4
@@ -5108,12 +4951,9 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glDebugMessageCallback(Gl.DebugProc callback, IntPtr userParam);
 
-			[AliasOf("glDebugMessageCallback")]
-			[AliasOf("glDebugMessageCallbackARB")]
-			[AliasOf("glDebugMessageCallbackKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageCallbackARB")]
 			[RequiredByFeature("GL_KHR_debug")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
@@ -5121,7 +4961,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glGetDebugMessageLogARB")]
 			[RequiredByFeature("GL_KHR_debug")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			#if !NETCORE && !NETSTANDARD1_4
@@ -5129,12 +4969,9 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate UInt32 glGetDebugMessageLog(UInt32 count, Int32 bufSize, Int32* sources, Int32* types, UInt32* ids, Int32* severities, Int32* lengths, [Out] StringBuilder messageLog);
 
-			[AliasOf("glGetDebugMessageLog")]
-			[AliasOf("glGetDebugMessageLogARB")]
-			[AliasOf("glGetDebugMessageLogKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glGetDebugMessageLogARB")]
 			[RequiredByFeature("GL_KHR_debug")]
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[ThreadStatic]
@@ -5149,8 +4986,6 @@ namespace OpenGL
 			#endif
 			internal delegate void glPushDebugGroup(Int32 source, UInt32 id, Int32 length, String message);
 
-			[AliasOf("glPushDebugGroup")]
-			[AliasOf("glPushDebugGroupKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
@@ -5167,8 +5002,6 @@ namespace OpenGL
 			#endif
 			internal delegate void glPopDebugGroup();
 
-			[AliasOf("glPopDebugGroup")]
-			[AliasOf("glPopDebugGroupKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
@@ -5185,8 +5018,6 @@ namespace OpenGL
 			#endif
 			internal delegate void glObjectLabel(Int32 identifier, UInt32 name, Int32 length, String label);
 
-			[AliasOf("glObjectLabel")]
-			[AliasOf("glObjectLabelKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
@@ -5203,8 +5034,6 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glGetObjectLabel(Int32 identifier, UInt32 name, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 
-			[AliasOf("glGetObjectLabel")]
-			[AliasOf("glGetObjectLabelKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
@@ -5221,8 +5050,6 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glObjectPtrLabel(IntPtr ptr, Int32 length, String label);
 
-			[AliasOf("glObjectPtrLabel")]
-			[AliasOf("glObjectPtrLabelKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
@@ -5239,8 +5066,6 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glGetObjectPtrLabel(IntPtr ptr, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 
-			[AliasOf("glGetObjectPtrLabel")]
-			[AliasOf("glGetObjectPtrLabelKHR")]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]

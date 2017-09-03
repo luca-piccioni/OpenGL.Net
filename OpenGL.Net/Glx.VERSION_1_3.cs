@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_WINDOW_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_WINDOW_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		[Log(BitmaskName = "GLXDrawableTypeMask")]
@@ -47,7 +46,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_PIXMAP_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_PIXMAP_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		[Log(BitmaskName = "GLXDrawableTypeMask")]
@@ -56,7 +54,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_PBUFFER_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_PBUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXDrawableTypeMask")]
@@ -65,7 +62,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_RGBA_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_RGBA_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		[Log(BitmaskName = "GLXRenderTypeMask")]
@@ -74,7 +70,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_COLOR_INDEX_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_COLOR_INDEX_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		[Log(BitmaskName = "GLXRenderTypeMask")]
@@ -90,7 +85,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_FRONT_LEFT_BUFFER_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_FRONT_LEFT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
@@ -99,7 +93,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_FRONT_RIGHT_BUFFER_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_FRONT_RIGHT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
@@ -108,7 +101,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_BACK_LEFT_BUFFER_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_BACK_LEFT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
@@ -117,7 +109,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_BACK_RIGHT_BUFFER_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_BACK_RIGHT_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
@@ -126,7 +117,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_AUX_BUFFERS_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_AUX_BUFFERS_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
@@ -135,7 +125,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_DEPTH_BUFFER_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_DEPTH_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
@@ -144,7 +133,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_STENCIL_BUFFER_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_STENCIL_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
@@ -153,7 +141,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_ACCUM_BUFFER_BIT symbol.
 		/// </summary>
-		[AliasOf("GLX_ACCUM_BUFFER_BIT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		[Log(BitmaskName = "GLXPbufferClobberMask")]
@@ -192,7 +179,6 @@ namespace OpenGL
 		/// associated visual (i.e., if Glx.X_RENDERABLE is Glx.e or Glx.DRAWABLE_TYPE does not have the Glx.WINDOW_BIT bit set).
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_X_VISUAL_TYPE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int X_VISUAL_TYPE = 0x22;
@@ -211,7 +197,6 @@ namespace OpenGL
 		/// particular index values, respectively.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_TRANSPARENT_TYPE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_TYPE = 0x23;
@@ -229,7 +214,6 @@ namespace OpenGL
 		/// Glx.TRANSPARENT_INDEX.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_TRANSPARENT_INDEX_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_INDEX_VALUE = 0x24;
@@ -246,7 +230,6 @@ namespace OpenGL
 		/// transparent red value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_TRANSPARENT_RED_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_RED_VALUE = 0x25;
@@ -264,7 +247,6 @@ namespace OpenGL
 		/// Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_TRANSPARENT_GREEN_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_GREEN_VALUE = 0x26;
@@ -281,7 +263,6 @@ namespace OpenGL
 		/// transparent blue value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_TRANSPARENT_BLUE_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_BLUE_VALUE = 0x27;
@@ -297,7 +278,6 @@ namespace OpenGL
 		/// transparent blue value for the frame buffer configuration. Undefined if Glx.TRANSPARENT_TYPE is not Glx.TRANSPARENT_RGB.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_TRANSPARENT_ALPHA_VALUE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_ALPHA_VALUE = 0x28;
@@ -311,7 +291,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_NONE symbol.
 		/// </summary>
-		[AliasOf("GLX_NONE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		[RequiredByFeature("GLX_EXT_visual_rating")]
@@ -326,7 +305,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_TRUE_COLOR symbol.
 		/// </summary>
-		[AliasOf("GLX_TRUE_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRUE_COLOR = 0x8002;
@@ -334,7 +312,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_DIRECT_COLOR symbol.
 		/// </summary>
-		[AliasOf("GLX_DIRECT_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int DIRECT_COLOR = 0x8003;
@@ -342,7 +319,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_PSEUDO_COLOR symbol.
 		/// </summary>
-		[AliasOf("GLX_PSEUDO_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int PSEUDO_COLOR = 0x8004;
@@ -350,7 +326,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_STATIC_COLOR symbol.
 		/// </summary>
-		[AliasOf("GLX_STATIC_COLOR_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int STATIC_COLOR = 0x8005;
@@ -358,7 +333,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_GRAY_SCALE symbol.
 		/// </summary>
-		[AliasOf("GLX_GRAY_SCALE_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int GRAY_SCALE = 0x8006;
@@ -366,7 +340,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_STATIC_GRAY symbol.
 		/// </summary>
-		[AliasOf("GLX_STATIC_GRAY_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int STATIC_GRAY = 0x8007;
@@ -374,7 +347,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_TRANSPARENT_RGB symbol.
 		/// </summary>
-		[AliasOf("GLX_TRANSPARENT_RGB_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_RGB = 0x8008;
@@ -382,7 +354,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_TRANSPARENT_INDEX symbol.
 		/// </summary>
-		[AliasOf("GLX_TRANSPARENT_INDEX_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_visual_info")]
 		public const int TRANSPARENT_INDEX = 0x8009;
@@ -391,7 +362,6 @@ namespace OpenGL
 		/// [GL2.1] Glx.GetFBConfigAttrib: XID of the corresponding visual, or zero if there is no associated visual (i.e., if 
 		/// Glx.X_RENDERABLE is Glx.e or Glx.DRAWABLE_TYPE does not have the Glx.WINDOW_BIT bit set).
 		/// </summary>
-		[AliasOf("GLX_VISUAL_ID_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_import_context")]
 		public const int VISUAL_ID = 0x800B;
@@ -399,7 +369,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] Glx.QueryContext: Returns the screen number associated with ctx.
 		/// </summary>
-		[AliasOf("GLX_SCREEN_EXT")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_EXT_import_context")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
@@ -423,7 +392,6 @@ namespace OpenGL
 		/// are Glx.WINDOW_BIT, Glx.PIXMAP_BIT, and Glx.PBUFFER_BIT.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_DRAWABLE_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int DRAWABLE_TYPE = 0x8010;
@@ -443,7 +411,6 @@ namespace OpenGL
 		/// [GL2.1] Glx.QueryContext: Returns the rendering type supported by ctx.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_RENDER_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int RENDER_TYPE = 0x8011;
@@ -458,7 +425,6 @@ namespace OpenGL
 		/// [GL2.1] Glx.GetFBConfigAttrib: Glx. if drawables created with the frame buffer configuration can be rendered to by X.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_X_RENDERABLE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int X_RENDERABLE = 0x8012;
@@ -478,7 +444,6 @@ namespace OpenGL
 		/// [GL2.1] Glx.QueryDrawable: Returns the XID for draw.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_FBCONFIG_ID_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int FBCONFIG_ID = 0x8013;
@@ -486,7 +451,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_RGBA_TYPE symbol.
 		/// </summary>
-		[AliasOf("GLX_RGBA_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int RGBA_TYPE = 0x8014;
@@ -494,7 +458,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_COLOR_INDEX_TYPE symbol.
 		/// </summary>
-		[AliasOf("GLX_COLOR_INDEX_TYPE_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
 		public const int COLOR_INDEX_TYPE = 0x8015;
@@ -502,7 +465,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] Glx.GetFBConfigAttrib: The maximum width that can be specified to Glx.CreatePbuffer.
 		/// </summary>
-		[AliasOf("GLX_MAX_PBUFFER_WIDTH_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int MAX_PBUFFER_WIDTH = 0x8016;
@@ -510,7 +472,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] Glx.GetFBConfigAttrib: The maximum height that can be specified to Glx.CreatePbuffer.
 		/// </summary>
-		[AliasOf("GLX_MAX_PBUFFER_HEIGHT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int MAX_PBUFFER_HEIGHT = 0x8017;
@@ -521,7 +482,6 @@ namespace OpenGL
 		/// no other pixel buffers or X resources are contending for the frame buffer memory. As a result, it may not be possible to 
 		/// allocate a pixel buffer of the size given by Glx.MAX_PBUFFER_PIXELS.
 		/// </summary>
-		[AliasOf("GLX_MAX_PBUFFER_PIXELS_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int MAX_PBUFFER_PIXELS = 0x8018;
@@ -539,7 +499,6 @@ namespace OpenGL
 		/// Glx.e otherwise.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_PRESERVED_CONTENTS_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int PRESERVED_CONTENTS = 0x801B;
@@ -558,7 +517,6 @@ namespace OpenGL
 		/// than the requested width and height) is created.
 		/// </para>
 		/// </summary>
-		[AliasOf("GLX_LARGEST_PBUFFER_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int LARGEST_PBUFFER = 0x801C;
@@ -566,7 +524,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] Glx.QueryDrawable: Returns the width of ctx.
 		/// </summary>
-		[AliasOf("GLX_WIDTH_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int WIDTH = 0x801D;
@@ -574,7 +531,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL2.1] Glx.QueryDrawable: Returns the height of ctx.
 		/// </summary>
-		[AliasOf("GLX_HEIGHT_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int HEIGHT = 0x801E;
@@ -582,7 +538,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_EVENT_MASK symbol.
 		/// </summary>
-		[AliasOf("GLX_EVENT_MASK_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int EVENT_MASK = 0x801F;
@@ -590,7 +545,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_DAMAGED symbol.
 		/// </summary>
-		[AliasOf("GLX_DAMAGED_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int DAMAGED = 0x8020;
@@ -598,7 +552,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_SAVED symbol.
 		/// </summary>
-		[AliasOf("GLX_SAVED_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int SAVED = 0x8021;
@@ -606,7 +559,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_WINDOW symbol.
 		/// </summary>
-		[AliasOf("GLX_WINDOW_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int WINDOW = 0x8022;
@@ -614,7 +566,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_PBUFFER symbol.
 		/// </summary>
-		[AliasOf("GLX_PBUFFER_SGIX")]
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
 		public const int PBUFFER = 0x8023;

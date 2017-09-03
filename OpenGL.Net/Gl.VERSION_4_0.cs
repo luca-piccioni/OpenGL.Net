@@ -38,8 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES3.2] Gl.Get: data returns a single integer value indicating whether sample rate shading is enabled. See Gl.Enable.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_SHADING_ARB")]
-		[AliasOf("GL_SAMPLE_SHADING_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore")]
@@ -50,8 +48,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the minimum sample shading fraction. See 
 		/// Gl.MinSampleShading.
 		/// </summary>
-		[AliasOf("GL_MIN_SAMPLE_SHADING_VALUE_ARB")]
-		[AliasOf("GL_MIN_SAMPLE_SHADING_VALUE_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore")]
@@ -61,8 +57,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
-		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB")]
-		[AliasOf("GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_gather", Api = "gl|glcore")]
@@ -72,8 +66,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB")]
-		[AliasOf("GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_gather", Api = "gl|glcore")]
@@ -83,9 +75,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_ARRAY_ARB")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_ARRAY_EXT")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
@@ -99,9 +88,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_CUBE_MAP_ARRAY. The initial value is 0. See Gl.BindTexture.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB")]
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT")]
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -114,7 +100,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PROXY_TEXTURE_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_texture_cube_map_array", Api = "gl|glcore")]
 		public const int PROXY_TEXTURE_CUBE_MAP_ARRAY = 0x900B;
@@ -122,9 +107,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_ARB")]
-		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_EXT")]
-		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map_array", Api = "gl|glcore")]
@@ -135,9 +117,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB")]
-		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_EXT")]
-		[AliasOf("GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map_array", Api = "gl|glcore")]
@@ -148,9 +127,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB")]
-		[AliasOf("GL_INT_SAMPLER_CUBE_MAP_ARRAY_EXT")]
-		[AliasOf("GL_INT_SAMPLER_CUBE_MAP_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map_array", Api = "gl|glcore")]
@@ -161,9 +137,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB")]
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_EXT")]
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map_array", Api = "gl|glcore")]
@@ -191,8 +164,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.GetProgram: params returns the number of invocations per primitive that the geometry shader in program will 
 		/// execute.
 		/// </summary>
-		[AliasOf("GL_GEOMETRY_SHADER_INVOCATIONS_EXT")]
-		[AliasOf("GL_GEOMETRY_SHADER_INVOCATIONS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -206,8 +177,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported number of invocations per primitive of a geometry 
 		/// shader.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_SHADER_INVOCATIONS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
@@ -219,8 +188,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the minimum valid offset for interpolation. See 
 		/// Gl.terpolateAtOffset.
 		/// </summary>
-		[AliasOf("GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES")]
-		[AliasOf("GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
@@ -232,8 +199,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single floating-point value indicating the maximum valid offset for interpolation. See 
 		/// Gl.terpolateAtOffset.
 		/// </summary>
-		[AliasOf("GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES")]
-		[AliasOf("GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
@@ -245,7 +210,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single integer value indicating the number of subpixels bits available in the offset 
 		/// for interpolation. See Gl.terpolateAtOffset.
 		/// </summary>
-		[AliasOf("GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_gpu_shader5", Api = "gl|glcore")]
@@ -263,7 +227,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_VEC2 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_VEC2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -273,7 +236,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_VEC3 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_VEC3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -283,7 +245,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_VEC4 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_VEC4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -293,7 +254,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT2 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -303,7 +263,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT3 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -313,7 +272,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT4 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -323,7 +281,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT2x3 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT2x3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -333,7 +290,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT2x4 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT2x4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -343,7 +299,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT3x2 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT3x2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -353,7 +308,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT3x4 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT3x4_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -363,7 +317,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT4x2 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT4x2_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -373,7 +326,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOUBLE_MAT4x3 symbol.
 		/// </summary>
-		[AliasOf("GL_DOUBLE_MAT4x3_EXT")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
@@ -448,8 +400,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PATCHES symbol.
 		/// </summary>
-		[AliasOf("GL_PATCHES_EXT")]
-		[AliasOf("GL_PATCHES_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -462,8 +412,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the number of vertices in an input patch. The initial value is 3. See 
 		/// Gl.PatchParameteri.
 		/// </summary>
-		[AliasOf("GL_PATCH_VERTICES_EXT")]
-		[AliasOf("GL_PATCH_VERTICES_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -488,8 +436,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES3.2] Gl.GetProgram: params returns the number of vertices in the tesselation control shader output patch.
 		/// </summary>
-		[AliasOf("GL_TESS_CONTROL_OUTPUT_VERTICES_EXT")]
-		[AliasOf("GL_TESS_CONTROL_OUTPUT_VERTICES_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -501,8 +447,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.GetProgram: params returns the primitive mode declared by the tesselation evaluation shader for tesselation 
 		/// primitive generation. This is one of Gl.QUADS, Gl.TRIANGLES, or Gl.ISOLINES.
 		/// </summary>
-		[AliasOf("GL_TESS_GEN_MODE_EXT")]
-		[AliasOf("GL_TESS_GEN_MODE_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -514,8 +458,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.GetProgram: params returns the spacing declared by the tesselation evaluation shader for tesselation 
 		/// primitive generation edge subdivision. This is one of Gl.EQUAL, Gl.FRACTIONAL_EVEN, or Gl.FRACTIONAL_ODD.
 		/// </summary>
-		[AliasOf("GL_TESS_GEN_SPACING_EXT")]
-		[AliasOf("GL_TESS_GEN_SPACING_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -527,8 +469,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.GetProgram: params returns the vertex order declared by the tesselation evaluation shader for tesselation 
 		/// primitive generation. This is one of Gl.CW, or Gl.CCW.
 		/// </summary>
-		[AliasOf("GL_TESS_GEN_VERTEX_ORDER_EXT")]
-		[AliasOf("GL_TESS_GEN_VERTEX_ORDER_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -540,8 +480,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.GetProgram: params returns a single boolean, the point mode declared by the tesselation evaluation shader 
 		/// to determine if the tesselation primitive generator emits points.
 		/// </summary>
-		[AliasOf("GL_TESS_GEN_POINT_MODE_EXT")]
-		[AliasOf("GL_TESS_GEN_POINT_MODE_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -552,8 +490,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ISOLINES symbol.
 		/// </summary>
-		[AliasOf("GL_ISOLINES_EXT")]
-		[AliasOf("GL_ISOLINES_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -564,8 +500,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FRACTIONAL_ODD symbol.
 		/// </summary>
-		[AliasOf("GL_FRACTIONAL_ODD_EXT")]
-		[AliasOf("GL_FRACTIONAL_ODD_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -576,8 +510,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FRACTIONAL_EVEN symbol.
 		/// </summary>
-		[AliasOf("GL_FRACTIONAL_EVEN_EXT")]
-		[AliasOf("GL_FRACTIONAL_EVEN_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -588,8 +520,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_PATCH_VERTICES symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_PATCH_VERTICES_EXT")]
-		[AliasOf("GL_MAX_PATCH_VERTICES_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -601,8 +531,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single value, the maximum tessellation level supported by the tesselation primitive 
 		/// generator.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_GEN_LEVEL_EXT")]
-		[AliasOf("GL_MAX_TESS_GEN_LEVEL_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -615,8 +543,6 @@ namespace OpenGL
 		/// that can be held in uniform variable storage for a tesselation control shader. The value must be at least 1024. See 
 		/// Gl.Uniform.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -629,8 +555,6 @@ namespace OpenGL
 		/// that can be held in uniform variable storage for a tesselation evaluation shader. The value must be at least 1024. See 
 		/// Gl.Uniform.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -642,8 +566,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
 		/// maps from the tesselation control shader. The value may be at least 16. See Gl.ActiveTexture.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -655,8 +577,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access texture 
 		/// maps from the tesselation evaluation shader. The value may be at least 16. See Gl.ActiveTexture.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -668,8 +588,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a tesselation control 
 		/// shader, which must be at least 128.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -681,8 +599,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of per-patch outputs written by a tesselation 
 		/// control shader, which must be at least 128.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_PATCH_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_TESS_PATCH_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -694,8 +610,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices 
 		/// written by a tesselation control shader, including per-vertex and per-patch outputs, which must be at least 2048.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -707,8 +621,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a tesselation 
 		/// evaluation shader, which must be at least 128.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -720,8 +632,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per tesselation control shader. The value 
 		/// must be at least 12. See Gl.UniformBlockBinding.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -733,8 +643,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per tesselation evaluation shader. The 
 		/// value must be at least 12. See Gl.UniformBlockBinding.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -746,8 +654,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a tesselation control 
 		/// shader, which must be at least 128.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -759,8 +665,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a tesselation evaluation 
 		/// shader, which must be at least 128.
 		/// </summary>
-		[AliasOf("GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -773,8 +677,6 @@ namespace OpenGL
 		/// uniform blocks (including default). The value must be at least Gl.MAX_TESS_CONTROL_UNIFORM_COMPONENTS + 
 		/// Gl.MAX_UNIFORM_BLOCK_SIZE * Gl.MAX_TESS_CONTROL_UNIFORM_BLOCKS / 4. See Gl.Uniform.
 		/// </summary>
-		[AliasOf("GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -787,8 +689,6 @@ namespace OpenGL
 		/// uniform blocks (including default). The value must be at least Gl.MAX_TESS_EVALUATION_UNIFORM_COMPONENTS + 
 		/// Gl.MAX_UNIFORM_BLOCK_SIZE * Gl.MAX_TESS_EVALUATION_UNIFORM_BLOCKS / 4. See Gl.Uniform.
 		/// </summary>
-		[AliasOf("GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -813,8 +713,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TESS_EVALUATION_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_TESS_EVALUATION_SHADER_EXT")]
-		[AliasOf("GL_TESS_EVALUATION_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -825,8 +723,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TESS_CONTROL_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_TESS_CONTROL_SHADER_EXT")]
-		[AliasOf("GL_TESS_CONTROL_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -837,7 +733,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TRANSFORM_FEEDBACK symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -848,7 +743,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_transform_feedback2")]
@@ -857,7 +751,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE symbol.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_transform_feedback2")]
@@ -868,7 +761,6 @@ namespace OpenGL
 		/// Gl.TRANSFORM_FEEDBACK target. If no transform feedback object is bound to this target, 0 is returned. The initial value 
 		/// is 0. See Gl.BindTransformFeedback.
 		/// </summary>
-		[AliasOf("GL_TRANSFORM_FEEDBACK_BINDING_NV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -893,8 +785,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the rate at which samples are shaded within each covered pixel.
 		/// </param>
-		[AliasOf("glMinSampleShadingARB")]
-		[AliasOf("glMinSampleShadingOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore")]
@@ -916,10 +806,6 @@ namespace OpenGL
 		/// <param name="mode">
 		/// A <see cref="T:BlendEquationMode"/>.
 		/// </param>
-		[AliasOf("glBlendEquationIndexedAMD")]
-		[AliasOf("glBlendEquationiARB")]
-		[AliasOf("glBlendEquationiEXT")]
-		[AliasOf("glBlendEquationiOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
@@ -946,10 +832,6 @@ namespace OpenGL
 		/// <param name="modeAlpha">
 		/// A <see cref="T:BlendEquationMode"/>.
 		/// </param>
-		[AliasOf("glBlendEquationSeparateIndexedAMD")]
-		[AliasOf("glBlendEquationSeparateiARB")]
-		[AliasOf("glBlendEquationSeparateiEXT")]
-		[AliasOf("glBlendEquationSeparateiOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
@@ -976,10 +858,6 @@ namespace OpenGL
 		/// <param name="dst">
 		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
-		[AliasOf("glBlendFuncIndexedAMD")]
-		[AliasOf("glBlendFunciARB")]
-		[AliasOf("glBlendFunciEXT")]
-		[AliasOf("glBlendFunciOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
@@ -1012,10 +890,6 @@ namespace OpenGL
 		/// <param name="dstAlpha">
 		/// A <see cref="T:BlendingFactor"/>.
 		/// </param>
-		[AliasOf("glBlendFuncSeparateIndexedAMD")]
-		[AliasOf("glBlendFuncSeparateiARB")]
-		[AliasOf("glBlendFuncSeparateiEXT")]
-		[AliasOf("glBlendFuncSeparateiOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_draw_buffers_blend")]
@@ -2238,8 +2112,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// Specifies the new value for the parameter given by <paramref name="pname"/>.
 		/// </param>
-		[AliasOf("glPatchParameteriEXT")]
-		[AliasOf("glPatchParameteriOES")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
@@ -2309,7 +2181,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of names of transform feedback objects to delete.
 		/// </param>
-		[AliasOf("glDeleteTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -2335,7 +2206,6 @@ namespace OpenGL
 		/// <param name="ids">
 		/// Specifies an array of into which the reserved names will be written.
 		/// </param>
-		[AliasOf("glGenTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -2358,7 +2228,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glGenTransformFeedbacks: reserve transform feedback object names
 		/// </para>
 		/// </summary>
-		[AliasOf("glGenTransformFeedbacksNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -2378,7 +2247,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies a value that may be the name of a transform feedback object.
 		/// </param>
-		[AliasOf("glIsTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -2400,7 +2268,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glPauseTransformFeedback: pause transform feedback operations
 		/// </para>
 		/// </summary>
-		[AliasOf("glPauseTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -2418,7 +2285,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glResumeTransformFeedback: resume transform feedback operations
 		/// </para>
 		/// </summary>
-		[AliasOf("glResumeTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
@@ -2442,8 +2308,6 @@ namespace OpenGL
 		/// <param name="id">
 		/// Specifies the name of a transform feedback object from which to retrieve a primitive count.
 		/// </param>
-		[AliasOf("glDrawTransformFeedbackEXT")]
-		[AliasOf("glDrawTransformFeedbackNV")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
@@ -2844,120 +2708,97 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_sample_shading", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore", EntryPoint = "glMinSampleShadingARB")]
+			[RequiredByFeature("GL_OES_sample_shading", Api = "gles2", EntryPoint = "glMinSampleShadingOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMinSampleShading(float value);
 
-			[AliasOf("glMinSampleShading")]
-			[AliasOf("glMinSampleShadingARB")]
-			[AliasOf("glMinSampleShadingOES")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_sample_shading", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore", EntryPoint = "glMinSampleShadingARB")]
+			[RequiredByFeature("GL_OES_sample_shading", Api = "gles2", EntryPoint = "glMinSampleShadingOES")]
 			[ThreadStatic]
 			internal static glMinSampleShading pglMinSampleShading;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendEquationIndexedAMD")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendEquationiARB")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationiEXT")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationiOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBlendEquationi(UInt32 buf, Int32 mode);
 
-			[AliasOf("glBlendEquationi")]
-			[AliasOf("glBlendEquationIndexedAMD")]
-			[AliasOf("glBlendEquationiARB")]
-			[AliasOf("glBlendEquationiEXT")]
-			[AliasOf("glBlendEquationiOES")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendEquationIndexedAMD")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendEquationiARB")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationiEXT")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationiOES")]
 			[ThreadStatic]
 			internal static glBlendEquationi pglBlendEquationi;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendEquationSeparateIndexedAMD")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendEquationSeparateiARB")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationSeparateiEXT")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationSeparateiOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBlendEquationSeparatei(UInt32 buf, Int32 modeRGB, Int32 modeAlpha);
 
-			[AliasOf("glBlendEquationSeparatei")]
-			[AliasOf("glBlendEquationSeparateIndexedAMD")]
-			[AliasOf("glBlendEquationSeparateiARB")]
-			[AliasOf("glBlendEquationSeparateiEXT")]
-			[AliasOf("glBlendEquationSeparateiOES")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendEquationSeparateIndexedAMD")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendEquationSeparateiARB")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationSeparateiEXT")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationSeparateiOES")]
 			[ThreadStatic]
 			internal static glBlendEquationSeparatei pglBlendEquationSeparatei;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendFuncIndexedAMD")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendFunciARB")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFunciEXT")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFunciOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBlendFunci(UInt32 buf, Int32 src, Int32 dst);
 
-			[AliasOf("glBlendFunci")]
-			[AliasOf("glBlendFuncIndexedAMD")]
-			[AliasOf("glBlendFunciARB")]
-			[AliasOf("glBlendFunciEXT")]
-			[AliasOf("glBlendFunciOES")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendFuncIndexedAMD")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendFunciARB")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFunciEXT")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFunciOES")]
 			[ThreadStatic]
 			internal static glBlendFunci pglBlendFunci;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendFuncSeparateIndexedAMD")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendFuncSeparateiARB")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFuncSeparateiEXT")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFuncSeparateiOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBlendFuncSeparatei(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
 
-			[AliasOf("glBlendFuncSeparatei")]
-			[AliasOf("glBlendFuncSeparateIndexedAMD")]
-			[AliasOf("glBlendFuncSeparateiARB")]
-			[AliasOf("glBlendFuncSeparateiEXT")]
-			[AliasOf("glBlendFuncSeparateiOES")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendFuncSeparateIndexedAMD")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendFuncSeparateiARB")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFuncSeparateiEXT")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFuncSeparateiOES")]
 			[ThreadStatic]
 			internal static glBlendFuncSeparatei pglBlendFuncSeparatei;
 
@@ -3304,21 +3145,18 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
-			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2", EntryPoint = "glPatchParameteriEXT")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2", EntryPoint = "glPatchParameteriOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glPatchParameteri(Int32 pname, Int32 value);
 
-			[AliasOf("glPatchParameteri")]
-			[AliasOf("glPatchParameteriEXT")]
-			[AliasOf("glPatchParameteriOES")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
-			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2", EntryPoint = "glPatchParameteriEXT")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2", EntryPoint = "glPatchParameteriOES")]
 			[ThreadStatic]
 			internal static glPatchParameteri pglPatchParameteri;
 
@@ -3351,109 +3189,96 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glDeleteTransformFeedbacksNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDeleteTransformFeedbacks(Int32 n, UInt32* ids);
 
-			[AliasOf("glDeleteTransformFeedbacks")]
-			[AliasOf("glDeleteTransformFeedbacksNV")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glDeleteTransformFeedbacksNV")]
 			[ThreadStatic]
 			internal static glDeleteTransformFeedbacks pglDeleteTransformFeedbacks;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glGenTransformFeedbacksNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGenTransformFeedbacks(Int32 n, UInt32* ids);
 
-			[AliasOf("glGenTransformFeedbacks")]
-			[AliasOf("glGenTransformFeedbacksNV")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glGenTransformFeedbacksNV")]
 			[ThreadStatic]
 			internal static glGenTransformFeedbacks pglGenTransformFeedbacks;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glIsTransformFeedbackNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsTransformFeedback(UInt32 id);
 
-			[AliasOf("glIsTransformFeedback")]
-			[AliasOf("glIsTransformFeedbackNV")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glIsTransformFeedbackNV")]
 			[ThreadStatic]
 			internal static glIsTransformFeedback pglIsTransformFeedback;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glPauseTransformFeedbackNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glPauseTransformFeedback();
 
-			[AliasOf("glPauseTransformFeedback")]
-			[AliasOf("glPauseTransformFeedbackNV")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glPauseTransformFeedbackNV")]
 			[ThreadStatic]
 			internal static glPauseTransformFeedback pglPauseTransformFeedback;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glResumeTransformFeedbackNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glResumeTransformFeedback();
 
-			[AliasOf("glResumeTransformFeedback")]
-			[AliasOf("glResumeTransformFeedbackNV")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glResumeTransformFeedbackNV")]
 			[ThreadStatic]
 			internal static glResumeTransformFeedback pglResumeTransformFeedback;
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2", EntryPoint = "glDrawTransformFeedbackEXT")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glDrawTransformFeedbackNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDrawTransformFeedback(Int32 mode, UInt32 id);
 
-			[AliasOf("glDrawTransformFeedback")]
-			[AliasOf("glDrawTransformFeedbackEXT")]
-			[AliasOf("glDrawTransformFeedbackNV")]
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
-			[RequiredByFeature("GL_NV_transform_feedback2")]
+			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2", EntryPoint = "glDrawTransformFeedbackEXT")]
+			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glDrawTransformFeedbackNV")]
 			[ThreadStatic]
 			internal static glDrawTransformFeedback pglDrawTransformFeedback;
 

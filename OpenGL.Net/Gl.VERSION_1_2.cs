@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_BYTE_3_3_2 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_BYTE_3_3_2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_packed_pixels")]
 		public const int UNSIGNED_BYTE_3_3_2 = 0x8032;
@@ -46,7 +45,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_SHORT_4_4_4_4 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_SHORT_4_4_4_4_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -57,7 +55,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_SHORT_5_5_5_1 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_SHORT_5_5_5_1_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -68,7 +65,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_8_8_8_8 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_8_8_8_8_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_packed_pixels")]
 		public const int UNSIGNED_INT_8_8_8_8 = 0x8035;
@@ -76,7 +72,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_10_10_10_2 symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_10_10_10_2_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_packed_pixels")]
 		public const int UNSIGNED_INT_10_10_10_2 = 0x8036;
@@ -85,7 +80,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_3D. 
 		/// The initial value is 0. See Gl.BindTexture.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_3D_OES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -97,7 +91,6 @@ namespace OpenGL
 		/// [GL4] Gl.Get: data returns one value, the number of pixel images skipped before the first pixel is written into memory. 
 		/// The initial value is 0. See Gl.PixelStore.
 		/// </summary>
-		[AliasOf("GL_PACK_SKIP_IMAGES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
 		public const int PACK_SKIP_IMAGES = 0x806B;
@@ -106,7 +99,6 @@ namespace OpenGL
 		/// [GL4] Gl.Get: data returns one value, the image height used for writing pixel data to memory. The initial value is 0. 
 		/// See Gl.PixelStore.
 		/// </summary>
-		[AliasOf("GL_PACK_IMAGE_HEIGHT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
 		public const int PACK_IMAGE_HEIGHT = 0x806C;
@@ -121,7 +113,6 @@ namespace OpenGL
 		/// The initial value is 0. See Gl.PixelStorei.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_UNPACK_SKIP_IMAGES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -137,7 +128,6 @@ namespace OpenGL
 		/// See Gl.PixelStorei.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_UNPACK_IMAGE_HEIGHT_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -153,8 +143,6 @@ namespace OpenGL
 		/// value is Gl.FALSE. See Gl.TexImage3D.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_3D_EXT")]
-		[AliasOf("GL_TEXTURE_3D_OES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
@@ -166,7 +154,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PROXY_TEXTURE_3D symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_3D_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
 		public const int PROXY_TEXTURE_3D = 0x8070;
@@ -175,7 +162,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.GetTexLevelParameter: params returns a single value, the depth of the texture image. The initial value 
 		/// is 0.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -191,8 +177,6 @@ namespace OpenGL
 		/// constant. The initial value is Gl.REPEAT.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_WRAP_R_EXT")]
-		[AliasOf("GL_TEXTURE_WRAP_R_OES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -209,8 +193,6 @@ namespace OpenGL
 		/// must be at least 256. See Gl.TexImage3D.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_MAX_3D_TEXTURE_SIZE_EXT")]
-		[AliasOf("GL_MAX_3D_TEXTURE_SIZE_OES")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -241,8 +223,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_SHORT_4_4_4_4_REV symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_SHORT_4_4_4_4_REV_EXT")]
-		[AliasOf("GL_UNSIGNED_SHORT_4_4_4_4_REV_IMG")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_read_format_bgra", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_IMG_read_format", Api = "gles1|gles2")]
@@ -251,7 +231,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_SHORT_1_5_5_5_REV symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_SHORT_1_5_5_5_REV_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_read_format_bgra", Api = "gles1|gles2")]
 		public const int UNSIGNED_SHORT_1_5_5_5_REV = 0x8366;
@@ -265,7 +244,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_2_10_10_10_REV symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_2_10_10_10_REV_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
@@ -299,7 +277,6 @@ namespace OpenGL
 		/// signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_BGR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_bgra")]
 		public const int BGR = 0x80E0;
@@ -337,8 +314,6 @@ namespace OpenGL
 		/// factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_BGRA_EXT")]
-		[AliasOf("GL_BGRA_IMG")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ARB_vertex_array_bgra", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_array_bgra")]
@@ -353,7 +328,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the recommended maximum number of vertex array vertices. See 
 		/// Gl.DrawRangeElements.
 		/// </summary>
-		[AliasOf("GL_MAX_ELEMENTS_VERTICES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
@@ -363,7 +337,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the recommended maximum number of vertex array indices. See 
 		/// Gl.DrawRangeElements.
 		/// </summary>
-		[AliasOf("GL_MAX_ELEMENTS_INDICES_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
@@ -372,7 +345,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLAMP_TO_EDGE symbol.
 		/// </summary>
-		[AliasOf("GL_CLAMP_TO_EDGE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -390,7 +362,6 @@ namespace OpenGL
 		/// -1000.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_MIN_LOD_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SGIS_texture_lod")]
@@ -406,7 +377,6 @@ namespace OpenGL
 		/// 1000.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_MAX_LOD_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SGIS_texture_lod")]
@@ -415,7 +385,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued base texture mipmap level. The initial value is 0.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BASE_LEVEL_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SGIS_texture_lod")]
@@ -425,8 +394,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the single-valued maximum texture mipmap array level. The initial value is 
 		/// 1000.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_MAX_LEVEL_APPLE")]
-		[AliasOf("GL_TEXTURE_MAX_LEVEL_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_texture_max_level", Api = "gles1|gles2")]
@@ -464,7 +431,6 @@ namespace OpenGL
 		/// value is Gl.FALSE. See Gl.Normal.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_RESCALE_NORMAL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_EXT_rescale_normal")]
@@ -484,7 +450,6 @@ namespace OpenGL
 		/// initial value is Gl.SINGLE_COLOR.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_LIGHT_MODEL_COLOR_CONTROL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -493,7 +458,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SINGLE_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SINGLE_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -502,7 +466,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SEPARATE_SPECULAR_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SEPARATE_SPECULAR_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_separate_specular_color")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -550,7 +513,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		[AliasOf("glDrawRangeElementsEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -589,7 +551,6 @@ namespace OpenGL
 		/// <param name="indices">
 		/// Specifies a pointer to the location where the indices are stored.
 		/// </param>
-		[AliasOf("glDrawRangeElementsEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -656,7 +617,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		[AliasOf("glTexImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -720,7 +680,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		[AliasOf("glTexImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -777,7 +736,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		[AliasOf("glTexSubImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -832,7 +790,6 @@ namespace OpenGL
 		/// <param name="pixels">
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
-		[AliasOf("glTexSubImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
@@ -876,7 +833,6 @@ namespace OpenGL
 		/// <param name="height">
 		/// Specifies the height of the texture subimage.
 		/// </param>
-		[AliasOf("glCopyTexSubImage3DEXT")]
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
@@ -921,66 +877,58 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_draw_range_elements")]
+			[RequiredByFeature("GL_EXT_draw_range_elements", EntryPoint = "glDrawRangeElementsEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawRangeElements(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices);
 
-			[AliasOf("glDrawRangeElements")]
-			[AliasOf("glDrawRangeElementsEXT")]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_draw_range_elements")]
+			[RequiredByFeature("GL_EXT_draw_range_elements", EntryPoint = "glDrawRangeElementsEXT")]
 			[ThreadStatic]
 			internal static glDrawRangeElements pglDrawRangeElements;
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_texture3D")]
+			[RequiredByFeature("GL_EXT_texture3D", EntryPoint = "glTexImage3DEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexImage3D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
-			[AliasOf("glTexImage3D")]
-			[AliasOf("glTexImage3DEXT")]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_texture3D")]
+			[RequiredByFeature("GL_EXT_texture3D", EntryPoint = "glTexImage3DEXT")]
 			[ThreadStatic]
 			internal static glTexImage3D pglTexImage3D;
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_texture3D")]
+			[RequiredByFeature("GL_EXT_texture3D", EntryPoint = "glTexSubImage3DEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
-			[AliasOf("glTexSubImage3D")]
-			[AliasOf("glTexSubImage3DEXT")]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_texture3D")]
+			[RequiredByFeature("GL_EXT_texture3D", EntryPoint = "glTexSubImage3DEXT")]
 			[ThreadStatic]
 			internal static glTexSubImage3D pglTexSubImage3D;
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_copy_texture")]
+			[RequiredByFeature("GL_EXT_copy_texture", EntryPoint = "glCopyTexSubImage3DEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glCopyTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
-			[AliasOf("glCopyTexSubImage3D")]
-			[AliasOf("glCopyTexSubImage3DEXT")]
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_copy_texture")]
+			[RequiredByFeature("GL_EXT_copy_texture", EntryPoint = "glCopyTexSubImage3DEXT")]
 			[ThreadStatic]
 			internal static glCopyTexSubImage3D pglCopyTexSubImage3D;
 

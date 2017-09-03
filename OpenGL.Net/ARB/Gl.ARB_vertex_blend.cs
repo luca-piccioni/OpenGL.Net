@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_VERTEX_UNITS_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_VERTEX_UNITS_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int MAX_VERTEX_UNITS_ARB = 0x86A4;
@@ -70,7 +69,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_WEIGHT_ARRAY_TYPE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_WEIGHT_ARRAY_TYPE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_TYPE_ARB = 0x86A9;
@@ -78,7 +76,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_WEIGHT_ARRAY_STRIDE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_WEIGHT_ARRAY_STRIDE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_STRIDE_ARB = 0x86AA;
@@ -86,7 +83,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_WEIGHT_ARRAY_SIZE_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_WEIGHT_ARRAY_SIZE_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_SIZE_ARB = 0x86AB;
@@ -94,7 +90,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_WEIGHT_ARRAY_POINTER_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_WEIGHT_ARRAY_POINTER_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_POINTER_ARB = 0x86AC;
@@ -102,7 +97,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_WEIGHT_ARRAY_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_WEIGHT_ARRAY_OES")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 		public const int WEIGHT_ARRAY_ARB = 0x86AD;
@@ -110,7 +104,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MODELVIEW0_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MODELVIEW0_EXT")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int MODELVIEW0_ARB = 0x1700;
@@ -118,7 +111,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MODELVIEW1_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MODELVIEW1_EXT")]
 		[RequiredByFeature("GL_ARB_vertex_blend")]
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public const int MODELVIEW1_ARB = 0x850A;

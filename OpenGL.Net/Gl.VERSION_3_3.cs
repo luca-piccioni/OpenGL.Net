@@ -39,10 +39,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.GetVertexAttrib: params returns a single value that is the frequency divisor used for instanced 
 		/// rendering. See Gl.VertexAttribDivisor. The initial value is 0.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE")]
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB")]
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT")]
-		[AliasOf("GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
@@ -54,7 +50,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SRC1_COLOR symbol.
 		/// </summary>
-		[AliasOf("GL_SRC1_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
@@ -63,7 +58,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ONE_MINUS_SRC1_COLOR symbol.
 		/// </summary>
-		[AliasOf("GL_ONE_MINUS_SRC1_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
@@ -72,7 +66,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ONE_MINUS_SRC1_ALPHA symbol.
 		/// </summary>
-		[AliasOf("GL_ONE_MINUS_SRC1_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
@@ -82,7 +75,6 @@ namespace OpenGL
 		/// [GL4] Gl.Get: data returns one value, the maximum number of active draw buffers when using dual-source blending. The 
 		/// value must be at least 1. See Gl.BlendFunc and Gl.BlendFuncSeparate.
 		/// </summary>
-		[AliasOf("GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
@@ -91,7 +83,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ANY_SAMPLES_PASSED symbol.
 		/// </summary>
-		[AliasOf("GL_ANY_SAMPLES_PASSED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_occlusion_query2", Api = "gl|glcore")]
@@ -118,7 +109,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the red component swizzle. The initial value is Gl.RED.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_R_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
@@ -128,7 +118,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the green component swizzle. The initial value is Gl.GREEN.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_G_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
@@ -138,7 +127,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the blue component swizzle. The initial value is Gl.BLUE.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_B_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
@@ -148,7 +136,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.GetTexParameter: Returns the alpha component swizzle. The initial value is Gl.ALPHA.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_A_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
@@ -158,7 +145,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] Gl.GetTexParameter: Returns the component swizzle for all channels in a single query.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_SWIZZLE_RGBA_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_texture_swizzle", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_swizzle")]
@@ -167,7 +153,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TIME_ELAPSED symbol.
 		/// </summary>
-		[AliasOf("GL_TIME_ELAPSED_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -177,7 +162,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] Gl.Get: data returns a single value, the 64-bit value of the current GL time. See Gl.QueryCounter.
 		/// </summary>
-		[AliasOf("GL_TIMESTAMP_EXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -207,7 +191,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose binding to modify
 		/// </param>
-		[AliasOf("glBindFragDataLocationIndexedEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
@@ -228,7 +211,6 @@ namespace OpenGL
 		/// <param name="name">
 		/// The name of the user-defined varying out variable whose index to query
 		/// </param>
-		[AliasOf("glGetFragDataIndexEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
@@ -466,8 +448,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[AliasOf("glSamplerParameterIivEXT")]
-		[AliasOf("glSamplerParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -498,8 +478,6 @@ namespace OpenGL
 		/// <param name="param">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[AliasOf("glSamplerParameterIuivEXT")]
-		[AliasOf("glSamplerParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -566,8 +544,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		[AliasOf("glGetSamplerParameterIivEXT")]
-		[AliasOf("glGetSamplerParameterIivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -634,8 +610,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the sampler parameters.
 		/// </param>
-		[AliasOf("glGetSamplerParameterIuivEXT")]
-		[AliasOf("glGetSamplerParameterIuivOES")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
@@ -664,7 +638,6 @@ namespace OpenGL
 		/// <param name="target">
 		/// Specify the counter to query. <paramref name="target"/> must be Gl.TIMESTAMP.
 		/// </param>
-		[AliasOf("glQueryCounterEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -692,7 +665,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		[AliasOf("glGetQueryObjecti64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -726,7 +698,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		[AliasOf("glGetQueryObjecti64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -760,7 +731,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		[AliasOf("glGetQueryObjectui64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -794,7 +764,6 @@ namespace OpenGL
 		/// Gl.QUERY_RESULT_BUFFER, then <paramref name="params"/> is treated as an address in client memory of a variable to 
 		/// receive the resulting data.
 		/// </param>
-		[AliasOf("glGetQueryObjectui64vEXT")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -825,10 +794,6 @@ namespace OpenGL
 		/// Specify the number of instances that will pass between updates of the generic attribute at slot <paramref 
 		/// name="index"/>.
 		/// </param>
-		[AliasOf("glVertexAttribDivisorANGLE")]
-		[AliasOf("glVertexAttribDivisorARB")]
-		[AliasOf("glVertexAttribDivisorEXT")]
-		[AliasOf("glVertexAttribDivisorNV")]
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
@@ -2105,33 +2070,29 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glBindFragDataLocationIndexedEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name);
 
-			[AliasOf("glBindFragDataLocationIndexed")]
-			[AliasOf("glBindFragDataLocationIndexedEXT")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glBindFragDataLocationIndexedEXT")]
 			[ThreadStatic]
 			internal static glBindFragDataLocationIndexed pglBindFragDataLocationIndexed;
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glGetFragDataIndexEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate Int32 glGetFragDataIndex(UInt32 program, String name);
 
-			[AliasOf("glGetFragDataIndex")]
-			[AliasOf("glGetFragDataIndexEXT")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glGetFragDataIndexEXT")]
 			[ThreadStatic]
 			internal static glGetFragDataIndex pglGetFragDataIndex;
 
@@ -2250,42 +2211,36 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIivEXT")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIivOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* param);
 
-			[AliasOf("glSamplerParameterIiv")]
-			[AliasOf("glSamplerParameterIivEXT")]
-			[AliasOf("glSamplerParameterIivOES")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIivEXT")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIivOES")]
 			[ThreadStatic]
 			internal static glSamplerParameterIiv pglSamplerParameterIiv;
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIuivEXT")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIuivOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* param);
 
-			[AliasOf("glSamplerParameterIuiv")]
-			[AliasOf("glSamplerParameterIuivEXT")]
-			[AliasOf("glSamplerParameterIuivOES")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIuivEXT")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIuivOES")]
 			[ThreadStatic]
 			internal static glSamplerParameterIuiv pglSamplerParameterIuiv;
 
@@ -2306,21 +2261,18 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIivEXT")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIivOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* @params);
 
-			[AliasOf("glGetSamplerParameterIiv")]
-			[AliasOf("glGetSamplerParameterIivEXT")]
-			[AliasOf("glGetSamplerParameterIivOES")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIivEXT")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIivOES")]
 			[ThreadStatic]
 			internal static glGetSamplerParameterIiv pglGetSamplerParameterIiv;
 
@@ -2341,98 +2293,84 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIuivEXT")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIuivOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* @params);
 
-			[AliasOf("glGetSamplerParameterIuiv")]
-			[AliasOf("glGetSamplerParameterIuivEXT")]
-			[AliasOf("glGetSamplerParameterIuivOES")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIuivEXT")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIuivOES")]
 			[ThreadStatic]
 			internal static glGetSamplerParameterIuiv pglGetSamplerParameterIuiv;
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glQueryCounterEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glQueryCounter(UInt32 id, Int32 target);
 
-			[AliasOf("glQueryCounter")]
-			[AliasOf("glQueryCounterEXT")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glQueryCounterEXT")]
 			[ThreadStatic]
 			internal static glQueryCounter pglQueryCounter;
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_timer_query")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetQueryObjecti64vEXT")]
+			[RequiredByFeature("GL_EXT_timer_query", EntryPoint = "glGetQueryObjecti64vEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetQueryObjecti64v(UInt32 id, Int32 pname, Int64* @params);
 
-			[AliasOf("glGetQueryObjecti64v")]
-			[AliasOf("glGetQueryObjecti64vEXT")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_timer_query")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetQueryObjecti64vEXT")]
+			[RequiredByFeature("GL_EXT_timer_query", EntryPoint = "glGetQueryObjecti64vEXT")]
 			[ThreadStatic]
 			internal static glGetQueryObjecti64v pglGetQueryObjecti64v;
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_timer_query")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetQueryObjectui64vEXT")]
+			[RequiredByFeature("GL_EXT_timer_query", EntryPoint = "glGetQueryObjectui64vEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetQueryObjectui64v(UInt32 id, Int32 pname, UInt64* @params);
 
-			[AliasOf("glGetQueryObjectui64v")]
-			[AliasOf("glGetQueryObjectui64vEXT")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_timer_query")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetQueryObjectui64vEXT")]
+			[RequiredByFeature("GL_EXT_timer_query", EntryPoint = "glGetQueryObjectui64vEXT")]
 			[ThreadStatic]
 			internal static glGetQueryObjectui64v pglGetQueryObjectui64v;
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorANGLE")]
+			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore", EntryPoint = "glVertexAttribDivisorARB")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorEXT")]
+			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glVertexAttribDivisor(UInt32 index, UInt32 divisor);
 
-			[AliasOf("glVertexAttribDivisor")]
-			[AliasOf("glVertexAttribDivisorANGLE")]
-			[AliasOf("glVertexAttribDivisorARB")]
-			[AliasOf("glVertexAttribDivisorEXT")]
-			[AliasOf("glVertexAttribDivisorNV")]
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorANGLE")]
+			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore", EntryPoint = "glVertexAttribDivisorARB")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorEXT")]
+			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorNV")]
 			[ThreadStatic]
 			internal static glVertexAttribDivisor pglVertexAttribDivisor;
 

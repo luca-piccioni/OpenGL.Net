@@ -50,7 +50,6 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[AliasOf("glBindBufferOffsetNV")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		public static void BindBufferOffsetEXT(BufferTarget target, UInt32 index, UInt32 buffer, IntPtr offset)
@@ -74,16 +73,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_transform_feedback")]
-			[RequiredByFeature("GL_NV_transform_feedback")]
+			[RequiredByFeature("GL_NV_transform_feedback", EntryPoint = "glBindBufferOffsetNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glBindBufferOffsetEXT(Int32 target, UInt32 index, UInt32 buffer, IntPtr offset);
 
-			[AliasOf("glBindBufferOffsetEXT")]
-			[AliasOf("glBindBufferOffsetNV")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
-			[RequiredByFeature("GL_NV_transform_feedback")]
+			[RequiredByFeature("GL_NV_transform_feedback", EntryPoint = "glBindBufferOffsetNV")]
 			[ThreadStatic]
 			internal static glBindBufferOffsetEXT pglBindBufferOffsetEXT;
 

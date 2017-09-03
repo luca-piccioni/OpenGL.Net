@@ -50,7 +50,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_QUERY_OBJECT_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_QUERY_OBJECT_AMD")]
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public const int QUERY_OBJECT_EXT = 0x9153;
@@ -58,7 +57,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_VERTEX_ARRAY_OBJECT_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_VERTEX_ARRAY_OBJECT_AMD")]
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public const int VERTEX_ARRAY_OBJECT_EXT = 0x9154;

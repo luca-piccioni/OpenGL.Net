@@ -191,7 +191,6 @@ namespace OpenGL
 		/// <param name="pConstantValue">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
-		[AliasOf("glSpecializeShaderARB")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
 		public static void SpecializeShader(UInt32 shader, String pEntryPoint, UInt32 numSpecializationConstants, UInt32[] pConstantIndex, UInt32[] pConstantValue)
@@ -226,7 +225,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[AliasOf("glMultiDrawArraysIndirectCountARB")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public static void MultiDrawArraysIndirect(PrimitiveType mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
@@ -255,7 +253,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[AliasOf("glMultiDrawArraysIndirectCountARB")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public static void MultiDrawArraysIndirect(PrimitiveType mode, Object indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
@@ -289,7 +286,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[AliasOf("glMultiDrawElementsIndirectCountARB")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public static void MultiDrawElementsIndirect(PrimitiveType mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
@@ -321,7 +317,6 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[AliasOf("glMultiDrawElementsIndirectCountARB")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 		public static void MultiDrawElementsIndirect(PrimitiveType mode, Int32 type, Object indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
@@ -346,7 +341,6 @@ namespace OpenGL
 		/// <param name="clamp">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[AliasOf("glPolygonOffsetClampEXT")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_polygon_offset_clamp", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2")]
@@ -389,60 +383,52 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_VERSION_4_6")]
-			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore", EntryPoint = "glSpecializeShaderARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glSpecializeShader(UInt32 shader, String pEntryPoint, UInt32 numSpecializationConstants, UInt32* pConstantIndex, UInt32* pConstantValue);
 
-			[AliasOf("glSpecializeShader")]
-			[AliasOf("glSpecializeShaderARB")]
 			[RequiredByFeature("GL_VERSION_4_6")]
-			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore", EntryPoint = "glSpecializeShaderARB")]
 			[ThreadStatic]
 			internal static glSpecializeShader pglSpecializeShader;
 
 			[RequiredByFeature("GL_VERSION_4_6")]
-			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawArraysIndirectCountARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiDrawArraysIndirectCount(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
 
-			[AliasOf("glMultiDrawArraysIndirectCount")]
-			[AliasOf("glMultiDrawArraysIndirectCountARB")]
 			[RequiredByFeature("GL_VERSION_4_6")]
-			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawArraysIndirectCountARB")]
 			[ThreadStatic]
 			internal static glMultiDrawArraysIndirectCount pglMultiDrawArraysIndirectCount;
 
 			[RequiredByFeature("GL_VERSION_4_6")]
-			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawElementsIndirectCountARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiDrawElementsIndirectCount(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
 
-			[AliasOf("glMultiDrawElementsIndirectCount")]
-			[AliasOf("glMultiDrawElementsIndirectCountARB")]
 			[RequiredByFeature("GL_VERSION_4_6")]
-			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawElementsIndirectCountARB")]
 			[ThreadStatic]
 			internal static glMultiDrawElementsIndirectCount pglMultiDrawElementsIndirectCount;
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_polygon_offset_clamp", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2", EntryPoint = "glPolygonOffsetClampEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glPolygonOffsetClamp(float factor, float units, float clamp);
 
-			[AliasOf("glPolygonOffsetClamp")]
-			[AliasOf("glPolygonOffsetClampEXT")]
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_polygon_offset_clamp", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2", EntryPoint = "glPolygonOffsetClampEXT")]
 			[ThreadStatic]
 			internal static glPolygonOffsetClamp pglPolygonOffsetClamp;
 

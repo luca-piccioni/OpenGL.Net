@@ -235,9 +235,9 @@ namespace OpenGL
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="path"/> or <paramref name="getAddress"/> is null.
 		/// </exception>
-		internal static void BindAPI<T>(string path, GetAddressDelegate getAddress)
+		internal static void BindAPI<T>(string path, GetAddressDelegate getAddress, KhronosVersion version)
 		{
-			BindAPI<T>(path, getAddress, null, null);
+			BindAPI<T>(path, getAddress, version, null);
 		}
 
 		/// <summary>
@@ -298,34 +298,127 @@ namespace OpenGL
 			if (getAddress == null)
 				throw new ArgumentNullException("getAddress");
 
+			RequiredByFeatureAttribute requiredByFeature = null;
+			List<RequiredByFeatureAttribute> requiredByExtensions = new List<RequiredByFeatureAttribute>();
+			string defaultName = function.Name.Substring(1);           // Delegate name always prefixes with 'p'
+
 			if (version != null || extensions != null) {
-				if (IsCompatibleField(function, version, extensions) == false) {
-					function.SetValue(null, null);				// Function not supported: reset
+				bool isRemoved = false;
+
+				#region Check Requirement
+
+#if !NETCORE && !NETSTANDARD1_4
+				Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
+#else
+				Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray();
+#endif
+				foreach (RequiredByFeatureAttribute attr in attrRequired) {
+					// Check for API support
+					if (attr.IsSupported(version, extensions) == false)
+						continue;
+					// Keep track of the features requiring this command
+					if (attr.FeatureVersion != null) {
+						// Version feature: keep track only of the maximum version
+						if (requiredByFeature == null || requiredByFeature.FeatureVersion < attr.FeatureVersion)
+							requiredByFeature = attr;
+					} else {
+						// Extension feature: collect every supporting extension
+						requiredByExtensions.Add(attr);
+					}
+				}
+
+				#endregion
+
+				#region Check Deprecation/Removal
+
+				if (requiredByFeature != null) {
+					// Note: indeed the feature could be supported; check whether it is removed; this is checked only if
+					// a non-extension feature is detected: extensions cannot remove commands
+#if !NETCORE && !NETSTANDARD1_4
+					Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
+#else
+					Attribute[] attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute))).ToArray();
+#endif
+					KhronosVersion maxRemovedVersion = null;
+
+					foreach (RemovedByFeatureAttribute attr in attrRemoved) {
+						// Check for API support
+						if (attr.IsRemoved(version, extensions) == false)
+							continue;
+						// Removed!
+						isRemoved |= true;
+						// Keep track of the maximum API version removing this command
+						if (maxRemovedVersion == null || maxRemovedVersion < attr.FeatureVersion)
+							maxRemovedVersion = attr.FeatureVersion;
+					}
+
+					// Check for resurrection
+					if (isRemoved) {
+						Debug.Assert(requiredByFeature != null);
+						Debug.Assert(maxRemovedVersion != null);
+					
+						if (requiredByFeature.FeatureVersion > maxRemovedVersion)
+							isRemoved = false;
+					}
+				}
+
+				#endregion
+
+				// Do not check feature requirements in case of removal. Note: extensions are checked all the same
+				if (isRemoved)
+					requiredByFeature = null;
+			}
+
+			// Load function pointer
+			IntPtr importAddress;
+
+			if (requiredByFeature != null || version == null) {
+				// Load command address (version feature)
+				string functionName = defaultName;
+
+				if (requiredByFeature != null && requiredByFeature.EntryPoint != null)
+					functionName = requiredByFeature.EntryPoint;
+
+				if ((importAddress = getAddress(path, functionName)) != IntPtr.Zero) {
+					BindAPIFunction(importAddress, functionContext, function, defaultName);
 					return;
 				}
 			}
 
-			string importName = function.Name.Substring(1);           // Delegate name always prefixes with 'p'
-			IntPtr importAddress = IntPtr.Zero;
+			// Load command address (extension features)
+			foreach (RequiredByFeatureAttribute extensionFeature in requiredByExtensions) {
+				string functionName = extensionFeature.EntryPoint ?? defaultName;
 
-			// Load command address
-			importAddress = getAddress(path, importName);
-
-			// Manages aliases (load external symbol)
-			if (importAddress == IntPtr.Zero) {
-#if !NETCORE && !NETSTANDARD1_4
-				Attribute[] aliasOfAttributes = Attribute.GetCustomAttributes(function, typeof(AliasOfAttribute));
-#else
-				Attribute[] aliasOfAttributes = new List<Attribute>(function.GetCustomAttributes(typeof(AliasOfAttribute))).ToArray();
-#endif
-
-				for (int i = 1 /* Skip base name */; i < aliasOfAttributes.Length; i++) {
-					AliasOfAttribute aliasOfAttribute = (AliasOfAttribute)aliasOfAttributes[i];
-					if ((importAddress = getAddress(path, aliasOfAttribute.SymbolName)) != IntPtr.Zero)
-						break;
+				if ((importAddress = getAddress(path, functionName)) != IntPtr.Zero) {
+					BindAPIFunction(importAddress, functionContext, function, defaultName);
+					return;
 				}
 			}
 
+			// Function not implemented: reset
+			function.SetValue(null, null);
+		}
+
+		/// <summary>
+		/// Set fields using import declarations.
+		/// </summary>
+		/// <param name="importAddress">
+		/// A <see cref="IntPtr"/> that specifies the function pointer.
+		/// </param>
+		/// <param name="functionContext">
+		/// A <see cref="FunctionContext"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		/// </param>
+		/// <param name="function">
+		/// A <see cref="FieldInfo"/> that specifies the underlying function field to be updated.
+		/// </param>
+		/// <param name="defaultName">
+		/// 
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="path"/>, <paramref name="function"/> or <paramref name="getAddress"/> is null.
+		/// </exception>
+		private static void BindAPIFunction(IntPtr importAddress, FunctionContext functionContext, FieldInfo function, string defaultName)
+		{
 			if (importAddress != IntPtr.Zero) {
 				Delegate delegatePtr;
 
@@ -333,7 +426,7 @@ namespace OpenGL
 				if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, function.FieldType)) == null) {
 					MethodInfo methodInfo;
 
-					if (functionContext.Imports.TryGetValue(importName, out methodInfo) == true) {
+					if (functionContext.Imports.TryGetValue(defaultName, out methodInfo) == true) {
 #if !NETCORE && !NETSTANDARD1_4
 						delegatePtr = Delegate.CreateDelegate(function.FieldType, methodInfo);
 #else

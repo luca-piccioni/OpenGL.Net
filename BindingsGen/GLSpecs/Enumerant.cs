@@ -280,9 +280,6 @@ namespace BindingsGen.GLSpecs
 
 			GenerateDocumentation(sw, ctx);
 
-			foreach (Enumerant aliasOf in AliasOf)
-				sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.Name);
-
 			GenerateRequirements(sw, ctx);
 
 			// This metadata is used for procedure logging function
@@ -317,10 +314,10 @@ namespace BindingsGen.GLSpecs
 				requiredByFeatures = requiredByFeatures.Union(aliasOf.RequiredBy).ToList();
 
 			foreach (IFeature feature in requiredByFeatures)
-				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+				sw.WriteLine(feature.GenerateRequiredByAttribute(null, classDefaultApi));
 			
 			foreach (IFeature feature in RemovedBy)
-				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
+				sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
 		}
 
 		/// <summary>

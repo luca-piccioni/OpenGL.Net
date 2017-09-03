@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [WGL] Value of ERROR_INVALID_PIXEL_TYPE_ARB symbol.
 		/// </summary>
-		[AliasOf("ERROR_INVALID_PIXEL_TYPE_EXT")]
 		[RequiredByFeature("WGL_ARB_make_current_read")]
 		[RequiredByFeature("WGL_EXT_make_current_read")]
 		public const int ERROR_INVALID_PIXEL_TYPE_ARB = 0x2043;

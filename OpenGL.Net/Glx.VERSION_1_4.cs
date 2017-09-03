@@ -38,8 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_SAMPLE_BUFFERS symbol.
 		/// </summary>
-		[AliasOf("GLX_SAMPLE_BUFFERS_ARB")]
-		[AliasOf("GLX_SAMPLE_BUFFERS_SGIS")]
 		[RequiredByFeature("GLX_VERSION_1_4")]
 		[RequiredByFeature("GLX_ARB_multisample")]
 		[RequiredByFeature("GLX_SGIS_multisample")]
@@ -48,8 +46,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLX] Value of GLX_SAMPLES symbol.
 		/// </summary>
-		[AliasOf("GLX_SAMPLES_ARB")]
-		[AliasOf("GLX_SAMPLES_SGIS")]
 		[RequiredByFeature("GLX_VERSION_1_4")]
 		[RequiredByFeature("GLX_ARB_multisample")]
 		[RequiredByFeature("GLX_SGIS_multisample")]

@@ -46,7 +46,7 @@ namespace OpenWF
 			string platformLibrary = GetPlatformLibrary();
 			try {
 				LogComment("Querying OpenWF Compositor from {0}", platformLibrary);
-				BindAPI<Wfc>(platformLibrary, GetProcAddressOS);
+				BindAPI<Wfc>(platformLibrary, GetProcAddressOS, null);
 				LogComment("OpenWF Compositor availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */

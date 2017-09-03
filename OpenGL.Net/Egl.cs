@@ -228,7 +228,7 @@ namespace OpenGL
 			string platformLibrary = GetPlatformLibrary();
 			try {
 				LogComment("Querying EGL from {0}", platformLibrary);
-				BindAPI<Egl>(platformLibrary, GetProcAddressOS);
+				BindAPI<Egl>(platformLibrary, GetProcAddressOS, CurrentVersion);
 				LogComment("EGL availability: {0}", IsAvailable);
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */

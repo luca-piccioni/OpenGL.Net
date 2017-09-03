@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLE_ALPHA_TO_MASK_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_ALPHA_TO_MASK_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_ALPHA_TO_MASK_EXT = 0x809E;
@@ -52,7 +51,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_1PASS_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_1PASS_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _1PASS_EXT = 0x80A1;
@@ -60,7 +58,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_2PASS_0_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_2PASS_0_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _2PASS_0_EXT = 0x80A2;
@@ -68,7 +65,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_2PASS_1_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_2PASS_1_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _2PASS_1_EXT = 0x80A3;
@@ -76,7 +72,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_4PASS_0_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_4PASS_0_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _4PASS_0_EXT = 0x80A4;
@@ -84,7 +79,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_4PASS_1_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_4PASS_1_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _4PASS_1_EXT = 0x80A5;
@@ -92,7 +86,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_4PASS_2_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_4PASS_2_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _4PASS_2_EXT = 0x80A6;
@@ -100,7 +93,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_4PASS_3_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_4PASS_3_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int _4PASS_3_EXT = 0x80A7;
@@ -114,7 +106,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLE_MASK_INVERT_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_MASK_INVERT_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_MASK_INVERT_EXT = 0x80AB;
@@ -122,7 +113,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLE_PATTERN_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_PATTERN_SGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public const int SAMPLE_PATTERN_EXT = 0x80AC;
@@ -136,7 +126,6 @@ namespace OpenGL
 		/// <param name="invert">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		[AliasOf("glSampleMaskSGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public static void SampleMaskEXT(float value, bool invert)
@@ -153,7 +142,6 @@ namespace OpenGL
 		/// <param name="pattern">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		[AliasOf("glSamplePatternSGIS")]
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
 		public static void SamplePatternEXT(Int32 pattern)
@@ -183,30 +171,26 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_multisample")]
-			[RequiredByFeature("GL_SGIS_multisample")]
+			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSampleMaskSGIS")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSampleMaskEXT(float value, bool invert);
 
-			[AliasOf("glSampleMaskEXT")]
-			[AliasOf("glSampleMaskSGIS")]
 			[RequiredByFeature("GL_EXT_multisample")]
-			[RequiredByFeature("GL_SGIS_multisample")]
+			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSampleMaskSGIS")]
 			[ThreadStatic]
 			internal static glSampleMaskEXT pglSampleMaskEXT;
 
 			[RequiredByFeature("GL_EXT_multisample")]
-			[RequiredByFeature("GL_SGIS_multisample")]
+			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSamplePatternSGIS")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSamplePatternEXT(Int32 pattern);
 
-			[AliasOf("glSamplePatternEXT")]
-			[AliasOf("glSamplePatternSGIS")]
 			[RequiredByFeature("GL_EXT_multisample")]
-			[RequiredByFeature("GL_SGIS_multisample")]
+			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSamplePatternSGIS")]
 			[ThreadStatic]
 			internal static glSamplePatternEXT pglSamplePatternEXT;
 

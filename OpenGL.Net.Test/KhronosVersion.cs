@@ -102,7 +102,7 @@ namespace OpenGL.Test
 			Assert.DoesNotThrow(delegate() { new KhronosVersion(baseVersion, null); });
 		}
 
-		[Test(Description = "Test KhronosVersion(KhronosVersion other, string profile) exceptions")]
+		[Test(Description = "Test KhronosVersion(KhronosVersion other, string profile) ArgumentNullException")]
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void TestConstructor4_ArgumentNullException()
 		{

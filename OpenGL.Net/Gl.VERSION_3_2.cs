@@ -52,9 +52,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LINES_ADJACENCY symbol.
 		/// </summary>
-		[AliasOf("GL_LINES_ADJACENCY_ARB")]
-		[AliasOf("GL_LINES_ADJACENCY_EXT")]
-		[AliasOf("GL_LINES_ADJACENCY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -67,9 +64,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LINE_STRIP_ADJACENCY symbol.
 		/// </summary>
-		[AliasOf("GL_LINE_STRIP_ADJACENCY_ARB")]
-		[AliasOf("GL_LINE_STRIP_ADJACENCY_EXT")]
-		[AliasOf("GL_LINE_STRIP_ADJACENCY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -82,9 +76,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TRIANGLES_ADJACENCY symbol.
 		/// </summary>
-		[AliasOf("GL_TRIANGLES_ADJACENCY_ARB")]
-		[AliasOf("GL_TRIANGLES_ADJACENCY_EXT")]
-		[AliasOf("GL_TRIANGLES_ADJACENCY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -97,9 +88,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TRIANGLE_STRIP_ADJACENCY symbol.
 		/// </summary>
-		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_ARB")]
-		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_EXT")]
-		[AliasOf("GL_TRIANGLE_STRIP_ADJACENCY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -113,9 +101,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum supported texture image units that can be used to access 
 		/// texture maps from the geometry shader. The value must be at least 16. See Gl.ActiveTexture.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_ARB")]
-		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -128,9 +113,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FRAMEBUFFER_ATTACHMENT_LAYERED symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_ARB")]
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT")]
-		[AliasOf("GL_FRAMEBUFFER_ATTACHMENT_LAYERED_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -143,9 +125,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_ARB")]
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT")]
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -158,9 +137,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_GEOMETRY_SHADER symbol.
 		/// </summary>
-		[AliasOf("GL_GEOMETRY_SHADER_ARB")]
-		[AliasOf("GL_GEOMETRY_SHADER_EXT")]
-		[AliasOf("GL_GEOMETRY_SHADER_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -197,9 +173,6 @@ namespace OpenGL
 		/// values that can be held in uniform variable storage for a geometry shader. The value must be at least 1024. See 
 		/// Gl.Uniform.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB")]
-		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -212,9 +185,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum number of vertices emit by a geometry shader, which must be at 
 		/// least 256.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB")]
-		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_VERTICES_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -227,9 +197,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns one value, the maximum total number of components of active outputs for all vertices 
 		/// written by a geometry shader, which must be at least 1024.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB")]
-		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -250,8 +217,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of components of inputs read by a geometry shader, 
 		/// which must be at least 64.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_INPUT_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_INPUT_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
@@ -262,8 +227,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of components of outputs written by a geometry shader, 
 		/// which must be at least 128.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
@@ -293,7 +256,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEPTH_CLAMP symbol.
 		/// </summary>
-		[AliasOf("GL_DEPTH_CLAMP_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_depth_clamp", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_depth_clamp")]
@@ -302,7 +264,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION symbol.
 		/// </summary>
-		[AliasOf("GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_provoking_vertex")]
@@ -311,8 +272,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FIRST_VERTEX_CONVENTION symbol.
 		/// </summary>
-		[AliasOf("GL_FIRST_VERTEX_CONVENTION_EXT")]
-		[AliasOf("GL_FIRST_VERTEX_CONVENTION_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
@@ -325,8 +284,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LAST_VERTEX_CONVENTION symbol.
 		/// </summary>
-		[AliasOf("GL_LAST_VERTEX_CONVENTION_EXT")]
-		[AliasOf("GL_LAST_VERTEX_CONVENTION_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
@@ -340,7 +297,6 @@ namespace OpenGL
 		/// [GL4] Gl.Get: data returns one value, the currently selected provoking vertex convention. The initial value is 
 		/// Gl.LAST_VERTEX_CONVENTION. See Gl.ProvokingVertex.
 		/// </summary>
-		[AliasOf("GL_PROVOKING_VERTEX_EXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
@@ -359,7 +315,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum Gl.WaitSync timeout interval.
 		/// </summary>
-		[AliasOf("GL_MAX_SERVER_WAIT_TIMEOUT_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -369,7 +324,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_OBJECT_TYPE symbol.
 		/// </summary>
-		[AliasOf("GL_OBJECT_TYPE_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -379,7 +333,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SYNC_CONDITION symbol.
 		/// </summary>
-		[AliasOf("GL_SYNC_CONDITION_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -389,7 +342,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SYNC_STATUS symbol.
 		/// </summary>
-		[AliasOf("GL_SYNC_STATUS_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -399,7 +351,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SYNC_FLAGS symbol.
 		/// </summary>
-		[AliasOf("GL_SYNC_FLAGS_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -409,7 +360,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SYNC_FENCE symbol.
 		/// </summary>
-		[AliasOf("GL_SYNC_FENCE_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -419,7 +369,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SYNC_GPU_COMMANDS_COMPLETE symbol.
 		/// </summary>
-		[AliasOf("GL_SYNC_GPU_COMMANDS_COMPLETE_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -429,7 +378,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNALED symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNALED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -439,7 +387,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SIGNALED symbol.
 		/// </summary>
-		[AliasOf("GL_SIGNALED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -449,7 +396,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ALREADY_SIGNALED symbol.
 		/// </summary>
-		[AliasOf("GL_ALREADY_SIGNALED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -459,7 +405,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TIMEOUT_EXPIRED symbol.
 		/// </summary>
-		[AliasOf("GL_TIMEOUT_EXPIRED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -469,7 +414,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CONDITION_SATISFIED symbol.
 		/// </summary>
-		[AliasOf("GL_CONDITION_SATISFIED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -479,7 +423,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_WAIT_FAILED symbol.
 		/// </summary>
-		[AliasOf("GL_WAIT_FAILED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -489,7 +432,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TIMEOUT_IGNORED symbol.
 		/// </summary>
-		[AliasOf("GL_TIMEOUT_IGNORED_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -499,7 +441,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SYNC_FLUSH_COMMANDS_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_SYNC_FLUSH_COMMANDS_BIT_APPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
@@ -510,7 +451,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLE_POSITION symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_POSITION_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
@@ -520,7 +460,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLE_MASK symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_MASK_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
@@ -530,7 +469,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLE_MASK_VALUE symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_MASK_VALUE_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
@@ -540,7 +478,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of sample mask words.
 		/// </summary>
-		[AliasOf("GL_MAX_SAMPLE_MASK_WORDS_NV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
@@ -567,7 +504,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
@@ -598,7 +534,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_2D_MULTISAMPLE_ARRAY. The initial value is 0. See Gl.BindTexture.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -650,7 +585,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
@@ -660,7 +594,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
@@ -670,7 +603,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
@@ -725,8 +657,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		[AliasOf("glDrawElementsBaseVertexEXT")]
-		[AliasOf("glDrawElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
@@ -763,8 +693,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		[AliasOf("glDrawElementsBaseVertexEXT")]
-		[AliasOf("glDrawElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
@@ -809,8 +737,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		[AliasOf("glDrawRangeElementsBaseVertexEXT")]
-		[AliasOf("glDrawRangeElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
@@ -853,8 +779,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		[AliasOf("glDrawRangeElementsBaseVertexEXT")]
-		[AliasOf("glDrawRangeElementsBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
@@ -897,8 +821,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		[AliasOf("glDrawElementsInstancedBaseVertexEXT")]
-		[AliasOf("glDrawElementsInstancedBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
@@ -939,8 +861,6 @@ namespace OpenGL
 		/// Specifies a constant that should be added to each element of <paramref name="indices"/> when chosing elements from the 
 		/// enabled vertex arrays.
 		/// </param>
-		[AliasOf("glDrawElementsInstancedBaseVertexEXT")]
-		[AliasOf("glDrawElementsInstancedBaseVertexOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
@@ -981,7 +901,6 @@ namespace OpenGL
 		/// <param name="basevertex">
 		/// Specifies a pointer to the location where the base vertices are stored.
 		/// </param>
-		[AliasOf("glMultiDrawElementsBaseVertexEXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
@@ -1007,7 +926,6 @@ namespace OpenGL
 		/// <param name="provokeMode">
 		/// Specifies the vertex to be used as the source of data for flat shaded varyings.
 		/// </param>
-		[AliasOf("glProvokingVertexEXT")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_provoking_vertex")]
@@ -1033,7 +951,6 @@ namespace OpenGL
 		/// this operation and <paramref name="flags"/> must be zero.<paramref name="flags"/> is a placeholder for anticipated 
 		/// future extensions of fence sync object capabilities.
 		/// </param>
-		[AliasOf("glFenceSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1058,7 +975,6 @@ namespace OpenGL
 		/// <param name="sync">
 		/// Specifies a value that may be the name of a sync object.
 		/// </param>
-		[AliasOf("glIsSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1083,7 +999,6 @@ namespace OpenGL
 		/// <param name="sync">
 		/// The sync object to be deleted.
 		/// </param>
-		[AliasOf("glDeleteSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1111,7 +1026,6 @@ namespace OpenGL
 		/// The timeout, specified in nanoseconds, for which the implementation should wait for <paramref name="sync"/> to become 
 		/// signaled.
 		/// </param>
-		[AliasOf("glClientWaitSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1143,7 +1057,6 @@ namespace OpenGL
 		/// Specifies the timeout that the server should wait before continuing. <paramref name="timeout"/> must be 
 		/// Gl.TIMEOUT_IGNORED.
 		/// </param>
-		[AliasOf("glWaitSyncAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1168,7 +1081,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1198,7 +1110,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1228,7 +1139,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1258,7 +1168,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Returns the value or values of the specified parameter.
 		/// </param>
-		[AliasOf("glGetInteger64vAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1296,7 +1205,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of an array to receive the values of the queried parameter.
 		/// </param>
-		[AliasOf("glGetSyncivAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1332,7 +1240,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// Specifies the address of an array to receive the values of the queried parameter.
 		/// </param>
-		[AliasOf("glGetSyncivAPPLE")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
@@ -1458,9 +1365,6 @@ namespace OpenGL
 		/// <param name="level">
 		/// Specifies the mipmap level of the texture object to attach.
 		/// </param>
-		[AliasOf("glFramebufferTextureARB")]
-		[AliasOf("glFramebufferTextureEXT")]
-		[AliasOf("glFramebufferTextureOES")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
@@ -1562,7 +1466,6 @@ namespace OpenGL
 		/// <param name="val">
 		/// Specifies the address of an array to receive the position of the sample.
 		/// </param>
-		[AliasOf("glGetMultisamplefvNV")]
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
@@ -1726,222 +1629,195 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsBaseVertexEXT")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsBaseVertexOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawElementsBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
 
-			[AliasOf("glDrawElementsBaseVertex")]
-			[AliasOf("glDrawElementsBaseVertexEXT")]
-			[AliasOf("glDrawElementsBaseVertexOES")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsBaseVertexEXT")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsBaseVertexOES")]
 			[ThreadStatic]
 			internal static glDrawElementsBaseVertex pglDrawElementsBaseVertex;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawRangeElementsBaseVertexEXT")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawRangeElementsBaseVertexOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawRangeElementsBaseVertex(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
 
-			[AliasOf("glDrawRangeElementsBaseVertex")]
-			[AliasOf("glDrawRangeElementsBaseVertexEXT")]
-			[AliasOf("glDrawRangeElementsBaseVertexOES")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawRangeElementsBaseVertexEXT")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawRangeElementsBaseVertexOES")]
 			[ThreadStatic]
 			internal static glDrawRangeElementsBaseVertex pglDrawRangeElementsBaseVertex;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexEXT")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawElementsInstancedBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex);
 
-			[AliasOf("glDrawElementsInstancedBaseVertex")]
-			[AliasOf("glDrawElementsInstancedBaseVertexEXT")]
-			[AliasOf("glDrawElementsInstancedBaseVertexOES")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexEXT")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexOES")]
 			[ThreadStatic]
 			internal static glDrawElementsInstancedBaseVertex pglDrawElementsInstancedBaseVertex;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glMultiDrawElementsBaseVertexEXT")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glMultiDrawElementsBaseVertexEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiDrawElementsBaseVertex(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount, Int32* basevertex);
 
-			[AliasOf("glMultiDrawElementsBaseVertex")]
-			[AliasOf("glMultiDrawElementsBaseVertexEXT")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
-			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glMultiDrawElementsBaseVertexEXT")]
+			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glMultiDrawElementsBaseVertexEXT")]
 			[ThreadStatic]
 			internal static glMultiDrawElementsBaseVertex pglMultiDrawElementsBaseVertex;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_provoking_vertex")]
+			[RequiredByFeature("GL_EXT_provoking_vertex", EntryPoint = "glProvokingVertexEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProvokingVertex(Int32 mode);
 
-			[AliasOf("glProvokingVertex")]
-			[AliasOf("glProvokingVertexEXT")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_provoking_vertex")]
+			[RequiredByFeature("GL_EXT_provoking_vertex", EntryPoint = "glProvokingVertexEXT")]
 			[ThreadStatic]
 			internal static glProvokingVertex pglProvokingVertex;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glFenceSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate Int32 glFenceSync(Int32 condition, UInt32 flags);
 
-			[AliasOf("glFenceSync")]
-			[AliasOf("glFenceSyncAPPLE")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glFenceSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glFenceSync pglFenceSync;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glIsSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate bool glIsSync(Int32 sync);
 
-			[AliasOf("glIsSync")]
-			[AliasOf("glIsSyncAPPLE")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glIsSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glIsSync pglIsSync;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glDeleteSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDeleteSync(Int32 sync);
 
-			[AliasOf("glDeleteSync")]
-			[AliasOf("glDeleteSyncAPPLE")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glDeleteSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDeleteSync pglDeleteSync;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glClientWaitSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate Int32 glClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
 
-			[AliasOf("glClientWaitSync")]
-			[AliasOf("glClientWaitSyncAPPLE")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glClientWaitSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glClientWaitSync pglClientWaitSync;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glWaitSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
 
-			[AliasOf("glWaitSync")]
-			[AliasOf("glWaitSyncAPPLE")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glWaitSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glWaitSync pglWaitSync;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glGetInteger64vAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetInteger64v(Int32 pname, Int64* data);
 
-			[AliasOf("glGetInteger64v")]
-			[AliasOf("glGetInteger64vAPPLE")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glGetInteger64vAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetInteger64v pglGetInteger64v;
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glGetSyncivAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetSynciv(Int32 sync, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
 
-			[AliasOf("glGetSynciv")]
-			[AliasOf("glGetSyncivAPPLE")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glGetSyncivAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetSynciv pglGetSynciv;
@@ -1972,25 +1848,21 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
-			[RequiredByFeature("GL_NV_geometry_program4")]
-			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore", EntryPoint = "glFramebufferTextureARB")]
+			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2", EntryPoint = "glFramebufferTextureEXT")]
+			[RequiredByFeature("GL_NV_geometry_program4", EntryPoint = "glFramebufferTextureEXT")]
+			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2", EntryPoint = "glFramebufferTextureOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glFramebufferTexture(Int32 target, Int32 attachment, UInt32 texture, Int32 level);
 
-			[AliasOf("glFramebufferTexture")]
-			[AliasOf("glFramebufferTextureARB")]
-			[AliasOf("glFramebufferTextureEXT")]
-			[AliasOf("glFramebufferTextureOES")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
-			[RequiredByFeature("GL_NV_geometry_program4")]
-			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore", EntryPoint = "glFramebufferTextureARB")]
+			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2", EntryPoint = "glFramebufferTextureEXT")]
+			[RequiredByFeature("GL_NV_geometry_program4", EntryPoint = "glFramebufferTextureEXT")]
+			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2", EntryPoint = "glFramebufferTextureOES")]
 			[ThreadStatic]
 			internal static glFramebufferTexture pglFramebufferTexture;
 
@@ -2021,18 +1893,16 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_explicit_multisample")]
+			[RequiredByFeature("GL_NV_explicit_multisample", EntryPoint = "glGetMultisamplefvNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetMultisamplefv(Int32 pname, UInt32 index, float* val);
 
-			[AliasOf("glGetMultisamplefv")]
-			[AliasOf("glGetMultisamplefvNV")]
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_explicit_multisample")]
+			[RequiredByFeature("GL_NV_explicit_multisample", EntryPoint = "glGetMultisamplefvNV")]
 			[ThreadStatic]
 			internal static glGetMultisamplefv pglGetMultisamplefv;
 

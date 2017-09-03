@@ -50,7 +50,6 @@
     <Compile Include="3DFX\Gl.3DFX_multisample.cs" />
     <Compile Include="3DFX\Gl.3DFX_tbuffer.cs" />
     <Compile Include="3DFX\Gl.3DFX_texture_compression_FXT1.cs" />
-    <Compile Include="AliasOfAttribute.cs" />
     <Compile Include="AMD\Gl.AMD_blend_minmax_factor.cs" />
     <Compile Include="AMD\Gl.AMD_compressed_3DC_texture.cs" />
     <Compile Include="AMD\Gl.AMD_compressed_ATC_texture.cs" />

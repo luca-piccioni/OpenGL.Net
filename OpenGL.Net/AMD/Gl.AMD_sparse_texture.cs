@@ -38,8 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB")]
-		[AliasOf("GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT")]
 		[RequiredByFeature("GL_AMD_sparse_texture")]
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]

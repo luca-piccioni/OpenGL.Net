@@ -38,9 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PIXEL_PACK_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_PIXEL_PACK_BUFFER_ARB")]
-		[AliasOf("GL_PIXEL_PACK_BUFFER_EXT")]
-		[AliasOf("GL_PIXEL_PACK_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
@@ -51,9 +48,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PIXEL_UNPACK_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_PIXEL_UNPACK_BUFFER_ARB")]
-		[AliasOf("GL_PIXEL_UNPACK_BUFFER_EXT")]
-		[AliasOf("GL_PIXEL_UNPACK_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
@@ -66,9 +60,6 @@ namespace OpenGL
 		/// Gl.PIXEL_PACK_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
 		/// Gl.BindBuffer.
 		/// </summary>
-		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_ARB")]
-		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_EXT")]
-		[AliasOf("GL_PIXEL_PACK_BUFFER_BINDING_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
@@ -81,9 +72,6 @@ namespace OpenGL
 		/// Gl.PIXEL_UNPACK_BUFFER. If no buffer object is bound to this target, 0 is returned. The initial value is 0. See 
 		/// Gl.BindBuffer.
 		/// </summary>
-		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_ARB")]
-		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_EXT")]
-		[AliasOf("GL_PIXEL_UNPACK_BUFFER_BINDING_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
@@ -94,7 +82,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FLOAT_MAT2x3 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT2x3_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -103,7 +90,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FLOAT_MAT2x4 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT2x4_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -112,7 +98,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FLOAT_MAT3x2 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT3x2_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -121,7 +106,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FLOAT_MAT3x4 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT3x4_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -130,7 +114,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FLOAT_MAT4x2 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT4x2_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -139,7 +122,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FLOAT_MAT4x3 symbol.
 		/// </summary>
-		[AliasOf("GL_FLOAT_MAT4x3_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -148,7 +130,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SRGB symbol.
 		/// </summary>
-		[AliasOf("GL_SRGB_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
@@ -158,8 +139,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SRGB8 symbol.
 		/// </summary>
-		[AliasOf("GL_SRGB8_EXT")]
-		[AliasOf("GL_SRGB8_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
@@ -169,7 +148,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SRGB_ALPHA symbol.
 		/// </summary>
-		[AliasOf("GL_SRGB_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
@@ -178,7 +156,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SRGB8_ALPHA8 symbol.
 		/// </summary>
-		[AliasOf("GL_SRGB8_ALPHA8_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
@@ -188,7 +165,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int COMPRESSED_SRGB = 0x8C48;
@@ -196,7 +172,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB_ALPHA symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		public const int COMPRESSED_SRGB_ALPHA = 0x8C49;
@@ -214,8 +189,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SLUMINANCE_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SLUMINANCE_ALPHA_EXT")]
-		[AliasOf("GL_SLUMINANCE_ALPHA_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
@@ -225,8 +198,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SLUMINANCE8_ALPHA8 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SLUMINANCE8_ALPHA8_EXT")]
-		[AliasOf("GL_SLUMINANCE8_ALPHA8_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
@@ -236,8 +207,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SLUMINANCE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SLUMINANCE_EXT")]
-		[AliasOf("GL_SLUMINANCE_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
@@ -247,8 +216,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SLUMINANCE8 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SLUMINANCE8_EXT")]
-		[AliasOf("GL_SLUMINANCE8_NV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
@@ -258,7 +225,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SLUMINANCE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SLUMINANCE_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -267,7 +233,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SLUMINANCE_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SLUMINANCE_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_EXT_texture_sRGB")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -292,7 +257,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix2x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -328,7 +292,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix2x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -359,7 +322,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix3x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -395,7 +357,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix3x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -426,7 +387,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix2x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -462,7 +422,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix2x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -493,7 +452,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix4x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -529,7 +487,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix4x2fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -560,7 +517,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix3x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -596,7 +552,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix3x4fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -627,7 +582,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix4x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -663,7 +617,6 @@ namespace OpenGL
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
 		/// </param>
-		[AliasOf("glUniformMatrix4x3fvNV")]
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
@@ -719,97 +672,85 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix2x3fvNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformMatrix2x3fv(Int32 location, Int32 count, bool transpose, float* value);
 
-			[AliasOf("glUniformMatrix2x3fv")]
-			[AliasOf("glUniformMatrix2x3fvNV")]
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix2x3fvNV")]
 			[ThreadStatic]
 			internal static glUniformMatrix2x3fv pglUniformMatrix2x3fv;
 
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix3x2fvNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformMatrix3x2fv(Int32 location, Int32 count, bool transpose, float* value);
 
-			[AliasOf("glUniformMatrix3x2fv")]
-			[AliasOf("glUniformMatrix3x2fvNV")]
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix3x2fvNV")]
 			[ThreadStatic]
 			internal static glUniformMatrix3x2fv pglUniformMatrix3x2fv;
 
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix2x4fvNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformMatrix2x4fv(Int32 location, Int32 count, bool transpose, float* value);
 
-			[AliasOf("glUniformMatrix2x4fv")]
-			[AliasOf("glUniformMatrix2x4fvNV")]
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix2x4fvNV")]
 			[ThreadStatic]
 			internal static glUniformMatrix2x4fv pglUniformMatrix2x4fv;
 
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix4x2fvNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformMatrix4x2fv(Int32 location, Int32 count, bool transpose, float* value);
 
-			[AliasOf("glUniformMatrix4x2fv")]
-			[AliasOf("glUniformMatrix4x2fvNV")]
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix4x2fvNV")]
 			[ThreadStatic]
 			internal static glUniformMatrix4x2fv pglUniformMatrix4x2fv;
 
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix3x4fvNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformMatrix3x4fv(Int32 location, Int32 count, bool transpose, float* value);
 
-			[AliasOf("glUniformMatrix3x4fv")]
-			[AliasOf("glUniformMatrix3x4fvNV")]
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix3x4fvNV")]
 			[ThreadStatic]
 			internal static glUniformMatrix3x4fv pglUniformMatrix3x4fv;
 
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix4x3fvNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformMatrix4x3fv(Int32 location, Int32 count, bool transpose, float* value);
 
-			[AliasOf("glUniformMatrix4x3fv")]
-			[AliasOf("glUniformMatrix4x3fvNV")]
 			[RequiredByFeature("GL_VERSION_2_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+			[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2", EntryPoint = "glUniformMatrix4x3fvNV")]
 			[ThreadStatic]
 			internal static glUniformMatrix4x3fv pglUniformMatrix4x3fv;
 

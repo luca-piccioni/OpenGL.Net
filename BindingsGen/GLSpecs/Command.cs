@@ -309,18 +309,18 @@ namespace BindingsGen.GLSpecs
 			string classDefaultApi = ctx.Class.ToLower();
 
 			foreach (IFeature feature in RequiredBy)
-				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+				sw.WriteLine(feature.GenerateRequiredByAttribute(this, classDefaultApi));
 
 			foreach (IFeature feature in RemovedBy)
-				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
+				sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
 
-            // Not yet sure if it is really necessary
-            sw.WriteLine("#if !NETCORE && !NETSTANDARD1_4");
-            sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
-            sw.WriteLine("#endif");
+			// Not yet sure if it is really necessary
+			sw.WriteLine("#if !NETCORE && !NETSTANDARD1_4");
+			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
+			sw.WriteLine("#endif");
 
-            // Delegate type definition
-            sw.WriteIdentation(); sw.Write("internal ");
+			// Delegate type definition
+			sw.WriteIdentation(); sw.Write("internal ");
 			if (IsSafeImplementation == false) sw.Write("unsafe ");
 			sw.Write("delegate ");
 
@@ -347,17 +347,12 @@ namespace BindingsGen.GLSpecs
 			sw.WriteLine();
 
 			sw.WriteLine();
-			if (Aliases.Count > 0) {
-				sw.WriteLine("[AliasOf(\"{0}\")]", ImportName);
-				foreach (Command aliasOf in Aliases)
-					sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.ImportName);
-			}
 
 			foreach (IFeature feature in RequiredBy)
-				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+				sw.WriteLine(feature.GenerateRequiredByAttribute(this, classDefaultApi));
 
 			foreach (IFeature feature in RemovedBy)
-				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
+				sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
 
 			// Required on Windows platform: different threads can bind different OpenGL context, which can have different
 			// entry points
@@ -669,18 +664,13 @@ namespace BindingsGen.GLSpecs
 			if (ctx.RefPages.Count > 0)
 				ctx.RefPages.GenerateDocumentation(sw, ctx, this, true, commandParams);
 
-			if (Aliases.Count > 0) {
-				foreach (Command aliasOf in Aliases)
-					sw.WriteLine("[AliasOf(\"{0}\")]", aliasOf.ImportName);
-			}
-
 			string classDefaultApi = ctx.Class.ToLower();
 
 			foreach (IFeature feature in RequiredBy)
-				sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+				sw.WriteLine(feature.GenerateRequiredByAttribute(null /* Not required */, classDefaultApi));
 
 			foreach (IFeature feature in RemovedBy)
-				sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
+				sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
 
 			#region Signature
 

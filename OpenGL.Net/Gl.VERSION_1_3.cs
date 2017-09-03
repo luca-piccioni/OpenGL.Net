@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE0 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE0_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -50,7 +49,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE1 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE1_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -62,7 +60,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE2 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE2_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -73,7 +70,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE3 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE3_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -84,7 +80,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE4 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE4_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -95,7 +90,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE5 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE5_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -106,7 +100,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE6 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE6_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -117,7 +110,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE7 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE7_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -128,7 +120,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE8 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE8_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -139,7 +130,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE9 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE9_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -150,7 +140,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE10 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE10_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -161,7 +150,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE11 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE11_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -172,7 +160,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE12 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE12_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -183,7 +170,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE13 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE13_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -194,7 +180,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE14 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE14_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -205,7 +190,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE15 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE15_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -216,7 +200,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE16 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE16_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -227,7 +210,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE17 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE17_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -238,7 +220,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE18 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE18_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -249,7 +230,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE19 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE19_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -260,7 +240,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE20 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE20_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -271,7 +250,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE21 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE21_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -282,7 +260,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE22 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE22_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -293,7 +270,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE23 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE23_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -304,7 +280,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE24 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE24_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -315,7 +290,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE25 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE25_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -326,7 +300,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE26 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE26_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -337,7 +310,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE27 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE27_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -348,7 +320,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE28 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE28_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -359,7 +330,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE29 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE29_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -370,7 +340,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE30 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE30_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -381,7 +350,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE31 symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE31_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -393,7 +361,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value indicating the active multitexture unit. The initial value is 
 		/// Gl.TEXTURE0. See Gl.ActiveTexture.
 		/// </summary>
-		[AliasOf("GL_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -415,9 +382,6 @@ namespace OpenGL
 		/// is Gl.TRUE.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_MULTISAMPLE_ARB")]
-		[AliasOf("GL_MULTISAMPLE_EXT")]
-		[AliasOf("GL_MULTISAMPLE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multisample")]
@@ -436,7 +400,6 @@ namespace OpenGL
 		/// is enabled. The initial value is Gl.FALSE. See Gl.SampleCoverage.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_SAMPLE_ALPHA_TO_COVERAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -457,9 +420,6 @@ namespace OpenGL
 		/// Gl.SampleCoverage.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_ARB")]
-		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_EXT")]
-		[AliasOf("GL_SAMPLE_ALPHA_TO_ONE_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multisample")]
@@ -478,7 +438,6 @@ namespace OpenGL
 		/// value specified by Gl.SampleCoverage is enabled. The initial value is Gl.FALSE.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_SAMPLE_COVERAGE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -500,9 +459,6 @@ namespace OpenGL
 		/// framebuffer. See Gl.SampleCoverage.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_SAMPLE_BUFFERS_ARB")]
-		[AliasOf("GL_SAMPLE_BUFFERS_EXT")]
-		[AliasOf("GL_SAMPLE_BUFFERS_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -524,9 +480,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a single integer value indicating the coverage mask size. See Gl.SampleCoverage.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_SAMPLES_ARB")]
-		[AliasOf("GL_SAMPLES_EXT")]
-		[AliasOf("GL_SAMPLES_SGIS")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -542,7 +495,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single positive floating-point value indicating the current sample coverage value. 
 		/// See Gl.SampleCoverage.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_COVERAGE_VALUE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -554,7 +506,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single boolean value indicating if the temporary coverage value should be inverted. 
 		/// See Gl.SampleCoverage.
 		/// </summary>
-		[AliasOf("GL_SAMPLE_COVERAGE_INVERT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -571,9 +522,6 @@ namespace OpenGL
 		/// initial value is Gl.FALSE. See Gl.TexImage2D.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_ARB")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_EXT")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
@@ -587,9 +535,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_CUBE_MAP. The initial value is 0. See Gl.BindTexture.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_ARB")]
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_EXT")]
-		[AliasOf("GL_TEXTURE_BINDING_CUBE_MAP_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -602,9 +547,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_CUBE_MAP_POSITIVE_X symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_ARB")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_X_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
@@ -615,9 +557,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_X symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_ARB")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_EXT")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_X_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
@@ -628,9 +567,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Y symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_ARB")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_EXT")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Y_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
@@ -641,9 +577,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Y symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_ARB")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_EXT")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
@@ -654,9 +587,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_CUBE_MAP_POSITIVE_Z symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_ARB")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_EXT")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_POSITIVE_Z_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
@@ -667,9 +597,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_CUBE_MAP_NEGATIVE_Z symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_EXT")]
-		[AliasOf("GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
@@ -680,8 +607,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PROXY_TEXTURE_CUBE_MAP symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_ARB")]
-		[AliasOf("GL_PROXY_TEXTURE_CUBE_MAP_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
@@ -698,9 +623,6 @@ namespace OpenGL
 		/// can handle. The value must be at least 2048. See Gl.TexImage2D.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB")]
-		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_EXT")]
-		[AliasOf("GL_MAX_CUBE_MAP_TEXTURE_SIZE_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
@@ -711,7 +633,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGB symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGB_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public const int COMPRESSED_RGB = 0x84ED;
@@ -719,7 +640,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public const int COMPRESSED_RGBA = 0x84EE;
@@ -736,7 +656,6 @@ namespace OpenGL
 		/// by Gl.GetCompressedTexImage for reuse.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COMPRESSION_HINT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public const int TEXTURE_COMPRESSION_HINT = 0x84EF;
@@ -745,7 +664,6 @@ namespace OpenGL
 		/// [GL4] Gl.GetTexLevelParameter: params returns a single integer value, the number of unsigned bytes of the compressed 
 		/// texture image that would be returned from Gl.GetCompressedTexImage.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COMPRESSED_IMAGE_SIZE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public const int TEXTURE_COMPRESSED_IMAGE_SIZE = 0x86A0;
@@ -760,7 +678,6 @@ namespace OpenGL
 		/// compressed internal format.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_COMPRESSED_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
@@ -777,7 +694,6 @@ namespace OpenGL
 		/// minimum value is 38. See Gl.CompressedTexImage2D.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -789,7 +705,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a list of symbolic constants of length Gl.NUM_COMPRESSED_TEXTURE_FORMATS indicating 
 		/// which compressed texture formats are available. See Gl.CompressedTexImage2D.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_TEXTURE_FORMATS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -800,11 +715,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLAMP_TO_BORDER symbol.
 		/// </summary>
-		[AliasOf("GL_CLAMP_TO_BORDER_ARB")]
-		[AliasOf("GL_CLAMP_TO_BORDER_EXT")]
-		[AliasOf("GL_CLAMP_TO_BORDER_NV")]
-		[AliasOf("GL_CLAMP_TO_BORDER_SGIS")]
-		[AliasOf("GL_CLAMP_TO_BORDER_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_border_clamp", Api = "gl|glcore")]
@@ -824,7 +734,6 @@ namespace OpenGL
 		/// value is Gl.TEXTURE0. See Gl.ClientActiveTexture.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_CLIENT_ACTIVE_TEXTURE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -844,7 +753,6 @@ namespace OpenGL
 		/// least 1. See Gl.ActiveTexture, Gl.ClientActiveTexture and Gl.MultiTexCoord.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_MAX_TEXTURE_UNITS_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -855,7 +763,6 @@ namespace OpenGL
 		/// [GL2.1] Gl.Get: params returns 16 values, the elements of the modelview matrix in row-major order. See 
 		/// Gl.LoadTransposeMatrix.
 		/// </summary>
-		[AliasOf("GL_TRANSPOSE_MODELVIEW_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -865,7 +772,6 @@ namespace OpenGL
 		/// [GL2.1] Gl.Get: params returns 16 values, the elements of the projection matrix in row-major order. See 
 		/// Gl.LoadTransposeMatrix.
 		/// </summary>
-		[AliasOf("GL_TRANSPOSE_PROJECTION_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -875,7 +781,6 @@ namespace OpenGL
 		/// [GL2.1] Gl.Get: params returns 16 values, the elements of the texture matrix in row-major order. See 
 		/// Gl.LoadTransposeMatrix.
 		/// </summary>
-		[AliasOf("GL_TRANSPOSE_TEXTURE_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -885,7 +790,6 @@ namespace OpenGL
 		/// [GL2.1] Gl.Get: params returns 16 values, the elements of the color matrix in row-major order. See 
 		/// Gl.LoadTransposeMatrix.
 		/// </summary>
-		[AliasOf("GL_TRANSPOSE_COLOR_MATRIX_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -894,9 +798,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MULTISAMPLE_BIT symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_MULTISAMPLE_BIT_ARB")]
-		[AliasOf("GL_MULTISAMPLE_BIT_EXT")]
-		[AliasOf("GL_MULTISAMPLE_BIT_3DFX")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multisample")]
 		[RequiredByFeature("GL_EXT_multisample")]
@@ -908,10 +809,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_NORMAL_MAP symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_NORMAL_MAP_ARB")]
-		[AliasOf("GL_NORMAL_MAP_EXT")]
-		[AliasOf("GL_NORMAL_MAP_NV")]
-		[AliasOf("GL_NORMAL_MAP_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
@@ -923,10 +820,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_REFLECTION_MAP symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_REFLECTION_MAP_ARB")]
-		[AliasOf("GL_REFLECTION_MAP_EXT")]
-		[AliasOf("GL_REFLECTION_MAP_NV")]
-		[AliasOf("GL_REFLECTION_MAP_OES")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_cube_map")]
 		[RequiredByFeature("GL_EXT_texture_cube_map")]
@@ -938,7 +831,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_ALPHA_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -947,7 +839,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_LUMINANCE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_LUMINANCE_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -956,7 +847,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_LUMINANCE_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_LUMINANCE_ALPHA_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -965,7 +855,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_INTENSITY symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_INTENSITY_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -974,8 +863,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMBINE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_COMBINE_ARB")]
-		[AliasOf("GL_COMBINE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -987,8 +874,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the current RGB combine mode. 
 		/// The initial value is Gl.MODULATE.
 		/// </summary>
-		[AliasOf("GL_COMBINE_RGB_ARB")]
-		[AliasOf("GL_COMBINE_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1000,8 +885,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the current alpha combine 
 		/// mode. The initial value is Gl.MODULATE.
 		/// </summary>
-		[AliasOf("GL_COMBINE_ALPHA_ARB")]
-		[AliasOf("GL_COMBINE_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1012,8 +895,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SOURCE0_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE0_RGB_ARB")]
-		[AliasOf("GL_SOURCE0_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
@@ -1023,8 +904,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SOURCE1_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE1_RGB_ARB")]
-		[AliasOf("GL_SOURCE1_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
@@ -1034,8 +913,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SOURCE2_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE2_RGB_ARB")]
-		[AliasOf("GL_SOURCE2_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
@@ -1045,8 +922,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SOURCE0_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE0_ALPHA_ARB")]
-		[AliasOf("GL_SOURCE0_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
@@ -1056,8 +931,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SOURCE1_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE1_ALPHA_ARB")]
-		[AliasOf("GL_SOURCE1_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
@@ -1067,8 +940,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SOURCE2_ALPHA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SOURCE2_ALPHA_ARB")]
-		[AliasOf("GL_SOURCE2_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
@@ -1079,8 +950,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's 
 		/// RGB operand. The initial value is Gl.SRC_COLOR.
 		/// </summary>
-		[AliasOf("GL_OPERAND0_RGB_ARB")]
-		[AliasOf("GL_OPERAND0_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1092,8 +961,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's 
 		/// RGB operand. The initial value is Gl.SRC_COLOR.
 		/// </summary>
-		[AliasOf("GL_OPERAND1_RGB_ARB")]
-		[AliasOf("GL_OPERAND1_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1105,8 +972,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's 
 		/// RGB operand. The initial value is Gl.SRC_ALPHA.
 		/// </summary>
-		[AliasOf("GL_OPERAND2_RGB_ARB")]
-		[AliasOf("GL_OPERAND2_RGB_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1118,8 +983,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner zero's 
 		/// alpha operand. The initial value is Gl.SRC_ALPHA.
 		/// </summary>
-		[AliasOf("GL_OPERAND0_ALPHA_ARB")]
-		[AliasOf("GL_OPERAND0_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1131,8 +994,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner one's 
 		/// alpha operand. The initial value is Gl.SRC_ALPHA.
 		/// </summary>
-		[AliasOf("GL_OPERAND1_ALPHA_ARB")]
-		[AliasOf("GL_OPERAND1_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1144,8 +1005,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single symbolic constant value representing the texture combiner two's 
 		/// alpha operand. The initial value is Gl.SRC_ALPHA.
 		/// </summary>
-		[AliasOf("GL_OPERAND2_ALPHA_ARB")]
-		[AliasOf("GL_OPERAND2_ALPHA_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1157,8 +1016,6 @@ namespace OpenGL
 		/// [GL2.1|GLES1.1] Gl.GetTexEnv: params returns a single floating-point value representing the current RGB texture combiner 
 		/// scaling factor. The initial value is 1.0.
 		/// </summary>
-		[AliasOf("GL_RGB_SCALE_ARB")]
-		[AliasOf("GL_RGB_SCALE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1169,8 +1026,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ADD_SIGNED symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_ADD_SIGNED_ARB")]
-		[AliasOf("GL_ADD_SIGNED_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1181,8 +1036,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INTERPOLATE symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_INTERPOLATE_ARB")]
-		[AliasOf("GL_INTERPOLATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1193,7 +1046,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SUBTRACT symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_SUBTRACT_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1203,9 +1055,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CONSTANT symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CONSTANT_ARB")]
-		[AliasOf("GL_CONSTANT_EXT")]
-		[AliasOf("GL_CONSTANT_NV")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1217,8 +1066,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PRIMARY_COLOR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_PRIMARY_COLOR_ARB")]
-		[AliasOf("GL_PRIMARY_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -1230,8 +1077,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PREVIOUS symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_PREVIOUS_ARB")]
-		[AliasOf("GL_PREVIOUS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_combine")]
@@ -1242,7 +1087,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOT3_RGB symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_DOT3_RGB_ARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_dot3")]
@@ -1252,8 +1096,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DOT3_RGBA symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_DOT3_RGBA_ARB")]
-		[AliasOf("GL_DOT3_RGBA_IMG")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_texture_env_dot3")]
@@ -1271,7 +1113,6 @@ namespace OpenGL
 		/// least 80. <paramref name="texture"/> must be one of Gl.TEXTUREi, where i ranges from zero to the value of 
 		/// Gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS minus one. The initial value is Gl.TEXTURE0.
 		/// </param>
-		[AliasOf("glActiveTextureARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1297,7 +1138,6 @@ namespace OpenGL
 		/// Specify a single boolean value representing if the coverage masks should be inverted. Gl.TRUE and Gl.FALSE are accepted. 
 		/// The initial value is Gl.FALSE.
 		/// </param>
-		[AliasOf("glSampleCoverageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1349,7 +1189,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexImage3DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -1399,7 +1238,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexImage3DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -1448,7 +1286,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1496,7 +1333,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1537,7 +1373,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
@@ -1574,7 +1409,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexImage1D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
@@ -1626,7 +1460,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexSubImage3DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -1677,7 +1510,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexSubImage3DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
@@ -1725,7 +1557,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexSubImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1773,7 +1604,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexSubImage2DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1813,7 +1643,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexSubImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
@@ -1848,7 +1677,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the compressed image data in memory.
 		/// </param>
-		[AliasOf("glCompressedTexSubImage1DARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object data)
@@ -1878,7 +1706,6 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[AliasOf("glGetCompressedTexImageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
@@ -1906,7 +1733,6 @@ namespace OpenGL
 		/// <param name="img">
 		/// A <see cref="T:Object"/>.
 		/// </param>
-		[AliasOf("glGetCompressedTexImageARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
 		public static void GetCompressedTexImage(TextureTarget target, Int32 level, Object img)
@@ -1932,7 +1758,6 @@ namespace OpenGL
 		/// least two. <paramref name="texture"/> must be one of Gl.TEXTUREi, where i ranges from 0 to the value of 
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value. The initial value is Gl.TEXTURE0.
 		/// </param>
-		[AliasOf("glClientActiveTextureARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -1957,7 +1782,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord1dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -1979,7 +1803,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord1dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2008,7 +1831,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord1fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2030,7 +1852,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord1fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2059,7 +1880,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord1iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2081,7 +1901,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord1ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2110,7 +1929,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord1sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2132,7 +1950,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord1svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2165,7 +1982,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord2dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2187,7 +2003,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord2dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2220,7 +2035,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord2fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2242,7 +2056,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord2fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2275,7 +2088,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord2iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2297,7 +2109,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord2ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2330,7 +2141,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord2sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2352,7 +2162,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord2svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2389,7 +2198,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord3dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2411,7 +2219,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord3dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2448,7 +2255,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord3fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2470,7 +2276,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord3fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2507,7 +2312,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord3iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2529,7 +2333,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord3ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2566,7 +2369,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord3sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2588,7 +2390,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord3svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2629,7 +2430,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord4dARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2651,7 +2451,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord4dvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2694,7 +2493,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord4fARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ARB_multitexture")]
@@ -2717,7 +2515,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord4fvARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2758,7 +2555,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord4iARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2780,7 +2576,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord4ivARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2821,7 +2616,6 @@ namespace OpenGL
 		/// Specify <paramref name="s"/>, <paramref name="t"/>, <paramref name="r"/>, and <paramref name="q"/> texture coordinates 
 		/// for <paramref name="target"/> texture unit. Not all parameters are present in all forms of the command.
 		/// </param>
-		[AliasOf("glMultiTexCoord4sARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2843,7 +2637,6 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
-		[AliasOf("glMultiTexCoord4svARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2866,7 +2659,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		[AliasOf("glLoadTransposeMatrixfARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2889,7 +2681,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		[AliasOf("glLoadTransposeMatrixdARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2912,7 +2703,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		[AliasOf("glMultTransposeMatrixfARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2935,7 +2725,6 @@ namespace OpenGL
 		/// <param name="m">
 		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
 		/// </param>
-		[AliasOf("glMultTransposeMatrixdARB")]
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -3238,19 +3027,17 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glActiveTextureARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glActiveTexture(Int32 texture);
 
-			[AliasOf("glActiveTexture")]
-			[AliasOf("glActiveTextureARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glActiveTextureARB")]
 			[ThreadStatic]
 			internal static glActiveTexture pglActiveTexture;
 
@@ -3258,83 +3045,73 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_ARB_multisample")]
+			[RequiredByFeature("GL_ARB_multisample", EntryPoint = "glSampleCoverageARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glSampleCoverage(float value, bool invert);
 
-			[AliasOf("glSampleCoverage")]
-			[AliasOf("glSampleCoverageARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_ARB_multisample")]
+			[RequiredByFeature("GL_ARB_multisample", EntryPoint = "glSampleCoverageARB")]
 			[ThreadStatic]
 			internal static glSampleCoverage pglSampleCoverage;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexImage3DARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTexImage3D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
 
-			[AliasOf("glCompressedTexImage3D")]
-			[AliasOf("glCompressedTexImage3DARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexImage3DARB")]
 			[ThreadStatic]
 			internal static glCompressedTexImage3D pglCompressedTexImage3D;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexImage2DARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data);
 
-			[AliasOf("glCompressedTexImage2D")]
-			[AliasOf("glCompressedTexImage2DARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexImage2DARB")]
 			[ThreadStatic]
 			internal static glCompressedTexImage2D pglCompressedTexImage2D;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexImage1DARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data);
 
-			[AliasOf("glCompressedTexImage1D")]
-			[AliasOf("glCompressedTexImage1DARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexImage1DARB")]
 			[ThreadStatic]
 			internal static glCompressedTexImage1D pglCompressedTexImage1D;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexSubImage3DARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
 
-			[AliasOf("glCompressedTexSubImage3D")]
-			[AliasOf("glCompressedTexSubImage3DARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexSubImage3DARB")]
 			[ThreadStatic]
 			internal static glCompressedTexSubImage3D pglCompressedTexSubImage3D;
 
@@ -3342,642 +3119,562 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexSubImage2DARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data);
 
-			[AliasOf("glCompressedTexSubImage2D")]
-			[AliasOf("glCompressedTexSubImage2DARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexSubImage2DARB")]
 			[ThreadStatic]
 			internal static glCompressedTexSubImage2D pglCompressedTexSubImage2D;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexSubImage1DARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCompressedTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data);
 
-			[AliasOf("glCompressedTexSubImage1D")]
-			[AliasOf("glCompressedTexSubImage1DARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexSubImage1DARB")]
 			[ThreadStatic]
 			internal static glCompressedTexSubImage1D pglCompressedTexSubImage1D;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glGetCompressedTexImageARB")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glGetCompressedTexImage(Int32 target, Int32 level, IntPtr img);
 
-			[AliasOf("glGetCompressedTexImage")]
-			[AliasOf("glGetCompressedTexImageARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_texture_compression")]
+			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glGetCompressedTexImageARB")]
 			[ThreadStatic]
 			internal static glGetCompressedTexImage pglGetCompressedTexImage;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glClientActiveTextureARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glClientActiveTexture(Int32 texture);
 
-			[AliasOf("glClientActiveTexture")]
-			[AliasOf("glClientActiveTextureARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glClientActiveTextureARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glClientActiveTexture pglClientActiveTexture;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1dARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord1d(Int32 target, double s);
 
-			[AliasOf("glMultiTexCoord1d")]
-			[AliasOf("glMultiTexCoord1dARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1dARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1d pglMultiTexCoord1d;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1dvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord1dv(Int32 target, double* v);
 
-			[AliasOf("glMultiTexCoord1dv")]
-			[AliasOf("glMultiTexCoord1dvARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1dvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1dv pglMultiTexCoord1dv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1fARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord1f(Int32 target, float s);
 
-			[AliasOf("glMultiTexCoord1f")]
-			[AliasOf("glMultiTexCoord1fARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1fARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1f pglMultiTexCoord1f;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1fvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord1fv(Int32 target, float* v);
 
-			[AliasOf("glMultiTexCoord1fv")]
-			[AliasOf("glMultiTexCoord1fvARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1fvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1fv pglMultiTexCoord1fv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1iARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord1i(Int32 target, Int32 s);
 
-			[AliasOf("glMultiTexCoord1i")]
-			[AliasOf("glMultiTexCoord1iARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1iARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1i pglMultiTexCoord1i;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1ivARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord1iv(Int32 target, Int32* v);
 
-			[AliasOf("glMultiTexCoord1iv")]
-			[AliasOf("glMultiTexCoord1ivARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1ivARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1iv pglMultiTexCoord1iv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1sARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord1s(Int32 target, Int16 s);
 
-			[AliasOf("glMultiTexCoord1s")]
-			[AliasOf("glMultiTexCoord1sARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1sARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1s pglMultiTexCoord1s;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1svARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord1sv(Int32 target, Int16* v);
 
-			[AliasOf("glMultiTexCoord1sv")]
-			[AliasOf("glMultiTexCoord1svARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1svARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord1sv pglMultiTexCoord1sv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2dARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord2d(Int32 target, double s, double t);
 
-			[AliasOf("glMultiTexCoord2d")]
-			[AliasOf("glMultiTexCoord2dARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2dARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2d pglMultiTexCoord2d;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2dvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord2dv(Int32 target, double* v);
 
-			[AliasOf("glMultiTexCoord2dv")]
-			[AliasOf("glMultiTexCoord2dvARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2dvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2dv pglMultiTexCoord2dv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2fARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord2f(Int32 target, float s, float t);
 
-			[AliasOf("glMultiTexCoord2f")]
-			[AliasOf("glMultiTexCoord2fARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2fARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2f pglMultiTexCoord2f;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2fvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord2fv(Int32 target, float* v);
 
-			[AliasOf("glMultiTexCoord2fv")]
-			[AliasOf("glMultiTexCoord2fvARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2fvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2fv pglMultiTexCoord2fv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2iARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord2i(Int32 target, Int32 s, Int32 t);
 
-			[AliasOf("glMultiTexCoord2i")]
-			[AliasOf("glMultiTexCoord2iARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2iARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2i pglMultiTexCoord2i;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2ivARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord2iv(Int32 target, Int32* v);
 
-			[AliasOf("glMultiTexCoord2iv")]
-			[AliasOf("glMultiTexCoord2ivARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2ivARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2iv pglMultiTexCoord2iv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2sARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord2s(Int32 target, Int16 s, Int16 t);
 
-			[AliasOf("glMultiTexCoord2s")]
-			[AliasOf("glMultiTexCoord2sARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2sARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2s pglMultiTexCoord2s;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2svARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord2sv(Int32 target, Int16* v);
 
-			[AliasOf("glMultiTexCoord2sv")]
-			[AliasOf("glMultiTexCoord2svARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2svARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord2sv pglMultiTexCoord2sv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3dARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord3d(Int32 target, double s, double t, double r);
 
-			[AliasOf("glMultiTexCoord3d")]
-			[AliasOf("glMultiTexCoord3dARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3dARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3d pglMultiTexCoord3d;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3dvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord3dv(Int32 target, double* v);
 
-			[AliasOf("glMultiTexCoord3dv")]
-			[AliasOf("glMultiTexCoord3dvARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3dvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3dv pglMultiTexCoord3dv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3fARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord3f(Int32 target, float s, float t, float r);
 
-			[AliasOf("glMultiTexCoord3f")]
-			[AliasOf("glMultiTexCoord3fARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3fARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3f pglMultiTexCoord3f;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3fvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord3fv(Int32 target, float* v);
 
-			[AliasOf("glMultiTexCoord3fv")]
-			[AliasOf("glMultiTexCoord3fvARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3fvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3fv pglMultiTexCoord3fv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3iARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord3i(Int32 target, Int32 s, Int32 t, Int32 r);
 
-			[AliasOf("glMultiTexCoord3i")]
-			[AliasOf("glMultiTexCoord3iARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3iARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3i pglMultiTexCoord3i;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3ivARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord3iv(Int32 target, Int32* v);
 
-			[AliasOf("glMultiTexCoord3iv")]
-			[AliasOf("glMultiTexCoord3ivARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3ivARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3iv pglMultiTexCoord3iv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3sARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord3s(Int32 target, Int16 s, Int16 t, Int16 r);
 
-			[AliasOf("glMultiTexCoord3s")]
-			[AliasOf("glMultiTexCoord3sARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3sARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3s pglMultiTexCoord3s;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3svARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord3sv(Int32 target, Int16* v);
 
-			[AliasOf("glMultiTexCoord3sv")]
-			[AliasOf("glMultiTexCoord3svARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3svARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord3sv pglMultiTexCoord3sv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4dARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord4d(Int32 target, double s, double t, double r, double q);
 
-			[AliasOf("glMultiTexCoord4d")]
-			[AliasOf("glMultiTexCoord4dARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4dARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4d pglMultiTexCoord4d;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4dvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord4dv(Int32 target, double* v);
 
-			[AliasOf("glMultiTexCoord4dv")]
-			[AliasOf("glMultiTexCoord4dvARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4dvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4dv pglMultiTexCoord4dv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4fARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord4f(Int32 target, float s, float t, float r, float q);
 
-			[AliasOf("glMultiTexCoord4f")]
-			[AliasOf("glMultiTexCoord4fARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4fARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4f pglMultiTexCoord4f;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4fvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord4fv(Int32 target, float* v);
 
-			[AliasOf("glMultiTexCoord4fv")]
-			[AliasOf("glMultiTexCoord4fvARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4fvARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4fv pglMultiTexCoord4fv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4iARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord4i(Int32 target, Int32 s, Int32 t, Int32 r, Int32 q);
 
-			[AliasOf("glMultiTexCoord4i")]
-			[AliasOf("glMultiTexCoord4iARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4iARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4i pglMultiTexCoord4i;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4ivARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord4iv(Int32 target, Int32* v);
 
-			[AliasOf("glMultiTexCoord4iv")]
-			[AliasOf("glMultiTexCoord4ivARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4ivARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4iv pglMultiTexCoord4iv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4sARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glMultiTexCoord4s(Int32 target, Int16 s, Int16 t, Int16 r, Int16 q);
 
-			[AliasOf("glMultiTexCoord4s")]
-			[AliasOf("glMultiTexCoord4sARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4sARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4s pglMultiTexCoord4s;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4svARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultiTexCoord4sv(Int32 target, Int16* v);
 
-			[AliasOf("glMultiTexCoord4sv")]
-			[AliasOf("glMultiTexCoord4svARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_multitexture")]
+			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4svARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultiTexCoord4sv pglMultiTexCoord4sv;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_transpose_matrix")]
+			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glLoadTransposeMatrixfARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glLoadTransposeMatrixf(float* m);
 
-			[AliasOf("glLoadTransposeMatrixf")]
-			[AliasOf("glLoadTransposeMatrixfARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_transpose_matrix")]
+			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glLoadTransposeMatrixfARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLoadTransposeMatrixf pglLoadTransposeMatrixf;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_transpose_matrix")]
+			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glLoadTransposeMatrixdARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glLoadTransposeMatrixd(double* m);
 
-			[AliasOf("glLoadTransposeMatrixd")]
-			[AliasOf("glLoadTransposeMatrixdARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_transpose_matrix")]
+			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glLoadTransposeMatrixdARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glLoadTransposeMatrixd pglLoadTransposeMatrixd;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_transpose_matrix")]
+			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glMultTransposeMatrixfARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultTransposeMatrixf(float* m);
 
-			[AliasOf("glMultTransposeMatrixf")]
-			[AliasOf("glMultTransposeMatrixfARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_transpose_matrix")]
+			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glMultTransposeMatrixfARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultTransposeMatrixf pglMultTransposeMatrixf;
 
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_transpose_matrix")]
+			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glMultTransposeMatrixdARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glMultTransposeMatrixd(double* m);
 
-			[AliasOf("glMultTransposeMatrixd")]
-			[AliasOf("glMultTransposeMatrixdARB")]
 			[RequiredByFeature("GL_VERSION_1_3")]
-			[RequiredByFeature("GL_ARB_transpose_matrix")]
+			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glMultTransposeMatrixdARB")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glMultTransposeMatrixd pglMultTransposeMatrixd;

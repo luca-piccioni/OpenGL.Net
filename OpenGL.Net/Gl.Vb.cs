@@ -491,7 +491,6 @@ namespace OpenGL
 			/// If Gl.TRUE, pixels will be consumed by the histogramming process and no drawing or texture loading will take place. If 
 			/// Gl.FALSE, pixels will proceed to the minmax process after histogramming.
 			/// </param>
-			[AliasOf("glHistogramEXT")]
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public static void Histogram(Int32 target, Int32 width, InternalFormat internalformat, bool sink)
@@ -519,7 +518,6 @@ namespace OpenGL
 			/// If Gl.TRUE, pixels will be consumed by the minmax process and no drawing or texture loading will take place. If 
 			/// Gl.FALSE, pixels will proceed to the final conversion process after minmax.
 			/// </param>
-			[AliasOf("glMinmaxEXT")]
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public static void Minmax(MinmaxTarget target, InternalFormat internalformat, bool sink)
@@ -622,7 +620,6 @@ namespace OpenGL
 			/// Gl.FALSE. See Gl.Histogram.
 			/// </para>
 			/// </summary>
-			[AliasOf("GL_HISTOGRAM_EXT")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public const int HISTOGRAM = 0x8024;
@@ -636,7 +633,6 @@ namespace OpenGL
 			/// value is Gl.FALSE. See Gl.Minmax.
 			/// </para>
 			/// </summary>
-			[AliasOf("GL_MINMAX_EXT")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public const int MINMAX = 0x802E;

@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ALPHA32F_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_ALPHA32F_EXT")]
 		[RequiredByFeature("GL_ARB_texture_float")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public const int ALPHA32F_ARB = 0x8816;
@@ -52,7 +51,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LUMINANCE32F_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_LUMINANCE32F_EXT")]
 		[RequiredByFeature("GL_ARB_texture_float")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public const int LUMINANCE32F_ARB = 0x8818;
@@ -60,7 +58,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LUMINANCE_ALPHA32F_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_LUMINANCE_ALPHA32F_EXT")]
 		[RequiredByFeature("GL_ARB_texture_float")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public const int LUMINANCE_ALPHA32F_ARB = 0x8819;
@@ -68,7 +65,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_ALPHA16F_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_ALPHA16F_EXT")]
 		[RequiredByFeature("GL_ARB_texture_float")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public const int ALPHA16F_ARB = 0x881C;
@@ -82,7 +78,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LUMINANCE16F_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_LUMINANCE16F_EXT")]
 		[RequiredByFeature("GL_ARB_texture_float")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public const int LUMINANCE16F_ARB = 0x881E;
@@ -90,7 +85,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LUMINANCE_ALPHA16F_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_LUMINANCE_ALPHA16F_EXT")]
 		[RequiredByFeature("GL_ARB_texture_float")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 		public const int LUMINANCE_ALPHA16F_ARB = 0x881F;

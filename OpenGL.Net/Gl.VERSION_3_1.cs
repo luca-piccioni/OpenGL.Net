@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLER_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_RECT_ARB")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_2D_RECT = 0x8B63;
@@ -46,7 +45,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLER_2D_RECT_SHADOW symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_2D_RECT_SHADOW_ARB")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public const int SAMPLER_2D_RECT_SHADOW = 0x8B64;
@@ -54,8 +52,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SAMPLER_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_SAMPLER_BUFFER_EXT")]
-		[AliasOf("GL_SAMPLER_BUFFER_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
@@ -66,7 +62,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_SAMPLER_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public const int INT_SAMPLER_2D_RECT = 0x8DCD;
@@ -74,8 +69,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT_SAMPLER_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_INT_SAMPLER_BUFFER_EXT")]
-		[AliasOf("GL_INT_SAMPLER_BUFFER_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
@@ -86,7 +79,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_2D_RECT symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_2D_RECT_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public const int UNSIGNED_INT_SAMPLER_2D_RECT = 0x8DD5;
@@ -94,8 +86,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT_SAMPLER_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT")]
-		[AliasOf("GL_UNSIGNED_INT_SAMPLER_BUFFER_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
@@ -106,9 +96,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_ARB")]
-		[AliasOf("GL_TEXTURE_BUFFER_EXT")]
-		[AliasOf("GL_TEXTURE_BUFFER_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
@@ -122,9 +109,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value. The value gives the maximum number of texels allowed in the texel array of 
 		/// a texture buffer object. Value must be at least 65536.
 		/// </summary>
-		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_ARB")]
-		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_EXT")]
-		[AliasOf("GL_MAX_TEXTURE_BUFFER_SIZE_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
@@ -137,9 +121,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns a single value, the name of the texture currently bound to the target 
 		/// Gl.TEXTURE_BUFFER. The initial value is 0. See Gl.BindTexture.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_BUFFER_ARB")]
-		[AliasOf("GL_TEXTURE_BINDING_BUFFER_EXT")]
-		[AliasOf("GL_TEXTURE_BINDING_BUFFER_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -154,9 +135,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.GetTexLevelParameter: params returns the name of the buffer object bound to the data store for a buffer 
 		/// texture. See Gl.TexBufferRange
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB")]
-		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT")]
-		[AliasOf("GL_TEXTURE_BUFFER_DATA_STORE_BINDING_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
@@ -168,8 +146,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_RECTANGLE symbol.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_RECTANGLE_ARB")]
-		[AliasOf("GL_TEXTURE_RECTANGLE_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_texture_rectangle")]
@@ -180,8 +156,6 @@ namespace OpenGL
 		/// [GL4] Gl.Get: data returns a single value, the name of the texture currently bound to the target Gl.TEXTURE_RECTANGLE. 
 		/// The initial value is 0. See Gl.BindTexture.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_ARB")]
-		[AliasOf("GL_TEXTURE_BINDING_RECTANGLE_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
@@ -192,8 +166,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_PROXY_TEXTURE_RECTANGLE symbol.
 		/// </summary>
-		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_ARB")]
-		[AliasOf("GL_PROXY_TEXTURE_RECTANGLE_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_rectangle")]
 		[RequiredByFeature("GL_NV_texture_rectangle")]
@@ -204,8 +176,6 @@ namespace OpenGL
 		/// can handle. The value must be at least 1024. Use Gl.PROXY_TEXTURE_RECTANGLE to determine if a texture is too large. See 
 		/// Gl.TexImage2D.
 		/// </summary>
-		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB")]
-		[AliasOf("GL_MAX_RECTANGLE_TEXTURE_SIZE_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ARB_texture_rectangle")]
 		[RequiredByFeature("GL_NV_texture_rectangle")]
@@ -249,7 +219,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_R16_SNORM symbol.
 		/// </summary>
-		[AliasOf("GL_R16_SNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_EXT_texture_snorm")]
 		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
@@ -259,7 +228,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_RG16_SNORM symbol.
 		/// </summary>
-		[AliasOf("GL_RG16_SNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_EXT_texture_snorm")]
 		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
@@ -269,7 +237,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_RGB16_SNORM symbol.
 		/// </summary>
-		[AliasOf("GL_RGB16_SNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_EXT_texture_snorm")]
 		[RequiredByFeature("GL_EXT_texture_norm16", Api = "gles2")]
@@ -278,7 +245,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_RGBA16_SNORM symbol.
 		/// </summary>
-		[AliasOf("GL_RGBA16_SNORM_EXT")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_EXT_texture_snorm")]
 		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
@@ -309,7 +275,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COPY_READ_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_COPY_READ_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
@@ -319,7 +284,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COPY_WRITE_BUFFER symbol.
 		/// </summary>
-		[AliasOf("GL_COPY_WRITE_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
@@ -379,8 +343,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per geometry shader. The value must 
 		/// be at least 12. See Gl.UniformBlockBinding.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT")]
-		[AliasOf("GL_MAX_GEOMETRY_UNIFORM_BLOCKS_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
@@ -469,8 +431,6 @@ namespace OpenGL
 		/// Gl.MAX_GEOMETRY_UNIFORM_BLOCKS / 4. See Gl.Uniform.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_EXT")]
-		[AliasOf("GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_OES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
@@ -677,10 +637,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		[AliasOf("glDrawArraysInstancedANGLE")]
-		[AliasOf("glDrawArraysInstancedARB")]
-		[AliasOf("glDrawArraysInstancedEXT")]
-		[AliasOf("glDrawArraysInstancedNV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
@@ -719,10 +675,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		[AliasOf("glDrawElementsInstancedANGLE")]
-		[AliasOf("glDrawElementsInstancedARB")]
-		[AliasOf("glDrawElementsInstancedEXT")]
-		[AliasOf("glDrawElementsInstancedNV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
@@ -761,10 +713,6 @@ namespace OpenGL
 		/// <param name="primcount">
 		/// Specifies the number of instances of the specified range of indices to be rendered.
 		/// </param>
-		[AliasOf("glDrawElementsInstancedANGLE")]
-		[AliasOf("glDrawElementsInstancedARB")]
-		[AliasOf("glDrawElementsInstancedEXT")]
-		[AliasOf("glDrawElementsInstancedNV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
@@ -796,9 +744,6 @@ namespace OpenGL
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
 		/// </param>
-		[AliasOf("glTexBufferARB")]
-		[AliasOf("glTexBufferEXT")]
-		[AliasOf("glTexBufferOES")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
@@ -855,7 +800,6 @@ namespace OpenGL
 		/// Specifies the size, in basic machine units, of the data to be copied from the source buffer object to the destination 
 		/// buffer object.
 		/// </param>
-		[AliasOf("glCopyBufferSubDataNV")]
 		[RequiredByFeature("GL_VERSION_3_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
@@ -1220,79 +1164,65 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glDrawArraysInstancedANGLE")]
+			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore", EntryPoint = "glDrawArraysInstancedARB")]
+			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2", EntryPoint = "glDrawArraysInstancedEXT")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glDrawArraysInstancedEXT")]
+			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2", EntryPoint = "glDrawArraysInstancedNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glDrawArraysInstanced(Int32 mode, Int32 first, Int32 count, Int32 instancecount);
 
-			[AliasOf("glDrawArraysInstanced")]
-			[AliasOf("glDrawArraysInstancedANGLE")]
-			[AliasOf("glDrawArraysInstancedARB")]
-			[AliasOf("glDrawArraysInstancedEXT")]
-			[AliasOf("glDrawArraysInstancedNV")]
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glDrawArraysInstancedANGLE")]
+			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore", EntryPoint = "glDrawArraysInstancedARB")]
+			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2", EntryPoint = "glDrawArraysInstancedEXT")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glDrawArraysInstancedEXT")]
+			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2", EntryPoint = "glDrawArraysInstancedNV")]
 			[ThreadStatic]
 			internal static glDrawArraysInstanced pglDrawArraysInstanced;
 
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glDrawElementsInstancedANGLE")]
+			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore", EntryPoint = "glDrawElementsInstancedARB")]
+			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2", EntryPoint = "glDrawElementsInstancedEXT")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glDrawElementsInstancedEXT")]
+			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2", EntryPoint = "glDrawElementsInstancedNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glDrawElementsInstanced(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount);
 
-			[AliasOf("glDrawElementsInstanced")]
-			[AliasOf("glDrawElementsInstancedANGLE")]
-			[AliasOf("glDrawElementsInstancedARB")]
-			[AliasOf("glDrawElementsInstancedEXT")]
-			[AliasOf("glDrawElementsInstancedNV")]
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
-			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glDrawElementsInstancedANGLE")]
+			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore", EntryPoint = "glDrawElementsInstancedARB")]
+			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2", EntryPoint = "glDrawElementsInstancedEXT")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glDrawElementsInstancedEXT")]
+			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2", EntryPoint = "glDrawElementsInstancedNV")]
 			[ThreadStatic]
 			internal static glDrawElementsInstanced pglDrawElementsInstanced;
 
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_texture_buffer_object")]
-			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore", EntryPoint = "glTexBufferARB")]
+			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferEXT")]
+			[RequiredByFeature("GL_EXT_texture_buffer_object", EntryPoint = "glTexBufferEXT")]
+			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTexBuffer(Int32 target, Int32 internalformat, UInt32 buffer);
 
-			[AliasOf("glTexBuffer")]
-			[AliasOf("glTexBufferARB")]
-			[AliasOf("glTexBufferEXT")]
-			[AliasOf("glTexBufferOES")]
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_texture_buffer_object")]
-			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore", EntryPoint = "glTexBufferARB")]
+			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferEXT")]
+			[RequiredByFeature("GL_EXT_texture_buffer_object", EntryPoint = "glTexBufferEXT")]
+			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferOES")]
 			[ThreadStatic]
 			internal static glTexBuffer pglTexBuffer;
 
@@ -1309,18 +1239,16 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2", EntryPoint = "glCopyBufferSubDataNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glCopyBufferSubData(Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 
-			[AliasOf("glCopyBufferSubData")]
-			[AliasOf("glCopyBufferSubDataNV")]
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2", EntryPoint = "glCopyBufferSubDataNV")]
 			[ThreadStatic]
 			internal static glCopyBufferSubData pglCopyBufferSubData;
 

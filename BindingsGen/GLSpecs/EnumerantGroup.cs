@@ -173,15 +173,15 @@ namespace BindingsGen.GLSpecs
 				if (enumvalue != null) {
 					// RequiredByFeature
 					foreach (IFeature feature in enumvalue.RequiredBy)
-						sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+						sw.WriteLine(feature.GenerateRequiredByAttribute(null, classDefaultApi));
 					// RequiredByFeature (from aliases) Note: not sure that Profile is considered here
 					foreach (Enumerant aliasOf in enumvalue.AliasOf) {
 						foreach (IFeature feature in aliasOf.RequiredBy)
-							sw.WriteLine(feature.GetRequiredByFeature(classDefaultApi));
+							sw.WriteLine(feature.GenerateRequiredByAttribute(null, classDefaultApi));
 					}
 					// RemovedByFeature
 					foreach (IFeature feature in enumvalue.RemovedBy)
-						sw.WriteLine(feature.GetRemovedByFeature(classDefaultApi));
+						sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
 				}
 
 				sw.WriteLine("{0} = {1}.{2},", camelCase, ctx.Class, bindingName);

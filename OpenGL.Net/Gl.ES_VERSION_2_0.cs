@@ -38,8 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_BLEND_EQUATION symbol.
 		/// </summary>
-		[AliasOf("GL_BLEND_EQUATION_EXT")]
-		[AliasOf("GL_BLEND_EQUATION_OES")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -51,7 +49,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the 
 		/// blend color. See Gl.BlendColor.
 		/// </summary>
-		[AliasOf("GL_BLEND_COLOR_EXT")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -61,8 +58,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT")]
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_OES")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]

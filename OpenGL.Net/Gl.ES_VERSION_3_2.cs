@@ -39,7 +39,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns a pair of values indicating the range of widths supported for lines drawn when 
 		/// Gl.SAMPLE_BUFFERS is one. See Gl.LineWidth.
 		/// </summary>
-		[AliasOf("GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 		public const int MULTISAMPLE_LINE_WIDTH_RANGE = 0x9381;
@@ -47,7 +46,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY symbol.
 		/// </summary>
-		[AliasOf("GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 		public const int MULTISAMPLE_LINE_WIDTH_GRANULARITY = 0x9382;
@@ -55,8 +53,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MULTIPLY symbol.
 		/// </summary>
-		[AliasOf("GL_MULTIPLY_KHR")]
-		[AliasOf("GL_MULTIPLY_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -65,8 +61,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SCREEN symbol.
 		/// </summary>
-		[AliasOf("GL_SCREEN_KHR")]
-		[AliasOf("GL_SCREEN_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -75,8 +69,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_OVERLAY symbol.
 		/// </summary>
-		[AliasOf("GL_OVERLAY_KHR")]
-		[AliasOf("GL_OVERLAY_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -85,8 +77,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DARKEN symbol.
 		/// </summary>
-		[AliasOf("GL_DARKEN_KHR")]
-		[AliasOf("GL_DARKEN_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -95,8 +85,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LIGHTEN symbol.
 		/// </summary>
-		[AliasOf("GL_LIGHTEN_KHR")]
-		[AliasOf("GL_LIGHTEN_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -105,8 +93,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COLORDODGE symbol.
 		/// </summary>
-		[AliasOf("GL_COLORDODGE_KHR")]
-		[AliasOf("GL_COLORDODGE_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -115,8 +101,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COLORBURN symbol.
 		/// </summary>
-		[AliasOf("GL_COLORBURN_KHR")]
-		[AliasOf("GL_COLORBURN_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -125,8 +109,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_HARDLIGHT symbol.
 		/// </summary>
-		[AliasOf("GL_HARDLIGHT_KHR")]
-		[AliasOf("GL_HARDLIGHT_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -135,8 +117,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SOFTLIGHT symbol.
 		/// </summary>
-		[AliasOf("GL_SOFTLIGHT_KHR")]
-		[AliasOf("GL_SOFTLIGHT_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -145,8 +125,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DIFFERENCE symbol.
 		/// </summary>
-		[AliasOf("GL_DIFFERENCE_KHR")]
-		[AliasOf("GL_DIFFERENCE_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -155,8 +133,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_EXCLUSION symbol.
 		/// </summary>
-		[AliasOf("GL_EXCLUSION_KHR")]
-		[AliasOf("GL_EXCLUSION_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -165,8 +141,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_HSL_HUE symbol.
 		/// </summary>
-		[AliasOf("GL_HSL_HUE_KHR")]
-		[AliasOf("GL_HSL_HUE_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -175,8 +149,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_HSL_SATURATION symbol.
 		/// </summary>
-		[AliasOf("GL_HSL_SATURATION_KHR")]
-		[AliasOf("GL_HSL_SATURATION_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -185,8 +157,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_HSL_COLOR symbol.
 		/// </summary>
-		[AliasOf("GL_HSL_COLOR_KHR")]
-		[AliasOf("GL_HSL_COLOR_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -195,8 +165,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_HSL_LUMINOSITY symbol.
 		/// </summary>
-		[AliasOf("GL_HSL_LUMINOSITY_KHR")]
-		[AliasOf("GL_HSL_LUMINOSITY_NV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -206,9 +174,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.Get: data returns eight values minX, minY, minZ, minW, and maxX, maxY, maxZ, maxW corresponding to the clip 
 		/// space coordinates of the primitive bounding box. See Gl.PrimitiveBoundingBox.
 		/// </summary>
-		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_ARB")]
-		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_EXT")]
-		[AliasOf("GL_PRIMITIVE_BOUNDING_BOX_OES")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
@@ -218,7 +183,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_4x4 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_4x4_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -228,7 +192,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_5x4 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_5x4_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -238,7 +201,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_5x5 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_5x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -248,7 +210,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_6x5 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_6x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -258,7 +219,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_6x6 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_6x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -268,7 +228,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_8x5 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_8x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -278,7 +237,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_8x6 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_8x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -288,7 +246,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_8x8 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_8x8_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -298,7 +255,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_10x5 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_10x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -308,7 +264,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_10x6 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_10x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -318,7 +273,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_10x8 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_10x8_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -328,7 +282,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_10x10 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_10x10_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -338,7 +291,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_12x10 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_12x10_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -348,7 +300,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_RGBA_ASTC_12x12 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_RGBA_ASTC_12x12_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -358,7 +309,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -368,7 +318,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -378,7 +327,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -388,7 +336,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -398,7 +345,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -408,7 +354,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -418,7 +363,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -428,7 +372,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -438,7 +381,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -448,7 +390,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -458,7 +399,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -468,7 +408,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -478,7 +417,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -488,7 +426,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12 symbol.
 		/// </summary>
-		[AliasOf("GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_hdr", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_KHR_texture_compression_astc_ldr", Api = "gl|glcore|gles2")]
@@ -498,8 +435,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GLES3.2] glBlendBarrier: specifies a boundary between advanced blending passes
 		/// </summary>
-		[AliasOf("glBlendBarrierKHR")]
-		[AliasOf("glBlendBarrierNV")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -538,9 +473,6 @@ namespace OpenGL
 		/// <param name="maxW">
 		/// Specify the maximum clip space cooridnate of the bounding box. The initial value is (1, 1, 1, 1).
 		/// </param>
-		[AliasOf("glPrimitiveBoundingBoxARB")]
-		[AliasOf("glPrimitiveBoundingBoxEXT")]
-		[AliasOf("glPrimitiveBoundingBoxOES")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
@@ -572,39 +504,32 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
-			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2", EntryPoint = "glBlendBarrierKHR")]
+			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2", EntryPoint = "glBlendBarrierNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glBlendBarrier();
 
-			[AliasOf("glBlendBarrier")]
-			[AliasOf("glBlendBarrierKHR")]
-			[AliasOf("glBlendBarrierNV")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
-			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2", EntryPoint = "glBlendBarrierKHR")]
+			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2", EntryPoint = "glBlendBarrierNV")]
 			[ThreadStatic]
 			internal static glBlendBarrier pglBlendBarrier;
 
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
-			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore", EntryPoint = "glPrimitiveBoundingBoxARB")]
+			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2", EntryPoint = "glPrimitiveBoundingBoxEXT")]
+			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2", EntryPoint = "glPrimitiveBoundingBoxOES")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
-			[AliasOf("glPrimitiveBoundingBox")]
-			[AliasOf("glPrimitiveBoundingBoxARB")]
-			[AliasOf("glPrimitiveBoundingBoxEXT")]
-			[AliasOf("glPrimitiveBoundingBoxOES")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
-			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore", EntryPoint = "glPrimitiveBoundingBoxARB")]
+			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2", EntryPoint = "glPrimitiveBoundingBoxEXT")]
+			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2", EntryPoint = "glPrimitiveBoundingBoxOES")]
 			[ThreadStatic]
 			internal static glPrimitiveBoundingBox pglPrimitiveBoundingBox;
 

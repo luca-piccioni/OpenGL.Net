@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [WGL] Value of WGL_SAMPLE_BUFFERS_ARB symbol.
 		/// </summary>
-		[AliasOf("WGL_SAMPLE_BUFFERS_EXT")]
 		[RequiredByFeature("WGL_ARB_multisample")]
 		[RequiredByFeature("WGL_EXT_multisample")]
 		public const int SAMPLE_BUFFERS_ARB = 0x2041;
@@ -46,7 +45,6 @@ namespace OpenGL
 		/// <summary>
 		/// [WGL] Value of WGL_SAMPLES_ARB symbol.
 		/// </summary>
-		[AliasOf("WGL_SAMPLES_EXT")]
 		[RequiredByFeature("WGL_ARB_multisample")]
 		[RequiredByFeature("WGL_EXT_multisample")]
 		public const int SAMPLES_ARB = 0x2042;

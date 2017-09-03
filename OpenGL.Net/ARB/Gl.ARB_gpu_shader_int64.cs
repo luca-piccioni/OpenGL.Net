@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT64_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_INT64_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -48,7 +47,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT64_VEC2_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_INT64_VEC2_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -57,7 +55,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT64_VEC3_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_INT64_VEC3_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -66,7 +63,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_INT64_VEC4_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_INT64_VEC4_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -75,7 +71,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT64_VEC2_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT64_VEC2_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -84,7 +79,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT64_VEC3_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT64_VEC3_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -93,7 +87,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT64_VEC4_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT64_VEC4_NV")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]

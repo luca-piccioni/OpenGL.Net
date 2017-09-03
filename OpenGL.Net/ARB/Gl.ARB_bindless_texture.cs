@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_UNSIGNED_INT64_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_UNSIGNED_INT64_NV")]
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -52,7 +51,6 @@ namespace OpenGL
 		/// <param name="texture">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[AliasOf("glGetTextureHandleIMG")]
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
 		public static UInt64 GetTextureHandleARB(UInt32 texture)
@@ -76,7 +74,6 @@ namespace OpenGL
 		/// <param name="sampler">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		[AliasOf("glGetTextureSamplerHandleIMG")]
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
 		public static UInt64 GetTextureSamplerHandleARB(UInt32 texture, UInt32 sampler)
@@ -194,7 +191,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[AliasOf("glUniformHandleui64IMG")]
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
 		public static void UniformHandleARB(Int32 location, UInt64 value)
@@ -214,7 +210,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
-		[AliasOf("glUniformHandleui64vIMG")]
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
 		public static void UniformHandleARB(Int32 location, UInt64[] value)
@@ -242,7 +237,6 @@ namespace OpenGL
 		/// <param name="value">
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
-		[AliasOf("glProgramUniformHandleui64IMG")]
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
 		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, UInt64 value)
@@ -265,7 +259,6 @@ namespace OpenGL
 		/// <param name="values">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
-		[AliasOf("glProgramUniformHandleui64vIMG")]
 		[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
 		public static void ProgramUniformHandleARB(UInt32 program, Int32 location, UInt64[] values)
@@ -491,30 +484,26 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glGetTextureHandleIMG")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 glGetTextureHandleARB(UInt32 texture);
 
-			[AliasOf("glGetTextureHandleARB")]
-			[AliasOf("glGetTextureHandleIMG")]
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glGetTextureHandleIMG")]
 			[ThreadStatic]
 			internal static glGetTextureHandleARB pglGetTextureHandleARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glGetTextureSamplerHandleIMG")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate UInt64 glGetTextureSamplerHandleARB(UInt32 texture, UInt32 sampler);
 
-			[AliasOf("glGetTextureSamplerHandleARB")]
-			[AliasOf("glGetTextureSamplerHandleIMG")]
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glGetTextureSamplerHandleIMG")]
 			[ThreadStatic]
 			internal static glGetTextureSamplerHandleARB pglGetTextureSamplerHandleARB;
 
@@ -569,58 +558,50 @@ namespace OpenGL
 			internal static glMakeImageHandleNonResidentARB pglMakeImageHandleNonResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glUniformHandleui64IMG")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glUniformHandleui64ARB(Int32 location, UInt64 value);
 
-			[AliasOf("glUniformHandleui64ARB")]
-			[AliasOf("glUniformHandleui64IMG")]
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glUniformHandleui64IMG")]
 			[ThreadStatic]
 			internal static glUniformHandleui64ARB pglUniformHandleui64ARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glUniformHandleui64vIMG")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glUniformHandleui64vARB(Int32 location, Int32 count, UInt64* value);
 
-			[AliasOf("glUniformHandleui64vARB")]
-			[AliasOf("glUniformHandleui64vIMG")]
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glUniformHandleui64vIMG")]
 			[ThreadStatic]
 			internal static glUniformHandleui64vARB pglUniformHandleui64vARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glProgramUniformHandleui64IMG")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glProgramUniformHandleui64ARB(UInt32 program, Int32 location, UInt64 value);
 
-			[AliasOf("glProgramUniformHandleui64ARB")]
-			[AliasOf("glProgramUniformHandleui64IMG")]
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glProgramUniformHandleui64IMG")]
 			[ThreadStatic]
 			internal static glProgramUniformHandleui64ARB pglProgramUniformHandleui64ARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glProgramUniformHandleui64vIMG")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glProgramUniformHandleui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* values);
 
-			[AliasOf("glProgramUniformHandleui64vARB")]
-			[AliasOf("glProgramUniformHandleui64vIMG")]
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
+			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glProgramUniformHandleui64vIMG")]
 			[ThreadStatic]
 			internal static glProgramUniformHandleui64vARB pglProgramUniformHandleui64vARB;
 

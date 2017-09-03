@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
@@ -65,7 +64,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_GEOMETRY_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_GEOMETRY_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_GEOMETRY_VARYING_COMPONENTS_ARB = 0x8DDD;
@@ -73,7 +71,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MAX_VERTEX_VARYING_COMPONENTS_ARB symbol.
 		/// </summary>
-		[AliasOf("GL_MAX_VERTEX_VARYING_COMPONENTS_EXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_geometry_shader4")]
 		public const int MAX_VERTEX_VARYING_COMPONENTS_ARB = 0x8DDE;
@@ -96,7 +93,6 @@ namespace OpenGL
 		/// <param name="face">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
-		[AliasOf("glFramebufferTextureFaceEXT")]
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
 		public static void FramebufferTextureFaceARB(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level, TextureTarget face)
@@ -120,16 +116,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_geometry_program4")]
+			[RequiredByFeature("GL_NV_geometry_program4", EntryPoint = "glFramebufferTextureFaceEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glFramebufferTextureFaceARB(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
 
-			[AliasOf("glFramebufferTextureFaceARB")]
-			[AliasOf("glFramebufferTextureFaceEXT")]
 			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_geometry_program4")]
+			[RequiredByFeature("GL_NV_geometry_program4", EntryPoint = "glFramebufferTextureFaceEXT")]
 			[ThreadStatic]
 			internal static glFramebufferTextureFaceARB pglFramebufferTextureFaceARB;
 

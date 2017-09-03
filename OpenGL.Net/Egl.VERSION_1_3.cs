@@ -51,7 +51,6 @@ namespace OpenGL
 		/// are conformant.
 		/// </para>
 		/// </summary>
-		[AliasOf("EGL_CONFORMANT_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_3")]
 		[RequiredByFeature("EGL_KHR_config_attribs")]
 		public const int CONFORMANT = 0x3042;
@@ -126,7 +125,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] Value of EGL_VG_ALPHA_FORMAT_PRE_BIT symbol.
 		/// </summary>
-		[AliasOf("EGL_VG_ALPHA_FORMAT_PRE_BIT_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_3")]
 		[RequiredByFeature("EGL_KHR_config_attribs")]
 		[Log(BitmaskName = "EGLSurfaceTypeMask")]
@@ -158,7 +156,6 @@ namespace OpenGL
 		/// <summary>
 		/// [EGL] Value of EGL_VG_COLORSPACE_LINEAR_BIT symbol.
 		/// </summary>
-		[AliasOf("EGL_VG_COLORSPACE_LINEAR_BIT_KHR")]
 		[RequiredByFeature("EGL_VERSION_1_3")]
 		[RequiredByFeature("EGL_KHR_config_attribs")]
 		[Log(BitmaskName = "EGLSurfaceTypeMask")]

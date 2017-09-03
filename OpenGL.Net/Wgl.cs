@@ -78,7 +78,7 @@ namespace OpenGL
 		/// </remarks>
 		public static void BindAPI()
 		{
-			BindAPI<Wgl>(Library, GetProcAddressGLOS);
+			BindAPI<Wgl>(Library, GetProcAddressGLOS, null);
 		}
 
 		/// <summary>

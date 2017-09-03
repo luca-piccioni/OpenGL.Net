@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_GEOMETRY_LINKED_VERTICES_OUT_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_GEOMETRY_LINKED_VERTICES_OUT_OES")]
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		public const int GEOMETRY_LINKED_VERTICES_OUT_EXT = 0x8916;
@@ -46,7 +45,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_GEOMETRY_LINKED_INPUT_TYPE_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_GEOMETRY_LINKED_INPUT_TYPE_OES")]
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		public const int GEOMETRY_LINKED_INPUT_TYPE_EXT = 0x8917;
@@ -54,7 +52,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT symbol.
 		/// </summary>
-		[AliasOf("GL_GEOMETRY_LINKED_OUTPUT_TYPE_OES")]
 		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
 		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
 		public const int GEOMETRY_LINKED_OUTPUT_TYPE_EXT = 0x8918;

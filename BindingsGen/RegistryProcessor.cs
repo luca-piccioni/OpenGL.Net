@@ -139,7 +139,6 @@ namespace BindingsGen
 						Console.WriteLine("Skip command: API {1} not supported", featureCommand.Api);
 						continue;
 					}
-						
 
 					foreach (FeatureCommand.Item featureCommandItem in featureCommand.Commands) {
 						Command command = ctx.Registry.GetCommand(featureCommandItem.Name);

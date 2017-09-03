@@ -112,7 +112,6 @@
     <Compile Include="3DFX\Glx.3DFX_multisample.cs" />
     <Compile Include="3DFX\Wgl.3DFX_multisample.cs" />
     <Compile Include="3DL\Wgl.3DL_stereo_control.cs" />
-    <Compile Include="AliasOfAttribute.cs" />
     <Compile Include="AMD\Gl.AMD_blend_minmax_factor.cs" />
     <Compile Include="AMD\Gl.AMD_compressed_3DC_texture.cs" />
     <Compile Include="AMD\Gl.AMD_compressed_ATC_texture.cs" />

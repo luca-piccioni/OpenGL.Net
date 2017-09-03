@@ -73,6 +73,13 @@ namespace OpenGL
 		/// </summary>
 		public string Profile;
 
+		/// <summary>
+		/// If it is different from null, it specifies the complete name of the command to be loaded in case the
+		/// feature is supported. It is meaninful only for commands. In it is null, the name of the command
+		/// is implictly defined by the underlying field.
+		/// </summary>
+		public string EntryPoint;
+
 		#endregion
 
 		#region Support Detection

@@ -123,6 +123,79 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (Requirements); } }
 
+		/// <summary>
+		/// Generate the RequiredByFeatureAttribute source code.
+		/// </summary>
+		/// <param name="command">
+		/// The <see cref="Command"/> which generates the underlying fields applicable for the attribute.
+		/// </param>
+		/// <param name="defaultAPI">
+		/// A <see cref="String"/> that specifies the feature API, if <see cref="IFeature.Api"/> is not specified.
+		/// </param>
+		/// <returns></returns>
+		string IFeature.GenerateRequiredByAttribute(Command command, string defaultAPI)
+		{
+			string entrypoint = null;
+
+			if (command != null && HasCommandAsRequirement(command.Prototype.Name) == false) {
+				foreach (Command commandAlias in command.Aliases) {
+					if (HasCommandAsRequirement(commandAlias.Prototype.Name) == false)
+						continue;
+
+					entrypoint = commandAlias.Prototype.Name;
+					break;
+				}
+
+				if (entrypoint == null)
+					throw new InvalidOperationException("feature does not match any alias for command " + command.Prototype.Name);
+			}
+
+			IFeature feature = this;
+			string requiredByFeature = String.Format("[RequiredByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != defaultAPI)
+				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+			if (entrypoint != null)
+				requiredByFeature += String.Format(", EntryPoint = \"{0}\"", entrypoint);
+
+			requiredByFeature += ")]";
+
+			return (requiredByFeature);
+		}
+
+		private bool HasCommandAsRequirement(string commandName)
+		{
+			foreach (FeatureCommand featureCommand in Requirements) {
+				foreach (FeatureCommand.Item featureItem in featureCommand.Commands) {
+					if (featureItem.Name == commandName)
+						return (true);
+				}
+			}
+
+			return (false);
+		}
+
+		/// <summary>
+		/// Generate the RemovedByFeatureAttribute source code.
+		/// </summary>
+		/// <returns></returns>
+		string IFeature.GenerateRemovedByAttribute(string defaultAPI)
+		{
+			IFeature feature = this;
+			string removedByFeature = String.Format("[RemovedByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != defaultAPI)
+				removedByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				removedByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+
+			removedByFeature += ")]";
+
+			return (removedByFeature);
+		}
+
 		public bool Equals(IFeature other)
 		{
 			if (ReferenceEquals(this, other))
@@ -226,6 +299,79 @@ namespace BindingsGen.GLSpecs
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
 		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (_Extension.Requirements); } }
+
+		/// <summary>
+		/// Generate the RequiredByFeatureAttribute source code.
+		/// </summary>
+		/// <param name="command">
+		/// The <see cref="Command"/> which generates the underlying fields applicable for the attribute.
+		/// </param>
+		/// <param name="defaultAPI">
+		/// A <see cref="String"/> that specifies the feature API, if <see cref="IFeature.Api"/> is not specified.
+		/// </param>
+		/// <returns></returns>
+		string IFeature.GenerateRequiredByAttribute(Command command, string defaultAPI)
+		{
+			string entrypoint = null;
+
+			if (command != null && HasCommandAsRequirement(command.Prototype.Name) == false) {
+				foreach (Command commandAlias in command.Aliases) {
+					if (HasCommandAsRequirement(commandAlias.Prototype.Name) == false)
+						continue;
+
+					entrypoint = commandAlias.Prototype.Name;
+					break;
+				}
+
+				if (entrypoint == null)
+					throw new InvalidOperationException("feature does not match any alias for command " + command.Prototype.Name);
+			}
+
+			IFeature feature = this;
+			string requiredByFeature = String.Format("[RequiredByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != defaultAPI)
+				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+			if (entrypoint != null)
+				requiredByFeature += String.Format(", EntryPoint = \"{0}\"", entrypoint);
+
+			requiredByFeature += ")]";
+
+			return (requiredByFeature);
+		}
+
+		private bool HasCommandAsRequirement(string commandName)
+		{
+			foreach (FeatureCommand featureCommand in _Extension.Requirements) {
+				foreach (FeatureCommand.Item featureItem in featureCommand.Commands) {
+					if (featureItem.Name == commandName)
+						return (true);
+				}
+			}
+
+			return (false);
+		}
+
+		/// <summary>
+		/// Generate the RemovedByFeatureAttribute source code.
+		/// </summary>
+		/// <returns></returns>
+		string IFeature.GenerateRemovedByAttribute(string defaultAPI)
+		{
+			IFeature feature = this;
+			string removedByFeature = String.Format("[RemovedByFeature(\"{0}\"", feature.Name);
+
+			if (feature.Api != null && feature.Api != defaultAPI)
+				removedByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+			if (feature.Profile != null)
+				removedByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+
+			removedByFeature += ")]";
+
+			return (removedByFeature);
+		}
 
 		public bool Equals(IFeature other)
 		{

@@ -728,7 +728,6 @@ namespace OpenGL
 		/// <seealso cref="Gl.BeginTransformFeedback"/>
 		/// <seealso cref="Gl.EndTransformFeedback"/>
 		/// <seealso cref="Gl.GetTransformFeedbackVarying"/>
-		[AliasOf("glTransformFeedbackVaryingsEXT")]
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
@@ -752,11 +751,10 @@ namespace OpenGL
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glTransformFeedbackVaryings_Unmanaged(UInt32 program, Int32 count, IntPtr* varyings, Int32 bufferMode);
-			[AliasOf("glTransformFeedbackVaryings")]
-			[AliasOf("glTransformFeedbackVaryingsEXT")]
-			[RequiredByFeature("GL_VERSION_3_0")]
-			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_transform_feedback")]
+
+			[RequiredByFeature("GL_VERSION_3_0", EntryPoint = "glTransformFeedbackVaryings")]
+			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2", EntryPoint = "glTransformFeedbackVaryings")]
+			[RequiredByFeature("GL_EXT_transform_feedback", EntryPoint = "glTransformFeedbackVaryingsEXT")]
 			[ThreadStatic]
 			internal static glTransformFeedbackVaryings_Unmanaged pglTransformFeedbackVaryings_Unmanaged;
 		}

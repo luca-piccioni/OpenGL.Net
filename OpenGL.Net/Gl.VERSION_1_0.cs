@@ -161,8 +161,6 @@ namespace OpenGL
 		/// [GL2.1] Gl.Begin: Treats each group of four vertices as an independent quadrilateral. Vertices 4⁢n-3, 4⁢n-2, 4⁢n-1, and 
 		/// 4⁢n define quadrilateral n. N4 quadrilaterals are drawn.
 		/// </summary>
-		[AliasOf("GL_QUADS_EXT")]
-		[AliasOf("GL_QUADS_OES")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -504,7 +502,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SRC_ALPHA_SATURATE symbol.
 		/// </summary>
-		[AliasOf("GL_SRC_ALPHA_SATURATE_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -525,7 +522,6 @@ namespace OpenGL
 		/// [GLES3.2] Gl.DrawBuffers: The fragment shader output value is not written into any color buffer.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_NONE_OES")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_VERSION_4_6")]
@@ -789,7 +785,6 @@ namespace OpenGL
 		/// [GL2.1] Gl.Get: params returns two values: symbolic constants indicating whether front-facing and back-facing polygons 
 		/// are rasterized as points, lines, or filled polygons. The initial value is Gl.FILL. See Gl.PolygonMode.
 		/// </summary>
-		[AliasOf("GL_POLYGON_MODE_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int POLYGON_MODE = 0x0B40;
@@ -1103,7 +1098,6 @@ namespace OpenGL
 		/// draw buffers for all other output colors is Gl.NONE.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_DRAW_BUFFER_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 		public const int DRAW_BUFFER = 0x0C01;
@@ -1118,8 +1112,6 @@ namespace OpenGL
 		/// initial value is Gl.BACK. See Gl.ReadPixels.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_READ_BUFFER_EXT")]
-		[AliasOf("GL_READ_BUFFER_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
@@ -1260,7 +1252,6 @@ namespace OpenGL
 		/// 0. See Gl.PixelStorei.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_UNPACK_ROW_LENGTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
@@ -1276,7 +1267,6 @@ namespace OpenGL
 		/// from memory. The initial value is 0. See Gl.PixelStorei.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_UNPACK_SKIP_ROWS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
@@ -1292,7 +1282,6 @@ namespace OpenGL
 		/// memory. The initial value is 0. See Gl.PixelStorei.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_UNPACK_SKIP_PIXELS_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_unpack_subimage", Api = "gles2")]
@@ -1493,9 +1482,6 @@ namespace OpenGL
 		/// to the most negative representable integer. The initial value is (0, 0, 0, 0).
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_TEXTURE_BORDER_COLOR_EXT")]
-		[AliasOf("GL_TEXTURE_BORDER_COLOR_NV")]
-		[AliasOf("GL_TEXTURE_BORDER_COLOR_OES")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
@@ -1610,7 +1596,6 @@ namespace OpenGL
 		/// side effect than to set the error flag.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_STACK_OVERFLOW_KHR")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1628,7 +1613,6 @@ namespace OpenGL
 		/// side effect than to set the error flag.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_STACK_UNDERFLOW_KHR")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1682,7 +1666,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_XOR symbol.
 		/// </summary>
-		[AliasOf("GL_XOR_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
@@ -1794,7 +1777,6 @@ namespace OpenGL
 		/// [GL2.1] Gl.MatrixMode: Applies subsequent matrix operations to the color matrix stack.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_COLOR_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
@@ -1810,7 +1792,6 @@ namespace OpenGL
 		/// polygons. Texture mapping, fog, and all the fragment operations are applied before the fragments are written to the 
 		/// frame buffer.
 		/// </summary>
-		[AliasOf("GL_DEPTH_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
@@ -1827,7 +1808,6 @@ namespace OpenGL
 		/// the jth row is written to location xr+iyr+j, where xryr is the current raster position. Only the pixel ownership test, 
 		/// the scissor test, and the stencil writemask affect these write operations.
 		/// </summary>
-		[AliasOf("GL_STENCIL_EXT")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
@@ -1853,7 +1833,6 @@ namespace OpenGL
 		/// Gl.TRUE, indices are replaced by their mappings in the table Gl.PIXEL_MAP_S_TO_S.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_STENCIL_INDEX_OES")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -1922,8 +1901,6 @@ namespace OpenGL
 		/// scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_RED_EXT")]
-		[AliasOf("GL_RED_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -1958,7 +1935,6 @@ namespace OpenGL
 		/// scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_GREEN_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
@@ -1990,7 +1966,6 @@ namespace OpenGL
 		/// scale factor Gl.c_SCALE, added to the signed bias Gl.c_BIAS, and clamped to the range [0,1] (see Gl.PixelTransfer).
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_BLUE_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_AMD_interleaved_elements")]
@@ -2099,7 +2074,6 @@ namespace OpenGL
 		/// attributes such as Gl.POINT_SIZE and Gl.POINT_SMOOTH control the rasterization of the points. Polygon rasterization 
 		/// attributes other than Gl.POLYGON_MODE have no effect.
 		/// </summary>
-		[AliasOf("GL_POINT_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int POINT = 0x1B00;
@@ -2109,7 +2083,6 @@ namespace OpenGL
 		/// and Gl.LINE_SMOOTH control the rasterization of the lines. Polygon rasterization attributes other than Gl.POLYGON_MODE 
 		/// have no effect.
 		/// </summary>
-		[AliasOf("GL_LINE_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int LINE = 0x1B01;
@@ -2118,7 +2091,6 @@ namespace OpenGL
 		/// [GL4] Gl.PolygonMode: The interior of the polygon is filled. Polygon attributes such as Gl.POLYGON_SMOOTH control the 
 		/// rasterization of the polygon.
 		/// </summary>
-		[AliasOf("GL_FILL_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public const int FILL = 0x1B02;
@@ -3440,7 +3412,6 @@ namespace OpenGL
 		/// The initial value is Gl.FALSE. See Gl.AlphaFunc.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_ALPHA_TEST_QCOM")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
@@ -3455,7 +3426,6 @@ namespace OpenGL
 		/// [GLES1.1] Gl.Get: params returns one value, the symbolic name of the alpha test function. See Gl.AlphaFunc.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_ALPHA_TEST_FUNC_QCOM")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
@@ -3475,7 +3445,6 @@ namespace OpenGL
 		/// integer value, and Gl.0 returns the most negative representable integer value. See Gl.AlphaFunc.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_ALPHA_TEST_REF_QCOM")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
@@ -3904,7 +3873,6 @@ namespace OpenGL
 		/// at least Gl.. See Gl.ClipPlane.
 		/// </para>
 		/// </summary>
-		[AliasOf("GL_MAX_CLIP_PLANES_IMG")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -4892,7 +4860,6 @@ namespace OpenGL
 		/// name. The value of the pair is computed as 256 times the unsigned value of the first byte plus the unsigned value of the 
 		/// second byte.
 		/// </summary>
-		[AliasOf("GL_2_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -4903,7 +4870,6 @@ namespace OpenGL
 		/// display-list name. The value of the triplet is computed as 65536 times the unsigned value of the first byte, plus 256 
 		/// times the unsigned value of the second byte, plus the unsigned value of the third byte.
 		/// </summary>
-		[AliasOf("GL_3_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -4915,7 +4881,6 @@ namespace OpenGL
 		/// 65536 times the unsigned value of the second byte, plus 256 times the unsigned value of the third byte, plus the 
 		/// unsigned value of the fourth byte.
 		/// </summary>
-		[AliasOf("GL_4_BYTES_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -5284,7 +5249,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_EYE_LINEAR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_EYE_LINEAR_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -5293,7 +5257,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_OBJECT_LINEAR symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_OBJECT_LINEAR_NV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -5310,7 +5273,6 @@ namespace OpenGL
 		/// [GL2.1] Gl.GetTexGen: params returns the single-valued texture generation function, a symbolic constant. The initial 
 		/// value is Gl.EYE_LINEAR.
 		/// </summary>
-		[AliasOf("GL_TEXTURE_GEN_MODE_OES")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
@@ -5345,7 +5307,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLIP_PLANE0 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLIP_PLANE0_IMG")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -5355,7 +5316,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLIP_PLANE1 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLIP_PLANE1_IMG")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -5365,7 +5325,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLIP_PLANE2 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLIP_PLANE2_IMG")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -5375,7 +5334,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLIP_PLANE3 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLIP_PLANE3_IMG")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -5385,7 +5343,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLIP_PLANE4 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLIP_PLANE4_IMG")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -5395,7 +5352,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CLIP_PLANE5 symbol (DEPRECATED).
 		/// </summary>
-		[AliasOf("GL_CLIP_PLANE5_IMG")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -5583,7 +5539,6 @@ namespace OpenGL
 		/// Specifies how polygons will be rasterized. Accepted values are Gl.POINT, Gl.LINE, and Gl.FILL. The initial value is 
 		/// Gl.FILL for both front- and back-facing polygons.
 		/// </param>
-		[AliasOf("glPolygonModeNV")]
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
 		public static void PolygonMode(MaterialFace face, PolygonMode mode)
@@ -15359,16 +15314,14 @@ namespace OpenGL
 			internal static glPointSize pglPointSize;
 
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
+			[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2", EntryPoint = "glPolygonModeNV")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal delegate void glPolygonMode(Int32 face, Int32 mode);
 
-			[AliasOf("glPolygonMode")]
-			[AliasOf("glPolygonModeNV")]
 			[RequiredByFeature("GL_VERSION_1_0")]
-			[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
+			[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2", EntryPoint = "glPolygonModeNV")]
 			[ThreadStatic]
 			internal static glPolygonMode pglPolygonMode;
 

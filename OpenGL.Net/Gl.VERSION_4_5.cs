@@ -38,7 +38,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CONTEXT_LOST symbol.
 		/// </summary>
-		[AliasOf("GL_CONTEXT_LOST_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -135,9 +134,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.GetGraphicsResetStatus: Indicates that a reset has been detected that is attributable to the current GL 
 		/// context.
 		/// </summary>
-		[AliasOf("GL_GUILTY_CONTEXT_RESET_ARB")]
-		[AliasOf("GL_GUILTY_CONTEXT_RESET_EXT")]
-		[AliasOf("GL_GUILTY_CONTEXT_RESET_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -150,9 +146,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] Gl.GetGraphicsResetStatus: Indicates a reset has been detected that is not attributable to the current GL 
 		/// context.
 		/// </summary>
-		[AliasOf("GL_INNOCENT_CONTEXT_RESET_ARB")]
-		[AliasOf("GL_INNOCENT_CONTEXT_RESET_EXT")]
-		[AliasOf("GL_INNOCENT_CONTEXT_RESET_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -164,9 +157,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4|GLES3.2] Gl.GetGraphicsResetStatus: Indicates a detected graphics reset whose cause is unknown.
 		/// </summary>
-		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_ARB")]
-		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_EXT")]
-		[AliasOf("GL_UNKNOWN_CONTEXT_RESET_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -181,9 +171,6 @@ namespace OpenGL
 		/// Gl.LOSE_CONTEXT_ON_RESET, indicating that a reset will result in the loss of graphics context. This loss can be found by 
 		/// querying Gl.GetGraphicsResetStatus.
 		/// </summary>
-		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_ARB")]
-		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_EXT")]
-		[AliasOf("GL_RESET_NOTIFICATION_STRATEGY_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -195,9 +182,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_LOSE_CONTEXT_ON_RESET symbol.
 		/// </summary>
-		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_ARB")]
-		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_EXT")]
-		[AliasOf("GL_LOSE_CONTEXT_ON_RESET_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -209,9 +193,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_NO_RESET_NOTIFICATION symbol.
 		/// </summary>
-		[AliasOf("GL_NO_RESET_NOTIFICATION_ARB")]
-		[AliasOf("GL_NO_RESET_NOTIFICATION_EXT")]
-		[AliasOf("GL_NO_RESET_NOTIFICATION_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gl|glcore|gles2")]
@@ -222,7 +203,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT symbol.
 		/// </summary>
-		[AliasOf("GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
@@ -232,7 +212,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CONTEXT_RELEASE_BEHAVIOR symbol.
 		/// </summary>
-		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
@@ -241,7 +220,6 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH symbol.
 		/// </summary>
-		[AliasOf("GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
@@ -494,7 +472,6 @@ namespace OpenGL
 		/// Gl.DYNAMIC_STORAGE_BIT, Gl.MAP_READ_BITGl.MAP_WRITE_BIT, Gl.MAP_PERSISTENT_BIT, Gl.MAP_COHERENT_BIT, and 
 		/// Gl.CLIENT_STORAGE_BIT.
 		/// </param>
-		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -524,7 +501,6 @@ namespace OpenGL
 		/// Gl.DYNAMIC_STORAGE_BIT, Gl.MAP_READ_BITGl.MAP_WRITE_BIT, Gl.MAP_PERSISTENT_BIT, Gl.MAP_COHERENT_BIT, and 
 		/// Gl.CLIENT_STORAGE_BIT.
 		/// </param>
-		[AliasOf("glNamedBufferStorageEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -609,7 +585,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
-		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -636,7 +611,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// Specifies a pointer to the new data that will be copied into the data store.
 		/// </param>
-		[AliasOf("glNamedBufferSubDataEXT")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
@@ -4081,8 +4055,6 @@ namespace OpenGL
 		/// issues
 		/// </para>
 		/// </summary>
-		[AliasOf("glGetGraphicsResetStatusEXT")]
-		[AliasOf("glGetGraphicsResetStatusKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -4269,8 +4241,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		[AliasOf("glGetnUniformfvEXT")]
-		[AliasOf("glGetnUniformfvKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -4307,8 +4277,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		[AliasOf("glGetnUniformivEXT")]
-		[AliasOf("glGetnUniformivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -4345,7 +4313,6 @@ namespace OpenGL
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
-		[AliasOf("glGetnUniformuivKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
@@ -4390,9 +4357,6 @@ namespace OpenGL
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[AliasOf("glReadnPixelsARB")]
-		[AliasOf("glReadnPixelsEXT")]
-		[AliasOf("glReadnPixelsKHR")]
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
@@ -5760,17 +5724,15 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glNamedBufferStorageEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNamedBufferStorage(UInt32 buffer, UInt32 size, IntPtr data, UInt32 flags);
 
-			[AliasOf("glNamedBufferStorage")]
-			[AliasOf("glNamedBufferStorageEXT")]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glNamedBufferStorageEXT")]
 			[ThreadStatic]
 			internal static glNamedBufferStorage pglNamedBufferStorage;
 
@@ -5788,17 +5750,15 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glNamedBufferSubDataEXT")]
 			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
 			#endif
 			internal unsafe delegate void glNamedBufferSubData(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
 
-			[AliasOf("glNamedBufferSubData")]
-			[AliasOf("glNamedBufferSubDataEXT")]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glNamedBufferSubDataEXT")]
 			[ThreadStatic]
 			internal static glNamedBufferSubData pglNamedBufferSubData;
 
@@ -6887,7 +6847,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetGraphicsResetStatusEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			#if !NETCORE && !NETSTANDARD1_4
@@ -6895,13 +6855,10 @@ namespace OpenGL
 			#endif
 			internal delegate Int32 glGetGraphicsResetStatus();
 
-			[AliasOf("glGetGraphicsResetStatus")]
-			[AliasOf("glGetGraphicsResetStatusEXT")]
-			[AliasOf("glGetGraphicsResetStatusKHR")]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetGraphicsResetStatusEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[ThreadStatic]
@@ -6940,7 +6897,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetnUniformfvEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			#if !NETCORE && !NETSTANDARD1_4
@@ -6948,13 +6905,10 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glGetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
-			[AliasOf("glGetnUniformfv")]
-			[AliasOf("glGetnUniformfvEXT")]
-			[AliasOf("glGetnUniformfvKHR")]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetnUniformfvEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[ThreadStatic]
@@ -6963,7 +6917,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetnUniformivEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			#if !NETCORE && !NETSTANDARD1_4
@@ -6971,13 +6925,10 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
-			[AliasOf("glGetnUniformiv")]
-			[AliasOf("glGetnUniformivEXT")]
-			[AliasOf("glGetnUniformivKHR")]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetnUniformivEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[ThreadStatic]
@@ -6992,8 +6943,6 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
-			[AliasOf("glGetnUniformuiv")]
-			[AliasOf("glGetnUniformuivKHR")]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
@@ -7004,8 +6953,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore", EntryPoint = "glReadnPixelsARB")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glReadnPixelsEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			#if !NETCORE && !NETSTANDARD1_4
@@ -7013,15 +6962,11 @@ namespace OpenGL
 			#endif
 			internal unsafe delegate void glReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
 
-			[AliasOf("glReadnPixels")]
-			[AliasOf("glReadnPixelsARB")]
-			[AliasOf("glReadnPixelsEXT")]
-			[AliasOf("glReadnPixelsKHR")]
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore", EntryPoint = "glReadnPixelsARB")]
+			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glReadnPixelsEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
 			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
 			[ThreadStatic]
