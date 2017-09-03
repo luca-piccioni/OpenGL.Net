@@ -68,7 +68,7 @@ namespace BindingsGen
 					try {
 						RegistryAssembly.CleanAssembly(assemblyPath, cfg, overwriteAssembly);
 					} catch (Exception exception) {
-						Console.WriteLine("Unable to process assembly: {0}.", exception.Message);
+						Console.WriteLine("Unable to process assembly: {0}.", exception.ToString());
 					}
 				}
 

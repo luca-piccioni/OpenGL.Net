@@ -113,7 +113,6 @@ namespace BindingsGen
 					// Console.WriteLine("    - Remove {0}", field.Name);
 					removedFields.Add(field);
 				}
-					
 			}
 
 			if (removedFields.Count > 0) {
@@ -123,7 +122,7 @@ namespace BindingsGen
 				}
 			}
 
-			// Remove methods
+			// Remove methods (public static API)
 			List<MethodDefinition> removedMethods = new List<MethodDefinition>();
 
 			foreach (MethodDefinition method in type.Methods) {
@@ -132,65 +131,71 @@ namespace BindingsGen
 					removedMethods.Add(method);
 				}
 			}
+			foreach (MethodDefinition method in removedMethods)
+				type.Methods.Remove(method);
 
-			if (removedMethods.Count > 0) {
-				Console.WriteLine("- Removing {0} methods from {1}", removedMethods.Count, type.FullName);
-				foreach (MethodDefinition method in removedMethods)
-					RemoveMethod(type, method);
+			// Remove delegates
+			TypeDefinition delegatesNestedType = type.NestedTypes.GetNestedType("Delegates");
+			if (delegatesNestedType != null) {
+				// Delegate fields
+				List<FieldDefinition> removedDelegateFields = new List<FieldDefinition>();
+
+				foreach (FieldDefinition field in delegatesNestedType.Fields) {
+					if (IsCompatibleField(cfg, field) == false)
+						removedDelegateFields.Add(field);
+				}
+				foreach (FieldDefinition field in removedDelegateFields)
+					delegatesNestedType.Fields.Remove(field);
+
+				// Delegate types
+				List<TypeDefinition> removedDelegateTypes = new List<TypeDefinition>();
+
+				foreach (TypeDefinition nestedType in delegatesNestedType.NestedTypes) {
+					if (IsCompatibleType(cfg, nestedType) == false)
+						removedDelegateTypes.Add(nestedType);
+				}
+				foreach (TypeDefinition nestedType in removedDelegateTypes)
+					delegatesNestedType.NestedTypes.Remove(nestedType);
 			}
 		}
 
-		private static void RemoveMethod(TypeDefinition type, MethodDefinition method)
+		private static bool IsCompatibleType(RegistryAssemblyConfiguration cfg, TypeDefinition field)
 		{
-			string methodName = type.Name.ToLower() + method.Name;
-
-			// Remove method
-			type.Methods.Remove(method);
-
-			// Unsafe methods
-			List<MethodDefinition> removedUnsafeMethods = new List<MethodDefinition>();
-
-			TypeDefinition unsafeNestedType = type.NestedTypes.GetNestedType("UnsafeNativeMethods");
-			if (unsafeNestedType != null) {
-				foreach (MethodDefinition unsafeMethod in unsafeNestedType.Methods) {
-					if (unsafeMethod.Name == methodName) {
-						removedUnsafeMethods.Add(unsafeMethod);
-						break;
-					}
-				}
-				foreach (MethodDefinition unsafeMethod in removedUnsafeMethods)
-					unsafeNestedType.Methods.Remove(unsafeMethod);
+			// Methods required by OpenGL.Net
+			// Note: code should test actual method existence, since  they may not loaded for specific profiles
+			switch (field.Name) {
+				case "glGetStringi":
+					return (true);
 			}
 
-			// Delegates
-			List<FieldDefinition> removedDelegateFields = new List<FieldDefinition>();
-			List<TypeDefinition> removedDelegateTypes = new List<TypeDefinition>();
+			bool compatible = false;
+			int featureAttribCount = 0;
 
-			TypeDefinition delegatesNestedType = type.NestedTypes.GetNestedType("Delegates");
-			if (delegatesNestedType != null) {
-				foreach (FieldDefinition field in delegatesNestedType.Fields) {
-					if (field.Name == "p" + methodName) {
-						removedDelegateFields.Add(field);
+			foreach (CustomAttribute customAttrib in field.CustomAttributes){
+				switch (customAttrib.AttributeType.Name) {
+					case "RequiredByFeatureAttribute":
+						compatible |= IsCompatible_RequiredAttribute(cfg, customAttrib);
+						featureAttribCount++;
 						break;
-					}
-				}
-
-				foreach (TypeDefinition nestedType in delegatesNestedType.NestedTypes) {
-					if (nestedType.Name == methodName) {
-						removedDelegateTypes.Add(nestedType);
+					case "RemovedByFeatureAttribute":
+						if (IsCompatible_RemovedAttribute(cfg, customAttrib) == false)
+							return (false);
 						break;
-					}
 				}
-
-				foreach (FieldDefinition field in removedDelegateFields)
-					unsafeNestedType.Fields.Remove(field);
-				foreach (TypeDefinition nestedType in removedDelegateTypes)
-					unsafeNestedType.NestedTypes.Remove(nestedType);
 			}
+
+			return (compatible || featureAttribCount == 0);
 		}
 
 		private static bool IsCompatibleField(RegistryAssemblyConfiguration cfg, FieldDefinition field)
 		{
+			// Methods required by OpenGL.Net
+			// Note: code should test actual method existence, since  they may not loaded for specific profiles
+			switch (field.Name) {
+				case "pglGetStringi":
+					return (true);
+			}
+
 			bool compatible = false;
 			int featureAttribCount = 0;
 
