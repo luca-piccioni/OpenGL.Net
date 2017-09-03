@@ -240,46 +240,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglCreateFenceSyncNV", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglDestroySyncNV", ExactSpelling = true)]
-			internal extern static unsafe bool eglDestroySyncNV(IntPtr sync);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglFenceNV", ExactSpelling = true)]
-			internal extern static unsafe bool eglFenceNV(IntPtr sync);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglClientWaitSyncNV", ExactSpelling = true)]
-			internal extern static unsafe int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglSignalSyncNV", ExactSpelling = true)]
-			internal extern static unsafe bool eglSignalSyncNV(IntPtr sync, uint mode);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglGetSyncAttribNV", ExactSpelling = true)]
-			internal extern static unsafe bool eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_sync")]

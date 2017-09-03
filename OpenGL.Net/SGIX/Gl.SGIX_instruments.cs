@@ -149,46 +149,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetInstrumentsSGIX", ExactSpelling = true)]
-			internal extern static Int32 glGetInstrumentsSGIX();
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glInstrumentsBufferSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glInstrumentsBufferSGIX(Int32 size, Int32* buffer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glPollInstrumentsSGIX", ExactSpelling = true)]
-			internal extern static unsafe Int32 glPollInstrumentsSGIX(Int32* marker_p);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReadInstrumentsSGIX", ExactSpelling = true)]
-			internal extern static void glReadInstrumentsSGIX(Int32 marker);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glStartInstrumentsSGIX", ExactSpelling = true)]
-			internal extern static void glStartInstrumentsSGIX();
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glStopInstrumentsSGIX", ExactSpelling = true)]
-			internal extern static void glStopInstrumentsSGIX(Int32 marker);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_instruments")]

@@ -62,16 +62,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glFlushStaticDataIBM", ExactSpelling = true)]
-			internal extern static void glFlushStaticDataIBM(Int32 target);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_IBM_static_data")]

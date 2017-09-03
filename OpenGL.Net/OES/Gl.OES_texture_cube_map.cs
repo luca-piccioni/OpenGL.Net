@@ -187,46 +187,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexGenfOES", ExactSpelling = true)]
-			internal extern static void glTexGenfOES(Int32 coord, Int32 pname, float param);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexGenfvOES", ExactSpelling = true)]
-			internal extern static unsafe void glTexGenfvOES(Int32 coord, Int32 pname, float* @params);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexGeniOES", ExactSpelling = true)]
-			internal extern static void glTexGeniOES(Int32 coord, Int32 pname, Int32 param);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexGenivOES", ExactSpelling = true)]
-			internal extern static unsafe void glTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetTexGenfvOES", ExactSpelling = true)]
-			internal extern static unsafe void glGetTexGenfvOES(Int32 coord, Int32 pname, float* @params);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetTexGenivOES", ExactSpelling = true)]
-			internal extern static unsafe void glGetTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]

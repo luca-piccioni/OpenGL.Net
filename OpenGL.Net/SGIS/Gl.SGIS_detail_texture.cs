@@ -132,22 +132,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDetailTexFuncSGIS", ExactSpelling = true)]
-			internal extern static unsafe void glDetailTexFuncSGIS(Int32 target, Int32 n, float* points);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetDetailTexFuncSGIS", ExactSpelling = true)]
-			internal extern static unsafe void glGetDetailTexFuncSGIS(Int32 target, float* points);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIS_detail_texture")]

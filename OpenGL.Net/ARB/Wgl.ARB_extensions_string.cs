@@ -54,16 +54,6 @@ namespace OpenGL
 			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglGetExtensionsStringARB", ExactSpelling = true, SetLastError = true)]
-			internal extern static unsafe IntPtr wglGetExtensionsStringARB(IntPtr hdc);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_extensions_string")]

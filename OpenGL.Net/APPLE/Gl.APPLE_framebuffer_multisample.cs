@@ -74,22 +74,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glRenderbufferStorageMultisampleAPPLE", ExactSpelling = true)]
-			internal extern static void glRenderbufferStorageMultisampleAPPLE(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glResolveMultisampleFramebufferAPPLE", ExactSpelling = true)]
-			internal extern static void glResolveMultisampleFramebufferAPPLE();
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]

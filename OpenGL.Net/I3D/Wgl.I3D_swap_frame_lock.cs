@@ -115,38 +115,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglEnableFrameLockI3D", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static bool wglEnableFrameLockI3D();
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglDisableFrameLockI3D", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static bool wglDisableFrameLockI3D();
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglIsEnabledFrameLockI3D", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglIsEnabledFrameLockI3D(bool* pFlag);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglQueryFrameLockMasterI3D", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglQueryFrameLockMasterI3D(bool* pFlag);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]

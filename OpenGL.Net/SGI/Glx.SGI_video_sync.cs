@@ -89,22 +89,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXGetVideoSyncSGI", ExactSpelling = true)]
-			internal extern static unsafe int glXGetVideoSyncSGI(UInt32* count);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXWaitVideoSyncSGI", ExactSpelling = true)]
-			internal extern static unsafe int glXWaitVideoSyncSGI(int divisor, int remainder, UInt32* count);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGI_video_sync")]

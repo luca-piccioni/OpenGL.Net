@@ -66,16 +66,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glImportSyncEXT", ExactSpelling = true)]
-			internal extern static unsafe Int32 glImportSyncEXT(Int32 external_sync_type, IntPtr external_sync, UInt32 flags);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_x11_sync_object")]

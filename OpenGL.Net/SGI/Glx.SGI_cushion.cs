@@ -56,16 +56,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXCushionSGI", ExactSpelling = true)]
-			internal extern static unsafe void glXCushionSGI(IntPtr dpy, IntPtr window, float cushion);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGI_cushion")]

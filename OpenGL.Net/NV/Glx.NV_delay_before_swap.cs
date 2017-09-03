@@ -60,16 +60,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXDelayBeforeSwapNV", ExactSpelling = true)]
-			internal extern static unsafe bool glXDelayBeforeSwapNV(IntPtr dpy, IntPtr drawable, float seconds);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_NV_delay_before_swap")]

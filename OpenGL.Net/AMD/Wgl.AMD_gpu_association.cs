@@ -320,66 +320,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglGetGPUIDsAMD", ExactSpelling = true, SetLastError = true)]
-			internal extern static unsafe UInt32 wglGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglGetGPUInfoAMD", ExactSpelling = true, SetLastError = true)]
-			internal extern static unsafe Int32 wglGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglGetContextGPUIDAMD", ExactSpelling = true, SetLastError = true)]
-			internal extern static unsafe UInt32 wglGetContextGPUIDAMD(IntPtr hglrc);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglCreateAssociatedContextAMD", ExactSpelling = true, SetLastError = true)]
-			internal extern static IntPtr wglCreateAssociatedContextAMD(UInt32 id);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglCreateAssociatedContextAttribsAMD", ExactSpelling = true, SetLastError = true)]
-			internal extern static unsafe IntPtr wglCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int* attribList);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglDeleteAssociatedContextAMD", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglDeleteAssociatedContextAMD(IntPtr hglrc);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglMakeAssociatedContextCurrentAMD", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglMakeAssociatedContextCurrentAMD(IntPtr hglrc);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglGetCurrentAssociatedContextAMD", ExactSpelling = true, SetLastError = true)]
-			internal extern static IntPtr wglGetCurrentAssociatedContextAMD();
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglBlitContextFramebufferAMD", ExactSpelling = true, SetLastError = true)]
-			internal extern static unsafe void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_AMD_gpu_association")]

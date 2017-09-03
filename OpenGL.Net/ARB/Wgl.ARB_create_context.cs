@@ -109,16 +109,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglCreateContextAttribsARB", ExactSpelling = true, SetLastError = true)]
-			internal extern static unsafe IntPtr wglCreateContextAttribsARB(IntPtr hDC, IntPtr hShareContext, int* attribList);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_create_context")]

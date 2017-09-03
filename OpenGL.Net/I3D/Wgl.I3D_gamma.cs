@@ -183,38 +183,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglGetGammaTableParametersI3D", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglSetGammaTableParametersI3D", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSetGammaTableParametersI3D(IntPtr hDC, int iAttribute, int* piValue);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglGetGammaTableI3D", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglGetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "wglSetGammaTableI3D", ExactSpelling = true, SetLastError = true)]
-			[return: MarshalAs(UnmanagedType.Bool)]
-			internal extern static unsafe bool wglSetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_I3D_gamma")]

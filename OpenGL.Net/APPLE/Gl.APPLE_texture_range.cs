@@ -152,22 +152,6 @@ namespace OpenGL
 			}
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTextureRangeAPPLE", ExactSpelling = true)]
-			internal extern static unsafe void glTextureRangeAPPLE(Int32 target, Int32 length, IntPtr pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetTexParameterPointervAPPLE", ExactSpelling = true)]
-			internal extern static unsafe void glGetTexParameterPointervAPPLE(Int32 target, Int32 pname, IntPtr* @params);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_texture_range")]

@@ -154,28 +154,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glFramebufferSampleLocationsfvARB", ExactSpelling = true)]
-			internal extern static unsafe void glFramebufferSampleLocationsfvARB(Int32 target, UInt32 start, Int32 count, float* v);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glNamedFramebufferSampleLocationsfvARB", ExactSpelling = true)]
-			internal extern static unsafe void glNamedFramebufferSampleLocationsfvARB(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glEvaluateDepthValuesARB", ExactSpelling = true)]
-			internal extern static void glEvaluateDepthValuesARB();
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]

@@ -81,22 +81,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glClipPlanefIMG", ExactSpelling = true)]
-			internal extern static unsafe void glClipPlanefIMG(Int32 p, float* eqn);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glClipPlanexIMG", ExactSpelling = true)]
-			internal extern static unsafe void glClipPlanexIMG(Int32 p, IntPtr* eqn);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]

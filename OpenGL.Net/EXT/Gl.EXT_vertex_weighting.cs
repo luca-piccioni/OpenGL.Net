@@ -186,28 +186,6 @@ namespace OpenGL
 			}
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glVertexWeightfEXT", ExactSpelling = true)]
-			internal extern static void glVertexWeightfEXT(float weight);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glVertexWeightfvEXT", ExactSpelling = true)]
-			internal extern static unsafe void glVertexWeightfvEXT(float* weight);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glVertexWeightPointerEXT", ExactSpelling = true)]
-			internal extern static unsafe void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_vertex_weighting")]

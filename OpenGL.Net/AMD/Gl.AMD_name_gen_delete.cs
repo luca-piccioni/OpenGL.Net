@@ -135,29 +135,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGenNamesAMD", ExactSpelling = true)]
-			internal extern static unsafe void glGenNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDeleteNamesAMD", ExactSpelling = true)]
-			internal extern static unsafe void glDeleteNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glIsNameAMD", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.U1)]
-			internal extern static bool glIsNameAMD(Int32 identifier, UInt32 name);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_name_gen_delete")]

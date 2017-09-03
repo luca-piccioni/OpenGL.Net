@@ -233,16 +233,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBlendParameteriNV", ExactSpelling = true)]
-			internal extern static void glBlendParameteriNV(Int32 pname, Int32 value);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]

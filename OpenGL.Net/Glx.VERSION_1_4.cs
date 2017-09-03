@@ -75,16 +75,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXGetProcAddress", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetProcAddress(byte* procName);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_4")]

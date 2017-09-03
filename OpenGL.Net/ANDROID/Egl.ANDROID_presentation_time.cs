@@ -60,16 +60,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglPresentationTimeANDROID", ExactSpelling = true)]
-			internal extern static unsafe bool eglPresentationTimeANDROID(IntPtr dpy, IntPtr surface, Int64 time);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_ANDROID_presentation_time")]

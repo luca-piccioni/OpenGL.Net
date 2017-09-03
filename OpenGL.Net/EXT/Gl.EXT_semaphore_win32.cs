@@ -147,22 +147,6 @@ namespace OpenGL
 			}
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glImportSemaphoreWin32HandleEXT", ExactSpelling = true)]
-			internal extern static unsafe void glImportSemaphoreWin32HandleEXT(UInt32 semaphore, Int32 handleType, IntPtr handle);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glImportSemaphoreWin32NameEXT", ExactSpelling = true)]
-			internal extern static unsafe void glImportSemaphoreWin32NameEXT(UInt32 semaphore, Int32 handleType, IntPtr name);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]

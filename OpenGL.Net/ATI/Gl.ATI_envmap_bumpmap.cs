@@ -175,34 +175,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexBumpParameterivATI", ExactSpelling = true)]
-			internal extern static unsafe void glTexBumpParameterivATI(Int32 pname, Int32* param);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexBumpParameterfvATI", ExactSpelling = true)]
-			internal extern static unsafe void glTexBumpParameterfvATI(Int32 pname, float* param);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetTexBumpParameterivATI", ExactSpelling = true)]
-			internal extern static unsafe void glGetTexBumpParameterivATI(Int32 pname, Int32* param);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetTexBumpParameterfvATI", ExactSpelling = true)]
-			internal extern static unsafe void glGetTexBumpParameterfvATI(Int32 pname, float* param);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]

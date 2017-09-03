@@ -347,65 +347,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetUnsignedBytevEXT", ExactSpelling = true)]
-			internal extern static unsafe void glGetUnsignedBytevEXT(Int32 pname, byte* data);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetUnsignedBytei_vEXT", ExactSpelling = true)]
-			internal extern static unsafe void glGetUnsignedBytei_vEXT(Int32 target, UInt32 index, byte* data);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGenSemaphoresEXT", ExactSpelling = true)]
-			internal extern static unsafe void glGenSemaphoresEXT(Int32 n, UInt32* semaphores);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDeleteSemaphoresEXT", ExactSpelling = true)]
-			internal extern static unsafe void glDeleteSemaphoresEXT(Int32 n, UInt32* semaphores);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glIsSemaphoreEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.U1)]
-			internal extern static bool glIsSemaphoreEXT(UInt32 semaphore);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSemaphoreParameterui64vEXT", ExactSpelling = true)]
-			internal extern static unsafe void glSemaphoreParameterui64vEXT(UInt32 semaphore, Int32 pname, UInt64* @params);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetSemaphoreParameterui64vEXT", ExactSpelling = true)]
-			internal extern static unsafe void glGetSemaphoreParameterui64vEXT(UInt32 semaphore, Int32 pname, UInt64* @params);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glWaitSemaphoreEXT", ExactSpelling = true)]
-			internal extern static unsafe void glWaitSemaphoreEXT(UInt32 semaphore, UInt32 numBufferBarriers, UInt32* buffers, UInt32 numTextureBarriers, UInt32* textures, Int32* srcLayouts);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSignalSemaphoreEXT", ExactSpelling = true)]
-			internal extern static unsafe void glSignalSemaphoreEXT(UInt32 semaphore, UInt32 numBufferBarriers, UInt32* buffers, UInt32 numTextureBarriers, UInt32* textures, Int32* dstLayouts);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]

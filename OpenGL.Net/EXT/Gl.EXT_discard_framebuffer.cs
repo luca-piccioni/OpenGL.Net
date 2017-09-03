@@ -58,16 +58,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDiscardFramebufferEXT", ExactSpelling = true)]
-			internal extern static unsafe void glDiscardFramebufferEXT(Int32 target, Int32 numAttachments, Int32* attachments);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]

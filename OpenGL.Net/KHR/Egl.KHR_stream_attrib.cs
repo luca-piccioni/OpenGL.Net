@@ -211,40 +211,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglCreateStreamAttribKHR", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateStreamAttribKHR(IntPtr dpy, IntPtr* attrib_list);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglSetStreamAttribKHR", ExactSpelling = true)]
-			internal extern static unsafe bool eglSetStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, IntPtr value);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglQueryStreamAttribKHR", ExactSpelling = true)]
-			internal extern static unsafe bool eglQueryStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, IntPtr* value);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglStreamConsumerAcquireAttribKHR", ExactSpelling = true)]
-			internal extern static unsafe bool eglStreamConsumerAcquireAttribKHR(IntPtr dpy, IntPtr stream, IntPtr* attrib_list);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglStreamConsumerReleaseAttribKHR", ExactSpelling = true)]
-			internal extern static unsafe bool eglStreamConsumerReleaseAttribKHR(IntPtr dpy, IntPtr stream, IntPtr* attrib_list);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_stream_attrib")]

@@ -159,34 +159,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSpriteParameterfSGIX", ExactSpelling = true)]
-			internal extern static void glSpriteParameterfSGIX(Int32 pname, float param);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSpriteParameterfvSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glSpriteParameterfvSGIX(Int32 pname, float* @params);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSpriteParameteriSGIX", ExactSpelling = true)]
-			internal extern static void glSpriteParameteriSGIX(Int32 pname, Int32 param);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSpriteParameterivSGIX", ExactSpelling = true)]
-			internal extern static unsafe void glSpriteParameterivSGIX(Int32 pname, Int32* @params);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_sprite")]

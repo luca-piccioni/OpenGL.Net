@@ -60,16 +60,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglWaitSyncKHR", ExactSpelling = true)]
-			internal extern static unsafe int eglWaitSyncKHR(IntPtr dpy, IntPtr sync, int flags);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_wait_sync")]

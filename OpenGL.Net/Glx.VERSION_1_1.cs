@@ -122,28 +122,6 @@ namespace OpenGL
 			return (Marshal.PtrToStringAnsi(retValue));
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXQueryExtensionsString", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXQueryServerString", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXGetClientString", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetClientString(IntPtr dpy, int name);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_1")]

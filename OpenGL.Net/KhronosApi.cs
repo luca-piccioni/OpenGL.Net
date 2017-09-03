@@ -380,7 +380,7 @@ namespace OpenGL
 					functionName = requiredByFeature.EntryPoint;
 
 				if ((importAddress = getAddress(path, functionName)) != IntPtr.Zero) {
-					BindAPIFunction(importAddress, functionContext, function, defaultName);
+					BindAPIFunction(function, importAddress);
 					return;
 				}
 			}
@@ -390,7 +390,7 @@ namespace OpenGL
 				string functionName = extensionFeature.EntryPoint ?? defaultName;
 
 				if ((importAddress = getAddress(path, functionName)) != IntPtr.Zero) {
-					BindAPIFunction(importAddress, functionContext, function, defaultName);
+					BindAPIFunction(function, importAddress);
 					return;
 				}
 			}
@@ -402,43 +402,21 @@ namespace OpenGL
 		/// <summary>
 		/// Set fields using import declarations.
 		/// </summary>
-		/// <param name="importAddress">
-		/// A <see cref="IntPtr"/> that specifies the function pointer.
-		/// </param>
-		/// <param name="functionContext">
-		/// A <see cref="FunctionContext"/> mapping a <see cref="MethodInfo"/> with the relative function name.
-		/// </param>
 		/// <param name="function">
 		/// A <see cref="FieldInfo"/> that specifies the underlying function field to be updated.
 		/// </param>
-		/// <param name="defaultName">
-		/// 
+		/// <param name="importAddress">
+		/// A <see cref="IntPtr"/> that specifies the function pointer.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="path"/>, <paramref name="function"/> or <paramref name="getAddress"/> is null.
-		/// </exception>
-		private static void BindAPIFunction(IntPtr importAddress, FunctionContext functionContext, FieldInfo function, string defaultName)
+		private static void BindAPIFunction(FieldInfo function, IntPtr importAddress)
 		{
-			if (importAddress != IntPtr.Zero) {
-				Delegate delegatePtr;
+			Debug.Assert(function != null);
+			Debug.Assert(importAddress != IntPtr.Zero);
 
-				// Try to load external symbol
-				if ((delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, function.FieldType)) == null) {
-					MethodInfo methodInfo;
+			Delegate delegatePtr = Marshal.GetDelegateForFunctionPointer(importAddress, function.FieldType);
 
-					if (functionContext.Imports.TryGetValue(defaultName, out methodInfo) == true) {
-#if !NETCORE && !NETSTANDARD1_4
-						delegatePtr = Delegate.CreateDelegate(function.FieldType, methodInfo);
-#else
-						delegatePtr = methodInfo.CreateDelegate(function.FieldType);
-#endif
-					}
-				}
-
-				if (delegatePtr != null)
-					function.SetValue(null, delegatePtr);
-			} else
-				function.SetValue(null, null);				// Function not implemented: reset
+			Debug.Assert(delegatePtr != null);
+			function.SetValue(null, delegatePtr);
 		}
 
 		/// <summary>
@@ -522,41 +500,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Get the import methods map for the specified type.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="Type"/> that specifies the type used for detecting import declarations.
-		/// </param>
-		/// <returns>
-		/// It returns the <see cref="ImportMap"/> for <paramref name="type"/>.
-		/// </returns>
-		protected static ImportMap GetImportMap(Type type)
-		{
-			if (type == null)
-				throw new ArgumentNullException("type");
-#if !NETSTANDARD1_4
-			Type unsafeClass = type.GetNestedType("UnsafeNativeMethods", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public);
-			Debug.Assert(unsafeClass != null);
-			if (unsafeClass == null)
-				throw new NotImplementedException("missing UnsafeNativeMethods class");
-			IEnumerable<MethodInfo> methods = unsafeClass.GetMethods(BindingFlags.Static | BindingFlags.NonPublic);
-
-#else
-			TypeInfo unsafeClass = type.GetTypeInfo().GetDeclaredNestedType("UnsafeNativeMethods");
-			Debug.Assert(unsafeClass != null);
-			if (unsafeClass == null)
-				throw new NotImplementedException("missing UnsafeNativeMethods class");
-			IEnumerable<MethodInfo> methods = unsafeClass.DeclaredMethods;
-#endif
-
-			ImportMap importMap = new ImportMap();
-			foreach (MethodInfo m in methods)
-				importMap.Add(m.Name, m);
-
-			return (importMap);
-		}
-
-		/// <summary>
 		/// Get the delegates methods for the specified type.
 		/// </summary>
 		/// <param name="type">
@@ -621,14 +564,8 @@ namespace OpenGL
 				if (type == null)
 					throw new ArgumentNullException("type");
 
-				Imports = GetImportMap(type);
 				Delegates = GetDelegateList(type);
 			}
-
-			/// <summary>
-			/// The import methods map for the underlying type.
-			/// </summary>
-			public readonly ImportMap Imports;
 
 			/// <summary>
 			/// The delegate fields list for the underlying type.

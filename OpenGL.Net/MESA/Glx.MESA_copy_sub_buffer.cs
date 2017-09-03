@@ -65,16 +65,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXCopySubBufferMESA", ExactSpelling = true)]
-			internal extern static unsafe void glXCopySubBufferMESA(IntPtr dpy, IntPtr drawable, int x, int y, int width, int height);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_MESA_copy_sub_buffer")]

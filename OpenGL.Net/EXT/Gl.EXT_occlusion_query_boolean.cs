@@ -252,53 +252,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGenQueriesEXT", ExactSpelling = true)]
-			internal extern static unsafe void glGenQueriesEXT(Int32 n, UInt32* ids);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDeleteQueriesEXT", ExactSpelling = true)]
-			internal extern static unsafe void glDeleteQueriesEXT(Int32 n, UInt32* ids);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glIsQueryEXT", ExactSpelling = true)]
-			[return: MarshalAs(UnmanagedType.U1)]
-			internal extern static bool glIsQueryEXT(UInt32 id);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBeginQueryEXT", ExactSpelling = true)]
-			internal extern static void glBeginQueryEXT(Int32 target, UInt32 id);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glEndQueryEXT", ExactSpelling = true)]
-			internal extern static void glEndQueryEXT(Int32 target);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetQueryivEXT", ExactSpelling = true)]
-			internal extern static unsafe void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetQueryObjectuivEXT", ExactSpelling = true)]
-			internal extern static unsafe void glGetQueryObjectuivEXT(UInt32 id, Int32 pname, UInt32* @params);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]

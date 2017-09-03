@@ -77,22 +77,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glLockArraysEXT", ExactSpelling = true)]
-			internal extern static void glLockArraysEXT(Int32 first, Int32 count);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glUnlockArraysEXT", ExactSpelling = true)]
-			internal extern static void glUnlockArraysEXT();
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]

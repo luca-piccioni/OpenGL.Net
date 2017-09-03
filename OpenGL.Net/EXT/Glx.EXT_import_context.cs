@@ -150,40 +150,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXGetCurrentDisplayEXT", ExactSpelling = true)]
-			internal extern static IntPtr glXGetCurrentDisplayEXT();
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXQueryContextInfoEXT", ExactSpelling = true)]
-			internal extern static unsafe int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXGetContextIDEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXGetContextIDEXT(IntPtr context);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXImportContextEXT", ExactSpelling = true)]
-			internal extern static unsafe IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXFreeContextEXT", ExactSpelling = true)]
-			internal extern static unsafe void glXFreeContextEXT(IntPtr dpy, IntPtr context);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_EXT_import_context")]

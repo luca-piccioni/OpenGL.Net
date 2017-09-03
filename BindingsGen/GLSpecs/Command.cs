@@ -220,54 +220,6 @@ namespace BindingsGen.GLSpecs
 			get { return (Prototype.Name); }
 		}
 
-		/// <summary>
-		/// Generate the command import source code.
-		/// </summary>
-		/// <param name="sw">
-		/// The <see cref="SourceStreamWriter"/> used to write the source code.
-		/// </param>
-		/// <param name="ctx">
-		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
-		/// </param>
-		internal void GenerateImport(SourceStreamWriter sw, RegistryContext ctx)
-		{
-			// The SuppressUnmanagedCodeSecurity attribute is used to increase P/Invoke performance
-			sw.WriteLine("#if !NETCORE && !NETSTANDARD1_4");
-			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
-			sw.WriteLine("#endif");
-			// Import definition
-			CommandFlags commandFlags = CommandFlagsDatabase.GetCommandFlags(this);
-			
-			if ((commandFlags & CommandFlags.SetLastError) != 0)
-				sw.WriteLine("[DllImport(Library, EntryPoint = \"{0}\", ExactSpelling = true, SetLastError = true)]", ImportName);
-			else
-				sw.WriteLine("[DllImport(Library, EntryPoint = \"{0}\", ExactSpelling = true)]", ImportName);
-
-			// GLboolean is mapped to 'unsigned char': instruct to marshal return value as 1 byte boolean
-			if (Prototype.Type == "GLboolean")
-				sw.WriteLine("[return: MarshalAs(UnmanagedType.U1)]");
-			// BOOL is mapped to 'unsigned int': instruct to marshal return value as 4 byte boolean
-			if (Prototype.Type == "BOOL")
-				sw.WriteLine("[return: MarshalAs(UnmanagedType.Bool)]");
-
-			// Import declaration
-			sw.WriteIdentation(); sw.Write("internal extern static ");
-			if (IsSafeImplementation == false) sw.Write("unsafe ");
-
-			sw.Write("{0} {1}(", DelegateReturnType, ImportName);
-
-			int paramCount = Parameters.Count;
-
-			foreach (CommandParameter param in Parameters) {
-				sw.Write("{0} {1}", param.ImportType, param.ImportName);
-				paramCount--;
-				if (paramCount > 0)
-					sw.Write(", ");
-			}
-			sw.Write(");");
-			sw.WriteLine();
-		}
-
 		#endregion
 
 		#region Code Generation - Delegate

@@ -120,28 +120,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBufferPageCommitmentARB", ExactSpelling = true)]
-			internal extern static unsafe void glBufferPageCommitmentARB(Int32 target, IntPtr offset, UInt32 size, bool commit);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glNamedBufferPageCommitmentEXT", ExactSpelling = true)]
-			internal extern static unsafe void glNamedBufferPageCommitmentEXT(UInt32 buffer, IntPtr offset, UInt32 size, bool commit);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glNamedBufferPageCommitmentARB", ExactSpelling = true)]
-			internal extern static unsafe void glNamedBufferPageCommitmentARB(UInt32 buffer, IntPtr offset, UInt32 size, bool commit);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]

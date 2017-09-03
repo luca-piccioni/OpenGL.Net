@@ -86,16 +86,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglCreateNativeClientBufferANDROID", ExactSpelling = true)]
-			internal extern static unsafe IntPtr eglCreateNativeClientBufferANDROID(int* attrib_list);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]

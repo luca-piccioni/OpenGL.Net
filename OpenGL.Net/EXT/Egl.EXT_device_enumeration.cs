@@ -67,16 +67,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglQueryDevicesEXT", ExactSpelling = true)]
-			internal extern static unsafe bool eglQueryDevicesEXT(int max_devices, IntPtr* devices, int* num_devices);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_EXT_device_base")]

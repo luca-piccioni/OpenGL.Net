@@ -141,34 +141,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glClipPlanefOES", ExactSpelling = true)]
-			internal extern static unsafe void glClipPlanefOES(Int32 plane, float* equation);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glFrustumfOES", ExactSpelling = true)]
-			internal extern static void glFrustumfOES(float l, float r, float b, float t, float n, float f);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetClipPlanefOES", ExactSpelling = true)]
-			internal extern static unsafe void glGetClipPlanefOES(Int32 plane, float* equation);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glOrthofOES", ExactSpelling = true)]
-			internal extern static void glOrthofOES(float l, float r, float b, float t, float n, float f);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]

@@ -228,40 +228,6 @@ namespace OpenGL
 			}
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glCurrentPaletteMatrixARB", ExactSpelling = true)]
-			internal extern static void glCurrentPaletteMatrixARB(Int32 index);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glMatrixIndexubvARB", ExactSpelling = true)]
-			internal extern static unsafe void glMatrixIndexubvARB(Int32 size, byte* indices);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glMatrixIndexusvARB", ExactSpelling = true)]
-			internal extern static unsafe void glMatrixIndexusvARB(Int32 size, UInt16* indices);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glMatrixIndexuivARB", ExactSpelling = true)]
-			internal extern static unsafe void glMatrixIndexuivARB(Int32 size, UInt32* indices);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glMatrixIndexPointerARB", ExactSpelling = true)]
-			internal extern static unsafe void glMatrixIndexPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_matrix_palette")]

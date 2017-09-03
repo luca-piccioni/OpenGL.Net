@@ -107,22 +107,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSampleMaskIndexedNV", ExactSpelling = true)]
-			internal extern static void glSampleMaskIndexedNV(UInt32 index, UInt32 mask);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexRenderbufferNV", ExactSpelling = true)]
-			internal extern static void glTexRenderbufferNV(Int32 target, UInt32 renderbuffer);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_explicit_multisample")]

@@ -97,16 +97,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glWindowRectanglesEXT", ExactSpelling = true)]
-			internal extern static unsafe void glWindowRectanglesEXT(Int32 mode, Int32 count, Int32* box);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]

@@ -89,22 +89,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBufferStorageExternalEXT", ExactSpelling = true)]
-			internal extern static unsafe void glBufferStorageExternalEXT(Int32 target, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glNamedBufferStorageExternalEXT", ExactSpelling = true)]
-			internal extern static unsafe void glNamedBufferStorageExternalEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]

@@ -268,52 +268,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReplacementCodeuiSUN", ExactSpelling = true)]
-			internal extern static void glReplacementCodeuiSUN(UInt32 code);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReplacementCodeusSUN", ExactSpelling = true)]
-			internal extern static void glReplacementCodeusSUN(UInt16 code);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReplacementCodeubSUN", ExactSpelling = true)]
-			internal extern static void glReplacementCodeubSUN(byte code);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReplacementCodeuivSUN", ExactSpelling = true)]
-			internal extern static unsafe void glReplacementCodeuivSUN(UInt32* code);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReplacementCodeusvSUN", ExactSpelling = true)]
-			internal extern static unsafe void glReplacementCodeusvSUN(UInt16* code);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReplacementCodeubvSUN", ExactSpelling = true)]
-			internal extern static unsafe void glReplacementCodeubvSUN(byte* code);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReplacementCodePointerSUN", ExactSpelling = true)]
-			internal extern static unsafe void glReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr* pointer);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SUN_triangle_list")]

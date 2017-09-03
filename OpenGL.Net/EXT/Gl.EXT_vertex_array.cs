@@ -365,46 +365,6 @@ namespace OpenGL
 			}
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glColorPointerEXT", ExactSpelling = true)]
-			internal extern static unsafe void glColorPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glEdgeFlagPointerEXT", ExactSpelling = true)]
-			internal extern static unsafe void glEdgeFlagPointerEXT(Int32 stride, Int32 count, bool* pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glIndexPointerEXT", ExactSpelling = true)]
-			internal extern static unsafe void glIndexPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glNormalPointerEXT", ExactSpelling = true)]
-			internal extern static unsafe void glNormalPointerEXT(Int32 type, Int32 stride, Int32 count, IntPtr pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexCoordPointerEXT", ExactSpelling = true)]
-			internal extern static unsafe void glTexCoordPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glVertexPointerEXT", ExactSpelling = true)]
-			internal extern static unsafe void glVertexPointerEXT(Int32 size, Int32 type, Int32 stride, Int32 count, IntPtr pointer);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_vertex_array")]

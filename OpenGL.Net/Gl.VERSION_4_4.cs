@@ -658,64 +658,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBufferStorage", ExactSpelling = true)]
-			internal extern static unsafe void glBufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glClearTexImage", ExactSpelling = true)]
-			internal extern static unsafe void glClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glClearTexSubImage", ExactSpelling = true)]
-			internal extern static unsafe void glClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBindBuffersBase", ExactSpelling = true)]
-			internal extern static unsafe void glBindBuffersBase(Int32 target, UInt32 first, Int32 count, UInt32* buffers);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBindBuffersRange", ExactSpelling = true)]
-			internal extern static unsafe void glBindBuffersRange(Int32 target, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, UInt32* sizes);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBindTextures", ExactSpelling = true)]
-			internal extern static unsafe void glBindTextures(UInt32 first, Int32 count, UInt32* textures);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBindSamplers", ExactSpelling = true)]
-			internal extern static unsafe void glBindSamplers(UInt32 first, Int32 count, UInt32* samplers);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBindImageTextures", ExactSpelling = true)]
-			internal extern static unsafe void glBindImageTextures(UInt32 first, Int32 count, UInt32* textures);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glBindVertexBuffers", ExactSpelling = true)]
-			internal extern static unsafe void glBindVertexBuffers(UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_VERSION_4_4")]

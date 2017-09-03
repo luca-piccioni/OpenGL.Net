@@ -166,34 +166,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glVertexPointervINTEL", ExactSpelling = true)]
-			internal extern static unsafe void glVertexPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glNormalPointervINTEL", ExactSpelling = true)]
-			internal extern static unsafe void glNormalPointervINTEL(Int32 type, IntPtr* pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glColorPointervINTEL", ExactSpelling = true)]
-			internal extern static unsafe void glColorPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glTexCoordPointervINTEL", ExactSpelling = true)]
-			internal extern static unsafe void glTexCoordPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]

@@ -74,16 +74,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glViewportPositionWScaleNV", ExactSpelling = true)]
-			internal extern static void glViewportPositionWScaleNV(UInt32 index, float xcoeff, float ycoeff);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]

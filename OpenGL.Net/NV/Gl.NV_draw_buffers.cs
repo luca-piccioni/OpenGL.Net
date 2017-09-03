@@ -55,16 +55,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDrawBuffersNV", ExactSpelling = true)]
-			internal extern static unsafe void glDrawBuffersNV(Int32 n, Int32* bufs);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]

@@ -54,16 +54,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXGetAGPOffsetMESA", ExactSpelling = true)]
-			internal extern static unsafe UInt32 glXGetAGPOffsetMESA(IntPtr pointer);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_MESA_agp_offset")]

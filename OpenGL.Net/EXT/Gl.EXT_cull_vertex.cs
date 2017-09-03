@@ -99,22 +99,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glCullParameterdvEXT", ExactSpelling = true)]
-			internal extern static unsafe void glCullParameterdvEXT(Int32 pname, double* @params);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glCullParameterfvEXT", ExactSpelling = true)]
-			internal extern static unsafe void glCullParameterfvEXT(Int32 pname, float* @params);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_cull_vertex")]

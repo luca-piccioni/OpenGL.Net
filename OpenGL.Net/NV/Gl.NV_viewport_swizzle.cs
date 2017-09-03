@@ -134,16 +134,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glViewportSwizzleNV", ExactSpelling = true)]
-			internal extern static void glViewportSwizzleNV(UInt32 index, Int32 swizzlex, Int32 swizzley, Int32 swizzlez, Int32 swizzlew);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]

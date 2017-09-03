@@ -69,16 +69,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglResetStreamNV", ExactSpelling = true)]
-			internal extern static unsafe bool eglResetStreamNV(IntPtr dpy, IntPtr stream);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_stream_reset")]

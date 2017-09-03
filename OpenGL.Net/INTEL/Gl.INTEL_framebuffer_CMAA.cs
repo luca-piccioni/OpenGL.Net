@@ -47,16 +47,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glApplyFramebufferAttachmentCMAAINTEL", ExactSpelling = true)]
-			internal extern static void glApplyFramebufferAttachmentCMAAINTEL();
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_INTEL_framebuffer_CMAA", Api = "gl|glcore|gles2")]

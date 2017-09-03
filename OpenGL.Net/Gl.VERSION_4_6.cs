@@ -352,34 +352,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSpecializeShader", ExactSpelling = true)]
-			internal extern static unsafe void glSpecializeShader(UInt32 shader, String pEntryPoint, UInt32 numSpecializationConstants, UInt32* pConstantIndex, UInt32* pConstantValue);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glMultiDrawArraysIndirectCount", ExactSpelling = true)]
-			internal extern static unsafe void glMultiDrawArraysIndirectCount(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glMultiDrawElementsIndirectCount", ExactSpelling = true)]
-			internal extern static unsafe void glMultiDrawElementsIndirectCount(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glPolygonOffsetClamp", ExactSpelling = true)]
-			internal extern static void glPolygonOffsetClamp(float factor, float units, float clamp);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_VERSION_4_6")]

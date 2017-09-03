@@ -71,16 +71,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glConservativeRasterParameterfNV", ExactSpelling = true)]
-			internal extern static void glConservativeRasterParameterfNV(Int32 pname, float value);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]

@@ -144,40 +144,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDrawVkImageNV", ExactSpelling = true)]
-			internal extern static void glDrawVkImageNV(UInt64 vkImage, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetVkProcAddrNV", ExactSpelling = true)]
-			internal extern static IntPtr glGetVkProcAddrNV(String name);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glWaitVkSemaphoreNV", ExactSpelling = true)]
-			internal extern static void glWaitVkSemaphoreNV(UInt64 vkSemaphore);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSignalVkSemaphoreNV", ExactSpelling = true)]
-			internal extern static void glSignalVkSemaphoreNV(UInt64 vkSemaphore);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glSignalVkFenceNV", ExactSpelling = true)]
-			internal extern static void glSignalVkFenceNV(UInt64 vkFence);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]

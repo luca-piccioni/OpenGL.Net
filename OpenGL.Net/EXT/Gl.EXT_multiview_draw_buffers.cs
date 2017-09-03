@@ -121,28 +121,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glReadBufferIndexedEXT", ExactSpelling = true)]
-			internal extern static void glReadBufferIndexedEXT(Int32 src, Int32 index);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDrawBuffersIndexedEXT", ExactSpelling = true)]
-			internal extern static unsafe void glDrawBuffersIndexedEXT(Int32 n, Int32* location, Int32* indices);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetIntegeri_vEXT", ExactSpelling = true)]
-			internal extern static unsafe void glGetIntegeri_vEXT(Int32 target, UInt32 index, Int32* data);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]

@@ -136,28 +136,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glUniformBufferEXT", ExactSpelling = true)]
-			internal extern static void glUniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetUniformBufferSizeEXT", ExactSpelling = true)]
-			internal extern static Int32 glGetUniformBufferSizeEXT(UInt32 program, Int32 location);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glGetUniformOffsetEXT", ExactSpelling = true)]
-			internal extern static IntPtr glGetUniformOffsetEXT(UInt32 program, Int32 location);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_bindable_uniform")]

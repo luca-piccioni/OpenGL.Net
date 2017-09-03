@@ -205,11 +205,6 @@ namespace BindingsGen
 					}
 
 					if (featureCommands.Count > 0) {
-						GenerateCommandsImports(cctx, sw, featureCommands);
-						sw.WriteLine();
-					}
-
-					if (featureCommands.Count > 0) {
 						GenerateCommandsDelegates(cctx, sw, featureCommands);
 					}
 				});
@@ -265,36 +260,6 @@ namespace BindingsGen
 			}
 
 			#endregion
-		}
-
-		private static void GenerateCommandsImports(RegistryContext ctx, SourceStreamWriter sw, IEnumerable<Command> commands)
-		{
-			// Write delegates
-			switch (ctx.Class) {
-				// Glx and Wgl classes exposes public unsafe native methods: let UnsafeNativeMethods be public (note: automatically
-				// generated members have internal scope)
-				case "Glx":
-				case "Wgl":
-					sw.WriteLine("public unsafe static partial class UnsafeNativeMethods");
-					break;
-				default:
-					sw.WriteLine("internal unsafe static partial class UnsafeNativeMethods");
-					break;
-			}
-				
-			sw.WriteLine("{");
-			sw.Indent();
-
-			foreach (Command command in commands) {
-				if ((command.Flags & CommandFlags.Disable) != 0)
-					continue;
-
-				command.GenerateImport(sw, ctx);
-				sw.WriteLine();
-			}
-
-			sw.Unindent();
-			sw.WriteLine("}");
 		}
 
 		private static void GenerateCommandsDelegates(RegistryContext ctx, SourceStreamWriter sw, IEnumerable<Command> commands)

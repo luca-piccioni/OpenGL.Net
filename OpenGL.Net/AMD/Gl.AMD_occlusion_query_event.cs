@@ -95,16 +95,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glQueryObjectParameteruiAMD", ExactSpelling = true)]
-			internal extern static void glQueryObjectParameteruiAMD(Int32 target, UInt32 id, Int32 pname, UInt32 param);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_occlusion_query_event")]

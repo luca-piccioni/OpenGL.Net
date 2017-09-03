@@ -59,16 +59,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glImportMemoryFdEXT", ExactSpelling = true)]
-			internal extern static void glImportMemoryFdEXT(UInt32 memory, UInt64 size, Int32 handleType, Int32 fd);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_memory_object_fd", Api = "gl|gles2")]

@@ -68,16 +68,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "eglSetDamageRegionKHR", ExactSpelling = true)]
-			internal extern static unsafe bool eglSetDamageRegionKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_partial_update")]

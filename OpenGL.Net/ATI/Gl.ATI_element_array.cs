@@ -133,28 +133,6 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glElementPointerATI", ExactSpelling = true)]
-			internal extern static unsafe void glElementPointerATI(Int32 type, IntPtr pointer);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDrawElementArrayATI", ExactSpelling = true)]
-			internal extern static void glDrawElementArrayATI(Int32 mode, Int32 count);
-
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glDrawRangeElementArrayATI", ExactSpelling = true)]
-			internal extern static void glDrawRangeElementArrayATI(Int32 mode, UInt32 start, UInt32 end, Int32 count);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_element_array")]

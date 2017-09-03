@@ -57,16 +57,6 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
-		{
-			#if !NETCORE && !NETSTANDARD1_4
-			[SuppressUnmanagedCodeSecurity()]
-			#endif
-			[DllImport(Library, EntryPoint = "glXReleaseBuffersMESA", ExactSpelling = true)]
-			internal extern static unsafe bool glXReleaseBuffersMESA(IntPtr dpy, IntPtr drawable);
-
-		}
-
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_MESA_release_buffers")]
