@@ -44,7 +44,7 @@ before_build:
 build:
   parallel: true
   project: OpenGL.Net_VC14.sln
-  verbosity: quiet               # quiet|minimal|normal|detailed
+  verbosity: normal               # quiet|minimal|normal|detailed
   publish_nuget: true
   publish_nuget_symbols: false
 
