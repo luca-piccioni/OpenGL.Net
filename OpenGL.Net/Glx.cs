@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -749,14 +750,14 @@ namespace OpenGL
 #if !NETSTANDARD1_4
 				FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
 #else
-				FieldInfo[] fields = new List<FieldInfo>(type.GetTypeInfo().DeclaredFields).ToArray();
+				IEnumerable<FieldInfo> fields = type.GetTypeInfo().DeclaredFields;
 #endif
-				for (int i = 0; i < fields.Length; i++) {
+				foreach (FieldInfo field in fields) {
 					if (result != string.Empty) {
 						result += ", ";
 					}
-					object value = fields[i].GetValue(ev);
-					result += fields[i].Name + "=" + (value == null ? "<null>" : value.ToString());
+					object value = field.GetValue(ev);
+					result += field.Name + "=" + (value == null ? "<null>" : value.ToString());
 				}
 				return type.Name + " (" + result + ")";
 			}
