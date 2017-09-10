@@ -58,14 +58,14 @@ namespace OpenGL
 		public Quaternion(double q1, double q2, double q3, double q4)
 		{
 			// Set the default rotation axis
-			mDefaultVector = Vertex3d.UnitY;
+			_DefaultVector = Vertex3d.UnitY;
 			// Setup quaternion components
-			mVector.x = q1;
-			mVector.y = q2;
-			mVector.z = q3;
-			mCosAngle = q4;
+			_Vector.x = q1;
+			_Vector.y = q2;
+			_Vector.z = q3;
+			_CosAngle = q4;
 			// Derive default rotation vector (due quaternion definition)
-			mDefaultVector = (Vertex3d)RotationVector;
+			_DefaultVector = RotationVector;
 		}
 
 		/// <summary>
@@ -83,10 +83,10 @@ namespace OpenGL
 		public Quaternion(Vertex3f rVector, float rAngle)
 		{
 			// Set the default rotation axis
-			mDefaultVector = (Vertex3d)rVector;
+			_DefaultVector = (Vertex3d)rVector;
 			// Make compiler happy
-			mVector = new Vertex3d();
-			mCosAngle = 0.0f;
+			_Vector = new Vertex3d();
+			_CosAngle = 0.0f;
 
 			// Set quaternion
 			SetEuler(rVector, rAngle);
@@ -104,10 +104,10 @@ namespace OpenGL
 				throw new ArgumentNullException("other");
 
 			// Set the default rotation axis
-			mDefaultVector = other.mDefaultVector;
+			_DefaultVector = other._DefaultVector;
 			// Copy quaternion fields
-			mVector = other.mVector;
-			mCosAngle = other.mCosAngle;
+			_Vector = other._Vector;
+			_CosAngle = other._CosAngle;
 		}
 
 		#endregion
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// <summary>
 		/// The default rotation axis used by this quaternion when it is an identity.
 		/// </summary>
-		private Vertex3d mDefaultVector;
+		private Vertex3d _DefaultVector;
 
 		/// <summary>
 		/// Quaternion vector values.
@@ -126,7 +126,7 @@ namespace OpenGL
 		/// If the quaternion is defined as a vector {q1, q2, q3, q4}, this field corresponds to the
 		/// vector component {q1, q2, q3}. This is not actually a vector!
 		/// </remarks>
-		private Vertex3d mVector;
+		private Vertex3d _Vector;
 
 		/// <summary>
 		/// Quaternion "scalar" component.
@@ -135,7 +135,7 @@ namespace OpenGL
 		/// If the quaternion is defined as a vector {q1, q2, q3, q4}, this field corresponds to the
 		/// scalar component q4. This is not actually an angle!
 		/// </remarks>
-		private double mCosAngle;
+		private double _CosAngle;
 
 		#endregion
 
@@ -148,10 +148,10 @@ namespace OpenGL
 		{
 			get
 			{
-				if (mVector.Module() >= Single.Epsilon)
-					mDefaultVector = mVector.Normalized;
+				if (_Vector.Module() >= Single.Epsilon)
+					_DefaultVector = _Vector.Normalized;
 					
-				return (Vertex3f)(mDefaultVector);
+				return (Vertex3f)(_DefaultVector);
 			}
 			set { SetEuler(value, RotationAngle); }
 		}
@@ -161,7 +161,7 @@ namespace OpenGL
 		/// </summary>
 		public float RotationAngle
 		{
-			get { return (float)(Angle.ToDegrees(2.0 * Math.Acos(mCosAngle))); }
+			get { return (float)(Angle.ToDegrees(2.0 * Math.Acos(_CosAngle))); }
 			set { SetEuler(RotationVector, value); }
 		}
 
@@ -182,10 +182,10 @@ namespace OpenGL
 			double qAngle = Angle.ToRadians(rAngle / 2.0f);
 			double qAngleSin = Math.Sin(qAngle);
 
-			mVector.x = qAngleSin * rVector.x;
-			mVector.y = qAngleSin * rVector.y;
-			mVector.z = qAngleSin * rVector.z;
-			mCosAngle = Math.Cos(qAngle);
+			_Vector.x = qAngleSin * rVector.x;
+			_Vector.y = qAngleSin * rVector.y;
+			_Vector.z = qAngleSin * rVector.z;
+			_CosAngle = Math.Cos(qAngle);
 
 			// Ensure normalized quaternion
 			Normalize();
@@ -198,22 +198,22 @@ namespace OpenGL
 		/// <summary>
 		/// Quaternion <i>q1</i> component.
 		/// </summary>
-		public float X { get { return ((float)mVector.x); } set { mVector.x = value; } }
+		public float X { get { return ((float)_Vector.x); } set { _Vector.x = value; } }
 
 		/// <summary>
 		/// Quaternion <i>q2</i> component.
 		/// </summary>
-		public float Y { get { return ((float)mVector.y); } set { mVector.y = value; } }
+		public float Y { get { return ((float)_Vector.y); } set { _Vector.y = value; } }
 
 		/// <summary>
 		/// Quaternion <i>q3</i> component.
 		/// </summary>
-		public float Z { get { return ((float)mVector.z); } set { mVector.z = value; } }
+		public float Z { get { return ((float)_Vector.z); } set { _Vector.z = value; } }
 
 		/// <summary>
 		/// Quaternion <i>q4</i> component.
 		/// </summary>
-		public float W { get { return ((float)mCosAngle); } set { mCosAngle = value; } }
+		public float W { get { return ((float)_CosAngle); } set { _CosAngle = value; } }
 
 		/// <summary>
 		/// Compute this Quaternion magnitude.
@@ -221,10 +221,10 @@ namespace OpenGL
 		public double Magnitude
 		{
 			get {
-				double x2 = mVector.x * mVector.x;
-				double y2 = mVector.y * mVector.y;
-				double z2 = mVector.z * mVector.z;
-				double w2 = mCosAngle * mCosAngle;
+				double x2 = _Vector.x * _Vector.x;
+				double y2 = _Vector.y * _Vector.y;
+				double z2 = _Vector.z * _Vector.z;
+				double w2 = _CosAngle * _CosAngle;
 
 				return (Math.Sqrt(x2 + y2 + z2 + w2));
 			}
@@ -237,9 +237,9 @@ namespace OpenGL
 		{
 			get
 			{
-				if (Math.Abs(mVector.Module()) >= Single.Epsilon)
+				if (Math.Abs(_Vector.Module()) >= Single.Epsilon)
 					return (false);
-				if (Math.Abs(mCosAngle - 1.0f) >= Single.Epsilon)
+				if (Math.Abs(_CosAngle - 1.0f) >= Single.Epsilon)
 					return (false);
 
 				return (true);
@@ -266,10 +266,10 @@ namespace OpenGL
 			double magnitude = Magnitude;
 
 			if (magnitude >= Single.Epsilon) {
-				double scale = 1.0 / Magnitude;
+				double scale = 1.0 / magnitude;
 
-				mVector *= scale;
-				mCosAngle *= scale;	
+				_Vector *= scale;
+				_CosAngle *= scale;	
 			} else
 				throw new InvalidOperationException("zero magnitude quaternion");
 		}
@@ -277,13 +277,21 @@ namespace OpenGL
 		/// <summary>
 		/// Conjugate this Quaternion.
 		/// </summary>
-		public Quaternion Conjugate
+		public void Conjugate()
+		{
+			_Vector = -_Vector;
+		}
+
+		/// <summary>
+		/// Get the conjugate of this Quaternion.
+		/// </summary>
+		public Quaternion Conjugated
 		{
 			get
 			{
-				Quaternion conjugate = this;
+				Quaternion conjugate = new Quaternion(this);
 
-				conjugate.mVector = -conjugate.mVector;
+				conjugate._Vector = -conjugate._Vector;
 
 				return (conjugate);
 			}
@@ -317,8 +325,8 @@ namespace OpenGL
 //
 //			return (new Quaternion(_q1, _q2, _q3, _q4));
 			
-			double x1 = q1.mVector.x, y1 = q1.mVector.y, z1 = q1.mVector.z, w1 = q1.mCosAngle;
-			double x2 = q2.mVector.x, y2 = q2.mVector.y, z2 = q2.mVector.z, w2 = q2.mCosAngle;
+			double x1 = q1._Vector.x, y1 = q1._Vector.y, z1 = q1._Vector.z, w1 = q1._CosAngle;
+			double x2 = q2._Vector.x, y2 = q2._Vector.y, z2 = q2._Vector.z, w2 = q2._CosAngle;
 
 			double _q1 = w1*x2 + x1*w2 + y1*z2 - z1*y2;
 			double _q2 = w1*y2 + y1*w2 + x1*z2 - z1*x2;
@@ -344,7 +352,7 @@ namespace OpenGL
 		public static explicit operator Matrix3x3(Quaternion q)
 		{
 			Matrix3x3 dcm = new Matrix3x3();		// Direction cosine matrix
-			double q1 = q.mVector.x, q2 = q.mVector.y, q3 = q.mVector.z, q4 = q.mCosAngle;
+			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1*q1, q2__2 = q2*q2, q3__2 = q3*q3;
 			
 			dcm[0,0] = (float)(1.0f - 2.0f * (q2__2 + q3__2));
@@ -374,7 +382,7 @@ namespace OpenGL
 		public static explicit operator MatrixDouble3x3(Quaternion q)
 		{
 			MatrixDouble3x3 dcm = new MatrixDouble3x3();		// Direction cosine matrix
-			double q1 = q.mVector.x, q2 = q.mVector.y, q3 = q.mVector.z, q4 = q.mCosAngle;
+			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1 * q1, q2__2 = q2 * q2, q3__2 = q3 * q3;
 
 			dcm[0, 0] = 1.0 - 2.0 * (q2__2 + q3__2);
@@ -404,21 +412,21 @@ namespace OpenGL
 		public static explicit operator Matrix4x4(Quaternion q)
 		{
 			Matrix4x4 dcm = new Matrix4x4();		// Direction cosine matrix
-			double q1 = q.mVector.x, q2 = q.mVector.y, q3 = q.mVector.z, q4 = q.mCosAngle;
+			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1*q1, q2__2 = q2*q2, q3__2 = q3*q3;
 			
-			dcm[0,0] = (float)(1.0f - 2.0f * (q2__2 + q3__2));
-			dcm[1,0] = (float)(		  2.0f * (q1*q2 - q3*q4));
-			dcm[2,0] = (float)(		  2.0f * (q1*q3 + q2*q4));
+			dcm[0,0] = (float)(1.0f -  2.0f * (q2__2 + q3__2));
+			dcm[1,0] = (float)(		   2.0f * (q1*q2 - q3*q4));
+			dcm[2,0] = (float)(		   2.0f * (q1*q3 + q2*q4));
 			dcm[3,0] = 0.0f;
 
-			dcm[0,1] = (float)(		  2.0f * (q1*q2 + q3*q4));
-			dcm[1,1] = (float)(1.0f - 2.0f * (q1__2 + q3__2));
-			dcm[2,1] = (float)(		  2.0f * (q2*q3 - q1*q4));
+			dcm[0,1] = (float)(		   2.0f * (q1*q2 + q3*q4));
+			dcm[1,1] = (float)(1.0f -  2.0f * (q1__2 + q3__2));
+			dcm[2,1] = (float)(		   2.0f * (q2*q3 - q1*q4));
 			dcm[3,1] = 0.0f;
 
-			dcm[0,2] = (float)(		  2.0f * (q1*q3 - q2*q4));
-			dcm[1,2] = (float)(		  2.0f * (q1*q4 + q2*q3));
+			dcm[0,2] = (float)(		   2.0f * (q1*q3 - q2*q4));
+			dcm[1,2] = (float)(		   2.0f * (q1*q4 + q2*q3));
 			dcm[2,2] = (float)( 1.0f - 2.0f * (q1__2 + q2__2));
 			dcm[3,2] = 0.0f;
 
@@ -442,7 +450,7 @@ namespace OpenGL
 		public static explicit operator MatrixDouble4x4(Quaternion q)
 		{
 			MatrixDouble4x4 dcm = new MatrixDouble4x4();		// Direction cosine matrix
-			double q1 = q.mVector.x, q2 = q.mVector.y, q3 = q.mVector.z, q4 = q.mCosAngle;
+			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1 * q1, q2__2 = q2 * q2, q3__2 = q3 * q3;
 
 			dcm[0, 0] = 1.0 - 2.0 * (q2__2 + q3__2);
@@ -480,7 +488,7 @@ namespace OpenGL
 		public static explicit operator ModelMatrix(Quaternion q)
 		{
 			ModelMatrix dcm = new ModelMatrix();		// Direction cosine matrix
-			double q1 = q.mVector.x, q2 = q.mVector.y, q3 = q.mVector.z, q4 = q.mCosAngle;
+			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1*q1, q2__2 = q2*q2, q3__2 = q3*q3;
 			
 			dcm[0,0] = (float)(1.0f - 2.0f * (q2__2 + q3__2));
