@@ -220,36 +220,28 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_MESA_query_renderer")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool glXQueryCurrentRendererIntegerMESA(int attribute, UInt32* value);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryCurrentRendererIntegerMESA pglXQueryCurrentRendererIntegerMESA;
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr glXQueryCurrentRendererStringMESA(int attribute);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryCurrentRendererStringMESA pglXQueryCurrentRendererStringMESA;
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, UInt32* value);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryRendererIntegerMESA pglXQueryRendererIntegerMESA;
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]

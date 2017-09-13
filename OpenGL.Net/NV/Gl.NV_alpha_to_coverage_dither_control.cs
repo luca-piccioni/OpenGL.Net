@@ -77,9 +77,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glAlphaToCoverageDitherControlNV(Int32 mode);
 
 			[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]

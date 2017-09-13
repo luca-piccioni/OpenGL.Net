@@ -234,9 +234,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_debug_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDebugMessageEnableAMD(Int32 category, Int32 severity, Int32 count, UInt32* ids, bool enabled);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
@@ -244,9 +242,7 @@ namespace OpenGL
 			internal static glDebugMessageEnableAMD pglDebugMessageEnableAMD;
 
 			[RequiredByFeature("GL_AMD_debug_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glDebugMessageInsertAMD(Int32 category, Int32 severity, UInt32 id, Int32 length, String buf);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
@@ -254,9 +250,7 @@ namespace OpenGL
 			internal static glDebugMessageInsertAMD pglDebugMessageInsertAMD;
 
 			[RequiredByFeature("GL_AMD_debug_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
@@ -264,9 +258,7 @@ namespace OpenGL
 			internal static glDebugMessageCallbackAMD pglDebugMessageCallbackAMD;
 
 			[RequiredByFeature("GL_AMD_debug_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate UInt32 glGetDebugMessageLogAMD(UInt32 count, Int32 bufsize, Int32* categories, UInt32* severities, UInt32* ids, Int32* lengths, [Out] StringBuilder message);
 
 			[RequiredByFeature("GL_AMD_debug_output")]

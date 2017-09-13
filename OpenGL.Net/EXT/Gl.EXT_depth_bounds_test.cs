@@ -68,9 +68,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_depth_bounds_test")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glDepthBoundsEXT(double zmin, double zmax);
 
 			[RequiredByFeature("GL_EXT_depth_bounds_test")]

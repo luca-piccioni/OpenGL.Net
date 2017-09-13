@@ -76,9 +76,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_igloo_interface")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glIglooInterfaceSGIX(Int32 pname, IntPtr @params);
 
 			[RequiredByFeature("GL_SGIX_igloo_interface")]

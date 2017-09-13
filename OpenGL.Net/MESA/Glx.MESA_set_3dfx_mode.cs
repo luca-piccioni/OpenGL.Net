@@ -69,9 +69,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_MESA_set_3dfx_mode")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glXSet3DfxModeMESA(int mode);
 
 			[RequiredByFeature("GLX_MESA_set_3dfx_mode")]

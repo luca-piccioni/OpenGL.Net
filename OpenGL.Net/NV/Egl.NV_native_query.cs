@@ -125,27 +125,21 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_native_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglQueryNativeDisplayNV(IntPtr dpy, IntPtr* display_id);
 
 			[RequiredByFeature("EGL_NV_native_query")]
 			internal static eglQueryNativeDisplayNV peglQueryNativeDisplayNV;
 
 			[RequiredByFeature("EGL_NV_native_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglQueryNativeWindowNV(IntPtr dpy, IntPtr surf, IntPtr* window);
 
 			[RequiredByFeature("EGL_NV_native_query")]
 			internal static eglQueryNativeWindowNV peglQueryNativeWindowNV;
 
 			[RequiredByFeature("EGL_NV_native_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglQueryNativePixmapNV(IntPtr dpy, IntPtr surf, IntPtr* pixmap);
 
 			[RequiredByFeature("EGL_NV_native_query")]

@@ -66,9 +66,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_semaphore_fd", Api = "gl|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glImportSemaphoreFdEXT(UInt32 semaphore, Int32 handleType, Int32 fd);
 
 			[RequiredByFeature("GL_EXT_semaphore_fd", Api = "gl|gles2")]

@@ -57,9 +57,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGI_swap_control")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate int glXSwapIntervalSGI(int interval);
 
 			[RequiredByFeature("GLX_SGI_swap_control")]

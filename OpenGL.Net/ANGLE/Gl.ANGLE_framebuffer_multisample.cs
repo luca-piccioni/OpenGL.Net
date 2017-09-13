@@ -65,9 +65,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ANGLE_framebuffer_multisample", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glRenderbufferStorageMultisampleANGLE(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_ANGLE_framebuffer_multisample", Api = "gles2")]

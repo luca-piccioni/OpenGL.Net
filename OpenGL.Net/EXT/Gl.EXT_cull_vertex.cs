@@ -102,9 +102,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_cull_vertex")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glCullParameterdvEXT(Int32 pname, double* @params);
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]
@@ -112,9 +110,7 @@ namespace OpenGL
 			internal static glCullParameterdvEXT pglCullParameterdvEXT;
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glCullParameterfvEXT(Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]

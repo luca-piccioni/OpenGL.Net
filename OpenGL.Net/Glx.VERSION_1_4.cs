@@ -78,9 +78,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_4")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr glXGetProcAddress(byte* procName);
 
 			[RequiredByFeature("GLX_VERSION_1_4")]

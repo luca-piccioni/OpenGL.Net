@@ -1060,9 +1060,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform1i64NV(Int32 location, Int64 x);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1072,9 +1070,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform2i64NV(Int32 location, Int64 x, Int64 y);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1084,9 +1080,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform3i64NV(Int32 location, Int64 x, Int64 y, Int64 z);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1096,9 +1090,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform4i64NV(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1108,9 +1100,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform1i64vNV(Int32 location, Int32 count, Int64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1120,9 +1110,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform2i64vNV(Int32 location, Int32 count, Int64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1132,9 +1120,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform3i64vNV(Int32 location, Int32 count, Int64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1144,9 +1130,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform4i64vNV(Int32 location, Int32 count, Int64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1156,9 +1140,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform1ui64NV(Int32 location, UInt64 x);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1168,9 +1150,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform2ui64NV(Int32 location, UInt64 x, UInt64 y);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1180,9 +1160,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform3ui64NV(Int32 location, UInt64 x, UInt64 y, UInt64 z);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1192,9 +1170,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform4ui64NV(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1204,9 +1180,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform1ui64vNV(Int32 location, Int32 count, UInt64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1216,9 +1190,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform2ui64vNV(Int32 location, Int32 count, UInt64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1228,9 +1200,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform3ui64vNV(Int32 location, Int32 count, UInt64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1240,9 +1210,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform4ui64vNV(Int32 location, Int32 count, UInt64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1252,9 +1220,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetUniformi64vNV(UInt32 program, Int32 location, Int64* @params);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1264,9 +1230,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramUniform1i64NV(UInt32 program, Int32 location, Int64 x);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1276,9 +1240,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramUniform2i64NV(UInt32 program, Int32 location, Int64 x, Int64 y);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1288,9 +1250,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramUniform3i64NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1300,9 +1260,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramUniform4i64NV(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1312,9 +1270,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramUniform1i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1324,9 +1280,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramUniform2i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1336,9 +1290,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramUniform3i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1348,9 +1300,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramUniform4i64vNV(UInt32 program, Int32 location, Int32 count, Int64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1360,9 +1310,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramUniform1ui64NV(UInt32 program, Int32 location, UInt64 x);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1372,9 +1320,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramUniform2ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1384,9 +1330,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramUniform3ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1396,9 +1340,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramUniform4ui64NV(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1408,9 +1350,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramUniform1ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1420,9 +1360,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramUniform2ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1432,9 +1370,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramUniform3ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -1444,9 +1380,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramUniform4ui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]

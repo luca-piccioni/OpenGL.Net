@@ -80,9 +80,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glLockArraysEXT(Int32 first, Int32 count);
 
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
@@ -90,9 +88,7 @@ namespace OpenGL
 			internal static glLockArraysEXT pglLockArraysEXT;
 
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUnlockArraysEXT();
 
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]

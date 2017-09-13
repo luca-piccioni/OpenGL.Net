@@ -140,9 +140,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGI_color_table")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetColorTableSGI(Int32 target, Int32 format, Int32 type, IntPtr table);
 
 			[RequiredByFeature("GL_SGI_color_table")]
@@ -150,9 +148,7 @@ namespace OpenGL
 			internal static glGetColorTableSGI pglGetColorTableSGI;
 
 			[RequiredByFeature("GL_SGI_color_table")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetColorTableParameterfvSGI(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_SGI_color_table")]
@@ -160,9 +156,7 @@ namespace OpenGL
 			internal static glGetColorTableParameterfvSGI pglGetColorTableParameterfvSGI;
 
 			[RequiredByFeature("GL_SGI_color_table")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetColorTableParameterivSGI(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_SGI_color_table")]

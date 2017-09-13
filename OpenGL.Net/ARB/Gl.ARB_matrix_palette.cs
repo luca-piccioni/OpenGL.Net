@@ -231,9 +231,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glCurrentPaletteMatrixARB(Int32 index);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -241,9 +239,7 @@ namespace OpenGL
 			internal static glCurrentPaletteMatrixARB pglCurrentPaletteMatrixARB;
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMatrixIndexubvARB(Int32 size, byte* indices);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -251,9 +247,7 @@ namespace OpenGL
 			internal static glMatrixIndexubvARB pglMatrixIndexubvARB;
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMatrixIndexusvARB(Int32 size, UInt16* indices);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -261,9 +255,7 @@ namespace OpenGL
 			internal static glMatrixIndexusvARB pglMatrixIndexusvARB;
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMatrixIndexuivARB(Int32 size, UInt32* indices);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -271,9 +263,7 @@ namespace OpenGL
 			internal static glMatrixIndexuivARB pglMatrixIndexuivARB;
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMatrixIndexPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]

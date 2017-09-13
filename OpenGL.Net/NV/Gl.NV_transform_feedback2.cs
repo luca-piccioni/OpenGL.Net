@@ -56,9 +56,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_transform_feedback2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBindTransformFeedbackNV(Int32 target, UInt32 id);
 
 			[RequiredByFeature("GL_NV_transform_feedback2")]

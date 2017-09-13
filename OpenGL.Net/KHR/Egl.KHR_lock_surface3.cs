@@ -284,9 +284,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_lock_surface")]
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
@@ -295,9 +293,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
@@ -305,9 +301,7 @@ namespace OpenGL
 			internal static eglUnlockSurfaceKHR peglUnlockSurfaceKHR;
 
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_KHR_lock_surface3")]

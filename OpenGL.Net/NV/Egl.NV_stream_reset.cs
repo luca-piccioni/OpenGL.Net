@@ -72,9 +72,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_stream_reset")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglResetStreamNV(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_NV_stream_reset")]

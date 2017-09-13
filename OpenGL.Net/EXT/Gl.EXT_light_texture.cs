@@ -140,9 +140,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_light_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glApplyTextureEXT(Int32 mode);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
@@ -150,9 +148,7 @@ namespace OpenGL
 			internal static glApplyTextureEXT pglApplyTextureEXT;
 
 			[RequiredByFeature("GL_EXT_light_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTextureLightEXT(Int32 pname);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
@@ -160,9 +156,7 @@ namespace OpenGL
 			internal static glTextureLightEXT pglTextureLightEXT;
 
 			[RequiredByFeature("GL_EXT_light_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTextureMaterialEXT(Int32 face, Int32 mode);
 
 			[RequiredByFeature("GL_EXT_light_texture")]

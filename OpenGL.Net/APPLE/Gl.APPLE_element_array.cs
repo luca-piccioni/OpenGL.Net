@@ -268,9 +268,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_element_array")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glElementPointerAPPLE(Int32 type, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_element_array")]
@@ -278,9 +276,7 @@ namespace OpenGL
 			internal static glElementPointerAPPLE pglElementPointerAPPLE;
 
 			[RequiredByFeature("GL_APPLE_element_array")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glDrawElementArrayAPPLE(Int32 mode, Int32 first, Int32 count);
 
 			[RequiredByFeature("GL_APPLE_element_array")]
@@ -288,9 +284,7 @@ namespace OpenGL
 			internal static glDrawElementArrayAPPLE pglDrawElementArrayAPPLE;
 
 			[RequiredByFeature("GL_APPLE_element_array")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glDrawRangeElementArrayAPPLE(Int32 mode, UInt32 start, UInt32 end, Int32 first, Int32 count);
 
 			[RequiredByFeature("GL_APPLE_element_array")]
@@ -298,9 +292,7 @@ namespace OpenGL
 			internal static glDrawRangeElementArrayAPPLE pglDrawRangeElementArrayAPPLE;
 
 			[RequiredByFeature("GL_APPLE_element_array")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiDrawElementArrayAPPLE(Int32 mode, Int32* first, Int32* count, Int32 primcount);
 
 			[RequiredByFeature("GL_APPLE_element_array")]
@@ -308,9 +300,7 @@ namespace OpenGL
 			internal static glMultiDrawElementArrayAPPLE pglMultiDrawElementArrayAPPLE;
 
 			[RequiredByFeature("GL_APPLE_element_array")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiDrawRangeElementArrayAPPLE(Int32 mode, UInt32 start, UInt32 end, Int32* first, Int32* count, Int32 primcount);
 
 			[RequiredByFeature("GL_APPLE_element_array")]

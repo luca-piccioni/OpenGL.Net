@@ -118,9 +118,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_vertex_array_range")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFlushVertexArrayRangeNV();
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
@@ -128,9 +126,7 @@ namespace OpenGL
 			internal static glFlushVertexArrayRangeNV pglFlushVertexArrayRangeNV;
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexArrayRangeNV(Int32 length, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]

@@ -189,9 +189,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexWeightfEXT(float weight);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
@@ -199,9 +197,7 @@ namespace OpenGL
 			internal static glVertexWeightfEXT pglVertexWeightfEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexWeightfvEXT(float* weight);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
@@ -209,9 +205,7 @@ namespace OpenGL
 			internal static glVertexWeightfvEXT pglVertexWeightfvEXT;
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]

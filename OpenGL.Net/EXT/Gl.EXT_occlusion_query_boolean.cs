@@ -256,9 +256,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGenQueriesEXT(Int32 n, UInt32* ids);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -268,9 +266,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDeleteQueriesEXT(Int32 n, UInt32* ids);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -280,9 +276,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glIsQueryEXT(UInt32 id);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -292,9 +286,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBeginQueryEXT(Int32 target, UInt32 id);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -304,9 +296,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glEndQueryEXT(Int32 target);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -316,9 +306,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -328,9 +316,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetQueryObjectuivEXT(UInt32 id, Int32 pname, UInt32* @params);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]

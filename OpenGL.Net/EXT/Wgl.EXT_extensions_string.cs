@@ -54,9 +54,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_extensions_string")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr wglGetExtensionsStringEXT();
 
 			[RequiredByFeature("WGL_EXT_extensions_string")]

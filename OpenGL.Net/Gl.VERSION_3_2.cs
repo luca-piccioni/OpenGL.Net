@@ -1512,9 +1512,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsBaseVertexEXT")]
 			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsBaseVertexOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDrawElementsBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1530,9 +1528,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawRangeElementsBaseVertexEXT")]
 			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawRangeElementsBaseVertexOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDrawRangeElementsBaseVertex(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices, Int32 basevertex);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1548,9 +1544,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexEXT")]
 			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDrawElementsInstancedBaseVertex(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1565,9 +1559,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glMultiDrawElementsBaseVertexEXT")]
 			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2", EntryPoint = "glMultiDrawElementsBaseVertexEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiDrawElementsBaseVertex(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount, Int32* basevertex);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1580,9 +1572,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_provoking_vertex", EntryPoint = "glProvokingVertexEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProvokingVertex(Int32 mode);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1595,9 +1585,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glFenceSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate Int32 glFenceSync(Int32 condition, UInt32 flags);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1611,9 +1599,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glIsSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glIsSync(Int32 sync);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1627,9 +1613,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glDeleteSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glDeleteSync(Int32 sync);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1643,9 +1627,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glClientWaitSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate Int32 glClientWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1659,9 +1641,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glWaitSyncAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWaitSync(Int32 sync, UInt32 flags, UInt64 timeout);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1675,9 +1655,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glGetInteger64vAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetInteger64v(Int32 pname, Int64* data);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1691,9 +1669,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glGetSyncivAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetSynciv(Int32 sync, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1705,9 +1681,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetInteger64i_v(Int32 target, UInt32 index, Int64* data);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1717,9 +1691,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetBufferParameteri64v(Int32 target, Int32 pname, Int64* @params);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1733,9 +1705,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2", EntryPoint = "glFramebufferTextureEXT")]
 			[RequiredByFeature("GL_NV_geometry_program4", EntryPoint = "glFramebufferTextureEXT")]
 			[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2", EntryPoint = "glFramebufferTextureOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFramebufferTexture(Int32 target, Int32 attachment, UInt32 texture, Int32 level);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1749,9 +1719,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTexImage2DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, bool fixedsamplelocations);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1761,9 +1729,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTexImage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1775,9 +1741,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_explicit_multisample", EntryPoint = "glGetMultisamplefvNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetMultisamplefv(Int32 pname, UInt32 index, float* val);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
@@ -1790,9 +1754,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSampleMaski(UInt32 maskNumber, UInt32 mask);
 
 			[RequiredByFeature("GL_VERSION_3_2")]

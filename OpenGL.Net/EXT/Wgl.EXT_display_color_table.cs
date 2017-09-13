@@ -118,36 +118,28 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool wglCreateDisplayColorTableEXT(UInt16 id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			internal static wglCreateDisplayColorTableEXT pwglCreateDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			internal static wglLoadDisplayColorTableEXT pwglLoadDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool wglBindDisplayColorTableEXT(UInt16 id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			internal static wglBindDisplayColorTableEXT pwglBindDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void wglDestroyDisplayColorTableEXT(UInt16 id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]

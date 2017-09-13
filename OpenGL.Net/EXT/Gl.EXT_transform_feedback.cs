@@ -64,9 +64,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback", EntryPoint = "glBindBufferOffsetNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glBindBufferOffsetEXT(Int32 target, UInt32 index, UInt32 buffer, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_transform_feedback")]

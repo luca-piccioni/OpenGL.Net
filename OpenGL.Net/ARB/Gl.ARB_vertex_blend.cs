@@ -523,9 +523,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightbvARB(Int32 size, sbyte* weights);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -533,9 +531,7 @@ namespace OpenGL
 			internal static glWeightbvARB pglWeightbvARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightsvARB(Int32 size, Int16* weights);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -543,9 +539,7 @@ namespace OpenGL
 			internal static glWeightsvARB pglWeightsvARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightivARB(Int32 size, Int32* weights);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -553,9 +547,7 @@ namespace OpenGL
 			internal static glWeightivARB pglWeightivARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightfvARB(Int32 size, float* weights);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -563,9 +555,7 @@ namespace OpenGL
 			internal static glWeightfvARB pglWeightfvARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightdvARB(Int32 size, double* weights);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -573,9 +563,7 @@ namespace OpenGL
 			internal static glWeightdvARB pglWeightdvARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightubvARB(Int32 size, byte* weights);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -583,9 +571,7 @@ namespace OpenGL
 			internal static glWeightubvARB pglWeightubvARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightusvARB(Int32 size, UInt16* weights);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -593,9 +579,7 @@ namespace OpenGL
 			internal static glWeightusvARB pglWeightusvARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightuivARB(Int32 size, UInt32* weights);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -603,9 +587,7 @@ namespace OpenGL
 			internal static glWeightuivARB pglWeightuivARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWeightPointerARB(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
@@ -613,9 +595,7 @@ namespace OpenGL
 			internal static glWeightPointerARB pglWeightPointerARB;
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexBlendARB(Int32 count);
 
 			[RequiredByFeature("GL_ARB_vertex_blend")]

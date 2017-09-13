@@ -442,9 +442,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBufferAddressRangeNV(Int32 pname, UInt32 index, UInt64 address, UInt32 length);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -452,9 +450,7 @@ namespace OpenGL
 			internal static glBufferAddressRangeNV pglBufferAddressRangeNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexFormatNV(Int32 size, Int32 type, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -462,9 +458,7 @@ namespace OpenGL
 			internal static glVertexFormatNV pglVertexFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glNormalFormatNV(Int32 type, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -472,9 +466,7 @@ namespace OpenGL
 			internal static glNormalFormatNV pglNormalFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glColorFormatNV(Int32 size, Int32 type, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -482,9 +474,7 @@ namespace OpenGL
 			internal static glColorFormatNV pglColorFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glIndexFormatNV(Int32 type, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -492,9 +482,7 @@ namespace OpenGL
 			internal static glIndexFormatNV pglIndexFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTexCoordFormatNV(Int32 size, Int32 type, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -502,9 +490,7 @@ namespace OpenGL
 			internal static glTexCoordFormatNV pglTexCoordFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glEdgeFlagFormatNV(Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -512,9 +498,7 @@ namespace OpenGL
 			internal static glEdgeFlagFormatNV pglEdgeFlagFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColorFormatNV(Int32 size, Int32 type, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -522,9 +506,7 @@ namespace OpenGL
 			internal static glSecondaryColorFormatNV pglSecondaryColorFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFogCoordFormatNV(Int32 type, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -532,9 +514,7 @@ namespace OpenGL
 			internal static glFogCoordFormatNV pglFogCoordFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexAttribFormatNV(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -542,9 +522,7 @@ namespace OpenGL
 			internal static glVertexAttribFormatNV pglVertexAttribFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexAttribIFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
@@ -552,9 +530,7 @@ namespace OpenGL
 			internal static glVertexAttribIFormatNV pglVertexAttribIFormatNV;
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetIntegerui64i_vNV(Int32 value, UInt32 index, UInt64* result);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]

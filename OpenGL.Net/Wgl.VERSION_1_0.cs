@@ -795,180 +795,140 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglCopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, UInt32 mask);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglCopyContext pwglCopyContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr wglCreateContext(IntPtr hDc);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglCreateContext pwglCreateContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr wglCreateLayerContext(IntPtr hDc, int level);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglCreateLayerContext pwglCreateLayerContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglDeleteContext(IntPtr oldContext);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglDeleteContext pwglDeleteContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, UInt32 nBytes, IntPtr* plpd);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglDescribeLayerPlane pwglDescribeLayerPlane;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr wglGetCurrentContext();
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglGetCurrentContext pwglGetCurrentContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr wglGetCurrentDC();
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglGetCurrentDC pwglGetCurrentDC;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate int wglGetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglGetLayerPaletteEntries pwglGetLayerPaletteEntries;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr wglGetProcAddress(String lpszProc);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglGetProcAddress pwglGetProcAddress;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglMakeCurrent(IntPtr hDc, IntPtr newContext);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglMakeCurrent pwglMakeCurrent;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglRealizeLayerPalette(IntPtr hdc, int iLayerPlane, bool bRealize);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglRealizeLayerPalette pwglRealizeLayerPalette;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate int wglSetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglSetLayerPaletteEntries pwglSetLayerPaletteEntries;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglShareLists(IntPtr hrcSrvShare, IntPtr hrcSrvSource);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglShareLists pwglShareLists;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglSwapLayerBuffers(IntPtr hdc, UInt32 fuFlags);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglSwapLayerBuffers pwglSwapLayerBuffers;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglUseFontBitmaps(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmaps pwglUseFontBitmaps;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglUseFontBitmapsA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmapsA pwglUseFontBitmapsA;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglUseFontBitmapsW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmapsW pwglUseFontBitmapsW;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglUseFontOutlines(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontOutlines pwglUseFontOutlines;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglUseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontOutlinesA pwglUseFontOutlinesA;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglUseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]

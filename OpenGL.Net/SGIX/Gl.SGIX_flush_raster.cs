@@ -50,9 +50,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_flush_raster")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFlushRasterSGIX();
 
 			[RequiredByFeature("GL_SGIX_flush_raster")]

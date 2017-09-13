@@ -190,9 +190,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPixelTexGenParameteriSGIS(Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
@@ -200,9 +198,7 @@ namespace OpenGL
 			internal static glPixelTexGenParameteriSGIS pglPixelTexGenParameteriSGIS;
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glPixelTexGenParameterivSGIS(Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
@@ -210,9 +206,7 @@ namespace OpenGL
 			internal static glPixelTexGenParameterivSGIS pglPixelTexGenParameterivSGIS;
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPixelTexGenParameterfSGIS(Int32 pname, float param);
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
@@ -220,9 +214,7 @@ namespace OpenGL
 			internal static glPixelTexGenParameterfSGIS pglPixelTexGenParameterfSGIS;
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glPixelTexGenParameterfvSGIS(Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
@@ -230,9 +222,7 @@ namespace OpenGL
 			internal static glPixelTexGenParameterfvSGIS pglPixelTexGenParameterfvSGIS;
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetPixelTexGenParameterivSGIS(Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
@@ -240,9 +230,7 @@ namespace OpenGL
 			internal static glGetPixelTexGenParameterivSGIS pglGetPixelTexGenParameterivSGIS;
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetPixelTexGenParameterfvSGIS(Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_SGIS_pixel_texture")]

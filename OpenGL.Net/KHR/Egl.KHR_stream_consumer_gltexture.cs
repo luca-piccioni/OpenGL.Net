@@ -110,27 +110,21 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglStreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 			internal static eglStreamConsumerGLTextureExternalKHR peglStreamConsumerGLTextureExternalKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglStreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 			internal static eglStreamConsumerAcquireKHR peglStreamConsumerAcquireKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglStreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]

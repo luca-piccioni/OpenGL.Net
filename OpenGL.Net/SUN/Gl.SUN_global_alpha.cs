@@ -170,9 +170,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glGlobalAlphaFactorbSUN(sbyte factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -180,9 +178,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorbSUN pglGlobalAlphaFactorbSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glGlobalAlphaFactorsSUN(Int16 factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -190,9 +186,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorsSUN pglGlobalAlphaFactorsSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glGlobalAlphaFactoriSUN(Int32 factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -200,9 +194,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactoriSUN pglGlobalAlphaFactoriSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glGlobalAlphaFactorfSUN(float factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -210,9 +202,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorfSUN pglGlobalAlphaFactorfSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glGlobalAlphaFactordSUN(double factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -220,9 +210,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactordSUN pglGlobalAlphaFactordSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glGlobalAlphaFactorubSUN(byte factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -230,9 +218,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorubSUN pglGlobalAlphaFactorubSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glGlobalAlphaFactorusSUN(UInt16 factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -240,9 +226,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorusSUN pglGlobalAlphaFactorusSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glGlobalAlphaFactoruiSUN(UInt32 factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]

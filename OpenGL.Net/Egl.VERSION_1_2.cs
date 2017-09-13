@@ -363,45 +363,35 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool eglBindAPI(uint api);
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglBindAPI peglBindAPI;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate uint eglQueryAPI();
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglQueryAPI peglQueryAPI;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglCreatePbufferFromClientBuffer peglCreatePbufferFromClientBuffer;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool eglReleaseThread();
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglReleaseThread peglReleaseThread;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool eglWaitClient();
 
 			[RequiredByFeature("EGL_VERSION_1_2")]

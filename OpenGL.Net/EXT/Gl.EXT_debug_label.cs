@@ -120,9 +120,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glLabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label);
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
@@ -130,9 +128,7 @@ namespace OpenGL
 			internal static glLabelObjectEXT pglLabelObjectEXT;
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetObjectLabelEXT(Int32 type, UInt32 @object, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]

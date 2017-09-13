@@ -70,9 +70,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_reference_plane")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glReferencePlaneSGIX(double* equation);
 
 			[RequiredByFeature("GL_SGIX_reference_plane")]

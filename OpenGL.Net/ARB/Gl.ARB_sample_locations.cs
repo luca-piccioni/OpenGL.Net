@@ -157,9 +157,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glFramebufferSampleLocationsfvARB(Int32 target, UInt32 start, Int32 count, float* v);
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -167,9 +165,7 @@ namespace OpenGL
 			internal static glFramebufferSampleLocationsfvARB pglFramebufferSampleLocationsfvARB;
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glNamedFramebufferSampleLocationsfvARB(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -177,9 +173,7 @@ namespace OpenGL
 			internal static glNamedFramebufferSampleLocationsfvARB pglNamedFramebufferSampleLocationsfvARB;
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glEvaluateDepthValuesARB();
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]

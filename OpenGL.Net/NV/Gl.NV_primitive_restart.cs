@@ -77,9 +77,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_primitive_restart")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPrimitiveRestartNV();
 
 			[RequiredByFeature("GL_NV_primitive_restart")]
@@ -87,9 +85,7 @@ namespace OpenGL
 			internal static glPrimitiveRestartNV pglPrimitiveRestartNV;
 
 			[RequiredByFeature("GL_NV_primitive_restart")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPrimitiveRestartIndexNV(UInt32 index);
 
 			[RequiredByFeature("GL_NV_primitive_restart")]

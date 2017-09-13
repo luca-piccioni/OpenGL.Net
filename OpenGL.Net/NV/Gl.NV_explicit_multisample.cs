@@ -110,9 +110,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_explicit_multisample")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSampleMaskIndexedNV(UInt32 index, UInt32 mask);
 
 			[RequiredByFeature("GL_NV_explicit_multisample")]
@@ -120,9 +118,7 @@ namespace OpenGL
 			internal static glSampleMaskIndexedNV pglSampleMaskIndexedNV;
 
 			[RequiredByFeature("GL_NV_explicit_multisample")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTexRenderbufferNV(Int32 target, UInt32 renderbuffer);
 
 			[RequiredByFeature("GL_NV_explicit_multisample")]

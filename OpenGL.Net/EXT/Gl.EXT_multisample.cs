@@ -156,9 +156,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_multisample")]
 			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSampleMaskSGIS")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSampleMaskEXT(float value, bool invert);
 
 			[RequiredByFeature("GL_EXT_multisample")]
@@ -168,9 +166,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_multisample")]
 			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSamplePatternSGIS")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSamplePatternEXT(Int32 pattern);
 
 			[RequiredByFeature("GL_EXT_multisample")]

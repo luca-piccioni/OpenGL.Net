@@ -85,9 +85,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDepthRangeArrayfvOES(UInt32 first, Int32 count, float* v);
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
@@ -95,9 +93,7 @@ namespace OpenGL
 			internal static glDepthRangeArrayfvOES pglDepthRangeArrayfvOES;
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glDepthRangeIndexedfOES(UInt32 index, float n, float f);
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]

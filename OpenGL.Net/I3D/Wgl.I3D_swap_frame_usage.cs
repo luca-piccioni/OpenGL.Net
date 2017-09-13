@@ -126,36 +126,28 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglGetFrameUsageI3D(float * pUsage);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			internal static wglGetFrameUsageI3D pwglGetFrameUsageI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool wglBeginFrameTrackingI3D();
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			internal static wglBeginFrameTrackingI3D pwglBeginFrameTrackingI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool wglEndFrameTrackingI3D();
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			internal static wglEndFrameTrackingI3D pwglEndFrameTrackingI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglQueryFrameTrackingI3D(Int32* pFrameCount, Int32* pMissedFrames, float * pLastMissedUsage);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]

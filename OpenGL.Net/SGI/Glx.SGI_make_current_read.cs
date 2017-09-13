@@ -82,18 +82,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGI_make_current_read")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool glXMakeCurrentReadSGI(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
 
 			[RequiredByFeature("GLX_SGI_make_current_read")]
 			internal static glXMakeCurrentReadSGI pglXMakeCurrentReadSGI;
 
 			[RequiredByFeature("GLX_SGI_make_current_read")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr glXGetCurrentReadDrawableSGI();
 
 			[RequiredByFeature("GLX_SGI_make_current_read")]

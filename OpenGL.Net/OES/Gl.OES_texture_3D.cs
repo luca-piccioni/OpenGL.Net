@@ -457,9 +457,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glTexImage3DOES(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -467,9 +465,7 @@ namespace OpenGL
 			internal static glTexImage3DOES pglTexImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -477,9 +473,7 @@ namespace OpenGL
 			internal static glTexSubImage3DOES pglTexSubImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glCopyTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -487,9 +481,7 @@ namespace OpenGL
 			internal static glCopyTexSubImage3DOES pglCopyTexSubImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glCompressedTexImage3DOES(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -497,9 +489,7 @@ namespace OpenGL
 			internal static glCompressedTexImage3DOES pglCompressedTexImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glCompressedTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -507,9 +497,7 @@ namespace OpenGL
 			internal static glCompressedTexSubImage3DOES pglCompressedTexSubImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFramebufferTexture3DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]

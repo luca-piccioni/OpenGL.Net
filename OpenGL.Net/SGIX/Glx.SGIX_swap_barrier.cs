@@ -89,18 +89,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glXBindSwapBarrierSGIX(IntPtr dpy, IntPtr drawable, int barrier);
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
 			internal static glXBindSwapBarrierSGIX pglXBindSwapBarrierSGIX;
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool glXQueryMaxSwapBarriersSGIX(IntPtr dpy, int screen, int* max);
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]

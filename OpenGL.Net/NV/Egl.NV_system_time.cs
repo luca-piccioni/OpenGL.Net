@@ -70,18 +70,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_system_time")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate UInt64 eglGetSystemTimeFrequencyNV();
 
 			[RequiredByFeature("EGL_NV_system_time")]
 			internal static eglGetSystemTimeFrequencyNV peglGetSystemTimeFrequencyNV;
 
 			[RequiredByFeature("EGL_NV_system_time")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate UInt64 eglGetSystemTimeNV();
 
 			[RequiredByFeature("EGL_NV_system_time")]

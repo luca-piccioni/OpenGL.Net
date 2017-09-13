@@ -108,9 +108,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glFramebufferSampleLocationsfvNV(Int32 target, UInt32 start, Int32 count, float* v);
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
@@ -118,9 +116,7 @@ namespace OpenGL
 			internal static glFramebufferSampleLocationsfvNV pglFramebufferSampleLocationsfvNV;
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glNamedFramebufferSampleLocationsfvNV(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
@@ -128,9 +124,7 @@ namespace OpenGL
 			internal static glNamedFramebufferSampleLocationsfvNV pglNamedFramebufferSampleLocationsfvNV;
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glResolveDepthValuesNV();
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]

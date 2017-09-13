@@ -2429,9 +2429,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore", EntryPoint = "glMinSampleShadingARB")]
 			[RequiredByFeature("GL_OES_sample_shading", Api = "gles2", EntryPoint = "glMinSampleShadingOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glMinSampleShading(float value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2447,9 +2445,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendEquationiARB")]
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationiEXT")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationiOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBlendEquationi(UInt32 buf, Int32 mode);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2467,9 +2463,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendEquationSeparateiARB")]
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationSeparateiEXT")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationSeparateiOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBlendEquationSeparatei(UInt32 buf, Int32 modeRGB, Int32 modeAlpha);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2487,9 +2481,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendFunciARB")]
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFunciEXT")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFunciOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBlendFunci(UInt32 buf, Int32 src, Int32 dst);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2507,9 +2499,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendFuncSeparateiARB")]
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFuncSeparateiEXT")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFuncSeparateiOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBlendFuncSeparatei(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2524,9 +2514,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDrawArraysIndirect(Int32 mode, IntPtr indirect);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2538,9 +2526,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDrawElementsIndirect(Int32 mode, Int32 type, IntPtr indirect);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2551,9 +2537,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform1d(Int32 location, double x);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2563,9 +2547,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform2d(Int32 location, double x, double y);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2575,9 +2557,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform3d(Int32 location, double x, double y, double z);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2587,9 +2567,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glUniform4d(Int32 location, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2599,9 +2577,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform1dv(Int32 location, Int32 count, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2611,9 +2587,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform2dv(Int32 location, Int32 count, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2623,9 +2597,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform3dv(Int32 location, Int32 count, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2635,9 +2607,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniform4dv(Int32 location, Int32 count, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2647,9 +2617,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix2dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2659,9 +2627,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix3dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2671,9 +2637,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix4dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2683,9 +2647,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix2x3dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2695,9 +2657,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix2x4dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2707,9 +2667,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix3x2dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2719,9 +2677,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix3x4dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2731,9 +2687,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix4x2dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2743,9 +2697,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformMatrix4x3dv(Int32 location, Int32 count, bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2755,9 +2707,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetUniformdv(UInt32 program, Int32 location, double* @params);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2767,9 +2717,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate Int32 glGetSubroutineUniformLocation(UInt32 program, Int32 shadertype, String name);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2779,9 +2727,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate UInt32 glGetSubroutineIndex(UInt32 program, Int32 shadertype, String name);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2791,9 +2737,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetActiveSubroutineUniformiv(UInt32 program, Int32 shadertype, UInt32 index, Int32 pname, Int32* values);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2803,9 +2747,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetActiveSubroutineUniformName(UInt32 program, Int32 shadertype, UInt32 index, Int32 bufsize, Int32* length, [Out] StringBuilder name);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2815,9 +2757,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetActiveSubroutineName(UInt32 program, Int32 shadertype, UInt32 index, Int32 bufsize, Int32* length, [Out] StringBuilder name);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2827,9 +2767,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glUniformSubroutinesuiv(Int32 shadertype, Int32 count, UInt32* indices);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2839,9 +2777,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetUniformSubroutineuiv(Int32 shadertype, Int32 location, UInt32* @params);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2851,9 +2787,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetProgramStageiv(UInt32 program, Int32 shadertype, Int32 pname, Int32* values);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2866,9 +2800,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2", EntryPoint = "glPatchParameteriEXT")]
 			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2", EntryPoint = "glPatchParameteriOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPatchParameteri(Int32 pname, Int32 value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2881,9 +2813,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glPatchParameterfv(Int32 pname, float* values);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2894,9 +2824,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBindTransformFeedback(Int32 target, UInt32 id);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2909,9 +2837,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glDeleteTransformFeedbacksNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDeleteTransformFeedbacks(Int32 n, UInt32* ids);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2925,9 +2851,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glGenTransformFeedbacksNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGenTransformFeedbacks(Int32 n, UInt32* ids);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2941,9 +2865,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glIsTransformFeedbackNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glIsTransformFeedback(UInt32 id);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2957,9 +2879,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glPauseTransformFeedbackNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPauseTransformFeedback();
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2973,9 +2893,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glResumeTransformFeedbackNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glResumeTransformFeedback();
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -2989,9 +2907,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2", EntryPoint = "glDrawTransformFeedbackEXT")]
 			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glDrawTransformFeedbackNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glDrawTransformFeedback(Int32 mode, UInt32 id);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -3003,9 +2919,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glDrawTransformFeedbackStream(Int32 mode, UInt32 id, UInt32 stream);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -3015,9 +2929,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBeginQueryIndexed(Int32 target, UInt32 index, UInt32 id);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -3027,9 +2939,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glEndQueryIndexed(Int32 target, UInt32 index);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
@@ -3039,9 +2949,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_transform_feedback3", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetQueryIndexediv(Int32 target, UInt32 index, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_VERSION_4_0")]

@@ -79,18 +79,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_make_current_read")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglMakeContextCurrentEXT(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
 
 			[RequiredByFeature("WGL_EXT_make_current_read")]
 			internal static wglMakeContextCurrentEXT pwglMakeContextCurrentEXT;
 
 			[RequiredByFeature("WGL_EXT_make_current_read")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr wglGetCurrentReadDCEXT();
 
 			[RequiredByFeature("WGL_EXT_make_current_read")]

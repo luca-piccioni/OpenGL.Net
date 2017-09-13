@@ -65,9 +65,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_IBM_static_data")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFlushStaticDataIBM(Int32 target);
 
 			[RequiredByFeature("GL_IBM_static_data")]

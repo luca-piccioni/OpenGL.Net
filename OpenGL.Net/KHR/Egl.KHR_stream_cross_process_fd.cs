@@ -88,18 +88,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate int eglGetStreamFileDescriptorKHR(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]
 			internal static eglGetStreamFileDescriptorKHR peglGetStreamFileDescriptorKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr eglCreateStreamFromFileDescriptorKHR(IntPtr dpy, int file_descriptor);
 
 			[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]

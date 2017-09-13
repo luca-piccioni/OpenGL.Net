@@ -1819,9 +1819,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_blend_func_separate", EntryPoint = "glBlendFuncSeparateEXT")]
 			[RequiredByFeature("GL_INGR_blend_func_separate", EntryPoint = "glBlendFuncSeparateINGR")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBlendFuncSeparate(Int32 sfactorRGB, Int32 dfactorRGB, Int32 sfactorAlpha, Int32 dfactorAlpha);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1834,9 +1832,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2", EntryPoint = "glMultiDrawArraysEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiDrawArrays(Int32 mode, Int32* first, Int32* count, Int32 drawcount);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1846,9 +1842,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2", EntryPoint = "glMultiDrawElementsEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiDrawElements(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1861,9 +1855,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_point_parameters", EntryPoint = "glPointParameterfARB")]
 			[RequiredByFeature("GL_EXT_point_parameters", EntryPoint = "glPointParameterfEXT")]
 			[RequiredByFeature("GL_SGIS_point_parameters", EntryPoint = "glPointParameterfSGIS")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPointParameterf(Int32 pname, float param);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1879,9 +1871,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_point_parameters", EntryPoint = "glPointParameterfvARB")]
 			[RequiredByFeature("GL_EXT_point_parameters", EntryPoint = "glPointParameterfvEXT")]
 			[RequiredByFeature("GL_SGIS_point_parameters", EntryPoint = "glPointParameterfvSGIS")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glPointParameterfv(Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1894,9 +1884,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_NV_point_sprite", EntryPoint = "glPointParameteriNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPointParameteri(Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1906,9 +1894,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_NV_point_sprite", EntryPoint = "glPointParameterivNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glPointParameteriv(Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1919,9 +1905,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord", EntryPoint = "glFogCoordfEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFogCoordf(float coord);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1933,9 +1917,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord", EntryPoint = "glFogCoordfvEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glFogCoordfv(float* coord);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1947,9 +1929,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord", EntryPoint = "glFogCoorddEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFogCoordd(double coord);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1961,9 +1941,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord", EntryPoint = "glFogCoorddvEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glFogCoorddv(double* coord);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1975,9 +1953,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord", EntryPoint = "glFogCoordPointerEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glFogCoordPointer(Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1989,9 +1965,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3bEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColor3b(sbyte red, sbyte green, sbyte blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2003,9 +1977,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3bvEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColor3bv(sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2017,9 +1989,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3dEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColor3d(double red, double green, double blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2031,9 +2001,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3dvEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColor3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2045,9 +2013,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3fEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColor3f(float red, float green, float blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2059,9 +2025,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3fvEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColor3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2073,9 +2037,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3iEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColor3i(Int32 red, Int32 green, Int32 blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2087,9 +2049,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3ivEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColor3iv(Int32* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2101,9 +2061,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3sEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColor3s(Int16 red, Int16 green, Int16 blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2115,9 +2073,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3svEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColor3sv(Int16* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2129,9 +2085,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3ubEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColor3ub(byte red, byte green, byte blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2143,9 +2097,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3ubvEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColor3ubv(byte* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2157,9 +2109,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3uiEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColor3ui(UInt32 red, UInt32 green, UInt32 blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2171,9 +2121,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3uivEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColor3uiv(UInt32* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2185,9 +2133,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3usEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColor3us(UInt16 red, UInt16 green, UInt16 blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2199,9 +2145,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3usvEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColor3usv(UInt16* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2213,9 +2157,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColorPointerEXT")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColorPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2228,9 +2170,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2dARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos2dMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWindowPos2d(double x, double y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2244,9 +2184,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2dvARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos2dvMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWindowPos2dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2260,9 +2198,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2fARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos2fMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWindowPos2f(float x, float y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2276,9 +2212,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2fvARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos2fvMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWindowPos2fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2292,9 +2226,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2iARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos2iMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWindowPos2i(Int32 x, Int32 y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2308,9 +2240,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2ivARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos2ivMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWindowPos2iv(Int32* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2324,9 +2254,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2sARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos2sMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWindowPos2s(Int16 x, Int16 y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2340,9 +2268,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2svARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos2svMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWindowPos2sv(Int16* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2356,9 +2282,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3dARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos3dMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWindowPos3d(double x, double y, double z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2372,9 +2296,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3dvARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos3dvMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWindowPos3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2388,9 +2310,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3fARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos3fMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWindowPos3f(float x, float y, float z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2404,9 +2324,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3fvARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos3fvMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWindowPos3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2420,9 +2338,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3iARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos3iMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWindowPos3i(Int32 x, Int32 y, Int32 z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2436,9 +2352,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3ivARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos3ivMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWindowPos3iv(Int32* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2452,9 +2366,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3sARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos3sMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glWindowPos3s(Int16 x, Int16 y, Int16 z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2468,9 +2380,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3svARB")]
 			[RequiredByFeature("GL_MESA_window_pos", EntryPoint = "glWindowPos3svMESA")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glWindowPos3sv(Int16* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2485,9 +2395,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_blend_color", EntryPoint = "glBlendColorEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBlendColor(float red, float green, float blue, float alpha);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2503,9 +2411,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_blend_minmax", EntryPoint = "glBlendEquationEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBlendEquation(Int32 mode);
 
 			[RequiredByFeature("GL_VERSION_1_4")]

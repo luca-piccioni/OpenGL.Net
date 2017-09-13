@@ -136,9 +136,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
@@ -146,9 +144,7 @@ namespace OpenGL
 			internal static glVertexArrayRangeAPPLE pglVertexArrayRangeAPPLE;
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glFlushVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
@@ -156,9 +152,7 @@ namespace OpenGL
 			internal static glFlushVertexArrayRangeAPPLE pglFlushVertexArrayRangeAPPLE;
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexArrayParameteriAPPLE(Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]

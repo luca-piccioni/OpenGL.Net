@@ -190,9 +190,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetListParameterfvSGIX(UInt32 list, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -200,9 +198,7 @@ namespace OpenGL
 			internal static glGetListParameterfvSGIX pglGetListParameterfvSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetListParameterivSGIX(UInt32 list, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -210,9 +206,7 @@ namespace OpenGL
 			internal static glGetListParameterivSGIX pglGetListParameterivSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glListParameterfSGIX(UInt32 list, Int32 pname, float param);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -220,9 +214,7 @@ namespace OpenGL
 			internal static glListParameterfSGIX pglListParameterfSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glListParameterfvSGIX(UInt32 list, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -230,9 +222,7 @@ namespace OpenGL
 			internal static glListParameterfvSGIX pglListParameterfvSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glListParameteriSGIX(UInt32 list, Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -240,9 +230,7 @@ namespace OpenGL
 			internal static glListParameteriSGIX pglListParameteriSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glListParameterivSGIX(UInt32 list, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]

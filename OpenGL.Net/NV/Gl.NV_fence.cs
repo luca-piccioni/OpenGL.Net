@@ -204,9 +204,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDeleteFencesNV(Int32 n, UInt32* fences);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -214,9 +212,7 @@ namespace OpenGL
 			internal static glDeleteFencesNV pglDeleteFencesNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGenFencesNV(Int32 n, UInt32* fences);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -224,9 +220,7 @@ namespace OpenGL
 			internal static glGenFencesNV pglGenFencesNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glIsFenceNV(UInt32 fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -234,9 +228,7 @@ namespace OpenGL
 			internal static glIsFenceNV pglIsFenceNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glTestFenceNV(UInt32 fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -244,9 +236,7 @@ namespace OpenGL
 			internal static glTestFenceNV pglTestFenceNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetFenceivNV(UInt32 fence, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -254,9 +244,7 @@ namespace OpenGL
 			internal static glGetFenceivNV pglGetFenceivNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFinishFenceNV(UInt32 fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -264,9 +252,7 @@ namespace OpenGL
 			internal static glFinishFenceNV pglFinishFenceNV;
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSetFenceNV(UInt32 fence, Int32 condition);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]

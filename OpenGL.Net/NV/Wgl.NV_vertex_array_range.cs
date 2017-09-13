@@ -81,18 +81,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
 			internal static wglAllocateMemoryNV pwglAllocateMemoryNV;
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void wglFreeMemoryNV(IntPtr pointer);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]

@@ -211,9 +211,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_occlusion_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGenOcclusionQueriesNV(Int32 n, UInt32* ids);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -221,9 +219,7 @@ namespace OpenGL
 			internal static glGenOcclusionQueriesNV pglGenOcclusionQueriesNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDeleteOcclusionQueriesNV(Int32 n, UInt32* ids);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -231,9 +227,7 @@ namespace OpenGL
 			internal static glDeleteOcclusionQueriesNV pglDeleteOcclusionQueriesNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glIsOcclusionQueryNV(UInt32 id);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -241,9 +235,7 @@ namespace OpenGL
 			internal static glIsOcclusionQueryNV pglIsOcclusionQueryNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBeginOcclusionQueryNV(UInt32 id);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -251,9 +243,7 @@ namespace OpenGL
 			internal static glBeginOcclusionQueryNV pglBeginOcclusionQueryNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glEndOcclusionQueryNV();
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -261,9 +251,7 @@ namespace OpenGL
 			internal static glEndOcclusionQueryNV pglEndOcclusionQueryNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetOcclusionQueryivNV(UInt32 id, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
@@ -271,9 +259,7 @@ namespace OpenGL
 			internal static glGetOcclusionQueryivNV pglGetOcclusionQueryivNV;
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetOcclusionQueryuivNV(UInt32 id, Int32 pname, UInt32* @params);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]

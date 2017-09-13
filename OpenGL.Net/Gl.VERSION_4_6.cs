@@ -356,9 +356,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore", EntryPoint = "glSpecializeShaderARB")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSpecializeShader(UInt32 shader, String pEntryPoint, UInt32 numSpecializationConstants, UInt32* pConstantIndex, UInt32* pConstantValue);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
@@ -368,9 +366,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawArraysIndirectCountARB")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiDrawArraysIndirectCount(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
@@ -380,9 +376,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawElementsIndirectCountARB")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiDrawElementsIndirectCount(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
@@ -393,9 +387,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_polygon_offset_clamp", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2", EntryPoint = "glPolygonOffsetClampEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPolygonOffsetClamp(float factor, float units, float clamp);
 
 			[RequiredByFeature("GL_VERSION_4_6")]

@@ -111,9 +111,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSharpenTexFuncSGIS(Int32 target, Int32 n, float* points);
 
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
@@ -121,9 +119,7 @@ namespace OpenGL
 			internal static glSharpenTexFuncSGIS pglSharpenTexFuncSGIS;
 
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetSharpenTexFuncSGIS(Int32 target, float* points);
 
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]

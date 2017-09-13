@@ -916,9 +916,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate Int32 glGetGraphicsResetStatusARB();
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
@@ -926,9 +924,7 @@ namespace OpenGL
 			internal static glGetGraphicsResetStatusARB pglGetGraphicsResetStatusARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnTexImageARB(Int32 target, Int32 level, Int32 format, Int32 type, Int32 bufSize, IntPtr img);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
@@ -936,9 +932,7 @@ namespace OpenGL
 			internal static glGetnTexImageARB pglGetnTexImageARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnCompressedTexImageARB(Int32 target, Int32 lod, Int32 bufSize, IntPtr img);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
@@ -946,9 +940,7 @@ namespace OpenGL
 			internal static glGetnCompressedTexImageARB pglGetnCompressedTexImageARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnUniformfvARB(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
@@ -956,9 +948,7 @@ namespace OpenGL
 			internal static glGetnUniformfvARB pglGetnUniformfvARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnUniformivARB(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
@@ -966,9 +956,7 @@ namespace OpenGL
 			internal static glGetnUniformivARB pglGetnUniformivARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnUniformuivARB(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
@@ -976,9 +964,7 @@ namespace OpenGL
 			internal static glGetnUniformuivARB pglGetnUniformuivARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnUniformdvARB(UInt32 program, Int32 location, Int32 bufSize, double* @params);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
@@ -986,9 +972,7 @@ namespace OpenGL
 			internal static glGetnUniformdvARB pglGetnUniformdvARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnMapdvARB(Int32 target, Int32 query, Int32 bufSize, double* v);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -996,9 +980,7 @@ namespace OpenGL
 			internal static glGetnMapdvARB pglGetnMapdvARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnMapfvARB(Int32 target, Int32 query, Int32 bufSize, float* v);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1006,9 +988,7 @@ namespace OpenGL
 			internal static glGetnMapfvARB pglGetnMapfvARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnMapivARB(Int32 target, Int32 query, Int32 bufSize, Int32* v);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1016,9 +996,7 @@ namespace OpenGL
 			internal static glGetnMapivARB pglGetnMapivARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnPixelMapfvARB(Int32 map, Int32 bufSize, float* values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1026,9 +1004,7 @@ namespace OpenGL
 			internal static glGetnPixelMapfvARB pglGetnPixelMapfvARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnPixelMapuivARB(Int32 map, Int32 bufSize, UInt32* values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1036,9 +1012,7 @@ namespace OpenGL
 			internal static glGetnPixelMapuivARB pglGetnPixelMapuivARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnPixelMapusvARB(Int32 map, Int32 bufSize, UInt16* values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1046,9 +1020,7 @@ namespace OpenGL
 			internal static glGetnPixelMapusvARB pglGetnPixelMapusvARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnPolygonStippleARB(Int32 bufSize, byte* pattern);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1056,9 +1028,7 @@ namespace OpenGL
 			internal static glGetnPolygonStippleARB pglGetnPolygonStippleARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnColorTableARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr table);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1066,9 +1036,7 @@ namespace OpenGL
 			internal static glGetnColorTableARB pglGetnColorTableARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnConvolutionFilterARB(Int32 target, Int32 format, Int32 type, Int32 bufSize, IntPtr image);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1076,9 +1044,7 @@ namespace OpenGL
 			internal static glGetnConvolutionFilterARB pglGetnConvolutionFilterARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnSeparableFilterARB(Int32 target, Int32 format, Int32 type, Int32 rowBufSize, IntPtr row, Int32 columnBufSize, IntPtr column, IntPtr span);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1086,9 +1052,7 @@ namespace OpenGL
 			internal static glGetnSeparableFilterARB pglGetnSeparableFilterARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
@@ -1096,9 +1060,7 @@ namespace OpenGL
 			internal static glGetnHistogramARB pglGetnHistogramARB;
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]

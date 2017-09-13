@@ -62,9 +62,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_ARB_get_proc_address")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr glXGetProcAddressARB(byte* procName);
 
 			[RequiredByFeature("GLX_ARB_get_proc_address")]

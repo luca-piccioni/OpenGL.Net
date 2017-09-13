@@ -96,9 +96,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_register_combiners2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glCombinerStageParameterfvNV(Int32 stage, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_NV_register_combiners2")]
@@ -106,9 +104,7 @@ namespace OpenGL
 			internal static glCombinerStageParameterfvNV pglCombinerStageParameterfvNV;
 
 			[RequiredByFeature("GL_NV_register_combiners2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetCombinerStageParameterfvNV(Int32 stage, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_NV_register_combiners2")]

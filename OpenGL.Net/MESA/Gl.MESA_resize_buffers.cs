@@ -50,9 +50,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_MESA_resize_buffers")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glResizeBuffersMESA();
 
 			[RequiredByFeature("GL_MESA_resize_buffers")]

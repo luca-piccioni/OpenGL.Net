@@ -73,18 +73,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_swap_control")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool wglSwapIntervalEXT(int interval);
 
 			[RequiredByFeature("WGL_EXT_swap_control")]
 			internal static wglSwapIntervalEXT pwglSwapIntervalEXT;
 
 			[RequiredByFeature("WGL_EXT_swap_control")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate int wglGetSwapIntervalEXT();
 
 			[RequiredByFeature("WGL_EXT_swap_control")]

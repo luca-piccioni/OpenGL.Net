@@ -193,18 +193,14 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_stream_metadata")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglSetStreamMetadataNV(IntPtr dpy, IntPtr stream, int n, int offset, int size, IntPtr data);
 
 			[RequiredByFeature("EGL_NV_stream_metadata")]
 			internal static eglSetStreamMetadataNV peglSetStreamMetadataNV;
 
 			[RequiredByFeature("EGL_NV_stream_metadata")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool eglQueryStreamMetadataNV(IntPtr dpy, IntPtr stream, uint name, int n, int offset, int size, IntPtr data);
 
 			[RequiredByFeature("EGL_NV_stream_metadata")]

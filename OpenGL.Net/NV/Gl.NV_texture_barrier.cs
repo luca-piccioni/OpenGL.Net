@@ -50,9 +50,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_texture_barrier", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTextureBarrierNV();
 
 			[RequiredByFeature("GL_NV_texture_barrier", Api = "gl|glcore")]

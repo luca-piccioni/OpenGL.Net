@@ -1718,9 +1718,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glBindFragDataLocationIndexedEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1732,9 +1730,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glGetFragDataIndexEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate Int32 glGetFragDataIndex(UInt32 program, String name);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1746,9 +1742,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGenSamplers(Int32 count, UInt32* samplers);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1760,9 +1754,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDeleteSamplers(Int32 count, UInt32* samplers);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1774,9 +1766,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glIsSampler(UInt32 sampler);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1788,9 +1778,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBindSampler(UInt32 unit, UInt32 sampler);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1802,9 +1790,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSamplerParameteri(UInt32 sampler, Int32 pname, Int32 param);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1816,9 +1802,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* param);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1830,9 +1814,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSamplerParameterf(UInt32 sampler, Int32 pname, float param);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1844,9 +1826,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSamplerParameterfv(UInt32 sampler, Int32 pname, float* param);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1860,9 +1840,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIivEXT")]
 			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIivOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* param);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1878,9 +1856,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIuivEXT")]
 			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIuivOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* param);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1894,9 +1870,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetSamplerParameteriv(UInt32 sampler, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1910,9 +1884,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIivEXT")]
 			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIivOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1926,9 +1898,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetSamplerParameterfv(UInt32 sampler, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1942,9 +1912,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIuivEXT")]
 			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIuivOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* @params);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1958,9 +1926,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glQueryCounterEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glQueryCounter(UInt32 id, Int32 target);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1973,9 +1939,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetQueryObjecti64vEXT")]
 			[RequiredByFeature("GL_EXT_timer_query", EntryPoint = "glGetQueryObjecti64vEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetQueryObjecti64v(UInt32 id, Int32 pname, Int64* @params);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -1989,9 +1953,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetQueryObjectui64vEXT")]
 			[RequiredByFeature("GL_EXT_timer_query", EntryPoint = "glGetQueryObjectui64vEXT")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetQueryObjectui64v(UInt32 id, Int32 pname, UInt64* @params);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2007,9 +1969,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore", EntryPoint = "glVertexAttribDivisorARB")]
 			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorEXT")]
 			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexAttribDivisor(UInt32 index, UInt32 divisor);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2023,9 +1983,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexAttribP1ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2035,9 +1993,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribP1uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2047,9 +2003,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexAttribP2ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2059,9 +2013,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribP2uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2071,9 +2023,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexAttribP3ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2083,9 +2033,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribP3uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2095,9 +2043,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexAttribP4ui(UInt32 index, Int32 type, bool normalized, UInt32 value);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2107,9 +2053,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribP4uiv(UInt32 index, Int32 type, bool normalized, UInt32* value);
 
 			[RequiredByFeature("GL_VERSION_3_3")]
@@ -2119,9 +2063,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexP2ui(Int32 type, UInt32 value);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2131,9 +2073,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexP2uiv(Int32 type, UInt32* value);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2143,9 +2083,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexP3ui(Int32 type, UInt32 value);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2155,9 +2093,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexP3uiv(Int32 type, UInt32* value);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2167,9 +2103,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glVertexP4ui(Int32 type, UInt32 value);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2179,9 +2113,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexP4uiv(Int32 type, UInt32* value);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2191,9 +2123,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTexCoordP1ui(Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2203,9 +2133,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glTexCoordP1uiv(Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2215,9 +2143,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTexCoordP2ui(Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2227,9 +2153,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glTexCoordP2uiv(Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2239,9 +2163,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTexCoordP3ui(Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2251,9 +2173,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glTexCoordP3uiv(Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2263,9 +2183,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTexCoordP4ui(Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2275,9 +2193,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glTexCoordP4uiv(Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2287,9 +2203,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glMultiTexCoordP1ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2299,9 +2213,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiTexCoordP1uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2311,9 +2223,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glMultiTexCoordP2ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2323,9 +2233,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiTexCoordP2uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2335,9 +2243,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glMultiTexCoordP3ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2347,9 +2253,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiTexCoordP3uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2359,9 +2263,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glMultiTexCoordP4ui(Int32 texture, Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2371,9 +2273,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glMultiTexCoordP4uiv(Int32 texture, Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2383,9 +2283,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glNormalP3ui(Int32 type, UInt32 coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2395,9 +2293,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glNormalP3uiv(Int32 type, UInt32* coords);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2407,9 +2303,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glColorP3ui(Int32 type, UInt32 color);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2419,9 +2313,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glColorP3uiv(Int32 type, UInt32* color);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2431,9 +2323,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glColorP4ui(Int32 type, UInt32 color);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2443,9 +2333,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glColorP4uiv(Int32 type, UInt32* color);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2455,9 +2343,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSecondaryColorP3ui(Int32 type, UInt32 color);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
@@ -2467,9 +2353,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 			[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glSecondaryColorP3uiv(Int32 type, UInt32* color);
 
 			[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]

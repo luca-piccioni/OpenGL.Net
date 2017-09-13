@@ -1306,9 +1306,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool glAreProgramsResidentNV(Int32 n, UInt32* programs, bool* residences);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1316,9 +1314,7 @@ namespace OpenGL
 			internal static glAreProgramsResidentNV pglAreProgramsResidentNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glExecuteProgramNV(Int32 target, UInt32 id, float* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1326,9 +1322,7 @@ namespace OpenGL
 			internal static glExecuteProgramNV pglExecuteProgramNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetProgramParameterdvNV(Int32 target, UInt32 index, Int32 pname, double* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1336,9 +1330,7 @@ namespace OpenGL
 			internal static glGetProgramParameterdvNV pglGetProgramParameterdvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetProgramParameterfvNV(Int32 target, UInt32 index, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1346,9 +1338,7 @@ namespace OpenGL
 			internal static glGetProgramParameterfvNV pglGetProgramParameterfvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetProgramivNV(UInt32 id, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1356,9 +1346,7 @@ namespace OpenGL
 			internal static glGetProgramivNV pglGetProgramivNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetProgramStringNV(UInt32 id, Int32 pname, byte* program);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1366,9 +1354,7 @@ namespace OpenGL
 			internal static glGetProgramStringNV pglGetProgramStringNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetTrackMatrixivNV(Int32 target, UInt32 address, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1376,9 +1362,7 @@ namespace OpenGL
 			internal static glGetTrackMatrixivNV pglGetTrackMatrixivNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glLoadProgramNV(Int32 target, UInt32 id, Int32 len, byte* program);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1386,9 +1370,7 @@ namespace OpenGL
 			internal static glLoadProgramNV pglLoadProgramNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramParameter4dNV(Int32 target, UInt32 index, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1396,9 +1378,7 @@ namespace OpenGL
 			internal static glProgramParameter4dNV pglProgramParameter4dNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramParameter4dvNV(Int32 target, UInt32 index, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1406,9 +1386,7 @@ namespace OpenGL
 			internal static glProgramParameter4dvNV pglProgramParameter4dvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glProgramParameter4fNV(Int32 target, UInt32 index, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1416,9 +1394,7 @@ namespace OpenGL
 			internal static glProgramParameter4fNV pglProgramParameter4fNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramParameter4fvNV(Int32 target, UInt32 index, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1426,9 +1402,7 @@ namespace OpenGL
 			internal static glProgramParameter4fvNV pglProgramParameter4fvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramParameters4dvNV(Int32 target, UInt32 index, Int32 count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1436,9 +1410,7 @@ namespace OpenGL
 			internal static glProgramParameters4dvNV pglProgramParameters4dvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glProgramParameters4fvNV(Int32 target, UInt32 index, Int32 count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1446,9 +1418,7 @@ namespace OpenGL
 			internal static glProgramParameters4fvNV pglProgramParameters4fvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glRequestResidentProgramsNV(Int32 n, UInt32* programs);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1456,9 +1426,7 @@ namespace OpenGL
 			internal static glRequestResidentProgramsNV pglRequestResidentProgramsNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTrackMatrixNV(Int32 target, UInt32 address, Int32 matrix, Int32 transform);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1466,9 +1434,7 @@ namespace OpenGL
 			internal static glTrackMatrixNV pglTrackMatrixNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribPointerNV(UInt32 index, Int32 fsize, Int32 type, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1476,9 +1442,7 @@ namespace OpenGL
 			internal static glVertexAttribPointerNV pglVertexAttribPointerNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs1dvNV(UInt32 index, Int32 count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1486,9 +1450,7 @@ namespace OpenGL
 			internal static glVertexAttribs1dvNV pglVertexAttribs1dvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs1fvNV(UInt32 index, Int32 count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1496,9 +1458,7 @@ namespace OpenGL
 			internal static glVertexAttribs1fvNV pglVertexAttribs1fvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs1svNV(UInt32 index, Int32 count, Int16* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1506,9 +1466,7 @@ namespace OpenGL
 			internal static glVertexAttribs1svNV pglVertexAttribs1svNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs2dvNV(UInt32 index, Int32 count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1516,9 +1474,7 @@ namespace OpenGL
 			internal static glVertexAttribs2dvNV pglVertexAttribs2dvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs2fvNV(UInt32 index, Int32 count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1526,9 +1482,7 @@ namespace OpenGL
 			internal static glVertexAttribs2fvNV pglVertexAttribs2fvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs2svNV(UInt32 index, Int32 count, Int16* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1536,9 +1490,7 @@ namespace OpenGL
 			internal static glVertexAttribs2svNV pglVertexAttribs2svNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs3dvNV(UInt32 index, Int32 count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1546,9 +1498,7 @@ namespace OpenGL
 			internal static glVertexAttribs3dvNV pglVertexAttribs3dvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs3fvNV(UInt32 index, Int32 count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1556,9 +1506,7 @@ namespace OpenGL
 			internal static glVertexAttribs3fvNV pglVertexAttribs3fvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs3svNV(UInt32 index, Int32 count, Int16* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1566,9 +1514,7 @@ namespace OpenGL
 			internal static glVertexAttribs3svNV pglVertexAttribs3svNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs4dvNV(UInt32 index, Int32 count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1576,9 +1522,7 @@ namespace OpenGL
 			internal static glVertexAttribs4dvNV pglVertexAttribs4dvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs4fvNV(UInt32 index, Int32 count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1586,9 +1530,7 @@ namespace OpenGL
 			internal static glVertexAttribs4fvNV pglVertexAttribs4fvNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs4svNV(UInt32 index, Int32 count, Int16* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
@@ -1596,9 +1538,7 @@ namespace OpenGL
 			internal static glVertexAttribs4svNV pglVertexAttribs4svNV;
 
 			[RequiredByFeature("GL_NV_vertex_program")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVertexAttribs4ubvNV(UInt32 index, Int32 count, byte* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]

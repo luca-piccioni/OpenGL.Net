@@ -88,9 +88,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBindRenderbufferEXT(Int32 target, UInt32 renderbuffer);
 
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
@@ -98,9 +96,7 @@ namespace OpenGL
 			internal static glBindRenderbufferEXT pglBindRenderbufferEXT;
 
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBindFramebufferEXT(Int32 target, UInt32 framebuffer);
 
 			[RequiredByFeature("GL_EXT_framebuffer_object")]

@@ -524,9 +524,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBeginVideoCaptureNV(UInt32 video_capture_slot);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -534,9 +532,7 @@ namespace OpenGL
 			internal static glBeginVideoCaptureNV pglBeginVideoCaptureNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glBindVideoCaptureStreamBufferNV(UInt32 video_capture_slot, UInt32 stream, Int32 frame_region, IntPtr offset);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -544,9 +540,7 @@ namespace OpenGL
 			internal static glBindVideoCaptureStreamBufferNV pglBindVideoCaptureStreamBufferNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBindVideoCaptureStreamTextureNV(UInt32 video_capture_slot, UInt32 stream, Int32 frame_region, Int32 target, UInt32 texture);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -554,9 +548,7 @@ namespace OpenGL
 			internal static glBindVideoCaptureStreamTextureNV pglBindVideoCaptureStreamTextureNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glEndVideoCaptureNV(UInt32 video_capture_slot);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -564,9 +556,7 @@ namespace OpenGL
 			internal static glEndVideoCaptureNV pglEndVideoCaptureNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetVideoCaptureivNV(UInt32 video_capture_slot, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -574,9 +564,7 @@ namespace OpenGL
 			internal static glGetVideoCaptureivNV pglGetVideoCaptureivNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetVideoCaptureStreamivNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -584,9 +572,7 @@ namespace OpenGL
 			internal static glGetVideoCaptureStreamivNV pglGetVideoCaptureStreamivNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetVideoCaptureStreamfvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -594,9 +580,7 @@ namespace OpenGL
 			internal static glGetVideoCaptureStreamfvNV pglGetVideoCaptureStreamfvNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetVideoCaptureStreamdvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, double* @params);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -604,9 +588,7 @@ namespace OpenGL
 			internal static glGetVideoCaptureStreamdvNV pglGetVideoCaptureStreamdvNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate Int32 glVideoCaptureNV(UInt32 video_capture_slot, UInt32* sequence_num, UInt64* capture_time);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -614,9 +596,7 @@ namespace OpenGL
 			internal static glVideoCaptureNV pglVideoCaptureNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVideoCaptureStreamParameterivNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -624,9 +604,7 @@ namespace OpenGL
 			internal static glVideoCaptureStreamParameterivNV pglVideoCaptureStreamParameterivNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVideoCaptureStreamParameterfvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_NV_video_capture")]
@@ -634,9 +612,7 @@ namespace OpenGL
 			internal static glVideoCaptureStreamParameterfvNV pglVideoCaptureStreamParameterfvNV;
 
 			[RequiredByFeature("GL_NV_video_capture")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glVideoCaptureStreamParameterdvNV(UInt32 video_capture_slot, UInt32 stream, Int32 pname, double* @params);
 
 			[RequiredByFeature("GL_NV_video_capture")]

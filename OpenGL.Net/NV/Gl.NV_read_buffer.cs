@@ -53,9 +53,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glReadBufferNV(Int32 mode);
 
 			[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]

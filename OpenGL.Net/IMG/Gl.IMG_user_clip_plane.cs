@@ -84,9 +84,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glClipPlanefIMG(Int32 p, float* eqn);
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
@@ -94,9 +92,7 @@ namespace OpenGL
 			internal static glClipPlanefIMG pglClipPlanefIMG;
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glClipPlanexIMG(Int32 p, IntPtr* eqn);
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]

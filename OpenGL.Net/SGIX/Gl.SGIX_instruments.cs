@@ -152,9 +152,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_instruments")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate Int32 glGetInstrumentsSGIX();
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -162,9 +160,7 @@ namespace OpenGL
 			internal static glGetInstrumentsSGIX pglGetInstrumentsSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glInstrumentsBufferSGIX(Int32 size, Int32* buffer);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -172,9 +168,7 @@ namespace OpenGL
 			internal static glInstrumentsBufferSGIX pglInstrumentsBufferSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate Int32 glPollInstrumentsSGIX(Int32* marker_p);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -182,9 +176,7 @@ namespace OpenGL
 			internal static glPollInstrumentsSGIX pglPollInstrumentsSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glReadInstrumentsSGIX(Int32 marker);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -192,9 +184,7 @@ namespace OpenGL
 			internal static glReadInstrumentsSGIX pglReadInstrumentsSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glStartInstrumentsSGIX();
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -202,9 +192,7 @@ namespace OpenGL
 			internal static glStartInstrumentsSGIX pglStartInstrumentsSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glStopInstrumentsSGIX(Int32 marker);
 
 			[RequiredByFeature("GL_SGIX_instruments")]

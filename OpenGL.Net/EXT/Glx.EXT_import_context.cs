@@ -153,45 +153,35 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate IntPtr glXGetCurrentDisplayEXT();
 
 			[RequiredByFeature("GLX_EXT_import_context")]
 			internal static glXGetCurrentDisplayEXT pglXGetCurrentDisplayEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
 
 			[RequiredByFeature("GLX_EXT_import_context")]
 			internal static glXQueryContextInfoEXT pglXQueryContextInfoEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr glXGetContextIDEXT(IntPtr context);
 
 			[RequiredByFeature("GLX_EXT_import_context")]
 			internal static glXGetContextIDEXT pglXGetContextIDEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
 
 			[RequiredByFeature("GLX_EXT_import_context")]
 			internal static glXImportContextEXT pglXImportContextEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glXFreeContextEXT(IntPtr dpy, IntPtr context);
 
 			[RequiredByFeature("GLX_EXT_import_context")]

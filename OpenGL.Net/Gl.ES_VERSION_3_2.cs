@@ -490,9 +490,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2", EntryPoint = "glBlendBarrierKHR")]
 			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2", EntryPoint = "glBlendBarrierNV")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glBlendBarrier();
 
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -505,9 +503,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore", EntryPoint = "glPrimitiveBoundingBoxARB")]
 			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2", EntryPoint = "glPrimitiveBoundingBoxEXT")]
 			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2", EntryPoint = "glPrimitiveBoundingBoxOES")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]

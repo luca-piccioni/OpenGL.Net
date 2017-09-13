@@ -209,9 +209,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_fence")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGenFencesAPPLE(Int32 n, UInt32* fences);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -219,9 +217,7 @@ namespace OpenGL
 			internal static glGenFencesAPPLE pglGenFencesAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glDeleteFencesAPPLE(Int32 n, UInt32* fences);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -229,9 +225,7 @@ namespace OpenGL
 			internal static glDeleteFencesAPPLE pglDeleteFencesAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glSetFenceAPPLE(UInt32 fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -239,9 +233,7 @@ namespace OpenGL
 			internal static glSetFenceAPPLE pglSetFenceAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glIsFenceAPPLE(UInt32 fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -249,9 +241,7 @@ namespace OpenGL
 			internal static glIsFenceAPPLE pglIsFenceAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glTestFenceAPPLE(UInt32 fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -259,9 +249,7 @@ namespace OpenGL
 			internal static glTestFenceAPPLE pglTestFenceAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFinishFenceAPPLE(UInt32 fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -269,9 +257,7 @@ namespace OpenGL
 			internal static glFinishFenceAPPLE pglFinishFenceAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool glTestObjectAPPLE(Int32 @object, UInt32 name);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -279,9 +265,7 @@ namespace OpenGL
 			internal static glTestObjectAPPLE pglTestObjectAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFinishObjectAPPLE(Int32 @object, Int32 name);
 
 			[RequiredByFeature("GL_APPLE_fence")]

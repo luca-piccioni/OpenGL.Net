@@ -50,9 +50,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_tag_sample_buffer")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTagSampleBufferSGIX();
 
 			[RequiredByFeature("GL_SGIX_tag_sample_buffer")]

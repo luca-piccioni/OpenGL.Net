@@ -57,9 +57,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_extensions_string")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate IntPtr wglGetExtensionsStringARB(IntPtr hdc);
 
 			[RequiredByFeature("WGL_ARB_extensions_string")]

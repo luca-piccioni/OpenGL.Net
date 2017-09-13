@@ -254,9 +254,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_histogram")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetHistogramEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -264,9 +262,7 @@ namespace OpenGL
 			internal static glGetHistogramEXT pglGetHistogramEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetHistogramParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -274,9 +270,7 @@ namespace OpenGL
 			internal static glGetHistogramParameterfvEXT pglGetHistogramParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetHistogramParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -284,9 +278,7 @@ namespace OpenGL
 			internal static glGetHistogramParameterivEXT pglGetHistogramParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetMinmaxEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -294,9 +286,7 @@ namespace OpenGL
 			internal static glGetMinmaxEXT pglGetMinmaxEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetMinmaxParameterfvEXT(Int32 target, Int32 pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_histogram")]
@@ -304,9 +294,7 @@ namespace OpenGL
 			internal static glGetMinmaxParameterfvEXT pglGetMinmaxParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_histogram")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glGetMinmaxParameterivEXT(Int32 target, Int32 pname, Int32* @params);
 
 			[RequiredByFeature("GL_EXT_histogram")]

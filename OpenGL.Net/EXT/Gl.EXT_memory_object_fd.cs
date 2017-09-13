@@ -62,9 +62,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_memory_object_fd", Api = "gl|gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glImportMemoryFdEXT(UInt32 memory, UInt64 size, Int32 handleType, Int32 fd);
 
 			[RequiredByFeature("GL_EXT_memory_object_fd", Api = "gl|gles2")]

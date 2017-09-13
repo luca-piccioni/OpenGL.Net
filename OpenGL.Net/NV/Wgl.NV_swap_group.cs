@@ -190,54 +190,42 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_swap_group")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglJoinSwapGroupNV(IntPtr hDC, UInt32 group);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglJoinSwapGroupNV pwglJoinSwapGroupNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate bool wglBindSwapBarrierNV(UInt32 group, UInt32 barrier);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglBindSwapBarrierNV pwglBindSwapBarrierNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglQuerySwapGroupNV(IntPtr hDC, UInt32* group, UInt32* barrier);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQuerySwapGroupNV pwglQuerySwapGroupNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglQueryMaxSwapGroupsNV(IntPtr hDC, UInt32* maxGroups, UInt32* maxBarriers);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQueryMaxSwapGroupsNV pwglQueryMaxSwapGroupsNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglQueryFrameCountNV(IntPtr hDC, UInt32* count);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQueryFrameCountNV pwglQueryFrameCountNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglResetFrameCountNV(IntPtr hDC);
 
 			[RequiredByFeature("WGL_NV_swap_group")]

@@ -120,9 +120,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glFramebufferFoveationConfigQCOM(UInt32 framebuffer, UInt32 numLayers, UInt32 focalPointsPerLayer, UInt32 requestedFeatures, UInt32* providedFeatures);
 
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
@@ -130,9 +128,7 @@ namespace OpenGL
 			internal static glFramebufferFoveationConfigQCOM pglFramebufferFoveationConfigQCOM;
 
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glFramebufferFoveationParametersQCOM(UInt32 framebuffer, UInt32 layer, UInt32 focalPoint, float focalX, float focalY, float gainX, float gainY, float foveaArea);
 
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]

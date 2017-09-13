@@ -276,54 +276,42 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_video_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglGetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr* hVideoDevice);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglGetVideoDeviceNV pwglGetVideoDeviceNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglReleaseVideoDeviceNV(IntPtr hVideoDevice);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglReleaseVideoDeviceNV pwglReleaseVideoDeviceNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglBindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglBindVideoImageNV pwglBindVideoImageNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglReleaseVideoImageNV pwglReleaseVideoImageNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglSendPbufferToVideoNV pwglSendPbufferToVideoNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate bool wglGetVideoInfoNV(IntPtr hpVideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
 
 			[RequiredByFeature("WGL_NV_video_output")]

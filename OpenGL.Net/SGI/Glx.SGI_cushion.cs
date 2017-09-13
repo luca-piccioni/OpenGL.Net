@@ -59,9 +59,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGI_cushion")]
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal unsafe delegate void glXCushionSGI(IntPtr dpy, IntPtr window, float cushion);
 
 			[RequiredByFeature("GLX_SGI_cushion")]
