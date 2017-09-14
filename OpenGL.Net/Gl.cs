@@ -42,11 +42,12 @@ namespace OpenGL
 		/// </summary>
 		static Gl()
 		{
+#if !NETSTANDARD1_1
 			// Optional initialization
 			string envGlStaticInit = Environment.GetEnvironmentVariable("OPENGL_NET_GL_STATIC_INIT");
 			if (envGlStaticInit != null && envGlStaticInit == "NO")
 				return;
-
+#endif
 			try {
 				Initialize();
 			} catch (NotSupportedException) {
@@ -62,12 +63,12 @@ namespace OpenGL
 			if (_Initialized == true)
 				return; // Already initialized
 			_Initialized = true;
-
+#if !NETSTANDARD1_1
 			// Optional initialization
 			string envGlInit = Environment.GetEnvironmentVariable("OPENGL_NET_INIT");
 			if (envGlInit != null && envGlInit == "NO")
 				return;
-
+#endif
 			// Environment options
 			LogComment("OpenGL.Net is initializing");
 
@@ -747,9 +748,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			#if !NETCORE && !NETSTANDARD1_4
 			[SuppressUnmanagedCodeSecurity()]
-			#endif
 			internal delegate void glTransformFeedbackVaryings_Unmanaged(UInt32 program, Int32 count, IntPtr* varyings, Int32 bufferMode);
 
 			[RequiredByFeature("GL_VERSION_3_0", EntryPoint = "glTransformFeedbackVaryings")]

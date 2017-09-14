@@ -55,7 +55,7 @@
 
 using System;
 using System.Runtime.InteropServices;
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 #endif
@@ -65,12 +65,12 @@ namespace OpenGL
 	/// <summary>
 	/// HalfFloat floating-point number (16 bit).
 	/// </summary>
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 	[Serializable]
 #endif
 	[StructLayout(LayoutKind.Sequential)]
 	public struct HalfFloat : IComparable<HalfFloat>, IFormattable, IEquatable<HalfFloat>
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 		, ISerializable
 #endif
 	{
@@ -539,7 +539,7 @@ namespace OpenGL
 
 		#endregion
 
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 
 		#region ISerializable Implementation
 
@@ -562,7 +562,7 @@ namespace OpenGL
 		/// </param>
 		/// <param name="context">
 		/// </param>
-#if !MONODROID
+#if NETFRAMEWORK
 		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
 #endif
 		public void GetObjectData(SerializationInfo info, StreamingContext context)

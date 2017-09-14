@@ -331,20 +331,20 @@ namespace OpenGL
 		/// </returns>
 		private static MethodInfo GetConversionMethod(PixelLayout srcType, PixelLayout dstType)
 		{
-#if !NETCORE && !NETSTANDARD1_4
-			return (typeof(Pixel).GetMethod(
-				GetConvertionMethodName(srcType, dstType),
-				BindingFlags.NonPublic | BindingFlags.Static, null,
-				new Type[] { typeof(IntPtr), typeof(IntPtr), typeof(uint), typeof(uint) }, null
-			));
-#elif NETSTANDARD1_4
+#if NETSTANDARD1_1 || NETSTANDARD1_4
 			return (typeof(Pixel).GetTypeInfo().GetDeclaredMethod(
 				GetConvertionMethodName(srcType, dstType)
+			));
+#elif NETCORE
+			return (typeof(Pixel).GetMethod(
+				GetConvertionMethodName(srcType, dstType),
+				new Type[] { typeof(IntPtr), typeof(IntPtr), typeof(uint), typeof(uint) }
 			));
 #else
 			return (typeof(Pixel).GetMethod(
 				GetConvertionMethodName(srcType, dstType),
-				new Type[] { typeof(IntPtr), typeof(IntPtr), typeof(uint), typeof(uint) }
+				BindingFlags.NonPublic | BindingFlags.Static, null,
+				new Type[] { typeof(IntPtr), typeof(IntPtr), typeof(uint), typeof(uint) }, null
 			));
 #endif
 		}

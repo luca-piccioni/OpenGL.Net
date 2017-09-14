@@ -35,6 +35,8 @@
   <ItemGroup>
     <Compile Remove="Gl.NvOptmimus.cs" />
     <Compile Remove="KhronosLogMap.cs" />
+    <Compile Remove="SuppressUnmanagedCodeSecurityAttribute.cs" />
+    <Compile Remove="Win32Exception.cs" />
   </ItemGroup>
 
   <ItemGroup>

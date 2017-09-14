@@ -29,7 +29,6 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
-using ImportMap = System.Collections.Generic.SortedList<string, System.Reflection.MethodInfo>;
 using DelegateList = System.Collections.Generic.List<System.Reflection.FieldInfo>;
 
 namespace OpenGL
@@ -54,9 +53,10 @@ namespace OpenGL
 		/// </summary>
 		static KhronosApi()
 		{
+#if !NETSTANDARD1_1
 			EnvDebug = Environment.GetEnvironmentVariable("OPENGL_NET_DEBUG") != null;
 			EnvExperimental = Environment.GetEnvironmentVariable("OPENGL_NET_EXPERIMENTAL") != null;
-
+#endif
 			// Support for RPi
 			EglInitializing += KhronosApi_PlatformInit_Rpi;
 		}
@@ -198,23 +198,23 @@ namespace OpenGL
 			if (functionContext == null)
 				throw new InvalidOperationException("unrecognized API type");
 
-#if !NETSTANDARD1_4
-			Type delegatesClass = typeof(T).GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
-			Debug.Assert(delegatesClass != null);
-			if (delegatesClass == null)
-				throw new NotImplementedException("missing Delegates class");
-
-			FieldInfo functionField = delegatesClass.GetField("p" + functionName, BindingFlags.Static | BindingFlags.NonPublic);
-			Debug.Assert(functionField != null);
-			if (functionField == null)
-				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4
 			TypeInfo delegatesClass = typeof(T).GetTypeInfo().GetDeclaredNestedType("Delegates");
 			Debug.Assert(delegatesClass != null);
 			if (delegatesClass == null)
 				throw new NotImplementedException("missing Delegates class");
 
 			FieldInfo functionField = delegatesClass.GetDeclaredField("p" + functionName);
+			Debug.Assert(functionField != null);
+			if (functionField == null)
+				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
+#else
+			Type delegatesClass = typeof(T).GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
+			Debug.Assert(delegatesClass != null);
+			if (delegatesClass == null)
+				throw new NotImplementedException("missing Delegates class");
+
+			FieldInfo functionField = delegatesClass.GetField("p" + functionName, BindingFlags.Static | BindingFlags.NonPublic);
 			Debug.Assert(functionField != null);
 			if (functionField == null)
 				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
@@ -307,10 +307,10 @@ namespace OpenGL
 
 				#region Check Requirement
 
-#if !NETCORE && !NETSTANDARD1_4
-				Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 				Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray();
+#else
+				Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
 #endif
 				foreach (RequiredByFeatureAttribute attr in attrRequired) {
 					// Check for API support
@@ -334,10 +334,10 @@ namespace OpenGL
 				if (requiredByFeature != null) {
 					// Note: indeed the feature could be supported; check whether it is removed; this is checked only if
 					// a non-extension feature is detected: extensions cannot remove commands
-#if !NETCORE && !NETSTANDARD1_4
-					Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 					Attribute[] attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute))).ToArray();
+#else
+					Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
 #endif
 					KhronosVersion maxRemovedVersion = null;
 
@@ -443,10 +443,10 @@ namespace OpenGL
 			if (version == null)
 				throw new ArgumentNullException("version");
 
-#if !NETCORE && !NETSTANDARD1_4
-			Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
+			Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray(); // XXX
 #else
-			Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray();
+			Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
 #endif
 
 			KhronosVersion maxRequiredVersion = null;
@@ -467,10 +467,10 @@ namespace OpenGL
 			if (isRequired) {
 				// Note: indeed the feature could be supported; check whether it is removed
 				
-#if !NETCORE && !NETSTANDARD1_4
-				Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 				Attribute[] attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute))).ToArray();
+#else
+				Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
 #endif
 				KhronosVersion maxRemovedVersion = null;
 
@@ -513,20 +513,20 @@ namespace OpenGL
 			if (type == null)
 				throw new ArgumentNullException("type");
 
-#if !NETSTANDARD1_4
-			Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
-			Debug.Assert(delegatesClass != null);
-			if (delegatesClass == null)
-				throw new NotImplementedException("missing Delegates class");
-
-			return (new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic)));
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4
 			TypeInfo delegatesClass = type.GetTypeInfo().GetDeclaredNestedType("Delegates");
 			Debug.Assert(delegatesClass != null);
 			if (delegatesClass == null)
 				throw new NotImplementedException("missing Delegates class");
 
 			return (new DelegateList(delegatesClass.DeclaredFields));
+#else
+			Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
+			Debug.Assert(delegatesClass != null);
+			if (delegatesClass == null)
+				throw new NotImplementedException("missing Delegates class");
+
+			return (new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic)));
 #endif
 		}
 
@@ -851,10 +851,10 @@ namespace OpenGL
 					throw new ArgumentNullException("version");
 
 				Type thisType = GetType();
-#if !NETCORE && !NETSTANDARD1_4
-				IEnumerable<FieldInfo> thisTypeFields = thisType.GetFields(BindingFlags.Instance | BindingFlags.Public);
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 				IEnumerable<FieldInfo> thisTypeFields = thisType.GetTypeInfo().DeclaredFields;
+#else
+				IEnumerable<FieldInfo> thisTypeFields = thisType.GetFields(BindingFlags.Instance | BindingFlags.Public);
 #endif
 
 				foreach (FieldInfo fieldInfo in thisTypeFields) {
@@ -866,10 +866,10 @@ namespace OpenGL
 					bool support = false;
 
 					// Support by extension
-#if !NETCORE && !NETSTANDARD1_4
-					IEnumerable<Attribute> coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 					IEnumerable<Attribute> coreAttributes = fieldInfo.GetCustomAttributes(typeof(CoreExtensionAttribute));
+#else
+					IEnumerable<Attribute> coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
 #endif
 					if (coreAttributes != null) {
 						foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
@@ -881,10 +881,10 @@ namespace OpenGL
 					}
 
 					// Support by extension
-#if !NETCORE && !NETSTANDARD1_4
-					IEnumerable<Attribute> extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 					IEnumerable<Attribute> extensionAttributes = fieldInfo.GetCustomAttributes(typeof(ExtensionAttribute));
+#else
+					IEnumerable<Attribute> extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
 #endif
 					if (extensionAttributes != null) {
 						foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
@@ -957,7 +957,9 @@ namespace OpenGL
 			if (extensions == null)
 				throw new ArgumentNullException("extensions");
 
-#if !NETCORE && !NETSTANDARD1_4
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
+			throw new NotImplementedException();
+#else
 			Type apiType = typeof(T);
 			FunctionContext functionContext = GetFunctionContext(apiType);
 

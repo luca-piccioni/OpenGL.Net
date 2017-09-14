@@ -19,7 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#if NETFRAMEWORK
 using System.Xml.Serialization;
+#endif
 
 namespace OpenGL
 {
@@ -28,12 +30,12 @@ namespace OpenGL
 	/// </summary>
 	public enum KhronosLogCommandParameterFlags
 	{
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 		[XmlEnum("none")]
 #endif
 		None = 0x0000,
 
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 		[XmlEnum("enum")]
 #endif
 		Enum = 0x0001,

@@ -70,8 +70,11 @@ namespace OpenGL
 		/// </summary>
 		static GetProcAddressOS()
 		{
+#if !NETSTANDARD1_1
 			string envOsLoader = Environment.GetEnvironmentVariable("OPENGL_NET_OSLOADER");
-			
+#else
+			string envOsLoader = null;
+#endif
 			switch (envOsLoader) {
 				case "EGL":
 					// Force using eglGetProcAddress
@@ -217,7 +220,9 @@ namespace OpenGL
 		/// </param>
 		public void AddLibraryDirectory(string libraryDirPath)
 		{
-#if !NETCORE && !NETSTANDARD1_4
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCOREAPP1_1
+			// XXX
+#else
 			string path = Environment.GetEnvironmentVariable("PATH");
 
 			Environment.SetEnvironmentVariable("PATH", String.Format("{0};{1}", path, libraryDirPath), EnvironmentVariableTarget.Process);

@@ -747,10 +747,10 @@ namespace OpenGL
 			{
 				string result = string.Empty;
 				Type type = ev.GetType();
-#if !NETSTANDARD1_4
-				FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
-#else
+#if NETSTANDARD1_1 || NETSTANDARD1_4
 				IEnumerable<FieldInfo> fields = type.GetTypeInfo().DeclaredFields;
+#else
+				FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
 #endif
 				foreach (FieldInfo field in fields) {
 					if (result != string.Empty) {

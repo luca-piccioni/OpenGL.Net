@@ -28,6 +28,7 @@ using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Reflection.Emit;
+using System.Security;
 
 namespace OpenGL
 {
@@ -65,7 +66,9 @@ namespace OpenGL
 		/// <returns></returns>
 		private static Action<IntPtr, byte, uint> GenerateMemsetDelegate()
 		{
-#if !NETCORE && !NETSTANDARD1_4 && !NETSTANDARD2_0
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETSTANDARD2_0 || NETCOREAPP1_1
+			return (new Action<IntPtr, byte, uint>(delegate(IntPtr addr, byte value, uint count) { throw new NotImplementedException(); })); // XXX
+#else
 			DynamicMethod dynamicMethod = new DynamicMethod(
 				"Memset", MethodAttributes.Public | MethodAttributes.Static, CallingConventions.Standard,
 				null,
@@ -81,8 +84,6 @@ namespace OpenGL
 			generator.Emit(OpCodes.Ret);
 
 			return (Action<IntPtr, byte, uint>)dynamicMethod.CreateDelegate(typeof(Action<IntPtr, byte, uint>));
-#else
-			return (new Action<IntPtr, byte, uint>(delegate(IntPtr addr, byte value, uint count) { throw new NotImplementedException(); }));
 #endif
 		}
 
@@ -102,9 +103,7 @@ namespace OpenGL
 		/// <param name="src"></param>
 		/// <param name="bytes"></param>
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-#if !NETCORE && !NETSTANDARD1_4
-		[System.Security.SuppressUnmanagedCodeSecurity()]
-#endif
+		[SuppressUnmanagedCodeSecurity()]
 		private delegate void MemoryCopyDelegate(void *dst, void* src, ulong bytes);
 
 		/// <summary>

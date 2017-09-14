@@ -40,7 +40,7 @@ namespace OpenGL
 		public KhronosLogContext(Type khronoApiType)
 		{
 			QueryLogContext(khronoApiType);
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 			try {
 				_LogMap = KhronosLogMap.Load(String.Format("OpenGL.KhronosLogMap{0}.xml", khronoApiType.Name));
 			} catch { /* Fail-safe */ }
@@ -88,7 +88,7 @@ namespace OpenGL
 			Dictionary<Int64, string> enumNames = new Dictionary<Int64, string>();
 			Dictionary<string, Dictionary<Int64, string>> enumBitmasks = new Dictionary<string, Dictionary<Int64, string>>();
 
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 
 			FieldInfo[] fieldInfos = khronoApiType.GetFields(BindingFlags.Public | BindingFlags.Static);
 
@@ -144,7 +144,7 @@ namespace OpenGL
 		/// </summary>
 		private Dictionary<string, Dictionary<long, string>> _EnumBitmasks;
 
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 
 		/// <summary>
 		/// Log map, if any.
@@ -183,7 +183,7 @@ namespace OpenGL
 			if (args != null) {
 				for (int i = 0; i < args.Length; i++) {
 					KhronosLogCommandParameterFlags flags = KhronosLogCommandParameterFlags.None;
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 					if (_LogMap != null)
 						flags = _LogMap.GetCommandParameterFlag(name, i);
 #endif

@@ -173,7 +173,6 @@ namespace OpenGL
 					if (nativeWindow != null)
 						return (new DeviceContextEGL(nativeWindow.Handle));
 
-					Debug.Fail("unsupported EGL surface");
 					throw new NotSupportedException("EGL surface not supported");
 				} else
 					return (new DeviceContextEGL(IntPtr.Zero));

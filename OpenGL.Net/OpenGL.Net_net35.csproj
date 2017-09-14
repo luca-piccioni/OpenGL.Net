@@ -39,7 +39,7 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\net35\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;GL_DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;NETFRAMEWORK</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -52,8 +52,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\net35\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>
-    </DefineConstants>
+    <DefineConstants>NETFRAMEWORK</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

@@ -21,7 +21,7 @@
 
 using System;
 using System.ComponentModel;
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 using System.ComponentModel.Design.Serialization;
 #endif
 using System.Diagnostics;
@@ -35,7 +35,7 @@ namespace OpenGL
 	/// Version abstraction for Khrono APIs.
 	/// </summary>
 	[DebuggerDisplay("KhronosVersion: Version={Major}.{Minor}.{Revision} API='{Api}' Profile={Profile}")]
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 	[TypeConverter(typeof(KhronosVersionConverter))]
 #endif
 	public class KhronosVersion : IEquatable<KhronosVersion>, IComparable<KhronosVersion>
@@ -683,11 +683,12 @@ namespace OpenGL
 				return (false);
 			if (ReferenceEquals(this, obj))
 				return (true);
-#if !NETCORE && !NETSTANDARD1_4
-			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().IsSubclassOf(typeof(KhronosVersion)) == false))
+
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
+			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().GetTypeInfo().IsSubclassOf(typeof(KhronosVersion)) == false))
 				return (false);
 #else
-			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().GetTypeInfo().IsSubclassOf(typeof(KhronosVersion)) == false))
+			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().IsSubclassOf(typeof(KhronosVersion)) == false))
 				return (false);
 #endif
 
@@ -717,7 +718,7 @@ namespace OpenGL
 			}
 		}
 
-#endregion
+		#endregion
 
 		#region IComparable<KhronosVersion> Implementation
 
@@ -762,7 +763,7 @@ namespace OpenGL
 		#endregion
 	}
 
-#if !NETCORE && !NETSTANDARD1_4
+#if NETFRAMEWORK
 
 	/// <summary>
 	/// Designer converter for <see cref="KhronosVersion"/> properties.

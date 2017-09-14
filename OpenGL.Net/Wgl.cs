@@ -150,7 +150,17 @@ namespace OpenGL
 			ErrorHandlingMode methodErrorHandling = ErrorHandling;
 
 			if ((methodErrorHandling == ErrorHandlingMode.Normal) && (returnValue != null)) {
-#if !NETSTANDARD1_4
+#if NETSTANDARD1_1 || NETSTANDARD1_4
+				Type returnValueType = returnValue.GetType();
+
+				if        (returnValueType == typeof(Boolean)) {
+					if ((bool)returnValue == true)
+							methodErrorHandling = ErrorHandlingMode.LogOnly;
+				} else if (returnValueType == typeof(String)) {
+					if ((string)returnValue != null)
+							methodErrorHandling = ErrorHandlingMode.LogOnly;
+				}
+#else
 				switch (Type.GetTypeCode(returnValue.GetType())) {
 					case TypeCode.Boolean:
 						if ((bool)returnValue == true)
@@ -160,16 +170,6 @@ namespace OpenGL
 						if ((string)returnValue != null)
 							methodErrorHandling = ErrorHandlingMode.LogOnly;
 						break;
-				}
-#else
-				Type returnValueType = returnValue.GetType();
-
-				if        (returnValueType == typeof(Boolean)) {
-					if ((bool)returnValue == true)
-							methodErrorHandling = ErrorHandlingMode.LogOnly;
-				} else if (returnValueType == typeof(String)) {
-					if ((string)returnValue != null)
-							methodErrorHandling = ErrorHandlingMode.LogOnly;
 				}
 #endif
 			}

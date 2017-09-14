@@ -41,10 +41,10 @@ namespace OpenGL.CoreUI
 		{
 			_WindowsWndProc = new UnsafeNativeMethods.WndProc(WindowsWndProc);
 
-#if !NETCORE
-			_HInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
-#else
+#if NETCORE
 			_HInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).GetTypeInfo().Assembly.Location);
+#else
+			_HInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
 #endif
 		}
 

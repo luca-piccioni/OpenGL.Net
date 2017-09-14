@@ -559,7 +559,6 @@ namespace OpenGL
 						adulteredAttribs[profileMaskIndex + 1] |= (int)Glx.CONTEXT_ES_PROFILE_BIT_EXT;
 						break;
 					default:
-						Debug.Fail("API not implemented");
 						throw new NotSupportedException(String.Format("'{0}' API not supported", api.Api));
 				}
 

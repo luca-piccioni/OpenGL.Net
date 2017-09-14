@@ -42,11 +42,12 @@ namespace OpenGL
 		/// </summary>
 		static Egl()
 		{
+#if !NETSTANDARD1_1
 			// Optional initialization
 			string envEglStaticInit = Environment.GetEnvironmentVariable("OPENGL_NET_EGL_STATIC_INIT");
 			if (envEglStaticInit != null && envEglStaticInit == "NO")
 				return;
-
+#endif
 			// Do not automatically initialize Egl on Android & Debug configurations
 			Initialize();
 		}
@@ -61,10 +62,12 @@ namespace OpenGL
 			_Initialized = true;
 
 			// Before linking procedures, append ANGLE directory in path
-#if !NETCORE && !NETSTANDARD1_4
-			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Egl)).Location);
-#else
+#if   NETSTANDARD1_1
+			string assemblyPath = String.Empty; // XXX
+#elif NETSTANDARD1_4 || NETCORE
 			string assemblyPath = Directory.GetCurrentDirectory();
+#else
+			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Egl)).Location);
 #endif
 			string anglePath = null;
 
@@ -89,8 +92,13 @@ namespace OpenGL
 			}
 
 			// Include ANGLE path, if any
+#if NETSTANDARD1_1
+			if (anglePath != String.Empty)
+				OpenGL.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
+#else
 			if (anglePath != null && Directory.Exists(anglePath))
 				OpenGL.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
+#endif
 
 			// Load procedures
 			BindAPI();
