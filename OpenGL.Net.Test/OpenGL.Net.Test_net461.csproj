@@ -108,6 +108,7 @@
     <Compile Include="DeviceContext.cs" />
     <Compile Include="Gl.cs" />
     <Compile Include="KhronosVersion.cs" />
+    <Compile Include="Quaternion.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs" />
     <Compile Include="RequiredByFeatureAttribute.cs" />
     <Compile Include="TestBaseBenchmark.cs" />
