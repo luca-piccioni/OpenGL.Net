@@ -62,31 +62,28 @@ namespace OpenGL
 			_Initialized = true;
 
 			// Before linking procedures, append ANGLE directory in path
-#if   NETSTANDARD1_1
-			string assemblyPath = String.Empty; // XXX
-#elif NETSTANDARD1_4 || NETCORE
-			string assemblyPath = Directory.GetCurrentDirectory();
-#else
-			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(Egl)).Location);
-#endif
+			string assemblyPath = GetAssemblyLocation();
 			string anglePath = null;
 
 			switch (Platform.CurrentPlatformId) {
 				case Platform.Id.WindowsNT:
+					if (assemblyPath != null) {
 #if DEBUG
-					if (IntPtr.Size == 8)
-						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x64");
-					else
-						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x86");
+						if (IntPtr.Size == 8)
+							anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x64");
+						else
+							anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x86");
 #else
-					if (IntPtr.Size == 8)
-						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x64");
-					else
-						anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x86");
+						if (IntPtr.Size == 8)
+							anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x64");
+						else
+							anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x86");
 #endif
+					}
 					break;
 				case Platform.Id.Linux:
 					// Note: on RPi libEGL.so depends on libGLESv2.so, so it's required to pre-load the shared library
+					// Note: maybe a configurable and generic method for pre-loading assemblies may be introduced
 					GetProcAddressLinux.GetLibraryHandle("libGLESv2.so", false);
 					break;
 			}

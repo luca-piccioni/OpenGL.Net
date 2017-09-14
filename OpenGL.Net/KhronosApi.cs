@@ -25,6 +25,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
@@ -109,6 +110,25 @@ namespace OpenGL
 		#endregion
 
 		#region Function Linkage
+
+		/// <summary>
+		/// Get the current location of the 
+		/// </summary>
+		/// <returns></returns>
+		protected static string GetAssemblyLocation()
+		{
+#if   NETSTANDARD1_1
+			string assemblyPath = null; // XXX
+#elif NETSTANDARD1_4 || NETCORE
+			string assemblyPath = Directory.GetCurrentDirectory();
+#else
+			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(KhronosApi)).Location);
+
+			if (String.IsNullOrEmpty(assemblyPath))
+				assemblyPath = Directory.GetCurrentDirectory();
+#endif
+			return (assemblyPath);
+		}
 
 		/// <summary>
 		/// Delegate used for getting a procedure address.
