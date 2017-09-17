@@ -617,22 +617,26 @@ namespace OpenGL
 		/// </returns>
 		protected IntPtr GetDisplay()
 		{
-			Type xplatui = Type.GetType("System.Windows.Forms.XplatUIX11, System.Windows.Forms");
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
+					return (IntPtr.Zero);
+				case Platform.Id.Linux:
+					Type xplatui = Type.GetType("System.Windows.Forms.XplatUIX11, System.Windows.Forms");
+					if (xplatui == null)
+						throw new InvalidOperationException("no XPlatUI implementation");
+					IntPtr display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+					KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", display.ToString("X"));
+					if (display == IntPtr.Zero)
+						throw new InvalidOperationException("unable to connect to X server using XPlatUI");
 
-			if (xplatui != null) {
-				// Get System.Windows.Forms display
-				IntPtr display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-				KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", display.ToString("X"));
-				if (display == IntPtr.Zero)
-					throw new InvalidOperationException("unable to connect to X server using XPlatUI");
+					// Screen
+					// _Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+					// KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
 
-				// Screen
-				// _Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-				// KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
-
-				return (display);
-			} else
-				return (IntPtr.Zero);
+					return (display);
+				default:
+					throw new NotSupportedException("platform " + Platform.CurrentPlatformId + " not supported");
+			}
 		}
 
 		/// <summary>
