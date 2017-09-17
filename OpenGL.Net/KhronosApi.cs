@@ -122,9 +122,11 @@ namespace OpenGL
 #elif NETSTANDARD1_4 || NETCORE
 			string assemblyPath = Directory.GetCurrentDirectory();
 #else
-			string assemblyPath = Path.GetDirectoryName(Assembly.GetAssembly(typeof(KhronosApi)).Location);
+			string assemblyPath = Assembly.GetAssembly(typeof(KhronosApi)).Location;
 
-			if (String.IsNullOrEmpty(assemblyPath))
+			if (String.IsNullOrEmpty(assemblyPath) == false)
+				assemblyPath = Path.GetDirectoryName(assemblyPath);
+			else
 				assemblyPath = Directory.GetCurrentDirectory();
 #endif
 			return (assemblyPath);
