@@ -102,16 +102,15 @@
   <ItemGroup>
     <Compile Include="ARB\Wgl.ARB_extensions_string.cs" />
     <Compile Include="ARB\Wgl.ARB_pixel_format.cs" />
-    <Compile Include="ARB\GL.ARB_shader_precision.cs" />
-    <Compile Include="BenchmarkAttribute.cs" />
-    <Compile Include="BenchmarkPInvoke.cs" />
+    <None Include="BenchmarkAttribute.cs" />
+    <None Include="BenchmarkPInvoke.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="Gl.cs" />
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="Quaternion.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs" />
     <Compile Include="RequiredByFeatureAttribute.cs" />
-    <Compile Include="TestBaseBenchmark.cs" />
+    <None Include="TestBaseBenchmark.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
     <Compile Include="Gl.VERSION_2_0.cs" />
@@ -119,9 +118,9 @@
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="TestBaseGL.cs" />
     <Compile Include="KhronosApi.cs" />
-    <Compile Include="Matrix.cs" />
-    <Compile Include="Matrix4x4.cs" />
-    <Compile Include="Memory.cs" />
+    <None Include="Matrix.cs" />
+    <None Include="Matrix4x4.cs" />
+    <None Include="Memory.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,11 +129,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vertex3.tt</DependentUpon>
     </Compile>
-    <Compile Include="_Vertex3.cs" />
-    <Compile Include="_Vertex4.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ARB\Gl.ARB_shader_precision.glvs" />
     <Compile Include="ContextAttribute.cs" />
     <Compile Include="TestBaseGLSL.cs" />
   </ItemGroup>

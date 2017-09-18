@@ -32,7 +32,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture]
+	//[TestFixture]
 	[Category("Benchmark")]
 	class BenchmarkPInvoke : TestBaseGL
 	{
@@ -241,6 +241,6 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Number of repetitions.
 		/// </summary>
-		private const int PInvokeRepetitionsInternal = 1 << 20;
+		private const int PInvokeRepetitionsInternal = 1 << 10;
 	}
 }

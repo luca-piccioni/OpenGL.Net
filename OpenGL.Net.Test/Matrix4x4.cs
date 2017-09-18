@@ -196,7 +196,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Number of repetitions for Min.
 		/// </summary>
-		private const int MulRepetitions = 100;
+		private const int MulRepetitions = 25;
 
 		#endregion
 
@@ -818,7 +818,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Number of repetitions for Min.
 		/// </summary>
-		private const int GetInverseRepetitions = 50000 * 2;
+		private const int GetInverseRepetitions = 25;
 
 		#endregion
 	}
