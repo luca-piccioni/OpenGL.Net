@@ -316,6 +316,8 @@ namespace OpenGL.Test
 			Assert.AreEqual(v,new DerivedVersion());
 		}
 
+#if !MONODROID
+
 		[Test(Description = "Test GetHashCode()")]
 		public void TestHashCode()
 		{
@@ -352,6 +354,8 @@ namespace OpenGL.Test
 			hashes.Add(h);
 		}
 
+#endif
+
 		[Test(Description = "CompareTo(KhronosVersion other)")]
 		public void TestCompareTo()
 		{
@@ -360,41 +364,41 @@ namespace OpenGL.Test
 			// Major version
 			a = new KhronosVersion(1, 0, KhronosVersion.ApiGl);
 			b = new KhronosVersion(2, 0, KhronosVersion.ApiGl);
-			Assert.Greater(0, a.CompareTo(b));
+			Assert.IsTrue(0 > a.CompareTo(b));
 
 			a = new KhronosVersion(2, 0, KhronosVersion.ApiGl);
 			b = new KhronosVersion(1, 0, KhronosVersion.ApiGl);
-			Assert.Less(0, a.CompareTo(b));
+			Assert.IsTrue(0 < a.CompareTo(b));
 
 			// Minor version
 			a = new KhronosVersion(1, 1, KhronosVersion.ApiGl);
 			b = new KhronosVersion(1, 0, KhronosVersion.ApiGl);
-			Assert.Less(0, a.CompareTo(b));
+			Assert.IsTrue(0 < a.CompareTo(b));
 
 			a = new KhronosVersion(1, 4, KhronosVersion.ApiGl);
 			b = new KhronosVersion(1, 2, KhronosVersion.ApiGl);
-			Assert.Less(0, a.CompareTo(b));
+			Assert.IsTrue(0 < a.CompareTo(b));
 
 			a = new KhronosVersion(1, 4, KhronosVersion.ApiGl);
 			b = new KhronosVersion(2, 2, KhronosVersion.ApiGl);
-			Assert.Greater(0, a.CompareTo(b));
+			Assert.IsTrue(0 > a.CompareTo(b));
 
 			// Revision
 			a = new KhronosVersion(1, 0, 0, KhronosVersion.ApiGl);
 			b = new KhronosVersion(1, 0, 1, KhronosVersion.ApiGl);
-			Assert.Greater(0, a.CompareTo(b));
+			Assert.IsTrue(0 > a.CompareTo(b));
 
 			a = new KhronosVersion(1, 0, 15, KhronosVersion.ApiGl);
 			b = new KhronosVersion(1, 0, 1, KhronosVersion.ApiGl);
-			Assert.Less(0, a.CompareTo(b));
+			Assert.IsTrue(0 < a.CompareTo(b));
 
 			a = new KhronosVersion(1, 0, 15, KhronosVersion.ApiGl);
 			b = new KhronosVersion(1, 20, 1, KhronosVersion.ApiGl);
-			Assert.Greater(0, a.CompareTo(b));
+			Assert.IsTrue(0 > a.CompareTo(b));
 
 			a = new KhronosVersion(1, 4, 15, KhronosVersion.ApiGl);
 			b = new KhronosVersion(10, 0, 1, KhronosVersion.ApiGl);
-			Assert.Greater(0, a.CompareTo(b));
+			Assert.IsTrue(0 > a.CompareTo(b));
 
 			// Different API
 			Assert.Throws(typeof(InvalidOperationException), () => {
