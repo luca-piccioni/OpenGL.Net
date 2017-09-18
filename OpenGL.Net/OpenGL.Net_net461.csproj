@@ -267,7 +267,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ColorRGBARef.cs" />
-    <Compile Include="ColorSRGB.cs" />
     <Compile Include="EglEventArgs.cs" />
     <Compile Include="EXT\Egl.EXT_protected_content.cs" />
     <Compile Include="EXT\Gl.EXT_external_buffer.cs" />
@@ -723,7 +722,6 @@
     <Compile Include="PGI\Gl.PGI_misc_hints.cs" />
     <Compile Include="PGI\Gl.PGI_vertex_hints.cs" />
     <Compile Include="KhronosApi.cs" />
-    <Compile Include="Pixel.cs" />
     <Compile Include="PixelColorspaceAttribute.cs" />
     <Compile Include="PixelComponentsAttribute.cs" />
     <Compile Include="PixelLayout.cs" />

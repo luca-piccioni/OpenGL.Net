@@ -207,7 +207,7 @@ namespace OpenGL
 		[PixelColorspace(PixelSpace.sRgb)]
 		[PixelComponents(3)]
 		[PixelPrecision(8, 8, 8)]
-		[PixelStructure(typeof(ColorSRGB24))]
+		[PixelStructure(typeof(ColorRGB24))]
 		[PixelNonLinearAttribute()]
 		SRGB24,
 		/// <summary>
@@ -216,7 +216,7 @@ namespace OpenGL
 		[PixelColorspace(PixelSpace.sBgr)]
 		[PixelComponents(3)]
 		[PixelPrecision(8, 8, 8)]
-		[PixelStructure(typeof(ColorSBGR24))]
+		[PixelStructure(typeof(ColorBGR24))]
 		[PixelNonLinearAttribute()]
 		SBGR24,
 
