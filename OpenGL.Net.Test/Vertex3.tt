@@ -40,6 +40,11 @@ namespace OpenGL.Test
 {
 	class Vertex3TestBase
 	{
+		protected static double Next(Random random)
+		{
+			return (Next(random, 16.0, 32.0));
+		}
+
 		protected static double Next(Random random, double minValue, double maxValue)
 		{
 			return (random.NextDouble() * (maxValue - minValue) + minValue);
@@ -70,7 +75,7 @@ namespace OpenGL.Test
 		public void <#= className #>_TestConstructor1()
 		{
 			Random random = new Random();
-			<#= baseType #> randomValue = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValue = (<#= baseType #>)Next(random);
 			
 			<#= className #> v = new <#= className #>(randomValue);
 
@@ -83,9 +88,9 @@ namespace OpenGL.Test
 		public void <#= className #>_TestConstructor2()
 		{
 			Random random = new Random();
-			<#= baseType #> randomValueX = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
-			<#= baseType #> randomValueY = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
-			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueX = (<#= baseType #>)Next(random);
+			<#= baseType #> randomValueY = (<#= baseType #>)Next(random);
+			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random);
 
 			<#= className #> v = new <#= className #>(new <#= baseType #>[] {
 				randomValueX, randomValueY, randomValueZ
@@ -100,9 +105,9 @@ namespace OpenGL.Test
 		public void <#= className #>_TestConstructor3()
 		{
 			Random random = new Random();
-			<#= baseType #> randomValueX = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
-			<#= baseType #> randomValueY = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
-			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueX = (<#= baseType #>)Next(random);
+			<#= baseType #> randomValueY = (<#= baseType #>)Next(random);
+			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random);
 
 			<#= className #> v = new <#= className #>(
 				randomValueX, randomValueY, randomValueZ
@@ -117,9 +122,9 @@ namespace OpenGL.Test
 		public void <#= className #>_TestConstructor4()
 		{
 			Random random = new Random();
-			<#= baseType #> randomValueX = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
-			<#= baseType #> randomValueY = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
-			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random, <#= baseType #>.MinValue, <#= baseType #>.MaxValue);
+			<#= baseType #> randomValueX = (<#= baseType #>)Next(random);
+			<#= baseType #> randomValueY = (<#= baseType #>)Next(random);
+			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random);
 
 			<#= className #> v1 = new <#= className #>(
 				randomValueX, randomValueY, randomValueZ
@@ -153,9 +158,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
 
 			<#= className #> v = new <#= className #>(x, y, z);
 			<#= className #> n = -v;
@@ -172,15 +177,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> x1 = (<#= baseType #>)Next(random);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
 
-			<#= baseType #> x2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> y2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> z2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> x2 = (<#= baseType #>)Next(random);
+			<#= baseType #> y2 = (<#= baseType #>)Next(random);
+			<#= baseType #> z2 = (<#= baseType #>)Next(random);
 
 			<#= className #> v2 = new <#= className #>(x2, y2, z2);
 
@@ -196,15 +201,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> x1 = (<#= baseType #>)Next(random);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
 
-			<#= baseType #> x2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> y2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
-			<#= baseType #> z2 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 2.0f, <#= baseType #>.MaxValue / 2.0f);
+			<#= baseType #> x2 = (<#= baseType #>)Next(random);
+			<#= baseType #> y2 = (<#= baseType #>)Next(random);
+			<#= baseType #> z2 = (<#= baseType #>)Next(random);
 
 			<#= className #> v2 = new <#= className #>(x2, y2, z2);
 
@@ -220,9 +225,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x1 = (<#= baseType #>)Next(random);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
@@ -239,9 +244,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x1 = (<#= baseType #>)Next(random);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
@@ -258,9 +263,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x1 = (<#= baseType #>)Next(random);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
@@ -277,9 +282,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x1 = (<#= baseType #>)Next(random);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
@@ -348,9 +353,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x1 = (<#= baseType #>)Next(random);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random);
 			<#= baseType #> s = (<#= baseType #>)Next(random, 0.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
@@ -367,9 +372,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x1 = (<#= baseType #>)Next(random);
+			<#= baseType #> y1 = (<#= baseType #>)Next(random);
+			<#= baseType #> z1 = (<#= baseType #>)Next(random);
 			<#= baseType #> s = (<#= baseType #>)Next(random, 0.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
@@ -415,9 +420,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
 
 			<#= className #> v = new <#= className #>(x, y, z);
 			<#= baseType #>[] vArray = (<#= baseType #>[])v;
@@ -432,15 +437,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
 
 			<#= className #> v = new <#= className #>(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test <#= className #>.operator Vertex3f(<#= className #>)")]
@@ -448,16 +453,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
 
 			<#= className #> v = new <#= className #>(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test <#= className #>.operator Vertex3d(<#= className #>)")]
@@ -465,16 +470,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
 
 			<#= className #> v = new <#= className #>(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test <#= className #>.operator Vertex4d(<#= className #>)")]
@@ -482,17 +487,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			<#= baseType #> x = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> y = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
-			<#= baseType #> z = (<#= baseType #>)Next(random, <#= baseType #>.MinValue / 32.0, <#= baseType #>.MaxValue / 32.0);
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
 
 			<#= className #> v = new <#= className #>(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -613,6 +618,52 @@ namespace OpenGL.Test
 				new <#= className #>((<#= baseType #>)3.0f, (<#= baseType #>)13.0f, (<#= baseType #>)23.0f),
 				max
 			);
+		}
+
+		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test <#= className #>.operator==(<#= className #>, <#= className #>)")]
+		public void <#= className #>_TestEquals_<#= className #>()
+		{
+			<#= className #> v = <#= className #>.UnitX;
+
+			Assert.IsTrue(v.Equals(<#= className #>.UnitX));
+			Assert.IsFalse(v.Equals(<#= className #>.UnitY));
+			Assert.IsFalse(v.Equals(<#= className #>.UnitZ));
+		}
+
+		[Test(Description = "Test <#= className #>.GetHashCode()")]
+		public void <#= className #>_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
+
+			<#= className #> v = new <#= className #>(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test <#= className #>.ToString()")]
+		public void <#= className #>_TestToString()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
+
+			<#= className #> v = new <#= className #>(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
 		}
 
 		#endregion

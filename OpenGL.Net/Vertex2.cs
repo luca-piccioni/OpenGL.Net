@@ -31,7 +31,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UByte, 2)]
 	[DebuggerDisplay("Vertex2ub: X={x} Y={y}")]
-	public struct Vertex2ub : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2ub
 	{
 		#region Constructors
 
@@ -426,7 +426,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2f(Vertex2ub v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			return (new Vertex2f((float)v.x, (float)v.y));
 		}
 
 		/// <summary>
@@ -440,7 +440,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2d(Vertex2ub v)
 		{
-			return (new Vertex2d(v.X, v.Y));
+			return (new Vertex2d(v.x, v.y));
 		}
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -453,7 +453,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3f(Vertex2ub v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -467,7 +467,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2ub v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -477,11 +477,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2ub"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex2ub v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -495,7 +495,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2ub v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -742,87 +742,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IVertex2 Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x / (float)byte.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (byte)(value * (float)byte.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y / (float)byte.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (byte)(value * (float)byte.MaxValue);
-			}
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2ub is equal to another Vertex2ub.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -830,19 +753,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2ub other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -860,7 +773,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2ub)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -905,7 +818,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Byte, 2)]
 	[DebuggerDisplay("Vertex2b: X={x} Y={y}")]
-	public struct Vertex2b : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2b
 	{
 		#region Constructors
 
@@ -1314,7 +1227,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2f(Vertex2b v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			return (new Vertex2f((float)v.x, (float)v.y));
 		}
 
 		/// <summary>
@@ -1328,7 +1241,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2d(Vertex2b v)
 		{
-			return (new Vertex2d(v.X, v.Y));
+			return (new Vertex2d(v.x, v.y));
 		}
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -1341,7 +1254,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3f(Vertex2b v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -1355,7 +1268,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2b v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -1365,11 +1278,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2b"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex2b v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -1383,7 +1296,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2b v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -1630,87 +1543,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IVertex2 Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)(x - sbyte.MinValue) / ((long)sbyte.MaxValue - (long)sbyte.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (sbyte)((value * 0.5f + 0.5f) * ((long)sbyte.MaxValue - (long)sbyte.MinValue) + sbyte.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)(y - sbyte.MinValue) / ((long)sbyte.MaxValue - (long)sbyte.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (sbyte)((value * 0.5f + 0.5f) * ((long)sbyte.MaxValue - (long)sbyte.MinValue) + sbyte.MinValue);
-			}
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2b is equal to another Vertex2b.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -1718,19 +1554,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2b other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -1748,7 +1574,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2b)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -1793,7 +1619,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UShort, 2)]
 	[DebuggerDisplay("Vertex2us: X={x} Y={y}")]
-	public struct Vertex2us : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2us
 	{
 		#region Constructors
 
@@ -2188,7 +2014,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2f(Vertex2us v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			return (new Vertex2f((float)v.x, (float)v.y));
 		}
 
 		/// <summary>
@@ -2202,7 +2028,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2d(Vertex2us v)
 		{
-			return (new Vertex2d(v.X, v.Y));
+			return (new Vertex2d(v.x, v.y));
 		}
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -2215,7 +2041,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3f(Vertex2us v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -2229,7 +2055,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2us v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -2239,11 +2065,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2us"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex2us v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -2257,7 +2083,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2us v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -2504,87 +2330,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IVertex2 Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x / (float)ushort.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (ushort)(value * (float)ushort.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y / (float)ushort.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (ushort)(value * (float)ushort.MaxValue);
-			}
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2us is equal to another Vertex2us.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -2592,19 +2341,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2us other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -2622,7 +2361,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2us)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -2667,7 +2406,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Short, 2)]
 	[DebuggerDisplay("Vertex2s: X={x} Y={y}")]
-	public struct Vertex2s : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2s
 	{
 		#region Constructors
 
@@ -3076,7 +2815,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2f(Vertex2s v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			return (new Vertex2f((float)v.x, (float)v.y));
 		}
 
 		/// <summary>
@@ -3090,7 +2829,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2d(Vertex2s v)
 		{
-			return (new Vertex2d(v.X, v.Y));
+			return (new Vertex2d(v.x, v.y));
 		}
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -3103,7 +2842,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3f(Vertex2s v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -3117,7 +2856,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2s v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -3127,11 +2866,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2s"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex2s v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -3145,7 +2884,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2s v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -3392,87 +3131,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IVertex2 Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)(x - short.MinValue) / ((long)short.MaxValue - (long)short.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (short)((value * 0.5f + 0.5f) * ((long)short.MaxValue - (long)short.MinValue) + short.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)(y - short.MinValue) / ((long)short.MaxValue - (long)short.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (short)((value * 0.5f + 0.5f) * ((long)short.MaxValue - (long)short.MinValue) + short.MinValue);
-			}
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2s is equal to another Vertex2s.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -3480,19 +3142,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2s other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -3510,7 +3162,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2s)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -3555,7 +3207,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UInt, 2)]
 	[DebuggerDisplay("Vertex2ui: X={x} Y={y}")]
-	public struct Vertex2ui : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2ui
 	{
 		#region Constructors
 
@@ -3950,7 +3602,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex2f(Vertex2ui v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			return (new Vertex2f((float)v.x, (float)v.y));
 		}
 
 		/// <summary>
@@ -3964,7 +3616,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2d(Vertex2ui v)
 		{
-			return (new Vertex2d(v.X, v.Y));
+			return (new Vertex2d(v.x, v.y));
 		}
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -3977,7 +3629,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex3f(Vertex2ui v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -3991,7 +3643,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2ui v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -4001,11 +3653,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2ui"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator Vertex4f(Vertex2ui v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -4019,7 +3671,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2ui v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -4266,87 +3918,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IVertex2 Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x / (float)uint.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (uint)(value * (float)uint.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y / (float)uint.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (uint)(value * (float)uint.MaxValue);
-			}
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2ui is equal to another Vertex2ui.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -4354,19 +3929,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2ui other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -4384,7 +3949,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2ui)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -4429,7 +3994,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Int, 2)]
 	[DebuggerDisplay("Vertex2i: X={x} Y={y}")]
-	public struct Vertex2i : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2i
 	{
 		#region Constructors
 
@@ -4838,7 +4403,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex2f(Vertex2i v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			return (new Vertex2f((float)v.x, (float)v.y));
 		}
 
 		/// <summary>
@@ -4852,7 +4417,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2d(Vertex2i v)
 		{
-			return (new Vertex2d(v.X, v.Y));
+			return (new Vertex2d(v.x, v.y));
 		}
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -4865,7 +4430,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex3f(Vertex2i v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -4879,7 +4444,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2i v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -4889,11 +4454,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2i"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator Vertex4f(Vertex2i v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -4907,7 +4472,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2i v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -5154,87 +4719,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IVertex2 Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)(x - int.MinValue) / ((long)int.MaxValue - (long)int.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (int)((value * 0.5f + 0.5f) * ((long)int.MaxValue - (long)int.MinValue) + int.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)(y - int.MinValue) / ((long)int.MaxValue - (long)int.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (int)((value * 0.5f + 0.5f) * ((long)int.MaxValue - (long)int.MinValue) + int.MinValue);
-			}
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2i is equal to another Vertex2i.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -5242,19 +4730,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2i other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -5272,7 +4750,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2i)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -5317,7 +4795,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Float, 2)]
 	[DebuggerDisplay("Vertex2f: X={x} Y={y}")]
-	public struct Vertex2f : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2f
 	{
 		#region Constructors
 
@@ -5683,7 +5161,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2d(Vertex2f v)
 		{
-			return (new Vertex2d(v.X, v.Y));
+			return (new Vertex2d(v.x, v.y));
 		}
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -5696,7 +5174,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3f(Vertex2f v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -5710,7 +5188,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2f v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -5720,11 +5198,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex2f v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -5738,7 +5216,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2f v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -5985,77 +5463,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IVertex2 Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, unclamped range.
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x); }
-			set { x = (float)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, unclamped range.
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y); }
-			set { y = (float)value; }
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2f is equal to another Vertex2f.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -6063,19 +5474,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2f other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -6093,7 +5494,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2f)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -6138,7 +5539,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Double, 2)]
 	[DebuggerDisplay("Vertex2d: X={x} Y={y}")]
-	public struct Vertex2d : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2d
 	{
 		#region Constructors
 
@@ -6484,7 +5885,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex2f(Vertex2d v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			return (new Vertex2f((float)v.x, (float)v.y));
 		}
 
 		/// <summary>
@@ -6498,7 +5899,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex3f(Vertex2d v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -6512,7 +5913,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2d v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -6522,11 +5923,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static explicit operator Vertex4f(Vertex2d v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -6540,7 +5941,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2d v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -6787,77 +6188,10 @@ namespace OpenGL
 
 		#endregion
 
-		#region IVertex2 Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, unclamped range.
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x); }
-			set { x = (double)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, unclamped range.
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y); }
-			set { y = (double)value; }
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2d is equal to another Vertex2d.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -6865,19 +6199,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2d other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -6895,7 +6219,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2d)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -6940,7 +6264,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Half, 2)]
 	[DebuggerDisplay("Vertex2hf: X={x} Y={y}")]
-	public struct Vertex2hf : IVertex2, IEquatable<IVertex2>
+	public struct Vertex2hf
 	{
 		#region Constructors
 
@@ -7306,7 +6630,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2f(Vertex2hf v)
 		{
-			return (new Vertex2f(v.X, v.Y));
+			return (new Vertex2f((float)v.x, (float)v.y));
 		}
 
 		/// <summary>
@@ -7320,7 +6644,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex2d(Vertex2hf v)
 		{
-			return (new Vertex2d(v.X, v.Y));
+			return (new Vertex2d(v.x, v.y));
 		}
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -7333,7 +6657,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3f(Vertex2hf v)
 		{
-			return (new Vertex3f(v.X, v.Y, 0.0f));
+			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
 		}
 
 		/// <summary>
@@ -7347,7 +6671,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3d(Vertex2hf v)
 		{
-			return (new Vertex3d(v.X, v.Y, 0.0));
+			return (new Vertex3d(v.x, v.y, 0.0));
 		}
 
 		/// <summary>
@@ -7357,11 +6681,11 @@ namespace OpenGL
 		/// A <see cref="Vertex2hf"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components, and Z and W components are implictly zero.
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex2hf v)
 		{
-			return (new Vertex4f(v.X, v.Y, 0.0f, 1.0f));
+			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
 		}
 
 		/// <summary>
@@ -7375,7 +6699,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex2hf v)
 		{
-			return (new Vertex4d(v.X, v.Y, 0.0, 1.0));
+			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
 		}
 
 		#endregion
@@ -7587,77 +6911,11 @@ namespace OpenGL
 		}
 
 		#endregion
-		#region IVertex2 Implementation
+
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, unclamped range.
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x); }
-			set { x = (HalfFloat)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, unclamped range.
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y); }
-			set { y = (HalfFloat)value; }
-		}
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (0.0f);
-					case 3: return (1.0f);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex2> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex2hf is equal to another Vertex2hf.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -7665,19 +6923,9 @@ namespace OpenGL
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex2 other)
+		public bool Equals(Vertex2hf other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x != other.x || y != other.y);
 		}
 
 		/// <summary>
@@ -7695,7 +6943,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex2)obj));
+				return (Equals((Vertex2hf)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 

@@ -325,10 +325,6 @@
     <Compile Include="INativeWindow.cs" />
     <Compile Include="INTEL\Gl.INTEL_conservative_rasterization.cs" />
     <Compile Include="IProjectionMatrix.cs" />
-    <Compile Include="IVertex.cs" />
-    <Compile Include="IVertex2.cs" />
-    <Compile Include="IVertex3.cs" />
-    <Compile Include="IVertex4.cs" />
     <Compile Include="KhronosLogCommandParameterFlags.cs" />
     <Compile Include="KhronosLogContext.cs" />
     <Compile Include="KhronosLogEventArgs.cs" />

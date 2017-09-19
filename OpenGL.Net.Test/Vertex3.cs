@@ -33,6 +33,11 @@ namespace OpenGL.Test
 {
 	class Vertex3TestBase
 	{
+		protected static double Next(Random random)
+		{
+			return (Next(random, 16.0, 32.0));
+		}
+
 		protected static double Next(Random random, double minValue, double maxValue)
 		{
 			return (random.NextDouble() * (maxValue - minValue) + minValue);
@@ -49,7 +54,7 @@ namespace OpenGL.Test
 		public void Vertex3ub_TestConstructor1()
 		{
 			Random random = new Random();
-			byte randomValue = (byte)Next(random, byte.MinValue, byte.MaxValue);
+			byte randomValue = (byte)Next(random);
 			
 			Vertex3ub v = new Vertex3ub(randomValue);
 
@@ -62,9 +67,9 @@ namespace OpenGL.Test
 		public void Vertex3ub_TestConstructor2()
 		{
 			Random random = new Random();
-			byte randomValueX = (byte)Next(random, byte.MinValue, byte.MaxValue);
-			byte randomValueY = (byte)Next(random, byte.MinValue, byte.MaxValue);
-			byte randomValueZ = (byte)Next(random, byte.MinValue, byte.MaxValue);
+			byte randomValueX = (byte)Next(random);
+			byte randomValueY = (byte)Next(random);
+			byte randomValueZ = (byte)Next(random);
 
 			Vertex3ub v = new Vertex3ub(new byte[] {
 				randomValueX, randomValueY, randomValueZ
@@ -79,9 +84,9 @@ namespace OpenGL.Test
 		public void Vertex3ub_TestConstructor3()
 		{
 			Random random = new Random();
-			byte randomValueX = (byte)Next(random, byte.MinValue, byte.MaxValue);
-			byte randomValueY = (byte)Next(random, byte.MinValue, byte.MaxValue);
-			byte randomValueZ = (byte)Next(random, byte.MinValue, byte.MaxValue);
+			byte randomValueX = (byte)Next(random);
+			byte randomValueY = (byte)Next(random);
+			byte randomValueZ = (byte)Next(random);
 
 			Vertex3ub v = new Vertex3ub(
 				randomValueX, randomValueY, randomValueZ
@@ -96,9 +101,9 @@ namespace OpenGL.Test
 		public void Vertex3ub_TestConstructor4()
 		{
 			Random random = new Random();
-			byte randomValueX = (byte)Next(random, byte.MinValue, byte.MaxValue);
-			byte randomValueY = (byte)Next(random, byte.MinValue, byte.MaxValue);
-			byte randomValueZ = (byte)Next(random, byte.MinValue, byte.MaxValue);
+			byte randomValueX = (byte)Next(random);
+			byte randomValueY = (byte)Next(random);
+			byte randomValueZ = (byte)Next(random);
 
 			Vertex3ub v1 = new Vertex3ub(
 				randomValueX, randomValueY, randomValueZ
@@ -129,15 +134,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x1 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
-			byte y1 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
-			byte z1 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
+			byte x1 = (byte)Next(random);
+			byte y1 = (byte)Next(random);
+			byte z1 = (byte)Next(random);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
 
-			byte x2 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
-			byte y2 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
-			byte z2 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
+			byte x2 = (byte)Next(random);
+			byte y2 = (byte)Next(random);
+			byte z2 = (byte)Next(random);
 
 			Vertex3ub v2 = new Vertex3ub(x2, y2, z2);
 
@@ -153,15 +158,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x1 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
-			byte y1 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
-			byte z1 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
+			byte x1 = (byte)Next(random);
+			byte y1 = (byte)Next(random);
+			byte z1 = (byte)Next(random);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
 
-			byte x2 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
-			byte y2 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
-			byte z2 = (byte)Next(random, byte.MinValue / 2.0f, byte.MaxValue / 2.0f);
+			byte x2 = (byte)Next(random);
+			byte y2 = (byte)Next(random);
+			byte z2 = (byte)Next(random);
 
 			Vertex3ub v2 = new Vertex3ub(x2, y2, z2);
 
@@ -177,9 +182,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x1 = (byte)Next(random);
+			byte y1 = (byte)Next(random);
+			byte z1 = (byte)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
@@ -196,9 +201,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x1 = (byte)Next(random);
+			byte y1 = (byte)Next(random);
+			byte z1 = (byte)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
@@ -215,9 +220,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x1 = (byte)Next(random);
+			byte y1 = (byte)Next(random);
+			byte z1 = (byte)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
@@ -234,9 +239,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x1 = (byte)Next(random);
+			byte y1 = (byte)Next(random);
+			byte z1 = (byte)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
@@ -302,9 +307,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x1 = (byte)Next(random);
+			byte y1 = (byte)Next(random);
+			byte z1 = (byte)Next(random);
 			byte s = (byte)Next(random, 0.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
@@ -321,9 +326,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x1 = (byte)Next(random);
+			byte y1 = (byte)Next(random);
+			byte z1 = (byte)Next(random);
 			byte s = (byte)Next(random, 0.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
@@ -366,9 +371,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x = (byte)Next(random);
+			byte y = (byte)Next(random);
+			byte z = (byte)Next(random);
 
 			Vertex3ub v = new Vertex3ub(x, y, z);
 			byte[] vArray = (byte[])v;
@@ -383,15 +388,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x = (byte)Next(random);
+			byte y = (byte)Next(random);
+			byte z = (byte)Next(random);
 
 			Vertex3ub v = new Vertex3ub(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3ub.operator Vertex3f(Vertex3ub)")]
@@ -399,16 +404,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x = (byte)Next(random);
+			byte y = (byte)Next(random);
+			byte z = (byte)Next(random);
 
 			Vertex3ub v = new Vertex3ub(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3ub.operator Vertex3d(Vertex3ub)")]
@@ -416,16 +421,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x = (byte)Next(random);
+			byte y = (byte)Next(random);
+			byte z = (byte)Next(random);
 
 			Vertex3ub v = new Vertex3ub(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3ub.operator Vertex4d(Vertex3ub)")]
@@ -433,17 +438,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			byte x = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte y = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
-			byte z = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte x = (byte)Next(random);
+			byte y = (byte)Next(random);
+			byte z = (byte)Next(random);
 
 			Vertex3ub v = new Vertex3ub(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -559,6 +564,52 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3ub.operator==(Vertex3ub, Vertex3ub)")]
+		public void Vertex3ub_TestEquals_Vertex3ub()
+		{
+			Vertex3ub v = Vertex3ub.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3ub.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3ub.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3ub.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3ub.GetHashCode()")]
+		public void Vertex3ub_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			byte x = (byte)Next(random);
+			byte y = (byte)Next(random);
+			byte z = (byte)Next(random);
+
+			Vertex3ub v = new Vertex3ub(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3ub.ToString()")]
+		public void Vertex3ub_TestToString()
+		{
+			Random random = new Random();
+			
+			byte x = (byte)Next(random);
+			byte y = (byte)Next(random);
+			byte z = (byte)Next(random);
+
+			Vertex3ub v = new Vertex3ub(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
+		}
+
+		#endregion
 	}
 
 	[TestFixture]
@@ -571,7 +622,7 @@ namespace OpenGL.Test
 		public void Vertex3b_TestConstructor1()
 		{
 			Random random = new Random();
-			sbyte randomValue = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
+			sbyte randomValue = (sbyte)Next(random);
 			
 			Vertex3b v = new Vertex3b(randomValue);
 
@@ -584,9 +635,9 @@ namespace OpenGL.Test
 		public void Vertex3b_TestConstructor2()
 		{
 			Random random = new Random();
-			sbyte randomValueX = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
-			sbyte randomValueY = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
-			sbyte randomValueZ = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
+			sbyte randomValueX = (sbyte)Next(random);
+			sbyte randomValueY = (sbyte)Next(random);
+			sbyte randomValueZ = (sbyte)Next(random);
 
 			Vertex3b v = new Vertex3b(new sbyte[] {
 				randomValueX, randomValueY, randomValueZ
@@ -601,9 +652,9 @@ namespace OpenGL.Test
 		public void Vertex3b_TestConstructor3()
 		{
 			Random random = new Random();
-			sbyte randomValueX = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
-			sbyte randomValueY = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
-			sbyte randomValueZ = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
+			sbyte randomValueX = (sbyte)Next(random);
+			sbyte randomValueY = (sbyte)Next(random);
+			sbyte randomValueZ = (sbyte)Next(random);
 
 			Vertex3b v = new Vertex3b(
 				randomValueX, randomValueY, randomValueZ
@@ -618,9 +669,9 @@ namespace OpenGL.Test
 		public void Vertex3b_TestConstructor4()
 		{
 			Random random = new Random();
-			sbyte randomValueX = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
-			sbyte randomValueY = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
-			sbyte randomValueZ = (sbyte)Next(random, sbyte.MinValue, sbyte.MaxValue);
+			sbyte randomValueX = (sbyte)Next(random);
+			sbyte randomValueY = (sbyte)Next(random);
+			sbyte randomValueZ = (sbyte)Next(random);
 
 			Vertex3b v1 = new Vertex3b(
 				randomValueX, randomValueY, randomValueZ
@@ -651,9 +702,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte y = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte z = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
 
 			Vertex3b v = new Vertex3b(x, y, z);
 			Vertex3b n = -v;
@@ -667,15 +718,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
+			sbyte x1 = (sbyte)Next(random);
+			sbyte y1 = (sbyte)Next(random);
+			sbyte z1 = (sbyte)Next(random);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
 
-			sbyte x2 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte y2 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte z2 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
+			sbyte x2 = (sbyte)Next(random);
+			sbyte y2 = (sbyte)Next(random);
+			sbyte z2 = (sbyte)Next(random);
 
 			Vertex3b v2 = new Vertex3b(x2, y2, z2);
 
@@ -691,15 +742,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
+			sbyte x1 = (sbyte)Next(random);
+			sbyte y1 = (sbyte)Next(random);
+			sbyte z1 = (sbyte)Next(random);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
 
-			sbyte x2 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte y2 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
-			sbyte z2 = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
+			sbyte x2 = (sbyte)Next(random);
+			sbyte y2 = (sbyte)Next(random);
+			sbyte z2 = (sbyte)Next(random);
 
 			Vertex3b v2 = new Vertex3b(x2, y2, z2);
 
@@ -715,9 +766,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x1 = (sbyte)Next(random);
+			sbyte y1 = (sbyte)Next(random);
+			sbyte z1 = (sbyte)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
@@ -734,9 +785,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x1 = (sbyte)Next(random);
+			sbyte y1 = (sbyte)Next(random);
+			sbyte z1 = (sbyte)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
@@ -753,9 +804,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x1 = (sbyte)Next(random);
+			sbyte y1 = (sbyte)Next(random);
+			sbyte z1 = (sbyte)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
@@ -772,9 +823,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x1 = (sbyte)Next(random);
+			sbyte y1 = (sbyte)Next(random);
+			sbyte z1 = (sbyte)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
@@ -840,9 +891,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x1 = (sbyte)Next(random);
+			sbyte y1 = (sbyte)Next(random);
+			sbyte z1 = (sbyte)Next(random);
 			sbyte s = (sbyte)Next(random, 0.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
@@ -859,9 +910,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x1 = (sbyte)Next(random);
+			sbyte y1 = (sbyte)Next(random);
+			sbyte z1 = (sbyte)Next(random);
 			sbyte s = (sbyte)Next(random, 0.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
@@ -904,9 +955,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
 
 			Vertex3b v = new Vertex3b(x, y, z);
 			sbyte[] vArray = (sbyte[])v;
@@ -921,15 +972,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
 
 			Vertex3b v = new Vertex3b(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3b.operator Vertex3f(Vertex3b)")]
@@ -937,16 +988,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
 
 			Vertex3b v = new Vertex3b(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3b.operator Vertex3d(Vertex3b)")]
@@ -954,16 +1005,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
 
 			Vertex3b v = new Vertex3b(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3b.operator Vertex4d(Vertex3b)")]
@@ -971,17 +1022,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			sbyte x = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte y = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
-			sbyte z = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
 
 			Vertex3b v = new Vertex3b(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -1097,6 +1148,52 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3b.operator==(Vertex3b, Vertex3b)")]
+		public void Vertex3b_TestEquals_Vertex3b()
+		{
+			Vertex3b v = Vertex3b.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3b.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3b.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3b.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3b.GetHashCode()")]
+		public void Vertex3b_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
+
+			Vertex3b v = new Vertex3b(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3b.ToString()")]
+		public void Vertex3b_TestToString()
+		{
+			Random random = new Random();
+			
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
+
+			Vertex3b v = new Vertex3b(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
+		}
+
+		#endregion
 	}
 
 	[TestFixture]
@@ -1109,7 +1206,7 @@ namespace OpenGL.Test
 		public void Vertex3us_TestConstructor1()
 		{
 			Random random = new Random();
-			ushort randomValue = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
+			ushort randomValue = (ushort)Next(random);
 			
 			Vertex3us v = new Vertex3us(randomValue);
 
@@ -1122,9 +1219,9 @@ namespace OpenGL.Test
 		public void Vertex3us_TestConstructor2()
 		{
 			Random random = new Random();
-			ushort randomValueX = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
-			ushort randomValueY = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
-			ushort randomValueZ = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
+			ushort randomValueX = (ushort)Next(random);
+			ushort randomValueY = (ushort)Next(random);
+			ushort randomValueZ = (ushort)Next(random);
 
 			Vertex3us v = new Vertex3us(new ushort[] {
 				randomValueX, randomValueY, randomValueZ
@@ -1139,9 +1236,9 @@ namespace OpenGL.Test
 		public void Vertex3us_TestConstructor3()
 		{
 			Random random = new Random();
-			ushort randomValueX = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
-			ushort randomValueY = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
-			ushort randomValueZ = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
+			ushort randomValueX = (ushort)Next(random);
+			ushort randomValueY = (ushort)Next(random);
+			ushort randomValueZ = (ushort)Next(random);
 
 			Vertex3us v = new Vertex3us(
 				randomValueX, randomValueY, randomValueZ
@@ -1156,9 +1253,9 @@ namespace OpenGL.Test
 		public void Vertex3us_TestConstructor4()
 		{
 			Random random = new Random();
-			ushort randomValueX = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
-			ushort randomValueY = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
-			ushort randomValueZ = (ushort)Next(random, ushort.MinValue, ushort.MaxValue);
+			ushort randomValueX = (ushort)Next(random);
+			ushort randomValueY = (ushort)Next(random);
+			ushort randomValueZ = (ushort)Next(random);
 
 			Vertex3us v1 = new Vertex3us(
 				randomValueX, randomValueY, randomValueZ
@@ -1189,15 +1286,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x1 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
-			ushort y1 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
-			ushort z1 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
+			ushort x1 = (ushort)Next(random);
+			ushort y1 = (ushort)Next(random);
+			ushort z1 = (ushort)Next(random);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
 
-			ushort x2 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
-			ushort y2 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
-			ushort z2 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
+			ushort x2 = (ushort)Next(random);
+			ushort y2 = (ushort)Next(random);
+			ushort z2 = (ushort)Next(random);
 
 			Vertex3us v2 = new Vertex3us(x2, y2, z2);
 
@@ -1213,15 +1310,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x1 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
-			ushort y1 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
-			ushort z1 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
+			ushort x1 = (ushort)Next(random);
+			ushort y1 = (ushort)Next(random);
+			ushort z1 = (ushort)Next(random);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
 
-			ushort x2 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
-			ushort y2 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
-			ushort z2 = (ushort)Next(random, ushort.MinValue / 2.0f, ushort.MaxValue / 2.0f);
+			ushort x2 = (ushort)Next(random);
+			ushort y2 = (ushort)Next(random);
+			ushort z2 = (ushort)Next(random);
 
 			Vertex3us v2 = new Vertex3us(x2, y2, z2);
 
@@ -1237,9 +1334,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x1 = (ushort)Next(random);
+			ushort y1 = (ushort)Next(random);
+			ushort z1 = (ushort)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
@@ -1256,9 +1353,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x1 = (ushort)Next(random);
+			ushort y1 = (ushort)Next(random);
+			ushort z1 = (ushort)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
@@ -1275,9 +1372,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x1 = (ushort)Next(random);
+			ushort y1 = (ushort)Next(random);
+			ushort z1 = (ushort)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
@@ -1294,9 +1391,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x1 = (ushort)Next(random);
+			ushort y1 = (ushort)Next(random);
+			ushort z1 = (ushort)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
@@ -1362,9 +1459,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x1 = (ushort)Next(random);
+			ushort y1 = (ushort)Next(random);
+			ushort z1 = (ushort)Next(random);
 			ushort s = (ushort)Next(random, 0.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
@@ -1381,9 +1478,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x1 = (ushort)Next(random);
+			ushort y1 = (ushort)Next(random);
+			ushort z1 = (ushort)Next(random);
 			ushort s = (ushort)Next(random, 0.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
@@ -1426,9 +1523,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x = (ushort)Next(random);
+			ushort y = (ushort)Next(random);
+			ushort z = (ushort)Next(random);
 
 			Vertex3us v = new Vertex3us(x, y, z);
 			ushort[] vArray = (ushort[])v;
@@ -1443,15 +1540,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x = (ushort)Next(random);
+			ushort y = (ushort)Next(random);
+			ushort z = (ushort)Next(random);
 
 			Vertex3us v = new Vertex3us(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3us.operator Vertex3f(Vertex3us)")]
@@ -1459,16 +1556,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x = (ushort)Next(random);
+			ushort y = (ushort)Next(random);
+			ushort z = (ushort)Next(random);
 
 			Vertex3us v = new Vertex3us(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3us.operator Vertex3d(Vertex3us)")]
@@ -1476,16 +1573,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x = (ushort)Next(random);
+			ushort y = (ushort)Next(random);
+			ushort z = (ushort)Next(random);
 
 			Vertex3us v = new Vertex3us(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3us.operator Vertex4d(Vertex3us)")]
@@ -1493,17 +1590,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			ushort x = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort y = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
-			ushort z = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort x = (ushort)Next(random);
+			ushort y = (ushort)Next(random);
+			ushort z = (ushort)Next(random);
 
 			Vertex3us v = new Vertex3us(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -1619,6 +1716,52 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3us.operator==(Vertex3us, Vertex3us)")]
+		public void Vertex3us_TestEquals_Vertex3us()
+		{
+			Vertex3us v = Vertex3us.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3us.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3us.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3us.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3us.GetHashCode()")]
+		public void Vertex3us_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			ushort x = (ushort)Next(random);
+			ushort y = (ushort)Next(random);
+			ushort z = (ushort)Next(random);
+
+			Vertex3us v = new Vertex3us(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3us.ToString()")]
+		public void Vertex3us_TestToString()
+		{
+			Random random = new Random();
+			
+			ushort x = (ushort)Next(random);
+			ushort y = (ushort)Next(random);
+			ushort z = (ushort)Next(random);
+
+			Vertex3us v = new Vertex3us(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
+		}
+
+		#endregion
 	}
 
 	[TestFixture]
@@ -1631,7 +1774,7 @@ namespace OpenGL.Test
 		public void Vertex3s_TestConstructor1()
 		{
 			Random random = new Random();
-			short randomValue = (short)Next(random, short.MinValue, short.MaxValue);
+			short randomValue = (short)Next(random);
 			
 			Vertex3s v = new Vertex3s(randomValue);
 
@@ -1644,9 +1787,9 @@ namespace OpenGL.Test
 		public void Vertex3s_TestConstructor2()
 		{
 			Random random = new Random();
-			short randomValueX = (short)Next(random, short.MinValue, short.MaxValue);
-			short randomValueY = (short)Next(random, short.MinValue, short.MaxValue);
-			short randomValueZ = (short)Next(random, short.MinValue, short.MaxValue);
+			short randomValueX = (short)Next(random);
+			short randomValueY = (short)Next(random);
+			short randomValueZ = (short)Next(random);
 
 			Vertex3s v = new Vertex3s(new short[] {
 				randomValueX, randomValueY, randomValueZ
@@ -1661,9 +1804,9 @@ namespace OpenGL.Test
 		public void Vertex3s_TestConstructor3()
 		{
 			Random random = new Random();
-			short randomValueX = (short)Next(random, short.MinValue, short.MaxValue);
-			short randomValueY = (short)Next(random, short.MinValue, short.MaxValue);
-			short randomValueZ = (short)Next(random, short.MinValue, short.MaxValue);
+			short randomValueX = (short)Next(random);
+			short randomValueY = (short)Next(random);
+			short randomValueZ = (short)Next(random);
 
 			Vertex3s v = new Vertex3s(
 				randomValueX, randomValueY, randomValueZ
@@ -1678,9 +1821,9 @@ namespace OpenGL.Test
 		public void Vertex3s_TestConstructor4()
 		{
 			Random random = new Random();
-			short randomValueX = (short)Next(random, short.MinValue, short.MaxValue);
-			short randomValueY = (short)Next(random, short.MinValue, short.MaxValue);
-			short randomValueZ = (short)Next(random, short.MinValue, short.MaxValue);
+			short randomValueX = (short)Next(random);
+			short randomValueY = (short)Next(random);
+			short randomValueZ = (short)Next(random);
 
 			Vertex3s v1 = new Vertex3s(
 				randomValueX, randomValueY, randomValueZ
@@ -1711,9 +1854,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short y = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short z = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
 
 			Vertex3s v = new Vertex3s(x, y, z);
 			Vertex3s n = -v;
@@ -1727,15 +1870,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x1 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short y1 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short z1 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
+			short x1 = (short)Next(random);
+			short y1 = (short)Next(random);
+			short z1 = (short)Next(random);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
 
-			short x2 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short y2 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short z2 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
+			short x2 = (short)Next(random);
+			short y2 = (short)Next(random);
+			short z2 = (short)Next(random);
 
 			Vertex3s v2 = new Vertex3s(x2, y2, z2);
 
@@ -1751,15 +1894,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x1 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short y1 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short z1 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
+			short x1 = (short)Next(random);
+			short y1 = (short)Next(random);
+			short z1 = (short)Next(random);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
 
-			short x2 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short y2 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
-			short z2 = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
+			short x2 = (short)Next(random);
+			short y2 = (short)Next(random);
+			short z2 = (short)Next(random);
 
 			Vertex3s v2 = new Vertex3s(x2, y2, z2);
 
@@ -1775,9 +1918,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x1 = (short)Next(random);
+			short y1 = (short)Next(random);
+			short z1 = (short)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
@@ -1794,9 +1937,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x1 = (short)Next(random);
+			short y1 = (short)Next(random);
+			short z1 = (short)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
@@ -1813,9 +1956,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x1 = (short)Next(random);
+			short y1 = (short)Next(random);
+			short z1 = (short)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
@@ -1832,9 +1975,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x1 = (short)Next(random);
+			short y1 = (short)Next(random);
+			short z1 = (short)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
@@ -1900,9 +2043,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x1 = (short)Next(random);
+			short y1 = (short)Next(random);
+			short z1 = (short)Next(random);
 			short s = (short)Next(random, 0.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
@@ -1919,9 +2062,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x1 = (short)Next(random);
+			short y1 = (short)Next(random);
+			short z1 = (short)Next(random);
 			short s = (short)Next(random, 0.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
@@ -1964,9 +2107,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
 
 			Vertex3s v = new Vertex3s(x, y, z);
 			short[] vArray = (short[])v;
@@ -1981,15 +2124,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
 
 			Vertex3s v = new Vertex3s(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3s.operator Vertex3f(Vertex3s)")]
@@ -1997,16 +2140,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
 
 			Vertex3s v = new Vertex3s(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3s.operator Vertex3d(Vertex3s)")]
@@ -2014,16 +2157,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
 
 			Vertex3s v = new Vertex3s(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3s.operator Vertex4d(Vertex3s)")]
@@ -2031,17 +2174,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			short x = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short y = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
-			short z = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
 
 			Vertex3s v = new Vertex3s(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -2157,6 +2300,52 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3s.operator==(Vertex3s, Vertex3s)")]
+		public void Vertex3s_TestEquals_Vertex3s()
+		{
+			Vertex3s v = Vertex3s.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3s.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3s.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3s.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3s.GetHashCode()")]
+		public void Vertex3s_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
+
+			Vertex3s v = new Vertex3s(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3s.ToString()")]
+		public void Vertex3s_TestToString()
+		{
+			Random random = new Random();
+			
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
+
+			Vertex3s v = new Vertex3s(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
+		}
+
+		#endregion
 	}
 
 	[TestFixture]
@@ -2169,7 +2358,7 @@ namespace OpenGL.Test
 		public void Vertex3ui_TestConstructor1()
 		{
 			Random random = new Random();
-			uint randomValue = (uint)Next(random, uint.MinValue, uint.MaxValue);
+			uint randomValue = (uint)Next(random);
 			
 			Vertex3ui v = new Vertex3ui(randomValue);
 
@@ -2182,9 +2371,9 @@ namespace OpenGL.Test
 		public void Vertex3ui_TestConstructor2()
 		{
 			Random random = new Random();
-			uint randomValueX = (uint)Next(random, uint.MinValue, uint.MaxValue);
-			uint randomValueY = (uint)Next(random, uint.MinValue, uint.MaxValue);
-			uint randomValueZ = (uint)Next(random, uint.MinValue, uint.MaxValue);
+			uint randomValueX = (uint)Next(random);
+			uint randomValueY = (uint)Next(random);
+			uint randomValueZ = (uint)Next(random);
 
 			Vertex3ui v = new Vertex3ui(new uint[] {
 				randomValueX, randomValueY, randomValueZ
@@ -2199,9 +2388,9 @@ namespace OpenGL.Test
 		public void Vertex3ui_TestConstructor3()
 		{
 			Random random = new Random();
-			uint randomValueX = (uint)Next(random, uint.MinValue, uint.MaxValue);
-			uint randomValueY = (uint)Next(random, uint.MinValue, uint.MaxValue);
-			uint randomValueZ = (uint)Next(random, uint.MinValue, uint.MaxValue);
+			uint randomValueX = (uint)Next(random);
+			uint randomValueY = (uint)Next(random);
+			uint randomValueZ = (uint)Next(random);
 
 			Vertex3ui v = new Vertex3ui(
 				randomValueX, randomValueY, randomValueZ
@@ -2216,9 +2405,9 @@ namespace OpenGL.Test
 		public void Vertex3ui_TestConstructor4()
 		{
 			Random random = new Random();
-			uint randomValueX = (uint)Next(random, uint.MinValue, uint.MaxValue);
-			uint randomValueY = (uint)Next(random, uint.MinValue, uint.MaxValue);
-			uint randomValueZ = (uint)Next(random, uint.MinValue, uint.MaxValue);
+			uint randomValueX = (uint)Next(random);
+			uint randomValueY = (uint)Next(random);
+			uint randomValueZ = (uint)Next(random);
 
 			Vertex3ui v1 = new Vertex3ui(
 				randomValueX, randomValueY, randomValueZ
@@ -2249,15 +2438,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x1 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
-			uint y1 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
-			uint z1 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
+			uint x1 = (uint)Next(random);
+			uint y1 = (uint)Next(random);
+			uint z1 = (uint)Next(random);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
 
-			uint x2 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
-			uint y2 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
-			uint z2 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
+			uint x2 = (uint)Next(random);
+			uint y2 = (uint)Next(random);
+			uint z2 = (uint)Next(random);
 
 			Vertex3ui v2 = new Vertex3ui(x2, y2, z2);
 
@@ -2273,15 +2462,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x1 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
-			uint y1 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
-			uint z1 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
+			uint x1 = (uint)Next(random);
+			uint y1 = (uint)Next(random);
+			uint z1 = (uint)Next(random);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
 
-			uint x2 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
-			uint y2 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
-			uint z2 = (uint)Next(random, uint.MinValue / 2.0f, uint.MaxValue / 2.0f);
+			uint x2 = (uint)Next(random);
+			uint y2 = (uint)Next(random);
+			uint z2 = (uint)Next(random);
 
 			Vertex3ui v2 = new Vertex3ui(x2, y2, z2);
 
@@ -2297,9 +2486,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x1 = (uint)Next(random);
+			uint y1 = (uint)Next(random);
+			uint z1 = (uint)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
@@ -2316,9 +2505,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x1 = (uint)Next(random);
+			uint y1 = (uint)Next(random);
+			uint z1 = (uint)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
@@ -2335,9 +2524,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x1 = (uint)Next(random);
+			uint y1 = (uint)Next(random);
+			uint z1 = (uint)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
@@ -2354,9 +2543,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x1 = (uint)Next(random);
+			uint y1 = (uint)Next(random);
+			uint z1 = (uint)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
@@ -2422,9 +2611,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x1 = (uint)Next(random);
+			uint y1 = (uint)Next(random);
+			uint z1 = (uint)Next(random);
 			uint s = (uint)Next(random, 0.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
@@ -2441,9 +2630,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x1 = (uint)Next(random);
+			uint y1 = (uint)Next(random);
+			uint z1 = (uint)Next(random);
 			uint s = (uint)Next(random, 0.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
@@ -2486,9 +2675,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x = (uint)Next(random);
+			uint y = (uint)Next(random);
+			uint z = (uint)Next(random);
 
 			Vertex3ui v = new Vertex3ui(x, y, z);
 			uint[] vArray = (uint[])v;
@@ -2503,15 +2692,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x = (uint)Next(random);
+			uint y = (uint)Next(random);
+			uint z = (uint)Next(random);
 
 			Vertex3ui v = new Vertex3ui(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3ui.operator Vertex3f(Vertex3ui)")]
@@ -2519,16 +2708,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x = (uint)Next(random);
+			uint y = (uint)Next(random);
+			uint z = (uint)Next(random);
 
 			Vertex3ui v = new Vertex3ui(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3ui.operator Vertex3d(Vertex3ui)")]
@@ -2536,16 +2725,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x = (uint)Next(random);
+			uint y = (uint)Next(random);
+			uint z = (uint)Next(random);
 
 			Vertex3ui v = new Vertex3ui(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3ui.operator Vertex4d(Vertex3ui)")]
@@ -2553,17 +2742,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			uint x = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint y = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
-			uint z = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint x = (uint)Next(random);
+			uint y = (uint)Next(random);
+			uint z = (uint)Next(random);
 
 			Vertex3ui v = new Vertex3ui(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -2679,6 +2868,52 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3ui.operator==(Vertex3ui, Vertex3ui)")]
+		public void Vertex3ui_TestEquals_Vertex3ui()
+		{
+			Vertex3ui v = Vertex3ui.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3ui.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3ui.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3ui.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3ui.GetHashCode()")]
+		public void Vertex3ui_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			uint x = (uint)Next(random);
+			uint y = (uint)Next(random);
+			uint z = (uint)Next(random);
+
+			Vertex3ui v = new Vertex3ui(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3ui.ToString()")]
+		public void Vertex3ui_TestToString()
+		{
+			Random random = new Random();
+			
+			uint x = (uint)Next(random);
+			uint y = (uint)Next(random);
+			uint z = (uint)Next(random);
+
+			Vertex3ui v = new Vertex3ui(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
+		}
+
+		#endregion
 	}
 
 	[TestFixture]
@@ -2691,7 +2926,7 @@ namespace OpenGL.Test
 		public void Vertex3i_TestConstructor1()
 		{
 			Random random = new Random();
-			int randomValue = (int)Next(random, int.MinValue, int.MaxValue);
+			int randomValue = (int)Next(random);
 			
 			Vertex3i v = new Vertex3i(randomValue);
 
@@ -2704,9 +2939,9 @@ namespace OpenGL.Test
 		public void Vertex3i_TestConstructor2()
 		{
 			Random random = new Random();
-			int randomValueX = (int)Next(random, int.MinValue, int.MaxValue);
-			int randomValueY = (int)Next(random, int.MinValue, int.MaxValue);
-			int randomValueZ = (int)Next(random, int.MinValue, int.MaxValue);
+			int randomValueX = (int)Next(random);
+			int randomValueY = (int)Next(random);
+			int randomValueZ = (int)Next(random);
 
 			Vertex3i v = new Vertex3i(new int[] {
 				randomValueX, randomValueY, randomValueZ
@@ -2721,9 +2956,9 @@ namespace OpenGL.Test
 		public void Vertex3i_TestConstructor3()
 		{
 			Random random = new Random();
-			int randomValueX = (int)Next(random, int.MinValue, int.MaxValue);
-			int randomValueY = (int)Next(random, int.MinValue, int.MaxValue);
-			int randomValueZ = (int)Next(random, int.MinValue, int.MaxValue);
+			int randomValueX = (int)Next(random);
+			int randomValueY = (int)Next(random);
+			int randomValueZ = (int)Next(random);
 
 			Vertex3i v = new Vertex3i(
 				randomValueX, randomValueY, randomValueZ
@@ -2738,9 +2973,9 @@ namespace OpenGL.Test
 		public void Vertex3i_TestConstructor4()
 		{
 			Random random = new Random();
-			int randomValueX = (int)Next(random, int.MinValue, int.MaxValue);
-			int randomValueY = (int)Next(random, int.MinValue, int.MaxValue);
-			int randomValueZ = (int)Next(random, int.MinValue, int.MaxValue);
+			int randomValueX = (int)Next(random);
+			int randomValueY = (int)Next(random);
+			int randomValueZ = (int)Next(random);
 
 			Vertex3i v1 = new Vertex3i(
 				randomValueX, randomValueY, randomValueZ
@@ -2771,9 +3006,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int y = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int z = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
 
 			Vertex3i v = new Vertex3i(x, y, z);
 			Vertex3i n = -v;
@@ -2787,15 +3022,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x1 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int y1 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int z1 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
+			int x1 = (int)Next(random);
+			int y1 = (int)Next(random);
+			int z1 = (int)Next(random);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
-			int x2 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int y2 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int z2 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
+			int x2 = (int)Next(random);
+			int y2 = (int)Next(random);
+			int z2 = (int)Next(random);
 
 			Vertex3i v2 = new Vertex3i(x2, y2, z2);
 
@@ -2811,15 +3046,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x1 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int y1 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int z1 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
+			int x1 = (int)Next(random);
+			int y1 = (int)Next(random);
+			int z1 = (int)Next(random);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
-			int x2 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int y2 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
-			int z2 = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
+			int x2 = (int)Next(random);
+			int y2 = (int)Next(random);
+			int z2 = (int)Next(random);
 
 			Vertex3i v2 = new Vertex3i(x2, y2, z2);
 
@@ -2835,9 +3070,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x1 = (int)Next(random);
+			int y1 = (int)Next(random);
+			int z1 = (int)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
@@ -2854,9 +3089,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x1 = (int)Next(random);
+			int y1 = (int)Next(random);
+			int z1 = (int)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
@@ -2873,9 +3108,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x1 = (int)Next(random);
+			int y1 = (int)Next(random);
+			int z1 = (int)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
@@ -2892,9 +3127,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x1 = (int)Next(random);
+			int y1 = (int)Next(random);
+			int z1 = (int)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
@@ -2960,10 +3195,10 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int s = (int)Next(random, 0.0, 32.0);
+			int x1 = (int)Next(random);
+			int y1 = (int)Next(random);
+			int z1 = (int)Next(random);
+			int s = (int)Next(random, 1.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
@@ -2979,10 +3214,10 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int s = (int)Next(random, 0.0, 32.0);
+			int x1 = (int)Next(random);
+			int y1 = (int)Next(random);
+			int z1 = (int)Next(random);
+			int s = (int)Next(random, 1.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
@@ -3024,9 +3259,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
 
 			Vertex3i v = new Vertex3i(x, y, z);
 			int[] vArray = (int[])v;
@@ -3041,15 +3276,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
 
 			Vertex3i v = new Vertex3i(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3i.operator Vertex3f(Vertex3i)")]
@@ -3057,16 +3292,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
 
 			Vertex3i v = new Vertex3i(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3i.operator Vertex3d(Vertex3i)")]
@@ -3074,16 +3309,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
 
 			Vertex3i v = new Vertex3i(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3i.operator Vertex4d(Vertex3i)")]
@@ -3091,17 +3326,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			int x = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int y = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
-			int z = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
 
 			Vertex3i v = new Vertex3i(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -3217,6 +3452,52 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3i.operator==(Vertex3i, Vertex3i)")]
+		public void Vertex3i_TestEquals_Vertex3i()
+		{
+			Vertex3i v = Vertex3i.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3i.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3i.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3i.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3i.GetHashCode()")]
+		public void Vertex3i_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
+
+			Vertex3i v = new Vertex3i(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3i.ToString()")]
+		public void Vertex3i_TestToString()
+		{
+			Random random = new Random();
+			
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
+
+			Vertex3i v = new Vertex3i(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
+		}
+
+		#endregion
 	}
 
 	[TestFixture]
@@ -3229,7 +3510,7 @@ namespace OpenGL.Test
 		public void Vertex3f_TestConstructor1()
 		{
 			Random random = new Random();
-			float randomValue = (float)Next(random, float.MinValue, float.MaxValue);
+			float randomValue = (float)Next(random);
 			
 			Vertex3f v = new Vertex3f(randomValue);
 
@@ -3242,9 +3523,9 @@ namespace OpenGL.Test
 		public void Vertex3f_TestConstructor2()
 		{
 			Random random = new Random();
-			float randomValueX = (float)Next(random, float.MinValue, float.MaxValue);
-			float randomValueY = (float)Next(random, float.MinValue, float.MaxValue);
-			float randomValueZ = (float)Next(random, float.MinValue, float.MaxValue);
+			float randomValueX = (float)Next(random);
+			float randomValueY = (float)Next(random);
+			float randomValueZ = (float)Next(random);
 
 			Vertex3f v = new Vertex3f(new float[] {
 				randomValueX, randomValueY, randomValueZ
@@ -3259,9 +3540,9 @@ namespace OpenGL.Test
 		public void Vertex3f_TestConstructor3()
 		{
 			Random random = new Random();
-			float randomValueX = (float)Next(random, float.MinValue, float.MaxValue);
-			float randomValueY = (float)Next(random, float.MinValue, float.MaxValue);
-			float randomValueZ = (float)Next(random, float.MinValue, float.MaxValue);
+			float randomValueX = (float)Next(random);
+			float randomValueY = (float)Next(random);
+			float randomValueZ = (float)Next(random);
 
 			Vertex3f v = new Vertex3f(
 				randomValueX, randomValueY, randomValueZ
@@ -3276,9 +3557,9 @@ namespace OpenGL.Test
 		public void Vertex3f_TestConstructor4()
 		{
 			Random random = new Random();
-			float randomValueX = (float)Next(random, float.MinValue, float.MaxValue);
-			float randomValueY = (float)Next(random, float.MinValue, float.MaxValue);
-			float randomValueZ = (float)Next(random, float.MinValue, float.MaxValue);
+			float randomValueX = (float)Next(random);
+			float randomValueY = (float)Next(random);
+			float randomValueZ = (float)Next(random);
 
 			Vertex3f v1 = new Vertex3f(
 				randomValueX, randomValueY, randomValueZ
@@ -3309,9 +3590,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float y = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float z = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
 
 			Vertex3f v = new Vertex3f(x, y, z);
 			Vertex3f n = -v;
@@ -3325,15 +3606,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x1 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float y1 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float z1 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
+			float x1 = (float)Next(random);
+			float y1 = (float)Next(random);
+			float z1 = (float)Next(random);
 
 			Vertex3f v1 = new Vertex3f(x1, y1, z1);
 
-			float x2 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float y2 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float z2 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
+			float x2 = (float)Next(random);
+			float y2 = (float)Next(random);
+			float z2 = (float)Next(random);
 
 			Vertex3f v2 = new Vertex3f(x2, y2, z2);
 
@@ -3349,15 +3630,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x1 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float y1 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float z1 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
+			float x1 = (float)Next(random);
+			float y1 = (float)Next(random);
+			float z1 = (float)Next(random);
 
 			Vertex3f v1 = new Vertex3f(x1, y1, z1);
 
-			float x2 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float y2 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
-			float z2 = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
+			float x2 = (float)Next(random);
+			float y2 = (float)Next(random);
+			float z2 = (float)Next(random);
 
 			Vertex3f v2 = new Vertex3f(x2, y2, z2);
 
@@ -3373,9 +3654,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x1 = (float)Next(random);
+			float y1 = (float)Next(random);
+			float z1 = (float)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3f v1 = new Vertex3f(x1, y1, z1);
@@ -3392,9 +3673,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x1 = (float)Next(random);
+			float y1 = (float)Next(random);
+			float z1 = (float)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3f v1 = new Vertex3f(x1, y1, z1);
@@ -3411,9 +3692,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x1 = (float)Next(random);
+			float y1 = (float)Next(random);
+			float z1 = (float)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3f v1 = new Vertex3f(x1, y1, z1);
@@ -3430,9 +3711,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z1 = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x1 = (float)Next(random);
+			float y1 = (float)Next(random);
+			float z1 = (float)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3f v1 = new Vertex3f(x1, y1, z1);
@@ -3525,9 +3806,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
 
 			Vertex3f v = new Vertex3f(x, y, z);
 			float[] vArray = (float[])v;
@@ -3542,15 +3823,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
 
 			Vertex3f v = new Vertex3f(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3f.operator Vertex3f(Vertex3f)")]
@@ -3558,16 +3839,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
 
 			Vertex3f v = new Vertex3f(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3f.operator Vertex3d(Vertex3f)")]
@@ -3575,16 +3856,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
 
 			Vertex3f v = new Vertex3f(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3f.operator Vertex4d(Vertex3f)")]
@@ -3592,17 +3873,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			float x = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float y = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
-			float z = (float)Next(random, float.MinValue / 32.0, float.MaxValue / 32.0);
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
 
 			Vertex3f v = new Vertex3f(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -3718,6 +3999,52 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3f.operator==(Vertex3f, Vertex3f)")]
+		public void Vertex3f_TestEquals_Vertex3f()
+		{
+			Vertex3f v = Vertex3f.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3f.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3f.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3f.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3f.GetHashCode()")]
+		public void Vertex3f_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
+
+			Vertex3f v = new Vertex3f(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3f.ToString()")]
+		public void Vertex3f_TestToString()
+		{
+			Random random = new Random();
+			
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
+
+			Vertex3f v = new Vertex3f(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
+		}
+
+		#endregion
 	}
 
 	[TestFixture]
@@ -3730,7 +4057,7 @@ namespace OpenGL.Test
 		public void Vertex3d_TestConstructor1()
 		{
 			Random random = new Random();
-			double randomValue = (double)Next(random, double.MinValue, double.MaxValue);
+			double randomValue = (double)Next(random);
 			
 			Vertex3d v = new Vertex3d(randomValue);
 
@@ -3743,9 +4070,9 @@ namespace OpenGL.Test
 		public void Vertex3d_TestConstructor2()
 		{
 			Random random = new Random();
-			double randomValueX = (double)Next(random, double.MinValue, double.MaxValue);
-			double randomValueY = (double)Next(random, double.MinValue, double.MaxValue);
-			double randomValueZ = (double)Next(random, double.MinValue, double.MaxValue);
+			double randomValueX = (double)Next(random);
+			double randomValueY = (double)Next(random);
+			double randomValueZ = (double)Next(random);
 
 			Vertex3d v = new Vertex3d(new double[] {
 				randomValueX, randomValueY, randomValueZ
@@ -3760,9 +4087,9 @@ namespace OpenGL.Test
 		public void Vertex3d_TestConstructor3()
 		{
 			Random random = new Random();
-			double randomValueX = (double)Next(random, double.MinValue, double.MaxValue);
-			double randomValueY = (double)Next(random, double.MinValue, double.MaxValue);
-			double randomValueZ = (double)Next(random, double.MinValue, double.MaxValue);
+			double randomValueX = (double)Next(random);
+			double randomValueY = (double)Next(random);
+			double randomValueZ = (double)Next(random);
 
 			Vertex3d v = new Vertex3d(
 				randomValueX, randomValueY, randomValueZ
@@ -3777,9 +4104,9 @@ namespace OpenGL.Test
 		public void Vertex3d_TestConstructor4()
 		{
 			Random random = new Random();
-			double randomValueX = (double)Next(random, double.MinValue, double.MaxValue);
-			double randomValueY = (double)Next(random, double.MinValue, double.MaxValue);
-			double randomValueZ = (double)Next(random, double.MinValue, double.MaxValue);
+			double randomValueX = (double)Next(random);
+			double randomValueY = (double)Next(random);
+			double randomValueZ = (double)Next(random);
 
 			Vertex3d v1 = new Vertex3d(
 				randomValueX, randomValueY, randomValueZ
@@ -3810,9 +4137,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double y = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double z = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
 
 			Vertex3d v = new Vertex3d(x, y, z);
 			Vertex3d n = -v;
@@ -3826,15 +4153,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x1 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double y1 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double z1 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
+			double x1 = (double)Next(random);
+			double y1 = (double)Next(random);
+			double z1 = (double)Next(random);
 
 			Vertex3d v1 = new Vertex3d(x1, y1, z1);
 
-			double x2 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double y2 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double z2 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
+			double x2 = (double)Next(random);
+			double y2 = (double)Next(random);
+			double z2 = (double)Next(random);
 
 			Vertex3d v2 = new Vertex3d(x2, y2, z2);
 
@@ -3850,15 +4177,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x1 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double y1 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double z1 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
+			double x1 = (double)Next(random);
+			double y1 = (double)Next(random);
+			double z1 = (double)Next(random);
 
 			Vertex3d v1 = new Vertex3d(x1, y1, z1);
 
-			double x2 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double y2 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
-			double z2 = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
+			double x2 = (double)Next(random);
+			double y2 = (double)Next(random);
+			double z2 = (double)Next(random);
 
 			Vertex3d v2 = new Vertex3d(x2, y2, z2);
 
@@ -3874,9 +4201,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x1 = (double)Next(random);
+			double y1 = (double)Next(random);
+			double z1 = (double)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3d v1 = new Vertex3d(x1, y1, z1);
@@ -3893,9 +4220,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x1 = (double)Next(random);
+			double y1 = (double)Next(random);
+			double z1 = (double)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3d v1 = new Vertex3d(x1, y1, z1);
@@ -3912,9 +4239,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x1 = (double)Next(random);
+			double y1 = (double)Next(random);
+			double z1 = (double)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3d v1 = new Vertex3d(x1, y1, z1);
@@ -3931,9 +4258,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z1 = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x1 = (double)Next(random);
+			double y1 = (double)Next(random);
+			double z1 = (double)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3d v1 = new Vertex3d(x1, y1, z1);
@@ -4026,9 +4353,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
 
 			Vertex3d v = new Vertex3d(x, y, z);
 			double[] vArray = (double[])v;
@@ -4043,15 +4370,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
 
 			Vertex3d v = new Vertex3d(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3d.operator Vertex3f(Vertex3d)")]
@@ -4059,16 +4386,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
 
 			Vertex3d v = new Vertex3d(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3d.operator Vertex3d(Vertex3d)")]
@@ -4076,16 +4403,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
 
 			Vertex3d v = new Vertex3d(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3d.operator Vertex4d(Vertex3d)")]
@@ -4093,17 +4420,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			double x = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double y = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
-			double z = (double)Next(random, double.MinValue / 32.0, double.MaxValue / 32.0);
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
 
 			Vertex3d v = new Vertex3d(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -4219,6 +4546,52 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3d.operator==(Vertex3d, Vertex3d)")]
+		public void Vertex3d_TestEquals_Vertex3d()
+		{
+			Vertex3d v = Vertex3d.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3d.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3d.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3d.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3d.GetHashCode()")]
+		public void Vertex3d_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
+
+			Vertex3d v = new Vertex3d(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3d.ToString()")]
+		public void Vertex3d_TestToString()
+		{
+			Random random = new Random();
+			
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
+
+			Vertex3d v = new Vertex3d(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
+		}
+
+		#endregion
 	}
 
 	[TestFixture]
@@ -4231,7 +4604,7 @@ namespace OpenGL.Test
 		public void Vertex3hf_TestConstructor1()
 		{
 			Random random = new Random();
-			HalfFloat randomValue = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
+			HalfFloat randomValue = (HalfFloat)Next(random);
 			
 			Vertex3hf v = new Vertex3hf(randomValue);
 
@@ -4244,9 +4617,9 @@ namespace OpenGL.Test
 		public void Vertex3hf_TestConstructor2()
 		{
 			Random random = new Random();
-			HalfFloat randomValueX = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
-			HalfFloat randomValueY = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
-			HalfFloat randomValueZ = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
+			HalfFloat randomValueX = (HalfFloat)Next(random);
+			HalfFloat randomValueY = (HalfFloat)Next(random);
+			HalfFloat randomValueZ = (HalfFloat)Next(random);
 
 			Vertex3hf v = new Vertex3hf(new HalfFloat[] {
 				randomValueX, randomValueY, randomValueZ
@@ -4261,9 +4634,9 @@ namespace OpenGL.Test
 		public void Vertex3hf_TestConstructor3()
 		{
 			Random random = new Random();
-			HalfFloat randomValueX = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
-			HalfFloat randomValueY = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
-			HalfFloat randomValueZ = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
+			HalfFloat randomValueX = (HalfFloat)Next(random);
+			HalfFloat randomValueY = (HalfFloat)Next(random);
+			HalfFloat randomValueZ = (HalfFloat)Next(random);
 
 			Vertex3hf v = new Vertex3hf(
 				randomValueX, randomValueY, randomValueZ
@@ -4278,9 +4651,9 @@ namespace OpenGL.Test
 		public void Vertex3hf_TestConstructor4()
 		{
 			Random random = new Random();
-			HalfFloat randomValueX = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
-			HalfFloat randomValueY = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
-			HalfFloat randomValueZ = (HalfFloat)Next(random, HalfFloat.MinValue, HalfFloat.MaxValue);
+			HalfFloat randomValueX = (HalfFloat)Next(random);
+			HalfFloat randomValueY = (HalfFloat)Next(random);
+			HalfFloat randomValueZ = (HalfFloat)Next(random);
 
 			Vertex3hf v1 = new Vertex3hf(
 				randomValueX, randomValueY, randomValueZ
@@ -4311,15 +4684,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x1 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
-			HalfFloat y1 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
-			HalfFloat z1 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
+			HalfFloat x1 = (HalfFloat)Next(random);
+			HalfFloat y1 = (HalfFloat)Next(random);
+			HalfFloat z1 = (HalfFloat)Next(random);
 
 			Vertex3hf v1 = new Vertex3hf(x1, y1, z1);
 
-			HalfFloat x2 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
-			HalfFloat y2 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
-			HalfFloat z2 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
+			HalfFloat x2 = (HalfFloat)Next(random);
+			HalfFloat y2 = (HalfFloat)Next(random);
+			HalfFloat z2 = (HalfFloat)Next(random);
 
 			Vertex3hf v2 = new Vertex3hf(x2, y2, z2);
 
@@ -4335,15 +4708,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x1 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
-			HalfFloat y1 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
-			HalfFloat z1 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
+			HalfFloat x1 = (HalfFloat)Next(random);
+			HalfFloat y1 = (HalfFloat)Next(random);
+			HalfFloat z1 = (HalfFloat)Next(random);
 
 			Vertex3hf v1 = new Vertex3hf(x1, y1, z1);
 
-			HalfFloat x2 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
-			HalfFloat y2 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
-			HalfFloat z2 = (HalfFloat)Next(random, HalfFloat.MinValue / 2.0f, HalfFloat.MaxValue / 2.0f);
+			HalfFloat x2 = (HalfFloat)Next(random);
+			HalfFloat y2 = (HalfFloat)Next(random);
+			HalfFloat z2 = (HalfFloat)Next(random);
 
 			Vertex3hf v2 = new Vertex3hf(x2, y2, z2);
 
@@ -4359,9 +4732,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x1 = (HalfFloat)Next(random);
+			HalfFloat y1 = (HalfFloat)Next(random);
+			HalfFloat z1 = (HalfFloat)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3hf v1 = new Vertex3hf(x1, y1, z1);
@@ -4378,9 +4751,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x1 = (HalfFloat)Next(random);
+			HalfFloat y1 = (HalfFloat)Next(random);
+			HalfFloat z1 = (HalfFloat)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3hf v1 = new Vertex3hf(x1, y1, z1);
@@ -4397,9 +4770,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x1 = (HalfFloat)Next(random);
+			HalfFloat y1 = (HalfFloat)Next(random);
+			HalfFloat z1 = (HalfFloat)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3hf v1 = new Vertex3hf(x1, y1, z1);
@@ -4416,9 +4789,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z1 = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x1 = (HalfFloat)Next(random);
+			HalfFloat y1 = (HalfFloat)Next(random);
+			HalfFloat z1 = (HalfFloat)Next(random);
 			double s = Next(random, 0.0, 32.0);
 
 			Vertex3hf v1 = new Vertex3hf(x1, y1, z1);
@@ -4511,9 +4884,9 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x = (HalfFloat)Next(random);
+			HalfFloat y = (HalfFloat)Next(random);
+			HalfFloat z = (HalfFloat)Next(random);
 
 			Vertex3hf v = new Vertex3hf(x, y, z);
 			HalfFloat[] vArray = (HalfFloat[])v;
@@ -4528,15 +4901,15 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x = (HalfFloat)Next(random);
+			HalfFloat y = (HalfFloat)Next(random);
+			HalfFloat z = (HalfFloat)Next(random);
 
 			Vertex3hf v = new Vertex3hf(x, y, z);
 			Vertex2f v2f = (Vertex2f)v;
 
-			Assert.AreEqual(v.X, v2f.x);
-			Assert.AreEqual(v.Y, v2f.y);
+			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
+			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3hf.operator Vertex3f(Vertex3hf)")]
@@ -4544,16 +4917,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x = (HalfFloat)Next(random);
+			HalfFloat y = (HalfFloat)Next(random);
+			HalfFloat z = (HalfFloat)Next(random);
 
 			Vertex3hf v = new Vertex3hf(x, y, z);
 			Vertex3f v3f = (Vertex3f)v;
 
-			Assert.AreEqual(v.X, v3f.x);
-			Assert.AreEqual(v.Y, v3f.y);
-			Assert.AreEqual(v.Z, v3f.z);
+			Assert.AreEqual(v.x, v3f.x, 1e-4f);
+			Assert.AreEqual(v.y, v3f.y, 1e-4f);
+			Assert.AreEqual(v.z, v3f.z, 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex3hf.operator Vertex3d(Vertex3hf)")]
@@ -4561,16 +4934,16 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x = (HalfFloat)Next(random);
+			HalfFloat y = (HalfFloat)Next(random);
+			HalfFloat z = (HalfFloat)Next(random);
 
 			Vertex3hf v = new Vertex3hf(x, y, z);
 			Vertex3d v3d = (Vertex3d)v;
 
-			Assert.AreEqual(v.X, (float)v3d.x);
-			Assert.AreEqual(v.Y, (float)v3d.y);
-			Assert.AreEqual(v.Z, (float)v3d.z);
+			Assert.AreEqual(v.x, v3d.x, 1e-4);
+			Assert.AreEqual(v.y, v3d.y, 1e-4);
+			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test Vertex3hf.operator Vertex4d(Vertex3hf)")]
@@ -4578,17 +4951,17 @@ namespace OpenGL.Test
 		{
 			Random random = new Random();
 			
-			HalfFloat x = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat y = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
-			HalfFloat z = (HalfFloat)Next(random, HalfFloat.MinValue / 32.0, HalfFloat.MaxValue / 32.0);
+			HalfFloat x = (HalfFloat)Next(random);
+			HalfFloat y = (HalfFloat)Next(random);
+			HalfFloat z = (HalfFloat)Next(random);
 
 			Vertex3hf v = new Vertex3hf(x, y, z);
 			Vertex4d v4d = (Vertex4d)v;
 
-			Assert.AreEqual(v.X, (float)v4d.x);
-			Assert.AreEqual(v.Y, (float)v4d.y);
-			Assert.AreEqual(v.Z, (float)v4d.z);
-			Assert.AreEqual(1.0f, (float)v4d.w);
+			Assert.AreEqual(v.x, v4d.x, 1e-4);
+			Assert.AreEqual(v.y, v4d.y, 1e-4);
+			Assert.AreEqual(v.z, v4d.z, 1e-4);
+			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -4701,6 +5074,52 @@ namespace OpenGL.Test
 				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)13.0f, (HalfFloat)23.0f),
 				max
 			);
+		}
+
+		#endregion
+
+		#region IEquatable Implementation
+
+		[Test(Description = "Test Vertex3hf.operator==(Vertex3hf, Vertex3hf)")]
+		public void Vertex3hf_TestEquals_Vertex3hf()
+		{
+			Vertex3hf v = Vertex3hf.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex3hf.UnitX));
+			Assert.IsFalse(v.Equals(Vertex3hf.UnitY));
+			Assert.IsFalse(v.Equals(Vertex3hf.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3hf.GetHashCode()")]
+		public void Vertex3hf_TestGetHashCode()
+		{
+			Random random = new Random();
+			
+			HalfFloat x = (HalfFloat)Next(random);
+			HalfFloat y = (HalfFloat)Next(random);
+			HalfFloat z = (HalfFloat)Next(random);
+
+			Vertex3hf v = new Vertex3hf(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.GetHashCode(); });
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test(Description = "Test Vertex3hf.ToString()")]
+		public void Vertex3hf_TestToString()
+		{
+			Random random = new Random();
+			
+			HalfFloat x = (HalfFloat)Next(random);
+			HalfFloat y = (HalfFloat)Next(random);
+			HalfFloat z = (HalfFloat)Next(random);
+
+			Vertex3hf v = new Vertex3hf(x, y, z);
+
+			Assert.DoesNotThrow(delegate() { v.ToString(); });
 		}
 
 		#endregion

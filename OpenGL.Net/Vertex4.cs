@@ -1,11 +1,4 @@
 ﻿
-
-
-
-
-
-
-
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,14 +29,13 @@ using System.Numerics;
 
 namespace OpenGL
 {
-
 	/// <summary>
 	/// Vertex value type (byte coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UByte, 4)]
 	[DebuggerDisplay("Vertex4ub: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4ub : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4ub
 	{
 		#region Constructors
 
@@ -140,7 +132,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -359,7 +350,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -380,7 +370,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3ub operator.
 		/// </summary>
@@ -398,7 +387,6 @@ namespace OpenGL
 				(byte)((float)v.z / (float)v.w)
 			));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -412,9 +400,8 @@ namespace OpenGL
 		{
 			Vertex3ub v3 = (Vertex3ub)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -429,7 +416,7 @@ namespace OpenGL
 		{
 			Vertex3ub v3 = (Vertex3ub)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -443,9 +430,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex4ub v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -460,7 +446,7 @@ namespace OpenGL
 		{
 			Vertex3ub v3 = (Vertex3ub)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -474,9 +460,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex4ub v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
-
 
 		#endregion
 
@@ -531,7 +516,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -542,7 +526,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ub(x, y, z));
-
 		}
 
 		/// <summary>
@@ -562,7 +545,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -573,7 +555,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ub(x, y, z));
-
 		}
 
 		/// <summary>
@@ -590,7 +571,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -601,7 +581,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ub(x, y, z));
-
 		}
 
 		/// <summary>
@@ -621,7 +600,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -632,7 +610,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ub(x, y, z));
-
 		}
 
 		/// <summary>
@@ -652,7 +629,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
 			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
 
@@ -664,7 +640,6 @@ namespace OpenGL
 
 			min = new Vertex4ub(minx, miny, minz);
 			max = new Vertex4ub(maxx, maxy, maxz);
-
 		}
 
 		/// <summary>
@@ -687,7 +662,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
 			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
 
@@ -699,12 +673,10 @@ namespace OpenGL
 
 			min = new Vertex4ub(minx, miny, minz);
 			max = new Vertex4ub(maxx, maxy, maxz);
-
 		}
 
 		#endregion
 		
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -744,144 +716,20 @@ namespace OpenGL
 
 		#endregion
 
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x / (float)byte.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (byte)(value * (float)byte.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y / (float)byte.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (byte)(value * (float)byte.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)z / (float)byte.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				z = (byte)(value * (float)byte.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float W
-		{
-			get { return ((float)w / (float)byte.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				w = (byte)(value * (float)byte.MaxValue);
-			}
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4ub is equal to another Vertex4ub.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4ub other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -899,7 +747,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4ub)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -926,7 +774,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4ub.
 		/// </summary>
@@ -938,10 +785,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (sbyte coordinates).
@@ -949,7 +794,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Byte, 4)]
 	[DebuggerDisplay("Vertex4b: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4b : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4b
 	{
 		#region Constructors
 
@@ -1046,7 +891,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -1060,7 +904,6 @@ namespace OpenGL
 		{
 			return (new Vertex4b((sbyte)(-v.x), (sbyte)(-v.y), (sbyte)(-v.z), (sbyte)(-v.w)));
 		}
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -1279,7 +1122,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -1300,7 +1142,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3b operator.
 		/// </summary>
@@ -1318,7 +1159,6 @@ namespace OpenGL
 				(sbyte)((float)v.z / (float)v.w)
 			));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -1332,9 +1172,8 @@ namespace OpenGL
 		{
 			Vertex3b v3 = (Vertex3b)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -1349,7 +1188,7 @@ namespace OpenGL
 		{
 			Vertex3b v3 = (Vertex3b)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -1363,9 +1202,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex4b v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -1380,7 +1218,7 @@ namespace OpenGL
 		{
 			Vertex3b v3 = (Vertex3b)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -1394,9 +1232,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex4b v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
-
 
 		#endregion
 
@@ -1451,7 +1288,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -1462,7 +1298,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4b(x, y, z));
-
 		}
 
 		/// <summary>
@@ -1482,7 +1317,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -1493,7 +1327,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4b(x, y, z));
-
 		}
 
 		/// <summary>
@@ -1510,7 +1343,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -1521,7 +1353,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4b(x, y, z));
-
 		}
 
 		/// <summary>
@@ -1541,7 +1372,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -1552,7 +1382,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4b(x, y, z));
-
 		}
 
 		/// <summary>
@@ -1572,7 +1401,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
 			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
 
@@ -1584,7 +1412,6 @@ namespace OpenGL
 
 			min = new Vertex4b(minx, miny, minz);
 			max = new Vertex4b(maxx, maxy, maxz);
-
 		}
 
 		/// <summary>
@@ -1607,7 +1434,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
 			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
 
@@ -1619,12 +1445,10 @@ namespace OpenGL
 
 			min = new Vertex4b(minx, miny, minz);
 			max = new Vertex4b(maxx, maxy, maxz);
-
 		}
 
 		#endregion
 		
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -1664,144 +1488,20 @@ namespace OpenGL
 
 		#endregion
 
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)(x - sbyte.MinValue) / ((long)sbyte.MaxValue - (long)sbyte.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (sbyte)((value * 0.5f + 0.5f) * ((long)sbyte.MaxValue - (long)sbyte.MinValue) + sbyte.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)(y - sbyte.MinValue) / ((long)sbyte.MaxValue - (long)sbyte.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (sbyte)((value * 0.5f + 0.5f) * ((long)sbyte.MaxValue - (long)sbyte.MinValue) + sbyte.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)(z - sbyte.MinValue) / ((long)sbyte.MaxValue - (long)sbyte.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				z = (sbyte)((value * 0.5f + 0.5f) * ((long)sbyte.MaxValue - (long)sbyte.MinValue) + sbyte.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float W
-		{
-			get { return ((float)(w - sbyte.MinValue) / ((long)sbyte.MaxValue - (long)sbyte.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				w = (sbyte)((value * 0.5f + 0.5f) * ((long)sbyte.MaxValue - (long)sbyte.MinValue) + sbyte.MinValue);
-			}
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4b is equal to another Vertex4b.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4b other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -1819,7 +1519,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4b)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -1846,7 +1546,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4b.
 		/// </summary>
@@ -1858,10 +1557,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (ushort coordinates).
@@ -1869,7 +1566,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UShort, 4)]
 	[DebuggerDisplay("Vertex4us: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4us : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4us
 	{
 		#region Constructors
 
@@ -1966,7 +1663,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -2185,7 +1881,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -2206,7 +1901,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3us operator.
 		/// </summary>
@@ -2224,7 +1918,6 @@ namespace OpenGL
 				(ushort)((float)v.z / (float)v.w)
 			));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -2238,9 +1931,8 @@ namespace OpenGL
 		{
 			Vertex3us v3 = (Vertex3us)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -2255,7 +1947,7 @@ namespace OpenGL
 		{
 			Vertex3us v3 = (Vertex3us)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -2269,9 +1961,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex4us v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -2286,7 +1977,7 @@ namespace OpenGL
 		{
 			Vertex3us v3 = (Vertex3us)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -2300,9 +1991,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex4us v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
-
 
 		#endregion
 
@@ -2357,7 +2047,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -2368,7 +2057,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4us(x, y, z));
-
 		}
 
 		/// <summary>
@@ -2388,7 +2076,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -2399,7 +2086,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4us(x, y, z));
-
 		}
 
 		/// <summary>
@@ -2416,7 +2102,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -2427,7 +2112,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4us(x, y, z));
-
 		}
 
 		/// <summary>
@@ -2447,7 +2131,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -2458,7 +2141,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4us(x, y, z));
-
 		}
 
 		/// <summary>
@@ -2478,7 +2160,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
 			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
 
@@ -2490,7 +2171,6 @@ namespace OpenGL
 
 			min = new Vertex4us(minx, miny, minz);
 			max = new Vertex4us(maxx, maxy, maxz);
-
 		}
 
 		/// <summary>
@@ -2513,7 +2193,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
 			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
 
@@ -2525,12 +2204,10 @@ namespace OpenGL
 
 			min = new Vertex4us(minx, miny, minz);
 			max = new Vertex4us(maxx, maxy, maxz);
-
 		}
 
 		#endregion
 		
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -2570,144 +2247,20 @@ namespace OpenGL
 
 		#endregion
 
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x / (float)ushort.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (ushort)(value * (float)ushort.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y / (float)ushort.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (ushort)(value * (float)ushort.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)z / (float)ushort.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				z = (ushort)(value * (float)ushort.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float W
-		{
-			get { return ((float)w / (float)ushort.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				w = (ushort)(value * (float)ushort.MaxValue);
-			}
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4us is equal to another Vertex4us.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4us other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -2725,7 +2278,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4us)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -2752,7 +2305,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4us.
 		/// </summary>
@@ -2764,10 +2316,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (short coordinates).
@@ -2775,7 +2325,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Short, 4)]
 	[DebuggerDisplay("Vertex4s: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4s : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4s
 	{
 		#region Constructors
 
@@ -2872,7 +2422,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -2886,7 +2435,6 @@ namespace OpenGL
 		{
 			return (new Vertex4s((short)(-v.x), (short)(-v.y), (short)(-v.z), (short)(-v.w)));
 		}
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -3105,7 +2653,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -3126,7 +2673,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3s operator.
 		/// </summary>
@@ -3144,7 +2690,6 @@ namespace OpenGL
 				(short)((float)v.z / (float)v.w)
 			));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -3158,9 +2703,8 @@ namespace OpenGL
 		{
 			Vertex3s v3 = (Vertex3s)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -3175,7 +2719,7 @@ namespace OpenGL
 		{
 			Vertex3s v3 = (Vertex3s)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -3189,9 +2733,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex4s v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -3206,7 +2749,7 @@ namespace OpenGL
 		{
 			Vertex3s v3 = (Vertex3s)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -3220,9 +2763,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex4s v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
-
 
 		#endregion
 
@@ -3277,7 +2819,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -3288,7 +2829,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4s(x, y, z));
-
 		}
 
 		/// <summary>
@@ -3308,7 +2848,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -3319,7 +2858,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4s(x, y, z));
-
 		}
 
 		/// <summary>
@@ -3336,7 +2874,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -3347,7 +2884,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4s(x, y, z));
-
 		}
 
 		/// <summary>
@@ -3367,7 +2903,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -3378,7 +2913,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4s(x, y, z));
-
 		}
 
 		/// <summary>
@@ -3398,7 +2932,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
 			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
 
@@ -3410,7 +2943,6 @@ namespace OpenGL
 
 			min = new Vertex4s(minx, miny, minz);
 			max = new Vertex4s(maxx, maxy, maxz);
-
 		}
 
 		/// <summary>
@@ -3433,7 +2965,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
 			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
 
@@ -3445,12 +2976,10 @@ namespace OpenGL
 
 			min = new Vertex4s(minx, miny, minz);
 			max = new Vertex4s(maxx, maxy, maxz);
-
 		}
 
 		#endregion
 		
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -3490,144 +3019,20 @@ namespace OpenGL
 
 		#endregion
 
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)(x - short.MinValue) / ((long)short.MaxValue - (long)short.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (short)((value * 0.5f + 0.5f) * ((long)short.MaxValue - (long)short.MinValue) + short.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)(y - short.MinValue) / ((long)short.MaxValue - (long)short.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (short)((value * 0.5f + 0.5f) * ((long)short.MaxValue - (long)short.MinValue) + short.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)(z - short.MinValue) / ((long)short.MaxValue - (long)short.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				z = (short)((value * 0.5f + 0.5f) * ((long)short.MaxValue - (long)short.MinValue) + short.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float W
-		{
-			get { return ((float)(w - short.MinValue) / ((long)short.MaxValue - (long)short.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				w = (short)((value * 0.5f + 0.5f) * ((long)short.MaxValue - (long)short.MinValue) + short.MinValue);
-			}
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4s is equal to another Vertex4s.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4s other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -3645,7 +3050,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4s)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -3672,7 +3077,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4s.
 		/// </summary>
@@ -3684,10 +3088,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (uint coordinates).
@@ -3695,7 +3097,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UInt, 4)]
 	[DebuggerDisplay("Vertex4ui: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4ui : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4ui
 	{
 		#region Constructors
 
@@ -3792,7 +3194,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -4011,7 +3412,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -4032,7 +3432,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3ui operator.
 		/// </summary>
@@ -4050,7 +3449,6 @@ namespace OpenGL
 				(uint)((float)v.z / (float)v.w)
 			));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -4064,9 +3462,8 @@ namespace OpenGL
 		{
 			Vertex3ui v3 = (Vertex3ui)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -4081,7 +3478,7 @@ namespace OpenGL
 		{
 			Vertex3ui v3 = (Vertex3ui)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -4095,9 +3492,8 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex4f(Vertex4ui v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -4112,7 +3508,7 @@ namespace OpenGL
 		{
 			Vertex3ui v3 = (Vertex3ui)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -4126,9 +3522,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex4ui v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
-
 
 		#endregion
 
@@ -4183,7 +3578,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -4194,7 +3588,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ui(x, y, z));
-
 		}
 
 		/// <summary>
@@ -4214,7 +3607,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -4225,7 +3617,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ui(x, y, z));
-
 		}
 
 		/// <summary>
@@ -4242,7 +3633,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -4253,7 +3643,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ui(x, y, z));
-
 		}
 
 		/// <summary>
@@ -4273,7 +3662,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -4284,7 +3672,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ui(x, y, z));
-
 		}
 
 		/// <summary>
@@ -4304,7 +3691,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
 			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
 
@@ -4316,7 +3702,6 @@ namespace OpenGL
 
 			min = new Vertex4ui(minx, miny, minz);
 			max = new Vertex4ui(maxx, maxy, maxz);
-
 		}
 
 		/// <summary>
@@ -4339,7 +3724,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
 			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
 
@@ -4351,12 +3735,10 @@ namespace OpenGL
 
 			min = new Vertex4ui(minx, miny, minz);
 			max = new Vertex4ui(maxx, maxy, maxz);
-
 		}
 
 		#endregion
 		
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -4396,144 +3778,20 @@ namespace OpenGL
 
 		#endregion
 
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x / (float)uint.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (uint)(value * (float)uint.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y / (float)uint.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (uint)(value * (float)uint.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)z / (float)uint.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				z = (uint)(value * (float)uint.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float W
-		{
-			get { return ((float)w / (float)uint.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				w = (uint)(value * (float)uint.MaxValue);
-			}
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4ui is equal to another Vertex4ui.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4ui other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -4551,7 +3809,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4ui)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -4578,7 +3836,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4ui.
 		/// </summary>
@@ -4590,10 +3847,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (int coordinates).
@@ -4601,7 +3856,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Int, 4)]
 	[DebuggerDisplay("Vertex4i: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4i : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4i
 	{
 		#region Constructors
 
@@ -4698,7 +3953,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -4712,7 +3966,6 @@ namespace OpenGL
 		{
 			return (new Vertex4i((int)(-v.x), (int)(-v.y), (int)(-v.z), (int)(-v.w)));
 		}
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -4931,7 +4184,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -4952,7 +4204,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3i operator.
 		/// </summary>
@@ -4970,7 +4221,6 @@ namespace OpenGL
 				(int)((float)v.z / (float)v.w)
 			));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -4984,9 +4234,8 @@ namespace OpenGL
 		{
 			Vertex3i v3 = (Vertex3i)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -5001,7 +4250,7 @@ namespace OpenGL
 		{
 			Vertex3i v3 = (Vertex3i)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -5015,9 +4264,8 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex4f(Vertex4i v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -5032,7 +4280,7 @@ namespace OpenGL
 		{
 			Vertex3i v3 = (Vertex3i)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -5046,9 +4294,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex4i v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
-
 
 		#endregion
 
@@ -5103,7 +4350,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -5114,7 +4360,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4i(x, y, z));
-
 		}
 
 		/// <summary>
@@ -5134,7 +4379,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -5145,7 +4389,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4i(x, y, z));
-
 		}
 
 		/// <summary>
@@ -5162,7 +4405,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -5173,7 +4415,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4i(x, y, z));
-
 		}
 
 		/// <summary>
@@ -5193,7 +4434,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -5204,7 +4444,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4i(x, y, z));
-
 		}
 
 		/// <summary>
@@ -5224,7 +4463,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
 			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
 
@@ -5236,7 +4474,6 @@ namespace OpenGL
 
 			min = new Vertex4i(minx, miny, minz);
 			max = new Vertex4i(maxx, maxy, maxz);
-
 		}
 
 		/// <summary>
@@ -5259,7 +4496,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
 			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
 
@@ -5271,12 +4507,10 @@ namespace OpenGL
 
 			min = new Vertex4i(minx, miny, minz);
 			max = new Vertex4i(maxx, maxy, maxz);
-
 		}
 
 		#endregion
 		
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -5316,144 +4550,20 @@ namespace OpenGL
 
 		#endregion
 
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)(x - int.MinValue) / ((long)int.MaxValue - (long)int.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (int)((value * 0.5f + 0.5f) * ((long)int.MaxValue - (long)int.MinValue) + int.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)(y - int.MinValue) / ((long)int.MaxValue - (long)int.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (int)((value * 0.5f + 0.5f) * ((long)int.MaxValue - (long)int.MinValue) + int.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)(z - int.MinValue) / ((long)int.MaxValue - (long)int.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				z = (int)((value * 0.5f + 0.5f) * ((long)int.MaxValue - (long)int.MinValue) + int.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float W
-		{
-			get { return ((float)(w - int.MinValue) / ((long)int.MaxValue - (long)int.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				w = (int)((value * 0.5f + 0.5f) * ((long)int.MaxValue - (long)int.MinValue) + int.MinValue);
-			}
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4i is equal to another Vertex4i.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4i other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -5471,7 +4581,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4i)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -5498,7 +4608,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4i.
 		/// </summary>
@@ -5510,10 +4619,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (float coordinates).
@@ -5521,7 +4628,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Float, 4)]
 	[DebuggerDisplay("Vertex4f: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4f : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4f
 	{
 		#region Constructors
 
@@ -5618,7 +4725,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -5632,7 +4738,6 @@ namespace OpenGL
 		{
 			return (new Vertex4f((float)(-v.x), (float)(-v.y), (float)(-v.z), (float)(-v.w)));
 		}
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -5851,7 +4956,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -5872,7 +4976,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
@@ -5890,7 +4993,6 @@ namespace OpenGL
 				(float)((float)v.z / (float)v.w)
 			));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -5904,9 +5006,8 @@ namespace OpenGL
 		{
 			Vertex3f v3 = (Vertex3f)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -5921,7 +5022,7 @@ namespace OpenGL
 		{
 			Vertex3f v3 = (Vertex3f)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -5935,9 +5036,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex4f v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
-
 
 		#endregion
 
@@ -5992,7 +5092,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 #if HAVE_NUMERICS
 			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
 
@@ -6001,7 +5100,6 @@ namespace OpenGL
 
 			return (new Vertex4f(min.X, min.Y, min.Z));
 #else
-
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -6012,9 +5110,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
-
 #endif
-
 		}
 
 		/// <summary>
@@ -6034,7 +5130,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 #if HAVE_NUMERICS
 			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
 
@@ -6043,7 +5138,6 @@ namespace OpenGL
 
 			return (new Vertex4f(min.X, min.Y, min.Z));
 #else
-
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -6054,9 +5148,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
-
 #endif
-
 		}
 
 		/// <summary>
@@ -6073,7 +5165,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 #if HAVE_NUMERICS
 			Vector3 max = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
 
@@ -6082,7 +5173,6 @@ namespace OpenGL
 
 			return (new Vertex4f(max.X, max.Y, max.Z));
 #else
-
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -6093,9 +5183,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
-
 #endif
-
 		}
 
 		/// <summary>
@@ -6115,7 +5203,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 #if HAVE_NUMERICS
 			Vector3 max = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
 
@@ -6124,7 +5211,6 @@ namespace OpenGL
 
 			return (new Vertex4f(max.X, max.Y, max.Z));
 #else
-
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -6135,9 +5221,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
-
 #endif
-
 		}
 
 		/// <summary>
@@ -6157,7 +5241,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 #if HAVE_NUMERICS
 			Vector3 vmin = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
 			Vector3 vmax = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
@@ -6172,7 +5255,6 @@ namespace OpenGL
 			min = new Vertex4f(vmin.X, vmin.Y, vmin.Z);
 			max = new Vertex4f(vmax.X, vmax.Y, vmax.Z);
 #else
-
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
 
@@ -6184,9 +5266,7 @@ namespace OpenGL
 
 			min = new Vertex4f(minx, miny, minz);
 			max = new Vertex4f(maxx, maxy, maxz);
-
 #endif
-
 		}
 
 		/// <summary>
@@ -6209,7 +5289,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 #if HAVE_NUMERICS
 			Vector3 vmin = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
 			Vector3 vmax = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
@@ -6224,7 +5303,6 @@ namespace OpenGL
 			min = new Vertex4f(vmin.X, vmin.Y, vmin.Z);
 			max = new Vertex4f(vmax.X, vmax.Y, vmax.Z);
 #else
-
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
 
@@ -6236,14 +5314,11 @@ namespace OpenGL
 
 			min = new Vertex4f(minx, miny, minz);
 			max = new Vertex4f(maxx, maxy, maxz);
-
 #endif
-
 		}
 
 		#endregion
 		
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -6283,124 +5358,20 @@ namespace OpenGL
 
 		#endregion
 
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, unclamped range.
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x); }
-			set { x = (float)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, unclamped range.
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y); }
-			set { y = (float)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, unclamped range.
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)z); }
-			set { z = (float)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, unclamped range.
-		/// </summary>
-		public float W
-		{
-			get { return ((float)w); }
-			set { w = (float)value; }
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4f is equal to another Vertex4f.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4f other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -6418,7 +5389,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4f)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -6445,7 +5416,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4f.
 		/// </summary>
@@ -6457,10 +5427,8 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}, {3:F4}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (double coordinates).
@@ -6468,7 +5436,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Double, 4)]
 	[DebuggerDisplay("Vertex4d: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4d : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4d
 	{
 		#region Constructors
 
@@ -6565,7 +5533,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -6579,7 +5546,6 @@ namespace OpenGL
 		{
 			return (new Vertex4d((double)(-v.x), (double)(-v.y), (double)(-v.z), (double)(-v.w)));
 		}
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -6798,7 +5764,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -6812,7 +5777,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.x / v.w, v.y / v.w, v.z / v.w));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -6826,9 +5790,8 @@ namespace OpenGL
 		{
 			Vertex3d v3 = (Vertex3d)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -6843,7 +5806,7 @@ namespace OpenGL
 		{
 			Vertex3d v3 = (Vertex3d)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -6857,9 +5820,8 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator Vertex4f(Vertex4d v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
-
 
 		#endregion
 
@@ -6914,7 +5876,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -6925,7 +5886,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4d(x, y, z));
-
 		}
 
 		/// <summary>
@@ -6945,7 +5905,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -6956,7 +5915,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4d(x, y, z));
-
 		}
 
 		/// <summary>
@@ -6973,7 +5931,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -6984,7 +5941,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4d(x, y, z));
-
 		}
 
 		/// <summary>
@@ -7004,7 +5960,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -7015,7 +5970,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4d(x, y, z));
-
 		}
 
 		/// <summary>
@@ -7035,7 +5989,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
 			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
 
@@ -7047,7 +6000,6 @@ namespace OpenGL
 
 			min = new Vertex4d(minx, miny, minz);
 			max = new Vertex4d(maxx, maxy, maxz);
-
 		}
 
 		/// <summary>
@@ -7070,7 +6022,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
 			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
 
@@ -7082,12 +6033,10 @@ namespace OpenGL
 
 			min = new Vertex4d(minx, miny, minz);
 			max = new Vertex4d(maxx, maxy, maxz);
-
 		}
 
 		#endregion
 		
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -7127,124 +6076,20 @@ namespace OpenGL
 
 		#endregion
 
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, unclamped range.
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x); }
-			set { x = (double)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, unclamped range.
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y); }
-			set { y = (double)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, unclamped range.
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)z); }
-			set { z = (double)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, unclamped range.
-		/// </summary>
-		public float W
-		{
-			get { return ((float)w); }
-			set { w = (double)value; }
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4d is equal to another Vertex4d.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4d other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -7262,7 +6107,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4d)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -7289,7 +6134,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4d.
 		/// </summary>
@@ -7301,10 +6145,8 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}, {3:F4}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (HalfFloat coordinates).
@@ -7312,7 +6154,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Half, 4)]
 	[DebuggerDisplay("Vertex4hf: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4hf : IVertex4, IEquatable<IVertex4>
+	public struct Vertex4hf
 	{
 		#region Constructors
 
@@ -7409,7 +6251,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -7423,7 +6264,6 @@ namespace OpenGL
 		{
 			return (new Vertex4hf((HalfFloat)(-v.x), (HalfFloat)(-v.y), (HalfFloat)(-v.z), (HalfFloat)(-v.w)));
 		}
-
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -7642,7 +6482,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -7663,7 +6502,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex3hf operator.
 		/// </summary>
@@ -7681,7 +6519,6 @@ namespace OpenGL
 				(HalfFloat)((float)v.z / (float)v.w)
 			));
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -7695,9 +6532,8 @@ namespace OpenGL
 		{
 			Vertex3hf v3 = (Vertex3hf)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -7712,7 +6548,7 @@ namespace OpenGL
 		{
 			Vertex3hf v3 = (Vertex3hf)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -7726,9 +6562,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4f(Vertex4hf v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -7743,7 +6578,7 @@ namespace OpenGL
 		{
 			Vertex3hf v3 = (Vertex3hf)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -7757,9 +6592,8 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(Vertex4hf v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
-
 
 		#endregion
 
@@ -7814,7 +6648,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -7825,7 +6658,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4hf(x, y, z));
-
 		}
 
 		/// <summary>
@@ -7845,7 +6677,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 
-
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -7856,7 +6687,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4hf(x, y, z));
-
 		}
 
 		/// <summary>
@@ -7873,7 +6703,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -7884,7 +6713,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4hf(x, y, z));
-
 		}
 
 		/// <summary>
@@ -7904,7 +6732,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -7915,7 +6742,6 @@ namespace OpenGL
 			}
 
 			return (new Vertex4hf(x, y, z));
-
 		}
 
 		/// <summary>
@@ -7935,7 +6761,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
 			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
 
@@ -7947,7 +6772,6 @@ namespace OpenGL
 
 			min = new Vertex4hf(minx, miny, minz);
 			max = new Vertex4hf(maxx, maxy, maxz);
-
 		}
 
 		/// <summary>
@@ -7970,7 +6794,6 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException("v");
 			
-
 			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
 			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
 
@@ -7982,129 +6805,24 @@ namespace OpenGL
 
 			min = new Vertex4hf(minx, miny, minz);
 			max = new Vertex4hf(maxx, maxy, maxz);
-
 		}
 
 		#endregion
 		
-
-		#region IVertex4 Implementation
-
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate X, unclamped range.
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x); }
-			set { x = (HalfFloat)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, unclamped range.
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y); }
-			set { y = (HalfFloat)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, unclamped range.
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)z); }
-			set { z = (HalfFloat)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, unclamped range.
-		/// </summary>
-		public float W
-		{
-			get { return ((float)w); }
-			set { w = (HalfFloat)value; }
-		}
-
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this Vertex4hf is equal to another Vertex4hf.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(Vertex4hf other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -8122,7 +6840,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((Vertex4hf)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
@@ -8149,7 +6867,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex4hf.
 		/// </summary>
@@ -8161,9 +6878,7 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}, {3:F4}|", x, y, z, w));
 		}
 
-
 		#endregion
 	}
-
 
 }

@@ -59,7 +59,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 4)]
 	[DebuggerDisplay("<#= className #>: X={x} Y={y} Z={z} W={w}")]
-	public struct <#= className #> : IVertex4, IEquatable<IVertex4>
+	public struct <#= className #>
 	{
 		#region Constructors
 
@@ -469,7 +469,7 @@ namespace OpenGL
 		{
 			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
 
-			return (new Vertex2f(v3.X, v3.Y));
+			return (new Vertex2f((float)v3.x, (float)v3.y));
 		}
 
 <#
@@ -488,7 +488,7 @@ namespace OpenGL
 		{
 			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
 
-			return (new Vertex3f(v3.X, v3.Y, v3.Z));
+			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
 		}
 
 		/// <summary>
@@ -502,7 +502,7 @@ namespace OpenGL
 		/// </returns>
 		public static <#= castModifier_f #> operator Vertex4f(<#= className #> v)
 		{
-			return (new Vertex4f(v.X, v.Y, v.X, v.W));
+			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
 		}
 
 <#
@@ -523,7 +523,7 @@ namespace OpenGL
 		{
 			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
 
-			return (new Vertex3d(v3.X, v3.Y, v3.Z));
+			return (new Vertex3d(v3.x, v3.y, v3.z));
 		}
 
 		/// <summary>
@@ -537,7 +537,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(<#= className #> v)
 		{
-			return (new Vertex4d(v.X, v.Y, v.Z, v.W));
+			return (new Vertex4d(v.x, v.y, v.z, v.w));
 		}
 
 <#
@@ -892,243 +892,20 @@ namespace OpenGL
 		}
 #>
 
-		#region IVertex4 Implementation
-
-<#
-		if (integerType[i] != 0 && signedType[i] == 0) {
-#>
-		/// <summary>
-		/// Vertex coordinate X, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x / (float)<#= baseType #>.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
-			}
-		}
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Vertex coordinate Y, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y / (float)<#= baseType #>.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)z / (float)<#= baseType #>.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				z = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, normalized in range [0.0, 1.0].
-		/// </summary>
-		public float W
-		{
-			get { return ((float)w / (float)<#= baseType #>.MaxValue); }
-			set
-			{
-				if (value < 0.0f || value > 1.0)
-					throw new InvalidOperationException("value out of range");
-				w = (<#= baseType #>)(value * (float)<#= baseType #>.MaxValue);
-			}
-		}
-<#
-		} else if (integerType[i] != 0 && signedType[i] != 0) {
-#>
-		/// <summary>
-		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
-		/// </summary>
-		public float X
-		{
-			get { return ((float)(x - <#= baseType #>.MinValue) / ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				x = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)(y - <#= baseType #>.MinValue) / ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				y = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)(z - <#= baseType #>.MinValue) / ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				z = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
-			}
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, normalized in range [-1.0, +1.0]..
-		/// </summary>
-		public float W
-		{
-			get { return ((float)(w - <#= baseType #>.MinValue) / ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue)) * 2.0f - 1.0f; }
-			set
-			{
-				if (value < -1.0f || value > +1.0)
-					throw new InvalidOperationException("value out of range");
-				w = (<#= baseType #>)((value * 0.5f + 0.5f) * ((long)<#= baseType #>.MaxValue - (long)<#= baseType #>.MinValue) + <#= baseType #>.MinValue);
-			}
-		}
-<#
-		} else {
-#>
-		/// <summary>
-		/// Vertex coordinate X, unclamped range.
-		/// </summary>
-		public float X
-		{
-			get { return ((float)x); }
-			set { x = (<#= baseType #>)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Y, unclamped range.
-		/// </summary>
-		public float Y
-		{
-			get { return ((float)y); }
-			set { y = (<#= baseType #>)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate Z, unclamped range.
-		/// </summary>
-		public float Z
-		{
-			get { return ((float)z); }
-			set { z = (<#= baseType #>)value; }
-		}
-
-		/// <summary>
-		/// Vertex coordinate W, unclamped range.
-		/// </summary>
-		public float W
-		{
-			get { return ((float)w); }
-			set { w = (<#= baseType #>)value; }
-		}
-<#
-		}
-#>
-
-		#endregion
-
-		#region IVertex Implementation
-
-		/// <summary>
-		/// Vertex components indexer.
-		/// </summary>
-		/// <param name="idx">
-		/// A <see cref="UInt32"/> that specify the component index using for accessing to this IVertex component.
-		/// </param>
-		/// <remarks>
-		/// <para>
-		/// This indexer returns a single-precision floating-point representation of the vertex component value.
-		/// </para>
-		/// </remarks>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="idx"/> exceeds the maximum allowed component index.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the set value is outside the representable range of the underlying type.
-		/// </exception>s
-		public float this[uint idx]
-		{
-			get
-			{
-				switch (idx) {
-					case 0: return (X);
-					case 1: return (Y);
-					case 2: return (Z);
-					case 3: return (W);
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-			set
-			{
-				switch (idx) {
-					case 0: X = value; break;
-					case 1: Y = value; break;
-					case 2: Z = value; break;
-					case 3: W = value; break;
-					default:
-						throw new ArgumentOutOfRangeException("idx");
-				}
-			}
-		}
-
-		#endregion
-
-		#region IEquatable<IVertex4> Implementation
-
-		/// <summary>
-		/// Indicates whether the this IVertex4 is equal to another IVertex4.
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex4 to compare with this object.
+		/// An IVertex3 to compare with this object.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex4 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
-		public bool Equals(IVertex4 other)
+		public bool Equals(<#= className #> other)
 		{
-			const float Epsilon = 1e-6f;
-
-			if (ReferenceEquals(null, other))
-				return false;
-
-			if (Math.Abs(X - other.X) >= Epsilon)
-				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
-				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
-				return (false);
-			if (Math.Abs(W - other.W) >= Epsilon)
-				return (false);
-
-			return (true);
+			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
 		}
 
 		/// <summary>
@@ -1146,7 +923,7 @@ namespace OpenGL
 				return (false);
 			
 			try {
-				return (Equals((IVertex4)obj));
+				return (Equals((<#= className #>)obj));
 			} catch(InvalidCastException) { return (false); }
 		}
 
