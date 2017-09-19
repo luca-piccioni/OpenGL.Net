@@ -61,7 +61,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 3)]
 	[DebuggerDisplay("<#= className #>: X={x} Y={y} Z={z}")]
-	public struct <#= className #> : IVertex3, IEquatable<IVertex3>
+	public struct <#= className #> : IVertex3, IEquatable<<#= className #>>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -336,29 +336,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="<#= className #>"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(<#= className #> v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
 <#
 		if (integerType[i] != 0) {
 #>
@@ -608,7 +585,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -1031,10 +1007,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(<#= className #> other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this <#= className #> equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -1044,16 +1041,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);

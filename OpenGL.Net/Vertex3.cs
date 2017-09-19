@@ -1,11 +1,4 @@
 ﻿
-
-
-
-
-
-
-
 // Copyright (C) 2009-2017 Luca Piccioni
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,14 +29,13 @@ using System.Numerics;
 
 namespace OpenGL
 {
-
 	/// <summary>
 	/// Vertex value type (byte coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UByte, 3)]
 	[DebuggerDisplay("Vertex3ub: X={x} Y={y} Z={z}")]
-	public struct Vertex3ub : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3ub : IVertex3, IEquatable<Vertex3ub>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -117,7 +109,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 
 		/// <summary>
 		/// Add operator.
@@ -300,30 +291,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3ub"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3ub v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
-		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
 		/// <param name="v1">
@@ -368,7 +335,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 
 		#endregion
 
@@ -419,7 +385,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -439,7 +404,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -453,7 +417,6 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -469,7 +432,6 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -483,7 +445,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -550,7 +511,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -739,7 +699,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -767,7 +726,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3ub UnitZ = new Vertex3ub(0, 0, 1);
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -778,12 +736,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3ub Maximum = new Vertex3ub(byte.MaxValue);
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [0.0, 1.0].
@@ -826,7 +781,6 @@ namespace OpenGL
 				z = (byte)(value * (float)byte.MaxValue);
 			}
 		}
-
 
 		#endregion
 
@@ -876,10 +830,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3ub is equal to another Vertex3ub.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3ub other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3ub equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -889,16 +864,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -945,7 +918,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3ub.
 		/// </summary>
@@ -957,10 +929,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (sbyte coordinates).
@@ -968,7 +938,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Byte, 3)]
 	[DebuggerDisplay("Vertex3b: X={x} Y={y} Z={z}")]
-	public struct Vertex3b : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3b : IVertex3, IEquatable<Vertex3b>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -1043,7 +1013,6 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -1057,7 +1026,6 @@ namespace OpenGL
 		{
 			return (new Vertex3b((sbyte)(-v.x), (sbyte)(-v.y), (sbyte)(-v.z)));
 		}
-
 
 		/// <summary>
 		/// Add operator.
@@ -1240,30 +1208,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3b"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3b v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
-		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
 		/// <param name="v1">
@@ -1308,7 +1252,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 
 		#endregion
 
@@ -1359,7 +1302,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -1379,7 +1321,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -1393,7 +1334,6 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -1409,7 +1349,6 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -1423,7 +1362,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -1490,7 +1428,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -1679,7 +1616,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -1707,7 +1643,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3b UnitZ = new Vertex3b(0, 0, 1);
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -1718,12 +1653,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3b Maximum = new Vertex3b(sbyte.MaxValue);
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
@@ -1766,7 +1698,6 @@ namespace OpenGL
 				z = (sbyte)((value * 0.5f + 0.5f) * ((long)sbyte.MaxValue - (long)sbyte.MinValue) + sbyte.MinValue);
 			}
 		}
-
 
 		#endregion
 
@@ -1816,10 +1747,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3b is equal to another Vertex3b.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3b other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3b equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -1829,16 +1781,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -1885,7 +1835,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3b.
 		/// </summary>
@@ -1897,10 +1846,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (ushort coordinates).
@@ -1908,7 +1855,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UShort, 3)]
 	[DebuggerDisplay("Vertex3us: X={x} Y={y} Z={z}")]
-	public struct Vertex3us : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3us : IVertex3, IEquatable<Vertex3us>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -1982,7 +1929,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 
 		/// <summary>
 		/// Add operator.
@@ -2165,30 +2111,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3us"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3us v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
-		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
 		/// <param name="v1">
@@ -2233,7 +2155,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 
 		#endregion
 
@@ -2284,7 +2205,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -2304,7 +2224,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -2318,7 +2237,6 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -2334,7 +2252,6 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -2348,7 +2265,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -2415,7 +2331,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -2604,7 +2519,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -2632,7 +2546,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3us UnitZ = new Vertex3us(0, 0, 1);
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -2643,12 +2556,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3us Maximum = new Vertex3us(ushort.MaxValue);
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [0.0, 1.0].
@@ -2691,7 +2601,6 @@ namespace OpenGL
 				z = (ushort)(value * (float)ushort.MaxValue);
 			}
 		}
-
 
 		#endregion
 
@@ -2741,10 +2650,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3us is equal to another Vertex3us.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3us other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3us equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -2754,16 +2684,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -2810,7 +2738,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3us.
 		/// </summary>
@@ -2822,10 +2749,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (short coordinates).
@@ -2833,7 +2758,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Short, 3)]
 	[DebuggerDisplay("Vertex3s: X={x} Y={y} Z={z}")]
-	public struct Vertex3s : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3s : IVertex3, IEquatable<Vertex3s>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -2908,7 +2833,6 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -2922,7 +2846,6 @@ namespace OpenGL
 		{
 			return (new Vertex3s((short)(-v.x), (short)(-v.y), (short)(-v.z)));
 		}
-
 
 		/// <summary>
 		/// Add operator.
@@ -3105,30 +3028,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3s"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3s v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
-		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
 		/// <param name="v1">
@@ -3173,7 +3072,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 
 		#endregion
 
@@ -3224,7 +3122,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -3244,7 +3141,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -3258,7 +3154,6 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -3274,7 +3169,6 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -3288,7 +3182,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -3355,7 +3248,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -3544,7 +3436,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -3572,7 +3463,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3s UnitZ = new Vertex3s(0, 0, 1);
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -3583,12 +3473,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3s Maximum = new Vertex3s(short.MaxValue);
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
@@ -3631,7 +3518,6 @@ namespace OpenGL
 				z = (short)((value * 0.5f + 0.5f) * ((long)short.MaxValue - (long)short.MinValue) + short.MinValue);
 			}
 		}
-
 
 		#endregion
 
@@ -3681,10 +3567,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3s is equal to another Vertex3s.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3s other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3s equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -3694,16 +3601,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -3750,7 +3655,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3s.
 		/// </summary>
@@ -3762,10 +3666,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (uint coordinates).
@@ -3773,7 +3675,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.UInt, 3)]
 	[DebuggerDisplay("Vertex3ui: X={x} Y={y} Z={z}")]
-	public struct Vertex3ui : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3ui : IVertex3, IEquatable<Vertex3ui>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -3847,7 +3749,6 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
-
 
 		/// <summary>
 		/// Add operator.
@@ -4030,30 +3931,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3ui"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3ui v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
-		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
 		/// <param name="v1">
@@ -4098,7 +3975,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 
 		#endregion
 
@@ -4149,7 +4025,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -4169,7 +4044,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -4183,7 +4057,6 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -4199,7 +4072,6 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -4213,7 +4085,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -4280,7 +4151,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -4469,7 +4339,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -4497,7 +4366,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3ui UnitZ = new Vertex3ui(0, 0, 1);
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -4508,12 +4376,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3ui Maximum = new Vertex3ui(uint.MaxValue);
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [0.0, 1.0].
@@ -4556,7 +4421,6 @@ namespace OpenGL
 				z = (uint)(value * (float)uint.MaxValue);
 			}
 		}
-
 
 		#endregion
 
@@ -4606,10 +4470,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3ui is equal to another Vertex3ui.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3ui other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3ui equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -4619,16 +4504,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -4675,7 +4558,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3ui.
 		/// </summary>
@@ -4687,10 +4569,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (int coordinates).
@@ -4698,7 +4578,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Int, 3)]
 	[DebuggerDisplay("Vertex3i: X={x} Y={y} Z={z}")]
-	public struct Vertex3i : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3i : IVertex3, IEquatable<Vertex3i>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -4773,7 +4653,6 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -4787,7 +4666,6 @@ namespace OpenGL
 		{
 			return (new Vertex3i((int)(-v.x), (int)(-v.y), (int)(-v.z)));
 		}
-
 
 		/// <summary>
 		/// Add operator.
@@ -4970,30 +4848,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3i"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3i v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
-		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
 		/// <param name="v1">
@@ -5038,7 +4892,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 
 		#endregion
 
@@ -5089,7 +4942,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -5109,7 +4961,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -5123,7 +4974,6 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -5139,7 +4989,6 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -5153,7 +5002,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -5220,7 +5068,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -5409,7 +5256,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -5437,7 +5283,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3i UnitZ = new Vertex3i(0, 0, 1);
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -5448,12 +5293,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3i Maximum = new Vertex3i(int.MaxValue);
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, normalized in range [-1.0, +1.0].
@@ -5496,7 +5338,6 @@ namespace OpenGL
 				z = (int)((value * 0.5f + 0.5f) * ((long)int.MaxValue - (long)int.MinValue) + int.MinValue);
 			}
 		}
-
 
 		#endregion
 
@@ -5546,10 +5387,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3i is equal to another Vertex3i.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3i other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3i equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -5559,16 +5421,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -5615,7 +5475,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3i.
 		/// </summary>
@@ -5627,10 +5486,8 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (float coordinates).
@@ -5638,7 +5495,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Float, 3)]
 	[DebuggerDisplay("Vertex3f: X={x} Y={y} Z={z}")]
-	public struct Vertex3f : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3f : IVertex3, IEquatable<Vertex3f>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -5713,7 +5570,6 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -5727,7 +5583,6 @@ namespace OpenGL
 		{
 			return (new Vertex3f((float)(-v.x), (float)(-v.y), (float)(-v.z)));
 		}
-
 
 		/// <summary>
 		/// Add operator.
@@ -5909,30 +5764,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3f"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3f v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
 
 		#endregion
 
@@ -5983,7 +5814,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -6003,7 +5833,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -6018,7 +5847,6 @@ namespace OpenGL
 			return (new Vertex2f(v.X, v.Y));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -6032,7 +5860,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -6099,7 +5926,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -6288,7 +6114,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -6316,7 +6141,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3f UnitZ = new Vertex3f(0.0f, 0.0f, 1.0f);
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -6327,12 +6151,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3f Maximum = new Vertex3f(float.MaxValue);
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, unclamped range.
@@ -6360,7 +6181,6 @@ namespace OpenGL
 			get { return ((float)z); }
 			set { z = (float)value; }
 		}
-
 
 		#endregion
 
@@ -6410,10 +6230,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3f is equal to another Vertex3f.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3f other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3f equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -6423,16 +6264,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -6479,7 +6318,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3f.
 		/// </summary>
@@ -6491,10 +6329,8 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (double coordinates).
@@ -6502,7 +6338,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Double, 3)]
 	[DebuggerDisplay("Vertex3d: X={x} Y={y} Z={z}")]
-	public struct Vertex3d : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3d : IVertex3, IEquatable<Vertex3d>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -6577,7 +6413,6 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -6591,7 +6426,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d((double)(-v.x), (double)(-v.y), (double)(-v.z)));
 		}
-
 
 		/// <summary>
 		/// Add operator.
@@ -6773,30 +6607,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3d"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3d v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
 
 		#endregion
 
@@ -6847,7 +6657,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -6862,7 +6671,6 @@ namespace OpenGL
 			return (new Vertex2f(v.X, v.Y));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
@@ -6876,7 +6684,6 @@ namespace OpenGL
 		{
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -6943,7 +6750,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -7132,7 +6938,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -7160,7 +6965,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3d UnitZ = new Vertex3d(0.0, 0.0, 1.0);
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -7171,12 +6975,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3d Maximum = new Vertex3d(double.MaxValue);
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, unclamped range.
@@ -7204,7 +7005,6 @@ namespace OpenGL
 			get { return ((float)z); }
 			set { z = (double)value; }
 		}
-
 
 		#endregion
 
@@ -7254,10 +7054,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3d is equal to another Vertex3d.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3d other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3d equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -7267,16 +7088,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -7323,7 +7142,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3d.
 		/// </summary>
@@ -7335,10 +7153,8 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 	/// <summary>
 	/// Vertex value type (HalfFloat coordinates).
@@ -7346,7 +7162,7 @@ namespace OpenGL
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[ArrayBufferItem(VertexBaseType.Half, 3)]
 	[DebuggerDisplay("Vertex3hf: X={x} Y={y} Z={z}")]
-	public struct Vertex3hf : IVertex3, IEquatable<IVertex3>
+	public struct Vertex3hf : IVertex3, IEquatable<Vertex3hf>, IEquatable<IVertex3>
 	{
 		#region Constructors
 
@@ -7421,7 +7237,6 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
-
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -7435,7 +7250,6 @@ namespace OpenGL
 		{
 			return (new Vertex3hf((HalfFloat)(-v.x), (HalfFloat)(-v.y), (HalfFloat)(-v.z)));
 		}
-
 
 		/// <summary>
 		/// Add operator.
@@ -7617,30 +7431,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Vertex and matrix multiplication.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex3hf"/> representing the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> representing the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex3f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex3f operator *(Vertex3hf v, Matrix4x4 m)
-		{
-			Vertex3f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[0, 1]) + (v.z * m[0, 2]) + m[0, 3]);
-			r.y = (float)((v.x * m[1, 1]) + (v.y * m[1, 1]) + (v.z * m[1, 2]) + m[1, 3]);
-			r.z = (float)((v.x * m[2, 2]) + (v.y * m[2, 1]) + (v.z * m[2, 2]) + m[2, 3]);
-
-			return (r);
-		}
-
-
 
 		#endregion
 
@@ -7691,7 +7481,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -7711,7 +7500,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -7725,7 +7513,6 @@ namespace OpenGL
 		{
 			return (new Vertex2f(v.X, v.Y));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -7741,7 +7528,6 @@ namespace OpenGL
 			return (new Vertex3f(v.X, v.Y, v.Z));
 		}
 
-
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -7755,7 +7541,6 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.X, v.Y, v.Z));
 		}
-
 
 		/// <summary>
 		/// Cast to Vertex4f operator.
@@ -7822,7 +7607,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -8011,7 +7795,6 @@ namespace OpenGL
 
 		#endregion
 
-
 		#region Notable Vertex
 
 		/// <summary>
@@ -8039,7 +7822,6 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3hf UnitZ = new Vertex3hf(new HalfFloat(0.0f), new HalfFloat(0.0f), new HalfFloat(1.0f));
 
-
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -8050,12 +7832,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex3hf Maximum = new Vertex3hf(new HalfFloat(HalfFloat.MaxValue));
 
-
 		#endregion
 
-
 		#region IVertex3 Implementation
-
 
 		/// <summary>
 		/// Vertex coordinate X, unclamped range.
@@ -8083,7 +7862,6 @@ namespace OpenGL
 			get { return ((float)z); }
 			set { z = (HalfFloat)value; }
 		}
-
 
 		#endregion
 
@@ -8133,10 +7911,31 @@ namespace OpenGL
 
 		#endregion
 
-		#region IEquatable<IVertex3> Implementation
+		#region IEquatable Implementation
 
 		/// <summary>
-		/// Indicates whether the this IVertex3 is equal to another IVertex3.
+		/// Indicates whether the this Vertex3hf is equal to another Vertex3hf.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3hf other)
+		{
+			if (x != other.x)
+				return (false);
+			if (y != other.y)
+				return (false);
+			if (z != other.z)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether this Vertex3hf equals to another IVertex3.
 		/// </summary>
 		/// <param name="other">
 		/// An IVertex3 to compare with this object.
@@ -8146,16 +7945,14 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(IVertex3 other)
 		{
-			const float Epsilon = 1e-6f;
-
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 
-			if (Math.Abs(X - other.X) >= Epsilon)
+			if (Math.Abs(X - other.X) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Y - other.Y) >= Epsilon)
+			if (Math.Abs(Y - other.Y) >= Single.Epsilon)
 				return (false);
-			if (Math.Abs(Z - other.Z) >= Epsilon)
+			if (Math.Abs(Z - other.Z) >= Single.Epsilon)
 				return (false);
 
 			return (true);
@@ -8202,7 +7999,6 @@ namespace OpenGL
 
 		#region Object Overrides
 
-
 		/// <summary>
 		/// Stringify this Vertex3hf.
 		/// </summary>
@@ -8214,9 +8010,7 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}|", x, y, z));
 		}
 
-
 		#endregion
 	}
-
 
 }

@@ -618,6 +618,14 @@ namespace OpenGL
 		#region Square Matrix Functions
 
 		/// <summary>
+		/// Determine whether this matrix is square.
+		/// </summary>
+		public bool IsSquare
+		{
+			get { return (Width == Height); }
+		}
+
+		/// <summary>
 		/// Determine whether this matrix is an identity.
 		/// </summary>
 		/// <param name="precision">
@@ -801,14 +809,6 @@ namespace OpenGL
 		public uint Height
 		{
 			get { return (_Height); }
-		}
-
-		/// <summary>
-		/// Determine whether this matrix is square.
-		/// </summary>
-		public bool IsSquare
-		{
-			get { return (Width == Height); }
 		}
 
 		/// <summary>

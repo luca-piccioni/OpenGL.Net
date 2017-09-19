@@ -297,10 +297,42 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3ub.operator*(Vertex3ub, Matrix4x4)")]
-		public void Vertex3ub_TestOperatorMatrixProduct()
+		[Test(Description = "Test Vertex3ub.operator*(Vertex3ub, byte)")]
+		public void Vertex3ub_TestOperatorScalarMultiply()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Random random = new Random();
+			
+			byte x1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte y1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte z1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte s = (byte)Next(random, 0.0, 32.0);
+
+			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
+
+			Vertex3ub v = v1 * s;
+
+			Assert.AreEqual((byte)(x1 * s), v.x);
+			Assert.AreEqual((byte)(y1 * s), v.y);
+			Assert.AreEqual((byte)(z1 * s), v.z);
+		}
+
+		[Test(Description = "Test Vertex3ub.operator/(Vertex3ub, byte)")]
+		public void Vertex3ub_TestOperatorScalarDivide()
+		{
+			Random random = new Random();
+			
+			byte x1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte y1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte z1 = (byte)Next(random, byte.MinValue / 32.0, byte.MaxValue / 32.0);
+			byte s = (byte)Next(random, 0.0, 32.0);
+
+			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
+
+			Vertex3ub v = v1 / s;
+
+			Assert.AreEqual((byte)(x1 / s), v.x);
+			Assert.AreEqual((byte)(y1 / s), v.y);
+			Assert.AreEqual((byte)(z1 / s), v.z);
 		}
 
 		#endregion
@@ -310,20 +342,26 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3ub.operator==(Vertex3ub, Vertex3ub)")]
 		public void Vertex3ub_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3ub v = Vertex3ub.UnitX;
+
+			Assert.IsTrue(v == Vertex3ub.UnitX);
+			Assert.IsFalse(v == Vertex3ub.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3ub.operator!=(Vertex3ub, Vertex3ub)")]
 		public void Vertex3ub_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3ub v = Vertex3ub.UnitX;
+
+			Assert.IsFalse(v != Vertex3ub.UnitX);
+			Assert.IsTrue(v != Vertex3ub.UnitY);
 		}
 
 		#endregion
 
 		#region Cast Operators
 
-		[Test(Description = "Test Vertex3ub.operator float[](Vertex3ub)")]
+		[Test(Description = "Test Vertex3ub.operator byte[](Vertex3ub)")]
 		public void Vertex3ub_TestCastToArray()
 		{
 			Random random = new Random();
@@ -426,6 +464,100 @@ namespace OpenGL.Test
 			Assert.AreEqual(78f, new Vertex3ub((byte)2.0, (byte)5.0, (byte)7.0).ModuleSquared(), 1e-4f);
 		}
 
+		[Test(Description = "Test Vertex3ub.Normalize()")]
+		public void Vertex3ub_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3ub.Zero.Normalize(); });
+
+			Vertex3ub v;
+
+			v = Vertex3ub.UnitX * (byte)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3ub.UnitX, v);
+
+			v = Vertex3ub.UnitY * (byte)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3ub.UnitY, v);
+
+			v = Vertex3ub.UnitZ * (byte)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3ub.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3ub.Normalized")]
+		public void Vertex3ub_TestNormalized()
+		{
+			Vertex3ub v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3ub.Zero.Normalized; });
+
+			v = Vertex3ub.UnitX * (byte)2.0f;
+			Assert.AreEqual(Vertex3ub.UnitX, v.Normalized);
+
+			v = Vertex3ub.UnitY * (byte)2.0f;
+			Assert.AreEqual(Vertex3ub.UnitY, v.Normalized);
+
+			v = Vertex3ub.UnitZ * (byte)2.0f;
+			Assert.AreEqual(Vertex3ub.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3ub.Min(Vertex3ub[])")]
+		public void Vertex3ub_TestMin()
+		{
+			Vertex3ub[] v = new Vertex3ub[] {
+				new Vertex3ub((byte)1.0f, (byte)13.0f, (byte)22.0f),
+				new Vertex3ub((byte)2.0f, (byte)12.0f, (byte)21.0f),
+				new Vertex3ub((byte)3.0f, (byte)11.0f, (byte)23.0f),
+			};
+
+			Vertex3ub min = Vertex3ub.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3ub((byte)1.0f, (byte)11.0f, (byte)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3ub.Max(Vertex3ub[])")]
+		public void Vertex3ub_TestMax()
+		{
+			Vertex3ub[] v = new Vertex3ub[] {
+				new Vertex3ub((byte)1.0f, (byte)13.0f, (byte)22.0f),
+				new Vertex3ub((byte)2.0f, (byte)12.0f, (byte)21.0f),
+				new Vertex3ub((byte)3.0f, (byte)11.0f, (byte)23.0f),
+			};
+
+			Vertex3ub min = Vertex3ub.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3ub((byte)3.0f, (byte)13.0f, (byte)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3ub.Max(Vertex3ub[])")]
+		public void Vertex3ub_TestMinMax()
+		{
+			Vertex3ub[] v = new Vertex3ub[] {
+				new Vertex3ub((byte)1.0f, (byte)13.0f, (byte)22.0f),
+				new Vertex3ub((byte)2.0f, (byte)12.0f, (byte)21.0f),
+				new Vertex3ub((byte)3.0f, (byte)11.0f, (byte)23.0f),
+			};
+
+			Vertex3ub min, max;
+
+			Vertex3ub.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3ub((byte)1.0f, (byte)11.0f, (byte)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3ub((byte)3.0f, (byte)13.0f, (byte)23.0f),
+				max
+			);
+		}
+
 		#endregion
 	}
 
@@ -514,6 +646,22 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+		[Test(Description = "Test Vertex3b.operator-(Vertex3b))")]
+		public void Vertex3b_TestOperatorNegate()
+		{
+			Random random = new Random();
+			
+			sbyte x = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
+			sbyte y = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
+			sbyte z = (sbyte)Next(random, sbyte.MinValue / 2.0f, sbyte.MaxValue / 2.0f);
+
+			Vertex3b v = new Vertex3b(x, y, z);
+			Vertex3b n = -v;
+
+			Assert.AreEqual(-x, n.x);
+			Assert.AreEqual(-y, n.y);
+			Assert.AreEqual(-z, n.z);
+		}
 		[Test(Description = "Test Vertex3b.operator+(Vertex3b, Vertex3b)")]
 		public void Vertex3b_TestOperatorAdd()
 		{
@@ -687,10 +835,42 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3b.operator*(Vertex3b, Matrix4x4)")]
-		public void Vertex3b_TestOperatorMatrixProduct()
+		[Test(Description = "Test Vertex3b.operator*(Vertex3b, sbyte)")]
+		public void Vertex3b_TestOperatorScalarMultiply()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Random random = new Random();
+			
+			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte s = (sbyte)Next(random, 0.0, 32.0);
+
+			Vertex3b v1 = new Vertex3b(x1, y1, z1);
+
+			Vertex3b v = v1 * s;
+
+			Assert.AreEqual((sbyte)(x1 * s), v.x);
+			Assert.AreEqual((sbyte)(y1 * s), v.y);
+			Assert.AreEqual((sbyte)(z1 * s), v.z);
+		}
+
+		[Test(Description = "Test Vertex3b.operator/(Vertex3b, sbyte)")]
+		public void Vertex3b_TestOperatorScalarDivide()
+		{
+			Random random = new Random();
+			
+			sbyte x1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte y1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte z1 = (sbyte)Next(random, sbyte.MinValue / 32.0, sbyte.MaxValue / 32.0);
+			sbyte s = (sbyte)Next(random, 0.0, 32.0);
+
+			Vertex3b v1 = new Vertex3b(x1, y1, z1);
+
+			Vertex3b v = v1 / s;
+
+			Assert.AreEqual((sbyte)(x1 / s), v.x);
+			Assert.AreEqual((sbyte)(y1 / s), v.y);
+			Assert.AreEqual((sbyte)(z1 / s), v.z);
 		}
 
 		#endregion
@@ -700,20 +880,26 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3b.operator==(Vertex3b, Vertex3b)")]
 		public void Vertex3b_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3b v = Vertex3b.UnitX;
+
+			Assert.IsTrue(v == Vertex3b.UnitX);
+			Assert.IsFalse(v == Vertex3b.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3b.operator!=(Vertex3b, Vertex3b)")]
 		public void Vertex3b_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3b v = Vertex3b.UnitX;
+
+			Assert.IsFalse(v != Vertex3b.UnitX);
+			Assert.IsTrue(v != Vertex3b.UnitY);
 		}
 
 		#endregion
 
 		#region Cast Operators
 
-		[Test(Description = "Test Vertex3b.operator float[](Vertex3b)")]
+		[Test(Description = "Test Vertex3b.operator sbyte[](Vertex3b)")]
 		public void Vertex3b_TestCastToArray()
 		{
 			Random random = new Random();
@@ -814,6 +1000,100 @@ namespace OpenGL.Test
 		{
 			Assert.AreEqual(14f, new Vertex3b((sbyte)1.0, (sbyte)2.0, (sbyte)3.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(78f, new Vertex3b((sbyte)2.0, (sbyte)5.0, (sbyte)7.0).ModuleSquared(), 1e-4f);
+		}
+
+		[Test(Description = "Test Vertex3b.Normalize()")]
+		public void Vertex3b_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3b.Zero.Normalize(); });
+
+			Vertex3b v;
+
+			v = Vertex3b.UnitX * (sbyte)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3b.UnitX, v);
+
+			v = Vertex3b.UnitY * (sbyte)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3b.UnitY, v);
+
+			v = Vertex3b.UnitZ * (sbyte)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3b.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3b.Normalized")]
+		public void Vertex3b_TestNormalized()
+		{
+			Vertex3b v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3b.Zero.Normalized; });
+
+			v = Vertex3b.UnitX * (sbyte)2.0f;
+			Assert.AreEqual(Vertex3b.UnitX, v.Normalized);
+
+			v = Vertex3b.UnitY * (sbyte)2.0f;
+			Assert.AreEqual(Vertex3b.UnitY, v.Normalized);
+
+			v = Vertex3b.UnitZ * (sbyte)2.0f;
+			Assert.AreEqual(Vertex3b.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3b.Min(Vertex3b[])")]
+		public void Vertex3b_TestMin()
+		{
+			Vertex3b[] v = new Vertex3b[] {
+				new Vertex3b((sbyte)1.0f, (sbyte)13.0f, (sbyte)22.0f),
+				new Vertex3b((sbyte)2.0f, (sbyte)12.0f, (sbyte)21.0f),
+				new Vertex3b((sbyte)3.0f, (sbyte)11.0f, (sbyte)23.0f),
+			};
+
+			Vertex3b min = Vertex3b.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3b((sbyte)1.0f, (sbyte)11.0f, (sbyte)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3b.Max(Vertex3b[])")]
+		public void Vertex3b_TestMax()
+		{
+			Vertex3b[] v = new Vertex3b[] {
+				new Vertex3b((sbyte)1.0f, (sbyte)13.0f, (sbyte)22.0f),
+				new Vertex3b((sbyte)2.0f, (sbyte)12.0f, (sbyte)21.0f),
+				new Vertex3b((sbyte)3.0f, (sbyte)11.0f, (sbyte)23.0f),
+			};
+
+			Vertex3b min = Vertex3b.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3b((sbyte)3.0f, (sbyte)13.0f, (sbyte)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3b.Max(Vertex3b[])")]
+		public void Vertex3b_TestMinMax()
+		{
+			Vertex3b[] v = new Vertex3b[] {
+				new Vertex3b((sbyte)1.0f, (sbyte)13.0f, (sbyte)22.0f),
+				new Vertex3b((sbyte)2.0f, (sbyte)12.0f, (sbyte)21.0f),
+				new Vertex3b((sbyte)3.0f, (sbyte)11.0f, (sbyte)23.0f),
+			};
+
+			Vertex3b min, max;
+
+			Vertex3b.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3b((sbyte)1.0f, (sbyte)11.0f, (sbyte)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3b((sbyte)3.0f, (sbyte)13.0f, (sbyte)23.0f),
+				max
+			);
 		}
 
 		#endregion
@@ -1077,10 +1357,42 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3us.operator*(Vertex3us, Matrix4x4)")]
-		public void Vertex3us_TestOperatorMatrixProduct()
+		[Test(Description = "Test Vertex3us.operator*(Vertex3us, ushort)")]
+		public void Vertex3us_TestOperatorScalarMultiply()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Random random = new Random();
+			
+			ushort x1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort y1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort z1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort s = (ushort)Next(random, 0.0, 32.0);
+
+			Vertex3us v1 = new Vertex3us(x1, y1, z1);
+
+			Vertex3us v = v1 * s;
+
+			Assert.AreEqual((ushort)(x1 * s), v.x);
+			Assert.AreEqual((ushort)(y1 * s), v.y);
+			Assert.AreEqual((ushort)(z1 * s), v.z);
+		}
+
+		[Test(Description = "Test Vertex3us.operator/(Vertex3us, ushort)")]
+		public void Vertex3us_TestOperatorScalarDivide()
+		{
+			Random random = new Random();
+			
+			ushort x1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort y1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort z1 = (ushort)Next(random, ushort.MinValue / 32.0, ushort.MaxValue / 32.0);
+			ushort s = (ushort)Next(random, 0.0, 32.0);
+
+			Vertex3us v1 = new Vertex3us(x1, y1, z1);
+
+			Vertex3us v = v1 / s;
+
+			Assert.AreEqual((ushort)(x1 / s), v.x);
+			Assert.AreEqual((ushort)(y1 / s), v.y);
+			Assert.AreEqual((ushort)(z1 / s), v.z);
 		}
 
 		#endregion
@@ -1090,20 +1402,26 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3us.operator==(Vertex3us, Vertex3us)")]
 		public void Vertex3us_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3us v = Vertex3us.UnitX;
+
+			Assert.IsTrue(v == Vertex3us.UnitX);
+			Assert.IsFalse(v == Vertex3us.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3us.operator!=(Vertex3us, Vertex3us)")]
 		public void Vertex3us_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3us v = Vertex3us.UnitX;
+
+			Assert.IsFalse(v != Vertex3us.UnitX);
+			Assert.IsTrue(v != Vertex3us.UnitY);
 		}
 
 		#endregion
 
 		#region Cast Operators
 
-		[Test(Description = "Test Vertex3us.operator float[](Vertex3us)")]
+		[Test(Description = "Test Vertex3us.operator ushort[](Vertex3us)")]
 		public void Vertex3us_TestCastToArray()
 		{
 			Random random = new Random();
@@ -1206,6 +1524,100 @@ namespace OpenGL.Test
 			Assert.AreEqual(78f, new Vertex3us((ushort)2.0, (ushort)5.0, (ushort)7.0).ModuleSquared(), 1e-4f);
 		}
 
+		[Test(Description = "Test Vertex3us.Normalize()")]
+		public void Vertex3us_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3us.Zero.Normalize(); });
+
+			Vertex3us v;
+
+			v = Vertex3us.UnitX * (ushort)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3us.UnitX, v);
+
+			v = Vertex3us.UnitY * (ushort)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3us.UnitY, v);
+
+			v = Vertex3us.UnitZ * (ushort)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3us.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3us.Normalized")]
+		public void Vertex3us_TestNormalized()
+		{
+			Vertex3us v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3us.Zero.Normalized; });
+
+			v = Vertex3us.UnitX * (ushort)2.0f;
+			Assert.AreEqual(Vertex3us.UnitX, v.Normalized);
+
+			v = Vertex3us.UnitY * (ushort)2.0f;
+			Assert.AreEqual(Vertex3us.UnitY, v.Normalized);
+
+			v = Vertex3us.UnitZ * (ushort)2.0f;
+			Assert.AreEqual(Vertex3us.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3us.Min(Vertex3us[])")]
+		public void Vertex3us_TestMin()
+		{
+			Vertex3us[] v = new Vertex3us[] {
+				new Vertex3us((ushort)1.0f, (ushort)13.0f, (ushort)22.0f),
+				new Vertex3us((ushort)2.0f, (ushort)12.0f, (ushort)21.0f),
+				new Vertex3us((ushort)3.0f, (ushort)11.0f, (ushort)23.0f),
+			};
+
+			Vertex3us min = Vertex3us.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3us((ushort)1.0f, (ushort)11.0f, (ushort)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3us.Max(Vertex3us[])")]
+		public void Vertex3us_TestMax()
+		{
+			Vertex3us[] v = new Vertex3us[] {
+				new Vertex3us((ushort)1.0f, (ushort)13.0f, (ushort)22.0f),
+				new Vertex3us((ushort)2.0f, (ushort)12.0f, (ushort)21.0f),
+				new Vertex3us((ushort)3.0f, (ushort)11.0f, (ushort)23.0f),
+			};
+
+			Vertex3us min = Vertex3us.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3us((ushort)3.0f, (ushort)13.0f, (ushort)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3us.Max(Vertex3us[])")]
+		public void Vertex3us_TestMinMax()
+		{
+			Vertex3us[] v = new Vertex3us[] {
+				new Vertex3us((ushort)1.0f, (ushort)13.0f, (ushort)22.0f),
+				new Vertex3us((ushort)2.0f, (ushort)12.0f, (ushort)21.0f),
+				new Vertex3us((ushort)3.0f, (ushort)11.0f, (ushort)23.0f),
+			};
+
+			Vertex3us min, max;
+
+			Vertex3us.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3us((ushort)1.0f, (ushort)11.0f, (ushort)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3us((ushort)3.0f, (ushort)13.0f, (ushort)23.0f),
+				max
+			);
+		}
+
 		#endregion
 	}
 
@@ -1294,6 +1706,22 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+		[Test(Description = "Test Vertex3s.operator-(Vertex3s))")]
+		public void Vertex3s_TestOperatorNegate()
+		{
+			Random random = new Random();
+			
+			short x = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
+			short y = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
+			short z = (short)Next(random, short.MinValue / 2.0f, short.MaxValue / 2.0f);
+
+			Vertex3s v = new Vertex3s(x, y, z);
+			Vertex3s n = -v;
+
+			Assert.AreEqual(-x, n.x);
+			Assert.AreEqual(-y, n.y);
+			Assert.AreEqual(-z, n.z);
+		}
 		[Test(Description = "Test Vertex3s.operator+(Vertex3s, Vertex3s)")]
 		public void Vertex3s_TestOperatorAdd()
 		{
@@ -1467,10 +1895,42 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3s.operator*(Vertex3s, Matrix4x4)")]
-		public void Vertex3s_TestOperatorMatrixProduct()
+		[Test(Description = "Test Vertex3s.operator*(Vertex3s, short)")]
+		public void Vertex3s_TestOperatorScalarMultiply()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Random random = new Random();
+			
+			short x1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short y1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short z1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short s = (short)Next(random, 0.0, 32.0);
+
+			Vertex3s v1 = new Vertex3s(x1, y1, z1);
+
+			Vertex3s v = v1 * s;
+
+			Assert.AreEqual((short)(x1 * s), v.x);
+			Assert.AreEqual((short)(y1 * s), v.y);
+			Assert.AreEqual((short)(z1 * s), v.z);
+		}
+
+		[Test(Description = "Test Vertex3s.operator/(Vertex3s, short)")]
+		public void Vertex3s_TestOperatorScalarDivide()
+		{
+			Random random = new Random();
+			
+			short x1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short y1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short z1 = (short)Next(random, short.MinValue / 32.0, short.MaxValue / 32.0);
+			short s = (short)Next(random, 0.0, 32.0);
+
+			Vertex3s v1 = new Vertex3s(x1, y1, z1);
+
+			Vertex3s v = v1 / s;
+
+			Assert.AreEqual((short)(x1 / s), v.x);
+			Assert.AreEqual((short)(y1 / s), v.y);
+			Assert.AreEqual((short)(z1 / s), v.z);
 		}
 
 		#endregion
@@ -1480,20 +1940,26 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3s.operator==(Vertex3s, Vertex3s)")]
 		public void Vertex3s_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3s v = Vertex3s.UnitX;
+
+			Assert.IsTrue(v == Vertex3s.UnitX);
+			Assert.IsFalse(v == Vertex3s.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3s.operator!=(Vertex3s, Vertex3s)")]
 		public void Vertex3s_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3s v = Vertex3s.UnitX;
+
+			Assert.IsFalse(v != Vertex3s.UnitX);
+			Assert.IsTrue(v != Vertex3s.UnitY);
 		}
 
 		#endregion
 
 		#region Cast Operators
 
-		[Test(Description = "Test Vertex3s.operator float[](Vertex3s)")]
+		[Test(Description = "Test Vertex3s.operator short[](Vertex3s)")]
 		public void Vertex3s_TestCastToArray()
 		{
 			Random random = new Random();
@@ -1594,6 +2060,100 @@ namespace OpenGL.Test
 		{
 			Assert.AreEqual(14f, new Vertex3s((short)1.0, (short)2.0, (short)3.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(78f, new Vertex3s((short)2.0, (short)5.0, (short)7.0).ModuleSquared(), 1e-4f);
+		}
+
+		[Test(Description = "Test Vertex3s.Normalize()")]
+		public void Vertex3s_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3s.Zero.Normalize(); });
+
+			Vertex3s v;
+
+			v = Vertex3s.UnitX * (short)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3s.UnitX, v);
+
+			v = Vertex3s.UnitY * (short)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3s.UnitY, v);
+
+			v = Vertex3s.UnitZ * (short)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3s.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3s.Normalized")]
+		public void Vertex3s_TestNormalized()
+		{
+			Vertex3s v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3s.Zero.Normalized; });
+
+			v = Vertex3s.UnitX * (short)2.0f;
+			Assert.AreEqual(Vertex3s.UnitX, v.Normalized);
+
+			v = Vertex3s.UnitY * (short)2.0f;
+			Assert.AreEqual(Vertex3s.UnitY, v.Normalized);
+
+			v = Vertex3s.UnitZ * (short)2.0f;
+			Assert.AreEqual(Vertex3s.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3s.Min(Vertex3s[])")]
+		public void Vertex3s_TestMin()
+		{
+			Vertex3s[] v = new Vertex3s[] {
+				new Vertex3s((short)1.0f, (short)13.0f, (short)22.0f),
+				new Vertex3s((short)2.0f, (short)12.0f, (short)21.0f),
+				new Vertex3s((short)3.0f, (short)11.0f, (short)23.0f),
+			};
+
+			Vertex3s min = Vertex3s.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3s((short)1.0f, (short)11.0f, (short)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3s.Max(Vertex3s[])")]
+		public void Vertex3s_TestMax()
+		{
+			Vertex3s[] v = new Vertex3s[] {
+				new Vertex3s((short)1.0f, (short)13.0f, (short)22.0f),
+				new Vertex3s((short)2.0f, (short)12.0f, (short)21.0f),
+				new Vertex3s((short)3.0f, (short)11.0f, (short)23.0f),
+			};
+
+			Vertex3s min = Vertex3s.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3s((short)3.0f, (short)13.0f, (short)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3s.Max(Vertex3s[])")]
+		public void Vertex3s_TestMinMax()
+		{
+			Vertex3s[] v = new Vertex3s[] {
+				new Vertex3s((short)1.0f, (short)13.0f, (short)22.0f),
+				new Vertex3s((short)2.0f, (short)12.0f, (short)21.0f),
+				new Vertex3s((short)3.0f, (short)11.0f, (short)23.0f),
+			};
+
+			Vertex3s min, max;
+
+			Vertex3s.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3s((short)1.0f, (short)11.0f, (short)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3s((short)3.0f, (short)13.0f, (short)23.0f),
+				max
+			);
 		}
 
 		#endregion
@@ -1857,10 +2417,42 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3ui.operator*(Vertex3ui, Matrix4x4)")]
-		public void Vertex3ui_TestOperatorMatrixProduct()
+		[Test(Description = "Test Vertex3ui.operator*(Vertex3ui, uint)")]
+		public void Vertex3ui_TestOperatorScalarMultiply()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Random random = new Random();
+			
+			uint x1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint y1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint z1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint s = (uint)Next(random, 0.0, 32.0);
+
+			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
+
+			Vertex3ui v = v1 * s;
+
+			Assert.AreEqual((uint)(x1 * s), v.x);
+			Assert.AreEqual((uint)(y1 * s), v.y);
+			Assert.AreEqual((uint)(z1 * s), v.z);
+		}
+
+		[Test(Description = "Test Vertex3ui.operator/(Vertex3ui, uint)")]
+		public void Vertex3ui_TestOperatorScalarDivide()
+		{
+			Random random = new Random();
+			
+			uint x1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint y1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint z1 = (uint)Next(random, uint.MinValue / 32.0, uint.MaxValue / 32.0);
+			uint s = (uint)Next(random, 0.0, 32.0);
+
+			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
+
+			Vertex3ui v = v1 / s;
+
+			Assert.AreEqual((uint)(x1 / s), v.x);
+			Assert.AreEqual((uint)(y1 / s), v.y);
+			Assert.AreEqual((uint)(z1 / s), v.z);
 		}
 
 		#endregion
@@ -1870,20 +2462,26 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3ui.operator==(Vertex3ui, Vertex3ui)")]
 		public void Vertex3ui_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3ui v = Vertex3ui.UnitX;
+
+			Assert.IsTrue(v == Vertex3ui.UnitX);
+			Assert.IsFalse(v == Vertex3ui.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3ui.operator!=(Vertex3ui, Vertex3ui)")]
 		public void Vertex3ui_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3ui v = Vertex3ui.UnitX;
+
+			Assert.IsFalse(v != Vertex3ui.UnitX);
+			Assert.IsTrue(v != Vertex3ui.UnitY);
 		}
 
 		#endregion
 
 		#region Cast Operators
 
-		[Test(Description = "Test Vertex3ui.operator float[](Vertex3ui)")]
+		[Test(Description = "Test Vertex3ui.operator uint[](Vertex3ui)")]
 		public void Vertex3ui_TestCastToArray()
 		{
 			Random random = new Random();
@@ -1986,6 +2584,100 @@ namespace OpenGL.Test
 			Assert.AreEqual(78f, new Vertex3ui((uint)2.0, (uint)5.0, (uint)7.0).ModuleSquared(), 1e-4f);
 		}
 
+		[Test(Description = "Test Vertex3ui.Normalize()")]
+		public void Vertex3ui_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3ui.Zero.Normalize(); });
+
+			Vertex3ui v;
+
+			v = Vertex3ui.UnitX * (uint)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3ui.UnitX, v);
+
+			v = Vertex3ui.UnitY * (uint)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3ui.UnitY, v);
+
+			v = Vertex3ui.UnitZ * (uint)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3ui.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3ui.Normalized")]
+		public void Vertex3ui_TestNormalized()
+		{
+			Vertex3ui v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3ui.Zero.Normalized; });
+
+			v = Vertex3ui.UnitX * (uint)2.0f;
+			Assert.AreEqual(Vertex3ui.UnitX, v.Normalized);
+
+			v = Vertex3ui.UnitY * (uint)2.0f;
+			Assert.AreEqual(Vertex3ui.UnitY, v.Normalized);
+
+			v = Vertex3ui.UnitZ * (uint)2.0f;
+			Assert.AreEqual(Vertex3ui.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3ui.Min(Vertex3ui[])")]
+		public void Vertex3ui_TestMin()
+		{
+			Vertex3ui[] v = new Vertex3ui[] {
+				new Vertex3ui((uint)1.0f, (uint)13.0f, (uint)22.0f),
+				new Vertex3ui((uint)2.0f, (uint)12.0f, (uint)21.0f),
+				new Vertex3ui((uint)3.0f, (uint)11.0f, (uint)23.0f),
+			};
+
+			Vertex3ui min = Vertex3ui.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3ui((uint)1.0f, (uint)11.0f, (uint)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3ui.Max(Vertex3ui[])")]
+		public void Vertex3ui_TestMax()
+		{
+			Vertex3ui[] v = new Vertex3ui[] {
+				new Vertex3ui((uint)1.0f, (uint)13.0f, (uint)22.0f),
+				new Vertex3ui((uint)2.0f, (uint)12.0f, (uint)21.0f),
+				new Vertex3ui((uint)3.0f, (uint)11.0f, (uint)23.0f),
+			};
+
+			Vertex3ui min = Vertex3ui.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3ui((uint)3.0f, (uint)13.0f, (uint)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3ui.Max(Vertex3ui[])")]
+		public void Vertex3ui_TestMinMax()
+		{
+			Vertex3ui[] v = new Vertex3ui[] {
+				new Vertex3ui((uint)1.0f, (uint)13.0f, (uint)22.0f),
+				new Vertex3ui((uint)2.0f, (uint)12.0f, (uint)21.0f),
+				new Vertex3ui((uint)3.0f, (uint)11.0f, (uint)23.0f),
+			};
+
+			Vertex3ui min, max;
+
+			Vertex3ui.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3ui((uint)1.0f, (uint)11.0f, (uint)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3ui((uint)3.0f, (uint)13.0f, (uint)23.0f),
+				max
+			);
+		}
+
 		#endregion
 	}
 
@@ -2074,6 +2766,22 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+		[Test(Description = "Test Vertex3i.operator-(Vertex3i))")]
+		public void Vertex3i_TestOperatorNegate()
+		{
+			Random random = new Random();
+			
+			int x = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
+			int y = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
+			int z = (int)Next(random, int.MinValue / 2.0f, int.MaxValue / 2.0f);
+
+			Vertex3i v = new Vertex3i(x, y, z);
+			Vertex3i n = -v;
+
+			Assert.AreEqual(-x, n.x);
+			Assert.AreEqual(-y, n.y);
+			Assert.AreEqual(-z, n.z);
+		}
 		[Test(Description = "Test Vertex3i.operator+(Vertex3i, Vertex3i)")]
 		public void Vertex3i_TestOperatorAdd()
 		{
@@ -2247,10 +2955,42 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3i.operator*(Vertex3i, Matrix4x4)")]
-		public void Vertex3i_TestOperatorMatrixProduct()
+		[Test(Description = "Test Vertex3i.operator*(Vertex3i, int)")]
+		public void Vertex3i_TestOperatorScalarMultiply()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Random random = new Random();
+			
+			int x1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int y1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int z1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int s = (int)Next(random, 0.0, 32.0);
+
+			Vertex3i v1 = new Vertex3i(x1, y1, z1);
+
+			Vertex3i v = v1 * s;
+
+			Assert.AreEqual((int)(x1 * s), v.x);
+			Assert.AreEqual((int)(y1 * s), v.y);
+			Assert.AreEqual((int)(z1 * s), v.z);
+		}
+
+		[Test(Description = "Test Vertex3i.operator/(Vertex3i, int)")]
+		public void Vertex3i_TestOperatorScalarDivide()
+		{
+			Random random = new Random();
+			
+			int x1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int y1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int z1 = (int)Next(random, int.MinValue / 32.0, int.MaxValue / 32.0);
+			int s = (int)Next(random, 0.0, 32.0);
+
+			Vertex3i v1 = new Vertex3i(x1, y1, z1);
+
+			Vertex3i v = v1 / s;
+
+			Assert.AreEqual((int)(x1 / s), v.x);
+			Assert.AreEqual((int)(y1 / s), v.y);
+			Assert.AreEqual((int)(z1 / s), v.z);
 		}
 
 		#endregion
@@ -2260,20 +3000,26 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3i.operator==(Vertex3i, Vertex3i)")]
 		public void Vertex3i_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3i v = Vertex3i.UnitX;
+
+			Assert.IsTrue(v == Vertex3i.UnitX);
+			Assert.IsFalse(v == Vertex3i.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3i.operator!=(Vertex3i, Vertex3i)")]
 		public void Vertex3i_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3i v = Vertex3i.UnitX;
+
+			Assert.IsFalse(v != Vertex3i.UnitX);
+			Assert.IsTrue(v != Vertex3i.UnitY);
 		}
 
 		#endregion
 
 		#region Cast Operators
 
-		[Test(Description = "Test Vertex3i.operator float[](Vertex3i)")]
+		[Test(Description = "Test Vertex3i.operator int[](Vertex3i)")]
 		public void Vertex3i_TestCastToArray()
 		{
 			Random random = new Random();
@@ -2376,6 +3122,100 @@ namespace OpenGL.Test
 			Assert.AreEqual(78f, new Vertex3i((int)2.0, (int)5.0, (int)7.0).ModuleSquared(), 1e-4f);
 		}
 
+		[Test(Description = "Test Vertex3i.Normalize()")]
+		public void Vertex3i_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3i.Zero.Normalize(); });
+
+			Vertex3i v;
+
+			v = Vertex3i.UnitX * (int)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3i.UnitX, v);
+
+			v = Vertex3i.UnitY * (int)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3i.UnitY, v);
+
+			v = Vertex3i.UnitZ * (int)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3i.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3i.Normalized")]
+		public void Vertex3i_TestNormalized()
+		{
+			Vertex3i v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3i.Zero.Normalized; });
+
+			v = Vertex3i.UnitX * (int)2.0f;
+			Assert.AreEqual(Vertex3i.UnitX, v.Normalized);
+
+			v = Vertex3i.UnitY * (int)2.0f;
+			Assert.AreEqual(Vertex3i.UnitY, v.Normalized);
+
+			v = Vertex3i.UnitZ * (int)2.0f;
+			Assert.AreEqual(Vertex3i.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3i.Min(Vertex3i[])")]
+		public void Vertex3i_TestMin()
+		{
+			Vertex3i[] v = new Vertex3i[] {
+				new Vertex3i((int)1.0f, (int)13.0f, (int)22.0f),
+				new Vertex3i((int)2.0f, (int)12.0f, (int)21.0f),
+				new Vertex3i((int)3.0f, (int)11.0f, (int)23.0f),
+			};
+
+			Vertex3i min = Vertex3i.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3i((int)1.0f, (int)11.0f, (int)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3i.Max(Vertex3i[])")]
+		public void Vertex3i_TestMax()
+		{
+			Vertex3i[] v = new Vertex3i[] {
+				new Vertex3i((int)1.0f, (int)13.0f, (int)22.0f),
+				new Vertex3i((int)2.0f, (int)12.0f, (int)21.0f),
+				new Vertex3i((int)3.0f, (int)11.0f, (int)23.0f),
+			};
+
+			Vertex3i min = Vertex3i.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3i((int)3.0f, (int)13.0f, (int)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3i.Max(Vertex3i[])")]
+		public void Vertex3i_TestMinMax()
+		{
+			Vertex3i[] v = new Vertex3i[] {
+				new Vertex3i((int)1.0f, (int)13.0f, (int)22.0f),
+				new Vertex3i((int)2.0f, (int)12.0f, (int)21.0f),
+				new Vertex3i((int)3.0f, (int)11.0f, (int)23.0f),
+			};
+
+			Vertex3i min, max;
+
+			Vertex3i.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3i((int)1.0f, (int)11.0f, (int)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3i((int)3.0f, (int)13.0f, (int)23.0f),
+				max
+			);
+		}
+
 		#endregion
 	}
 
@@ -2464,6 +3304,22 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+		[Test(Description = "Test Vertex3f.operator-(Vertex3f))")]
+		public void Vertex3f_TestOperatorNegate()
+		{
+			Random random = new Random();
+			
+			float x = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
+			float y = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
+			float z = (float)Next(random, float.MinValue / 2.0f, float.MaxValue / 2.0f);
+
+			Vertex3f v = new Vertex3f(x, y, z);
+			Vertex3f n = -v;
+
+			Assert.AreEqual(-x, n.x);
+			Assert.AreEqual(-y, n.y);
+			Assert.AreEqual(-z, n.z);
+		}
 		[Test(Description = "Test Vertex3f.operator+(Vertex3f, Vertex3f)")]
 		public void Vertex3f_TestOperatorAdd()
 		{
@@ -2637,11 +3493,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3f.operator*(Vertex3f, Matrix4x4)")]
-		public void Vertex3f_TestOperatorMatrixProduct()
-		{
-			Assert.Inconclusive("not implemented yet");
-		}
 
 		#endregion
 
@@ -2650,13 +3501,19 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3f.operator==(Vertex3f, Vertex3f)")]
 		public void Vertex3f_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3f v = Vertex3f.UnitX;
+
+			Assert.IsTrue(v == Vertex3f.UnitX);
+			Assert.IsFalse(v == Vertex3f.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3f.operator!=(Vertex3f, Vertex3f)")]
 		public void Vertex3f_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3f v = Vertex3f.UnitX;
+
+			Assert.IsFalse(v != Vertex3f.UnitX);
+			Assert.IsTrue(v != Vertex3f.UnitY);
 		}
 
 		#endregion
@@ -2766,6 +3623,100 @@ namespace OpenGL.Test
 			Assert.AreEqual(78f, new Vertex3f((float)2.0, (float)5.0, (float)7.0).ModuleSquared(), 1e-4f);
 		}
 
+		[Test(Description = "Test Vertex3f.Normalize()")]
+		public void Vertex3f_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3f.Zero.Normalize(); });
+
+			Vertex3f v;
+
+			v = Vertex3f.UnitX * (float)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3f.UnitX, v);
+
+			v = Vertex3f.UnitY * (float)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3f.UnitY, v);
+
+			v = Vertex3f.UnitZ * (float)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3f.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3f.Normalized")]
+		public void Vertex3f_TestNormalized()
+		{
+			Vertex3f v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3f.Zero.Normalized; });
+
+			v = Vertex3f.UnitX * (float)2.0f;
+			Assert.AreEqual(Vertex3f.UnitX, v.Normalized);
+
+			v = Vertex3f.UnitY * (float)2.0f;
+			Assert.AreEqual(Vertex3f.UnitY, v.Normalized);
+
+			v = Vertex3f.UnitZ * (float)2.0f;
+			Assert.AreEqual(Vertex3f.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3f.Min(Vertex3f[])")]
+		public void Vertex3f_TestMin()
+		{
+			Vertex3f[] v = new Vertex3f[] {
+				new Vertex3f((float)1.0f, (float)13.0f, (float)22.0f),
+				new Vertex3f((float)2.0f, (float)12.0f, (float)21.0f),
+				new Vertex3f((float)3.0f, (float)11.0f, (float)23.0f),
+			};
+
+			Vertex3f min = Vertex3f.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3f((float)1.0f, (float)11.0f, (float)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3f.Max(Vertex3f[])")]
+		public void Vertex3f_TestMax()
+		{
+			Vertex3f[] v = new Vertex3f[] {
+				new Vertex3f((float)1.0f, (float)13.0f, (float)22.0f),
+				new Vertex3f((float)2.0f, (float)12.0f, (float)21.0f),
+				new Vertex3f((float)3.0f, (float)11.0f, (float)23.0f),
+			};
+
+			Vertex3f min = Vertex3f.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3f((float)3.0f, (float)13.0f, (float)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3f.Max(Vertex3f[])")]
+		public void Vertex3f_TestMinMax()
+		{
+			Vertex3f[] v = new Vertex3f[] {
+				new Vertex3f((float)1.0f, (float)13.0f, (float)22.0f),
+				new Vertex3f((float)2.0f, (float)12.0f, (float)21.0f),
+				new Vertex3f((float)3.0f, (float)11.0f, (float)23.0f),
+			};
+
+			Vertex3f min, max;
+
+			Vertex3f.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3f((float)1.0f, (float)11.0f, (float)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3f((float)3.0f, (float)13.0f, (float)23.0f),
+				max
+			);
+		}
+
 		#endregion
 	}
 
@@ -2854,6 +3805,22 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+		[Test(Description = "Test Vertex3d.operator-(Vertex3d))")]
+		public void Vertex3d_TestOperatorNegate()
+		{
+			Random random = new Random();
+			
+			double x = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
+			double y = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
+			double z = (double)Next(random, double.MinValue / 2.0f, double.MaxValue / 2.0f);
+
+			Vertex3d v = new Vertex3d(x, y, z);
+			Vertex3d n = -v;
+
+			Assert.AreEqual(-x, n.x);
+			Assert.AreEqual(-y, n.y);
+			Assert.AreEqual(-z, n.z);
+		}
 		[Test(Description = "Test Vertex3d.operator+(Vertex3d, Vertex3d)")]
 		public void Vertex3d_TestOperatorAdd()
 		{
@@ -3027,11 +3994,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3d.operator*(Vertex3d, Matrix4x4)")]
-		public void Vertex3d_TestOperatorMatrixProduct()
-		{
-			Assert.Inconclusive("not implemented yet");
-		}
 
 		#endregion
 
@@ -3040,20 +4002,26 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3d.operator==(Vertex3d, Vertex3d)")]
 		public void Vertex3d_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3d v = Vertex3d.UnitX;
+
+			Assert.IsTrue(v == Vertex3d.UnitX);
+			Assert.IsFalse(v == Vertex3d.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3d.operator!=(Vertex3d, Vertex3d)")]
 		public void Vertex3d_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3d v = Vertex3d.UnitX;
+
+			Assert.IsFalse(v != Vertex3d.UnitX);
+			Assert.IsTrue(v != Vertex3d.UnitY);
 		}
 
 		#endregion
 
 		#region Cast Operators
 
-		[Test(Description = "Test Vertex3d.operator float[](Vertex3d)")]
+		[Test(Description = "Test Vertex3d.operator double[](Vertex3d)")]
 		public void Vertex3d_TestCastToArray()
 		{
 			Random random = new Random();
@@ -3154,6 +4122,100 @@ namespace OpenGL.Test
 		{
 			Assert.AreEqual(14f, new Vertex3d((double)1.0, (double)2.0, (double)3.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(78f, new Vertex3d((double)2.0, (double)5.0, (double)7.0).ModuleSquared(), 1e-4f);
+		}
+
+		[Test(Description = "Test Vertex3d.Normalize()")]
+		public void Vertex3d_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3d.Zero.Normalize(); });
+
+			Vertex3d v;
+
+			v = Vertex3d.UnitX * (double)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3d.UnitX, v);
+
+			v = Vertex3d.UnitY * (double)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3d.UnitY, v);
+
+			v = Vertex3d.UnitZ * (double)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3d.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3d.Normalized")]
+		public void Vertex3d_TestNormalized()
+		{
+			Vertex3d v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3d.Zero.Normalized; });
+
+			v = Vertex3d.UnitX * (double)2.0f;
+			Assert.AreEqual(Vertex3d.UnitX, v.Normalized);
+
+			v = Vertex3d.UnitY * (double)2.0f;
+			Assert.AreEqual(Vertex3d.UnitY, v.Normalized);
+
+			v = Vertex3d.UnitZ * (double)2.0f;
+			Assert.AreEqual(Vertex3d.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3d.Min(Vertex3d[])")]
+		public void Vertex3d_TestMin()
+		{
+			Vertex3d[] v = new Vertex3d[] {
+				new Vertex3d((double)1.0f, (double)13.0f, (double)22.0f),
+				new Vertex3d((double)2.0f, (double)12.0f, (double)21.0f),
+				new Vertex3d((double)3.0f, (double)11.0f, (double)23.0f),
+			};
+
+			Vertex3d min = Vertex3d.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3d((double)1.0f, (double)11.0f, (double)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3d.Max(Vertex3d[])")]
+		public void Vertex3d_TestMax()
+		{
+			Vertex3d[] v = new Vertex3d[] {
+				new Vertex3d((double)1.0f, (double)13.0f, (double)22.0f),
+				new Vertex3d((double)2.0f, (double)12.0f, (double)21.0f),
+				new Vertex3d((double)3.0f, (double)11.0f, (double)23.0f),
+			};
+
+			Vertex3d min = Vertex3d.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3d((double)3.0f, (double)13.0f, (double)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3d.Max(Vertex3d[])")]
+		public void Vertex3d_TestMinMax()
+		{
+			Vertex3d[] v = new Vertex3d[] {
+				new Vertex3d((double)1.0f, (double)13.0f, (double)22.0f),
+				new Vertex3d((double)2.0f, (double)12.0f, (double)21.0f),
+				new Vertex3d((double)3.0f, (double)11.0f, (double)23.0f),
+			};
+
+			Vertex3d min, max;
+
+			Vertex3d.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3d((double)1.0f, (double)11.0f, (double)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3d((double)3.0f, (double)13.0f, (double)23.0f),
+				max
+			);
 		}
 
 		#endregion
@@ -3417,11 +4479,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
-		[Test(Description = "Test Vertex3hf.operator*(Vertex3hf, Matrix4x4)")]
-		public void Vertex3hf_TestOperatorMatrixProduct()
-		{
-			Assert.Inconclusive("not implemented yet");
-		}
 
 		#endregion
 
@@ -3430,20 +4487,26 @@ namespace OpenGL.Test
 		[Test(Description = "Test Vertex3hf.operator==(Vertex3hf, Vertex3hf)")]
 		public void Vertex3hf_TestOperatorEquality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3hf v = Vertex3hf.UnitX;
+
+			Assert.IsTrue(v == Vertex3hf.UnitX);
+			Assert.IsFalse(v == Vertex3hf.UnitY);
 		}
 
 		[Test(Description = "Test Vertex3hf.operator!=(Vertex3hf, Vertex3hf)")]
 		public void Vertex3hf_TestOperatorInequality()
 		{
-			Assert.Inconclusive("not implemented yet");
+			Vertex3hf v = Vertex3hf.UnitX;
+
+			Assert.IsFalse(v != Vertex3hf.UnitX);
+			Assert.IsTrue(v != Vertex3hf.UnitY);
 		}
 
 		#endregion
 
 		#region Cast Operators
 
-		[Test(Description = "Test Vertex3hf.operator float[](Vertex3hf)")]
+		[Test(Description = "Test Vertex3hf.operator HalfFloat[](Vertex3hf)")]
 		public void Vertex3hf_TestCastToArray()
 		{
 			Random random = new Random();
@@ -3544,6 +4607,100 @@ namespace OpenGL.Test
 		{
 			Assert.AreEqual(14f, new Vertex3hf((HalfFloat)1.0, (HalfFloat)2.0, (HalfFloat)3.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(78f, new Vertex3hf((HalfFloat)2.0, (HalfFloat)5.0, (HalfFloat)7.0).ModuleSquared(), 1e-4f);
+		}
+
+		[Test(Description = "Test Vertex3hf.Normalize()")]
+		public void Vertex3hf_TestNormalize()
+		{
+			Assert.DoesNotThrow(delegate() { Vertex3hf.Zero.Normalize(); });
+
+			Vertex3hf v;
+
+			v = Vertex3hf.UnitX * (HalfFloat)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3hf.UnitX, v);
+
+			v = Vertex3hf.UnitY * (HalfFloat)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3hf.UnitY, v);
+
+			v = Vertex3hf.UnitZ * (HalfFloat)2.0f;
+			v.Normalize();
+			Assert.AreEqual(Vertex3hf.UnitZ, v);
+		}
+
+		[Test(Description = "Test Vertex3hf.Normalized")]
+		public void Vertex3hf_TestNormalized()
+		{
+			Vertex3hf v;
+
+			Assert.DoesNotThrow(delegate() { v = Vertex3hf.Zero.Normalized; });
+
+			v = Vertex3hf.UnitX * (HalfFloat)2.0f;
+			Assert.AreEqual(Vertex3hf.UnitX, v.Normalized);
+
+			v = Vertex3hf.UnitY * (HalfFloat)2.0f;
+			Assert.AreEqual(Vertex3hf.UnitY, v.Normalized);
+
+			v = Vertex3hf.UnitZ * (HalfFloat)2.0f;
+			Assert.AreEqual(Vertex3hf.UnitZ, v.Normalized);
+		}
+
+		[Test(Description = "Test Vertex3hf.Min(Vertex3hf[])")]
+		public void Vertex3hf_TestMin()
+		{
+			Vertex3hf[] v = new Vertex3hf[] {
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)13.0f, (HalfFloat)22.0f),
+				new Vertex3hf((HalfFloat)2.0f, (HalfFloat)12.0f, (HalfFloat)21.0f),
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)11.0f, (HalfFloat)23.0f),
+			};
+
+			Vertex3hf min = Vertex3hf.Min(v);
+
+			Assert.AreEqual(
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)11.0f, (HalfFloat)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3hf.Max(Vertex3hf[])")]
+		public void Vertex3hf_TestMax()
+		{
+			Vertex3hf[] v = new Vertex3hf[] {
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)13.0f, (HalfFloat)22.0f),
+				new Vertex3hf((HalfFloat)2.0f, (HalfFloat)12.0f, (HalfFloat)21.0f),
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)11.0f, (HalfFloat)23.0f),
+			};
+
+			Vertex3hf min = Vertex3hf.Max(v);
+
+			Assert.AreEqual(
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)13.0f, (HalfFloat)23.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3hf.Max(Vertex3hf[])")]
+		public void Vertex3hf_TestMinMax()
+		{
+			Vertex3hf[] v = new Vertex3hf[] {
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)13.0f, (HalfFloat)22.0f),
+				new Vertex3hf((HalfFloat)2.0f, (HalfFloat)12.0f, (HalfFloat)21.0f),
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)11.0f, (HalfFloat)23.0f),
+			};
+
+			Vertex3hf min, max;
+
+			Vertex3hf.MinMax(v, out min, out max);
+
+			Assert.AreEqual(
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)11.0f, (HalfFloat)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)13.0f, (HalfFloat)23.0f),
+				max
+			);
 		}
 
 		#endregion
