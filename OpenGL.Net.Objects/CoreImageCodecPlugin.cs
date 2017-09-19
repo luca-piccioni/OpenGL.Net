@@ -547,9 +547,7 @@ namespace OpenGL.Objects
 				if (pType.IsSupportedInternalFormat() == false) {
 					if (criteria.IsSet(ImageCodecCriteria.SoftwareSupport) && (bool)criteria[ImageCodecCriteria.SoftwareSupport]) {
 						// Pixel type not directly supported by hardware... try to guess suitable software conversion
-						pConvType = Pixel.GuessBestSupportedConvertion(pType);
-						if (pConvType == PixelLayout.None)
-							throw new InvalidOperationException("pixel type " + pType.ToString() + " is not supported by hardware neither software");
+						throw new NotImplementedException("pixel type " + pType.ToString() + " is not supported by hardware neither software");
 					} else
 						throw new InvalidOperationException("pixel type " + pType.ToString() + " is not supported by hardware");
 				} else
@@ -577,10 +575,6 @@ namespace OpenGL.Objects
 						LoadBitmapByLockBits(iBitmap, image);
 						break;
 				}
-
-				// ConvertItemType image to supported format, if necessary
-				if ((pConvType != PixelLayout.None) && (pConvType != pType))
-					image = image.Convert(pConvType);
 				
 				return (image);
 			}
@@ -617,9 +611,7 @@ namespace OpenGL.Objects
 			if (pType.IsSupportedInternalFormat() == false) {
 				if (criteria.IsSet(ImageCodecCriteria.SoftwareSupport) && ((bool)criteria[ImageCodecCriteria.SoftwareSupport])) {
 					// Pixel type not directly supported by hardware... try to guess suitable software conversion
-					pConvType = Pixel.GuessBestSupportedConvertion(pType);
-					if (pConvType == PixelLayout.None)
-						throw new InvalidOperationException(String.Format("pixel type {0} is not supported by hardware neither software", pType));
+					throw new NotImplementedException(String.Format("pixel type {0} is not supported by hardware neither software", pType));
 				} else
 					throw new InvalidOperationException(String.Format("pixel type {0} is not supported by hardware", pType));
 			} else
@@ -646,10 +638,6 @@ namespace OpenGL.Objects
 					LoadBitmapByLockBits(bitmap, image);
 					break;
 			}
-
-			// ConvertItemType image to supported format, if necessary
-			if ((pConvType != PixelLayout.None) && (pConvType != pType))
-				image = image.Convert(pConvType);
 			
 			return (image);
 		}

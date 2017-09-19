@@ -722,16 +722,9 @@
     <Compile Include="PGI\Gl.PGI_misc_hints.cs" />
     <Compile Include="PGI\Gl.PGI_vertex_hints.cs" />
     <Compile Include="KhronosApi.cs" />
-    <Compile Include="PixelColorspaceAttribute.cs" />
-    <Compile Include="PixelComponentsAttribute.cs" />
     <Compile Include="PixelLayout.cs" />
-    <Compile Include="PixelLayoutInfo.cs" />
-    <Compile Include="PixelNonLinearAttribute.cs" />
-    <Compile Include="PixelPlanesAttribute.cs" />
-    <Compile Include="PixelPrecisionAttribute.cs" />
-    <Compile Include="PixelSizeAttribute.cs" />
+    <Compile Include="PixelLayoutExtensions.cs" />
     <Compile Include="PixelSpace.cs" />
-    <Compile Include="PixelStructureAttribute.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="ProjectionMatrix.cs" />

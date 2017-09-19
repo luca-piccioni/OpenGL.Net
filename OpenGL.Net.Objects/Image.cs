@@ -83,8 +83,6 @@ namespace OpenGL.Objects
 		/// </param>
 		public void Create(PixelLayout format, uint w, uint h)
 		{
-			PixelLayoutInfo formatInfo = format.GetPixelFormat();
-
 			switch (format) {
 				// Single plane formats
 				case PixelLayout.R8:
@@ -138,7 +136,7 @@ namespace OpenGL.Objects
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					_PixelBuffers = new AlignedMemoryBuffer(w * h * formatInfo.PixelBytes, 16);
+					_PixelBuffers = new AlignedMemoryBuffer(w * h * format.GetBytesCount(), 16);
 					// Define planes
 					_PixelPlanes = new IntPtr[] { _PixelBuffers.AlignedBuffer };
 					break; 
@@ -150,7 +148,7 @@ namespace OpenGL.Objects
 					if (((w % 2) != 0) || ((h % 2) != 0))
 						throw new InvalidOperationException(String.Format("invalid image extents for pixel format {0}", format));
 					// Define planes
-					_PixelBuffers = new AlignedMemoryBuffer(w * h * formatInfo.PixelBytes, 16);
+					_PixelBuffers = new AlignedMemoryBuffer(w * h * format.GetBytesCount(), 16);
 					_PixelPlanes = new IntPtr[] { _PixelBuffers.AlignedBuffer };
 					break;
 				case PixelLayout.YVU410:
@@ -209,11 +207,9 @@ namespace OpenGL.Objects
 					throw new NotSupportedException(String.Format("pixel format {0} is not supported", format));
 			}
 			// Set image information
-			_ImageInfo.PixelType = formatInfo.DataFormat;
+			_ImageInfo.PixelType = format;
 			_ImageInfo.Width = w;
 			_ImageInfo.Height = h;
-			// Store pixel format
-			_PixelFormat = formatInfo;
 
 			Debug.Assert(_PixelPlanes != null);
 			Debug.Assert(_PixelPlanes.Length != 0);
@@ -252,7 +248,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Image line width, in bytes
 		/// </summary>
-		public uint Stride { get { return (_ImageInfo.Width * _PixelFormat.PixelBytes); } }
+		public uint Stride { get { return (_ImageInfo.Width * PixelLayout.GetBytesCount()); } }
 
 		/// <summary>
 		/// Image size, in bytes.
@@ -265,12 +261,7 @@ namespace OpenGL.Objects
 		/// <returns>
 		/// It returns a <see cref="PixelLayout"/> that specify the image color resolution.
 		/// </returns>
-		public PixelLayout PixelLayout { get { return (_PixelFormat.DataFormat); } }
-
-		/// <summary>
-		/// The actual pixel format.
-		/// </summary>
-		private PixelLayoutInfo _PixelFormat;
+		public PixelLayout PixelLayout { get { return (_ImageInfo.PixelType); } }
 
 		/// <summary>
 		/// Pixel arrays defining image layers.
@@ -320,7 +311,7 @@ namespace OpenGL.Objects
 				// Determine pixel data offset
 				IntPtr pixelData = GetPixelDataOffset(w, h);
 				// Copy from memory to structure
-				object pixelStruct = Marshal.PtrToStructure(pixelData, _PixelFormat.PixelStructType);
+				object pixelStruct = Marshal.PtrToStructure(pixelData, PixelLayout.GetStructType());
 
 				return ((IColor)pixelStruct);
 			}
@@ -395,46 +386,10 @@ namespace OpenGL.Objects
 				case PixelLayout.UInteger2:
 				case PixelLayout.UInteger3:
 				case PixelLayout.UInteger4:
-					return new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + (w * _PixelFormat.PixelBytes) + (h * Width * _PixelFormat.PixelBytes));
+					return new IntPtr(_PixelBuffers.AlignedBuffer.ToInt64() + (w * PixelLayout.GetBytesCount()) + (h * Width * PixelLayout.GetBytesCount()));
 				default:
 					throw new NotSupportedException(String.Format("pixel format {0} is not supported", PixelLayout));
 			}
-		}
-
-		#endregion
-
-		#region Conversions
-
-		/// <summary>
-		/// ConvertItemType this image to another pixel type.
-		/// </summary>
-		/// <param name="dstFormat">
-		/// A <see cref="PixelLayout"/> that specify the destination image pixel type.
-		/// </param>
-		/// <returns>
-		/// It returns an <see cref="Image"/> visually equalivalent to this Image, but having a pixel format corresponding to
-		/// <paramref name="dstFormat"/>
-		/// </returns>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown in the case <paramref name="dstFormat"/> is PixelLayout.None.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown in the case the conversion from <see cref="PixelLayout"/> to <paramref name="dstFormat"/> is not
-		/// implemented. To check for image conversion support, check <see cref="Pixel.IsConvertionSupported"/>.
-		/// </exception>
-		public Image Convert(PixelLayout dstFormat)
-		{
-			if (dstFormat == PixelLayout.None)
-				throw new ArgumentException(String.Format("invalid conversion pixel format {0}", dstFormat), "dstFormat");
-			if (Pixel.IsConvertionSupported(PixelLayout, dstFormat) == false)
-				throw new InvalidOperationException(String.Format("pixel convertion from {0} to {1} not implemented", PixelLayout, dstFormat));
-
-			// Allocate destination image
-			Image dstImage = new Image(dstFormat, Width, Height);
-			// ConvertItemType this image
-			Pixel.Convert(ImageBuffer, PixelLayout, dstImage.ImageBuffer, dstFormat, Width, Height);
-
-			return (dstImage);
 		}
 
 		#endregion
