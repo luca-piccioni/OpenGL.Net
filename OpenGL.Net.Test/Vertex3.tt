@@ -56,8 +56,6 @@ namespace OpenGL.Test
 	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
 	int[] signedTypes =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        0 };
 	int[] integerTypes =		new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
-	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
-	int[] structSizes =			new[] {  3,      3,       6,        6,       12,      12,    12,      24,        6 };
 
 	for (int i = 0; i < underlyingType.Length; i++) {
 		string className = String.Format("Vertex3{0}", postfixes[i]);

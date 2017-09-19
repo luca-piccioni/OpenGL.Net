@@ -430,7 +430,7 @@ namespace OpenGL.Objects
 		{
 			if (ReferenceEquals(null, obj))
 				return false;
-			if (obj.GetType() != typeof(IVertex3))
+			if (obj.GetType() != typeof(ArrayBufferItem))
 				return false;
 
 			return (Equals((ArrayBufferItem)obj));

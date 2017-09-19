@@ -3198,7 +3198,7 @@ namespace OpenGL.Test
 			int x1 = (int)Next(random);
 			int y1 = (int)Next(random);
 			int z1 = (int)Next(random);
-			int s = (int)Next(random, 1.0, 32.0);
+			int s = (int)Next(random, 0.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
@@ -3217,7 +3217,7 @@ namespace OpenGL.Test
 			int x1 = (int)Next(random);
 			int y1 = (int)Next(random);
 			int z1 = (int)Next(random);
-			int s = (int)Next(random, 1.0, 32.0);
+			int s = (int)Next(random, 0.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
