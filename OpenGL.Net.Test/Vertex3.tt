@@ -264,7 +264,7 @@ namespace OpenGL.Test
 			<#= baseType #> x1 = (<#= baseType #>)Next(random);
 			<#= baseType #> y1 = (<#= baseType #>)Next(random);
 			<#= baseType #> z1 = (<#= baseType #>)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
 
@@ -283,7 +283,7 @@ namespace OpenGL.Test
 			<#= baseType #> x1 = (<#= baseType #>)Next(random);
 			<#= baseType #> y1 = (<#= baseType #>)Next(random);
 			<#= baseType #> z1 = (<#= baseType #>)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
 
@@ -373,7 +373,7 @@ namespace OpenGL.Test
 			<#= baseType #> x1 = (<#= baseType #>)Next(random);
 			<#= baseType #> y1 = (<#= baseType #>)Next(random);
 			<#= baseType #> z1 = (<#= baseType #>)Next(random);
-			<#= baseType #> s = (<#= baseType #>)Next(random, 0.0, 32.0);
+			<#= baseType #> s = (<#= baseType #>)Next(random, 1.0, 32.0);
 
 			<#= className #> v1 = new <#= className #>(x1, y1, z1);
 
@@ -480,6 +480,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test <#= className #>.operator Vertex4f(<#= className #>)")]
+		public void <#= className #>_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			<#= baseType #> x = (<#= baseType #>)Next(random);
+			<#= baseType #> y = (<#= baseType #>)Next(random);
+			<#= baseType #> z = (<#= baseType #>)Next(random);
+
+			<#= className #> v = new <#= className #>(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test <#= className #>.operator Vertex4d(<#= className #>)")]
 		public void <#= className #>_TestCastToVertex4d()
 		{
@@ -578,6 +596,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test <#= className #>.Min(<#= className #>[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void T<#= className #>_TestMin_ArgumentNullException()
+		{
+			<#= className #>.Min(null);
+		}
+
+		[Test(Description = "Test <#= className #>.Min(<#= className #>*)")]
+		public void <#= className #>_TestMin_Unsafe()
+		{
+			<#= className #>[] v = new <#= className #>[] {
+				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f, (<#= baseType #>)22.0f),
+				new <#= className #>((<#= baseType #>)2.0f, (<#= baseType #>)12.0f, (<#= baseType #>)21.0f),
+				new <#= className #>((<#= baseType #>)3.0f, (<#= baseType #>)11.0f, (<#= baseType #>)23.0f),
+			};
+
+			<#= className #> min;
+
+			unsafe {
+				fixed (<#= className #>* vPtr = v) {
+					min = <#= className #>.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)11.0f, (<#= baseType #>)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test <#= className #>.Min(<#= className #>*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void T<#= className #>_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				<#= className #>.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[])")]
 		public void <#= className #>_TestMax()
 		{
@@ -587,12 +644,51 @@ namespace OpenGL.Test
 				new <#= className #>((<#= baseType #>)3.0f, (<#= baseType #>)11.0f, (<#= baseType #>)23.0f),
 			};
 
-			<#= className #> min = <#= className #>.Max(v);
+			<#= className #> max = <#= className #>.Max(v);
 
 			Assert.AreEqual(
 				new <#= className #>((<#= baseType #>)3.0f, (<#= baseType #>)13.0f, (<#= baseType #>)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test <#= className #>.Max(<#= className #>[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void T<#= className #>_TestMax_ArgumentNullException()
+		{
+			<#= className #>.Max(null);
+		}
+
+		[Test(Description = "Test <#= className #>.Max(<#= className #>*)")]
+		public void <#= className #>_TestMax_Unsafe()
+		{
+			<#= className #>[] v = new <#= className #>[] {
+				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f, (<#= baseType #>)22.0f),
+				new <#= className #>((<#= baseType #>)2.0f, (<#= baseType #>)12.0f, (<#= baseType #>)21.0f),
+				new <#= className #>((<#= baseType #>)3.0f, (<#= baseType #>)11.0f, (<#= baseType #>)23.0f),
+			};
+
+			<#= className #> max;
+
+			unsafe {
+				fixed (<#= className #>* vPtr = v) {
+					max = <#= className #>.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new <#= className #>((<#= baseType #>)3.0f, (<#= baseType #>)13.0f, (<#= baseType #>)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test <#= className #>.Max(<#= className #>*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void T<#= className #>_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				<#= className #>.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[])")]
@@ -618,11 +714,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test <#= className #>.Max(<#= className #>*)")]
+		public void <#= className #>_TestMinMax_Unsafe()
+		{
+			<#= className #>[] v = new <#= className #>[] {
+				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f, (<#= baseType #>)22.0f),
+				new <#= className #>((<#= baseType #>)2.0f, (<#= baseType #>)12.0f, (<#= baseType #>)21.0f),
+				new <#= className #>((<#= baseType #>)3.0f, (<#= baseType #>)11.0f, (<#= baseType #>)23.0f),
+			};
+
+			<#= className #> min, max;
+
+			unsafe {
+				fixed (<#= className #>* vPtr = v) {
+					<#= className #>.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)11.0f, (<#= baseType #>)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new <#= className #>((<#= baseType #>)3.0f, (<#= baseType #>)13.0f, (<#= baseType #>)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test <#= className #>.operator==(<#= className #>, <#= className #>)")]
+		[Test(Description = "Test <#= className #>.Equals(<#= className #>)")]
 		public void <#= className #>_TestEquals_<#= className #>()
 		{
 			<#= className #> v = <#= className #>.UnitX;
@@ -630,6 +753,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(<#= className #>.UnitX));
 			Assert.IsFalse(v.Equals(<#= className #>.UnitY));
 			Assert.IsFalse(v.Equals(<#= className #>.UnitZ));
+		}
+
+		[Test(Description = "Test <#= className #>.Equals(object)")]
+		public void <#= className #>_TestEquals_True()
+		{
+			<#= className #> v = <#= className #>.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)<#= className #>.UnitX));
+			Assert.IsFalse(v.Equals((object)<#= className #>.UnitY));
+			Assert.IsFalse(v.Equals((object)<#= className #>.UnitZ));
 		}
 
 		[Test(Description = "Test <#= className #>.GetHashCode()")]

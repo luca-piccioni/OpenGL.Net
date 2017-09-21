@@ -223,7 +223,7 @@ namespace OpenGL.Test
 			byte x1 = (byte)Next(random);
 			byte y1 = (byte)Next(random);
 			byte z1 = (byte)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
 
@@ -242,7 +242,7 @@ namespace OpenGL.Test
 			byte x1 = (byte)Next(random);
 			byte y1 = (byte)Next(random);
 			byte z1 = (byte)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
 
@@ -329,7 +329,7 @@ namespace OpenGL.Test
 			byte x1 = (byte)Next(random);
 			byte y1 = (byte)Next(random);
 			byte z1 = (byte)Next(random);
-			byte s = (byte)Next(random, 0.0, 32.0);
+			byte s = (byte)Next(random, 1.0, 32.0);
 
 			Vertex3ub v1 = new Vertex3ub(x1, y1, z1);
 
@@ -433,6 +433,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3ub.operator Vertex4f(Vertex3ub)")]
+		public void Vertex3ub_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			byte x = (byte)Next(random);
+			byte y = (byte)Next(random);
+			byte z = (byte)Next(random);
+
+			Vertex3ub v = new Vertex3ub(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3ub.operator Vertex4d(Vertex3ub)")]
 		public void Vertex3ub_TestCastToVertex4d()
 		{
@@ -523,6 +541,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3ub.Min(Vertex3ub[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3ub_TestMin_ArgumentNullException()
+		{
+			Vertex3ub.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3ub.Min(Vertex3ub*)")]
+		public void Vertex3ub_TestMin_Unsafe()
+		{
+			Vertex3ub[] v = new Vertex3ub[] {
+				new Vertex3ub((byte)1.0f, (byte)13.0f, (byte)22.0f),
+				new Vertex3ub((byte)2.0f, (byte)12.0f, (byte)21.0f),
+				new Vertex3ub((byte)3.0f, (byte)11.0f, (byte)23.0f),
+			};
+
+			Vertex3ub min;
+
+			unsafe {
+				fixed (Vertex3ub* vPtr = v) {
+					min = Vertex3ub.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3ub((byte)1.0f, (byte)11.0f, (byte)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3ub.Min(Vertex3ub*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3ub_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3ub.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3ub.Max(Vertex3ub[])")]
 		public void Vertex3ub_TestMax()
 		{
@@ -532,12 +589,51 @@ namespace OpenGL.Test
 				new Vertex3ub((byte)3.0f, (byte)11.0f, (byte)23.0f),
 			};
 
-			Vertex3ub min = Vertex3ub.Max(v);
+			Vertex3ub max = Vertex3ub.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3ub((byte)3.0f, (byte)13.0f, (byte)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3ub.Max(Vertex3ub[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3ub_TestMax_ArgumentNullException()
+		{
+			Vertex3ub.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3ub.Max(Vertex3ub*)")]
+		public void Vertex3ub_TestMax_Unsafe()
+		{
+			Vertex3ub[] v = new Vertex3ub[] {
+				new Vertex3ub((byte)1.0f, (byte)13.0f, (byte)22.0f),
+				new Vertex3ub((byte)2.0f, (byte)12.0f, (byte)21.0f),
+				new Vertex3ub((byte)3.0f, (byte)11.0f, (byte)23.0f),
+			};
+
+			Vertex3ub max;
+
+			unsafe {
+				fixed (Vertex3ub* vPtr = v) {
+					max = Vertex3ub.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3ub((byte)3.0f, (byte)13.0f, (byte)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3ub.Max(Vertex3ub*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3ub_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3ub.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3ub.Max(Vertex3ub[])")]
@@ -563,11 +659,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3ub.Max(Vertex3ub*)")]
+		public void Vertex3ub_TestMinMax_Unsafe()
+		{
+			Vertex3ub[] v = new Vertex3ub[] {
+				new Vertex3ub((byte)1.0f, (byte)13.0f, (byte)22.0f),
+				new Vertex3ub((byte)2.0f, (byte)12.0f, (byte)21.0f),
+				new Vertex3ub((byte)3.0f, (byte)11.0f, (byte)23.0f),
+			};
+
+			Vertex3ub min, max;
+
+			unsafe {
+				fixed (Vertex3ub* vPtr = v) {
+					Vertex3ub.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3ub((byte)1.0f, (byte)11.0f, (byte)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3ub((byte)3.0f, (byte)13.0f, (byte)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3ub.operator==(Vertex3ub, Vertex3ub)")]
+		[Test(Description = "Test Vertex3ub.Equals(Vertex3ub)")]
 		public void Vertex3ub_TestEquals_Vertex3ub()
 		{
 			Vertex3ub v = Vertex3ub.UnitX;
@@ -575,6 +698,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3ub.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3ub.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3ub.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3ub.Equals(object)")]
+		public void Vertex3ub_TestEquals_True()
+		{
+			Vertex3ub v = Vertex3ub.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3ub.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3ub.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3ub.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3ub.GetHashCode()")]
@@ -807,7 +944,7 @@ namespace OpenGL.Test
 			sbyte x1 = (sbyte)Next(random);
 			sbyte y1 = (sbyte)Next(random);
 			sbyte z1 = (sbyte)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
 
@@ -826,7 +963,7 @@ namespace OpenGL.Test
 			sbyte x1 = (sbyte)Next(random);
 			sbyte y1 = (sbyte)Next(random);
 			sbyte z1 = (sbyte)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
 
@@ -913,7 +1050,7 @@ namespace OpenGL.Test
 			sbyte x1 = (sbyte)Next(random);
 			sbyte y1 = (sbyte)Next(random);
 			sbyte z1 = (sbyte)Next(random);
-			sbyte s = (sbyte)Next(random, 0.0, 32.0);
+			sbyte s = (sbyte)Next(random, 1.0, 32.0);
 
 			Vertex3b v1 = new Vertex3b(x1, y1, z1);
 
@@ -1017,6 +1154,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3b.operator Vertex4f(Vertex3b)")]
+		public void Vertex3b_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			sbyte x = (sbyte)Next(random);
+			sbyte y = (sbyte)Next(random);
+			sbyte z = (sbyte)Next(random);
+
+			Vertex3b v = new Vertex3b(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3b.operator Vertex4d(Vertex3b)")]
 		public void Vertex3b_TestCastToVertex4d()
 		{
@@ -1107,6 +1262,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3b.Min(Vertex3b[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3b_TestMin_ArgumentNullException()
+		{
+			Vertex3b.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3b.Min(Vertex3b*)")]
+		public void Vertex3b_TestMin_Unsafe()
+		{
+			Vertex3b[] v = new Vertex3b[] {
+				new Vertex3b((sbyte)1.0f, (sbyte)13.0f, (sbyte)22.0f),
+				new Vertex3b((sbyte)2.0f, (sbyte)12.0f, (sbyte)21.0f),
+				new Vertex3b((sbyte)3.0f, (sbyte)11.0f, (sbyte)23.0f),
+			};
+
+			Vertex3b min;
+
+			unsafe {
+				fixed (Vertex3b* vPtr = v) {
+					min = Vertex3b.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3b((sbyte)1.0f, (sbyte)11.0f, (sbyte)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3b.Min(Vertex3b*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3b_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3b.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3b.Max(Vertex3b[])")]
 		public void Vertex3b_TestMax()
 		{
@@ -1116,12 +1310,51 @@ namespace OpenGL.Test
 				new Vertex3b((sbyte)3.0f, (sbyte)11.0f, (sbyte)23.0f),
 			};
 
-			Vertex3b min = Vertex3b.Max(v);
+			Vertex3b max = Vertex3b.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3b((sbyte)3.0f, (sbyte)13.0f, (sbyte)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3b.Max(Vertex3b[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3b_TestMax_ArgumentNullException()
+		{
+			Vertex3b.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3b.Max(Vertex3b*)")]
+		public void Vertex3b_TestMax_Unsafe()
+		{
+			Vertex3b[] v = new Vertex3b[] {
+				new Vertex3b((sbyte)1.0f, (sbyte)13.0f, (sbyte)22.0f),
+				new Vertex3b((sbyte)2.0f, (sbyte)12.0f, (sbyte)21.0f),
+				new Vertex3b((sbyte)3.0f, (sbyte)11.0f, (sbyte)23.0f),
+			};
+
+			Vertex3b max;
+
+			unsafe {
+				fixed (Vertex3b* vPtr = v) {
+					max = Vertex3b.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3b((sbyte)3.0f, (sbyte)13.0f, (sbyte)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3b.Max(Vertex3b*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3b_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3b.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3b.Max(Vertex3b[])")]
@@ -1147,11 +1380,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3b.Max(Vertex3b*)")]
+		public void Vertex3b_TestMinMax_Unsafe()
+		{
+			Vertex3b[] v = new Vertex3b[] {
+				new Vertex3b((sbyte)1.0f, (sbyte)13.0f, (sbyte)22.0f),
+				new Vertex3b((sbyte)2.0f, (sbyte)12.0f, (sbyte)21.0f),
+				new Vertex3b((sbyte)3.0f, (sbyte)11.0f, (sbyte)23.0f),
+			};
+
+			Vertex3b min, max;
+
+			unsafe {
+				fixed (Vertex3b* vPtr = v) {
+					Vertex3b.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3b((sbyte)1.0f, (sbyte)11.0f, (sbyte)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3b((sbyte)3.0f, (sbyte)13.0f, (sbyte)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3b.operator==(Vertex3b, Vertex3b)")]
+		[Test(Description = "Test Vertex3b.Equals(Vertex3b)")]
 		public void Vertex3b_TestEquals_Vertex3b()
 		{
 			Vertex3b v = Vertex3b.UnitX;
@@ -1159,6 +1419,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3b.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3b.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3b.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3b.Equals(object)")]
+		public void Vertex3b_TestEquals_True()
+		{
+			Vertex3b v = Vertex3b.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3b.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3b.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3b.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3b.GetHashCode()")]
@@ -1375,7 +1649,7 @@ namespace OpenGL.Test
 			ushort x1 = (ushort)Next(random);
 			ushort y1 = (ushort)Next(random);
 			ushort z1 = (ushort)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
 
@@ -1394,7 +1668,7 @@ namespace OpenGL.Test
 			ushort x1 = (ushort)Next(random);
 			ushort y1 = (ushort)Next(random);
 			ushort z1 = (ushort)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
 
@@ -1481,7 +1755,7 @@ namespace OpenGL.Test
 			ushort x1 = (ushort)Next(random);
 			ushort y1 = (ushort)Next(random);
 			ushort z1 = (ushort)Next(random);
-			ushort s = (ushort)Next(random, 0.0, 32.0);
+			ushort s = (ushort)Next(random, 1.0, 32.0);
 
 			Vertex3us v1 = new Vertex3us(x1, y1, z1);
 
@@ -1585,6 +1859,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3us.operator Vertex4f(Vertex3us)")]
+		public void Vertex3us_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			ushort x = (ushort)Next(random);
+			ushort y = (ushort)Next(random);
+			ushort z = (ushort)Next(random);
+
+			Vertex3us v = new Vertex3us(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3us.operator Vertex4d(Vertex3us)")]
 		public void Vertex3us_TestCastToVertex4d()
 		{
@@ -1675,6 +1967,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3us.Min(Vertex3us[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3us_TestMin_ArgumentNullException()
+		{
+			Vertex3us.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3us.Min(Vertex3us*)")]
+		public void Vertex3us_TestMin_Unsafe()
+		{
+			Vertex3us[] v = new Vertex3us[] {
+				new Vertex3us((ushort)1.0f, (ushort)13.0f, (ushort)22.0f),
+				new Vertex3us((ushort)2.0f, (ushort)12.0f, (ushort)21.0f),
+				new Vertex3us((ushort)3.0f, (ushort)11.0f, (ushort)23.0f),
+			};
+
+			Vertex3us min;
+
+			unsafe {
+				fixed (Vertex3us* vPtr = v) {
+					min = Vertex3us.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3us((ushort)1.0f, (ushort)11.0f, (ushort)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3us.Min(Vertex3us*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3us_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3us.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3us.Max(Vertex3us[])")]
 		public void Vertex3us_TestMax()
 		{
@@ -1684,12 +2015,51 @@ namespace OpenGL.Test
 				new Vertex3us((ushort)3.0f, (ushort)11.0f, (ushort)23.0f),
 			};
 
-			Vertex3us min = Vertex3us.Max(v);
+			Vertex3us max = Vertex3us.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3us((ushort)3.0f, (ushort)13.0f, (ushort)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3us.Max(Vertex3us[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3us_TestMax_ArgumentNullException()
+		{
+			Vertex3us.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3us.Max(Vertex3us*)")]
+		public void Vertex3us_TestMax_Unsafe()
+		{
+			Vertex3us[] v = new Vertex3us[] {
+				new Vertex3us((ushort)1.0f, (ushort)13.0f, (ushort)22.0f),
+				new Vertex3us((ushort)2.0f, (ushort)12.0f, (ushort)21.0f),
+				new Vertex3us((ushort)3.0f, (ushort)11.0f, (ushort)23.0f),
+			};
+
+			Vertex3us max;
+
+			unsafe {
+				fixed (Vertex3us* vPtr = v) {
+					max = Vertex3us.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3us((ushort)3.0f, (ushort)13.0f, (ushort)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3us.Max(Vertex3us*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3us_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3us.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3us.Max(Vertex3us[])")]
@@ -1715,11 +2085,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3us.Max(Vertex3us*)")]
+		public void Vertex3us_TestMinMax_Unsafe()
+		{
+			Vertex3us[] v = new Vertex3us[] {
+				new Vertex3us((ushort)1.0f, (ushort)13.0f, (ushort)22.0f),
+				new Vertex3us((ushort)2.0f, (ushort)12.0f, (ushort)21.0f),
+				new Vertex3us((ushort)3.0f, (ushort)11.0f, (ushort)23.0f),
+			};
+
+			Vertex3us min, max;
+
+			unsafe {
+				fixed (Vertex3us* vPtr = v) {
+					Vertex3us.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3us((ushort)1.0f, (ushort)11.0f, (ushort)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3us((ushort)3.0f, (ushort)13.0f, (ushort)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3us.operator==(Vertex3us, Vertex3us)")]
+		[Test(Description = "Test Vertex3us.Equals(Vertex3us)")]
 		public void Vertex3us_TestEquals_Vertex3us()
 		{
 			Vertex3us v = Vertex3us.UnitX;
@@ -1727,6 +2124,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3us.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3us.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3us.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3us.Equals(object)")]
+		public void Vertex3us_TestEquals_True()
+		{
+			Vertex3us v = Vertex3us.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3us.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3us.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3us.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3us.GetHashCode()")]
@@ -1959,7 +2370,7 @@ namespace OpenGL.Test
 			short x1 = (short)Next(random);
 			short y1 = (short)Next(random);
 			short z1 = (short)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
 
@@ -1978,7 +2389,7 @@ namespace OpenGL.Test
 			short x1 = (short)Next(random);
 			short y1 = (short)Next(random);
 			short z1 = (short)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
 
@@ -2065,7 +2476,7 @@ namespace OpenGL.Test
 			short x1 = (short)Next(random);
 			short y1 = (short)Next(random);
 			short z1 = (short)Next(random);
-			short s = (short)Next(random, 0.0, 32.0);
+			short s = (short)Next(random, 1.0, 32.0);
 
 			Vertex3s v1 = new Vertex3s(x1, y1, z1);
 
@@ -2169,6 +2580,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3s.operator Vertex4f(Vertex3s)")]
+		public void Vertex3s_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			short x = (short)Next(random);
+			short y = (short)Next(random);
+			short z = (short)Next(random);
+
+			Vertex3s v = new Vertex3s(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3s.operator Vertex4d(Vertex3s)")]
 		public void Vertex3s_TestCastToVertex4d()
 		{
@@ -2259,6 +2688,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3s.Min(Vertex3s[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3s_TestMin_ArgumentNullException()
+		{
+			Vertex3s.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3s.Min(Vertex3s*)")]
+		public void Vertex3s_TestMin_Unsafe()
+		{
+			Vertex3s[] v = new Vertex3s[] {
+				new Vertex3s((short)1.0f, (short)13.0f, (short)22.0f),
+				new Vertex3s((short)2.0f, (short)12.0f, (short)21.0f),
+				new Vertex3s((short)3.0f, (short)11.0f, (short)23.0f),
+			};
+
+			Vertex3s min;
+
+			unsafe {
+				fixed (Vertex3s* vPtr = v) {
+					min = Vertex3s.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3s((short)1.0f, (short)11.0f, (short)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3s.Min(Vertex3s*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3s_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3s.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3s.Max(Vertex3s[])")]
 		public void Vertex3s_TestMax()
 		{
@@ -2268,12 +2736,51 @@ namespace OpenGL.Test
 				new Vertex3s((short)3.0f, (short)11.0f, (short)23.0f),
 			};
 
-			Vertex3s min = Vertex3s.Max(v);
+			Vertex3s max = Vertex3s.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3s((short)3.0f, (short)13.0f, (short)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3s.Max(Vertex3s[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3s_TestMax_ArgumentNullException()
+		{
+			Vertex3s.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3s.Max(Vertex3s*)")]
+		public void Vertex3s_TestMax_Unsafe()
+		{
+			Vertex3s[] v = new Vertex3s[] {
+				new Vertex3s((short)1.0f, (short)13.0f, (short)22.0f),
+				new Vertex3s((short)2.0f, (short)12.0f, (short)21.0f),
+				new Vertex3s((short)3.0f, (short)11.0f, (short)23.0f),
+			};
+
+			Vertex3s max;
+
+			unsafe {
+				fixed (Vertex3s* vPtr = v) {
+					max = Vertex3s.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3s((short)3.0f, (short)13.0f, (short)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3s.Max(Vertex3s*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3s_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3s.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3s.Max(Vertex3s[])")]
@@ -2299,11 +2806,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3s.Max(Vertex3s*)")]
+		public void Vertex3s_TestMinMax_Unsafe()
+		{
+			Vertex3s[] v = new Vertex3s[] {
+				new Vertex3s((short)1.0f, (short)13.0f, (short)22.0f),
+				new Vertex3s((short)2.0f, (short)12.0f, (short)21.0f),
+				new Vertex3s((short)3.0f, (short)11.0f, (short)23.0f),
+			};
+
+			Vertex3s min, max;
+
+			unsafe {
+				fixed (Vertex3s* vPtr = v) {
+					Vertex3s.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3s((short)1.0f, (short)11.0f, (short)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3s((short)3.0f, (short)13.0f, (short)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3s.operator==(Vertex3s, Vertex3s)")]
+		[Test(Description = "Test Vertex3s.Equals(Vertex3s)")]
 		public void Vertex3s_TestEquals_Vertex3s()
 		{
 			Vertex3s v = Vertex3s.UnitX;
@@ -2311,6 +2845,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3s.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3s.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3s.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3s.Equals(object)")]
+		public void Vertex3s_TestEquals_True()
+		{
+			Vertex3s v = Vertex3s.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3s.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3s.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3s.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3s.GetHashCode()")]
@@ -2527,7 +3075,7 @@ namespace OpenGL.Test
 			uint x1 = (uint)Next(random);
 			uint y1 = (uint)Next(random);
 			uint z1 = (uint)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
 
@@ -2546,7 +3094,7 @@ namespace OpenGL.Test
 			uint x1 = (uint)Next(random);
 			uint y1 = (uint)Next(random);
 			uint z1 = (uint)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
 
@@ -2633,7 +3181,7 @@ namespace OpenGL.Test
 			uint x1 = (uint)Next(random);
 			uint y1 = (uint)Next(random);
 			uint z1 = (uint)Next(random);
-			uint s = (uint)Next(random, 0.0, 32.0);
+			uint s = (uint)Next(random, 1.0, 32.0);
 
 			Vertex3ui v1 = new Vertex3ui(x1, y1, z1);
 
@@ -2737,6 +3285,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3ui.operator Vertex4f(Vertex3ui)")]
+		public void Vertex3ui_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			uint x = (uint)Next(random);
+			uint y = (uint)Next(random);
+			uint z = (uint)Next(random);
+
+			Vertex3ui v = new Vertex3ui(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3ui.operator Vertex4d(Vertex3ui)")]
 		public void Vertex3ui_TestCastToVertex4d()
 		{
@@ -2827,6 +3393,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3ui.Min(Vertex3ui[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3ui_TestMin_ArgumentNullException()
+		{
+			Vertex3ui.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3ui.Min(Vertex3ui*)")]
+		public void Vertex3ui_TestMin_Unsafe()
+		{
+			Vertex3ui[] v = new Vertex3ui[] {
+				new Vertex3ui((uint)1.0f, (uint)13.0f, (uint)22.0f),
+				new Vertex3ui((uint)2.0f, (uint)12.0f, (uint)21.0f),
+				new Vertex3ui((uint)3.0f, (uint)11.0f, (uint)23.0f),
+			};
+
+			Vertex3ui min;
+
+			unsafe {
+				fixed (Vertex3ui* vPtr = v) {
+					min = Vertex3ui.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3ui((uint)1.0f, (uint)11.0f, (uint)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3ui.Min(Vertex3ui*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3ui_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3ui.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3ui.Max(Vertex3ui[])")]
 		public void Vertex3ui_TestMax()
 		{
@@ -2836,12 +3441,51 @@ namespace OpenGL.Test
 				new Vertex3ui((uint)3.0f, (uint)11.0f, (uint)23.0f),
 			};
 
-			Vertex3ui min = Vertex3ui.Max(v);
+			Vertex3ui max = Vertex3ui.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3ui((uint)3.0f, (uint)13.0f, (uint)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3ui.Max(Vertex3ui[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3ui_TestMax_ArgumentNullException()
+		{
+			Vertex3ui.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3ui.Max(Vertex3ui*)")]
+		public void Vertex3ui_TestMax_Unsafe()
+		{
+			Vertex3ui[] v = new Vertex3ui[] {
+				new Vertex3ui((uint)1.0f, (uint)13.0f, (uint)22.0f),
+				new Vertex3ui((uint)2.0f, (uint)12.0f, (uint)21.0f),
+				new Vertex3ui((uint)3.0f, (uint)11.0f, (uint)23.0f),
+			};
+
+			Vertex3ui max;
+
+			unsafe {
+				fixed (Vertex3ui* vPtr = v) {
+					max = Vertex3ui.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3ui((uint)3.0f, (uint)13.0f, (uint)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3ui.Max(Vertex3ui*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3ui_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3ui.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3ui.Max(Vertex3ui[])")]
@@ -2867,11 +3511,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3ui.Max(Vertex3ui*)")]
+		public void Vertex3ui_TestMinMax_Unsafe()
+		{
+			Vertex3ui[] v = new Vertex3ui[] {
+				new Vertex3ui((uint)1.0f, (uint)13.0f, (uint)22.0f),
+				new Vertex3ui((uint)2.0f, (uint)12.0f, (uint)21.0f),
+				new Vertex3ui((uint)3.0f, (uint)11.0f, (uint)23.0f),
+			};
+
+			Vertex3ui min, max;
+
+			unsafe {
+				fixed (Vertex3ui* vPtr = v) {
+					Vertex3ui.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3ui((uint)1.0f, (uint)11.0f, (uint)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3ui((uint)3.0f, (uint)13.0f, (uint)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3ui.operator==(Vertex3ui, Vertex3ui)")]
+		[Test(Description = "Test Vertex3ui.Equals(Vertex3ui)")]
 		public void Vertex3ui_TestEquals_Vertex3ui()
 		{
 			Vertex3ui v = Vertex3ui.UnitX;
@@ -2879,6 +3550,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3ui.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3ui.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3ui.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3ui.Equals(object)")]
+		public void Vertex3ui_TestEquals_True()
+		{
+			Vertex3ui v = Vertex3ui.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3ui.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3ui.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3ui.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3ui.GetHashCode()")]
@@ -3111,7 +3796,7 @@ namespace OpenGL.Test
 			int x1 = (int)Next(random);
 			int y1 = (int)Next(random);
 			int z1 = (int)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
@@ -3130,7 +3815,7 @@ namespace OpenGL.Test
 			int x1 = (int)Next(random);
 			int y1 = (int)Next(random);
 			int z1 = (int)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
@@ -3217,7 +3902,7 @@ namespace OpenGL.Test
 			int x1 = (int)Next(random);
 			int y1 = (int)Next(random);
 			int z1 = (int)Next(random);
-			int s = (int)Next(random, 0.0, 32.0);
+			int s = (int)Next(random, 1.0, 32.0);
 
 			Vertex3i v1 = new Vertex3i(x1, y1, z1);
 
@@ -3321,6 +4006,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3i.operator Vertex4f(Vertex3i)")]
+		public void Vertex3i_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			int x = (int)Next(random);
+			int y = (int)Next(random);
+			int z = (int)Next(random);
+
+			Vertex3i v = new Vertex3i(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3i.operator Vertex4d(Vertex3i)")]
 		public void Vertex3i_TestCastToVertex4d()
 		{
@@ -3411,6 +4114,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3i.Min(Vertex3i[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3i_TestMin_ArgumentNullException()
+		{
+			Vertex3i.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3i.Min(Vertex3i*)")]
+		public void Vertex3i_TestMin_Unsafe()
+		{
+			Vertex3i[] v = new Vertex3i[] {
+				new Vertex3i((int)1.0f, (int)13.0f, (int)22.0f),
+				new Vertex3i((int)2.0f, (int)12.0f, (int)21.0f),
+				new Vertex3i((int)3.0f, (int)11.0f, (int)23.0f),
+			};
+
+			Vertex3i min;
+
+			unsafe {
+				fixed (Vertex3i* vPtr = v) {
+					min = Vertex3i.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3i((int)1.0f, (int)11.0f, (int)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3i.Min(Vertex3i*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3i_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3i.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3i.Max(Vertex3i[])")]
 		public void Vertex3i_TestMax()
 		{
@@ -3420,12 +4162,51 @@ namespace OpenGL.Test
 				new Vertex3i((int)3.0f, (int)11.0f, (int)23.0f),
 			};
 
-			Vertex3i min = Vertex3i.Max(v);
+			Vertex3i max = Vertex3i.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3i((int)3.0f, (int)13.0f, (int)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3i.Max(Vertex3i[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3i_TestMax_ArgumentNullException()
+		{
+			Vertex3i.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3i.Max(Vertex3i*)")]
+		public void Vertex3i_TestMax_Unsafe()
+		{
+			Vertex3i[] v = new Vertex3i[] {
+				new Vertex3i((int)1.0f, (int)13.0f, (int)22.0f),
+				new Vertex3i((int)2.0f, (int)12.0f, (int)21.0f),
+				new Vertex3i((int)3.0f, (int)11.0f, (int)23.0f),
+			};
+
+			Vertex3i max;
+
+			unsafe {
+				fixed (Vertex3i* vPtr = v) {
+					max = Vertex3i.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3i((int)3.0f, (int)13.0f, (int)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3i.Max(Vertex3i*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3i_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3i.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3i.Max(Vertex3i[])")]
@@ -3451,11 +4232,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3i.Max(Vertex3i*)")]
+		public void Vertex3i_TestMinMax_Unsafe()
+		{
+			Vertex3i[] v = new Vertex3i[] {
+				new Vertex3i((int)1.0f, (int)13.0f, (int)22.0f),
+				new Vertex3i((int)2.0f, (int)12.0f, (int)21.0f),
+				new Vertex3i((int)3.0f, (int)11.0f, (int)23.0f),
+			};
+
+			Vertex3i min, max;
+
+			unsafe {
+				fixed (Vertex3i* vPtr = v) {
+					Vertex3i.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3i((int)1.0f, (int)11.0f, (int)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3i((int)3.0f, (int)13.0f, (int)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3i.operator==(Vertex3i, Vertex3i)")]
+		[Test(Description = "Test Vertex3i.Equals(Vertex3i)")]
 		public void Vertex3i_TestEquals_Vertex3i()
 		{
 			Vertex3i v = Vertex3i.UnitX;
@@ -3463,6 +4271,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3i.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3i.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3i.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3i.Equals(object)")]
+		public void Vertex3i_TestEquals_True()
+		{
+			Vertex3i v = Vertex3i.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3i.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3i.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3i.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3i.GetHashCode()")]
@@ -3695,7 +4517,7 @@ namespace OpenGL.Test
 			float x1 = (float)Next(random);
 			float y1 = (float)Next(random);
 			float z1 = (float)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3f v1 = new Vertex3f(x1, y1, z1);
 
@@ -3714,7 +4536,7 @@ namespace OpenGL.Test
 			float x1 = (float)Next(random);
 			float y1 = (float)Next(random);
 			float z1 = (float)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3f v1 = new Vertex3f(x1, y1, z1);
 
@@ -3868,6 +4690,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3f.operator Vertex4f(Vertex3f)")]
+		public void Vertex3f_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			float x = (float)Next(random);
+			float y = (float)Next(random);
+			float z = (float)Next(random);
+
+			Vertex3f v = new Vertex3f(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3f.operator Vertex4d(Vertex3f)")]
 		public void Vertex3f_TestCastToVertex4d()
 		{
@@ -3958,6 +4798,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3f.Min(Vertex3f[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3f_TestMin_ArgumentNullException()
+		{
+			Vertex3f.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3f.Min(Vertex3f*)")]
+		public void Vertex3f_TestMin_Unsafe()
+		{
+			Vertex3f[] v = new Vertex3f[] {
+				new Vertex3f((float)1.0f, (float)13.0f, (float)22.0f),
+				new Vertex3f((float)2.0f, (float)12.0f, (float)21.0f),
+				new Vertex3f((float)3.0f, (float)11.0f, (float)23.0f),
+			};
+
+			Vertex3f min;
+
+			unsafe {
+				fixed (Vertex3f* vPtr = v) {
+					min = Vertex3f.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3f((float)1.0f, (float)11.0f, (float)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3f.Min(Vertex3f*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3f_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3f.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3f.Max(Vertex3f[])")]
 		public void Vertex3f_TestMax()
 		{
@@ -3967,12 +4846,51 @@ namespace OpenGL.Test
 				new Vertex3f((float)3.0f, (float)11.0f, (float)23.0f),
 			};
 
-			Vertex3f min = Vertex3f.Max(v);
+			Vertex3f max = Vertex3f.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3f((float)3.0f, (float)13.0f, (float)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3f.Max(Vertex3f[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3f_TestMax_ArgumentNullException()
+		{
+			Vertex3f.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3f.Max(Vertex3f*)")]
+		public void Vertex3f_TestMax_Unsafe()
+		{
+			Vertex3f[] v = new Vertex3f[] {
+				new Vertex3f((float)1.0f, (float)13.0f, (float)22.0f),
+				new Vertex3f((float)2.0f, (float)12.0f, (float)21.0f),
+				new Vertex3f((float)3.0f, (float)11.0f, (float)23.0f),
+			};
+
+			Vertex3f max;
+
+			unsafe {
+				fixed (Vertex3f* vPtr = v) {
+					max = Vertex3f.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3f((float)3.0f, (float)13.0f, (float)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3f.Max(Vertex3f*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3f_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3f.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3f.Max(Vertex3f[])")]
@@ -3998,11 +4916,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3f.Max(Vertex3f*)")]
+		public void Vertex3f_TestMinMax_Unsafe()
+		{
+			Vertex3f[] v = new Vertex3f[] {
+				new Vertex3f((float)1.0f, (float)13.0f, (float)22.0f),
+				new Vertex3f((float)2.0f, (float)12.0f, (float)21.0f),
+				new Vertex3f((float)3.0f, (float)11.0f, (float)23.0f),
+			};
+
+			Vertex3f min, max;
+
+			unsafe {
+				fixed (Vertex3f* vPtr = v) {
+					Vertex3f.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3f((float)1.0f, (float)11.0f, (float)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3f((float)3.0f, (float)13.0f, (float)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3f.operator==(Vertex3f, Vertex3f)")]
+		[Test(Description = "Test Vertex3f.Equals(Vertex3f)")]
 		public void Vertex3f_TestEquals_Vertex3f()
 		{
 			Vertex3f v = Vertex3f.UnitX;
@@ -4010,6 +4955,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3f.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3f.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3f.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3f.Equals(object)")]
+		public void Vertex3f_TestEquals_True()
+		{
+			Vertex3f v = Vertex3f.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3f.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3f.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3f.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3f.GetHashCode()")]
@@ -4242,7 +5201,7 @@ namespace OpenGL.Test
 			double x1 = (double)Next(random);
 			double y1 = (double)Next(random);
 			double z1 = (double)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3d v1 = new Vertex3d(x1, y1, z1);
 
@@ -4261,7 +5220,7 @@ namespace OpenGL.Test
 			double x1 = (double)Next(random);
 			double y1 = (double)Next(random);
 			double z1 = (double)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3d v1 = new Vertex3d(x1, y1, z1);
 
@@ -4415,6 +5374,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3d.operator Vertex4f(Vertex3d)")]
+		public void Vertex3d_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			double x = (double)Next(random);
+			double y = (double)Next(random);
+			double z = (double)Next(random);
+
+			Vertex3d v = new Vertex3d(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3d.operator Vertex4d(Vertex3d)")]
 		public void Vertex3d_TestCastToVertex4d()
 		{
@@ -4505,6 +5482,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3d.Min(Vertex3d[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3d_TestMin_ArgumentNullException()
+		{
+			Vertex3d.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3d.Min(Vertex3d*)")]
+		public void Vertex3d_TestMin_Unsafe()
+		{
+			Vertex3d[] v = new Vertex3d[] {
+				new Vertex3d((double)1.0f, (double)13.0f, (double)22.0f),
+				new Vertex3d((double)2.0f, (double)12.0f, (double)21.0f),
+				new Vertex3d((double)3.0f, (double)11.0f, (double)23.0f),
+			};
+
+			Vertex3d min;
+
+			unsafe {
+				fixed (Vertex3d* vPtr = v) {
+					min = Vertex3d.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3d((double)1.0f, (double)11.0f, (double)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3d.Min(Vertex3d*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3d_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3d.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3d.Max(Vertex3d[])")]
 		public void Vertex3d_TestMax()
 		{
@@ -4514,12 +5530,51 @@ namespace OpenGL.Test
 				new Vertex3d((double)3.0f, (double)11.0f, (double)23.0f),
 			};
 
-			Vertex3d min = Vertex3d.Max(v);
+			Vertex3d max = Vertex3d.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3d((double)3.0f, (double)13.0f, (double)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3d.Max(Vertex3d[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3d_TestMax_ArgumentNullException()
+		{
+			Vertex3d.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3d.Max(Vertex3d*)")]
+		public void Vertex3d_TestMax_Unsafe()
+		{
+			Vertex3d[] v = new Vertex3d[] {
+				new Vertex3d((double)1.0f, (double)13.0f, (double)22.0f),
+				new Vertex3d((double)2.0f, (double)12.0f, (double)21.0f),
+				new Vertex3d((double)3.0f, (double)11.0f, (double)23.0f),
+			};
+
+			Vertex3d max;
+
+			unsafe {
+				fixed (Vertex3d* vPtr = v) {
+					max = Vertex3d.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3d((double)3.0f, (double)13.0f, (double)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3d.Max(Vertex3d*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3d_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3d.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3d.Max(Vertex3d[])")]
@@ -4545,11 +5600,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3d.Max(Vertex3d*)")]
+		public void Vertex3d_TestMinMax_Unsafe()
+		{
+			Vertex3d[] v = new Vertex3d[] {
+				new Vertex3d((double)1.0f, (double)13.0f, (double)22.0f),
+				new Vertex3d((double)2.0f, (double)12.0f, (double)21.0f),
+				new Vertex3d((double)3.0f, (double)11.0f, (double)23.0f),
+			};
+
+			Vertex3d min, max;
+
+			unsafe {
+				fixed (Vertex3d* vPtr = v) {
+					Vertex3d.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3d((double)1.0f, (double)11.0f, (double)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3d((double)3.0f, (double)13.0f, (double)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3d.operator==(Vertex3d, Vertex3d)")]
+		[Test(Description = "Test Vertex3d.Equals(Vertex3d)")]
 		public void Vertex3d_TestEquals_Vertex3d()
 		{
 			Vertex3d v = Vertex3d.UnitX;
@@ -4557,6 +5639,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3d.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3d.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3d.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3d.Equals(object)")]
+		public void Vertex3d_TestEquals_True()
+		{
+			Vertex3d v = Vertex3d.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3d.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3d.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3d.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3d.GetHashCode()")]
@@ -4773,7 +5869,7 @@ namespace OpenGL.Test
 			HalfFloat x1 = (HalfFloat)Next(random);
 			HalfFloat y1 = (HalfFloat)Next(random);
 			HalfFloat z1 = (HalfFloat)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3hf v1 = new Vertex3hf(x1, y1, z1);
 
@@ -4792,7 +5888,7 @@ namespace OpenGL.Test
 			HalfFloat x1 = (HalfFloat)Next(random);
 			HalfFloat y1 = (HalfFloat)Next(random);
 			HalfFloat z1 = (HalfFloat)Next(random);
-			double s = Next(random, 0.0, 32.0);
+			double s = Next(random, 1.0, 32.0);
 
 			Vertex3hf v1 = new Vertex3hf(x1, y1, z1);
 
@@ -4946,6 +6042,24 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
+		[Test(Description = "Test Vertex3hf.operator Vertex4f(Vertex3hf)")]
+		public void Vertex3hf_TestCastToVertex4f()
+		{
+			Random random = new Random();
+			
+			HalfFloat x = (HalfFloat)Next(random);
+			HalfFloat y = (HalfFloat)Next(random);
+			HalfFloat z = (HalfFloat)Next(random);
+
+			Vertex3hf v = new Vertex3hf(x, y, z);
+			Vertex4f v4f = (Vertex4f)v;
+
+			Assert.AreEqual(v.x, v4f.x, 1e-4);
+			Assert.AreEqual(v.y, v4f.y, 1e-4);
+			Assert.AreEqual(v.z, v4f.z, 1e-4);
+			Assert.AreEqual(1.0f, v4f.w, 1e-4);
+		}
+
 		[Test(Description = "Test Vertex3hf.operator Vertex4d(Vertex3hf)")]
 		public void Vertex3hf_TestCastToVertex4d()
 		{
@@ -5036,6 +6150,45 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3hf.Min(Vertex3hf[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3hf_TestMin_ArgumentNullException()
+		{
+			Vertex3hf.Min(null);
+		}
+
+		[Test(Description = "Test Vertex3hf.Min(Vertex3hf*)")]
+		public void Vertex3hf_TestMin_Unsafe()
+		{
+			Vertex3hf[] v = new Vertex3hf[] {
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)13.0f, (HalfFloat)22.0f),
+				new Vertex3hf((HalfFloat)2.0f, (HalfFloat)12.0f, (HalfFloat)21.0f),
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)11.0f, (HalfFloat)23.0f),
+			};
+
+			Vertex3hf min;
+
+			unsafe {
+				fixed (Vertex3hf* vPtr = v) {
+					min = Vertex3hf.Min(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)11.0f, (HalfFloat)21.0f),
+				min
+			);
+		}
+
+		[Test(Description = "Test Vertex3hf.Min(Vertex3hf*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3hf_TestMin_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3hf.Min(null, 0);
+			}
+		}
+
 		[Test(Description = "Test Vertex3hf.Max(Vertex3hf[])")]
 		public void Vertex3hf_TestMax()
 		{
@@ -5045,12 +6198,51 @@ namespace OpenGL.Test
 				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)11.0f, (HalfFloat)23.0f),
 			};
 
-			Vertex3hf min = Vertex3hf.Max(v);
+			Vertex3hf max = Vertex3hf.Max(v);
 
 			Assert.AreEqual(
 				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)13.0f, (HalfFloat)23.0f),
-				min
+				max
 			);
+		}
+
+		[Test(Description = "Test Vertex3hf.Max(Vertex3hf[]) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3hf_TestMax_ArgumentNullException()
+		{
+			Vertex3hf.Max(null);
+		}
+
+		[Test(Description = "Test Vertex3hf.Max(Vertex3hf*)")]
+		public void Vertex3hf_TestMax_Unsafe()
+		{
+			Vertex3hf[] v = new Vertex3hf[] {
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)13.0f, (HalfFloat)22.0f),
+				new Vertex3hf((HalfFloat)2.0f, (HalfFloat)12.0f, (HalfFloat)21.0f),
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)11.0f, (HalfFloat)23.0f),
+			};
+
+			Vertex3hf max;
+
+			unsafe {
+				fixed (Vertex3hf* vPtr = v) {
+					max = Vertex3hf.Max(vPtr, (uint)v.Length);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)13.0f, (HalfFloat)23.0f),
+				max
+			);
+		}
+
+		[Test(Description = "Test Vertex3hf.Max(Vertex3hf*) ArgumentNullException")]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void TVertex3hf_TestMax_Unsafe_ArgumentNullException()
+		{
+			unsafe {
+				Vertex3hf.Max(null, 0);
+			}
 		}
 
 		[Test(Description = "Test Vertex3hf.Max(Vertex3hf[])")]
@@ -5076,11 +6268,38 @@ namespace OpenGL.Test
 			);
 		}
 
+		[Test(Description = "Test Vertex3hf.Max(Vertex3hf*)")]
+		public void Vertex3hf_TestMinMax_Unsafe()
+		{
+			Vertex3hf[] v = new Vertex3hf[] {
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)13.0f, (HalfFloat)22.0f),
+				new Vertex3hf((HalfFloat)2.0f, (HalfFloat)12.0f, (HalfFloat)21.0f),
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)11.0f, (HalfFloat)23.0f),
+			};
+
+			Vertex3hf min, max;
+
+			unsafe {
+				fixed (Vertex3hf* vPtr = v) {
+					Vertex3hf.MinMax(vPtr, (uint)v.Length, out min, out max);
+				}
+			}
+
+			Assert.AreEqual(
+				new Vertex3hf((HalfFloat)1.0f, (HalfFloat)11.0f, (HalfFloat)21.0f),
+				min
+			);
+			Assert.AreEqual(
+				new Vertex3hf((HalfFloat)3.0f, (HalfFloat)13.0f, (HalfFloat)23.0f),
+				max
+			);
+		}
+
 		#endregion
 
 		#region IEquatable Implementation
 
-		[Test(Description = "Test Vertex3hf.operator==(Vertex3hf, Vertex3hf)")]
+		[Test(Description = "Test Vertex3hf.Equals(Vertex3hf)")]
 		public void Vertex3hf_TestEquals_Vertex3hf()
 		{
 			Vertex3hf v = Vertex3hf.UnitX;
@@ -5088,6 +6307,20 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3hf.UnitX));
 			Assert.IsFalse(v.Equals(Vertex3hf.UnitY));
 			Assert.IsFalse(v.Equals(Vertex3hf.UnitZ));
+		}
+
+		[Test(Description = "Test Vertex3hf.Equals(object)")]
+		public void Vertex3hf_TestEquals_True()
+		{
+			Vertex3hf v = Vertex3hf.UnitX;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)Vertex3hf.UnitX));
+			Assert.IsFalse(v.Equals((object)Vertex3hf.UnitY));
+			Assert.IsFalse(v.Equals((object)Vertex3hf.UnitZ));
 		}
 
 		[Test(Description = "Test Vertex3hf.GetHashCode()")]
