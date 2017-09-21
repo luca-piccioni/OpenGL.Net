@@ -35,8 +35,10 @@ namespace OpenGL
 <#
 	string[] underlyingType =	new[] { "byte", "sbyte", "ushort", "short", "uint", "int", "float", "double", "HalfFloat" };
 	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
-	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     null };
-	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     null };
+	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",    "new HalfFloat(0.0f)" };
+	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",    "new HalfFloat(1.0f)" };
+	string[] mins =				new[] { null,    null,    null,     null,    null,   null,   null,  null,      "new HalfFloat(HalfFloat.MinValue)" };
+	string[] maxs =				new[] { null,    null,    null,     null,    null,   null,   null,  null,      "new HalfFloat(HalfFloat.MaxValue)" };
 	int[] signedType =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        1 };
 	int[] integerType =			new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
 	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
@@ -46,6 +48,7 @@ namespace OpenGL
 		string className = String.Format("Vertex2{0}", postfixes[i]);
 		string baseType = underlyingType[i];
 		int structSize = structSizes[i];
+		string min = mins[i], max = maxs[i];
 #>
 	/// <summary>
 	/// Vertex value type (<#= baseType #> coordinates).
@@ -443,28 +446,6 @@ namespace OpenGL
 
 			return (v);
 		}
-<# if (baseType != "double") { #>
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="<#= className #>"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](<#= className #> a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
-<# } #>
 <#
 		string castModifier_f = "implicit";
 
@@ -577,10 +558,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -590,7 +582,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -802,6 +793,21 @@ namespace OpenGL
 		/// </summary>
 		public static readonly <#= className #> UnitY = new <#= className #>(<#= zero #>, <#= one #>);
 
+<#
+		if (min != null && max != null) {
+#>
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly <#= className #> Minimum = new <#= className #>(<#= min #>);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly <#= className #> Maximum = new <#= className #>(<#= max #>);
+<#
+		} else {
+#>
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -811,6 +817,9 @@ namespace OpenGL
 		/// Vertex with highest values.
 		/// </summary>
 		public static readonly <#= className #> Maximum = new <#= className #>(<#= baseType #>.MaxValue);
+<#
+		}
+#>
 
 		#endregion
 <#
@@ -823,14 +832,14 @@ namespace OpenGL
 		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this <#= className #> is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(<#= className #> other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -846,10 +855,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(<#= className #>))
+				return (false);
 			
-			try {
-				return (Equals((<#= className #>)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((<#= className #>)obj));
 		}
 
 		/// <summary>

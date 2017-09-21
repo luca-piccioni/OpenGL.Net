@@ -395,26 +395,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex2ub"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex2ub a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -510,10 +490,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -523,7 +514,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -748,14 +738,14 @@ namespace OpenGL
 		/// Indicates whether the this Vertex2ub is equal to another Vertex2ub.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2ub"/> to compare with this Vertex2ub.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2ub is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2ub other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -771,10 +761,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2ub))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2ub)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2ub)obj));
 		}
 
 		/// <summary>
@@ -1196,26 +1186,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex2b"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex2b a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -1311,10 +1281,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -1324,7 +1305,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -1549,14 +1529,14 @@ namespace OpenGL
 		/// Indicates whether the this Vertex2b is equal to another Vertex2b.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2b"/> to compare with this Vertex2b.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2b is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2b other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -1572,10 +1552,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2b))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2b)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2b)obj));
 		}
 
 		/// <summary>
@@ -1983,26 +1963,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex2us"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex2us a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -2098,10 +2058,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -2111,7 +2082,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -2336,14 +2306,14 @@ namespace OpenGL
 		/// Indicates whether the this Vertex2us is equal to another Vertex2us.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2us"/> to compare with this Vertex2us.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2us is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2us other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -2359,10 +2329,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2us))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2us)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2us)obj));
 		}
 
 		/// <summary>
@@ -2784,26 +2754,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex2s"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex2s a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -2899,10 +2849,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -2912,7 +2873,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -3137,14 +3097,14 @@ namespace OpenGL
 		/// Indicates whether the this Vertex2s is equal to another Vertex2s.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2s"/> to compare with this Vertex2s.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2s is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2s other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -3160,10 +3120,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2s))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2s)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2s)obj));
 		}
 
 		/// <summary>
@@ -3571,26 +3531,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex2ui"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex2ui a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -3686,10 +3626,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -3699,7 +3650,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -3924,14 +3874,14 @@ namespace OpenGL
 		/// Indicates whether the this Vertex2ui is equal to another Vertex2ui.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2ui"/> to compare with this Vertex2ui.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2ui is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2ui other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -3947,10 +3897,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2ui))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2ui)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2ui)obj));
 		}
 
 		/// <summary>
@@ -4372,26 +4322,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex2i"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex2i a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -4487,10 +4417,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -4500,7 +4441,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -4725,14 +4665,14 @@ namespace OpenGL
 		/// Indicates whether the this Vertex2i is equal to another Vertex2i.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2i"/> to compare with this Vertex2i.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2i is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2i other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -4748,10 +4688,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2i))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2i)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2i)obj));
 		}
 
 		/// <summary>
@@ -5130,26 +5070,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex2f"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex2f a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
 		/// <summary>
 		/// Cast to Vertex2d operator.
 		/// </summary>
@@ -5231,10 +5151,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -5244,7 +5175,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -5469,14 +5399,14 @@ namespace OpenGL
 		/// Indicates whether the this Vertex2f is equal to another Vertex2f.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2f"/> to compare with this Vertex2f.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2f is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2f other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -5492,10 +5422,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2f))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2f)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2f)obj));
 		}
 
 		/// <summary>
@@ -5956,10 +5886,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -5969,7 +5910,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -6194,14 +6134,14 @@ namespace OpenGL
 		/// Indicates whether the this Vertex2d is equal to another Vertex2d.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2d"/> to compare with this Vertex2d.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2d is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2d other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -6217,10 +6157,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2d))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2d)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2d)obj));
 		}
 
 		/// <summary>
@@ -6599,26 +6539,6 @@ namespace OpenGL
 
 			return (v);
 		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex2hf"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex2hf a)
-		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
-		}
-
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -6714,10 +6634,21 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute bidimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return ((float)Math.Sqrt(x2 + y2));
+			return (x2 + y2);
 		}
 
 		/// <summary>
@@ -6727,7 +6658,6 @@ namespace OpenGL
 		{
 			float length = Module();
 
-			Debug.Assert(Math.Abs(length) >= Single.Epsilon);
 			if (Math.Abs(length) >= Single.Epsilon)
 				this /= length;
 		}
@@ -6912,20 +6842,54 @@ namespace OpenGL
 
 		#endregion
 
+		#region Notable Vertex
+
+		/// <summary>
+		/// Origin vertex.
+		/// </summary>
+		public static readonly Vertex2hf Zero = new Vertex2hf(new HalfFloat(0.0f));
+
+		/// <summary>
+		/// Unit vertex along all axes.
+		/// </summary>
+		public static readonly Vertex2hf One = new Vertex2hf(new HalfFloat(1.0f));
+
+		/// <summary>
+		/// Unit vertex along X axis.
+		/// </summary>
+		public static readonly Vertex2hf UnitX = new Vertex2hf(new HalfFloat(1.0f), new HalfFloat(0.0f));
+
+		/// <summary>
+		/// Unit vertex along Y axis.
+		/// </summary>
+		public static readonly Vertex2hf UnitY = new Vertex2hf(new HalfFloat(0.0f), new HalfFloat(1.0f));
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex2hf Minimum = new Vertex2hf(new HalfFloat(HalfFloat.MinValue));
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex2hf Maximum = new Vertex2hf(new HalfFloat(HalfFloat.MaxValue));
+
+		#endregion
+
 		#region IEquatable Implementation
 
 		/// <summary>
 		/// Indicates whether the this Vertex2hf is equal to another Vertex2hf.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex2hf"/> to compare with this Vertex2hf.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex2hf is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex2hf other)
 		{
-			return (x != other.x || y != other.y);
+			return (x == other.x && y == other.y);
 		}
 
 		/// <summary>
@@ -6941,10 +6905,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex2hf))
+				return (false);
 			
-			try {
-				return (Equals((Vertex2hf)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex2hf)obj));
 		}
 
 		/// <summary>

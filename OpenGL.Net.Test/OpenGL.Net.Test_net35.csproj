@@ -113,7 +113,11 @@
     <Compile Include="TestBaseBenchmark.cs" />
     <Compile Include="TestBaseGL.cs" />
     <Compile Include="TestBaseGLSL.cs" />
-    <Compile Include="Vertex3.cs" />
+    <Compile Include="Vertex3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vertex3.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net35.csproj">
@@ -125,10 +129,21 @@
     <Compile Include="ContextAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Vertex2.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>Vertex2.cs</LastGenOutput>
+    </Content>
+    <Content Include="Vertex3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Vertex31.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
