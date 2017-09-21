@@ -385,25 +385,7 @@ namespace OpenGL
 
 			return (v);
 		}
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex3ub"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex3ub a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -740,14 +722,15 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+
 		/// <summary>
 		/// Indicates whether the this Vertex3ub is equal to another Vertex3ub.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3ub"/> to compare with this Vertex3ub.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3ub is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3ub other)
 		{
@@ -767,10 +750,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3ub))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3ub)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3ub)obj));
 		}
 
 		/// <summary>
@@ -1179,25 +1162,7 @@ namespace OpenGL
 
 			return (v);
 		}
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex3b"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex3b a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -1534,14 +1499,15 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+
 		/// <summary>
 		/// Indicates whether the this Vertex3b is equal to another Vertex3b.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3b"/> to compare with this Vertex3b.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3b is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3b other)
 		{
@@ -1561,10 +1527,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3b))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3b)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3b)obj));
 		}
 
 		/// <summary>
@@ -1959,25 +1925,7 @@ namespace OpenGL
 
 			return (v);
 		}
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex3us"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex3us a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -2314,14 +2262,15 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+
 		/// <summary>
 		/// Indicates whether the this Vertex3us is equal to another Vertex3us.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3us"/> to compare with this Vertex3us.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3us is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3us other)
 		{
@@ -2341,10 +2290,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3us))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3us)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3us)obj));
 		}
 
 		/// <summary>
@@ -2753,25 +2702,7 @@ namespace OpenGL
 
 			return (v);
 		}
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex3s"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex3s a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -3108,14 +3039,15 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+
 		/// <summary>
 		/// Indicates whether the this Vertex3s is equal to another Vertex3s.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3s"/> to compare with this Vertex3s.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3s is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3s other)
 		{
@@ -3135,10 +3067,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3s))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3s)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3s)obj));
 		}
 
 		/// <summary>
@@ -3533,25 +3465,7 @@ namespace OpenGL
 
 			return (v);
 		}
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex3ui"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex3ui a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -3888,14 +3802,15 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+
 		/// <summary>
 		/// Indicates whether the this Vertex3ui is equal to another Vertex3ui.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3ui"/> to compare with this Vertex3ui.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3ui is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3ui other)
 		{
@@ -3915,10 +3830,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3ui))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3ui)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3ui)obj));
 		}
 
 		/// <summary>
@@ -4327,25 +4242,7 @@ namespace OpenGL
 
 			return (v);
 		}
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex3i"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex3i a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -4682,14 +4579,15 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+
 		/// <summary>
 		/// Indicates whether the this Vertex3i is equal to another Vertex3i.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3i"/> to compare with this Vertex3i.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3i is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3i other)
 		{
@@ -4709,10 +4607,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3i))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3i)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3i)obj));
 		}
 
 		/// <summary>
@@ -5076,25 +4974,7 @@ namespace OpenGL
 
 			return (v);
 		}
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex3f"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex3f a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -5418,13 +5298,61 @@ namespace OpenGL
 		#region IEquatable Implementation
 
 		/// <summary>
+		/// Indicates whether the this Vertex3f is equal to another Vertex3f, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3f"/> to compare with this Vertex3f.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="float"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3f is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3f other, float precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this Vertex3f is relatively equal to another Vertex3f.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3f"/> to compare with this Vertex3f.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3f is relatively equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool RelativelyEquals(Vertex3f other, float precision)
+		{
+			if (Math.Abs(x - other.x) > precision * (Math.Abs(x) + Math.Abs(other.x)))
+				return (false);
+			if (Math.Abs(y - other.y) > precision * (Math.Abs(y) + Math.Abs(other.y)))
+				return (false);
+			if (Math.Abs(z - other.z) > precision * (Math.Abs(z) + Math.Abs(other.z)))
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
 		/// Indicates whether the this Vertex3f is equal to another Vertex3f.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3f"/> to compare with this Vertex3f.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3f is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3f other)
 		{
@@ -5444,10 +5372,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3f))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3f)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3f)obj));
 		}
 
 		/// <summary>
@@ -5811,6 +5739,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -6134,13 +6063,61 @@ namespace OpenGL
 		#region IEquatable Implementation
 
 		/// <summary>
+		/// Indicates whether the this Vertex3d is equal to another Vertex3d, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3d"/> to compare with this Vertex3d.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="double"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3d is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3d other, double precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this Vertex3d is relatively equal to another Vertex3d.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3d"/> to compare with this Vertex3d.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3d is relatively equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool RelativelyEquals(Vertex3d other, double precision)
+		{
+			if (Math.Abs(x - other.x) > precision * (Math.Abs(x) + Math.Abs(other.x)))
+				return (false);
+			if (Math.Abs(y - other.y) > precision * (Math.Abs(y) + Math.Abs(other.y)))
+				return (false);
+			if (Math.Abs(z - other.z) > precision * (Math.Abs(z) + Math.Abs(other.z)))
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
 		/// Indicates whether the this Vertex3d is equal to another Vertex3d.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3d"/> to compare with this Vertex3d.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3d is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3d other)
 		{
@@ -6160,10 +6137,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3d))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3d)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3d)obj));
 		}
 
 		/// <summary>
@@ -6527,25 +6504,7 @@ namespace OpenGL
 
 			return (v);
 		}
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex3hf"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex3hf a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -6883,13 +6842,61 @@ namespace OpenGL
 		#region IEquatable Implementation
 
 		/// <summary>
+		/// Indicates whether the this Vertex3hf is equal to another Vertex3hf, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3hf"/> to compare with this Vertex3hf.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="HalfFloat"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3hf is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3hf other, HalfFloat precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this Vertex3hf is relatively equal to another Vertex3hf.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3hf"/> to compare with this Vertex3hf.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="HalfFloat"/> that specifies the relative error tollerance, intended as fraction of the range.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3hf is relatively equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool RelativelyEquals(Vertex3hf other, HalfFloat precision)
+		{
+			if (Math.Abs(x - other.x) > precision * (Math.Abs(x) + Math.Abs(other.x)))
+				return (false);
+			if (Math.Abs(y - other.y) > precision * (Math.Abs(y) + Math.Abs(other.y)))
+				return (false);
+			if (Math.Abs(z - other.z) > precision * (Math.Abs(z) + Math.Abs(other.z)))
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
 		/// Indicates whether the this Vertex3hf is equal to another Vertex3hf.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="Vertex3hf"/> to compare with this Vertex3hf.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this Vertex3hf is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(Vertex3hf other)
 		{
@@ -6909,10 +6916,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex3hf))
+				return (false);
 			
-			try {
-				return (Equals((Vertex3hf)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex3hf)obj));
 		}
 
 		/// <summary>

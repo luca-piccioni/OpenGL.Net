@@ -437,30 +437,8 @@ namespace OpenGL
 
 			return (v);
 		}
-<#
-		if (baseType != "double") {
-#>
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="<#= className #>"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](<#= className #> a)
-		{
-			double[] v = new double[3];
 
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
-		}
 <#
-		}
 		string castModifier_f = "implicit";
 
 		// Vertex3f from Vertex3d/Vertex3i/Vertex3ui requires explicit cast
@@ -838,14 +816,68 @@ namespace OpenGL
 #>
 		#region IEquatable Implementation
 
+<#
+		if (integerType[i] == 0) {
+#>
+		/// <summary>
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="<#= baseType #>"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this <#= className #> is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(<#= className #> other, <#= baseType #> precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this <#= className #> is relatively equal to another <#= className #>.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="<#= baseType #>"/> that specifies the relative error tollerance, intended as fraction of the range.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this <#= className #> is relatively equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool RelativelyEquals(<#= className #> other, <#= baseType #> precision)
+		{
+			if (Math.Abs(x - other.x) > precision * (Math.Abs(x) + Math.Abs(other.x)))
+				return (false);
+			if (Math.Abs(y - other.y) > precision * (Math.Abs(y) + Math.Abs(other.y)))
+				return (false);
+			if (Math.Abs(z - other.z) > precision * (Math.Abs(z) + Math.Abs(other.z)))
+				return (false);
+
+			return (true);
+		}
+<#
+		}
+#>
+
 		/// <summary>
 		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this <#= className #> is equal to <paramref name="other"/>; otherwise, false.
 		/// </returns>
 		public bool Equals(<#= className #> other)
 		{
@@ -865,10 +897,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(<#= className #>))
+				return (false);
 			
-			try {
-				return (Equals((<#= className #>)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((<#= className #>)obj));
 		}
 
 		/// <summary>
