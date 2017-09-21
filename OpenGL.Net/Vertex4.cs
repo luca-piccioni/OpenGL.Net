@@ -53,7 +53,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4ub(byte[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4ub(byte[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (byte)1) { }
 
 		/// <summary>
 		/// Vertex4ub constructor.
@@ -132,6 +132,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -350,6 +351,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -370,6 +372,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3ub operator.
 		/// </summary>
@@ -473,7 +476,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3ub)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3ub)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -729,7 +746,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4ub other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -745,10 +762,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4ub))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4ub)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4ub)obj));
 		}
 
 		/// <summary>
@@ -812,7 +829,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:sbyte[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4b(sbyte[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4b(sbyte[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (sbyte)1) { }
 
 		/// <summary>
 		/// Vertex4b constructor.
@@ -891,6 +908,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -1122,6 +1140,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -1142,6 +1161,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3b operator.
 		/// </summary>
@@ -1245,7 +1265,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3b)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3b)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -1501,7 +1535,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4b other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -1517,10 +1551,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4b))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4b)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4b)obj));
 		}
 
 		/// <summary>
@@ -1584,7 +1618,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:ushort[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4us(ushort[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4us(ushort[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (ushort)1) { }
 
 		/// <summary>
 		/// Vertex4us constructor.
@@ -1663,6 +1697,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -1881,6 +1916,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -1901,6 +1937,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3us operator.
 		/// </summary>
@@ -2004,7 +2041,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3us)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3us)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -2260,7 +2311,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4us other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -2276,10 +2327,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4us))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4us)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4us)obj));
 		}
 
 		/// <summary>
@@ -2343,7 +2394,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:short[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4s(short[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4s(short[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (short)1) { }
 
 		/// <summary>
 		/// Vertex4s constructor.
@@ -2422,6 +2473,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -2653,6 +2705,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -2673,6 +2726,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3s operator.
 		/// </summary>
@@ -2776,7 +2830,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3s)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3s)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -3032,7 +3100,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4s other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -3048,10 +3116,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4s))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4s)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4s)obj));
 		}
 
 		/// <summary>
@@ -3115,7 +3183,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:uint[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4ui(uint[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4ui(uint[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (uint)1) { }
 
 		/// <summary>
 		/// Vertex4ui constructor.
@@ -3194,6 +3262,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -3412,6 +3481,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -3432,6 +3502,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3ui operator.
 		/// </summary>
@@ -3535,7 +3606,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3ui)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3ui)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -3791,7 +3876,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4ui other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -3807,10 +3892,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4ui))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4ui)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4ui)obj));
 		}
 
 		/// <summary>
@@ -3874,7 +3959,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:int[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4i(int[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4i(int[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (int)1) { }
 
 		/// <summary>
 		/// Vertex4i constructor.
@@ -3953,6 +4038,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -4184,6 +4270,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -4204,6 +4291,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3i operator.
 		/// </summary>
@@ -4307,7 +4395,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3i)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3i)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -4563,7 +4665,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4i other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -4579,10 +4681,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4i))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4i)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4i)obj));
 		}
 
 		/// <summary>
@@ -4646,7 +4748,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:float[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4f(float[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4f(float[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (float)1.0f) { }
 
 		/// <summary>
 		/// Vertex4f constructor.
@@ -4725,6 +4827,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -4956,6 +5059,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -4976,6 +5080,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
@@ -5049,7 +5154,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3f)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3f)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -5371,7 +5490,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4f other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -5387,10 +5506,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4f))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4f)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4f)obj));
 		}
 
 		/// <summary>
@@ -5454,7 +5573,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:double[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4d(double[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4d(double[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (double)1.0) { }
 
 		/// <summary>
 		/// Vertex4d constructor.
@@ -5533,6 +5652,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -5764,6 +5884,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -5777,6 +5898,7 @@ namespace OpenGL
 		{
 			return (new Vertex3d(v.x / v.w, v.y / v.w, v.z / v.w));
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -5833,7 +5955,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3d)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3d)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -6089,7 +6225,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4d other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -6105,10 +6241,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4d))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4d)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4d)obj));
 		}
 
 		/// <summary>
@@ -6172,7 +6308,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:HalfFloat[]"/> that specify the value of every component.
 		/// </param>
-		public Vertex4hf(HalfFloat[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public Vertex4hf(HalfFloat[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (HalfFloat)(HalfFloat)1.0f) { }
 
 		/// <summary>
 		/// Vertex4hf constructor.
@@ -6251,6 +6387,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -6482,6 +6619,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to double[] operator.
 		/// </summary>
@@ -6502,6 +6640,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 		/// <summary>
 		/// Cast to Vertex3hf operator.
 		/// </summary>
@@ -6605,7 +6744,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((Vertex3hf)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((Vertex3hf)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -6809,6 +6962,45 @@ namespace OpenGL
 
 		#endregion
 		
+		#region Notable Vertex
+
+		/// <summary>
+		/// Origin vertex.
+		/// </summary>
+		public static readonly Vertex4hf Zero = new Vertex4hf((HalfFloat)0.0f);
+
+		/// <summary>
+		/// Unit vertex along all axes.
+		/// </summary>
+		public static readonly Vertex4hf One = new Vertex4hf((HalfFloat)1.0f);
+
+		/// <summary>
+		/// Unit vertex along X axis.
+		/// </summary>
+		public static readonly Vertex4hf UnitX = new Vertex4hf((HalfFloat)1.0f, (HalfFloat)0.0f, (HalfFloat)0.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Unit vertex along Y axis.
+		/// </summary>
+		public static readonly Vertex4hf UnitY = new Vertex4hf((HalfFloat)0.0f, (HalfFloat)1.0f, (HalfFloat)0.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Unit vertex along Z axis.
+		/// </summary>
+		public static readonly Vertex4hf UnitZ = new Vertex4hf((HalfFloat)0.0f, (HalfFloat)0.0f, (HalfFloat)1.0f, (HalfFloat)1.0f);
+
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly Vertex4hf Minimum = new Vertex4hf(new HalfFloat(HalfFloat.MinValue));
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly Vertex4hf Maximum = new Vertex4hf(new HalfFloat(HalfFloat.MaxValue));
+
+		#endregion
+
 		#region IEquatable Implementation
 
 		/// <summary>
@@ -6822,7 +7014,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4hf other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -6838,10 +7030,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(Vertex4hf))
+				return (false);
 			
-			try {
-				return (Equals((Vertex4hf)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((Vertex4hf)obj));
 		}
 
 		/// <summary>

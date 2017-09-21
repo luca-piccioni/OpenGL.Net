@@ -118,6 +118,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vertex3.tt</DependentUpon>
     </Compile>
+    <Compile Include="Vertex4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vertex4.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net35.csproj">
@@ -137,12 +142,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Vertex2.tt">
-        <Generator>TextTemplatingFileGenerator</Generator>
-        <LastGenOutput>Vertex2.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Vertex2.cs</LastGenOutput>
     </Content>
     <Content Include="Vertex3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Vertex31.cs</LastGenOutput>
+      <LastGenOutput>Vertex3.cs</LastGenOutput>
+    </Content>
+    <Content Include="Vertex4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Vertex4.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

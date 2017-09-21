@@ -39,8 +39,10 @@ namespace OpenGL
 <#
 	string[] underlyingType =	new[] { "byte", "sbyte", "ushort", "short", "uint", "int", "float", "double", "HalfFloat" };
 	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
-	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     null };
+	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     "(HalfFloat)0.0f" };
 	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     "(HalfFloat)1.0f" };
+	string[] mins =				new[] { null,    null,    null,     null,    null,   null,   null,  null,      "new HalfFloat(HalfFloat.MinValue)" };
+	string[] maxs =				new[] { null,    null,    null,     null,    null,   null,   null,  null,      "new HalfFloat(HalfFloat.MaxValue)" };
 	int[] signedType =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        1 };
 	int[] integerType =			new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
 	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
@@ -52,6 +54,7 @@ namespace OpenGL
 		string baseType = underlyingType[i];
 		int structSize = structSizes[i];
 		string zero = zeroes[i], one = ones[i];
+		string min = mins[i], max = maxs[i];
 #>
 	/// <summary>
 	/// Vertex value type (<#= baseType #> coordinates).
@@ -77,7 +80,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:<#= baseType #>[]"/> that specify the value of every component.
 		/// </param>
-		public <#= className #>(<#= baseType #>[] v) : this(v[0], v[1], v[2], v[3]) { }
+		public <#= className #>(<#= baseType #>[] v) : this(v[0], v[1], v[2], v.Length > 3 ? v[3] : (<#= baseType #>)<#= one #>) { }
 
 		/// <summary>
 		/// <#= className #> constructor.
@@ -156,6 +159,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 <# if (signedType[i] != 0) { #>
 		/// <summary>
 		/// Negate operator.
@@ -389,6 +393,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 <# if (baseType != "double") { #>
 		/// <summary>
 		/// Cast to double[] operator.
@@ -410,6 +415,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 <#
 		}
 		if (className != "Vertex4d") {
@@ -447,6 +453,7 @@ namespace OpenGL
 		{
 			return (new <#= vertex3Name #>(v.x / v.w, v.y / v.w, v.z / v.w));
 		}
+
 <#
 		}
 #><#
@@ -553,7 +560,21 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the vertex vector module.
 		/// </returns>
-		public float Module() { return (((<#= vertex3Name #>)this).Module()); }
+		public float Module()
+		{
+			return ((float)Math.Sqrt(ModuleSquared()));
+		}
+
+		/// <summary>
+		/// Compute tridimensional vertex module, squared.
+		/// </summary>
+		/// <returns>
+		/// It returns the vertex vector module, squared.
+		/// </returns>
+		public float ModuleSquared()
+		{
+			return (((<#= vertex3Name #>)this).ModuleSquared());
+		}
 
 		/// <summary>
 		/// Normalize vertex coordinates.
@@ -877,6 +898,21 @@ namespace OpenGL
 		/// </summary>
 		public static readonly <#= className #> UnitZ = new <#= className #>(<#= zero #>, <#= zero #>, <#= one #>, <#= one #>);
 
+<#
+		if (min != null && max != null) {
+#>
+		/// <summary>
+		/// Vertex with lowest values.
+		/// </summary>
+		public static readonly <#= className #> Minimum = new <#= className #>(<#= min #>);
+
+		/// <summary>
+		/// Vertex with highest values.
+		/// </summary>
+		public static readonly <#= className #> Maximum = new <#= className #>(<#= max #>);
+<#
+		} else {
+#>
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -886,6 +922,9 @@ namespace OpenGL
 		/// Vertex with highest values.
 		/// </summary>
 		public static readonly <#= className #> Maximum = new <#= className #>(<#= baseType #>.MaxValue);
+<#
+		}
+#>
 
 		#endregion
 <#
@@ -905,7 +944,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(<#= className #> other)
 		{
-			return (x / w != other.x / other.w || y / w != other.y / other.w || z / w != other.z / other.w);
+			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
 		}
 
 		/// <summary>
@@ -921,10 +960,10 @@ namespace OpenGL
 		{
 			if (ReferenceEquals(null, obj))
 				return (false);
+			if (obj.GetType() != typeof(<#= className #>))
+				return (false);
 			
-			try {
-				return (Equals((<#= className #>)obj));
-			} catch(InvalidCastException) { return (false); }
+			return (Equals((<#= className #>)obj));
 		}
 
 		/// <summary>
