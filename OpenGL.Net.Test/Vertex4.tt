@@ -89,14 +89,25 @@ namespace OpenGL.Test
 			<#= baseType #> randomValueX = (<#= baseType #>)Next(random);
 			<#= baseType #> randomValueY = (<#= baseType #>)Next(random);
 			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random);
+			<#= baseType #> randomValueW = (<#= baseType #>)Next(random);
+			<#= className #> v;
 
-			<#= className #> v = new <#= className #>(new <#= baseType #>[] {
+			v = new <#= className #>(new <#= baseType #>[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new <#= className #>(new <#= baseType #>[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test <#= className #>(<#= baseType #>, <#= baseType #>, <#= baseType #>)")]

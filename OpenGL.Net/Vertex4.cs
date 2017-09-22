@@ -277,30 +277,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4ub"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4ub v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -343,27 +319,6 @@ namespace OpenGL
 		public static explicit operator byte[](Vertex4ub a)
 		{
 			byte[] v = new byte[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex4ub"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex4ub a)
-		{
-			double[] v = new double[4];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -1066,30 +1021,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4b"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4b v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -1132,27 +1063,6 @@ namespace OpenGL
 		public static explicit operator sbyte[](Vertex4b a)
 		{
 			sbyte[] v = new sbyte[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex4b"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex4b a)
-		{
-			double[] v = new double[4];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -1842,30 +1752,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4us"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4us v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -1908,27 +1794,6 @@ namespace OpenGL
 		public static explicit operator ushort[](Vertex4us a)
 		{
 			ushort[] v = new ushort[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex4us"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex4us a)
-		{
-			double[] v = new double[4];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -2631,30 +2496,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4s"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4s v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -2697,27 +2538,6 @@ namespace OpenGL
 		public static explicit operator short[](Vertex4s a)
 		{
 			short[] v = new short[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex4s"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex4s a)
-		{
-			double[] v = new double[4];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -3407,30 +3227,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4ui"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4ui v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -3473,27 +3269,6 @@ namespace OpenGL
 		public static explicit operator uint[](Vertex4ui a)
 		{
 			uint[] v = new uint[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex4ui"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex4ui a)
-		{
-			double[] v = new double[4];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -4196,30 +3971,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4i"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4i v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -4262,27 +4013,6 @@ namespace OpenGL
 		public static explicit operator int[](Vertex4i a)
 		{
 			int[] v = new int[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex4i"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex4i a)
-		{
-			double[] v = new double[4];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -4985,30 +4715,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4f v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -5051,27 +4757,6 @@ namespace OpenGL
 		public static explicit operator float[](Vertex4f a)
 		{
 			float[] v = new float[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex4f"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex4f a)
-		{
-			double[] v = new double[4];
 
 			v[0] = a.x;
 			v[1] = a.y;
@@ -5810,30 +5495,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4d"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4d v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -6545,30 +6206,6 @@ namespace OpenGL
 			return (v);
 		}
 
-		/// <summary>
-		/// Transform vertex using transformation matrix.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex4hf"/> that specify the vertex to be transformed.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the transformation matrix.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Vertex4f"/> which represents the transformed vertex.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4hf v, Matrix4x4 m)
-		{
-			Vertex4f r;
-
-			r.x = (float)((v.x * m[0, 0]) + (v.y * m[1, 0]) + (v.z * m[2, 0]) + (v.w * m[3, 0]));
-			r.y = (float)((v.x * m[0, 1]) + (v.y * m[1, 1]) + (v.z * m[2, 1]) + (v.w * m[3, 1]));
-			r.z = (float)((v.x * m[0, 2]) + (v.y * m[1, 2]) + (v.z * m[2, 2]) + (v.w * m[3, 2]));
-			r.w = (float)((v.x * m[0, 3]) + (v.y * m[1, 3]) + (v.z * m[2, 3]) + (v.w * m[3, 3]));
-
-			return (r);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -6611,27 +6248,6 @@ namespace OpenGL
 		public static explicit operator HalfFloat[](Vertex4hf a)
 		{
 			HalfFloat[] v = new HalfFloat[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Cast to double[] operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="Vertex4hf"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="T:double[]"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator double[](Vertex4hf a)
-		{
-			double[] v = new double[4];
 
 			v[0] = a.x;
 			v[1] = a.y;

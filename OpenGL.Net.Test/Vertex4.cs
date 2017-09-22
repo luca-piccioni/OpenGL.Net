@@ -70,14 +70,25 @@ namespace OpenGL.Test
 			byte randomValueX = (byte)Next(random);
 			byte randomValueY = (byte)Next(random);
 			byte randomValueZ = (byte)Next(random);
+			byte randomValueW = (byte)Next(random);
+			Vertex4ub v;
 
-			Vertex4ub v = new Vertex4ub(new byte[] {
+			v = new Vertex4ub(new byte[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4ub(new byte[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4ub(byte, byte, byte)")]
@@ -746,14 +757,25 @@ namespace OpenGL.Test
 			sbyte randomValueX = (sbyte)Next(random);
 			sbyte randomValueY = (sbyte)Next(random);
 			sbyte randomValueZ = (sbyte)Next(random);
+			sbyte randomValueW = (sbyte)Next(random);
+			Vertex4b v;
 
-			Vertex4b v = new Vertex4b(new sbyte[] {
+			v = new Vertex4b(new sbyte[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4b(new sbyte[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4b(sbyte, sbyte, sbyte)")]
@@ -1438,14 +1460,25 @@ namespace OpenGL.Test
 			ushort randomValueX = (ushort)Next(random);
 			ushort randomValueY = (ushort)Next(random);
 			ushort randomValueZ = (ushort)Next(random);
+			ushort randomValueW = (ushort)Next(random);
+			Vertex4us v;
 
-			Vertex4us v = new Vertex4us(new ushort[] {
+			v = new Vertex4us(new ushort[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4us(new ushort[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4us(ushort, ushort, ushort)")]
@@ -2114,14 +2147,25 @@ namespace OpenGL.Test
 			short randomValueX = (short)Next(random);
 			short randomValueY = (short)Next(random);
 			short randomValueZ = (short)Next(random);
+			short randomValueW = (short)Next(random);
+			Vertex4s v;
 
-			Vertex4s v = new Vertex4s(new short[] {
+			v = new Vertex4s(new short[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4s(new short[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4s(short, short, short)")]
@@ -2806,14 +2850,25 @@ namespace OpenGL.Test
 			uint randomValueX = (uint)Next(random);
 			uint randomValueY = (uint)Next(random);
 			uint randomValueZ = (uint)Next(random);
+			uint randomValueW = (uint)Next(random);
+			Vertex4ui v;
 
-			Vertex4ui v = new Vertex4ui(new uint[] {
+			v = new Vertex4ui(new uint[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4ui(new uint[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4ui(uint, uint, uint)")]
@@ -3482,14 +3537,25 @@ namespace OpenGL.Test
 			int randomValueX = (int)Next(random);
 			int randomValueY = (int)Next(random);
 			int randomValueZ = (int)Next(random);
+			int randomValueW = (int)Next(random);
+			Vertex4i v;
 
-			Vertex4i v = new Vertex4i(new int[] {
+			v = new Vertex4i(new int[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4i(new int[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4i(int, int, int)")]
@@ -4174,14 +4240,25 @@ namespace OpenGL.Test
 			float randomValueX = (float)Next(random);
 			float randomValueY = (float)Next(random);
 			float randomValueZ = (float)Next(random);
+			float randomValueW = (float)Next(random);
+			Vertex4f v;
 
-			Vertex4f v = new Vertex4f(new float[] {
+			v = new Vertex4f(new float[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4f(new float[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4f(float, float, float)")]
@@ -4829,14 +4906,25 @@ namespace OpenGL.Test
 			double randomValueX = (double)Next(random);
 			double randomValueY = (double)Next(random);
 			double randomValueZ = (double)Next(random);
+			double randomValueW = (double)Next(random);
+			Vertex4d v;
 
-			Vertex4d v = new Vertex4d(new double[] {
+			v = new Vertex4d(new double[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4d(new double[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4d(double, double, double)")]
@@ -5484,14 +5572,25 @@ namespace OpenGL.Test
 			HalfFloat randomValueX = (HalfFloat)Next(random);
 			HalfFloat randomValueY = (HalfFloat)Next(random);
 			HalfFloat randomValueZ = (HalfFloat)Next(random);
+			HalfFloat randomValueW = (HalfFloat)Next(random);
+			Vertex4hf v;
 
-			Vertex4hf v = new Vertex4hf(new HalfFloat[] {
+			v = new Vertex4hf(new HalfFloat[] {
 				randomValueX, randomValueY, randomValueZ
 			});
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
+
+			v = new Vertex4hf(new HalfFloat[] {
+				randomValueX, randomValueY, randomValueZ, randomValueW
+			});
+
+			Assert.AreEqual(randomValueX, v.x);
+			Assert.AreEqual(randomValueY, v.y);
+			Assert.AreEqual(randomValueZ, v.z);
+			Assert.AreEqual(randomValueW, v.w);
 		}
 
 		[Test(Description = "Test Vertex4hf(HalfFloat, HalfFloat, HalfFloat)")]
