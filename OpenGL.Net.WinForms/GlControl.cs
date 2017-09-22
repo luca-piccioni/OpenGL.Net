@@ -1160,25 +1160,20 @@ namespace OpenGL
 		{
 			if (DesignMode == false) {
 				if (_FailureException == null) {
-					try {
-						Stopwatch sw = Stopwatch.StartNew();
+					Stopwatch sw = Stopwatch.StartNew();
 						
-						MakeCurrentContext();
+					MakeCurrentContext();
 
-						// Draw
-						OnRender();
-						_FrameDrawTime = sw.Elapsed;
+					// Draw
+					OnRender();
+					_FrameDrawTime = sw.Elapsed;
 
-						// Update
-						OnContextUpdate();
+					// Update
+					OnContextUpdate();
 
-						// Swap
-						_DeviceContext.SwapBuffers();
-						_FrameSwapTime = sw.Elapsed;
-
-					} catch (Exception exception) {
-						DrawFailure(e, exception);
-					}
+					// Swap
+					_DeviceContext.SwapBuffers();
+					_FrameSwapTime = sw.Elapsed;
 				} else
 					DrawFailure(e, _FailureException);
 			} else
