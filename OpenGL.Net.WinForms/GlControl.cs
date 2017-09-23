@@ -49,7 +49,7 @@ namespace OpenGL
 			// Buffer control
 			SetStyle(ControlStyles.DoubleBuffer, false);
 			// Redraw window on resize
-			SetStyle(ControlStyles.ResizeRedraw, false);
+			SetStyle(ControlStyles.ResizeRedraw, true);
 			// Painting handled by user
 			SetStyle(ControlStyles.UserPaint, true);
 
@@ -712,9 +712,8 @@ namespace OpenGL
 				throw new InvalidOperationException("context already created");
 
 			IntPtr sharingContext = IntPtr.Zero;
-			bool shareResources = ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null;
 
-			if (shareResources) {
+			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null) {
 				List<IntPtr> sharingContextes;
 
 				if (_SharingGroups.TryGetValue(ContextSharingGroup, out sharingContextes))
@@ -812,15 +811,8 @@ namespace OpenGL
 					throw new InvalidOperationException("unable to create render context");
 			}
 
-			// Allow other GlControl instances to reuse this GlControl context
-			if (shareResources) {
-				if (_SharingControls.ContainsKey(ContextSharingGroup))
-					throw new InvalidOperationException(String.Format("another GlControl has created sharing group {0}", ContextSharingGroup));
-				_SharingControls.Add(ContextSharingGroup, this);
-			}
-
 			// Allow other GlControl instances to share resources with this context
-			if (shareResources == true) {
+			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null) {
 				List<IntPtr> sharingContextes;
 
 				// Get the list previously created
@@ -965,12 +957,12 @@ namespace OpenGL
 		private string _ContextSharingGroup;
 
 		/// <summary>
-		/// Map group names with the contextes sharing resources.
+		/// Map group names with the contextes for sharing resources (glShareLists or other means).
 		/// </summary>
 		private static readonly Dictionary<string, List<IntPtr>> _SharingGroups = new Dictionary<string, List<IntPtr>>();
 
 		/// <summary>
-		/// 
+		/// Map group names with the GlControl that has created a context, reused by others.
 		/// </summary>
 		private static readonly Dictionary<string, GlControl> _SharingControls = new Dictionary<string, GlControl>();
 
@@ -1108,20 +1100,16 @@ namespace OpenGL
 		protected override void OnHandleCreated(EventArgs e)
 		{
 			if (DesignMode == false) {
-				try {
-					// Create device context
-					CreateDeviceContext();
-					// Create OpenGL context
-					CreateContext();
-					// The context is made current unconditionally: event handlers allocate resources
-					MakeCurrentContext();
-					// Event handling
-					OnContextCreated();
-				} catch (Exception exception) {
-					_FailureException = exception;
-					Debug.Fail(String.Format("OnHandleCreated: initialization exception ({0})\n{1}", exception.Message, exception.ToString()));
-				}
+				// Create device context
+				CreateDeviceContext();
+				// Create OpenGL context
+				CreateContext();
+				// The context is made current unconditionally: event handlers allocate resources
+				MakeCurrentContext();
+				// Event handling
+				OnContextCreated();
 			}
+
 			// Base implementation
 			base.OnHandleCreated(e);
 		}
@@ -1159,23 +1147,20 @@ namespace OpenGL
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			if (DesignMode == false) {
-				if (_FailureException == null) {
-					Stopwatch sw = Stopwatch.StartNew();
-						
-					MakeCurrentContext();
+				Stopwatch sw = Stopwatch.StartNew();
+				
+				MakeCurrentContext();
 
-					// Draw
-					OnRender();
-					_FrameDrawTime = sw.Elapsed;
+				// Draw
+				OnRender();
+				_FrameDrawTime = sw.Elapsed;
 
-					// Update
-					OnContextUpdate();
+				// Update
+				OnContextUpdate();
 
-					// Swap
-					_DeviceContext.SwapBuffers();
-					_FrameSwapTime = sw.Elapsed;
-				} else
-					DrawFailure(e, _FailureException);
+				// Swap
+				_DeviceContext.SwapBuffers();
+				_FrameSwapTime = sw.Elapsed;
 			} else
 				DrawDesign(e);
 
@@ -1192,16 +1177,10 @@ namespace OpenGL
 						Invalidate();
 					}));
 				} else {
-					// Invalidate continuosly
 					Invalidate();
 				}
 			}
 		}
-
-		/// <summary>
-		/// Exception caught while creating device context and render context.
-		/// </summary>
-		protected Exception _FailureException;
 
 		/// <summary> 
 		/// Clean up any resources being used.
