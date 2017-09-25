@@ -74,24 +74,93 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration AlphaFunction.
+	/// </summary>
+	public enum AlphaFunction
+	{
+		/// <summary>
+		/// Strongly typed for value GL_ALWAYS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Always = Gl.ALWAYS,
+
+		/// <summary>
+		/// Strongly typed for value GL_EQUAL.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+		Equal = Gl.EQUAL,
+
+		/// <summary>
+		/// Strongly typed for value GL_GEQUAL.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Gequal = Gl.GEQUAL,
+
+		/// <summary>
+		/// Strongly typed for value GL_GREATER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Greater = Gl.GREATER,
+
+		/// <summary>
+		/// Strongly typed for value GL_LEQUAL.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Lequal = Gl.LEQUAL,
+
+		/// <summary>
+		/// Strongly typed for value GL_LESS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Less = Gl.LESS,
+
+		/// <summary>
+		/// Strongly typed for value GL_NEVER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Never = Gl.NEVER,
+
+		/// <summary>
+		/// Strongly typed for value GL_NOTEQUAL.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Notequal = Gl.NOTEQUAL,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration AtomicCounterBufferPName.
 	/// </summary>
 	public enum AtomicCounterBufferPName
 	{
-		/// <summary>
-		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-		AtomicCounterBufferActiveAtomicCounters = Gl.ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS,
-
-		/// <summary>
-		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_2")]
-		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-		AtomicCounterBufferActiveAtomicCounterIndices = Gl.ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES,
-
 		/// <summary>
 		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER_BINDING.
 		/// </summary>
@@ -106,6 +175,20 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 		AtomicCounterBufferDataSize = Gl.ATOMIC_COUNTER_BUFFER_DATA_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
+		AtomicCounterBufferActiveAtomicCounters = Gl.ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS,
+
+		/// <summary>
+		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
+		AtomicCounterBufferActiveAtomicCounterIndices = Gl.ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES,
 
 		/// <summary>
 		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER.
@@ -551,85 +634,19 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration AlphaFunction.
+	/// Strongly typed enumeration BindTransformFeedbackTarget.
 	/// </summary>
-	public enum AlphaFunction
+	public enum BindTransformFeedbackTarget
 	{
 		/// <summary>
-		/// Strongly typed for value GL_ALWAYS.
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		Always = Gl.ALWAYS,
-
-		/// <summary>
-		/// Strongly typed for value GL_EQUAL.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
-		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-		Equal = Gl.EQUAL,
-
-		/// <summary>
-		/// Strongly typed for value GL_GEQUAL.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		Gequal = Gl.GEQUAL,
-
-		/// <summary>
-		/// Strongly typed for value GL_GREATER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		Greater = Gl.GREATER,
-
-		/// <summary>
-		/// Strongly typed for value GL_LEQUAL.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		Lequal = Gl.LEQUAL,
-
-		/// <summary>
-		/// Strongly typed for value GL_LESS.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		Less = Gl.LESS,
-
-		/// <summary>
-		/// Strongly typed for value GL_NEVER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		Never = Gl.NEVER,
-
-		/// <summary>
-		/// Strongly typed for value GL_NOTEQUAL.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		Notequal = Gl.NOTEQUAL,
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
+		TransformFeedback = Gl.TRANSFORM_FEEDBACK,
 
 	}
 
@@ -1032,6 +1049,143 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration BufferStorageTarget.
+	/// </summary>
+	public enum BufferStorageTarget
+	{
+		/// <summary>
+		/// Strongly typed for value GL_ARRAY_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		ArrayBuffer = Gl.ARRAY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
+		AtomicCounterBuffer = Gl.ATOMIC_COUNTER_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_COPY_READ_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
+		CopyReadBuffer = Gl.COPY_READ_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_COPY_WRITE_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
+		CopyWriteBuffer = Gl.COPY_WRITE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DISPATCH_INDIRECT_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
+		DispatchIndirectBuffer = Gl.DISPATCH_INDIRECT_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DRAW_INDIRECT_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
+		DrawIndirectBuffer = Gl.DRAW_INDIRECT_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_ELEMENT_ARRAY_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		ElementArrayBuffer = Gl.ELEMENT_ARRAY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_PIXEL_PACK_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
+		PixelPackBuffer = Gl.PIXEL_PACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_PIXEL_UNPACK_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
+		PixelUnpackBuffer = Gl.PIXEL_UNPACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_AMD_query_buffer_object")]
+		QueryBuffer = Gl.QUERY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_SHADER_STORAGE_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+		ShaderStorageBuffer = Gl.SHADER_STORAGE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_buffer_object")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
+		TextureBuffer = Gl.TEXTURE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		TransformFeedbackBuffer = Gl.TRANSFORM_FEEDBACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNIFORM_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		UniformBuffer = Gl.UNIFORM_BUFFER,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration BufferTarget.
 	/// </summary>
 	public enum BufferTarget
@@ -1253,6 +1407,48 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration CheckFramebufferStatusTarget.
+	/// </summary>
+	public enum CheckFramebufferStatusTarget
+	{
+		/// <summary>
+		/// Strongly typed for value GL_DRAW_FRAMEBUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ANGLE_framebuffer_blit", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_blit")]
+		[RequiredByFeature("GL_NV_framebuffer_blit", Api = "gles2")]
+		DrawFramebuffer = Gl.DRAW_FRAMEBUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_READ_FRAMEBUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ANGLE_framebuffer_blit", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_blit")]
+		[RequiredByFeature("GL_NV_framebuffer_blit", Api = "gles2")]
+		ReadFramebuffer = Gl.READ_FRAMEBUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		Framebuffer = Gl.FRAMEBUFFER,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration ClearBufferMask.
 	/// </summary>
 	[Flags()]
@@ -1330,6 +1526,27 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration ClipControlDepth.
+	/// </summary>
+	public enum ClipControlDepth
+	{
+		/// <summary>
+		/// Strongly typed for value GL_NEGATIVE_ONE_TO_ONE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
+		NegativeOneToOne = Gl.NEGATIVE_ONE_TO_ONE,
+
+		/// <summary>
+		/// Strongly typed for value GL_ZERO_TO_ONE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
+		ZeroToOne = Gl.ZERO_TO_ONE,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration ClipControlOrigin.
 	/// </summary>
 	public enum ClipControlOrigin
@@ -1349,27 +1566,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
 		UpperLeft = Gl.UPPER_LEFT,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration ClipControlDepth.
-	/// </summary>
-	public enum ClipControlDepth
-	{
-		/// <summary>
-		/// Strongly typed for value GL_NEGATIVE_ONE_TO_ONE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
-		NegativeOneToOne = Gl.NEGATIVE_ONE_TO_ONE,
-
-		/// <summary>
-		/// Strongly typed for value GL_ZERO_TO_ONE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_5")]
-		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
-		ZeroToOne = Gl.ZERO_TO_ONE,
 
 	}
 
@@ -1496,7 +1692,7 @@ namespace OpenGL
 	public enum ColorBuffer
 	{
 		/// <summary>
-		/// Strongly typed for value GL_NONE.
+		/// Strongly typed for value GL_NONE, GL_NONE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_4_5")]
@@ -2253,6 +2449,143 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration CopyBufferSubDataTarget.
+	/// </summary>
+	public enum CopyBufferSubDataTarget
+	{
+		/// <summary>
+		/// Strongly typed for value GL_ARRAY_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		ArrayBuffer = Gl.ARRAY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_ATOMIC_COUNTER_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
+		AtomicCounterBuffer = Gl.ATOMIC_COUNTER_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_COPY_READ_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
+		CopyReadBuffer = Gl.COPY_READ_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_COPY_WRITE_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
+		CopyWriteBuffer = Gl.COPY_WRITE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DISPATCH_INDIRECT_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
+		DispatchIndirectBuffer = Gl.DISPATCH_INDIRECT_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DRAW_INDIRECT_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
+		DrawIndirectBuffer = Gl.DRAW_INDIRECT_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_ELEMENT_ARRAY_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		ElementArrayBuffer = Gl.ELEMENT_ARRAY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_PIXEL_PACK_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
+		PixelPackBuffer = Gl.PIXEL_PACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_PIXEL_UNPACK_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_pixel_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_pixel_buffer_object")]
+		[RequiredByFeature("GL_NV_pixel_buffer_object", Api = "gles2")]
+		PixelUnpackBuffer = Gl.PIXEL_UNPACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ARB_query_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_AMD_query_buffer_object")]
+		QueryBuffer = Gl.QUERY_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_SHADER_STORAGE_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_storage_buffer_object", Api = "gl|glcore")]
+		ShaderStorageBuffer = Gl.SHADER_STORAGE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_buffer_object")]
+		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
+		TextureBuffer = Gl.TEXTURE_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		TransformFeedbackBuffer = Gl.TRANSFORM_FEEDBACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNIFORM_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		UniformBuffer = Gl.UNIFORM_BUFFER,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration CullFaceMode.
 	/// </summary>
 	public enum CullFaceMode
@@ -2294,6 +2627,55 @@ namespace OpenGL
 	[Flags()]
 	public enum DataType : uint
 	{
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration DebugSeverity.
+	/// </summary>
+	public enum DebugSeverity
+	{
+		/// <summary>
+		/// Strongly typed for value GL_DEBUG_SEVERITY_LOW.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		DebugSeverityLow = Gl.DEBUG_SEVERITY_LOW,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEBUG_SEVERITY_MEDIUM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		DebugSeverityMedium = Gl.DEBUG_SEVERITY_MEDIUM,
+
+		/// <summary>
+		/// Strongly typed for value GL_DEBUG_SEVERITY_HIGH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_AMD_debug_output")]
+		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		DebugSeverityHigh = Gl.DEBUG_SEVERITY_HIGH,
+
+		/// <summary>
+		/// Strongly typed for value GL_DONT_CARE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		DontCare = Gl.DONT_CARE,
+
 	}
 
 	/// <summary>
@@ -2453,55 +2835,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
 		DebugTypeOther = Gl.DEBUG_TYPE_OTHER,
-
-		/// <summary>
-		/// Strongly typed for value GL_DONT_CARE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		DontCare = Gl.DONT_CARE,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration DebugSeverity.
-	/// </summary>
-	public enum DebugSeverity
-	{
-		/// <summary>
-		/// Strongly typed for value GL_DEBUG_SEVERITY_LOW.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		DebugSeverityLow = Gl.DEBUG_SEVERITY_LOW,
-
-		/// <summary>
-		/// Strongly typed for value GL_DEBUG_SEVERITY_MEDIUM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		DebugSeverityMedium = Gl.DEBUG_SEVERITY_MEDIUM,
-
-		/// <summary>
-		/// Strongly typed for value GL_DEBUG_SEVERITY_HIGH.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_AMD_debug_output")]
-		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		DebugSeverityHigh = Gl.DEBUG_SEVERITY_HIGH,
 
 		/// <summary>
 		/// Strongly typed for value GL_DONT_CARE.
@@ -3749,179 +4082,6 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration EvaluatorParameterName.
-	/// </summary>
-	public enum EvaluatorParameterName
-	{
-		/// <summary>
-		/// Strongly typed for value GL_COEFF.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Coeff = Gl.COEFF,
-
-		/// <summary>
-		/// Strongly typed for value GL_ORDER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Order = Gl.ORDER,
-
-		/// <summary>
-		/// Strongly typed for value GL_DOMAIN.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Domain = Gl.DOMAIN,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration EvaluatorTarget.
-	/// </summary>
-	public enum EvaluatorTarget
-	{
-		/// <summary>
-		/// Strongly typed for value GL_GEOMETRY_DEFORMATION_SGIX.
-		/// </summary>
-		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-		GeometryDeformationSgix = Gl.GEOMETRY_DEFORMATION_SGIX,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_COLOR_4.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1Color4 = Gl.MAP1_COLOR_4,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_INDEX.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1Index = Gl.MAP1_INDEX,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_NORMAL.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1Normal = Gl.MAP1_NORMAL,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_TEXTURE_COORD_1.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1TextureCoord1 = Gl.MAP1_TEXTURE_COORD_1,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_TEXTURE_COORD_2.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1TextureCoord2 = Gl.MAP1_TEXTURE_COORD_2,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_TEXTURE_COORD_3.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1TextureCoord3 = Gl.MAP1_TEXTURE_COORD_3,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_TEXTURE_COORD_4.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1TextureCoord4 = Gl.MAP1_TEXTURE_COORD_4,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_VERTEX_3.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1Vertex3 = Gl.MAP1_VERTEX_3,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP1_VERTEX_4.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map1Vertex4 = Gl.MAP1_VERTEX_4,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_COLOR_4.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2Color4 = Gl.MAP2_COLOR_4,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_INDEX.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2Index = Gl.MAP2_INDEX,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_NORMAL.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2Normal = Gl.MAP2_NORMAL,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_TEXTURE_COORD_1.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2TextureCoord1 = Gl.MAP2_TEXTURE_COORD_1,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_TEXTURE_COORD_2.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2TextureCoord2 = Gl.MAP2_TEXTURE_COORD_2,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_TEXTURE_COORD_3.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2TextureCoord3 = Gl.MAP2_TEXTURE_COORD_3,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_TEXTURE_COORD_4.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2TextureCoord4 = Gl.MAP2_TEXTURE_COORD_4,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_VERTEX_3.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2Vertex3 = Gl.MAP2_VERTEX_3,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAP2_VERTEX_4.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		Map2Vertex4 = Gl.MAP2_VERTEX_4,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_DEFORMATION_SGIX.
-		/// </summary>
-		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-		TextureDeformationSgix = Gl.TEXTURE_DEFORMATION_SGIX,
-
-	}
-
-	/// <summary>
 	/// Strongly typed enumeration ExternalHandleType.
 	/// </summary>
 	public enum ExternalHandleType
@@ -3976,38 +4136,6 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 		HandleTypeD3d12FenceExt = Gl.HANDLE_TYPE_D3D12_FENCE_EXT,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration FeedbackType.
-	/// </summary>
-	public enum FeedbackType
-	{
-		/// <summary>
-		/// Strongly typed for value GL_2D.
-		/// </summary>
-		_2d = Gl._2D,
-
-		/// <summary>
-		/// Strongly typed for value GL_3D.
-		/// </summary>
-		_3d = Gl._3D,
-
-		/// <summary>
-		/// Strongly typed for value GL_3D_COLOR.
-		/// </summary>
-		_3dColor = Gl._3D_COLOR,
-
-		/// <summary>
-		/// Strongly typed for value GL_3D_COLOR_TEXTURE.
-		/// </summary>
-		_3dColorTexture = Gl._3D_COLOR_TEXTURE,
-
-		/// <summary>
-		/// Strongly typed for value GL_4D_COLOR_TEXTURE.
-		/// </summary>
-		_4dColorTexture = Gl._4D_COLOR_TEXTURE,
 
 	}
 
@@ -4075,18 +4203,34 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration FenceSyncCondition.
+	/// Strongly typed enumeration FeedbackType.
 	/// </summary>
-	public enum FenceSyncCondition
+	public enum FeedbackType
 	{
 		/// <summary>
-		/// Strongly typed for value GL_SYNC_GPU_COMMANDS_COMPLETE.
+		/// Strongly typed for value GL_2D.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
-		SyncGpuCommandsComplete = Gl.SYNC_GPU_COMMANDS_COMPLETE,
+		_2d = Gl._2D,
+
+		/// <summary>
+		/// Strongly typed for value GL_3D.
+		/// </summary>
+		_3d = Gl._3D,
+
+		/// <summary>
+		/// Strongly typed for value GL_3D_COLOR.
+		/// </summary>
+		_3dColor = Gl._3D_COLOR,
+
+		/// <summary>
+		/// Strongly typed for value GL_3D_COLOR_TEXTURE.
+		/// </summary>
+		_3dColorTexture = Gl._3D_COLOR_TEXTURE,
+
+		/// <summary>
+		/// Strongly typed for value GL_4D_COLOR_TEXTURE.
+		/// </summary>
+		_4dColorTexture = Gl._4D_COLOR_TEXTURE,
 
 	}
 
@@ -4182,60 +4326,6 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration FogPName.
-	/// </summary>
-	public enum FogPName
-	{
-		/// <summary>
-		/// Strongly typed for value GL_FOG_COORD_SRC.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_EXT_fog_coord")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		FogCoordinateSource = Gl.FOG_COORDINATE_SOURCE,
-
-		/// <summary>
-		/// Strongly typed for value GL_FOG_DENSITY.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		FogDensity = Gl.FOG_DENSITY,
-
-		/// <summary>
-		/// Strongly typed for value GL_FOG_END.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		FogEnd = Gl.FOG_END,
-
-		/// <summary>
-		/// Strongly typed for value GL_FOG_INDEX.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		FogIndex = Gl.FOG_INDEX,
-
-		/// <summary>
-		/// Strongly typed for value GL_FOG_MODE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		FogMode = Gl.FOG_MODE,
-
-		/// <summary>
-		/// Strongly typed for value GL_FOG_START.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		FogStart = Gl.FOG_START,
-
-	}
-
-	/// <summary>
 	/// Strongly typed enumeration FogParameter.
 	/// </summary>
 	public enum FogParameter
@@ -4292,6 +4382,86 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		FogStart = Gl.FOG_START,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration FogPName.
+	/// </summary>
+	public enum FogPName
+	{
+		/// <summary>
+		/// Strongly typed for value GL_FOG_MODE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		FogMode = Gl.FOG_MODE,
+
+		/// <summary>
+		/// Strongly typed for value GL_FOG_DENSITY.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		FogDensity = Gl.FOG_DENSITY,
+
+		/// <summary>
+		/// Strongly typed for value GL_FOG_START.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		FogStart = Gl.FOG_START,
+
+		/// <summary>
+		/// Strongly typed for value GL_FOG_END.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		FogEnd = Gl.FOG_END,
+
+		/// <summary>
+		/// Strongly typed for value GL_FOG_INDEX.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		FogIndex = Gl.FOG_INDEX,
+
+		/// <summary>
+		/// Strongly typed for value GL_FOG_COORD_SRC.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_fog_coord")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		FogCoordinateSource = Gl.FOG_COORDINATE_SOURCE,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration FogPointerTypeIBM.
+	/// </summary>
+	public enum FogPointerTypeIBM
+	{
+		/// <summary>
+		/// Strongly typed for value GL_FLOAT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_OES_texture_float", Api = "gles2")]
+		Float = Gl.FLOAT,
+
+		/// <summary>
+		/// Strongly typed for value GL_DOUBLE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		Double = Gl.DOUBLE,
 
 	}
 
@@ -4404,6 +4574,17 @@ namespace OpenGL
 	/// </summary>
 	public enum FramebufferAttachment
 	{
+		/// <summary>
+		/// Strongly typed for value GL_MAX_COLOR_ATTACHMENTS, GL_MAX_COLOR_ATTACHMENTS_EXT, GL_MAX_COLOR_ATTACHMENTS_NV.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
+		MaxColorAttachments = Gl.MAX_COLOR_ATTACHMENTS,
+
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT0_EXT, GL_COLOR_ATTACHMENT0_NV, 
 		/// GL_COLOR_ATTACHMENT0_OES.
@@ -4722,25 +4903,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		DepthAttachment = Gl.DEPTH_ATTACHMENT,
 
-		/// <summary>
-		/// Strongly typed for value GL_DEPTH_STENCIL_ATTACHMENT.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		DepthStencilAttachment = Gl.DEPTH_STENCIL_ATTACHMENT,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAX_COLOR_ATTACHMENTS, GL_MAX_COLOR_ATTACHMENTS_EXT, GL_MAX_COLOR_ATTACHMENTS_NV.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_NV_fbo_color_attachments", Api = "gles2")]
-		MaxColorAttachments = Gl.MAX_COLOR_ATTACHMENTS,
-
 	}
 
 	/// <summary>
@@ -4749,12 +4911,20 @@ namespace OpenGL
 	public enum FramebufferAttachmentParameterName
 	{
 		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE.
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		FramebufferAttachmentAlphaSize = Gl.FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE,
+		FramebufferAttachmentRedSize = Gl.FRAMEBUFFER_ATTACHMENT_RED_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		FramebufferAttachmentGreenSize = Gl.FRAMEBUFFER_ATTACHMENT_GREEN_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE.
@@ -4765,13 +4935,28 @@ namespace OpenGL
 		FramebufferAttachmentBlueSize = Gl.FRAMEBUFFER_ATTACHMENT_BLUE_SIZE,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING.
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
-		FramebufferAttachmentColorEncoding = Gl.FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING,
+		FramebufferAttachmentAlphaSize = Gl.FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		FramebufferAttachmentDepthSize = Gl.FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		FramebufferAttachmentStencilSize = Gl.FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE.
@@ -4783,35 +4968,16 @@ namespace OpenGL
 		FramebufferAttachmentComponentType = Gl.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE.
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		FramebufferAttachmentDepthSize = Gl.FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE,
+		[RequiredByFeature("GL_EXT_sRGB", Api = "gles1|gles2")]
+		FramebufferAttachmentColorEncoding = Gl.FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		FramebufferAttachmentGreenSize = Gl.FRAMEBUFFER_ATTACHMENT_GREEN_SIZE,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_LAYERED.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		[RequiredByFeature("GL_NV_geometry_program4")]
-		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-		FramebufferAttachmentLayered = Gl.FRAMEBUFFER_ATTACHMENT_LAYERED,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME.
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME, GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -4822,20 +4988,15 @@ namespace OpenGL
 		FramebufferAttachmentObjectName = Gl.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE.
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		FramebufferAttachmentRedSize = Gl.FRAMEBUFFER_ATTACHMENT_RED_SIZE,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		FramebufferAttachmentStencilSize = Gl.FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE,
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		FramebufferAttachmentTextureLevel = Gl.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL,
 
 		/// <summary>
 		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE.
@@ -4848,15 +5009,16 @@ namespace OpenGL
 		FramebufferAttachmentTextureCubeMapFace = Gl.FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL.
+		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_LAYERED.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		FramebufferAttachmentTextureLevel = Gl.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL,
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
+		FramebufferAttachmentLayered = Gl.FRAMEBUFFER_ATTACHMENT_LAYERED,
 
 		/// <summary>
 		/// Strongly typed for value GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER.
@@ -4951,6 +5113,16 @@ namespace OpenGL
 		FramebufferComplete = Gl.FRAMEBUFFER_COMPLETE,
 
 		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER_UNDEFINED.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_surfaceless_context", Api = "gles2")]
+		FramebufferUndefined = Gl.FRAMEBUFFER_UNDEFINED,
+
+		/// <summary>
 		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -4960,26 +5132,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		FramebufferIncompleteAttachment = Gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		FramebufferIncompleteDrawBuffer = Gl.FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		[RequiredByFeature("GL_NV_geometry_program4")]
-		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-		FramebufferIncompleteLayerTargets = Gl.FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS,
 
 		/// <summary>
 		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT.
@@ -4993,7 +5145,34 @@ namespace OpenGL
 		FramebufferIncompleteMissingAttachment = Gl.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE.
+		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		FramebufferIncompleteDrawBuffer = Gl.FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		FramebufferIncompleteReadBuffer = Gl.FRAMEBUFFER_INCOMPLETE_READ_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER_UNSUPPORTED.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		FramebufferUnsupported = Gl.FRAMEBUFFER_UNSUPPORTED,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE, GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -5006,33 +5185,16 @@ namespace OpenGL
 		FramebufferIncompleteMultisample = Gl.FRAMEBUFFER_INCOMPLETE_MULTISAMPLE,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER.
+		/// Strongly typed for value GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		FramebufferIncompleteReadBuffer = Gl.FRAMEBUFFER_INCOMPLETE_READ_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_UNDEFINED.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_OES_surfaceless_context", Api = "gles2")]
-		FramebufferUndefined = Gl.FRAMEBUFFER_UNDEFINED,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER_UNSUPPORTED.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		FramebufferUnsupported = Gl.FRAMEBUFFER_UNSUPPORTED,
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_NV_geometry_program4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
+		FramebufferIncompleteLayerTargets = Gl.FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS,
 
 	}
 
@@ -5366,9 +5528,9 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration GetHistogramParameterPNameEXT.
+	/// Strongly typed enumeration GetHistogramParameterPName.
 	/// </summary>
-	public enum GetHistogramParameterPNameEXT
+	public enum GetHistogramParameterPName
 	{
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM_ALPHA_SIZE_EXT, GL_HISTOGRAM_ALPHA_SIZE, GL_HISTOGRAM_ALPHA_SIZE_EXT.
@@ -5457,9 +5619,9 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration GetMinmaxParameterPNameEXT.
+	/// Strongly typed enumeration GetMinmaxParameterPName.
 	/// </summary>
-	public enum GetMinmaxParameterPNameEXT
+	public enum GetMinmaxParameterPName
 	{
 		/// <summary>
 		/// Strongly typed for value GL_MINMAX_FORMAT, GL_MINMAX_FORMAT_EXT.
@@ -5798,7 +5960,7 @@ namespace OpenGL
 		ClientAttribStackDepth = Gl.CLIENT_ATTRIB_STACK_DEPTH,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE0, GL_CLIP_DISTANCE0.
+		/// Strongly typed for value GL_CLIP_PLANE0.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5807,14 +5969,7 @@ namespace OpenGL
 		ClipPlane0 = Gl.CLIP_PLANE0,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE0, GL_CLIP_DISTANCE0.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		ClipDistance0 = Gl.CLIP_DISTANCE0,
-
-		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE1, GL_CLIP_DISTANCE1.
+		/// Strongly typed for value GL_CLIP_PLANE1.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5823,14 +5978,7 @@ namespace OpenGL
 		ClipPlane1 = Gl.CLIP_PLANE1,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE1, GL_CLIP_DISTANCE1.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		ClipDistance1 = Gl.CLIP_DISTANCE1,
-
-		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE2, GL_CLIP_DISTANCE2.
+		/// Strongly typed for value GL_CLIP_PLANE2.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5839,14 +5987,7 @@ namespace OpenGL
 		ClipPlane2 = Gl.CLIP_PLANE2,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE2, GL_CLIP_DISTANCE2.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		ClipDistance2 = Gl.CLIP_DISTANCE2,
-
-		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE3, GL_CLIP_DISTANCE3.
+		/// Strongly typed for value GL_CLIP_PLANE3.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5855,14 +5996,7 @@ namespace OpenGL
 		ClipPlane3 = Gl.CLIP_PLANE3,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE3, GL_CLIP_DISTANCE3.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		ClipDistance3 = Gl.CLIP_DISTANCE3,
-
-		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE4, GL_CLIP_DISTANCE4.
+		/// Strongly typed for value GL_CLIP_PLANE4.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -5871,41 +6005,13 @@ namespace OpenGL
 		ClipPlane4 = Gl.CLIP_PLANE4,
 
 		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE4, GL_CLIP_DISTANCE4.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		ClipDistance4 = Gl.CLIP_DISTANCE4,
-
-		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE5, GL_CLIP_DISTANCE5.
+		/// Strongly typed for value GL_CLIP_PLANE5.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		ClipPlane5 = Gl.CLIP_PLANE5,
-
-		/// <summary>
-		/// Strongly typed for value GL_CLIP_PLANE5, GL_CLIP_DISTANCE5.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		ClipDistance5 = Gl.CLIP_DISTANCE5,
-
-		/// <summary>
-		/// Strongly typed for value GL_CLIP_DISTANCE6.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		ClipDistance6 = Gl.CLIP_DISTANCE6,
-
-		/// <summary>
-		/// Strongly typed for value GL_CLIP_DISTANCE7.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		ClipDistance7 = Gl.CLIP_DISTANCE7,
 
 		/// <summary>
 		/// Strongly typed for value GL_COLOR_ARRAY.
@@ -9345,9 +9451,9 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration HistogramTargetEXT.
+	/// Strongly typed enumeration HistogramTarget.
 	/// </summary>
-	public enum HistogramTargetEXT
+	public enum HistogramTarget
 	{
 		/// <summary>
 		/// Strongly typed for value GL_HISTOGRAM, GL_HISTOGRAM_EXT, GL_HISTOGRAM.
@@ -10417,8 +10523,8 @@ namespace OpenGL
 		DepthComponent24 = Gl.DEPTH_COMPONENT24,
 
 		/// <summary>
-		/// Strongly typed for value GL_DEPTH_COMPONENT32, GL_DEPTH_COMPONENT32_ARB, GL_DEPTH_COMPONENT32_OES, 
-		/// GL_DEPTH_COMPONENT32_SGIX.
+		/// Strongly typed for value GL_DEPTH_COMPONENT32_ARB, GL_DEPTH_COMPONENT32_OES, GL_DEPTH_COMPONENT32_SGIX, 
+		/// GL_DEPTH_COMPONENT32.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_depth_texture")]
@@ -10437,7 +10543,7 @@ namespace OpenGL
 		DepthComponent32f = Gl.DEPTH_COMPONENT32F,
 
 		/// <summary>
-		/// Strongly typed for value GL_DEPTH_COMPONENT32F_NV.
+		/// Strongly typed for value GL_DEPTH_COMPONENT32F_NV, GL_DEPTH_COMPONENT32F_NV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_depth_buffer_float")]
 		DepthComponent32fNv = Gl.DEPTH_COMPONENT32F_NV,
@@ -10661,6 +10767,66 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES3_compatibility", Api = "gl|glcore")]
 		CompressedSignedRg11Eac = Gl.COMPRESSED_SIGNED_RG11_EAC,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RGB_S3TC_DXT1_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_compression_dxt1", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|glcore|gles2|glsc2")]
+		CompressedRgbS3tcDxt1Ext = Gl.COMPRESSED_RGB_S3TC_DXT1_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_SRGB_S3TC_DXT1_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
+		CompressedSrgbS3tcDxt1Ext = Gl.COMPRESSED_SRGB_S3TC_DXT1_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RGBA_S3TC_DXT1_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_compression_dxt1", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|glcore|gles2|glsc2")]
+		CompressedRgbaS3tcDxt1Ext = Gl.COMPRESSED_RGBA_S3TC_DXT1_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
+		CompressedSrgbAlphaS3tcDxt1Ext = Gl.COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RGBA_S3TC_DXT3_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|glcore|gles2|glsc2")]
+		[RequiredByFeature("GL_ANGLE_texture_compression_dxt3", Api = "gles2")]
+		CompressedRgbaS3tcDxt3Ext = Gl.COMPRESSED_RGBA_S3TC_DXT3_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
+		CompressedSrgbAlphaS3tcDxt3Ext = Gl.COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_RGBA_S3TC_DXT5_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc", Api = "gl|glcore|gles2|glsc2")]
+		[RequiredByFeature("GL_ANGLE_texture_compression_dxt5", Api = "gles2")]
+		CompressedRgbaS3tcDxt5Ext = Gl.COMPRESSED_RGBA_S3TC_DXT5_EXT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB")]
+		[RequiredByFeature("GL_NV_sRGB_formats", Api = "gles2")]
+		CompressedSrgbAlphaS3tcDxt5Ext = Gl.COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT,
 
 	}
 
@@ -11859,6 +12025,179 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration MapQuery.
+	/// </summary>
+	public enum MapQuery
+	{
+		/// <summary>
+		/// Strongly typed for value GL_COEFF.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Coeff = Gl.COEFF,
+
+		/// <summary>
+		/// Strongly typed for value GL_ORDER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Order = Gl.ORDER,
+
+		/// <summary>
+		/// Strongly typed for value GL_DOMAIN.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Domain = Gl.DOMAIN,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration MapTarget.
+	/// </summary>
+	public enum MapTarget
+	{
+		/// <summary>
+		/// Strongly typed for value GL_GEOMETRY_DEFORMATION_SGIX.
+		/// </summary>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
+		GeometryDeformationSgix = Gl.GEOMETRY_DEFORMATION_SGIX,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_COLOR_4.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1Color4 = Gl.MAP1_COLOR_4,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_INDEX.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1Index = Gl.MAP1_INDEX,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_NORMAL.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1Normal = Gl.MAP1_NORMAL,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_TEXTURE_COORD_1.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1TextureCoord1 = Gl.MAP1_TEXTURE_COORD_1,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_TEXTURE_COORD_2.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1TextureCoord2 = Gl.MAP1_TEXTURE_COORD_2,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_TEXTURE_COORD_3.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1TextureCoord3 = Gl.MAP1_TEXTURE_COORD_3,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_TEXTURE_COORD_4.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1TextureCoord4 = Gl.MAP1_TEXTURE_COORD_4,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_VERTEX_3.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1Vertex3 = Gl.MAP1_VERTEX_3,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP1_VERTEX_4.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map1Vertex4 = Gl.MAP1_VERTEX_4,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_COLOR_4.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2Color4 = Gl.MAP2_COLOR_4,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_INDEX.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2Index = Gl.MAP2_INDEX,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_NORMAL.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2Normal = Gl.MAP2_NORMAL,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_TEXTURE_COORD_1.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2TextureCoord1 = Gl.MAP2_TEXTURE_COORD_1,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_TEXTURE_COORD_2.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2TextureCoord2 = Gl.MAP2_TEXTURE_COORD_2,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_TEXTURE_COORD_3.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2TextureCoord3 = Gl.MAP2_TEXTURE_COORD_3,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_TEXTURE_COORD_4.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2TextureCoord4 = Gl.MAP2_TEXTURE_COORD_4,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_VERTEX_3.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2Vertex3 = Gl.MAP2_VERTEX_3,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAP2_VERTEX_4.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Map2Vertex4 = Gl.MAP2_VERTEX_4,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_DEFORMATION_SGIX.
+		/// </summary>
+		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
+		TextureDeformationSgix = Gl.TEXTURE_DEFORMATION_SGIX,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration MapTextureFormatINTEL.
 	/// </summary>
 	public enum MapTextureFormatINTEL
@@ -12305,6 +12644,162 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration ObjectIdentifier.
+	/// </summary>
+	public enum ObjectIdentifier
+	{
+		/// <summary>
+		/// Strongly typed for value GL_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		Buffer = Gl.BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_SHADER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		Shader = Gl.SHADER,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROGRAM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		Program = Gl.PROGRAM,
+
+		/// <summary>
+		/// Strongly typed for value GL_VERTEX_ARRAY.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_vertex_array")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		VertexArray = Gl.VERTEX_ARRAY,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		Query = Gl.QUERY,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROGRAM_PIPELINE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		ProgramPipeline = Gl.PROGRAM_PIPELINE,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
+		TransformFeedback = Gl.TRANSFORM_FEEDBACK,
+
+		/// <summary>
+		/// Strongly typed for value GL_SAMPLER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+		Sampler = Gl.SAMPLER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Texture = Gl.TEXTURE,
+
+		/// <summary>
+		/// Strongly typed for value GL_RENDERBUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		Renderbuffer = Gl.RENDERBUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAMEBUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		Framebuffer = Gl.FRAMEBUFFER,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration OcclusionQueryEventMaskAMD.
+	/// </summary>
+	[Flags()]
+	public enum OcclusionQueryEventMaskAMD : uint
+	{
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD.
+		/// </summary>
+		[RequiredByFeature("GL_AMD_occlusion_query_event")]
+		QueryDepthPassEventBitAmd = Gl.QUERY_DEPTH_PASS_EVENT_BIT_AMD,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD.
+		/// </summary>
+		[RequiredByFeature("GL_AMD_occlusion_query_event")]
+		QueryDepthFailEventBitAmd = Gl.QUERY_DEPTH_FAIL_EVENT_BIT_AMD,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD.
+		/// </summary>
+		[RequiredByFeature("GL_AMD_occlusion_query_event")]
+		QueryStencilFailEventBitAmd = Gl.QUERY_STENCIL_FAIL_EVENT_BIT_AMD,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD.
+		/// </summary>
+		[RequiredByFeature("GL_AMD_occlusion_query_event")]
+		QueryDepthBoundsFailEventBitAmd = Gl.QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_ALL_EVENT_BITS_AMD.
+		/// </summary>
+		[RequiredByFeature("GL_AMD_occlusion_query_event")]
+		QueryAllEventBitsAmd = Gl.QUERY_ALL_EVENT_BITS_AMD,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration PatchParameterName.
 	/// </summary>
 	public enum PatchParameterName
@@ -12332,6 +12827,731 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
 		PatchDefaultInnerLevel = Gl.PATCH_DEFAULT_INNER_LEVEL,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathColor.
+	/// </summary>
+	public enum PathColor
+	{
+		/// <summary>
+		/// Strongly typed for value GL_PRIMARY_COLOR.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_ARB_texture_env_combine")]
+		[RequiredByFeature("GL_EXT_texture_env_combine")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		PrimaryColor = Gl.PRIMARY_COLOR,
+
+		/// <summary>
+		/// Strongly typed for value GL_PRIMARY_COLOR_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_register_combiners")]
+		PrimaryColorNv = Gl.PRIMARY_COLOR_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_SECONDARY_COLOR_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_register_combiners")]
+		SecondaryColorNv = Gl.SECONDARY_COLOR_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathCoverMode.
+	/// </summary>
+	public enum PathCoverMode
+	{
+		/// <summary>
+		/// Strongly typed for value GL_CONVEX_HULL_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		ConvexHullNv = Gl.CONVEX_HULL_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_BOUNDING_BOX_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		BoundingBoxNv = Gl.BOUNDING_BOX_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		BoundingBoxOfBoundingBoxesNv = Gl.BOUNDING_BOX_OF_BOUNDING_BOXES_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_FILL_COVER_MODE_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathFillCoverModeNv = Gl.PATH_FILL_COVER_MODE_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathElementType.
+	/// </summary>
+	public enum PathElementType
+	{
+		/// <summary>
+		/// Strongly typed for value GL_UTF8_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		Utf8Nv = Gl.UTF8_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_UTF16_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		Utf16Nv = Gl.UTF16_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathFillMode.
+	/// </summary>
+	public enum PathFillMode
+	{
+		/// <summary>
+		/// Strongly typed for value GL_INVERT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
+		Invert = Gl.INVERT,
+
+		/// <summary>
+		/// Strongly typed for value GL_COUNT_UP_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		CountUpNv = Gl.COUNT_UP_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_COUNT_DOWN_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		CountDownNv = Gl.COUNT_DOWN_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_FILL_MODE_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathFillModeNv = Gl.PATH_FILL_MODE_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathFontStyle.
+	/// </summary>
+	public enum PathFontStyle
+	{
+		/// <summary>
+		/// Strongly typed for value GL_NONE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_register_combiners")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		None = Gl.NONE,
+
+		/// <summary>
+		/// Strongly typed for value GL_BOLD_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		BoldBitNv = Gl.BOLD_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_ITALIC_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		ItalicBitNv = Gl.ITALIC_BIT_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathFontTarget.
+	/// </summary>
+	public enum PathFontTarget
+	{
+		/// <summary>
+		/// Strongly typed for value GL_STANDARD_FONT_NAME_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		StandardFontNameNv = Gl.STANDARD_FONT_NAME_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_SYSTEM_FONT_NAME_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		SystemFontNameNv = Gl.SYSTEM_FONT_NAME_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FILE_NAME_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FileNameNv = Gl.FILE_NAME_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathGenMode.
+	/// </summary>
+	public enum PathGenMode
+	{
+		/// <summary>
+		/// Strongly typed for value GL_NONE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_register_combiners")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		None = Gl.NONE,
+
+		/// <summary>
+		/// Strongly typed for value GL_EYE_LINEAR.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		EyeLinear = Gl.EYE_LINEAR,
+
+		/// <summary>
+		/// Strongly typed for value GL_OBJECT_LINEAR.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		ObjectLinear = Gl.OBJECT_LINEAR,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_OBJECT_BOUNDING_BOX_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathObjectBoundingBoxNv = Gl.PATH_OBJECT_BOUNDING_BOX_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_CONSTANT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ARB_texture_env_combine")]
+		[RequiredByFeature("GL_EXT_texture_env_combine")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		[RemovedByFeature("GL_VERSION_3_2")]
+		Constant = Gl.CONSTANT,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathHandleMissingGlyphs.
+	/// </summary>
+	public enum PathHandleMissingGlyphs
+	{
+		/// <summary>
+		/// Strongly typed for value GL_SKIP_MISSING_GLYPH_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		SkipMissingGlyphNv = Gl.SKIP_MISSING_GLYPH_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_USE_MISSING_GLYPH_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		UseMissingGlyphNv = Gl.USE_MISSING_GLYPH_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathListMode.
+	/// </summary>
+	public enum PathListMode
+	{
+		/// <summary>
+		/// Strongly typed for value GL_ACCUM_ADJACENT_PAIRS_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		AccumAdjacentPairsNv = Gl.ACCUM_ADJACENT_PAIRS_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_ADJACENT_PAIRS_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		AdjacentPairsNv = Gl.ADJACENT_PAIRS_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FIRST_TO_REST_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FirstToRestNv = Gl.FIRST_TO_REST_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathMetricMask.
+	/// </summary>
+	[Flags()]
+	public enum PathMetricMask : uint
+	{
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_WIDTH_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphWidthBitNv = Gl.GLYPH_WIDTH_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_HEIGHT_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphHeightBitNv = Gl.GLYPH_HEIGHT_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphHorizontalBearingXBitNv = Gl.GLYPH_HORIZONTAL_BEARING_X_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphHorizontalBearingYBitNv = Gl.GLYPH_HORIZONTAL_BEARING_Y_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphHorizontalBearingAdvanceBitNv = Gl.GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_VERTICAL_BEARING_X_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphVerticalBearingXBitNv = Gl.GLYPH_VERTICAL_BEARING_X_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphVerticalBearingYBitNv = Gl.GLYPH_VERTICAL_BEARING_Y_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphVerticalBearingAdvanceBitNv = Gl.GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_GLYPH_HAS_KERNING_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		GlyphHasKerningBitNv = Gl.GLYPH_HAS_KERNING_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_X_MIN_BOUNDS_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontXMinBoundsBitNv = Gl.FONT_X_MIN_BOUNDS_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_Y_MIN_BOUNDS_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontYMinBoundsBitNv = Gl.FONT_Y_MIN_BOUNDS_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_X_MAX_BOUNDS_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontXMaxBoundsBitNv = Gl.FONT_X_MAX_BOUNDS_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_Y_MAX_BOUNDS_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontYMaxBoundsBitNv = Gl.FONT_Y_MAX_BOUNDS_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_UNITS_PER_EM_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontUnitsPerEmBitNv = Gl.FONT_UNITS_PER_EM_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_ASCENDER_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontAscenderBitNv = Gl.FONT_ASCENDER_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_DESCENDER_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontDescenderBitNv = Gl.FONT_DESCENDER_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_HEIGHT_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontHeightBitNv = Gl.FONT_HEIGHT_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontMaxAdvanceWidthBitNv = Gl.FONT_MAX_ADVANCE_WIDTH_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontMaxAdvanceHeightBitNv = Gl.FONT_MAX_ADVANCE_HEIGHT_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_UNDERLINE_POSITION_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontUnderlinePositionBitNv = Gl.FONT_UNDERLINE_POSITION_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_UNDERLINE_THICKNESS_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontUnderlineThicknessBitNv = Gl.FONT_UNDERLINE_THICKNESS_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_HAS_KERNING_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontHasKerningBitNv = Gl.FONT_HAS_KERNING_BIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_FONT_NUM_GLYPH_INDICES_BIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		FontNumGlyphIndicesBitNv = Gl.FONT_NUM_GLYPH_INDICES_BIT_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathParameter.
+	/// </summary>
+	public enum PathParameter
+	{
+		/// <summary>
+		/// Strongly typed for value GL_PATH_STROKE_WIDTH_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathStrokeWidthNv = Gl.PATH_STROKE_WIDTH_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_INITIAL_END_CAP_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathInitialEndCapNv = Gl.PATH_INITIAL_END_CAP_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_TERMINAL_END_CAP_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathTerminalEndCapNv = Gl.PATH_TERMINAL_END_CAP_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_JOIN_STYLE_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathJoinStyleNv = Gl.PATH_JOIN_STYLE_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_MITER_LIMIT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathMiterLimitNv = Gl.PATH_MITER_LIMIT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_INITIAL_DASH_CAP_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathInitialDashCapNv = Gl.PATH_INITIAL_DASH_CAP_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_TERMINAL_DASH_CAP_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathTerminalDashCapNv = Gl.PATH_TERMINAL_DASH_CAP_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_DASH_OFFSET_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathDashOffsetNv = Gl.PATH_DASH_OFFSET_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_CLIENT_LENGTH_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathClientLengthNv = Gl.PATH_CLIENT_LENGTH_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_DASH_OFFSET_RESET_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathDashOffsetResetNv = Gl.PATH_DASH_OFFSET_RESET_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_FILL_MODE_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathFillModeNv = Gl.PATH_FILL_MODE_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_FILL_MASK_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathFillMaskNv = Gl.PATH_FILL_MASK_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_FILL_COVER_MODE_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathFillCoverModeNv = Gl.PATH_FILL_COVER_MODE_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_STROKE_COVER_MODE_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathStrokeCoverModeNv = Gl.PATH_STROKE_COVER_MODE_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_STROKE_MASK_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathStrokeMaskNv = Gl.PATH_STROKE_MASK_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_END_CAPS_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathEndCapsNv = Gl.PATH_END_CAPS_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_DASH_CAPS_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathDashCapsNv = Gl.PATH_DASH_CAPS_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_COMMAND_COUNT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathCommandCountNv = Gl.PATH_COMMAND_COUNT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_COORD_COUNT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathCoordCountNv = Gl.PATH_COORD_COUNT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_DASH_ARRAY_COUNT_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathDashArrayCountNv = Gl.PATH_DASH_ARRAY_COUNT_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_COMPUTED_LENGTH_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathComputedLengthNv = Gl.PATH_COMPUTED_LENGTH_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_OBJECT_BOUNDING_BOX_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathObjectBoundingBoxNv = Gl.PATH_OBJECT_BOUNDING_BOX_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_FILL_BOUNDING_BOX_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathFillBoundingBoxNv = Gl.PATH_FILL_BOUNDING_BOX_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_STROKE_BOUNDING_BOX_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathStrokeBoundingBoxNv = Gl.PATH_STROKE_BOUNDING_BOX_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathStringFormat.
+	/// </summary>
+	public enum PathStringFormat
+	{
+		/// <summary>
+		/// Strongly typed for value GL_PATH_FORMAT_SVG_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathFormatSvgNv = Gl.PATH_FORMAT_SVG_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_PATH_FORMAT_PS_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		PathFormatPsNv = Gl.PATH_FORMAT_PS_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PathTransformType.
+	/// </summary>
+	public enum PathTransformType
+	{
+		/// <summary>
+		/// Strongly typed for value GL_NONE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_VERSION_4_6")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_KHR_context_flush_control", Api = "gl|glcore|gles2")]
+		[RequiredByFeature("GL_NV_register_combiners")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		None = Gl.NONE,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSLATE_X_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		TranslateXNv = Gl.TRANSLATE_X_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSLATE_Y_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		TranslateYNv = Gl.TRANSLATE_Y_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSLATE_2D_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		Translate2dNv = Gl.TRANSLATE_2D_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSLATE_3D_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		Translate3dNv = Gl.TRANSLATE_3D_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_AFFINE_2D_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		Affine2dNv = Gl.AFFINE_2D_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_AFFINE_3D_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		Affine3dNv = Gl.AFFINE_3D_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSPOSE_AFFINE_2D_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		TransposeAffine2dNv = Gl.TRANSPOSE_AFFINE_2D_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSPOSE_AFFINE_3D_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		TransposeAffine3dNv = Gl.TRANSPOSE_AFFINE_3D_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration PipelineParameterName.
+	/// </summary>
+	public enum PipelineParameterName
+	{
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_PROGRAM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
+		ActiveProgram = Gl.ACTIVE_PROGRAM,
+
+		/// <summary>
+		/// Strongly typed for value GL_VERTEX_SHADER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		VertexShader = Gl.VERTEX_SHADER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TESS_CONTROL_SHADER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+		TessControlShader = Gl.TESS_CONTROL_SHADER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TESS_EVALUATION_SHADER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
+		TessEvaluationShader = Gl.TESS_EVALUATION_SHADER,
+
+		/// <summary>
+		/// Strongly typed for value GL_GEOMETRY_SHADER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
+		GeometryShader = Gl.GEOMETRY_SHADER,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAGMENT_SHADER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_fragment_shader")]
+		FragmentShader = Gl.FRAGMENT_SHADER,
+
+		/// <summary>
+		/// Strongly typed for value GL_INFO_LOG_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		InfoLogLength = Gl.INFO_LOG_LENGTH,
 
 	}
 
@@ -13422,9 +14642,9 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration PointParameterName.
+	/// Strongly typed enumeration PointParameterNameSGIS.
 	/// </summary>
-	public enum PointParameterName
+	public enum PointParameterNameSGIS
 	{
 		/// <summary>
 		/// Strongly typed for value GL_DISTANCE_ATTENUATION_EXT, GL_DISTANCE_ATTENUATION_SGIS, GL_POINT_DISTANCE_ATTENUATION, 
@@ -13513,24 +14733,6 @@ namespace OpenGL
 	public enum PrecisionType
 	{
 		/// <summary>
-		/// Strongly typed for value GL_HIGH_FLOAT.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		HighFloat = Gl.HIGH_FLOAT,
-
-		/// <summary>
-		/// Strongly typed for value GL_HIGH_INT.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		HighInt = Gl.HIGH_INT,
-
-		/// <summary>
 		/// Strongly typed for value GL_LOW_FLOAT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -13538,15 +14740,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		LowFloat = Gl.LOW_FLOAT,
-
-		/// <summary>
-		/// Strongly typed for value GL_LOW_INT.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		LowInt = Gl.LOW_INT,
 
 		/// <summary>
 		/// Strongly typed for value GL_MEDIUM_FLOAT.
@@ -13558,6 +14751,24 @@ namespace OpenGL
 		MediumFloat = Gl.MEDIUM_FLOAT,
 
 		/// <summary>
+		/// Strongly typed for value GL_HIGH_FLOAT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
+		HighFloat = Gl.HIGH_FLOAT,
+
+		/// <summary>
+		/// Strongly typed for value GL_LOW_INT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
+		LowInt = Gl.LOW_INT,
+
+		/// <summary>
 		/// Strongly typed for value GL_MEDIUM_INT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_1")]
@@ -13565,6 +14776,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		MediumInt = Gl.MEDIUM_INT,
+
+		/// <summary>
+		/// Strongly typed for value GL_HIGH_INT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
+		HighInt = Gl.HIGH_INT,
 
 	}
 
@@ -13728,6 +14948,202 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration ProgramInterface.
+	/// </summary>
+	public enum ProgramInterface
+	{
+		/// <summary>
+		/// Strongly typed for value GL_UNIFORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		Uniform = Gl.UNIFORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNIFORM_BLOCK.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		UniformBlock = Gl.UNIFORM_BLOCK,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROGRAM_INPUT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		ProgramInput = Gl.PROGRAM_INPUT,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROGRAM_OUTPUT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		ProgramOutput = Gl.PROGRAM_OUTPUT,
+
+		/// <summary>
+		/// Strongly typed for value GL_VERTEX_SUBROUTINE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		VertexSubroutine = Gl.VERTEX_SUBROUTINE,
+
+		/// <summary>
+		/// Strongly typed for value GL_TESS_CONTROL_SUBROUTINE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		TessControlSubroutine = Gl.TESS_CONTROL_SUBROUTINE,
+
+		/// <summary>
+		/// Strongly typed for value GL_TESS_EVALUATION_SUBROUTINE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		TessEvaluationSubroutine = Gl.TESS_EVALUATION_SUBROUTINE,
+
+		/// <summary>
+		/// Strongly typed for value GL_GEOMETRY_SUBROUTINE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		GeometrySubroutine = Gl.GEOMETRY_SUBROUTINE,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAGMENT_SUBROUTINE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		FragmentSubroutine = Gl.FRAGMENT_SUBROUTINE,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPUTE_SUBROUTINE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		ComputeSubroutine = Gl.COMPUTE_SUBROUTINE,
+
+		/// <summary>
+		/// Strongly typed for value GL_VERTEX_SUBROUTINE_UNIFORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		VertexSubroutineUniform = Gl.VERTEX_SUBROUTINE_UNIFORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_TESS_CONTROL_SUBROUTINE_UNIFORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		TessControlSubroutineUniform = Gl.TESS_CONTROL_SUBROUTINE_UNIFORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_TESS_EVALUATION_SUBROUTINE_UNIFORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		TessEvaluationSubroutineUniform = Gl.TESS_EVALUATION_SUBROUTINE_UNIFORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_GEOMETRY_SUBROUTINE_UNIFORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		GeometrySubroutineUniform = Gl.GEOMETRY_SUBROUTINE_UNIFORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_FRAGMENT_SUBROUTINE_UNIFORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		FragmentSubroutineUniform = Gl.FRAGMENT_SUBROUTINE_UNIFORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPUTE_SUBROUTINE_UNIFORM.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		ComputeSubroutineUniform = Gl.COMPUTE_SUBROUTINE_UNIFORM,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_VARYING.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		TransformFeedbackVarying = Gl.TRANSFORM_FEEDBACK_VARYING,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BUFFER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_4_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		TransformFeedbackBuffer = Gl.TRANSFORM_FEEDBACK_BUFFER,
+
+		/// <summary>
+		/// Strongly typed for value GL_BUFFER_VARIABLE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		BufferVariable = Gl.BUFFER_VARIABLE,
+
+		/// <summary>
+		/// Strongly typed for value GL_SHADER_STORAGE_BLOCK.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		ShaderStorageBlock = Gl.SHADER_STORAGE_BLOCK,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration ProgramInterfacePName.
+	/// </summary>
+	public enum ProgramInterfacePName
+	{
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_RESOURCES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		ActiveResources = Gl.ACTIVE_RESOURCES,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAX_NAME_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		MaxNameLength = Gl.MAX_NAME_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAX_NUM_ACTIVE_VARIABLES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		MaxNumActiveVariables = Gl.MAX_NUM_ACTIVE_VARIABLES,
+
+		/// <summary>
+		/// Strongly typed for value GL_MAX_NUM_COMPATIBLE_SUBROUTINES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		MaxNumCompatibleSubroutines = Gl.MAX_NUM_COMPATIBLE_SUBROUTINES,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration ProgramParameterPName.
 	/// </summary>
 	public enum ProgramParameterPName
@@ -13752,20 +15168,223 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration ProgramProperty.
+	/// </summary>
+	public enum ProgramProperty
+	{
+		/// <summary>
+		/// Strongly typed for value GL_DELETE_STATUS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		DeleteStatus = Gl.DELETE_STATUS,
+
+		/// <summary>
+		/// Strongly typed for value GL_LINK_STATUS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		LinkStatus = Gl.LINK_STATUS,
+
+		/// <summary>
+		/// Strongly typed for value GL_VALIDATE_STATUS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		ValidateStatus = Gl.VALIDATE_STATUS,
+
+		/// <summary>
+		/// Strongly typed for value GL_INFO_LOG_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		InfoLogLength = Gl.INFO_LOG_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_ATTACHED_SHADERS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		AttachedShaders = Gl.ATTACHED_SHADERS,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_ATOMIC_COUNTER_BUFFERS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
+		ActiveAtomicCounterBuffers = Gl.ACTIVE_ATOMIC_COUNTER_BUFFERS,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_ATTRIBUTES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		ActiveAttributes = Gl.ACTIVE_ATTRIBUTES,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_ATTRIBUTE_MAX_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		ActiveAttributeMaxLength = Gl.ACTIVE_ATTRIBUTE_MAX_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_UNIFORMS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		ActiveUniforms = Gl.ACTIVE_UNIFORMS,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_UNIFORM_BLOCKS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		ActiveUniformBlocks = Gl.ACTIVE_UNIFORM_BLOCKS,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		ActiveUniformBlockMaxNameLength = Gl.ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_UNIFORM_MAX_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		ActiveUniformMaxLength = Gl.ACTIVE_UNIFORM_MAX_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPUTE_WORK_GROUP_SIZE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_compute_shader", Api = "gl|glcore")]
+		ComputeWorkGroupSize = Gl.COMPUTE_WORK_GROUP_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value GL_PROGRAM_BINARY_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
+		[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
+		ProgramBinaryLength = Gl.PROGRAM_BINARY_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BUFFER_MODE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		TransformFeedbackBufferMode = Gl.TRANSFORM_FEEDBACK_BUFFER_MODE,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_VARYINGS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		TransformFeedbackVaryings = Gl.TRANSFORM_FEEDBACK_VARYINGS,
+
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		TransformFeedbackVaryingMaxLength = Gl.TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_GEOMETRY_VERTICES_OUT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		GeometryVerticesOut = Gl.GEOMETRY_VERTICES_OUT,
+
+		/// <summary>
+		/// Strongly typed for value GL_GEOMETRY_INPUT_TYPE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		GeometryInputType = Gl.GEOMETRY_INPUT_TYPE,
+
+		/// <summary>
+		/// Strongly typed for value GL_GEOMETRY_OUTPUT_TYPE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		GeometryOutputType = Gl.GEOMETRY_OUTPUT_TYPE,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_VARYINGS_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		ActiveVaryingsNv = Gl.ACTIVE_VARYINGS_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_VARYING_MAX_LENGTH_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		ActiveVaryingMaxLengthNv = Gl.ACTIVE_VARYING_MAX_LENGTH_NV,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration ProgramStagePName.
+	/// </summary>
+	public enum ProgramStagePName
+	{
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_SUBROUTINE_UNIFORMS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
+		ActiveSubroutineUniforms = Gl.ACTIVE_SUBROUTINE_UNIFORMS,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
+		ActiveSubroutineUniformLocations = Gl.ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_SUBROUTINES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
+		ActiveSubroutines = Gl.ACTIVE_SUBROUTINES,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
+		ActiveSubroutineUniformMaxLength = Gl.ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_SUBROUTINE_MAX_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
+		ActiveSubroutineMaxLength = Gl.ACTIVE_SUBROUTINE_MAX_LENGTH,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration QueryObjectParameterName.
 	/// </summary>
 	public enum QueryObjectParameterName
 	{
-		/// <summary>
-		/// Strongly typed for value GL_QUERY_RESULT.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_occlusion_query")]
-		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		QueryResult = Gl.QUERY_RESULT,
-
 		/// <summary>
 		/// Strongly typed for value GL_QUERY_RESULT_AVAILABLE.
 		/// </summary>
@@ -13775,6 +15394,16 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 		QueryResultAvailable = Gl.QUERY_RESULT_AVAILABLE,
+
+		/// <summary>
+		/// Strongly typed for value GL_QUERY_RESULT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_occlusion_query")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
+		QueryResult = Gl.QUERY_RESULT,
 
 		/// <summary>
 		/// Strongly typed for value GL_QUERY_RESULT_NO_WAIT.
@@ -13824,6 +15453,13 @@ namespace OpenGL
 	public enum QueryTarget
 	{
 		/// <summary>
+		/// Strongly typed for value GL_SAMPLES_PASSED.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_ARB_occlusion_query")]
+		SamplesPassed = Gl.SAMPLES_PASSED,
+
+		/// <summary>
 		/// Strongly typed for value GL_ANY_SAMPLES_PASSED.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_3")]
@@ -13853,11 +15489,13 @@ namespace OpenGL
 		PrimitivesGenerated = Gl.PRIMITIVES_GENERATED,
 
 		/// <summary>
-		/// Strongly typed for value GL_SAMPLES_PASSED.
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_5")]
-		[RequiredByFeature("GL_ARB_occlusion_query")]
-		SamplesPassed = Gl.SAMPLES_PASSED,
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		TransformFeedbackPrimitivesWritten = Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,
 
 		/// <summary>
 		/// Strongly typed for value GL_TIME_ELAPSED.
@@ -13867,503 +15505,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_timer_query")]
 		TimeElapsed = Gl.TIME_ELAPSED,
-
-		/// <summary>
-		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_transform_feedback")]
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		TransformFeedbackPrimitivesWritten = Gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration ObjectIdentifier.
-	/// </summary>
-	public enum ObjectIdentifier
-	{
-		/// <summary>
-		/// Strongly typed for value GL_BUFFER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		Buffer = Gl.BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAMEBUFFER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		Framebuffer = Gl.FRAMEBUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_PROGRAM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		Program = Gl.PROGRAM,
-
-		/// <summary>
-		/// Strongly typed for value GL_PROGRAM_PIPELINE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		ProgramPipeline = Gl.PROGRAM_PIPELINE,
-
-		/// <summary>
-		/// Strongly typed for value GL_QUERY.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		Query = Gl.QUERY,
-
-		/// <summary>
-		/// Strongly typed for value GL_RENDERBUFFER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
-		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		Renderbuffer = Gl.RENDERBUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_SAMPLER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		Sampler = Gl.SAMPLER,
-
-		/// <summary>
-		/// Strongly typed for value GL_SHADER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		Shader = Gl.SHADER,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		Texture = Gl.TEXTURE,
-
-		/// <summary>
-		/// Strongly typed for value GL_TRANSFORM_FEEDBACK.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_NV_transform_feedback2")]
-		TransformFeedback = Gl.TRANSFORM_FEEDBACK,
-
-		/// <summary>
-		/// Strongly typed for value GL_VERTEX_ARRAY.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_1")]
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RequiredByFeature("GL_EXT_vertex_array")]
-		[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
-		[RemovedByFeature("GL_VERSION_3_2")]
-		VertexArray = Gl.VERTEX_ARRAY,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration OcclusionQueryEventMaskAMD.
-	/// </summary>
-	[Flags()]
-	public enum OcclusionQueryEventMaskAMD : uint
-	{
-		/// <summary>
-		/// Strongly typed for value GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_occlusion_query_event")]
-		QueryDepthPassEventBitAmd = Gl.QUERY_DEPTH_PASS_EVENT_BIT_AMD,
-
-		/// <summary>
-		/// Strongly typed for value GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_occlusion_query_event")]
-		QueryDepthFailEventBitAmd = Gl.QUERY_DEPTH_FAIL_EVENT_BIT_AMD,
-
-		/// <summary>
-		/// Strongly typed for value GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_occlusion_query_event")]
-		QueryStencilFailEventBitAmd = Gl.QUERY_STENCIL_FAIL_EVENT_BIT_AMD,
-
-		/// <summary>
-		/// Strongly typed for value GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_occlusion_query_event")]
-		QueryDepthBoundsFailEventBitAmd = Gl.QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD,
-
-		/// <summary>
-		/// Strongly typed for value GL_QUERY_ALL_EVENT_BITS_AMD.
-		/// </summary>
-		[RequiredByFeature("GL_AMD_occlusion_query_event")]
-		QueryAllEventBitsAmd = Gl.QUERY_ALL_EVENT_BITS_AMD,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration PackedVertexType.
-	/// </summary>
-	public enum PackedVertexType
-	{
-		/// <summary>
-		/// Strongly typed for value GL_INT_2_10_10_10_REV.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		Int2101010Rev = Gl.INT_2_10_10_10_REV,
-
-		/// <summary>
-		/// Strongly typed for value GL_UNSIGNED_INT_2_10_10_10_REV.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_type_2_10_10_10_REV", Api = "gles2")]
-		UnsignedInt2101010Rev = Gl.UNSIGNED_INT_2_10_10_10_REV,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration PipelineParameterName.
-	/// </summary>
-	public enum PipelineParameterName
-	{
-		/// <summary>
-		/// Strongly typed for value GL_ACTIVE_PROGRAM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gl|glcore|gles2")]
-		ActiveProgram = Gl.ACTIVE_PROGRAM,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAGMENT_SHADER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_fragment_shader")]
-		FragmentShader = Gl.FRAGMENT_SHADER,
-
-		/// <summary>
-		/// Strongly typed for value GL_GEOMETRY_SHADER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-		GeometryShader = Gl.GEOMETRY_SHADER,
-
-		/// <summary>
-		/// Strongly typed for value GL_INFO_LOG_LENGTH.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		InfoLogLength = Gl.INFO_LOG_LENGTH,
-
-		/// <summary>
-		/// Strongly typed for value GL_TESS_CONTROL_SHADER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
-		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-		TessControlShader = Gl.TESS_CONTROL_SHADER,
-
-		/// <summary>
-		/// Strongly typed for value GL_TESS_EVALUATION_SHADER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
-		[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
-		TessEvaluationShader = Gl.TESS_EVALUATION_SHADER,
-
-		/// <summary>
-		/// Strongly typed for value GL_VERTEX_SHADER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_shader")]
-		VertexShader = Gl.VERTEX_SHADER,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration ProgramInterface.
-	/// </summary>
-	public enum ProgramInterface
-	{
-		/// <summary>
-		/// Strongly typed for value GL_BUFFER_VARIABLE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		BufferVariable = Gl.BUFFER_VARIABLE,
-
-		/// <summary>
-		/// Strongly typed for value GL_COMPUTE_SUBROUTINE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		ComputeSubroutine = Gl.COMPUTE_SUBROUTINE,
-
-		/// <summary>
-		/// Strongly typed for value GL_COMPUTE_SUBROUTINE_UNIFORM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		ComputeSubroutineUniform = Gl.COMPUTE_SUBROUTINE_UNIFORM,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAGMENT_SUBROUTINE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		FragmentSubroutine = Gl.FRAGMENT_SUBROUTINE,
-
-		/// <summary>
-		/// Strongly typed for value GL_FRAGMENT_SUBROUTINE_UNIFORM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		FragmentSubroutineUniform = Gl.FRAGMENT_SUBROUTINE_UNIFORM,
-
-		/// <summary>
-		/// Strongly typed for value GL_GEOMETRY_SUBROUTINE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		GeometrySubroutine = Gl.GEOMETRY_SUBROUTINE,
-
-		/// <summary>
-		/// Strongly typed for value GL_GEOMETRY_SUBROUTINE_UNIFORM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		GeometrySubroutineUniform = Gl.GEOMETRY_SUBROUTINE_UNIFORM,
-
-		/// <summary>
-		/// Strongly typed for value GL_PROGRAM_INPUT.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		ProgramInput = Gl.PROGRAM_INPUT,
-
-		/// <summary>
-		/// Strongly typed for value GL_PROGRAM_OUTPUT.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		ProgramOutput = Gl.PROGRAM_OUTPUT,
-
-		/// <summary>
-		/// Strongly typed for value GL_SHADER_STORAGE_BLOCK.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		ShaderStorageBlock = Gl.SHADER_STORAGE_BLOCK,
-
-		/// <summary>
-		/// Strongly typed for value GL_TESS_CONTROL_SUBROUTINE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		TessControlSubroutine = Gl.TESS_CONTROL_SUBROUTINE,
-
-		/// <summary>
-		/// Strongly typed for value GL_TESS_CONTROL_SUBROUTINE_UNIFORM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		TessControlSubroutineUniform = Gl.TESS_CONTROL_SUBROUTINE_UNIFORM,
-
-		/// <summary>
-		/// Strongly typed for value GL_TESS_EVALUATION_SUBROUTINE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		TessEvaluationSubroutine = Gl.TESS_EVALUATION_SUBROUTINE,
-
-		/// <summary>
-		/// Strongly typed for value GL_TESS_EVALUATION_SUBROUTINE_UNIFORM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		TessEvaluationSubroutineUniform = Gl.TESS_EVALUATION_SUBROUTINE_UNIFORM,
-
-		/// <summary>
-		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BUFFER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_VERSION_4_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_enhanced_layouts", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_transform_feedback")]
-		[RequiredByFeature("GL_NV_transform_feedback")]
-		TransformFeedbackBuffer = Gl.TRANSFORM_FEEDBACK_BUFFER,
-
-		/// <summary>
-		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_VARYING.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		TransformFeedbackVarying = Gl.TRANSFORM_FEEDBACK_VARYING,
-
-		/// <summary>
-		/// Strongly typed for value GL_UNIFORM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		Uniform = Gl.UNIFORM,
-
-		/// <summary>
-		/// Strongly typed for value GL_UNIFORM_BLOCK.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		UniformBlock = Gl.UNIFORM_BLOCK,
-
-		/// <summary>
-		/// Strongly typed for value GL_VERTEX_SUBROUTINE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		VertexSubroutine = Gl.VERTEX_SUBROUTINE,
-
-		/// <summary>
-		/// Strongly typed for value GL_VERTEX_SUBROUTINE_UNIFORM.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		VertexSubroutineUniform = Gl.VERTEX_SUBROUTINE_UNIFORM,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration ProgramInterfacePName.
-	/// </summary>
-	public enum ProgramInterfacePName
-	{
-		/// <summary>
-		/// Strongly typed for value GL_ACTIVE_RESOURCES.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		ActiveResources = Gl.ACTIVE_RESOURCES,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAX_NAME_LENGTH.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		MaxNameLength = Gl.MAX_NAME_LENGTH,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAX_NUM_ACTIVE_VARIABLES.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		MaxNumActiveVariables = Gl.MAX_NUM_ACTIVE_VARIABLES,
-
-		/// <summary>
-		/// Strongly typed for value GL_MAX_NUM_COMPATIBLE_SUBROUTINES.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		MaxNumCompatibleSubroutines = Gl.MAX_NUM_COMPATIBLE_SUBROUTINES,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration ProgramStagePName.
-	/// </summary>
-	public enum ProgramStagePName
-	{
-		/// <summary>
-		/// Strongly typed for value GL_ACTIVE_SUBROUTINES.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		ActiveSubroutines = Gl.ACTIVE_SUBROUTINES,
-
-		/// <summary>
-		/// Strongly typed for value GL_ACTIVE_SUBROUTINE_MAX_LENGTH.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		ActiveSubroutineMaxLength = Gl.ACTIVE_SUBROUTINE_MAX_LENGTH,
-
-		/// <summary>
-		/// Strongly typed for value GL_ACTIVE_SUBROUTINE_UNIFORMS.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		ActiveSubroutineUniforms = Gl.ACTIVE_SUBROUTINE_UNIFORMS,
-
-		/// <summary>
-		/// Strongly typed for value GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		ActiveSubroutineUniformLocations = Gl.ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS,
-
-		/// <summary>
-		/// Strongly typed for value GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		ActiveSubroutineUniformMaxLength = Gl.ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH,
 
 	}
 
@@ -14770,7 +15911,7 @@ namespace OpenGL
 	public enum RenderbufferParameterName
 	{
 		/// <summary>
-		/// Strongly typed for value GL_RENDERBUFFER_ALPHA_SIZE.
+		/// Strongly typed for value GL_RENDERBUFFER_WIDTH.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -14778,40 +15919,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		RenderbufferAlphaSize = Gl.RENDERBUFFER_ALPHA_SIZE,
-
-		/// <summary>
-		/// Strongly typed for value GL_RENDERBUFFER_BLUE_SIZE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		RenderbufferBlueSize = Gl.RENDERBUFFER_BLUE_SIZE,
-
-		/// <summary>
-		/// Strongly typed for value GL_RENDERBUFFER_DEPTH_SIZE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		RenderbufferDepthSize = Gl.RENDERBUFFER_DEPTH_SIZE,
-
-		/// <summary>
-		/// Strongly typed for value GL_RENDERBUFFER_GREEN_SIZE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		RenderbufferGreenSize = Gl.RENDERBUFFER_GREEN_SIZE,
+		RenderbufferWidth = Gl.RENDERBUFFER_WIDTH,
 
 		/// <summary>
 		/// Strongly typed for value GL_RENDERBUFFER_HEIGHT.
@@ -14836,15 +15944,17 @@ namespace OpenGL
 		RenderbufferInternalFormat = Gl.RENDERBUFFER_INTERNAL_FORMAT,
 
 		/// <summary>
-		/// Strongly typed for value GL_RENDERBUFFER_WIDTH.
+		/// Strongly typed for value GL_RENDERBUFFER_SAMPLES.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		RenderbufferWidth = Gl.RENDERBUFFER_WIDTH,
+		[RequiredByFeature("GL_ANGLE_framebuffer_multisample", Api = "gles2")]
+		[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_framebuffer_multisample")]
+		[RequiredByFeature("GL_EXT_multisampled_render_to_texture", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_NV_framebuffer_multisample", Api = "gles2")]
+		RenderbufferSamples = Gl.RENDERBUFFER_SAMPLES,
 
 		/// <summary>
 		/// Strongly typed for value GL_RENDERBUFFER_RED_SIZE.
@@ -14858,17 +15968,48 @@ namespace OpenGL
 		RenderbufferRedSize = Gl.RENDERBUFFER_RED_SIZE,
 
 		/// <summary>
-		/// Strongly typed for value GL_RENDERBUFFER_SAMPLES.
+		/// Strongly typed for value GL_RENDERBUFFER_GREEN_SIZE.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_ANGLE_framebuffer_multisample", Api = "gles2")]
-		[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_EXT_framebuffer_multisample")]
-		[RequiredByFeature("GL_EXT_multisampled_render_to_texture", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_NV_framebuffer_multisample", Api = "gles2")]
-		RenderbufferSamples = Gl.RENDERBUFFER_SAMPLES,
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		RenderbufferGreenSize = Gl.RENDERBUFFER_GREEN_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value GL_RENDERBUFFER_BLUE_SIZE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		RenderbufferBlueSize = Gl.RENDERBUFFER_BLUE_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value GL_RENDERBUFFER_ALPHA_SIZE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		RenderbufferAlphaSize = Gl.RENDERBUFFER_ALPHA_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value GL_RENDERBUFFER_DEPTH_SIZE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
+		RenderbufferDepthSize = Gl.RENDERBUFFER_DEPTH_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_RENDERBUFFER_STENCIL_SIZE.
@@ -14979,6 +16120,51 @@ namespace OpenGL
 	public enum SamplerParameterName
 	{
 		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_WRAP_S.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		TextureWrapS = Gl.TEXTURE_WRAP_S,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_WRAP_T.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		TextureWrapT = Gl.TEXTURE_WRAP_T,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_WRAP_R.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture3D")]
+		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
+		TextureWrapR = Gl.TEXTURE_WRAP_R,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_MIN_FILTER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		TextureMinFilter = Gl.TEXTURE_MIN_FILTER,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_MAG_FILTER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		TextureMagFilter = Gl.TEXTURE_MAG_FILTER,
+
+		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_BORDER_COLOR.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -14987,6 +16173,22 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 		TextureBorderColor = Gl.TEXTURE_BORDER_COLOR,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_MIN_LOD.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
+		TextureMinLod = Gl.TEXTURE_MIN_LOD,
+
+		/// <summary>
+		/// Strongly typed for value GL_TEXTURE_MAX_LOD.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_SGIS_texture_lod")]
+		TextureMaxLod = Gl.TEXTURE_MAX_LOD,
 
 		/// <summary>
 		/// Strongly typed for value GL_TEXTURE_COMPARE_MODE.
@@ -15005,67 +16207,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shadow")]
 		[RequiredByFeature("GL_EXT_shadow_samplers", Api = "gles2")]
 		TextureCompareFunc = Gl.TEXTURE_COMPARE_FUNC,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_MAG_FILTER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		TextureMagFilter = Gl.TEXTURE_MAG_FILTER,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_MAX_LOD.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_SGIS_texture_lod")]
-		TextureMaxLod = Gl.TEXTURE_MAX_LOD,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_MIN_FILTER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		TextureMinFilter = Gl.TEXTURE_MIN_FILTER,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_MIN_LOD.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_SGIS_texture_lod")]
-		TextureMinLod = Gl.TEXTURE_MIN_LOD,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_WRAP_R.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture3D")]
-		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		TextureWrapR = Gl.TEXTURE_WRAP_R,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_WRAP_S.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		TextureWrapS = Gl.TEXTURE_WRAP_S,
-
-		/// <summary>
-		/// Strongly typed for value GL_TEXTURE_WRAP_T.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_0")]
-		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		TextureWrapT = Gl.TEXTURE_WRAP_T,
 
 	}
 
@@ -15097,6 +16238,48 @@ namespace OpenGL
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration ShaderParameterName.
+	/// </summary>
+	public enum ShaderParameterName
+	{
+		/// <summary>
+		/// Strongly typed for value GL_SHADER_TYPE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		ShaderType = Gl.SHADER_TYPE,
+
+		/// <summary>
+		/// Strongly typed for value GL_DELETE_STATUS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		DeleteStatus = Gl.DELETE_STATUS,
+
+		/// <summary>
+		/// Strongly typed for value GL_COMPILE_STATUS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		CompileStatus = Gl.COMPILE_STATUS,
+
+		/// <summary>
+		/// Strongly typed for value GL_INFO_LOG_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		InfoLogLength = Gl.INFO_LOG_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_SHADER_SOURCE_LENGTH.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		ShaderSourceLength = Gl.SHADER_SOURCE_LENGTH,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration ShaderType.
 	/// </summary>
 	public enum ShaderType
@@ -15110,23 +16293,12 @@ namespace OpenGL
 		ComputeShader = Gl.COMPUTE_SHADER,
 
 		/// <summary>
-		/// Strongly typed for value GL_FRAGMENT_SHADER.
+		/// Strongly typed for value GL_VERTEX_SHADER.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_fragment_shader")]
-		FragmentShader = Gl.FRAGMENT_SHADER,
-
-		/// <summary>
-		/// Strongly typed for value GL_GEOMETRY_SHADER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-		GeometryShader = Gl.GEOMETRY_SHADER,
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		VertexShader = Gl.VERTEX_SHADER,
 
 		/// <summary>
 		/// Strongly typed for value GL_TESS_CONTROL_SHADER.
@@ -15149,54 +16321,23 @@ namespace OpenGL
 		TessEvaluationShader = Gl.TESS_EVALUATION_SHADER,
 
 		/// <summary>
-		/// Strongly typed for value GL_VERTEX_SHADER.
+		/// Strongly typed for value GL_GEOMETRY_SHADER.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_vertex_shader")]
-		VertexShader = Gl.VERTEX_SHADER,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration ShaderParameterName.
-	/// </summary>
-	public enum ShaderParameterName
-	{
-		/// <summary>
-		/// Strongly typed for value GL_COMPILE_STATUS.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		CompileStatus = Gl.COMPILE_STATUS,
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_geometry_shader4")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
+		GeometryShader = Gl.GEOMETRY_SHADER,
 
 		/// <summary>
-		/// Strongly typed for value GL_DELETE_STATUS.
+		/// Strongly typed for value GL_FRAGMENT_SHADER.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		DeleteStatus = Gl.DELETE_STATUS,
-
-		/// <summary>
-		/// Strongly typed for value GL_INFO_LOG_LENGTH.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		InfoLogLength = Gl.INFO_LOG_LENGTH,
-
-		/// <summary>
-		/// Strongly typed for value GL_SHADER_SOURCE_LENGTH.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		ShaderSourceLength = Gl.SHADER_SOURCE_LENGTH,
-
-		/// <summary>
-		/// Strongly typed for value GL_SHADER_TYPE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		ShaderType = Gl.SHADER_TYPE,
+		[RequiredByFeature("GL_ARB_fragment_shader")]
+		FragmentShader = Gl.FRAGMENT_SHADER,
 
 	}
 
@@ -15466,6 +16607,14 @@ namespace OpenGL
 	public enum SubroutineParameterName
 	{
 		/// <summary>
+		/// Strongly typed for value GL_NUM_COMPATIBLE_SUBROUTINES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
+		NumCompatibleSubroutines = Gl.NUM_COMPATIBLE_SUBROUTINES,
+
+		/// <summary>
 		/// Strongly typed for value GL_COMPATIBLE_SUBROUTINES.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_0")]
@@ -15474,12 +16623,13 @@ namespace OpenGL
 		CompatibleSubroutines = Gl.COMPATIBLE_SUBROUTINES,
 
 		/// <summary>
-		/// Strongly typed for value GL_NUM_COMPATIBLE_SUBROUTINES.
+		/// Strongly typed for value GL_UNIFORM_SIZE.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		NumCompatibleSubroutines = Gl.NUM_COMPATIBLE_SUBROUTINES,
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		UniformSize = Gl.UNIFORM_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value GL_UNIFORM_NAME_LENGTH.
@@ -15490,14 +16640,21 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 		UniformNameLength = Gl.UNIFORM_NAME_LENGTH,
 
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration SyncCondition.
+	/// </summary>
+	public enum SyncCondition
+	{
 		/// <summary>
-		/// Strongly typed for value GL_UNIFORM_SIZE.
+		/// Strongly typed for value GL_SYNC_GPU_COMMANDS_COMPLETE.
 		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		UniformSize = Gl.UNIFORM_SIZE,
+		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+		SyncGpuCommandsComplete = Gl.SYNC_GPU_COMMANDS_COMPLETE,
 
 	}
 
@@ -15559,15 +16716,6 @@ namespace OpenGL
 		AlreadySignaled = Gl.ALREADY_SIGNALED,
 
 		/// <summary>
-		/// Strongly typed for value GL_CONDITION_SATISFIED.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
-		ConditionSatisfied = Gl.CONDITION_SATISFIED,
-
-		/// <summary>
 		/// Strongly typed for value GL_TIMEOUT_EXPIRED.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_2")]
@@ -15575,6 +16723,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		TimeoutExpired = Gl.TIMEOUT_EXPIRED,
+
+		/// <summary>
+		/// Strongly typed for value GL_CONDITION_SATISFIED.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
+		ConditionSatisfied = Gl.CONDITION_SATISFIED,
 
 		/// <summary>
 		/// Strongly typed for value GL_WAIT_FAILED.
@@ -17187,14 +18344,6 @@ namespace OpenGL
 	public enum TransformFeedbackPName
 	{
 		/// <summary>
-		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_ACTIVE.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_0")]
-		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-		[RequiredByFeature("GL_NV_transform_feedback2")]
-		TransformFeedbackBufferActive = Gl.TRANSFORM_FEEDBACK_BUFFER_ACTIVE,
-
-		/// <summary>
 		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_BUFFER_BINDING.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -17229,6 +18378,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_transform_feedback2")]
 		TransformFeedbackBufferPaused = Gl.TRANSFORM_FEEDBACK_BUFFER_PAUSED,
 
+		/// <summary>
+		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_ACTIVE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_transform_feedback2")]
+		TransformFeedbackBufferActive = Gl.TRANSFORM_FEEDBACK_BUFFER_ACTIVE,
+
 	}
 
 	/// <summary>
@@ -17254,22 +18411,6 @@ namespace OpenGL
 	public enum UniformBlockPName
 	{
 		/// <summary>
-		/// Strongly typed for value GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		UniformBlockActiveUniforms = Gl.UNIFORM_BLOCK_ACTIVE_UNIFORMS,
-
-		/// <summary>
-		/// Strongly typed for value GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_1")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
-		UniformBlockActiveUniformIndices = Gl.UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES,
-
-		/// <summary>
 		/// Strongly typed for value GL_UNIFORM_BLOCK_BINDING.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_1")]
@@ -17292,6 +18433,22 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 		UniformBlockNameLength = Gl.UNIFORM_BLOCK_NAME_LENGTH,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		UniformBlockActiveUniforms = Gl.UNIFORM_BLOCK_ACTIVE_UNIFORMS,
+
+		/// <summary>
+		/// Strongly typed for value GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		UniformBlockActiveUniformIndices = Gl.UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES,
 
 		/// <summary>
 		/// Strongly typed for value GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER.
@@ -17498,17 +18655,6 @@ namespace OpenGL
 	public enum VertexArrayPName
 	{
 		/// <summary>
-		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_DIVISOR.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_3")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
-		[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
-		VertexAttribArrayDivisor = Gl.VERTEX_ATTRIB_ARRAY_DIVISOR,
-
-		/// <summary>
 		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_ENABLED.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_2_0")]
@@ -17517,31 +18663,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		VertexAttribArrayEnabled = Gl.VERTEX_ATTRIB_ARRAY_ENABLED,
-
-		/// <summary>
-		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_INTEGER.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		[RequiredByFeature("GL_NV_vertex_program4")]
-		VertexAttribArrayInteger = Gl.VERTEX_ATTRIB_ARRAY_INTEGER,
-
-		/// <summary>
-		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_LONG.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_4_3")]
-		VertexAttribArrayLong = Gl.VERTEX_ATTRIB_ARRAY_LONG,
-
-		/// <summary>
-		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_NORMALIZED.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_2_0")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_vertex_program")]
-		[RequiredByFeature("GL_ARB_vertex_shader")]
-		VertexAttribArrayNormalized = Gl.VERTEX_ATTRIB_ARRAY_NORMALIZED,
 
 		/// <summary>
 		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_SIZE.
@@ -17574,6 +18695,42 @@ namespace OpenGL
 		VertexAttribArrayType = Gl.VERTEX_ATTRIB_ARRAY_TYPE,
 
 		/// <summary>
+		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_NORMALIZED.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		VertexAttribArrayNormalized = Gl.VERTEX_ATTRIB_ARRAY_NORMALIZED,
+
+		/// <summary>
+		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_INTEGER.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
+		[RequiredByFeature("GL_NV_vertex_program4")]
+		VertexAttribArrayInteger = Gl.VERTEX_ATTRIB_ARRAY_INTEGER,
+
+		/// <summary>
+		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_LONG.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		VertexAttribArrayLong = Gl.VERTEX_ATTRIB_ARRAY_LONG,
+
+		/// <summary>
+		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_DIVISOR.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+		[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
+		VertexAttribArrayDivisor = Gl.VERTEX_ATTRIB_ARRAY_DIVISOR,
+
+		/// <summary>
 		/// Strongly typed for value GL_VERTEX_ATTRIB_RELATIVE_OFFSET.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_4_3")]
@@ -17584,9 +18741,9 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration VertexAttribPName.
+	/// Strongly typed enumeration VertexAttribEnum.
 	/// </summary>
-	public enum VertexAttribPName
+	public enum VertexAttribEnum
 	{
 		/// <summary>
 		/// Strongly typed for value GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING.
@@ -17895,37 +19052,6 @@ namespace OpenGL
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration VertexProvokingMode.
-	/// </summary>
-	public enum VertexProvokingMode
-	{
-		/// <summary>
-		/// Strongly typed for value GL_FIRST_VERTEX_CONVENTION.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
-		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_provoking_vertex")]
-		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-		FirstVertexConvention = Gl.FIRST_VERTEX_CONVENTION,
-
-		/// <summary>
-		/// Strongly typed for value GL_LAST_VERTEX_CONVENTION.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_2")]
-		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
-		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_provoking_vertex")]
-		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
-		LastVertexConvention = Gl.LAST_VERTEX_CONVENTION,
-
-	}
-
-	/// <summary>
 	/// Strongly typed enumeration VertexPointerType.
 	/// </summary>
 	public enum VertexPointerType
@@ -17966,6 +19092,37 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
 		Short = Gl.SHORT,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration VertexProvokingMode.
+	/// </summary>
+	public enum VertexProvokingMode
+	{
+		/// <summary>
+		/// Strongly typed for value GL_FIRST_VERTEX_CONVENTION.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_provoking_vertex")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
+		FirstVertexConvention = Gl.FIRST_VERTEX_CONVENTION,
+
+		/// <summary>
+		/// Strongly typed for value GL_LAST_VERTEX_CONVENTION.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_provoking_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_geometry_shader", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_provoking_vertex")]
+		[RequiredByFeature("GL_OES_geometry_shader", Api = "gles2")]
+		LastVertexConvention = Gl.LAST_VERTEX_CONVENTION,
 
 	}
 

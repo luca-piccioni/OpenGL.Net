@@ -39,7 +39,7 @@ namespace OpenGL
 		/// [GL] glGetHistogramEXT: Binding for glGetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTargetEXT"/>.
+		/// A <see cref="T:HistogramTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -54,7 +54,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetHistogramEXT(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
+		public static void GetHistogramEXT(HistogramTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogramEXT != null, "pglGetHistogramEXT not implemented");
 			Delegates.pglGetHistogramEXT((Int32)target, reset, (Int32)format, (Int32)type, values);
@@ -66,7 +66,7 @@ namespace OpenGL
 		/// [GL] glGetHistogramEXT: Binding for glGetHistogramEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTargetEXT"/>.
+		/// A <see cref="T:HistogramTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -81,7 +81,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetHistogramEXT(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Object values)
+		public static void GetHistogramEXT(HistogramTarget target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -95,16 +95,16 @@ namespace OpenGL
 		/// [GL] glGetHistogramParameterfvEXT: Binding for glGetHistogramParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTargetEXT"/>.
+		/// A <see cref="T:HistogramTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:GetHistogramParameterPNameEXT"/>.
+		/// A <see cref="T:GetHistogramParameterPName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetHistogramParameterEXT(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, [Out] float[] @params)
+		public static void GetHistogramParameterEXT(HistogramTarget target, GetHistogramParameterPName pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -121,16 +121,16 @@ namespace OpenGL
 		/// [GL] glGetHistogramParameterivEXT: Binding for glGetHistogramParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTargetEXT"/>.
+		/// A <see cref="T:HistogramTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:GetHistogramParameterPNameEXT"/>.
+		/// A <see cref="T:GetHistogramParameterPName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetHistogramParameterEXT(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, [Out] Int32[] @params)
+		public static void GetHistogramParameterEXT(HistogramTarget target, GetHistogramParameterPName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
@@ -206,13 +206,13 @@ namespace OpenGL
 		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:GetMinmaxParameterPNameEXT"/>.
+		/// A <see cref="T:GetMinmaxParameterPName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetMinmaxParameterEXT(MinmaxTarget target, GetMinmaxParameterPNameEXT pname, [Out] float[] @params)
+		public static void GetMinmaxParameterEXT(MinmaxTarget target, GetMinmaxParameterPName pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -232,13 +232,13 @@ namespace OpenGL
 		/// A <see cref="T:MinmaxTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:GetMinmaxParameterPNameEXT"/>.
+		/// A <see cref="T:GetMinmaxParameterPName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetMinmaxParameterEXT(MinmaxTarget target, GetMinmaxParameterPNameEXT pname, [Out] Int32[] @params)
+		public static void GetMinmaxParameterEXT(MinmaxTarget target, GetMinmaxParameterPName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)

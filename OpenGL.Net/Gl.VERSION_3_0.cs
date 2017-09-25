@@ -2908,7 +2908,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void GetVertexAttribI(UInt32 index, VertexAttribPName pname, out Int32 @params)
+		public static void GetVertexAttribI(UInt32 index, VertexAttribEnum pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
@@ -2941,7 +2941,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void GetVertexAttribI(UInt32 index, VertexAttribPName pname, out UInt32 @params)
+		public static void GetVertexAttribI(UInt32 index, VertexAttribEnum pname, out UInt32 @params)
 		{
 			unsafe {
 				fixed (UInt32* p_params = &@params)

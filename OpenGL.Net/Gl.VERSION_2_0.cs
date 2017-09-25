@@ -1460,13 +1460,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GetProgram(UInt32 program, Int32 pname, [Out] Int32[] @params)
+		public static void GetProgram(UInt32 program, ProgramProperty pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramiv != null, "pglGetProgramiv not implemented");
-					Delegates.pglGetProgramiv(program, pname, p_params);
+					Delegates.pglGetProgramiv(program, (Int32)pname, p_params);
 					LogCommand("glGetProgramiv", null, program, pname, @params					);
 				}
 			}
@@ -1495,13 +1495,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GetProgram(UInt32 program, Int32 pname, out Int32 @params)
+		public static void GetProgram(UInt32 program, ProgramProperty pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetProgramiv != null, "pglGetProgramiv not implemented");
-					Delegates.pglGetProgramiv(program, pname, p_params);
+					Delegates.pglGetProgramiv(program, (Int32)pname, p_params);
 					LogCommand("glGetProgramiv", null, program, pname, @params					);
 				}
 			}

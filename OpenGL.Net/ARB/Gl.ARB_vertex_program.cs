@@ -989,20 +989,20 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ProgramProperty"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramARB(Int32 target, Int32 pname, out Int32 @params)
+		public static void GetProgramARB(Int32 target, ProgramProperty pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetProgramivARB != null, "pglGetProgramivARB not implemented");
-					Delegates.pglGetProgramivARB(target, pname, p_params);
+					Delegates.pglGetProgramivARB(target, (Int32)pname, p_params);
 					LogCommand("glGetProgramivARB", null, target, pname, @params					);
 				}
 			}

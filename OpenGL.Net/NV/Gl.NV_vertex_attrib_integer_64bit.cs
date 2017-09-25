@@ -406,13 +406,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:VertexAttribPName"/>.
+		/// A <see cref="T:VertexAttribEnum"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void GetVertexAttribLNV(UInt32 index, VertexAttribPName pname, [Out] Int64[] @params)
+		public static void GetVertexAttribLNV(UInt32 index, VertexAttribEnum pname, [Out] Int64[] @params)
 		{
 			unsafe {
 				fixed (Int64* p_params = @params)
@@ -432,13 +432,13 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:VertexAttribPName"/>.
+		/// A <see cref="T:VertexAttribEnum"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void GetVertexAttribLNV(UInt32 index, VertexAttribPName pname, [Out] UInt64[] @params)
+		public static void GetVertexAttribLNV(UInt32 index, VertexAttribEnum pname, [Out] UInt64[] @params)
 		{
 			unsafe {
 				fixed (UInt64* p_params = @params)

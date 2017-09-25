@@ -11630,7 +11630,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void Map1(EvaluatorTarget target, double u1, double u2, Int32 stride, Int32 order, double[] points)
+		public static void Map1(MapTarget target, double u1, double u2, Int32 stride, Int32 order, double[] points)
 		{
 			unsafe {
 				fixed (double* p_points = points)
@@ -11673,7 +11673,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void Map1(EvaluatorTarget target, float u1, float u2, Int32 stride, Int32 order, float[] points)
+		public static void Map1(MapTarget target, float u1, float u2, Int32 stride, Int32 order, float[] points)
 		{
 			unsafe {
 				fixed (float* p_points = points)
@@ -11733,7 +11733,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void Map2(EvaluatorTarget target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double[] points)
+		public static void Map2(MapTarget target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double[] points)
 		{
 			unsafe {
 				fixed (double* p_points = points)
@@ -11793,7 +11793,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void Map2(EvaluatorTarget target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float[] points)
+		public static void Map2(MapTarget target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float[] points)
 		{
 			unsafe {
 				fixed (float* p_points = points)
@@ -12619,7 +12619,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void GetMap(EvaluatorTarget target, GetMapQuery query, [Out] double[] v)
+		public static void GetMap(MapTarget target, GetMapQuery query, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -12649,7 +12649,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void GetMap(EvaluatorTarget target, GetMapQuery query, [Out] float[] v)
+		public static void GetMap(MapTarget target, GetMapQuery query, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -12679,7 +12679,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void GetMap(EvaluatorTarget target, GetMapQuery query, [Out] Int32[] v)
+		public static void GetMap(MapTarget target, GetMapQuery query, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)

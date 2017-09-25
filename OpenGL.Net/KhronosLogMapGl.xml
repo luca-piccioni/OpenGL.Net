@@ -759,6 +759,10 @@
     <param name="origin" flags="enum" />
     <param name="depth" flags="enum" />
   </command>
+  <command name="glClipControlEXT">
+    <param name="origin" flags="enum" />
+    <param name="depth" flags="enum" />
+  </command>
   <command name="glClipPlane">
     <param name="plane" flags="enum" />
     <param name="equation" />
@@ -7610,6 +7614,12 @@
     <param name="id" />
     <param name="pname" flags="enum" />
     <param name="param" />
+  </command>
+  <command name="glQueryResourceNV">
+    <param name="queryType" flags="enum" />
+    <param name="tagId" />
+    <param name="bufSize" />
+    <param name="buffer" />
   </command>
   <command name="glReadBuffer">
     <param name="src" flags="enum" />

@@ -36,41 +36,32 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Value of GL_MAX_SHADER_COMPILER_THREADS_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
-		public const int MAX_SHADER_COMPILER_THREADS_ARB = 0x91B0;
-
-		/// <summary>
-		/// [GL] Value of GL_COMPLETION_STATUS_ARB symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
-		public const int COMPLETION_STATUS_ARB = 0x91B1;
-
-		/// <summary>
-		/// [GL] glMaxShaderCompilerThreadsARB: Binding for glMaxShaderCompilerThreadsARB.
+		/// [GL] glMaxShaderCompilerThreadsKHR: Binding for glMaxShaderCompilerThreadsKHR.
 		/// </summary>
 		/// <param name="count">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
-		public static void MaxShaderCompilerThreadsARB(UInt32 count)
+		[RequiredByFeature("GL_KHR_parallel_shader_compile", Api = "gl|glcore|gles2")]
+		public static void MaxShaderCompilerThreadsKHR(UInt32 count)
 		{
-			Debug.Assert(Delegates.pglMaxShaderCompilerThreadsARB != null, "pglMaxShaderCompilerThreadsARB not implemented");
-			Delegates.pglMaxShaderCompilerThreadsARB(count);
-			LogCommand("glMaxShaderCompilerThreadsARB", null, count			);
+			Debug.Assert(Delegates.pglMaxShaderCompilerThreadsKHR != null, "pglMaxShaderCompilerThreadsKHR not implemented");
+			Delegates.pglMaxShaderCompilerThreadsKHR(count);
+			LogCommand("glMaxShaderCompilerThreadsKHR", null, count			);
 			DebugCheckErrors(null);
 		}
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore", EntryPoint = "glMaxShaderCompilerThreadsARB")]
+			[RequiredByFeature("GL_KHR_parallel_shader_compile", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMaxShaderCompilerThreadsARB(UInt32 count);
+			internal delegate void glMaxShaderCompilerThreadsKHR(UInt32 count);
 
-			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
+			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore", EntryPoint = "glMaxShaderCompilerThreadsARB")]
+			[RequiredByFeature("GL_KHR_parallel_shader_compile", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
-			internal static glMaxShaderCompilerThreadsARB pglMaxShaderCompilerThreadsARB;
+			internal static glMaxShaderCompilerThreadsKHR pglMaxShaderCompilerThreadsKHR;
 
 		}
 	}

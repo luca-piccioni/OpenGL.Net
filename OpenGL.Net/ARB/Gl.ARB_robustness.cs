@@ -271,10 +271,10 @@ namespace OpenGL
 		/// [GL] glGetnMapdvARB: Binding for glGetnMapdvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -283,7 +283,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] double[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -300,16 +300,16 @@ namespace OpenGL
 		/// [GL] glGetnMapdvARB: Binding for glGetnMapdvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, [Out] double[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -326,10 +326,10 @@ namespace OpenGL
 		/// [GL] glGetnMapfvARB: Binding for glGetnMapfvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -338,7 +338,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] float[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -355,16 +355,16 @@ namespace OpenGL
 		/// [GL] glGetnMapfvARB: Binding for glGetnMapfvARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, [Out] float[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -381,10 +381,10 @@ namespace OpenGL
 		/// [GL] glGetnMapivARB: Binding for glGetnMapivARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -393,7 +393,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] Int32[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, Int32 bufSize, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -410,16 +410,16 @@ namespace OpenGL
 		/// [GL] glGetnMapivARB: Binding for glGetnMapivARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMapARB(EvaluatorTarget target, EvaluatorParameterName query, [Out] Int32[] v)
+		public static void GetnMapARB(MapTarget target, MapQuery query, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -793,7 +793,7 @@ namespace OpenGL
 		/// [GL] glGetnHistogramARB: Binding for glGetnHistogramARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTargetEXT"/>.
+		/// A <see cref="T:HistogramTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -811,7 +811,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnHistogramARB(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
+		public static void GetnHistogramARB(HistogramTarget target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnHistogramARB != null, "pglGetnHistogramARB not implemented");
 			Delegates.pglGetnHistogramARB((Int32)target, reset, (Int32)format, (Int32)type, bufSize, values);
@@ -823,7 +823,7 @@ namespace OpenGL
 		/// [GL] glGetnHistogramARB: Binding for glGetnHistogramARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTargetEXT"/>.
+		/// A <see cref="T:HistogramTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -841,7 +841,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnHistogramARB(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
+		public static void GetnHistogramARB(HistogramTarget target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

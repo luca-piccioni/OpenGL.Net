@@ -116,7 +116,6 @@
     <Compile Include="ARB\Gl.ARB_imaging.cs" />
     <Compile Include="ARB\Gl.ARB_internalformat_query2.cs" />
     <Compile Include="ARB\Gl.ARB_matrix_palette.cs" />
-    <Compile Include="ARB\Gl.ARB_parallel_shader_compile.cs" />
     <Compile Include="ARB\Gl.ARB_robustness.cs" />
     <Compile Include="ARB\Gl.ARB_sample_locations.cs" />
     <Compile Include="ARB\Gl.ARB_shader_objects.cs" />
@@ -493,6 +492,8 @@
     <Compile Include="NV\Gl.NV_point_sprite.cs" />
     <Compile Include="NV\Gl.NV_present_video.cs" />
     <Compile Include="NV\Gl.NV_primitive_restart.cs" />
+    <Compile Include="NV\Gl.NV_query_resource.cs" />
+    <Compile Include="NV\Gl.NV_query_resource_tag.cs" />
     <Compile Include="NV\Gl.NV_read_buffer.cs" />
     <Compile Include="NV\Gl.NV_register_combiners.cs" />
     <Compile Include="NV\Gl.NV_register_combiners2.cs" />

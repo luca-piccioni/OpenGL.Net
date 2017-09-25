@@ -1627,7 +1627,7 @@ namespace OpenGL
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
+		public static void GetHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
 			Delegates.pglGetHistogram((Int32)target, reset, (Int32)format, (Int32)type, values);
@@ -1660,7 +1660,7 @@ namespace OpenGL
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Object values)
+		public static void GetHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -1685,7 +1685,7 @@ namespace OpenGL
 		/// Pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogramParameter(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, [Out] float[] @params)
+		public static void GetHistogramParameter(HistogramTarget target, GetHistogramParameterPName pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1713,13 +1713,13 @@ namespace OpenGL
 		/// Pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogramParameter(Int32 target, Int32 pname, [Out] Int32[] @params)
+		public static void GetHistogramParameter(HistogramTarget target, GetHistogramParameterPName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameteriv != null, "pglGetHistogramParameteriv not implemented");
-					Delegates.pglGetHistogramParameteriv(target, pname, p_params);
+					Delegates.pglGetHistogramParameteriv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetHistogramParameteriv", null, target, pname, @params					);
 				}
 			}
@@ -1799,13 +1799,13 @@ namespace OpenGL
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmaxParameter(MinmaxTarget target, Int32 pname, [Out] float[] @params)
+		public static void GetMinmaxParameter(MinmaxTarget target, GetMinmaxParameterPName pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameterfv != null, "pglGetMinmaxParameterfv not implemented");
-					Delegates.pglGetMinmaxParameterfv((Int32)target, pname, p_params);
+					Delegates.pglGetMinmaxParameterfv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetMinmaxParameterfv", null, target, pname, @params					);
 				}
 			}
@@ -1825,13 +1825,13 @@ namespace OpenGL
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmaxParameter(MinmaxTarget target, Int32 pname, [Out] Int32[] @params)
+		public static void GetMinmaxParameter(MinmaxTarget target, GetMinmaxParameterPName pname, [Out] Int32[] @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameteriv != null, "pglGetMinmaxParameteriv not implemented");
-					Delegates.pglGetMinmaxParameteriv((Int32)target, pname, p_params);
+					Delegates.pglGetMinmaxParameteriv((Int32)target, (Int32)pname, p_params);
 					LogCommand("glGetMinmaxParameteriv", null, target, pname, @params					);
 				}
 			}
@@ -1860,10 +1860,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void Histogram(Int32 target, Int32 width, InternalFormat internalformat, bool sink)
+		public static void Histogram(HistogramTarget target, Int32 width, InternalFormat internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
-			Delegates.pglHistogram(target, width, (Int32)internalformat, sink);
+			Delegates.pglHistogram((Int32)target, width, (Int32)internalformat, sink);
 			LogCommand("glHistogram", null, target, width, internalformat, sink			);
 			DebugCheckErrors(null);
 		}
@@ -1903,10 +1903,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void ResetHistogram(Int32 target)
+		public static void ResetHistogram(HistogramTarget target)
 		{
 			Debug.Assert(Delegates.pglResetHistogram != null, "pglResetHistogram not implemented");
-			Delegates.pglResetHistogram(target);
+			Delegates.pglResetHistogram((Int32)target);
 			LogCommand("glResetHistogram", null, target			);
 			DebugCheckErrors(null);
 		}

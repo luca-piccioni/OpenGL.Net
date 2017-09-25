@@ -5412,19 +5412,19 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:ProgramProperty"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedProgramEXT(UInt32 program, Int32 target, Int32 pname, out Int32 @params)
+		public static void GetNamedProgramEXT(UInt32 program, Int32 target, ProgramProperty pname, out Int32 @params)
 		{
 			unsafe {
 				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedProgramivEXT != null, "pglGetNamedProgramivEXT not implemented");
-					Delegates.pglGetNamedProgramivEXT(program, target, pname, p_params);
+					Delegates.pglGetNamedProgramivEXT(program, target, (Int32)pname, p_params);
 					LogCommand("glGetNamedProgramivEXT", null, program, target, pname, @params					);
 				}
 			}
@@ -6325,7 +6325,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribType"/>.
+		/// A <see cref="T:VertexAttribEnum"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:Int32"/>.
@@ -6334,7 +6334,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, VertexAttribType type, Int32 stride, IntPtr offset)
+		public static void VertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, VertexAttribEnum type, Int32 stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribIOffsetEXT != null, "pglVertexArrayVertexAttribIOffsetEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, (Int32)type, stride, offset);

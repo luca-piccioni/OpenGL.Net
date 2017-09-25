@@ -2192,13 +2192,6 @@ namespace OpenGL
 			public int MinLodWarningAmd;
 
 			/// <summary>
-			/// [GL] Value of GL_MAX_SHADER_COMPILER_THREADS_ARB symbol.
-			/// </summary>
-			[Limit(MAX_SHADER_COMPILER_THREADS_ARB)]
-			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
-			public int MaxShaderCompilerThreadsArb;
-
-			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be 
 			/// at least 14. See Gl.UniformBlockBinding.
 			/// </summary>

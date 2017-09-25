@@ -955,7 +955,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static Int32 FenceSync(FenceSyncCondition condition, UInt32 flags)
+		public static Int32 FenceSync(SyncCondition condition, UInt32 flags)
 		{
 			Int32 retValue;
 

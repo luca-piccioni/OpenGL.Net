@@ -2882,13 +2882,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, Int32 pname, [Out] float[] @params)
+		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterfv != null, "pglGetTextureLevelParameterfv not implemented");
-					Delegates.pglGetTextureLevelParameterfv(texture, level, pname, p_params);
+					Delegates.pglGetTextureLevelParameterfv(texture, level, (Int32)pname, p_params);
 					LogCommand("glGetTextureLevelParameterfv", null, texture, level, pname, @params					);
 				}
 			}
@@ -4376,10 +4376,10 @@ namespace OpenGL
 		/// [GL] glGetnMapdv: Binding for glGetnMapdv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -4388,7 +4388,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] double[] v)
+		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
@@ -4405,10 +4405,10 @@ namespace OpenGL
 		/// [GL] glGetnMapfv: Binding for glGetnMapfv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -4417,7 +4417,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] float[] v)
+		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -4434,10 +4434,10 @@ namespace OpenGL
 		/// [GL] glGetnMapiv: Binding for glGetnMapiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:EvaluatorTarget"/>.
+		/// A <see cref="T:MapTarget"/>.
 		/// </param>
 		/// <param name="query">
-		/// A <see cref="T:EvaluatorParameterName"/>.
+		/// A <see cref="T:MapQuery"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:Int32"/>.
@@ -4446,7 +4446,7 @@ namespace OpenGL
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMap(EvaluatorTarget target, EvaluatorParameterName query, Int32 bufSize, [Out] Int32[] v)
+		public static void GetnMap(MapTarget target, MapQuery query, Int32 bufSize, [Out] Int32[] v)
 		{
 			unsafe {
 				fixed (Int32* p_v = v)
@@ -4754,7 +4754,7 @@ namespace OpenGL
 		/// [GL] glGetnHistogram: Binding for glGetnHistogram.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTargetEXT"/>.
+		/// A <see cref="T:HistogramTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -4772,7 +4772,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
+		public static void GetnHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetnHistogram != null, "pglGetnHistogram not implemented");
 			Delegates.pglGetnHistogram((Int32)target, reset, (Int32)format, (Int32)type, bufSize, values);
@@ -4784,7 +4784,7 @@ namespace OpenGL
 		/// [GL] glGetnHistogram: Binding for glGetnHistogram.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTargetEXT"/>.
+		/// A <see cref="T:HistogramTarget"/>.
 		/// </param>
 		/// <param name="reset">
 		/// A <see cref="T:bool"/>.
@@ -4802,7 +4802,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
+		public static void GetnHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, Int32 bufSize, Object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

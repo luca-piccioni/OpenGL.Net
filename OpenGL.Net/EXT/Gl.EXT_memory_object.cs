@@ -339,7 +339,7 @@ namespace OpenGL
 		/// [GL] glBufferStorageMemEXT: Binding for glBufferStorageMemEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:BufferTarget"/>.
 		/// </param>
 		/// <param name="size">
 		/// A <see cref="T:UInt32"/>.
@@ -351,10 +351,10 @@ namespace OpenGL
 		/// A <see cref="T:UInt64"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void BufferStorageEXT(Int32 target, UInt32 size, UInt32 memory, UInt64 offset)
+		public static void BufferStorageEXT(BufferTarget target, UInt32 size, UInt32 memory, UInt64 offset)
 		{
 			Debug.Assert(Delegates.pglBufferStorageMemEXT != null, "pglBufferStorageMemEXT not implemented");
-			Delegates.pglBufferStorageMemEXT(target, size, memory, offset);
+			Delegates.pglBufferStorageMemEXT((Int32)target, size, memory, offset);
 			LogCommand("glBufferStorageMemEXT", null, target, size, memory, offset			);
 			DebugCheckErrors(null);
 		}

@@ -183,21 +183,18 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] glDeleteStatesNV: Binding for glDeleteStatesNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="states">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-		public static void DeleteStateNV(Int32 n, UInt32[] states)
+		public static void DeleteStateNV(UInt32[] states)
 		{
 			unsafe {
 				fixed (UInt32* p_states = states)
 				{
 					Debug.Assert(Delegates.pglDeleteStatesNV != null, "pglDeleteStatesNV not implemented");
-					Delegates.pglDeleteStatesNV(n, p_states);
-					LogCommand("glDeleteStatesNV", null, n, states					);
+					Delegates.pglDeleteStatesNV((Int32)states.Length, p_states);
+					LogCommand("glDeleteStatesNV", null, states.Length, states					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -451,21 +448,18 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] glDeleteCommandListsNV: Binding for glDeleteCommandListsNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="lists">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-		public static void DeleteCommandListsNV(Int32 n, UInt32[] lists)
+		public static void DeleteCommandListsNV(UInt32[] lists)
 		{
 			unsafe {
 				fixed (UInt32* p_lists = lists)
 				{
 					Debug.Assert(Delegates.pglDeleteCommandListsNV != null, "pglDeleteCommandListsNV not implemented");
-					Delegates.pglDeleteCommandListsNV(n, p_lists);
-					LogCommand("glDeleteCommandListsNV", null, n, lists					);
+					Delegates.pglDeleteCommandListsNV((Int32)lists.Length, p_lists);
+					LogCommand("glDeleteCommandListsNV", null, lists.Length, lists					);
 				}
 			}
 			DebugCheckErrors(null);

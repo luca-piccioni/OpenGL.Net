@@ -80,21 +80,18 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] glCoverageModulationTableNV: Binding for glCoverageModulationTableNV.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
-		public static void CoverageModulationTableNV(Int32 n, float[] v)
+		public static void CoverageModulationTableNV(float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglCoverageModulationTableNV != null, "pglCoverageModulationTableNV not implemented");
-					Delegates.pglCoverageModulationTableNV(n, p_v);
-					LogCommand("glCoverageModulationTableNV", null, n, v					);
+					Delegates.pglCoverageModulationTableNV((Int32)v.Length, p_v);
+					LogCommand("glCoverageModulationTableNV", null, v.Length, v					);
 				}
 			}
 			DebugCheckErrors(null);

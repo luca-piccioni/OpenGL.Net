@@ -829,7 +829,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP1(UInt32 index, PackedVertexType type, bool normalized, UInt32 value)
+		public static void VertexAttribP1(UInt32 index, VertexAttribType type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP1ui != null, "pglVertexAttribP1ui not implemented");
 			Delegates.pglVertexAttribP1ui(index, (Int32)type, normalized, value);
@@ -844,7 +844,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -854,7 +854,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP1(UInt32 index, PackedVertexType type, bool normalized, UInt32[] value)
+		public static void VertexAttribP1(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -888,7 +888,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP2(UInt32 index, PackedVertexType type, bool normalized, UInt32 value)
+		public static void VertexAttribP2(UInt32 index, VertexAttribType type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP2ui != null, "pglVertexAttribP2ui not implemented");
 			Delegates.pglVertexAttribP2ui(index, (Int32)type, normalized, value);
@@ -903,7 +903,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -913,7 +913,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP2(UInt32 index, PackedVertexType type, bool normalized, UInt32[] value)
+		public static void VertexAttribP2(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -947,7 +947,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP3(UInt32 index, PackedVertexType type, bool normalized, UInt32 value)
+		public static void VertexAttribP3(UInt32 index, VertexAttribType type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP3ui != null, "pglVertexAttribP3ui not implemented");
 			Delegates.pglVertexAttribP3ui(index, (Int32)type, normalized, value);
@@ -962,7 +962,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -972,7 +972,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP3(UInt32 index, PackedVertexType type, bool normalized, UInt32[] value)
+		public static void VertexAttribP3(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1006,7 +1006,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP4(UInt32 index, PackedVertexType type, bool normalized, UInt32 value)
+		public static void VertexAttribP4(UInt32 index, VertexAttribType type, bool normalized, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP4ui != null, "pglVertexAttribP4ui not implemented");
 			Delegates.pglVertexAttribP4ui(index, (Int32)type, normalized, value);
@@ -1021,7 +1021,7 @@ namespace OpenGL
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1031,7 +1031,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP4(UInt32 index, PackedVertexType type, bool normalized, UInt32[] value)
+		public static void VertexAttribP4(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1048,14 +1048,14 @@ namespace OpenGL
 		/// [GL] glVertexP2ui: Binding for glVertexP2ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void VertexP2(PackedVertexType type, UInt32 value)
+		public static void VertexP2(VertexPointerType type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP2ui != null, "pglVertexP2ui not implemented");
 			Delegates.pglVertexP2ui((Int32)type, value);
@@ -1067,14 +1067,14 @@ namespace OpenGL
 		/// [GL] glVertexP2uiv: Binding for glVertexP2uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void VertexP2(PackedVertexType type, UInt32[] value)
+		public static void VertexP2(VertexPointerType type, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1091,14 +1091,14 @@ namespace OpenGL
 		/// [GL] glVertexP3ui: Binding for glVertexP3ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void VertexP3(PackedVertexType type, UInt32 value)
+		public static void VertexP3(VertexPointerType type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP3ui != null, "pglVertexP3ui not implemented");
 			Delegates.pglVertexP3ui((Int32)type, value);
@@ -1110,14 +1110,14 @@ namespace OpenGL
 		/// [GL] glVertexP3uiv: Binding for glVertexP3uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void VertexP3(PackedVertexType type, UInt32[] value)
+		public static void VertexP3(VertexPointerType type, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1134,14 +1134,14 @@ namespace OpenGL
 		/// [GL] glVertexP4ui: Binding for glVertexP4ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void VertexP4(PackedVertexType type, UInt32 value)
+		public static void VertexP4(VertexPointerType type, UInt32 value)
 		{
 			Debug.Assert(Delegates.pglVertexP4ui != null, "pglVertexP4ui not implemented");
 			Delegates.pglVertexP4ui((Int32)type, value);
@@ -1153,14 +1153,14 @@ namespace OpenGL
 		/// [GL] glVertexP4uiv: Binding for glVertexP4uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void VertexP4(PackedVertexType type, UInt32[] value)
+		public static void VertexP4(VertexPointerType type, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
@@ -1177,14 +1177,14 @@ namespace OpenGL
 		/// [GL] glTexCoordP1ui: Binding for glTexCoordP1ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void TexCoordP1(PackedVertexType type, UInt32 coords)
+		public static void TexCoordP1(TexCoordPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP1ui != null, "pglTexCoordP1ui not implemented");
 			Delegates.pglTexCoordP1ui((Int32)type, coords);
@@ -1196,14 +1196,14 @@ namespace OpenGL
 		/// [GL] glTexCoordP1uiv: Binding for glTexCoordP1uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void TexCoordP1(PackedVertexType type, UInt32[] coords)
+		public static void TexCoordP1(TexCoordPointerType type, UInt32[] coords)
 		{
 			unsafe {
 				fixed (UInt32* p_coords = coords)
@@ -1220,14 +1220,14 @@ namespace OpenGL
 		/// [GL] glTexCoordP2ui: Binding for glTexCoordP2ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void TexCoordP2(PackedVertexType type, UInt32 coords)
+		public static void TexCoordP2(TexCoordPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP2ui != null, "pglTexCoordP2ui not implemented");
 			Delegates.pglTexCoordP2ui((Int32)type, coords);
@@ -1239,14 +1239,14 @@ namespace OpenGL
 		/// [GL] glTexCoordP2uiv: Binding for glTexCoordP2uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void TexCoordP2(PackedVertexType type, UInt32[] coords)
+		public static void TexCoordP2(TexCoordPointerType type, UInt32[] coords)
 		{
 			unsafe {
 				fixed (UInt32* p_coords = coords)
@@ -1263,14 +1263,14 @@ namespace OpenGL
 		/// [GL] glTexCoordP3ui: Binding for glTexCoordP3ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void TexCoordP3(PackedVertexType type, UInt32 coords)
+		public static void TexCoordP3(TexCoordPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP3ui != null, "pglTexCoordP3ui not implemented");
 			Delegates.pglTexCoordP3ui((Int32)type, coords);
@@ -1282,14 +1282,14 @@ namespace OpenGL
 		/// [GL] glTexCoordP3uiv: Binding for glTexCoordP3uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void TexCoordP3(PackedVertexType type, UInt32[] coords)
+		public static void TexCoordP3(TexCoordPointerType type, UInt32[] coords)
 		{
 			unsafe {
 				fixed (UInt32* p_coords = coords)
@@ -1306,14 +1306,14 @@ namespace OpenGL
 		/// [GL] glTexCoordP4ui: Binding for glTexCoordP4ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void TexCoordP4(PackedVertexType type, UInt32 coords)
+		public static void TexCoordP4(TexCoordPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglTexCoordP4ui != null, "pglTexCoordP4ui not implemented");
 			Delegates.pglTexCoordP4ui((Int32)type, coords);
@@ -1325,14 +1325,14 @@ namespace OpenGL
 		/// [GL] glTexCoordP4uiv: Binding for glTexCoordP4uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void TexCoordP4(PackedVertexType type, UInt32[] coords)
+		public static void TexCoordP4(TexCoordPointerType type, UInt32[] coords)
 		{
 			unsafe {
 				fixed (UInt32* p_coords = coords)
@@ -1352,14 +1352,14 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void MultiTexCoordP1(TextureUnit texture, PackedVertexType type, UInt32 coords)
+		public static void MultiTexCoordP1(TextureUnit texture, TexCoordPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP1ui != null, "pglMultiTexCoordP1ui not implemented");
 			Delegates.pglMultiTexCoordP1ui((Int32)texture, (Int32)type, coords);
@@ -1374,14 +1374,14 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void MultiTexCoordP1(TextureUnit texture, PackedVertexType type, UInt32[] coords)
+		public static void MultiTexCoordP1(TextureUnit texture, TexCoordPointerType type, UInt32[] coords)
 		{
 			unsafe {
 				fixed (UInt32* p_coords = coords)
@@ -1401,14 +1401,14 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void MultiTexCoordP2(TextureUnit texture, PackedVertexType type, UInt32 coords)
+		public static void MultiTexCoordP2(TextureUnit texture, TexCoordPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP2ui != null, "pglMultiTexCoordP2ui not implemented");
 			Delegates.pglMultiTexCoordP2ui((Int32)texture, (Int32)type, coords);
@@ -1450,14 +1450,14 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void MultiTexCoordP3(TextureUnit texture, PackedVertexType type, UInt32 coords)
+		public static void MultiTexCoordP3(TextureUnit texture, TexCoordPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP3ui != null, "pglMultiTexCoordP3ui not implemented");
 			Delegates.pglMultiTexCoordP3ui((Int32)texture, (Int32)type, coords);
@@ -1472,14 +1472,14 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void MultiTexCoordP3(TextureUnit texture, PackedVertexType type, UInt32[] coords)
+		public static void MultiTexCoordP3(TextureUnit texture, TexCoordPointerType type, UInt32[] coords)
 		{
 			unsafe {
 				fixed (UInt32* p_coords = coords)
@@ -1499,14 +1499,14 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void MultiTexCoordP4(TextureUnit texture, PackedVertexType type, UInt32 coords)
+		public static void MultiTexCoordP4(TextureUnit texture, TexCoordPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordP4ui != null, "pglMultiTexCoordP4ui not implemented");
 			Delegates.pglMultiTexCoordP4ui((Int32)texture, (Int32)type, coords);
@@ -1521,14 +1521,14 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void MultiTexCoordP4(TextureUnit texture, PackedVertexType type, UInt32[] coords)
+		public static void MultiTexCoordP4(TextureUnit texture, TexCoordPointerType type, UInt32[] coords)
 		{
 			unsafe {
 				fixed (UInt32* p_coords = coords)
@@ -1545,14 +1545,14 @@ namespace OpenGL
 		/// [GL] glNormalP3ui: Binding for glNormalP3ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:NormalPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void NormalP3(PackedVertexType type, UInt32 coords)
+		public static void NormalP3(NormalPointerType type, UInt32 coords)
 		{
 			Debug.Assert(Delegates.pglNormalP3ui != null, "pglNormalP3ui not implemented");
 			Delegates.pglNormalP3ui((Int32)type, coords);
@@ -1564,14 +1564,14 @@ namespace OpenGL
 		/// [GL] glNormalP3uiv: Binding for glNormalP3uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:NormalPointerType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void NormalP3(PackedVertexType type, UInt32[] coords)
+		public static void NormalP3(NormalPointerType type, UInt32[] coords)
 		{
 			unsafe {
 				fixed (UInt32* p_coords = coords)
@@ -1588,14 +1588,14 @@ namespace OpenGL
 		/// [GL] glColorP3ui: Binding for glColorP3ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void ColorP3(PackedVertexType type, UInt32 color)
+		public static void ColorP3(ColorPointerType type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglColorP3ui != null, "pglColorP3ui not implemented");
 			Delegates.pglColorP3ui((Int32)type, color);
@@ -1607,14 +1607,14 @@ namespace OpenGL
 		/// [GL] glColorP3uiv: Binding for glColorP3uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="color">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void ColorP3(PackedVertexType type, UInt32[] color)
+		public static void ColorP3(ColorPointerType type, UInt32[] color)
 		{
 			unsafe {
 				fixed (UInt32* p_color = color)
@@ -1631,14 +1631,14 @@ namespace OpenGL
 		/// [GL] glColorP4ui: Binding for glColorP4ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void ColorP4(PackedVertexType type, UInt32 color)
+		public static void ColorP4(ColorPointerType type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglColorP4ui != null, "pglColorP4ui not implemented");
 			Delegates.pglColorP4ui((Int32)type, color);
@@ -1650,14 +1650,14 @@ namespace OpenGL
 		/// [GL] glColorP4uiv: Binding for glColorP4uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="color">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void ColorP4(PackedVertexType type, UInt32[] color)
+		public static void ColorP4(ColorPointerType type, UInt32[] color)
 		{
 			unsafe {
 				fixed (UInt32* p_color = color)
@@ -1674,14 +1674,14 @@ namespace OpenGL
 		/// [GL] glSecondaryColorP3ui: Binding for glSecondaryColorP3ui.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="color">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void SecondaryColorP3(PackedVertexType type, UInt32 color)
+		public static void SecondaryColorP3(ColorPointerType type, UInt32 color)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorP3ui != null, "pglSecondaryColorP3ui not implemented");
 			Delegates.pglSecondaryColorP3ui((Int32)type, color);
@@ -1693,14 +1693,14 @@ namespace OpenGL
 		/// [GL] glSecondaryColorP3uiv: Binding for glSecondaryColorP3uiv.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:PackedVertexType"/>.
+		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="color">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3", Profile = "compatibility")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
-		public static void SecondaryColorP3(PackedVertexType type, UInt32[] color)
+		public static void SecondaryColorP3(ColorPointerType type, UInt32[] color)
 		{
 			unsafe {
 				fixed (UInt32* p_color = color)

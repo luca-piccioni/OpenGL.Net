@@ -96,21 +96,18 @@ namespace OpenGL
 		/// <param name="offset">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="values">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-		public static void ClearPixelLocalStorageEXT(Int32 offset, Int32 n, UInt32[] values)
+		public static void ClearPixelLocalStorageEXT(Int32 offset, UInt32[] values)
 		{
 			unsafe {
 				fixed (UInt32* p_values = values)
 				{
 					Debug.Assert(Delegates.pglClearPixelLocalStorageuiEXT != null, "pglClearPixelLocalStorageuiEXT not implemented");
-					Delegates.pglClearPixelLocalStorageuiEXT(offset, n, p_values);
-					LogCommand("glClearPixelLocalStorageuiEXT", null, offset, n, values					);
+					Delegates.pglClearPixelLocalStorageuiEXT(offset, (Int32)values.Length, p_values);
+					LogCommand("glClearPixelLocalStorageuiEXT", null, offset, values.Length, values					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -4167,7 +4167,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
-		public static void GetVertexAttribL(UInt32 index, VertexAttribPName pname, [Out] double[] @params)
+		public static void GetVertexAttribL(UInt32 index, VertexAttribEnum pname, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
