@@ -90,7 +90,13 @@ namespace BindingsGen
 				sw.WriteLine("{");
 				sw.Indent();
 
-				foreach (EnumerantGroup enumerantGroup in _Registry.Groups) {
+				// Sort enumerations by name
+				List<EnumerantGroup> glGroups = new List<EnumerantGroup>(_Registry.Groups);
+				glGroups.Sort(delegate(EnumerantGroup x, EnumerantGroup y) {
+					return (x.Name.CompareTo(y.Name));
+				});
+
+				foreach (EnumerantGroup enumerantGroup in glGroups) {
 					enumerantGroup.GenerateSource(sw, ctx);
 					sw.WriteLine();
 				}
