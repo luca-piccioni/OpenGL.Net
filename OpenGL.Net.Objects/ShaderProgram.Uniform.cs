@@ -288,7 +288,7 @@ namespace OpenGL.Objects
 		{
 			int activeUniforms;
 
-			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORMS, out activeUniforms);
+			Gl.GetProgram(ObjectName, ProgramProperty.ActiveUniforms, out activeUniforms);
 
 			// Get uniform information
 			uint[] uniformIndices = new uint[activeUniforms];
@@ -354,8 +354,8 @@ namespace OpenGL.Objects
 		{
 			int activeUniforms, uniformBufferSize;
 
-			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORMS, out activeUniforms);
-			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORM_MAX_LENGTH, out uniformBufferSize);
+			Gl.GetProgram(ObjectName, ProgramProperty.ActiveUniforms, out activeUniforms);
+			Gl.GetProgram(ObjectName, ProgramProperty.ActiveUniformMaxLength, out uniformBufferSize);
 
 			for (uint i = 0; i < activeUniforms; i++) {
 				// Get uniform information

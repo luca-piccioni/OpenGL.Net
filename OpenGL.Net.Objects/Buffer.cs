@@ -254,12 +254,6 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer has no CPU buffer allocated.
 		/// </exception>
-		/// <remarks>
-		/// <para>
-		/// After being mapped, the mapped buffer is accessible via <see cref="MapGet{T}(GraphicsContext, long)"/> or
-		/// <see cref="MapSet{T}(GraphicsContext, T, long)"/>, or via <see cref="MappedBuffer"/> as raw pointer.
-		/// </para>
-		/// </remarks>
 		public void Map()
 		{
 			if (IsMapped)
@@ -287,12 +281,6 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer does not exist for <paramref name="ctx"/>.
 		/// </exception>
-		/// <remarks>
-		/// <para>
-		/// After being mapped, the mapped buffer is accessible via <see cref="MapGet{T}(GraphicsContext, long)"/> or
-		/// <see cref="MapSet{T}(GraphicsContext, T, long)"/>, or via <see cref="MappedBuffer"/> as raw pointer.
-		/// </para>
-		/// </remarks>
 		public void Map(GraphicsContext ctx, BufferAccess mask)
 		{
 			CheckThisExistence(ctx);
@@ -404,8 +392,8 @@ namespace OpenGL.Objects
 		/// <typeparam name="T">
 		/// A structure representing this Buffer element.
 		/// </typeparam>
-		/// <param name="value">
-		/// A <typeparamref name="T"/> that specify the mapped Buffer element.
+		/// <param name="array">
+		/// A <typeparamref name="T:T[]"/> that specify the mapped Buffer element.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="UInt64"/> that specify the offset applied to the mapped Buffer where <paramref name="value"/>

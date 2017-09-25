@@ -164,7 +164,7 @@ namespace OpenGL.Objects
 			uint[] shadersObject = null;
 			int shadersCount;
 
-			Gl.GetProgram(ObjectName, Gl.ATTACHED_SHADERS, out shadersCount);
+			Gl.GetProgram(ObjectName, ProgramProperty.AttachedShaders, out shadersCount);
 
 			if (shadersCount > 0) {
 				shadersObject = new uint[shadersCount];
@@ -257,7 +257,7 @@ namespace OpenGL.Objects
 			// Link shader program
 			Gl.LinkProgram(ObjectName);
 			// Check for linking errors
-			Gl.GetProgram(ObjectName, Gl.LINK_STATUS, out lStatus);
+			Gl.GetProgram(ObjectName, ProgramProperty.LinkStatus, out lStatus);
 
 			// Release feedback varyings unmanaged memory
 			if (feedbackVaryingsPtrs != null)
@@ -296,9 +296,9 @@ namespace OpenGL.Objects
 			// Get active inputs count
 			int activeInputs, attributeBufferSize;
 
-			Gl.GetProgram(ObjectName, Gl.ACTIVE_ATTRIBUTES, out activeInputs);
+			Gl.GetProgram(ObjectName, ProgramProperty.ActiveAttributes, out activeInputs);
 			// Get inputs maximum length for name
-			Gl.GetProgram(ObjectName, Gl.ACTIVE_ATTRIBUTE_MAX_LENGTH, out attributeBufferSize);
+			Gl.GetProgram(ObjectName, ProgramProperty.ActiveAttributeMaxLength, out attributeBufferSize);
 
 			// Clear input mapping
 			_AttributesMap.Clear();
@@ -354,8 +354,8 @@ namespace OpenGL.Objects
 					// Map active feedback
 					int feebackVaryings, feebackVaryingsMaxLength;
 
-					Gl.GetProgram(ObjectName, Gl.TRANSFORM_FEEDBACK_VARYINGS, out feebackVaryings);
-					Gl.GetProgram(ObjectName, Gl.TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH, out feebackVaryingsMaxLength);
+					Gl.GetProgram(ObjectName, ProgramProperty.TransformFeedbackVaryings, out feebackVaryings);
+					Gl.GetProgram(ObjectName, ProgramProperty.TransformFeedbackVaryingMaxLength, out feebackVaryingsMaxLength);
 
 					for (uint i = 0; i < feebackVaryings; i++) {
 						StringBuilder sb = new StringBuilder(feebackVaryingsMaxLength);
@@ -374,8 +374,8 @@ namespace OpenGL.Objects
 					// Map active feedback
 					int feebackVaryings, feebackVaryingsMaxLength;
 
-					Gl.GetProgram(ObjectName, Gl.ACTIVE_VARYINGS_NV, out feebackVaryings);
-					Gl.GetProgram(ObjectName, Gl.ACTIVE_VARYING_MAX_LENGTH_NV, out feebackVaryingsMaxLength);
+					Gl.GetProgram(ObjectName, ProgramProperty.ActiveVaryingsNv, out feebackVaryings);
+					Gl.GetProgram(ObjectName, ProgramProperty.ActiveVaryingMaxLengthNv, out feebackVaryingsMaxLength);
 
 					for (uint i = 0; i < feebackVaryings; i++) {
 						StringBuilder sb = new StringBuilder(feebackVaryingsMaxLength * 2);
@@ -490,7 +490,7 @@ namespace OpenGL.Objects
 			// Request program validation
 			Gl.ValidateProgram(ObjectName);
 			// Check for validation result
-			Gl.GetProgram(ObjectName, Gl.VALIDATE_STATUS, out lStatus);
+			Gl.GetProgram(ObjectName, ProgramProperty.ValidateStatus, out lStatus);
 
 			if (lStatus != Gl.TRUE) {
 				const int MaxInfoLength = 4096;
@@ -1084,7 +1084,7 @@ namespace OpenGL.Objects
 
 			int programCacheLength;
 
-			Gl.GetProgram(ObjectName, Gl.PROGRAM_BINARY_LENGTH, out programCacheLength);
+			Gl.GetProgram(ObjectName, ProgramProperty.ProgramBinaryLength, out programCacheLength);
 
 			byte[] programCache = new byte[programCacheLength];
 			int programCacheFormat;

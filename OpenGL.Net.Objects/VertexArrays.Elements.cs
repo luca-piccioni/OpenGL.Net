@@ -74,7 +74,7 @@ namespace OpenGL.Objects
 			public readonly PrimitiveType ElementsMode;
 
 			/// <summary>
-			/// Create a copy of this element, but <see cref="ElementMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
+			/// Create a copy of this element, but <see cref="ElementsMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
 			/// </summary>
 			public abstract Element AsPoint();
 
@@ -224,7 +224,6 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// The offset for sending element for drawing.
 			/// </summary>
-			/// <remarks>
 			public readonly uint ElementOffset;
 
 			/// <summary>
@@ -240,7 +239,7 @@ namespace OpenGL.Objects
 			#region Element Overrides
 
 			/// <summary>
-			/// Create a copy of this element, but <see cref="ElementMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
+			/// Create a copy of this element, but <see cref="ElementsMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
 			/// </summary>
 			public override Element AsPoint() { return (new ArrayElement(_VertexArrayObject, PrimitiveType.Points, ElementOffset, ElementCount)); }
 
@@ -494,10 +493,10 @@ namespace OpenGL.Objects
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
 			/// </param>
 			/// <param name="offsets">
-			/// A <see cref="Int32[]"/> that specify the offset applied to the drawn array elements.
+			/// A <see cref="T:Int32[]"/> that specify the offset applied to the drawn array elements.
 			/// </param>
 			/// <param name="counts">
-			/// A <see cref="Int32[]"/> that specify the number of array elements drawn.
+			/// A <see cref="T:Int32[]"/> that specify the number of array elements drawn.
 			/// </param>
 			public MultiArrayElement(Objects.VertexArrays vao, PrimitiveType mode, int[] offsets, int[] counts) :
 				base(vao, mode)
@@ -522,7 +521,6 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// The offset for sending element for drawing.
 			/// </summary>
-			/// <remarks>
 			public readonly int[] ArrayOffsets;
 
 			/// <summary>
@@ -538,7 +536,7 @@ namespace OpenGL.Objects
 			#region Element Overrides
 
 			/// <summary>
-			/// Create a copy of this element, but <see cref="ElementMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
+			/// Create a copy of this element, but <see cref="ElementsMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
 			/// </summary>
 			public override Element AsPoint() { return (new MultiArrayElement(_VertexArrayObject, PrimitiveType.Points, ArrayOffsets, ArrayCounts)); }
 
@@ -586,7 +584,7 @@ namespace OpenGL.Objects
 			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of element indices.
 			/// </summary>
 			/// <param name="vao">
-			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
+			/// The <see cref="VertexArrays"/> to which this element belongs to.
 			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
@@ -603,7 +601,7 @@ namespace OpenGL.Objects
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="indices"/> is null.
 			/// </exception>
-			public IndexedElement(Objects.VertexArrays vao, PrimitiveType mode, ElementBuffer indices, uint offset, uint count) :
+			public IndexedElement(VertexArrays vao, PrimitiveType mode, ElementBuffer indices, uint offset, uint count) :
 				base(vao, mode, offset, count)
 			{
 				if (indices == null)
@@ -616,6 +614,9 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of element indices.
 			/// </summary>
+			/// <param name="vao">
+			/// The <see cref="VertexArrays"/> to which this element belongs to.
+			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
 			/// </param>
@@ -629,7 +630,7 @@ namespace OpenGL.Objects
 			/// The element indices count is implictly defined by <paramref name="indices"/> at <see cref="Draw(GraphicsContext)"/>
 			/// execution time.
 			/// </remarks>
-			public IndexedElement(Objects.VertexArrays vao, PrimitiveType mode, ElementBuffer indices) :
+			public IndexedElement(VertexArrays vao, PrimitiveType mode, ElementBuffer indices) :
 				this(vao, mode, indices, 0, 0)
 			{
 
@@ -649,7 +650,7 @@ namespace OpenGL.Objects
 			#region ArrayElement Overrides
 
 			/// <summary>
-			/// Create a copy of this element, but <see cref="ElementMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
+			/// Create a copy of this element, but <see cref="ElementsMode"/> is forced to be <see cref="PrimitiveType.Points"/>.
 			/// </summary>
 			public override Element AsPoint()
 			{
@@ -1039,7 +1040,7 @@ namespace OpenGL.Objects
 		/// Set a buffer object which specify the element arrays.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="Primitive"/> that specify how arrays elements are interpreted.
+		/// A <see cref="PrimitiveType"/> that specify how arrays elements are interpreted.
 		/// </param>
 		/// <param name="bufferObject">
 		/// A <see cref="ElementBuffer"/> that specify a sequence of indices that defines the

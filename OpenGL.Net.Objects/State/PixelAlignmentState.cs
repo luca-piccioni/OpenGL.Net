@@ -64,7 +64,7 @@ namespace OpenGL.Objects.State
 		/// Get or set the pixel pack alignment (GPU to CPU).
 		/// </summary>
 		/// <remarks>
-		/// The default value is <see cref="4"/>.
+		/// The default value is 4.
 		/// </remarks>
 		public int PackAlignment
 		{
@@ -81,7 +81,7 @@ namespace OpenGL.Objects.State
 		/// Get or set the pixel unpack alignment (CPU to GPU).
 		/// </summary>
 		/// <remarks>
-		/// The default value is <see cref="4"/>.
+		/// The default value is 4.
 		/// </remarks>
 		public int UnpackAlignment
 		{

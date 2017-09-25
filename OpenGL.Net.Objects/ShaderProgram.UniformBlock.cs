@@ -195,7 +195,7 @@ namespace OpenGL.Objects
 
 			int activeUniformBlocks = 0;
 
-			Gl.GetProgram(ObjectName, Gl.ACTIVE_UNIFORM_BLOCKS, out activeUniformBlocks);
+			Gl.GetProgram(ObjectName, ProgramProperty.ActiveUniformBlocks, out activeUniformBlocks);
 
 			// Clear uniform mapping
 			_UniformBlockMap.Clear();

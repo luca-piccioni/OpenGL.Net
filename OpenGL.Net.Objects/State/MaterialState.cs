@@ -375,7 +375,6 @@ namespace OpenGL.Objects.State
 		/// <param name="state">
 		/// A <see cref="IGraphicsState"/> having the same <see cref="StateIdentifier"/> of this state.
 		/// </param>
-		/// <remarks>
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)

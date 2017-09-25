@@ -155,7 +155,7 @@ namespace HelloTriangle.CoreUI
 			Gl.LinkProgram(_CubeEdgeProgram);
 
 			int linked;
-			Gl.GetProgram(_CubeEdgeProgram, Gl.LINK_STATUS, out linked);
+			Gl.GetProgram(_CubeEdgeProgram, ProgramProperty.LinkStatus, out linked);
 
 			if (linked == 0) {
 				Gl.GetProgramInfoLog(_CubeEdgeProgram, 1024, out infologLength, infolog);

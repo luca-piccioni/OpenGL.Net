@@ -101,7 +101,7 @@ namespace HelloTriangle.Xamarin
 			// Check for linking errors
 			int lStatus;
 
-			Gl.GetProgram(_Es2_Program, Gl.LINK_STATUS, out lStatus);
+			Gl.GetProgram(_Es2_Program, ProgramProperty.LinkStatus, out lStatus);
 
 			if (lStatus != Gl.TRUE) {
 				const int MaxInfoLength = 4096;

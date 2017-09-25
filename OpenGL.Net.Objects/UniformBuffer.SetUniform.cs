@@ -117,7 +117,7 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Single[]"/> holding the uniform variabile data.
+		/// A <see cref="T:Single[]"/> holding the uniform variabile data.
 		/// </param>
 		public void SetUniform(string uniformName, float[] v)
 		{

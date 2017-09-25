@@ -860,7 +860,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Set a default value to a shader attribute.
 		/// </summary>
-		/// <<param name="defaultValue">
+		/// <param name="defaultValue">
 		/// A <see cref="Vertex4d"/> that specify the default value of the attribute.
 		/// </param>
 		/// <param name="attributeName">

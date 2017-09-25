@@ -1671,7 +1671,7 @@ namespace OpenGL.Objects
 		/// Dispose a specific resource, later.
 		/// </summary>
 		/// <param name="resource">
-		/// The <see cref="IGraphicsResource"/> to be disposed when <see cref=""/> is called.
+		/// The <see cref="IGraphicsResource"/> to be disposed when <see cref="DisposeResources"/> is called.
 		/// </param>
 		public void DisposeResource(IGraphicsResource resource)
 		{

@@ -242,7 +242,7 @@ namespace OpenGL.Objects
 		/// A <see cref="ArrayBufferItemType"/> that determine the generic argument of the created array buffer object.
 		/// </param>
 		/// <param name="hint">
-		/// A <see cref="BufferHint"/> required for creating a <see cref="ArrayBuffer"/>.
+		/// A <see cref="BufferUsage"/> required for creating a <see cref="ArrayBuffer"/>.
 		/// </param>
 		/// <returns>
 		/// 
@@ -659,7 +659,7 @@ namespace OpenGL.Objects
 		/// The <see cref="UInt32"/> that specify the array section index.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="IArraySection"/> defining the array section.
+		/// It returns the <see cref="ArrayBufferBase.IArraySection"/> defining the array section.
 		/// </returns>
 		protected internal override IArraySection GetArraySection(uint index)
 		{
@@ -755,8 +755,7 @@ namespace OpenGL.Objects
 	/// Strongly typed array buffer object.
 	/// </summary>
 	/// <typeparam name="T">
-	/// A structure that holds the array item data. Typically this type match a <see cref="IVertex"/> or <see cref="IColor"/> implementation,
-	/// but it could any value type.
+	/// A structure that holds the array item data.
 	/// </typeparam>
 	public class ArrayBuffer<T> : ArrayBuffer where T : struct
 	{

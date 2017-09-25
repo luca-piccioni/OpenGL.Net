@@ -39,9 +39,6 @@ namespace OpenGL.Objects
 		/// <param name="vertexLength">
 		/// A <see cref="UInt32"/> that specify the number of components of the array item.
 		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="vertexBaseType"/> is <see cref="VertexBaseType.Undefined"/>.
-		/// </exception>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// Exception thrown if <paramref name="vertexLength"/> is outside the valid range (greater than 0,
 		/// less than or equal to 4).
@@ -84,9 +81,6 @@ namespace OpenGL.Objects
 		/// <param name="vertexArrayType">
 		/// A <see cref="ArrayBufferItemType"/> that synthetize all informations about a vertex array buffer item.
 		/// </param>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="vertexArrayType"/> is <see cref="ArrayBufferItemType.Complex"/>.
-		/// </exception>
 		public ArrayBufferItem(ArrayBufferItemType vertexArrayType)
 		{
 			ArrayType = vertexArrayType;
@@ -284,7 +278,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the array components base type of the vertex array attribute item type.
 		/// </summary>
-		/// <param name="vertexArrayType">
+		/// <param name="shaderAttributeType">
 		/// A <see cref="ShaderAttributeType"/> that describe the vertex array attribute item type.
 		/// </param>
 		/// <returns>

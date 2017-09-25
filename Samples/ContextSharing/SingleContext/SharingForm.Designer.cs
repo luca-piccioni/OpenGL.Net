@@ -34,6 +34,7 @@
 			// 
 			this.glControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.glControl1.ColorBits = ((uint)(24u));
+			this.glControl1.ContextSharing = OpenGL.GlControl.ContextSharingOption.SingleContext;
 			this.glControl1.ContextSharingGroup = "MainContext";
 			this.glControl1.DepthBits = ((uint)(0u));
 			this.glControl1.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -62,9 +62,6 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Construct an ArrayBufferObjectInterleaved specifying its item layout on GPU side.
 		/// </summary>
-		/// <param name="format">
-		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
-		/// </param>
 		/// <param name="usageMask">
 		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
 		/// </param>
@@ -172,7 +169,7 @@ namespace OpenGL.Objects
 		/// The <see cref="UInt32"/> that specify the array section index.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="IArraySection"/> defining the array section.
+		/// It returns the <see cref="ArrayBufferBase.IArraySection"/> defining the array section.
 		/// </returns>
 		protected internal override IArraySection GetArraySection(uint index)
 		{

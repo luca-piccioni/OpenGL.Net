@@ -112,7 +112,7 @@ namespace HelloTriangle.VideoCore
 			Gl.LinkProgram(_Es2_Program);
 
 			int linked;
-			Gl.GetProgram(_Es2_Program, Gl.LINK_STATUS, out linked);
+			Gl.GetProgram(_Es2_Program, ProgramProperty.LinkStatus, out linked);
 
 			if (linked == 0) {
 				Gl.GetProgramInfoLog(_Es2_Program, 1024, out infologLength, infolog);

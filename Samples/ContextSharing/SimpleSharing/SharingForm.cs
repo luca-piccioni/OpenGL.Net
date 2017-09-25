@@ -19,9 +19,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 using OpenGL;
@@ -32,8 +33,36 @@ namespace SimpleSharing
 	{
 		public SharingForm()
 		{
+			Application.Idle += Application_Idle;
 			InitializeComponent();
 		}
+
+		private void Application_Idle(object sender, EventArgs e)
+		{
+			while (IsApplicationIdle()) {
+				Invalidate(true);
+			}
+		}
+
+		bool IsApplicationIdle()
+		{
+			NativeMessage result;
+			return PeekMessage(out result, IntPtr.Zero, (uint)0, (uint)0, (uint)0) == 0;
+		}
+
+		[StructLayout(LayoutKind.Sequential)]
+		public struct NativeMessage
+		{
+			public IntPtr Handle;
+			public uint Message;
+			public IntPtr WParameter;
+			public IntPtr LParameter;
+			public uint Time;
+			public Point Location;
+		}
+
+		[DllImport("user32.dll")]
+		public static extern int PeekMessage(out NativeMessage message, IntPtr window, uint filterMin, uint filterMax, uint remove);
 
 		private uint _SharedTexture;
 
@@ -87,6 +116,8 @@ namespace SimpleSharing
 			Gl.Viewport(0, 0, senderControl.ClientSize.Width, senderControl.ClientSize.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
+			Gl.Rotate(_Angle, 0.0f, 0.0f, 1.0f);
+
 			// This method is shared between the two GlControl
 			// Uses the texture created with the GlControl1 on both controls
 			Gl.BindTexture(TextureTarget.Texture2d, _SharedTexture);
@@ -109,11 +140,16 @@ namespace SimpleSharing
 				// Old school OpenGL
 				Gl.Begin(PrimitiveType.Triangles);
 				for (int i = 0; i < _ArrayPosition.Length; i += 2) {
-					Gl.TexCoord2(_ArrayTexCoord[i], _ArrayTexCoord[i+1]); Gl.Vertex2(_ArrayPosition[i], _ArrayPosition[i+1]);
+					Gl.TexCoord2(_ArrayTexCoord[i], _ArrayTexCoord[i+1]);
+					Gl.Vertex2(_ArrayPosition[i], _ArrayPosition[i+1]);
 				}
 				Gl.End();
 			}
+
+			_Angle += 1.0f;
 		}
+
+		private float _Angle;
 
 		/// <summary>
 		/// Vertex position array.

@@ -107,7 +107,7 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Single[]"/> holding the uniform variabile data.
+		/// A <see cref="T:Single[]"/> holding the uniform variabile data.
 		/// </param>
 		void SetUniform(GraphicsContext ctx, string uniformName, float[] v);
 
@@ -121,7 +121,7 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex2f[]"/> holding the uniform variabile data.
+		/// A <see cref="T:Vertex2f[]"/> holding the uniform variabile data.
 		/// </param>
 		void SetUniform(GraphicsContext ctx, string uniformName, Vertex2f[] v);
 
@@ -135,7 +135,7 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex3f[]"/> holding the uniform variabile data.
+		/// A <see cref="T:Vertex3f[]"/> holding the uniform variabile data.
 		/// </param>
 		void SetUniform(GraphicsContext ctx, string uniformName, Vertex3f[] v);
 
@@ -149,7 +149,7 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="Vertex4f[]"/> holding the uniform variabile data.
+		/// A <see cref="T:Vertex4f[]"/> holding the uniform variabile data.
 		/// </param>
 		void SetUniform(GraphicsContext ctx, string uniformName, Vertex4f[] v);
 
@@ -177,7 +177,7 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="ColorRGBAF[]"/> holding the uniform variabile data.
+		/// A <see cref="T:ColorRGBAF[]"/> holding the uniform variabile data.
 		/// </param>
 		void SetUniform(GraphicsContext ctx, string uniformName, ColorRGBAF[] v);
 
@@ -519,6 +519,7 @@ namespace OpenGL.Objects
 		/// </param>
 		void SetUniform(GraphicsContext ctx, string uniformName, Vertex3d v);
 
+		/// <summary>
 		/// Set uniform state variable (dvec4 variable).
 		/// </summary>
 		/// <param name="ctx">

@@ -392,9 +392,6 @@ namespace OpenGL.Objects
 		/// <param name="array">
 		/// The source array where the data comes from.
 		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
@@ -425,13 +422,6 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="array">
 		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="array"/> is null.
@@ -521,9 +511,6 @@ namespace OpenGL.Objects
 		/// <param name="array">
 		/// The source array where the data comes from.
 		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
 		/// <param name="count">
 		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
@@ -560,13 +547,6 @@ namespace OpenGL.Objects
 		/// </param>
 		/// <param name="array">
 		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
@@ -756,10 +736,6 @@ namespace OpenGL.Objects
 		/// <param name="array">
 		/// The source array where the data comes from.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
 		/// </exception>
@@ -938,17 +914,11 @@ namespace OpenGL.Objects
 		/// <param name="dst">
 		/// The <see cref="Array"/> that specify the destination memory where copy to.
 		/// </param>
-		/// <param name="dstStride">
-		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the destination memory.
-		/// </param>
 		/// <param name="dstItemSize">
 		/// A <see cref="UInt32"/> that specify the size of the elements in the destination memory.
 		/// </param>
 		/// <param name="src">
 		/// The <see cref="IntPtr"/> that specify the source data to be copied.
-		/// </param>
-		/// <param name="srcStride">
-		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the source memory.
 		/// </param>
 		/// <param name="srcItemSize">
 		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="dst"/>.
@@ -1111,13 +1081,13 @@ namespace OpenGL.Objects
 		public abstract Array ToArray(GraphicsContext ctx);
 
 		/// <summary>
-		/// Create a strongly typed array following <see cref="ArrayType"/>.
+		/// Create a strongly typed array following <see cref="ArrayBufferItemType"/>.
 		/// </summary>
 		/// <param name="itemCount">
 		/// A <see cref="UInt32"/> that specify the length of the array returned.
 		/// </param>
 		/// <returns>
-		/// It returns an uninitialized array, strongly typed depending on <see cref="ArrayType"/>, with
+		/// It returns an uninitialized array, strongly typed depending on <see cref="ArrayBufferItemType"/>, with
 		/// the length equals to <paramref name="itemCount"/>.
 		/// </returns>
 		protected Array CreateArray(ArrayBufferItemType arrayBufferItemType, uint itemCount)
