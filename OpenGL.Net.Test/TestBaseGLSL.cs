@@ -97,7 +97,7 @@ namespace OpenGL.Test
 
 			int linkStatus;
 
-			Gl.GetProgram(shaderProgram, Gl.LINK_STATUS, out linkStatus);
+			Gl.GetProgram(shaderProgram, ProgramProperty.LinkStatus, out linkStatus);
 			if (linkStatus == Gl.FALSE) {
 				StringBuilder log = new StringBuilder(4096);
 				int logLength;
@@ -118,8 +118,8 @@ namespace OpenGL.Test
 		{
 			int activeAttributes, activeAttributeMaxLength;
 
-			Gl.GetProgram(shaderProgram, Gl.ACTIVE_ATTRIBUTES, out activeAttributes);
-			Gl.GetProgram(shaderProgram, Gl.ACTIVE_SUBROUTINE_MAX_LENGTH, out activeAttributeMaxLength);
+			Gl.GetProgram(shaderProgram, ProgramProperty.ActiveAttributes, out activeAttributes);
+			Gl.GetProgram(shaderProgram, ProgramProperty.ActiveAttributeMaxLength, out activeAttributeMaxLength);
 			for (int i = 0; i < activeAttributes; i++) {
 				StringBuilder activeAttributeName = new StringBuilder(activeAttributeMaxLength);
 				int activeAttributeNameLength, activeAttributeSize, activeAttributeType;
