@@ -19,13 +19,9 @@ It includes an UserControl implementation that ease the OpenGL context creation 
 It supports Windows and GNU/Linux.
         </description>
         <releaseNotes>
-* v0.6.0
-- Licenced under MIT
-- Fixed multithreading support
-* v0.5.2
-- Fixed GlControl.ContextVersion designer property serialization
-* v0.5.1
-- Added continuos animation support
+* v0.6.1
+- Fixed bug preventing running on Windows with Mono (#66)
+- Exceptions not masked on OnHandleCreated and OnPaint (#69)
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
         <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono WinForms GPU Graphics 3D</tags>

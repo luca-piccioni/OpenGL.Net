@@ -17,8 +17,19 @@ Modern OpenGL bindings for C#, Xamarin.Android utilities.
 It includes an SurfaceView implementation that ease the OpenGL context creation on Android.
         </description>
         <releaseNotes>
-* v0.6.0
-- Licenced under MIT
+* v0.6.1
+- GL_ARB_parallel_shader_compile promoted to GL_KHR_parallel_shader_compile
+- Added GL_NV_query_resource and GL_NV_query_resource_tag
+- Added GL_NV_path_rendering enumerations (thanks to @frabert).
+- Added ProgramProperty enumeration
+- Renamed VertexAttribPName to VertexAttribEnum
+- Renamed HistogramTargetEXT to HistogramTarget
+- Renamed EvaluatorTarget to MapTarget
+- Renamed EvaluatorParameterName to MapQuery
+- Renamed FenceSyncCondition to SyncCondition
+- PackedVertexType type has been determined
+- DeleteStateNV and DeleteCommandListsNV have implicit 'n' parameter
+- Removed IVertex, ColorSRGB, ColorSBGR and Pixel classes. Vertex* refactor.
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
         <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono Android Xamarin GPU Graphics 3D</tags>
