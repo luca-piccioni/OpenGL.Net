@@ -76,7 +76,7 @@ namespace OpenGL
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		internal const string Library = "Glu32.dll";
+		internal const string Library = "Glu32";
 
 		#endregion
 

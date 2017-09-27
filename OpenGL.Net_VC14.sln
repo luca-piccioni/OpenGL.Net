@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net_net35", "OpenGL.Net\OpenGL.Net_net35.csproj", "{ABB8DFA8-473A-4FC1-85C0-E21680772A58}"
-	ProjectSection(ProjectDependencies) = postProject
-		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663} = {6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Test_net35", "OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj", "{861A0458-2848-4585-B844-8945E4B61B5C}"
 EndProject
@@ -73,9 +70,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffscreenTriangle", "Samples\OffscreenTriangle\OffscreenTriangle.csproj", "{849A96E5-53A3-4D6C-AACA-7567F1A4AB46}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net_net461", "OpenGL.Net\OpenGL.Net_net461.csproj", "{9E3018F3-770E-4CFD-87D0-BAEE66E9FE8F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{6CE61C1E-E93A-404A-89B7-1E8EA3BAF663} = {6CE61C1E-E93A-404A-89B7-1E8EA3BAF663}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Test_net461", "OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj", "{2C30C91A-47DB-4D35-8FA1-4BCE4DC4C1FE}"
 EndProject
@@ -128,6 +122,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloObjects_monodroid", "Samples\HelloObjects\HelloObjects_monodroid.csproj", "{0E0C62CB-3C9D-4632-B4C5-4B9DA8A7B7CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Objects.Test_net461", "OpenGL.Net.Objects.Test\OpenGL.Net.Objects.Test_net461.csproj", "{F53609AC-A012-4067-B122-7436832021BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowlessTriangle", "Samples\WindowlessTriangle\WindowlessTriangle.csproj", "{8E0611A8-556A-4364-977E-4CD5767E1E62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -415,6 +411,14 @@ Global
 		{F53609AC-A012-4067-B122-7436832021BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F53609AC-A012-4067-B122-7436832021BB}.Release|x86.ActiveCfg = Release|Any CPU
 		{F53609AC-A012-4067-B122-7436832021BB}.Release|x86.Build.0 = Release|Any CPU
+		{8E0611A8-556A-4364-977E-4CD5767E1E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E0611A8-556A-4364-977E-4CD5767E1E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E0611A8-556A-4364-977E-4CD5767E1E62}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8E0611A8-556A-4364-977E-4CD5767E1E62}.Debug|x86.Build.0 = Debug|Any CPU
+		{8E0611A8-556A-4364-977E-4CD5767E1E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E0611A8-556A-4364-977E-4CD5767E1E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E0611A8-556A-4364-977E-4CD5767E1E62}.Release|x86.ActiveCfg = Release|Any CPU
+		{8E0611A8-556A-4364-977E-4CD5767E1E62}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -450,5 +454,6 @@ Global
 		{9C7DE463-47E4-49E3-9ECC-E892B48851D2} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
 		{0E0C62CB-3C9D-4632-B4C5-4B9DA8A7B7CC} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{F53609AC-A012-4067-B122-7436832021BB} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
+		{8E0611A8-556A-4364-977E-4CD5767E1E62} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 	EndGlobalSection
 EndGlobal

@@ -470,17 +470,17 @@ namespace OpenGL
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		internal const string Library = "opengl32.dll";
+		internal const string Library = "opengl32";
 
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		internal const string LibraryEs = "libGLESv1_CM.dll";
+		internal const string LibraryEs = "libGLESv1_CM";
 
 		/// <summary>
 		/// Default import library.
 		/// </summary>
-		internal const string LibraryEs2 = "libGLESv2.dll";
+		internal const string LibraryEs2 = "libGLESv2";
 
 		#endregion
 
