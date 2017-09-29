@@ -22,7 +22,7 @@
 using System;
 using System.Windows.Forms;
 
-using OpenGL;
+using Khronos;
 
 namespace HelloTriangle
 {

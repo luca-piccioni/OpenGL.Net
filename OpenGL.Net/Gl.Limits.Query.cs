@@ -23,6 +23,8 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
+using Khronos;
+
 namespace OpenGL
 {
 	public partial class Gl

@@ -31,6 +31,8 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 
+using Khronos;
+
 namespace OpenWF
 {
 	public partial class Wfd

@@ -51,6 +51,8 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 
+using Khronos;
+
 namespace OpenGL.Objects
 {
 	/// <summary>

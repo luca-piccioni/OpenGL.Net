@@ -29,7 +29,7 @@ namespace OpenGL
 	/// Version abstraction for OpenGL Shading Language APIs.
 	/// </summary>
 	[DebuggerDisplay("KhronosVersion: Version={Major}.{Minor}.{Revision} (API='{Api}')")]
-	public class GlslVersion : KhronosVersion
+	public class GlslVersion : Khronos.KhronosVersion
 	{
 		#region Constructors
 

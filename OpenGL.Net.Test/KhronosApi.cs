@@ -24,6 +24,8 @@
 using System;
 using System.Reflection;
 
+using Khronos;
+
 using NUnit.Framework;
 
 namespace OpenGL.Test

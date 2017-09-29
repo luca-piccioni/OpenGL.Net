@@ -27,7 +27,7 @@ using System.IO;
 using System.Reflection;
 using System.Xml.Serialization;
 
-namespace OpenGL
+namespace Khronos
 {
 	/// <summary>
 	/// Contains metedata information for Khronos API commands.

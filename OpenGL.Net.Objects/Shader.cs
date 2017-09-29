@@ -26,6 +26,8 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
+using Khronos;
+
 namespace OpenGL.Objects
 {
 	/// <summary>

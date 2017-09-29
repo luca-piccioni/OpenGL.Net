@@ -560,7 +560,7 @@ namespace OpenGL.Objects
 					case System.Drawing.Imaging.PixelFormat.Format1bppIndexed:
 					case System.Drawing.Imaging.PixelFormat.Format4bppIndexed:
 					case System.Drawing.Imaging.PixelFormat.Format8bppIndexed:
-						if (Platform.RunningMono) {
+						if (Khronos.Platform.RunningMono) {
 							// Bug 676362 - Bitmap Clone does not format return image to requested PixelFormat
 							// https://bugzilla.novell.com/show_bug.cgi?id=676362
 							//
@@ -623,7 +623,7 @@ namespace OpenGL.Objects
 				case System.Drawing.Imaging.PixelFormat.Format1bppIndexed:
 				case System.Drawing.Imaging.PixelFormat.Format4bppIndexed:
 				case System.Drawing.Imaging.PixelFormat.Format8bppIndexed:
-					if (Platform.RunningMono) {
+					if (Khronos.Platform.RunningMono) {
 						// Bug 676362 - Bitmap Clone does not format return image to requested PixelFormat
 						// https://bugzilla.novell.com/show_bug.cgi?id=676362
 						//

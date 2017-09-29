@@ -26,6 +26,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Reflection;
 
+using Khronos;
+
 namespace OpenGL
 {
 	/// <summary>

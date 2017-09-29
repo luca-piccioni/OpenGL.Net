@@ -22,8 +22,6 @@ using NativeStreamType = System.UInt32;
 using System;
 using System.Drawing;
 
-using OpenGL;
-
 namespace OpenWF
 {
 	/// <summary>
@@ -108,26 +106,26 @@ namespace OpenWF
 			set { Wfc.SetContextAttribi(_Device.Handle, _Handle, WFCContextAttrib.ContextRotation, (int)value); }
 		}
 
-		public ColorRGBA32 BackgroundColor
-		{
-			get
-			{
-				UInt32 bgColor = (UInt32)Wfc.GetContextAttribi(_Device.Handle, _Handle, WFCContextAttrib.ContextBgColor);
+		//public ColorRGBA32 BackgroundColor
+		//{
+		//	get
+		//	{
+		//		UInt32 bgColor = (UInt32)Wfc.GetContextAttribi(_Device.Handle, _Handle, WFCContextAttrib.ContextBgColor);
 
-				return (new ColorRGBA32(
-					(byte)(bgColor & 0xFF),
-					(byte)((bgColor >> 8) & 0xFF),
-					(byte)((bgColor >> 16) & 0xFF),
-					(byte)((bgColor >> 24) & 0xFF)
-				));
-			}
-			set
-			{
-				int bgColor = value.r | value.g << 8 | value.b << 16 | value.a << 24;
+		//		return (new ColorRGBA32(
+		//			(byte)(bgColor & 0xFF),
+		//			(byte)((bgColor >> 8) & 0xFF),
+		//			(byte)((bgColor >> 16) & 0xFF),
+		//			(byte)((bgColor >> 24) & 0xFF)
+		//		));
+		//	}
+		//	set
+		//	{
+		//		int bgColor = value.r | value.g << 8 | value.b << 16 | value.a << 24;
 
-				Wfc.SetContextAttribi(_Device.Handle, _Handle, WFCContextAttrib.ContextBgColor, bgColor);
-			}
-		}
+		//		Wfc.SetContextAttribi(_Device.Handle, _Handle, WFCContextAttrib.ContextBgColor, bgColor);
+		//	}
+		//}
 
 		#endregion
 

@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015-2017 Luca Piccioni
+// Copyright (C) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,18 +19,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
+#if NETFRAMEWORK
+using System.Xml.Serialization;
+#endif
 
-namespace OpenGL
+namespace Khronos
 {
 	/// <summary>
-	/// Attribute defining information useful for logging the underlying member.
+	/// Command parameter element.
 	/// </summary>
-	public sealed class LogAttribute : Attribute
+	public enum KhronosLogCommandParameterFlags
 	{
-		/// <summary>
-		/// If it different from null, defines the name of the bitmask defining by the underlying member.
-		/// </summary>
-		public string BitmaskName;
+#if NETFRAMEWORK
+		[XmlEnum("none")]
+#endif
+		None = 0x0000,
+
+#if NETFRAMEWORK
+		[XmlEnum("enum")]
+#endif
+		Enum = 0x0001,
 	}
 }

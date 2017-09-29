@@ -76,15 +76,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\OpenGL.Net\KhronosLogCommandParameterFlags.cs">
-      <Link>KhronosLogCommandParameterFlags.cs</Link>
-    </Compile>
-    <Compile Include="..\OpenGL.Net\KhronosLogMap.cs">
-      <Link>KhronosLogMap.cs</Link>
-    </Compile>
-    <Compile Include="..\OpenGL.Net\KhronosVersion.cs">
-      <Link>KhronosVersion.cs</Link>
-    </Compile>
     <Compile Include="RegistryAssembly.cs" />
     <Compile Include="GLSpecs\Command.cs" />
     <Compile Include="GLSpecs\CommandBlock.cs" />
@@ -213,6 +204,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Licenses\MIT.txt" />
   </ItemGroup>
+  <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

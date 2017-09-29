@@ -31,6 +31,8 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 
+using Khronos;
+
 namespace OpenGL
 {
 	public partial class Wgl

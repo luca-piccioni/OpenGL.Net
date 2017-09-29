@@ -22,6 +22,8 @@
 using System;
 using System.Collections.Generic;
 
+using Khronos;
+
 using NUnit.Framework;
 
 namespace OpenGL.Test

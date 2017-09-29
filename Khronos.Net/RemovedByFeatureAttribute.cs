@@ -22,7 +22,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace OpenGL
+namespace Khronos
 {
 	/// <summary>
 	/// Attribute asserting the features requiring the underlying member.

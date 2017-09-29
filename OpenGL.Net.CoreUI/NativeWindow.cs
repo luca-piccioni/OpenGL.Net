@@ -23,6 +23,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
+using Khronos;
+
 namespace OpenGL.CoreUI
 {
 	/// <summary>
@@ -803,8 +805,8 @@ namespace OpenGL.CoreUI
 		/// </exception>
 		public static NativeWindow Create()
 		{
-			switch (OpenGL.Platform.CurrentPlatformId) {
-				case OpenGL.Platform.Id.WindowsNT:
+			switch (Khronos.Platform.CurrentPlatformId) {
+				case Khronos.Platform.Id.WindowsNT:
 					return (new NativeWindowWinNT());
 				default:
 					throw new NotSupportedException();

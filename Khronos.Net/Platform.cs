@@ -25,7 +25,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace OpenGL
+namespace Khronos
 {
 	/// <summary>
 	/// Detected platforms.

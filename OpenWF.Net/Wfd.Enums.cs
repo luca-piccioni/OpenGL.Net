@@ -28,6 +28,8 @@
 
 using System;
 
+using Khronos;
+
 namespace OpenWF
 {
 	/// <summary>

@@ -23,6 +23,8 @@ using System;
 using System.ComponentModel;
 using System.Text;
 
+using Khronos;
+
 namespace OpenGL
 {
 	/// <summary>

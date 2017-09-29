@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c403b635-6b87-4540-8679-7889ed5d3360</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Khronos.Net</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)GetProcAddressOS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KhronosApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KhronosException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KhronosLogCommandParameterFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KhronosLogContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KhronosLogEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KhronosLogMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KhronosVersion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LogAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Platform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RemovedByFeatureAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RequiredByFeatureAttribute.cs" />
+  </ItemGroup>
+</Project>

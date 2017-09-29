@@ -21,6 +21,8 @@
 
 using System;
 
+using Khronos;
+
 namespace OpenGL.Objects
 {
 	/// <summary>

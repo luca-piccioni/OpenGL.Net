@@ -21,7 +21,7 @@
 
 using System;
 
-namespace OpenGL
+namespace Khronos
 {
 	/// <summary>
 	/// Basic exception thrown by KhronosApi classes.

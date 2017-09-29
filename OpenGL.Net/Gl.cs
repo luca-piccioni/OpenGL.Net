@@ -28,6 +28,8 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security;
 
+using Khronos;
+
 namespace OpenGL
 {
 	/// <summary>

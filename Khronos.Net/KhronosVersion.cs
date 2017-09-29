@@ -29,7 +29,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace OpenGL
+namespace Khronos
 {
 	/// <summary>
 	/// Version abstraction for Khrono APIs.

@@ -23,7 +23,7 @@ using System.Text.RegularExpressions;
 using Mono.Collections.Generic;
 using Mono.Cecil;
 
-using OpenGL;
+using Khronos;
 
 namespace BindingsGen
 {

@@ -76,7 +76,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net.Objects\OpenGL.Net.Objects_net461.csproj">
       <Project>{01314a39-ae2a-44f6-ba14-8c961583c75c}</Project>
-      <Name>OpenGL.Net.Objects</Name>
+      <Name>OpenGL.Net.Objects_net461</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj">
       <Project>{2c30c91a-47db-4d35-8fa1-4bce4dc4c1fe}</Project>

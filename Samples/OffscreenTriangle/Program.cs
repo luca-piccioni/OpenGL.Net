@@ -23,6 +23,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 
+using Khronos;
 using OpenGL;
 
 namespace OffscreenTriangle
@@ -37,10 +38,10 @@ namespace OffscreenTriangle
 		{
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
 			if (envDebug == "GL") {
-				KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
+				Khronos.KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
 					Console.WriteLine(e.ToString());
 				};
-				KhronosApi.LogEnabled = true;
+				Khronos.KhronosApi.LogEnabled = true;
 			}
 
 			try {

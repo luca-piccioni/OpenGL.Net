@@ -30,6 +30,8 @@ using System.Runtime.InteropServices;
 using System.Reflection.Emit;
 using System.Security;
 
+using Khronos;
+
 namespace OpenGL
 {
 	/// <summary>

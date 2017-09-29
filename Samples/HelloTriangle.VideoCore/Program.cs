@@ -22,6 +22,7 @@
 using System;
 using System.Text;
 
+using Khronos;
 using OpenGL;
 
 namespace HelloTriangle.VideoCore
@@ -33,10 +34,10 @@ namespace HelloTriangle.VideoCore
 			try {
 				string envDebug = Environment.GetEnvironmentVariable("DEBUG");
 				if (envDebug == "GL") {
-					KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
+					Khronos.KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
 						Console.WriteLine(e.ToString());
 					};
-					KhronosApi.LogEnabled = true;
+					Khronos.KhronosApi.LogEnabled = true;
 				}
 
 				// RPi runs on EGL

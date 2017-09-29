@@ -17,9 +17,8 @@
 // USA
 
 using System;
-using System.Diagnostics;
 
-using OpenGL;
+using Khronos;
 
 namespace OpenWF
 {

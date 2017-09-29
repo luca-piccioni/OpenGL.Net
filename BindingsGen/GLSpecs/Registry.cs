@@ -184,8 +184,8 @@ namespace BindingsGen.GLSpecs
 			});
 
 			features.Sort(delegate(Feature x, Feature y) {
-				OpenGL.KhronosVersion xVersion = OpenGL.KhronosVersion.ParseFeature(x.Name, false);
-				OpenGL.KhronosVersion yVersion = OpenGL.KhronosVersion.ParseFeature(y.Name, false);
+				Khronos.KhronosVersion xVersion = Khronos.KhronosVersion.ParseFeature(x.Name, false);
+				Khronos.KhronosVersion yVersion = Khronos.KhronosVersion.ParseFeature(y.Name, false);
 
 				if (xVersion.Api != yVersion.Api) {
 					int xPriority = GetVersionApiPriority(xVersion.Api);
@@ -230,11 +230,11 @@ namespace BindingsGen.GLSpecs
 		private static int GetVersionApiPriority(string api)
 		{
 			switch (api) {
-				case OpenGL.KhronosVersion.ApiGl:
+				case Khronos.KhronosVersion.ApiGl:
 					return (-1000);
-				case OpenGL.KhronosVersion.ApiGles1:
+				case Khronos.KhronosVersion.ApiGles1:
 					return (-501);
-				case OpenGL.KhronosVersion.ApiGles2:
+				case Khronos.KhronosVersion.ApiGles2:
 					return (-500);
 				default:
 					return (0);

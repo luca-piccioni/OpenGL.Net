@@ -23,7 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OpenGL
+namespace Khronos
 {
 	/// <summary>
 	/// EventArgs providing information about an API command call.

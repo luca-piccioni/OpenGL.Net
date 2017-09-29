@@ -20,7 +20,8 @@
 // SOFTWARE.
 
 using System;
-using System.ComponentModel;
+
+using Khronos;
 
 namespace OpenGL
 {

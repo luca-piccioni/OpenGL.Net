@@ -293,7 +293,6 @@
     <Compile Include="EXT\Wgl.EXT_colorspace.cs" />
     <Compile Include="FJ\Gl.FJ_shader_binary_GCCSO.cs" />
     <Compile Include="GetProcAddressGL.cs" />
-    <Compile Include="GetProcAddressOS.cs" />
     <Compile Include="Gl.ES_VERSION_2_0.cs" />
     <Compile Include="Gl.ES_VERSION_3_2.cs" />
     <Compile Include="Gl.Limits.cs" />
@@ -324,16 +323,11 @@
     <Compile Include="INativeWindow.cs" />
     <Compile Include="INTEL\Gl.INTEL_conservative_rasterization.cs" />
     <Compile Include="IProjectionMatrix.cs" />
-    <Compile Include="KhronosLogCommandParameterFlags.cs" />
-    <Compile Include="KhronosLogContext.cs" />
-    <Compile Include="KhronosLogEventArgs.cs" />
-    <Compile Include="KhronosLogMap.cs" />
     <Compile Include="KHR\Egl.KHR_context_flush_control.cs" />
     <Compile Include="KHR\Egl.KHR_mutable_render_buffer.cs" />
     <Compile Include="KHR\Egl.KHR_no_config_context.cs" />
     <Compile Include="KHR\Egl.KHR_stream_attrib.cs" />
     <Compile Include="LimitAttribute.cs" />
-    <Compile Include="LogAttribute.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
@@ -498,8 +492,6 @@
     <Compile Include="INTEL\Gl.INTEL_parallel_arrays.cs" />
     <Compile Include="INTEL\Gl.INTEL_performance_query.cs" />
     <Compile Include="INTEL\Glx.INTEL_swap_event.cs" />
-    <Compile Include="KhronosException.cs" />
-    <Compile Include="KhronosVersion.cs" />
     <Compile Include="KHR\Egl.KHR_create_context.cs" />
     <Compile Include="KHR\Egl.KHR_image_base.cs" />
     <Compile Include="KHR\Egl.KHR_image_pixmap.cs" />
@@ -708,7 +700,6 @@
     <Compile Include="PixelLayoutExtensions.cs" />
     <Compile Include="PixelSpace.cs" />
     <Compile Include="Plane.cs" />
-    <Compile Include="Platform.cs" />
     <Compile Include="ProjectionMatrix.cs" />
     <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -723,13 +714,7 @@
     <Compile Include="QCOM\Gl.QCOM_tiled_rendering.cs" />
     <Compile Include="QCOM\Gl.QCOM_writeonly_rendering.cs" />
     <Compile Include="Quaternion.cs" />
-    <Compile Include="RemovedByFeatureAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="REND\Gl.REND_screen_coordinates.cs" />
-    <Compile Include="RequiredByFeatureAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="S3\Gl.S3_s3tc.cs" />
     <Compile Include="SGIS\Gl.SGIS_detail_texture.cs" />
     <Compile Include="SGIS\Gl.SGIS_fog_function.cs" />
@@ -914,6 +899,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <PostBuildEvent>$(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>

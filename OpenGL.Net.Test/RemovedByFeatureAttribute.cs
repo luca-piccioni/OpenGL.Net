@@ -20,6 +20,8 @@
 
 using System;
 
+using Khronos;
+
 using NUnit.Framework;
 
 namespace OpenGL.Test

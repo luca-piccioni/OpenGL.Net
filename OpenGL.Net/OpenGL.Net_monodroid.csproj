@@ -279,7 +279,6 @@
     <Compile Include="EXT\Gl.EXT_YUV_target.cs" />
     <Compile Include="FJ\Gl.FJ_shader_binary_GCCSO.cs" />
     <Compile Include="GetProcAddressGL.cs" />
-    <Compile Include="GetProcAddressOS.cs" />
     <Compile Include="Gl.cs" />
     <Compile Include="Gl.Enums.cs" />
     <Compile Include="Gl.ES_VERSION_2_0.cs" />
@@ -359,12 +358,6 @@
     <Compile Include="INTEL\Gl.INTEL_performance_query.cs" />
     <Compile Include="IProjectionMatrix.cs" />
     <Compile Include="KhronosApi.cs" />
-    <Compile Include="KhronosException.cs" />
-    <Compile Include="KhronosLogCommandParameterFlags.cs" />
-    <Compile Include="KhronosLogContext.cs" />
-    <Compile Include="KhronosLogEventArgs.cs" />
-    <Compile Include="KhronosLogMap.cs" />
-    <Compile Include="KhronosVersion.cs" />
     <Compile Include="KHR\Egl.KHR_context_flush_control.cs" />
     <Compile Include="KHR\Egl.KHR_create_context.cs" />
     <Compile Include="KHR\Egl.KHR_create_context_no_error.cs" />
@@ -389,7 +382,6 @@
     <Compile Include="KHR\Egl.KHR_wait_sync.cs" />
     <Compile Include="KHR\Gl.KHR_blend_equation_advanced_coherent.cs" />
     <Compile Include="LimitAttribute.cs" />
-    <Compile Include="LogAttribute.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Matrix3x3.cs" />
     <Compile Include="Matrix4x4.cs" />
@@ -557,7 +549,6 @@
     <Compile Include="PixelLayoutExtensions.cs" />
     <Compile Include="PixelSpace.cs" />
     <Compile Include="Plane.cs" />
-    <Compile Include="Platform.cs" />
     <Compile Include="ProjectionMatrix.cs" />
     <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -572,9 +563,7 @@
     <Compile Include="QCOM\Gl.QCOM_tiled_rendering.cs" />
     <Compile Include="QCOM\Gl.QCOM_writeonly_rendering.cs" />
     <Compile Include="Quaternion.cs" />
-    <Compile Include="RemovedByFeatureAttribute.cs" />
     <Compile Include="REND\Gl.REND_screen_coordinates.cs" />
-    <Compile Include="RequiredByFeatureAttribute.cs" />
     <Compile Include="S3\Gl.S3_s3tc.cs" />
     <Compile Include="SGIS\Gl.SGIS_detail_texture.cs" />
     <Compile Include="SGIS\Gl.SGIS_fog_function.cs" />
@@ -641,6 +630,7 @@
     <Compile Include="WIN\Gl.WIN_phong_shading.cs" />
     <Compile Include="WIN\Gl.WIN_specular_fog.cs" />
   </ItemGroup>
+  <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>$(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)" --assembly-overwrite --profile-es2

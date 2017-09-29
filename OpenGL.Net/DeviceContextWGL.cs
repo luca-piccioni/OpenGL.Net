@@ -39,6 +39,8 @@ using System.Diagnostics;
 using System.Reflection;				// Do not delete me! .NET Core include extension methods
 using System.Runtime.InteropServices;
 
+using Khronos;
+
 namespace OpenGL
 {
 	/// <summary>

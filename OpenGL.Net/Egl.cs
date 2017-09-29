@@ -28,6 +28,8 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
+using Khronos;
+
 namespace OpenGL
 {
 	/// <summary>
@@ -91,10 +93,10 @@ namespace OpenGL
 			// Include ANGLE path, if any
 #if NETSTANDARD1_1
 			if (anglePath != String.Empty)
-				OpenGL.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
+				Khronos.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
 #else
 			if (anglePath != null && Directory.Exists(anglePath))
-				OpenGL.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
+				Khronos.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
 #endif
 
 			// Load procedures

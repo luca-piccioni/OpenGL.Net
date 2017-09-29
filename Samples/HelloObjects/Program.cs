@@ -19,7 +19,7 @@
 using System;
 using System.Windows.Forms;
 
-using OpenGL;
+using Khronos;
 using OpenGL.Objects;
 
 namespace HelloObjects
@@ -38,17 +38,17 @@ namespace HelloObjects
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
 
 			if (envDebug == "GL") {
-				KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
+				Khronos.KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
 					Console.WriteLine(e.ToString());
 				};
-				KhronosApi.LogEnabled = true;
+				Khronos.KhronosApi.LogEnabled = true;
 			}
 
 			if (envDebug == "OBJECTS") {
 				Resource.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
 					Console.WriteLine(format, args);
 				});
-				KhronosApi.LogEnabled = false;
+				Khronos.KhronosApi.LogEnabled = false;
 			}
 
 			Application.EnableVisualStyles();

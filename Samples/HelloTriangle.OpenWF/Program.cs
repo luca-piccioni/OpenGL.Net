@@ -21,7 +21,7 @@
 
 using System;
 
-using OpenGL;
+using Khronos;
 
 namespace HelloTriangle.OpenWF
 {

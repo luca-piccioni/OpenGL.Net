@@ -25,6 +25,8 @@
 using System;
 using System.Runtime.InteropServices;
 
+using Khronos;
+
 namespace OpenGL
 {
 	/// <summary>
@@ -205,7 +207,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get function pointers on different platforms supporting EGL.
 	/// </summary>
-	class GetGLProcAddressEGL : IGetGLProcAddress, IGetProcAddressOS
+	class GetGLProcAddressEGL : IGetGLProcAddress
 	{
 		#region Singleton
 
@@ -237,8 +239,39 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="funcname"></param>
 		/// <returns></returns>
-		[DllImport(Egl.Library, EntryPoint = "eglGetProcAddress")]
+		[DllImport("libEGL.dll", EntryPoint = "eglGetProcAddress")]
 		public static extern IntPtr GetProcAddressCore(string funcname);
+
+		#endregion
+	}
+
+	/// <summary>
+	/// Class able to get function pointers on OSX platform.
+	/// </summary>
+	class GetGLProcAddressOSX : IGetGLProcAddress
+	{
+		#region Singleton
+
+		/// <summary>
+		/// The <see cref="GetProcAddressOSX"/> singleton instance.
+		/// </summary>
+		public static readonly GetProcAddressOSX Instance = new GetProcAddressOSX();
+
+		#endregion
+
+		#region OSX Platform Imports
+
+		unsafe static class UnsafeNativeMethods
+		{
+			[DllImport(Library, EntryPoint = "NSIsSymbolNameDefined")]
+			public static extern bool NSIsSymbolNameDefined(string s);
+
+			[DllImport(Library, EntryPoint = "NSLookupAndBindSymbol")]
+			public static extern IntPtr NSLookupAndBindSymbol(string s);
+
+			[DllImport(Library, EntryPoint = "NSAddressOfSymbol")]
+			public static extern IntPtr NSAddressOfSymbol(IntPtr symbol);
+		}
 
 		#endregion
 
@@ -269,6 +302,52 @@ namespace OpenGL
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
 		/// </returns>
 		public IntPtr GetProcAddress(string library, string function)
+		{
+			return (GetProcAddressCore(function));
+		}
+
+		/// <summary>
+		/// Get a function pointer from the OpenGL driver.
+		/// </summary>
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the function name.
+		/// </param>
+		/// <returns>
+		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
+		/// </returns>
+		public IntPtr GetProcAddressCore(string function)
+		{
+			string fname = "_" + function;
+			if (!UnsafeNativeMethods.NSIsSymbolNameDefined(fname))
+				return IntPtr.Zero;
+
+			IntPtr symbol = UnsafeNativeMethods.NSLookupAndBindSymbol(fname);
+			if (symbol != IntPtr.Zero)
+				symbol = UnsafeNativeMethods.NSAddressOfSymbol(symbol);
+
+			return (symbol);
+		}
+
+		/// <summary>
+		/// The OpenGL library on OSX platform.
+		/// </summary>
+		private const string Library = "libdl.dylib";
+
+		#endregion
+
+		#region IGetGLProcAddress Implementation
+
+		/// <summary>
+		/// Get a function pointer from the OpenGL driver.
+		/// </summary>
+		/// <param name="function">
+		/// A <see cref="String"/> that specifies the function name.
+		/// </param>
+		/// <returns>
+		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>. If not
+		/// defined, it returns <see cref="IntPtr.Zero"/>.
+		/// </returns>
+		public IntPtr GetProcAddress(string function)
 		{
 			return (GetProcAddressCore(function));
 		}

@@ -25,6 +25,8 @@
 
 using System;
 
+using Khronos;
+
 namespace OpenGL
 {
 	public partial class Gl

@@ -24,6 +24,8 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Text;
 
+using Khronos;
+
 namespace BindingsGen
 {
 	/// <summary>
@@ -84,6 +86,8 @@ namespace BindingsGen
 				sw.WriteLine();
 
 				sw.WriteLine("using System;");
+				sw.WriteLine();
+				sw.WriteLine("using Khronos;");
 				sw.WriteLine();
 
 				sw.WriteLine("namespace {0}", Namespace);
@@ -360,6 +364,8 @@ namespace BindingsGen
 					sw.WriteLine("using System.Runtime.InteropServices;");
 					sw.WriteLine("using System.Security;");
 					sw.WriteLine("using System.Text;");
+					sw.WriteLine("using Khronos;");
+					sw.WriteLine();
 
 					sw.WriteLine();
 
@@ -562,6 +568,8 @@ namespace BindingsGen
 
 				sw.WriteLine("using System;");
 				sw.WriteLine();
+				sw.WriteLine("using Khronos;");
+				sw.WriteLine();
 
 				sw.WriteLine("namespace {0}", Namespace);
 				sw.WriteLine("{");
@@ -642,6 +650,9 @@ namespace BindingsGen
 
 			using (SourceStreamWriter sw = new SourceStreamWriter(Path.Combine(Program.BasePath, path), false)) {
 				GenerateLicensePreamble(sw);
+
+				sw.WriteLine("using Khronos;");
+				sw.WriteLine();
 
 				sw.WriteLine("namespace {0}", Namespace);
 				sw.WriteLine("{");
@@ -743,7 +754,8 @@ namespace BindingsGen
 				sw.WriteLine("using System.Runtime.InteropServices;");
 				sw.WriteLine("using System.Security;");
 				sw.WriteLine("using System.Text;");
-
+				sw.WriteLine();
+				sw.WriteLine("using Khronos;");
 				sw.WriteLine();
 
 				sw.WriteLine("namespace {0}", Namespace);
@@ -777,22 +789,22 @@ namespace BindingsGen
 		/// </param>
 		public void GenerateLogMap(RegistryContext ctx, string path)
 		{
-			OpenGL.KhronosLogMap logMap = new OpenGL.KhronosLogMap();
-			List<OpenGL.KhronosLogMap.Command> logCommands = new List<OpenGL.KhronosLogMap.Command>();
+			KhronosLogMap logMap = new KhronosLogMap();
+			List<KhronosLogMap.Command> logCommands = new List<KhronosLogMap.Command>();
 
 			foreach (Command command in _Registry.Commands) {
 				if (command.Parameters.Exists(delegate(CommandParameter item) { return (item.IsEnum); }) == false)
 					continue;
 
-				OpenGL.KhronosLogMap.Command logCommand = new OpenGL.KhronosLogMap.Command();
-				List<OpenGL.KhronosLogMap.CommandParam> logCommandParams = new List<OpenGL.KhronosLogMap.CommandParam>();
+				KhronosLogMap.Command logCommand = new KhronosLogMap.Command();
+				List<KhronosLogMap.CommandParam> logCommandParams = new List<KhronosLogMap.CommandParam>();
 
 				foreach (CommandParameter commandParameter in command.Parameters) {
-					OpenGL.KhronosLogMap.CommandParam logParameter = new OpenGL.KhronosLogMap.CommandParam();
+					KhronosLogMap.CommandParam logParameter = new KhronosLogMap.CommandParam();
 					logParameter.Name = commandParameter.Name;
-					logParameter.Flags = OpenGL.KhronosLogCommandParameterFlags.None;
+					logParameter.Flags = KhronosLogCommandParameterFlags.None;
 					if (commandParameter.IsEnum)
-						logParameter.Flags |= OpenGL.KhronosLogCommandParameterFlags.Enum;
+						logParameter.Flags |= KhronosLogCommandParameterFlags.Enum;
 					logCommandParams.Add(logParameter);
 				}
 
@@ -802,7 +814,7 @@ namespace BindingsGen
 			}
 			logMap.Commands = logCommands.ToArray();
 
-			OpenGL.KhronosLogMap.Save(path, logMap);
+			KhronosLogMap.Save(path, logMap);
 		}
 
 		/// <summary>
