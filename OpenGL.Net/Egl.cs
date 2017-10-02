@@ -121,6 +121,7 @@ namespace OpenGL
 			IntPtr eglDisplay = Egl.GetDisplay(args.Display);
 
 			try {
+				_IsInitializing = true;
 				if (Initialize(eglDisplay, null, null) == false)
 					throw new InvalidOperationException("unable to initialize EGL");
 
@@ -149,6 +150,7 @@ namespace OpenGL
 				}
 			} finally {
 				Terminate(eglDisplay);
+				_IsInitializing = false;
 			}
 		}
 
@@ -216,7 +218,7 @@ namespace OpenGL
 					case Platform.Id.Android:
 						return (true);
 					default:
-						return (_IsRequired && IsAvailable);
+						return ((_IsRequired && IsAvailable) || _IsInitializing);
 				}
 			}
 			set { _IsRequired = value; }
@@ -226,6 +228,11 @@ namespace OpenGL
 		/// Flag for requesting an EGL device context, if available.
 		/// </summary>
 		private static bool _IsRequired;
+
+		/// <summary>
+		/// Flag for requesting an EGL device context while EGL is initializing.
+		/// </summary>
+		private static bool _IsInitializing;
 
 		/// <summary>
 		/// Bind Windows EGL delegates.

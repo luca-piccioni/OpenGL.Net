@@ -731,7 +731,7 @@ namespace OpenGL
 		protected virtual void Dispose(bool disposing)
 		{
 			if (disposing) {
-				Debug.Assert(DeviceContext.GetCurrentContext() == IntPtr.Zero, "leaving a context current");
+				Debug.Assert(GetCurrentContext() == IntPtr.Zero, "leaving a context current");
 				// Mark as disposed
 				_Disposed = true;
 			}
