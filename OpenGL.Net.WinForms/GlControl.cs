@@ -978,33 +978,15 @@ namespace OpenGL
 		[Browsable(true)]
 		[Category("Rendering")]
 		[Description("Generated when the relative OpenGL context has been created.")]
-		public event EventHandler<GlControlEventArgs> ContextCreated
-		{
-			add { _ContextCreated += value; }
-			remove { _ContextCreated -= value; }
-		}
-
-		/// <summary>
-		/// Underlying EventHandler for <see cref="ContextCreated"/>.
-		/// </summary>
-		private EventHandler<GlControlEventArgs> _ContextCreated;
+		public event EventHandler<GlControlEventArgs> ContextCreated;
 
 		/// <summary>
 		/// Raise the event <see cref="ContextCreated"/>.
 		/// </summary>
 		protected virtual void OnContextCreated()
 		{
-			if (_ContextCreated != null) {
-				GlControlEventArgs glControlEventArgs = new GlControlEventArgs(_DeviceContext, _RenderContext);
-
-				foreach (EventHandler<GlControlEventArgs> handler in _ContextCreated.GetInvocationList()) {
-					try {
-						handler(this, glControlEventArgs);
-					} catch (Exception exception) {
-						Debug.Fail(String.Format("OnContextCreated: exception ({0})\n{1}", exception.Message, exception.ToString()));
-					}
-				}
-			}
+			if (ContextCreated != null)
+				ContextCreated(this, new GlControlEventArgs(_DeviceContext, _RenderContext));
 		}
 
 		/// <summary>
