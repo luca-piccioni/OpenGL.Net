@@ -447,7 +447,7 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if the parameter have an invalid set of values.
 		/// </exception>
-		public void SetFustrum(float left, float right, float bottom, float top, float near, float far)
+		public void SetFrustrum(float left, float right, float bottom, float top, float near, float far)
 		{
 			if (Math.Abs(right - left) < Single.Epsilon)
 				throw new ArgumentException("left/right planes are coincident");
@@ -508,7 +508,7 @@ namespace OpenGL
 			float ymax = near * (float)Math.Tan(Angle.ToRadians(fovy / 2.0f));
 			float xmax = ymax * aspectRatio;
 
-			SetFustrum(-xmax, +xmax, -ymax, +ymax, near, far);
+			SetFrustrum(-xmax, +xmax, -ymax, +ymax, near, far);
 		}
 
 		/// <summary>
@@ -522,7 +522,7 @@ namespace OpenGL
 		/// <param name="far"></param>
 		public void SetPerspective(float leftFov, float rightFov, float bottomFov, float topFov, float near, float far)
 		{
-			SetFustrum(
+			SetFrustrum(
 				-near * (float)Math.Tan(Angle.ToRadians(leftFov)),
 				+near * (float)Math.Tan(Angle.ToRadians(rightFov)),
 				-near * (float)Math.Tan(Angle.ToRadians(bottomFov)),

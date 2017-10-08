@@ -396,7 +396,7 @@ namespace OpenGL
 		/// <param name="far">
 		/// A <see cref="Double"/>
 		/// </param>
-		public void SetFustrum(double left, double right, double bottom, double top, double near, double far)
+		public void SetFrustrum(double left, double right, double bottom, double top, double near, double far)
 		{
 			// Column 1
 			this[0, 0] = 2.0 * near / (right - left);
@@ -428,7 +428,7 @@ namespace OpenGL
 			double ymax = near * Math.Tan(fovy * Math.PI / 360.0);
 			double xmax = ymax * aspectRatio;
 
-			SetFustrum(-xmax, +xmax, -ymax, +ymax, near, far);
+			SetFrustrum(-xmax, +xmax, -ymax, +ymax, near, far);
 		}
 
 		#endregion
