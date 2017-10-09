@@ -25,7 +25,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 using Khronos;
@@ -46,10 +45,10 @@ namespace OpenGL
 		{
 			// No need to erase window background
 			SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-			// No need to draw window background
 			SetStyle(ControlStyles.Opaque, true);
-			// Buffer control
+			// No double buffering
 			SetStyle(ControlStyles.DoubleBuffer, false);
+			DoubleBuffered = false;
 			// Redraw window on resize
 			SetStyle(ControlStyles.ResizeRedraw, true);
 			// Painting handled by user
@@ -410,9 +409,13 @@ namespace OpenGL
 			set
 			{
 				_Animation = value;
-				// Start animation, if necessary
-				if (_Animation && IsHandleCreated)
-					BeginInvoke(new Action(delegate() { Invalidate(); }));
+				
+				if (DesignMode == false) {
+					if      (_AnimationTimer != null && AnimationTimer)
+						_AnimationTimer.Enabled = Animation;
+					else if (!AnimationTimer && Animation && !AnimationTimer && IsHandleCreated)
+						BeginInvoke(new Action(delegate() { Invalidate(); }));
+				}
 			}
 		}
 
@@ -422,7 +425,7 @@ namespace OpenGL
 		private bool _Animation;
 
 		/// <summary>
-		/// Get or set the flag indicating whether control should update itself continuosly.
+		/// Get or set the time interval between animation updates, in milliseconds.
 		/// </summary>
 		[Browsable(true)]
 		[Category("Animation")]
@@ -430,8 +433,85 @@ namespace OpenGL
 		[DefaultValue(0)]
 		public int AnimationTime
 		{
-			get; set;
+			get { return (_AnimationTime); }
+			set
+			{
+				_AnimationTime = value;
+
+				if (_AnimationTimer != null && !DesignMode)
+					_AnimationTimer.Interval = Math.Max(1, _AnimationTime);
+			}
 		}
+
+		/// <summary>
+		/// The time interval between animation updates, in milliseconds.
+		/// </summary>
+		private int _AnimationTime;
+
+		/// <summary>
+		/// Get or set the flag for enabling animation using timers.
+		/// </summary>
+		[Browsable(true)]
+		[Category("Animation")]
+		[Description("Animation triggered by a Timer. Enable when integrated with other Forms control.")]
+		[DefaultValue(true)]
+		public bool AnimationTimer
+		{
+			get { return (_AnimationTimerFlag); }
+			set
+			{
+				_AnimationTimerFlag = value;
+
+				if      (_AnimationTimer == null && AnimationTimer && !DesignMode)
+					CreateAnimationTimer();
+				else if (_AnimationTimer != null && !AnimationTimer && !DesignMode)
+					_AnimationTimer.Enabled = false;
+			}
+		}
+
+		/// <summary>
+		/// The flag for enabling animation using timers.
+		/// </summary>
+		private bool _AnimationTimerFlag = true;
+
+		/// <summary>
+		/// Create animation timer resources.
+		/// </summary>
+		private void CreateAnimationTimer()
+		{
+			if (_AnimationTimer == null) {
+				_AnimationTimer = new Timer();
+				_AnimationTimer.Tick += AnimationTimer_Tick;
+				_AnimationTimer.Interval = Math.Max(1, _AnimationTime);
+				_AnimationTimer.Enabled = Animation;
+			}
+		}
+
+		/// <summary>
+		/// Animation timer callback.
+		/// </summary>
+		/// <param name="sender">
+		/// The <see cref="Timer"/> that has triggered the event.
+		/// </param>
+		/// <param name="e">
+		/// The event arguments.
+		/// </param>
+		private void AnimationTimer_Tick(object sender, EventArgs e)
+		{
+			if (_AnimationInvalidated == 0)
+				Invalidate();
+			System.Threading.Interlocked.Add(ref _AnimationInvalidated, 1);
+		}
+
+		/// <summary>
+		/// Timer used 
+		/// </summary>
+		private Timer _AnimationTimer;
+
+		/// <summary>
+		/// Boolean used for avoiding excessive Invalidate() calls
+		/// </summary>
+		private int _AnimationInvalidated;
 
 		#endregion
 
@@ -528,6 +608,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the <see cref="DeviceContext"/> created on this GlControl.
 		/// </summary>
+		[Browsable(false)]
 		public DeviceContext Device
 		{
 			get { return (_DeviceContext); }
@@ -1048,6 +1129,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the time spent for drawing the last frame.
 		/// </summary>
+		[Browsable(false)]
 		public TimeSpan FrameDrawTime
 		{
 			get { return (_FrameDrawTime); }
@@ -1061,6 +1143,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the time spent for swapping the last frame.
 		/// </summary>
+		[Browsable(false)]
 		public TimeSpan FrameSwapTime
 		{
 			get { return (_FrameSwapTime); }
@@ -1074,6 +1157,29 @@ namespace OpenGL
 		#endregion
 
 		#region UserControl Overrides
+
+		/// <summary>
+		/// Get the <see cref="CreateParams"/> relative this UserControl.
+		/// </summary>
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				const int CS_VREDRAW = 0x1, CS_HREDRAW = 0x2, CS_OWNDC = 0x20;
+			
+				// Base implementation
+				CreateParams createParams = base.CreateParams;
+
+				// Style customization
+				switch (Platform.CurrentPlatformId) {
+					case Platform.Id.WindowsNT:
+						createParams.ClassStyle |= CS_VREDRAW | CS_HREDRAW | CS_OWNDC;
+						break;
+				}
+
+				return (createParams);
+			}
+		}
 
 		/// <summary>
 		/// Raises the <see cref="E:System.Windows.Forms.Control.HandleCreated"/> event.
@@ -1092,6 +1198,9 @@ namespace OpenGL
 				MakeCurrentContext();
 				// Event handling
 				OnContextCreated();
+				// Animation support
+				if (AnimationTimer && Animation)
+					CreateAnimationTimer();
 			}
 
 			// Base implementation
@@ -1151,18 +1260,13 @@ namespace OpenGL
 			// Base implementation
 			base.OnPaint(e);
 
-			// Animation
-			if (_Animation && !DesignMode) {
-				if (AnimationTime > 0) {
-					// Invalidate asynchronsly using Sleep
-					// @todo Timers may be a better alternative, but who use this feature?
-					BeginInvoke(new Action(delegate() {
-						Thread.Sleep(AnimationTime);
-						Invalidate();
-					}));
-				} else {
-					Invalidate();
-				}
+			// Animation support
+			System.Threading.Interlocked.Exchange(ref _AnimationInvalidated, 0);
+			// Exclusive animation
+			if (Animation && !AnimationTimer && !DesignMode) {
+				if (AnimationTime > 0)
+					System.Threading.Thread.Sleep(AnimationTime);
+				Invalidate();
 			}
 		}
 
@@ -1177,6 +1281,12 @@ namespace OpenGL
 			// Designer components disposition
 			if (disposing && (components != null))
 				components.Dispose();
+
+			// Dispose animation timer
+			if (_AnimationTimer != null) {
+				_AnimationTimer.Tick -= AnimationTimer_Tick;
+				_AnimationTimer.Dispose();
+			}
 
 			// Avoid reference leaks
 			if (_SharingControl != null) {

@@ -33,6 +33,7 @@
 			// RenderControl
 			// 
 			this.RenderControl.Animation = true;
+			this.RenderControl.AnimationTimer = false;
 			this.RenderControl.BackColor = System.Drawing.Color.DimGray;
 			this.RenderControl.ColorBits = ((uint)(24u));
 			this.RenderControl.DepthBits = ((uint)(0u));

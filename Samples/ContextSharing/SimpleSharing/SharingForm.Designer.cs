@@ -58,7 +58,6 @@
 			this.GlControl1.Animation = true;
 			this.GlControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.GlControl1.ColorBits = ((uint)(24u));
-			this.GlControl1.ContextSharing = OpenGL.GlControl.ContextSharingOption.SingleContext;
 			this.GlControl1.ContextSharingGroup = "TestGroup";
 			this.GlControl1.DepthBits = ((uint)(0u));
 			this.GlControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,9 +72,9 @@
 			// 
 			// GlControl2
 			// 
+			this.GlControl2.Animation = true;
 			this.GlControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.GlControl2.ColorBits = ((uint)(24u));
-			this.GlControl2.ContextSharing = OpenGL.GlControl.ContextSharingOption.SingleContext;
 			this.GlControl2.ContextSharingGroup = "TestGroup";
 			this.GlControl2.DepthBits = ((uint)(0u));
 			this.GlControl2.Dock = System.Windows.Forms.DockStyle.Fill;
