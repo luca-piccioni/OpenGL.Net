@@ -6,11 +6,17 @@
 	<type name="void *" value="IntPtr" />
 	<type name="GLvoid*" value="void*" />
 	<type name="void **" value="IntPtr*" />
+    <type name="void**" value="IntPtr*" />
+    <type name="void* const*" value="IntPtr*" />
+    <type name="const void**" value="IntPtr*" />
 	<type name="const void *" value="IntPtr" />
 	<type name="const void **" value="IntPtr*" />
+    <type name="void*const*" value="IntPtr*" />            <!-- OpenVX -->
 	<type name="const void *const*" value="IntPtr*" />
-	
-	<type name="GLenum" value="Int32" />
+
+    <type name="void[][]" value="[MarshalAs(UnmanagedType.LPArray)] IntPtr[,]" />
+
+    <type name="GLenum" value="Int32" />
 	<type name="GLenum*" value="Int32*" />
 	
 	<type name="GLsizei" value="Int32" />
@@ -29,6 +35,7 @@
 	
 	<type name="GLbitfield" value="UInt32" />
 	
+    <type name="char*" value="string" />
 	<type name="GLchar" value="char" />
 	<type name="GLchar*" value="String" />
 	<type name="GLchar*const*" value="String[]" />
@@ -324,6 +331,84 @@
 	<type name="WFDEGLSync" value="IntPtr" />
 	<type name="WFDEGLImage" value="IntPtr" />
 	<type name="UInt32" value="IntPtr" />
+    
+    <!-- OpenVX types -->
+    <type name="vx_char" value="Char" />
+    <type name="vx_char*" value="string" />
+    <type name="vx_uint8" value="byte" />
+    <type name="vx_uint16" value="ushort" />
+    <type name="vx_uint32" value="uint" />
+    <type name="vx_uint64" value="ulong" />
+    <type name="vx_int8" value="sbyte" />
+    <type name="vx_int16" value="short" />
+    <type name="vx_int32" value="int" />
+    <type name="vx_int64" value="long" />
+    <type name="vx_bitfield" value="uint" />
+    <type name="vx_float16" value="ushort" />
+    <type name="vx_float32" value="Char" />
+    <type name="vx_float64" value="Char" />
+    <type name="vx_reference" value="IntPtr" />
+    <type name="vx_reference*" value="IntPtr*" />
+    <type name="vx_size" value="uint" />
+    <type name="vx_df_image" value="uint" />
+    <type name="vx_map_id" value="UIntPtr" />
+    <type name="vx_map_id*" value="UIntPtr*" />
+    <type name="vx_scalar" value="IntPtr" />
+    <type name="vx_scalar*" value="IntPtr*" />
+    <type name="vx_image" value="IntPtr" />
+    <type name="vx_kernel" value="IntPtr" />
+    <type name="vx_kernel*" value="IntPtr*" />
+    <type name="vx_parameter" value="IntPtr" />
+    <type name="vx_node" value="IntPtr" />
+    <type name="vx_graph" value="IntPtr" />
+    <type name="vx_graph*" value="IntPtr*" />
+    <type name="vx_context" value="IntPtr" />
+    <type name="vx_delay" value="IntPtr" />
+    <type name="vx_delay*" value="IntPtr*" />
+    <type name="vx_lut" value="IntPtr" />
+    <type name="vx_lut*" value="IntPtr*" />
+    <type name="vx_distribution" value="IntPtr" />
+    <type name="vx_distribution*" value="IntPtr*" />
+    <type name="vx_matrix" value="IntPtr" />
+    <type name="vx_pyramid" value="IntPtr" />
+    <type name="vx_threshold" value="IntPtr" />
+    <type name="vx_threshold*" value="IntPtr*" />
+    <type name="vx_convolution" value="IntPtr" />
+    <type name="vx_convolution*" value="IntPtr*" />
+    <type name="vx_remap" value="IntPtr" />
+    <type name="vx_remap*" value="IntPtr*" />
+    <type name="vx_array" value="IntPtr" />
+    <type name="vx_object_array" value="IntPtr" />
+    <type name="vx_object_array*" value="IntPtr*" />
+    <type name="vx_bool" value="int" />
+    <type name="vx_meta_format" value="IntPtr" />
+
+    <type name="vx_enum" value="int" />
+    <type name="vx_enum*" value="int*" />
+    <type name="vx_status" value="int" />
+    <type name="vx_action" value="int" />
+    <type name="vx_map_flag_e" value="int" />
+
+    <type name="vx_imagepatch_addressing_t" value="ImagePatchAddressing" />
+    <type name="vx_imagepatch_addressing_t*" value="ImagePatchAddressing*" />
+    <type name="vx_perf_t" value="Perf" />
+    <type name="vx_kernel_info_t" value="KernelInfo" />
+    <type name="vx_keypoint_t" value="KeyPoint" />
+    <type name="vx_rectangle_t" value="Rectangle" />
+    <type name="vx_rectangle_t" value="Rectangle*" />
+    <type name="vx_coordinates2d_t" value="Coordinates2D" />
+    <type name="vx_coordinates3d_t" value="Coordinates3D" />
+    <type name="vx_pixel_value_t" value="PixelValue" />
+    <type name="vx_border_t" value="Border" />
+
+    <type name="vx_publish_kernels_f" value="PublishKernelsCallback" />
+    <type name="vx_unpublish_kernels_f" value="PublishKernelsCallback" />
+    <type name="vx_kernel_f" value="PublishKernelsCallback" />
+    <type name="vx_kernel_initialize_f" value="KernelInitializeCallback" />
+    <type name="vx_kernel_deinitialize_f" value="KernelDeinitializeCallback" />
+    <type name="vx_kernel_validate_f" value="KernelValidateCallbackCallback" />
+    <type name="vx_kernel_image_valid_rectangle_f" value="KernelImageValidRectangleCallback" />
+    <type name="vx_log_callback_f" value="LogCallback" />
 
 	<!-- Bad decorators -->
 	<type name="GLfloatconst" value="float" />

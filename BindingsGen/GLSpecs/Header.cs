@@ -46,6 +46,12 @@ namespace BindingsGen.GLSpecs
 
 		#region Header Parsing
 
+		public string CommandExportRegex;
+
+		public string CommandCallConventionRegex;
+
+		public string CommandExitRegex = String.Empty;
+
 		/// <summary>
 		/// Append definitions recognized in a header file.
 		/// </summary>
@@ -172,7 +178,7 @@ namespace BindingsGen.GLSpecs
 
 					continue;
 
-				} else if ((match = Regex.Match(statement, @"WF(D|C)_API_CALL (?<Return>.*) WF(D|C)_APIENTRY (?<Name>.*)\((?<Args>.*)\) WF(D|C)_APIEXIT")).Success) {
+				} else if ((match = Regex.Match(statement, CommandExportRegex + @"(?<Return>.*) " + CommandCallConventionRegex + @"(?<Name>.*)\((?<Args>.*)\)" + CommandExitRegex)).Success) {
 
 					#region Command
 
@@ -187,15 +193,27 @@ namespace BindingsGen.GLSpecs
 					for (int i = 0; i < args.Length; i++) {
 						string arg = args[i].Trim();
 
+						if (arg == String.Empty)
+							break;
+
 						// '*' denotes types, not names
 						arg = arg.Replace(" **", "** ");
 						arg = arg.Replace(" *", "* ");
 
-						if ((match = Regex.Match(arg, @"(?<Type>(\w|_|\*)+) (?<Name>[\w\d_]+)$")).Success) {
+						if ((match = Regex.Match(arg, @"(const +)?(?<Type>(\w|_|\* (const)?|\*)+) +(?<Name>[\w\d_]+)(?<ArraySize>\[([\w\d_]+)?\])?$")).Success) {
+							string arraySize = match.Groups["ArraySize"].Success ? match.Groups["ArraySize"].Value : null;
+
 							CommandParameter commandParameter = new CommandParameter();
 
 							commandParameter.Name = match.Groups["Name"].Value;
-							commandParameter.Type = match.Groups["Type"].Value;
+							commandParameter.Type = arraySize != null ? match.Groups["Type"].Value + "*" : match.Groups["Type"].Value;
+
+							command.Parameters.Add(commandParameter);
+						} else if (arg == "...") {
+							CommandParameter commandParameter = new CommandParameter();
+
+							commandParameter.Name = "vaArgs";
+							commandParameter.Type = "IntPtr";
 
 							command.Parameters.Add(commandParameter);
 						} else

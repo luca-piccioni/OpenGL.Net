@@ -50,7 +50,7 @@ extern "C" {
  * \ingroup group_context
  * \post <tt>\ref vxReleaseContext</tt>
  */
-VX_API_ENTRY vx_context VX_API_CALL vxCreateContext(void);
+VX_API_ENTRY vx_context VX_API_CALL vxCreateContext();
 
 /*! \brief Releases the OpenVX object context.
  * \details All reference counted objects are garbage-collected by the return of this call.

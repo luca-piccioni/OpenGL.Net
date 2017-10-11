@@ -204,6 +204,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Licenses\MIT.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GLSpecs\VXWords.xml" />
+  </ItemGroup>
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

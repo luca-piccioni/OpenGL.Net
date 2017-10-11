@@ -370,19 +370,22 @@ namespace BindingsGen.GLSpecs
 						typeDecorator = "*";
 				}
 
-				if (type != null) {
-					// Remove any const modifier
-					type = type.Replace("const", String.Empty);
+				if (type != null && type.StartsWith("const ")) {
+					// Remove any const modifier at the beginning of the type
+					// does .NET can take advantage of this information? AFAIK no
+					type = type.Substring(5); // .Replace("const", String.Empty);
 				}
 
-				if ((Type != null) && (typeDecorator != null))
-					return (TypeMap.CsTypeMap.MapType(Type.Trim() + typeDecorator));
-				else if (Type != null)
-					return (TypeMap.CsTypeMap.MapType(Type.Trim()));
+				string importType = "IntPtr";
+
+				if ((type != null) && (typeDecorator != null))
+					importType = type + typeDecorator;
+				else if (type != null)
+					importType = type;
 				else if (typeDecorator != null)
-					return (TypeMap.CsTypeMap.MapType(typeDecorator));
-				else
-					return ("IntPtr");
+					importType = typeDecorator;
+
+				return (TypeMap.CsTypeMap.MapType(importType));
 			}
 		}
 

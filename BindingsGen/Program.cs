@@ -115,21 +115,29 @@ namespace BindingsGen
 
 			#endregion
 
+			bool genGL = (args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0);
+			bool genWGL = (args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0);
+			bool genGLX = (args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--glx"); }) >= 0);
+			bool genEGL = (args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0);
+
 			// (Common) Documentation
 			RegistryDocumentation<RegistryDocumentationHandler_GL4> gl4Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
-			gl4Documentation.Api = "GL4";
-			if (DocDisabled == false)
-				gl4Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl4"));
-
 			RegistryDocumentation<RegistryDocumentationHandler_GL2> gl2Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL2>();
-			gl2Documentation.Api = "GL2.1";
-			if (DocDisabled == false)
-				gl2Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl2.1"));
+
+			if (genGL || genWGL || genGLX) {
+				gl4Documentation.Api = "GL4";
+				if (DocDisabled == false)
+					gl4Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl4"));
+
+				gl2Documentation.Api = "GL2.1";
+				if (DocDisabled == false)
+					gl2Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl2.1"));
+			}
 
 			// XML-based specifications
 
 			// OpenGL
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
+			if (genGL) {
 				// Additional ES documentation
 				RegistryDocumentation<RegistryDocumentationHandler_GL4> gles3Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
 				gles3Documentation.Api = "GLES3.2";
@@ -159,7 +167,7 @@ namespace BindingsGen
 			}
 
 			// OpenGL for Windows
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0)) {
+			if (genWGL) {
 				ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
 				ctx.RefPages.Add(gl4Documentation);
 				ctx.RefPages.Add(gl2Documentation);
@@ -174,7 +182,7 @@ namespace BindingsGen
 			}
 
 			// OpenGL for Unix
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--glx"); }) >= 0)) {
+			if (genGLX) {
 				ctx = new RegistryContext("Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
 				ctx.RefPages.Add(gl4Documentation);
 				ctx.RefPages.Add(gl2Documentation);
@@ -214,6 +222,9 @@ namespace BindingsGen
 			// Note: you must setup CLI to generate this bindings
 			if ((args.Length > 0) && (Array.FindIndex(args, delegate(string item) { return (item == "--wfc"); }) >= 0)) {
 				Header headRegistry = new Header("Wfc");
+				headRegistry.CommandExportRegex = "WF(D|C)_APIENTRY ";
+				headRegistry.CommandCallConventionRegex = "WF(D|C)_API_CALL ";
+				headRegistry.CommandExitRegex = " WF(D|C)_APIEXIT";
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfc.h"));
 
 				ctx = new RegistryContext("Wfc", headRegistry);
@@ -228,6 +239,9 @@ namespace BindingsGen
 			// OpenWF(D)
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wfd"); }) >= 0)) {
 				Header headRegistry = new Header("Wfd");
+				headRegistry.CommandExportRegex = "WF(D|C)_APIENTRY ";
+				headRegistry.CommandCallConventionRegex = "WF(D|C)_API_CALL ";
+				headRegistry.CommandExitRegex = " WF(D|C)_APIEXIT";
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfd.h"));
 
 				ctx = new RegistryContext("Wfd", headRegistry);
@@ -237,6 +251,25 @@ namespace BindingsGen
 				glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				glRegistryProcessor.GenerateVersionsSupportClass(ctx);
 				glRegistryProcessor.GenerateVbCommands(ctx);
+			}
+
+			// OpenVX
+
+			OutputBasePath = "OpenVX.Net";
+
+			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--vx"); }) >= 0)) {
+				Header headRegistry = new Header("VX");
+				headRegistry.CommandExportRegex = "VX_API_ENTRY ";
+				headRegistry.CommandCallConventionRegex = "VX_API_CALL ";
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_api.h"));
+
+				ctx = new RegistryContext("VX", headRegistry);
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");
+				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
+				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
+				//glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
+				//glRegistryProcessor.GenerateVersionsSupportClass(ctx);
+				//glRegistryProcessor.GenerateVbCommands(ctx);
 			}
 		}
 
