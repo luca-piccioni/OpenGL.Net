@@ -131,6 +131,32 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Objects.Test_net
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Khronos.Net", "Khronos.Net\Khronos.Net.shproj", "{C403B635-6B87-4540-8679-7889ED5D3360}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenVX Specs", "OpenVX Specs", "{8F58EA9E-386A-47F0-9B3A-606C6B0403C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1", "1.1", "{9F64ACEB-9F0F-44B3-A131-B7840AE4CD4B}"
+	ProjectSection(SolutionItems) = preProject
+		VXSpecs\1.1\vx.h = VXSpecs\1.1\vx.h
+		VXSpecs\1.1\vx_api.h = VXSpecs\1.1\vx_api.h
+		VXSpecs\1.1\vx_compatibility.h = VXSpecs\1.1\vx_compatibility.h
+		VXSpecs\1.1\vx_kernels.h = VXSpecs\1.1\vx_kernels.h
+		VXSpecs\1.1\vx_nodes.h = VXSpecs\1.1\vx_nodes.h
+		VXSpecs\1.1\vx_types.h = VXSpecs\1.1\vx_types.h
+		VXSpecs\1.1\vx_vendors.h = VXSpecs\1.1\vx_vendors.h
+		VXSpecs\1.1\vxu.h = VXSpecs\1.1\vxu.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.2", "1.2", "{B48EE1D7-3EF9-4DCD-893B-C849C28A1630}"
+	ProjectSection(SolutionItems) = preProject
+		VXSpecs\1.2\vx.h = VXSpecs\1.2\vx.h
+		VXSpecs\1.2\vx_api.h = VXSpecs\1.2\vx_api.h
+		VXSpecs\1.2\vx_compatibility.h = VXSpecs\1.2\vx_compatibility.h
+		VXSpecs\1.2\vx_kernels.h = VXSpecs\1.2\vx_kernels.h
+		VXSpecs\1.2\vx_nodes.h = VXSpecs\1.2\vx_nodes.h
+		VXSpecs\1.2\vx_types.h = VXSpecs\1.2\vx_types.h
+		VXSpecs\1.2\vx_vendors.h = VXSpecs\1.2\vx_vendors.h
+		VXSpecs\1.2\vxu.h = VXSpecs\1.2\vxu.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Khronos.Net\Khronos.Net.projitems*{6981be72-a39a-4534-bd3f-132d813a461f}*SharedItemsImports = 4
@@ -460,5 +486,7 @@ Global
 		{9C7DE463-47E4-49E3-9ECC-E892B48851D2} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
 		{0E0C62CB-3C9D-4632-B4C5-4B9DA8A7B7CC} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{F53609AC-A012-4067-B122-7436832021BB} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
+		{9F64ACEB-9F0F-44B3-A131-B7840AE4CD4B} = {8F58EA9E-386A-47F0-9B3A-606C6B0403C2}
+		{B48EE1D7-3EF9-4DCD-893B-C849C28A1630} = {8F58EA9E-386A-47F0-9B3A-606C6B0403C2}
 	EndGlobalSection
 EndGlobal
