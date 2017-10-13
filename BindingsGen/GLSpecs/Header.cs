@@ -20,6 +20,8 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
+using Khronos;
+
 namespace BindingsGen.GLSpecs
 {
 	/// <summary>
@@ -58,7 +60,7 @@ namespace BindingsGen.GLSpecs
 		/// <param name="path">
 		/// A <see cref="System.String"/> that specified the path of the header file.
 		/// </param>
-		public void AppendHeader(string path)
+		public void AppendHeader(string path, KhronosVersion feature)
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
@@ -227,23 +229,23 @@ namespace BindingsGen.GLSpecs
 				}
 			}
 
-			Feature wfdVersion1 = new Feature();
-			FeatureCommand wfdVersion1Feature = new FeatureCommand();
+			Feature headerFeature = new Feature();
+			FeatureCommand headerFeatureCommand = new FeatureCommand();
 
-			wfdVersion1.Name = String.Format("{0}_VERSION_1_0", Class.ToUpperInvariant());
-			wfdVersion1.Api = Class.ToLowerInvariant();
-			wfdVersion1.Number = "1.0";
-			wfdVersion1.Requirements.Add(wfdVersion1Feature);
+			headerFeature.Name = String.Format("{0}_VERSION_{1}_{2}", Class.ToUpperInvariant(), feature.Major, feature.Minor);
+			headerFeature.Api = Class.ToLowerInvariant();
+			headerFeature.Number = String.Format("{0}.{1}", feature.Major, feature.Minor);
+			headerFeature.Requirements.Add(headerFeatureCommand);
 
-			wfdVersion1Feature.Enums.AddRange(_Enumerants.ConvertAll(delegate(Enumerant input) {
+			headerFeatureCommand.Enums.AddRange(_Enumerants.ConvertAll(delegate(Enumerant input) {
 				return new FeatureCommand.Item(input.Name);
 			}));
 
-			wfdVersion1Feature.Commands.AddRange(_Commands.ConvertAll(delegate(Command input) {
+			headerFeatureCommand.Commands.AddRange(_Commands.ConvertAll(delegate(Command input) {
 				return new FeatureCommand.Item(input.Prototype.Name);
 			}));
 
-			_Features.Add(wfdVersion1);
+			_Features.Add(headerFeature);
 		}
 
 		/// <summary>

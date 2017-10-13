@@ -18,6 +18,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+using Khronos;
+
 using BindingsGen.GLSpecs;
 
 namespace BindingsGen
@@ -225,7 +227,7 @@ namespace BindingsGen
 				headRegistry.CommandExportRegex = "WF(D|C)_APIENTRY ";
 				headRegistry.CommandCallConventionRegex = "WF(D|C)_API_CALL ";
 				headRegistry.CommandExitRegex = " WF(D|C)_APIEXIT";
-				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfc.h"));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfc.h"), new KhronosVersion(1, 0, KhronosVersion.ApiWfc));
 
 				ctx = new RegistryContext("Wfc", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenWF");
@@ -242,7 +244,7 @@ namespace BindingsGen
 				headRegistry.CommandExportRegex = "WF(D|C)_APIENTRY ";
 				headRegistry.CommandCallConventionRegex = "WF(D|C)_API_CALL ";
 				headRegistry.CommandExitRegex = " WF(D|C)_APIEXIT";
-				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfd.h"));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfd.h"), new KhronosVersion(1, 0, KhronosVersion.ApiWfd));
 
 				ctx = new RegistryContext("Wfd", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenWF");
@@ -261,7 +263,7 @@ namespace BindingsGen
 				Header headRegistry = new Header("VX");
 				headRegistry.CommandExportRegex = "VX_API_ENTRY ";
 				headRegistry.CommandCallConventionRegex = "VX_API_CALL ";
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_api.h"));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_api.h"), new KhronosVersion(1, 1, KhronosVersion.ApiWfc));
 
 				ctx = new RegistryContext("VX", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");

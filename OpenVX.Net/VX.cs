@@ -21,13 +21,35 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Khronos;
+
 namespace OpenVX
 {
-	public partial class VX
+	public partial class VX : KhronosApi
 	{
+		#region Callback Types
+
+		#endregion
+
+		#region Error Handling
+
+		/// <summary>
+		/// OpenGL error checking.
+		/// </summary>
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the function returned value, if any.
+		/// </param>
+		[Conditional("VX_DEBUG")]
+		private static void DebugCheckErrors(object returnValue)
+		{
+			
+		}
+
+		#endregion
 	}
 }
