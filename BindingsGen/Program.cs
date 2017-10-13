@@ -263,7 +263,7 @@ namespace BindingsGen
 				Header headRegistry = new Header("VX");
 				headRegistry.CommandExportRegex = "VX_API_ENTRY ";
 				headRegistry.CommandCallConventionRegex = "VX_API_CALL ";
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_api.h"), new KhronosVersion(1, 1, KhronosVersion.ApiWfc));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_api.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
 
 				ctx = new RegistryContext("VX", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");

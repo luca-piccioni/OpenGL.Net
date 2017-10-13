@@ -215,6 +215,11 @@ namespace Khronos
 		public const string ApiVg = "vg";
 
 		/// <summary>
+		/// OpenGL VX API.
+		/// </summary>
+		public const string ApiVx = "vx";
+
+		/// <summary>
 		/// OpenGL GLSL.
 		/// </summary>
 		public const string ApiGlsl = "glsl";
