@@ -92,7 +92,7 @@ namespace OpenGL
 
 			// Include ANGLE path, if any
 #if NETSTANDARD1_1
-			if (anglePath != String.Empty)
+			if (anglePath != null)
 				Khronos.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
 #else
 			if (anglePath != null && Directory.Exists(anglePath))

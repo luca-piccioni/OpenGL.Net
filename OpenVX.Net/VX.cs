@@ -20,11 +20,8 @@
 // SOFTWARE.
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 using Khronos;
 
@@ -32,7 +29,72 @@ namespace OpenVX
 {
 	public partial class VX : KhronosApi
 	{
-		#region Callback Types
+		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static VX()
+		{
+			// Before linking procedures, append OpenVX directory in path
+			string assemblyPath = GetAssemblyLocation();
+			string vxPath = null;
+
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
+					if (assemblyPath != null) {
+#if DEBUG
+						if (IntPtr.Size == 8)
+							vxPath = Path.Combine(assemblyPath, @"AMDOVX\Debug\x64");
+						else
+							vxPath = Path.Combine(assemblyPath, @"AMDOVX\Debug\x86");
+#else
+						if (IntPtr.Size == 8)
+							vxPath = Path.Combine(assemblyPath, @"AMDOVX\Release\x64");
+						else
+							vxPath = Path.Combine(assemblyPath, @"AMDOVX\Release\x86");
+#endif
+					}
+					break;
+			}
+
+#if NETSTANDARD1_1
+			if (vxPath != null)
+				Khronos.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
+#else
+			if (vxPath != null && Directory.Exists(vxPath))
+				Khronos.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, vxPath));
+#endif
+
+			// Load procedures
+			string platformLibrary = GetPlatformLibrary();
+
+			LogComment("Querying OpenVX from {0}", platformLibrary);
+			BindAPI<VX>(platformLibrary, KhronosApi.GetProcAddressOS, null);
+		}
+
+		#endregion
+
+		#region API Binding
+
+		/// <summary>
+		/// Get the library name used for loading OpenGL functions.
+		/// </summary>
+		/// <returns>
+		/// It returns a <see cref="String"/> that specifies the library name to be used.
+		/// </returns>
+		private static string GetPlatformLibrary()
+		{
+			switch (Platform.CurrentPlatformId) {
+				default:
+					return (Library);
+			}
+		}
+
+		/// <summary>
+		/// Default import library.
+		/// </summary>
+		private const string Library = "OpenVX.dll";
 
 		#endregion
 

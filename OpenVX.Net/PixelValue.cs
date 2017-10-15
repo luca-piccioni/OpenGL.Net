@@ -33,22 +33,43 @@ namespace OpenVX
 		/// Pixel value for <see cref="DfImage.Rgb"/>.
 		/// </summary>
 		[FieldOffset(0)]
-		[MarshalAs(UnmanagedType.LPArray, SizeConst = 3)]
-		public byte[] RGB;
+		public byte R;
 
 		/// <summary>
-		/// Pixel value for <see cref="DfImage.Rgbx"/>.
+		/// Pixel value for <see cref="DfImage.Rgb"/>.
 		/// </summary>
-		[FieldOffset(0)]
-		[MarshalAs(UnmanagedType.LPArray, SizeConst = 4)]
-		public byte[] RGBX;
+		[FieldOffset(1)]
+		public byte G;
+
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.Rgb"/>.
+		/// </summary>
+		[FieldOffset(2)]
+		public byte B;
+
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.Rgb"/>.
+		/// </summary>
+		[FieldOffset(3)]
+		public byte X;
 
 		/// <summary>
 		/// Pixel value for all YUV formats in <see cref="DfImage"/>.
 		/// </summary>
 		[FieldOffset(0)]
-		[MarshalAs(UnmanagedType.LPArray, SizeConst = 3)]
-		public byte[] YUV;
+		public byte Y;
+
+		/// <summary>
+		/// Pixel value for all YUV formats in <see cref="DfImage"/>.
+		/// </summary>
+		[FieldOffset(1)]
+		public byte U;
+
+		/// <summary>
+		/// Pixel value for all YUV formats in <see cref="DfImage"/>.
+		/// </summary>
+		[FieldOffset(2)]
+		public byte V;
 
 		/// <summary>
 		/// Pixel value for <see cref="DfImage.U8"/>.
