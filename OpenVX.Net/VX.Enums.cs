@@ -62,12 +62,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value ACTION_CONTINUE.
 		/// </summary>
-		ActionContinue = VX.ACTION_CONTINUE,
+		Continue = VX.ACTION_CONTINUE,
 
 		/// <summary>
 		/// Strongly typed for value ACTION_ABANDON.
 		/// </summary>
-		ActionAbandon = VX.ACTION_ABANDON,
+		Abandon = VX.ACTION_ABANDON,
 
 	}
 
@@ -79,22 +79,22 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value ARRAY_ITEMTYPE.
 		/// </summary>
-		ArrayItemtype = VX.ARRAY_ITEMTYPE,
+		Itemtype = VX.ARRAY_ITEMTYPE,
 
 		/// <summary>
 		/// Strongly typed for value ARRAY_NUMITEMS.
 		/// </summary>
-		ArrayNumitems = VX.ARRAY_NUMITEMS,
+		Numitems = VX.ARRAY_NUMITEMS,
 
 		/// <summary>
 		/// Strongly typed for value ARRAY_CAPACITY.
 		/// </summary>
-		ArrayCapacity = VX.ARRAY_CAPACITY,
+		Capacity = VX.ARRAY_CAPACITY,
 
 		/// <summary>
 		/// Strongly typed for value ARRAY_ITEMSIZE.
 		/// </summary>
-		ArrayItemsize = VX.ARRAY_ITEMSIZE,
+		Itemsize = VX.ARRAY_ITEMSIZE,
 
 	}
 
@@ -106,17 +106,17 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value BORDER_UNDEFINED.
 		/// </summary>
-		BorderUndefined = VX.BORDER_UNDEFINED,
+		Undefined = VX.BORDER_UNDEFINED,
 
 		/// <summary>
 		/// Strongly typed for value BORDER_CONSTANT.
 		/// </summary>
-		BorderConstant = VX.BORDER_CONSTANT,
+		Constant = VX.BORDER_CONSTANT,
 
 		/// <summary>
 		/// Strongly typed for value BORDER_REPLICATE.
 		/// </summary>
-		BorderReplicate = VX.BORDER_REPLICATE,
+		Replicate = VX.BORDER_REPLICATE,
 
 	}
 
@@ -128,12 +128,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value BORDER_POLICY_DEFAULT_TO_UNDEFINED.
 		/// </summary>
-		BorderPolicyDefaultToUndefined = VX.BORDER_POLICY_DEFAULT_TO_UNDEFINED,
+		PolicyDefaultToUndefined = VX.BORDER_POLICY_DEFAULT_TO_UNDEFINED,
 
 		/// <summary>
 		/// Strongly typed for value BORDER_POLICY_RETURN_ERROR.
 		/// </summary>
-		BorderPolicyReturnError = VX.BORDER_POLICY_RETURN_ERROR,
+		PolicyReturnError = VX.BORDER_POLICY_RETURN_ERROR,
 
 	}
 
@@ -224,27 +224,27 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value COLOR_SPACE_NONE.
 		/// </summary>
-		ColorSpaceNone = VX.COLOR_SPACE_NONE,
+		None = VX.COLOR_SPACE_NONE,
 
 		/// <summary>
 		/// Strongly typed for value COLOR_SPACE_BT601_525.
 		/// </summary>
-		ColorSpaceBt601525 = VX.COLOR_SPACE_BT601_525,
+		Bt601525 = VX.COLOR_SPACE_BT601_525,
 
 		/// <summary>
 		/// Strongly typed for value COLOR_SPACE_BT601_625.
 		/// </summary>
-		ColorSpaceBt601625 = VX.COLOR_SPACE_BT601_625,
+		Bt601625 = VX.COLOR_SPACE_BT601_625,
 
 		/// <summary>
 		/// Strongly typed for value COLOR_SPACE_BT709.
 		/// </summary>
-		ColorSpaceBt709 = VX.COLOR_SPACE_BT709,
+		Bt709 = VX.COLOR_SPACE_BT709,
 
 		/// <summary>
 		/// Strongly typed for value COLOR_SPACE_DEFAULT.
 		/// </summary>
-		ColorSpaceDefault = VX.COLOR_SPACE_DEFAULT,
+		Default = VX.COLOR_SPACE_DEFAULT,
 
 	}
 
@@ -256,72 +256,72 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value CONTEXT_VENDOR_ID.
 		/// </summary>
-		ContextVendorId = VX.CONTEXT_VENDOR_ID,
+		VendorId = VX.CONTEXT_VENDOR_ID,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_VERSION.
 		/// </summary>
-		ContextVersion = VX.CONTEXT_VERSION,
+		Version = VX.CONTEXT_VERSION,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_UNIQUE_KERNELS.
 		/// </summary>
-		ContextUniqueKernels = VX.CONTEXT_UNIQUE_KERNELS,
+		UniqueKernels = VX.CONTEXT_UNIQUE_KERNELS,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_MODULES.
 		/// </summary>
-		ContextModules = VX.CONTEXT_MODULES,
+		Modules = VX.CONTEXT_MODULES,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_REFERENCES.
 		/// </summary>
-		ContextReferences = VX.CONTEXT_REFERENCES,
+		References = VX.CONTEXT_REFERENCES,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_IMPLEMENTATION.
 		/// </summary>
-		ContextImplementation = VX.CONTEXT_IMPLEMENTATION,
+		Implementation = VX.CONTEXT_IMPLEMENTATION,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_EXTENSIONS_SIZE.
 		/// </summary>
-		ContextExtensionsSize = VX.CONTEXT_EXTENSIONS_SIZE,
+		ExtensionsSize = VX.CONTEXT_EXTENSIONS_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_EXTENSIONS.
 		/// </summary>
-		ContextExtensions = VX.CONTEXT_EXTENSIONS,
+		Extensions = VX.CONTEXT_EXTENSIONS,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_CONVOLUTION_MAX_DIMENSION.
 		/// </summary>
-		ContextConvolutionMaxDimension = VX.CONTEXT_CONVOLUTION_MAX_DIMENSION,
+		ConvolutionMaxDimension = VX.CONTEXT_CONVOLUTION_MAX_DIMENSION,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_OPTICAL_FLOW_MAX_WINDOW_DIMENSION.
 		/// </summary>
-		ContextOpticalFlowMaxWindowDimension = VX.CONTEXT_OPTICAL_FLOW_MAX_WINDOW_DIMENSION,
+		OpticalFlowMaxWindowDimension = VX.CONTEXT_OPTICAL_FLOW_MAX_WINDOW_DIMENSION,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_IMMEDIATE_BORDER.
 		/// </summary>
-		ContextImmediateBorder = VX.CONTEXT_IMMEDIATE_BORDER,
+		ImmediateBorder = VX.CONTEXT_IMMEDIATE_BORDER,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_UNIQUE_KERNEL_TABLE.
 		/// </summary>
-		ContextUniqueKernelTable = VX.CONTEXT_UNIQUE_KERNEL_TABLE,
+		UniqueKernelTable = VX.CONTEXT_UNIQUE_KERNEL_TABLE,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_IMMEDIATE_BORDER_POLICY.
 		/// </summary>
-		ContextImmediateBorderPolicy = VX.CONTEXT_IMMEDIATE_BORDER_POLICY,
+		ImmediateBorderPolicy = VX.CONTEXT_IMMEDIATE_BORDER_POLICY,
 
 		/// <summary>
 		/// Strongly typed for value CONTEXT_NONLINEAR_MAX_DIMENSION.
 		/// </summary>
-		ContextNonlinearMaxDimension = VX.CONTEXT_NONLINEAR_MAX_DIMENSION,
+		NonlinearMaxDimension = VX.CONTEXT_NONLINEAR_MAX_DIMENSION,
 
 	}
 
@@ -333,12 +333,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value CONVERT_POLICY_WRAP.
 		/// </summary>
-		ConvertPolicyWrap = VX.CONVERT_POLICY_WRAP,
+		Wrap = VX.CONVERT_POLICY_WRAP,
 
 		/// <summary>
 		/// Strongly typed for value CONVERT_POLICY_SATURATE.
 		/// </summary>
-		ConvertPolicySaturate = VX.CONVERT_POLICY_SATURATE,
+		Saturate = VX.CONVERT_POLICY_SATURATE,
 
 	}
 
@@ -350,22 +350,22 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value CONVOLUTION_ROWS.
 		/// </summary>
-		ConvolutionRows = VX.CONVOLUTION_ROWS,
+		Rows = VX.CONVOLUTION_ROWS,
 
 		/// <summary>
 		/// Strongly typed for value CONVOLUTION_COLUMNS.
 		/// </summary>
-		ConvolutionColumns = VX.CONVOLUTION_COLUMNS,
+		Columns = VX.CONVOLUTION_COLUMNS,
 
 		/// <summary>
 		/// Strongly typed for value CONVOLUTION_SCALE.
 		/// </summary>
-		ConvolutionScale = VX.CONVOLUTION_SCALE,
+		Scale = VX.CONVOLUTION_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value CONVOLUTION_SIZE.
 		/// </summary>
-		ConvolutionSize = VX.CONVOLUTION_SIZE,
+		Size = VX.CONVOLUTION_SIZE,
 
 	}
 
@@ -377,12 +377,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value DELAY_TYPE.
 		/// </summary>
-		DelayType = VX.DELAY_TYPE,
+		Type = VX.DELAY_TYPE,
 
 		/// <summary>
 		/// Strongly typed for value DELAY_SLOTS.
 		/// </summary>
-		DelaySlots = VX.DELAY_SLOTS,
+		Slots = VX.DELAY_SLOTS,
 
 	}
 
@@ -394,72 +394,72 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_VIRT.
 		/// </summary>
-		DfImageVirt = VX.DF_IMAGE_VIRT,
+		Virt = VX.DF_IMAGE_VIRT,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_RGB.
 		/// </summary>
-		DfImageRgb = VX.DF_IMAGE_RGB,
+		Rgb = VX.DF_IMAGE_RGB,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_RGBX.
 		/// </summary>
-		DfImageRgbx = VX.DF_IMAGE_RGBX,
+		Rgbx = VX.DF_IMAGE_RGBX,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_NV12.
 		/// </summary>
-		DfImageNv12 = VX.DF_IMAGE_NV12,
+		Nv12 = VX.DF_IMAGE_NV12,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_NV21.
 		/// </summary>
-		DfImageNv21 = VX.DF_IMAGE_NV21,
+		Nv21 = VX.DF_IMAGE_NV21,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_UYVY.
 		/// </summary>
-		DfImageUyvy = VX.DF_IMAGE_UYVY,
+		Uyvy = VX.DF_IMAGE_UYVY,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_YUYV.
 		/// </summary>
-		DfImageYuyv = VX.DF_IMAGE_YUYV,
+		Yuyv = VX.DF_IMAGE_YUYV,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_IYUV.
 		/// </summary>
-		DfImageIyuv = VX.DF_IMAGE_IYUV,
+		Iyuv = VX.DF_IMAGE_IYUV,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_YUV4.
 		/// </summary>
-		DfImageYuv4 = VX.DF_IMAGE_YUV4,
+		Yuv4 = VX.DF_IMAGE_YUV4,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_U8.
 		/// </summary>
-		DfImageU8 = VX.DF_IMAGE_U8,
+		U8 = VX.DF_IMAGE_U8,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_U16.
 		/// </summary>
-		DfImageU16 = VX.DF_IMAGE_U16,
+		U16 = VX.DF_IMAGE_U16,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_S16.
 		/// </summary>
-		DfImageS16 = VX.DF_IMAGE_S16,
+		S16 = VX.DF_IMAGE_S16,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_U32.
 		/// </summary>
-		DfImageU32 = VX.DF_IMAGE_U32,
+		U32 = VX.DF_IMAGE_U32,
 
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_S32.
 		/// </summary>
-		DfImageS32 = VX.DF_IMAGE_S32,
+		S32 = VX.DF_IMAGE_S32,
 
 	}
 
@@ -493,22 +493,22 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value DIRECTIVE_DISABLE_LOGGING.
 		/// </summary>
-		DirectiveDisableLogging = VX.DIRECTIVE_DISABLE_LOGGING,
+		DisableLogging = VX.DIRECTIVE_DISABLE_LOGGING,
 
 		/// <summary>
 		/// Strongly typed for value DIRECTIVE_ENABLE_LOGGING.
 		/// </summary>
-		DirectiveEnableLogging = VX.DIRECTIVE_ENABLE_LOGGING,
+		EnableLogging = VX.DIRECTIVE_ENABLE_LOGGING,
 
 		/// <summary>
 		/// Strongly typed for value DIRECTIVE_DISABLE_PERFORMANCE.
 		/// </summary>
-		DirectiveDisablePerformance = VX.DIRECTIVE_DISABLE_PERFORMANCE,
+		DisablePerformance = VX.DIRECTIVE_DISABLE_PERFORMANCE,
 
 		/// <summary>
 		/// Strongly typed for value DIRECTIVE_ENABLE_PERFORMANCE.
 		/// </summary>
-		DirectiveEnablePerformance = VX.DIRECTIVE_ENABLE_PERFORMANCE,
+		EnablePerformance = VX.DIRECTIVE_ENABLE_PERFORMANCE,
 
 	}
 
@@ -520,32 +520,32 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value DISTRIBUTION_DIMENSIONS.
 		/// </summary>
-		DistributionDimensions = VX.DISTRIBUTION_DIMENSIONS,
+		Dimensions = VX.DISTRIBUTION_DIMENSIONS,
 
 		/// <summary>
 		/// Strongly typed for value DISTRIBUTION_OFFSET.
 		/// </summary>
-		DistributionOffset = VX.DISTRIBUTION_OFFSET,
+		Offset = VX.DISTRIBUTION_OFFSET,
 
 		/// <summary>
 		/// Strongly typed for value DISTRIBUTION_RANGE.
 		/// </summary>
-		DistributionRange = VX.DISTRIBUTION_RANGE,
+		Range = VX.DISTRIBUTION_RANGE,
 
 		/// <summary>
 		/// Strongly typed for value DISTRIBUTION_BINS.
 		/// </summary>
-		DistributionBins = VX.DISTRIBUTION_BINS,
+		Bins = VX.DISTRIBUTION_BINS,
 
 		/// <summary>
 		/// Strongly typed for value DISTRIBUTION_WINDOW.
 		/// </summary>
-		DistributionWindow = VX.DISTRIBUTION_WINDOW,
+		Window = VX.DISTRIBUTION_WINDOW,
 
 		/// <summary>
 		/// Strongly typed for value DISTRIBUTION_SIZE.
 		/// </summary>
-		DistributionSize = VX.DISTRIBUTION_SIZE,
+		Size = VX.DISTRIBUTION_SIZE,
 
 	}
 
@@ -557,122 +557,122 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value ENUM_DIRECTION.
 		/// </summary>
-		EnumDirection = VX.ENUM_DIRECTION,
+		Direction = VX.ENUM_DIRECTION,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_ACTION.
 		/// </summary>
-		EnumAction = VX.ENUM_ACTION,
+		Action = VX.ENUM_ACTION,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_HINT.
 		/// </summary>
-		EnumHint = VX.ENUM_HINT,
+		Hint = VX.ENUM_HINT,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_DIRECTIVE.
 		/// </summary>
-		EnumDirective = VX.ENUM_DIRECTIVE,
+		Directive = VX.ENUM_DIRECTIVE,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_INTERPOLATION.
 		/// </summary>
-		EnumInterpolation = VX.ENUM_INTERPOLATION,
+		Interpolation = VX.ENUM_INTERPOLATION,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_OVERFLOW.
 		/// </summary>
-		EnumOverflow = VX.ENUM_OVERFLOW,
+		Overflow = VX.ENUM_OVERFLOW,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_COLOR_SPACE.
 		/// </summary>
-		EnumColorSpace = VX.ENUM_COLOR_SPACE,
+		ColorSpace = VX.ENUM_COLOR_SPACE,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_COLOR_RANGE.
 		/// </summary>
-		EnumColorRange = VX.ENUM_COLOR_RANGE,
+		ColorRange = VX.ENUM_COLOR_RANGE,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_PARAMETER_STATE.
 		/// </summary>
-		EnumParameterState = VX.ENUM_PARAMETER_STATE,
+		ParameterState = VX.ENUM_PARAMETER_STATE,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_CHANNEL.
 		/// </summary>
-		EnumChannel = VX.ENUM_CHANNEL,
+		Channel = VX.ENUM_CHANNEL,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_CONVERT_POLICY.
 		/// </summary>
-		EnumConvertPolicy = VX.ENUM_CONVERT_POLICY,
+		ConvertPolicy = VX.ENUM_CONVERT_POLICY,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_THRESHOLD_TYPE.
 		/// </summary>
-		EnumThresholdType = VX.ENUM_THRESHOLD_TYPE,
+		ThresholdType = VX.ENUM_THRESHOLD_TYPE,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_BORDER.
 		/// </summary>
-		EnumBorder = VX.ENUM_BORDER,
+		Border = VX.ENUM_BORDER,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_COMPARISON.
 		/// </summary>
-		EnumComparison = VX.ENUM_COMPARISON,
+		Comparison = VX.ENUM_COMPARISON,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_MEMORY_TYPE.
 		/// </summary>
-		EnumMemoryType = VX.ENUM_MEMORY_TYPE,
+		MemoryType = VX.ENUM_MEMORY_TYPE,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_TERM_CRITERIA.
 		/// </summary>
-		EnumTermCriteria = VX.ENUM_TERM_CRITERIA,
+		TermCriteria = VX.ENUM_TERM_CRITERIA,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_NORM_TYPE.
 		/// </summary>
-		EnumNormType = VX.ENUM_NORM_TYPE,
+		NormType = VX.ENUM_NORM_TYPE,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_ACCESSOR.
 		/// </summary>
-		EnumAccessor = VX.ENUM_ACCESSOR,
+		Accessor = VX.ENUM_ACCESSOR,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_ROUND_POLICY.
 		/// </summary>
-		EnumRoundPolicy = VX.ENUM_ROUND_POLICY,
+		RoundPolicy = VX.ENUM_ROUND_POLICY,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_TARGET.
 		/// </summary>
-		EnumTarget = VX.ENUM_TARGET,
+		Target = VX.ENUM_TARGET,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_BORDER_POLICY.
 		/// </summary>
-		EnumBorderPolicy = VX.ENUM_BORDER_POLICY,
+		BorderPolicy = VX.ENUM_BORDER_POLICY,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_GRAPH_STATE.
 		/// </summary>
-		EnumGraphState = VX.ENUM_GRAPH_STATE,
+		GraphState = VX.ENUM_GRAPH_STATE,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_NONLINEAR.
 		/// </summary>
-		EnumNonlinear = VX.ENUM_NONLINEAR,
+		Nonlinear = VX.ENUM_NONLINEAR,
 
 		/// <summary>
 		/// Strongly typed for value ENUM_PATTERN.
 		/// </summary>
-		EnumPattern = VX.ENUM_PATTERN,
+		Pattern = VX.ENUM_PATTERN,
 
 	}
 
@@ -684,22 +684,22 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value GRAPH_NUMNODES.
 		/// </summary>
-		GraphNumnodes = VX.GRAPH_NUMNODES,
+		Numnodes = VX.GRAPH_NUMNODES,
 
 		/// <summary>
 		/// Strongly typed for value GRAPH_PERFORMANCE.
 		/// </summary>
-		GraphPerformance = VX.GRAPH_PERFORMANCE,
+		Performance = VX.GRAPH_PERFORMANCE,
 
 		/// <summary>
 		/// Strongly typed for value GRAPH_NUMPARAMETERS.
 		/// </summary>
-		GraphNumparameters = VX.GRAPH_NUMPARAMETERS,
+		Numparameters = VX.GRAPH_NUMPARAMETERS,
 
 		/// <summary>
 		/// Strongly typed for value GRAPH_STATE.
 		/// </summary>
-		GraphState = VX.GRAPH_STATE,
+		State = VX.GRAPH_STATE,
 
 	}
 
@@ -711,27 +711,27 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value GRAPH_STATE_UNVERIFIED.
 		/// </summary>
-		GraphStateUnverified = VX.GRAPH_STATE_UNVERIFIED,
+		Unverified = VX.GRAPH_STATE_UNVERIFIED,
 
 		/// <summary>
 		/// Strongly typed for value GRAPH_STATE_VERIFIED.
 		/// </summary>
-		GraphStateVerified = VX.GRAPH_STATE_VERIFIED,
+		Verified = VX.GRAPH_STATE_VERIFIED,
 
 		/// <summary>
 		/// Strongly typed for value GRAPH_STATE_RUNNING.
 		/// </summary>
-		GraphStateRunning = VX.GRAPH_STATE_RUNNING,
+		Running = VX.GRAPH_STATE_RUNNING,
 
 		/// <summary>
 		/// Strongly typed for value GRAPH_STATE_ABANDONED.
 		/// </summary>
-		GraphStateAbandoned = VX.GRAPH_STATE_ABANDONED,
+		Abandoned = VX.GRAPH_STATE_ABANDONED,
 
 		/// <summary>
 		/// Strongly typed for value GRAPH_STATE_COMPLETED.
 		/// </summary>
-		GraphStateCompleted = VX.GRAPH_STATE_COMPLETED,
+		Completed = VX.GRAPH_STATE_COMPLETED,
 
 	}
 
@@ -743,17 +743,17 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value HINT_PERFORMANCE_DEFAULT.
 		/// </summary>
-		HintPerformanceDefault = VX.HINT_PERFORMANCE_DEFAULT,
+		PerformanceDefault = VX.HINT_PERFORMANCE_DEFAULT,
 
 		/// <summary>
 		/// Strongly typed for value HINT_PERFORMANCE_LOW_POWER.
 		/// </summary>
-		HintPerformanceLowPower = VX.HINT_PERFORMANCE_LOW_POWER,
+		PerformanceLowPower = VX.HINT_PERFORMANCE_LOW_POWER,
 
 		/// <summary>
 		/// Strongly typed for value HINT_PERFORMANCE_HIGH_SPEED.
 		/// </summary>
-		HintPerformanceHighSpeed = VX.HINT_PERFORMANCE_HIGH_SPEED,
+		PerformanceHighSpeed = VX.HINT_PERFORMANCE_HIGH_SPEED,
 
 	}
 
@@ -765,42 +765,42 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value IMAGE_WIDTH.
 		/// </summary>
-		ImageWidth = VX.IMAGE_WIDTH,
+		Width = VX.IMAGE_WIDTH,
 
 		/// <summary>
 		/// Strongly typed for value IMAGE_HEIGHT.
 		/// </summary>
-		ImageHeight = VX.IMAGE_HEIGHT,
+		Height = VX.IMAGE_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value IMAGE_FORMAT.
 		/// </summary>
-		ImageFormat = VX.IMAGE_FORMAT,
+		Format = VX.IMAGE_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value IMAGE_PLANES.
 		/// </summary>
-		ImagePlanes = VX.IMAGE_PLANES,
+		Planes = VX.IMAGE_PLANES,
 
 		/// <summary>
 		/// Strongly typed for value IMAGE_SPACE.
 		/// </summary>
-		ImageSpace = VX.IMAGE_SPACE,
+		Space = VX.IMAGE_SPACE,
 
 		/// <summary>
 		/// Strongly typed for value IMAGE_RANGE.
 		/// </summary>
-		ImageRange = VX.IMAGE_RANGE,
+		Range = VX.IMAGE_RANGE,
 
 		/// <summary>
 		/// Strongly typed for value IMAGE_SIZE.
 		/// </summary>
-		ImageSize = VX.IMAGE_SIZE,
+		Size = VX.IMAGE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value IMAGE_MEMORY_TYPE.
 		/// </summary>
-		ImageMemoryType = VX.IMAGE_MEMORY_TYPE,
+		MemoryType = VX.IMAGE_MEMORY_TYPE,
 
 	}
 
@@ -812,17 +812,17 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value INTERPOLATION_NEAREST_NEIGHBOR.
 		/// </summary>
-		InterpolationNearestNeighbor = VX.INTERPOLATION_NEAREST_NEIGHBOR,
+		NearestNeighbor = VX.INTERPOLATION_NEAREST_NEIGHBOR,
 
 		/// <summary>
 		/// Strongly typed for value INTERPOLATION_BILINEAR.
 		/// </summary>
-		InterpolationBilinear = VX.INTERPOLATION_BILINEAR,
+		Bilinear = VX.INTERPOLATION_BILINEAR,
 
 		/// <summary>
 		/// Strongly typed for value INTERPOLATION_AREA.
 		/// </summary>
-		InterpolationArea = VX.INTERPOLATION_AREA,
+		Area = VX.INTERPOLATION_AREA,
 
 	}
 
@@ -834,222 +834,222 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value KERNEL_COLOR_CONVERT.
 		/// </summary>
-		KernelColorConvert = VX.KERNEL_COLOR_CONVERT,
+		ColorConvert = VX.KERNEL_COLOR_CONVERT,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_CHANNEL_EXTRACT.
 		/// </summary>
-		KernelChannelExtract = VX.KERNEL_CHANNEL_EXTRACT,
+		ChannelExtract = VX.KERNEL_CHANNEL_EXTRACT,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_CHANNEL_COMBINE.
 		/// </summary>
-		KernelChannelCombine = VX.KERNEL_CHANNEL_COMBINE,
+		ChannelCombine = VX.KERNEL_CHANNEL_COMBINE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_SOBEL_3x3.
 		/// </summary>
-		KernelSobel3x3 = VX.KERNEL_SOBEL_3x3,
+		Sobel3x3 = VX.KERNEL_SOBEL_3x3,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_MAGNITUDE.
 		/// </summary>
-		KernelMagnitude = VX.KERNEL_MAGNITUDE,
+		Magnitude = VX.KERNEL_MAGNITUDE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_PHASE.
 		/// </summary>
-		KernelPhase = VX.KERNEL_PHASE,
+		Phase = VX.KERNEL_PHASE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_SCALE_IMAGE.
 		/// </summary>
-		KernelScaleImage = VX.KERNEL_SCALE_IMAGE,
+		ScaleImage = VX.KERNEL_SCALE_IMAGE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_TABLE_LOOKUP.
 		/// </summary>
-		KernelTableLookup = VX.KERNEL_TABLE_LOOKUP,
+		TableLookup = VX.KERNEL_TABLE_LOOKUP,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_HISTOGRAM.
 		/// </summary>
-		KernelHistogram = VX.KERNEL_HISTOGRAM,
+		Histogram = VX.KERNEL_HISTOGRAM,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_EQUALIZE_HISTOGRAM.
 		/// </summary>
-		KernelEqualizeHistogram = VX.KERNEL_EQUALIZE_HISTOGRAM,
+		EqualizeHistogram = VX.KERNEL_EQUALIZE_HISTOGRAM,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_ABSDIFF.
 		/// </summary>
-		KernelAbsdiff = VX.KERNEL_ABSDIFF,
+		Absdiff = VX.KERNEL_ABSDIFF,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_MEAN_STDDEV.
 		/// </summary>
-		KernelMeanStddev = VX.KERNEL_MEAN_STDDEV,
+		MeanStddev = VX.KERNEL_MEAN_STDDEV,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_THRESHOLD.
 		/// </summary>
-		KernelThreshold = VX.KERNEL_THRESHOLD,
+		Threshold = VX.KERNEL_THRESHOLD,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_INTEGRAL_IMAGE.
 		/// </summary>
-		KernelIntegralImage = VX.KERNEL_INTEGRAL_IMAGE,
+		IntegralImage = VX.KERNEL_INTEGRAL_IMAGE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_DILATE_3x3.
 		/// </summary>
-		KernelDilate3x3 = VX.KERNEL_DILATE_3x3,
+		Dilate3x3 = VX.KERNEL_DILATE_3x3,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_ERODE_3x3.
 		/// </summary>
-		KernelErode3x3 = VX.KERNEL_ERODE_3x3,
+		Erode3x3 = VX.KERNEL_ERODE_3x3,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_MEDIAN_3x3.
 		/// </summary>
-		KernelMedian3x3 = VX.KERNEL_MEDIAN_3x3,
+		Median3x3 = VX.KERNEL_MEDIAN_3x3,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_BOX_3x3.
 		/// </summary>
-		KernelBox3x3 = VX.KERNEL_BOX_3x3,
+		Box3x3 = VX.KERNEL_BOX_3x3,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_GAUSSIAN_3x3.
 		/// </summary>
-		KernelGaussian3x3 = VX.KERNEL_GAUSSIAN_3x3,
+		Gaussian3x3 = VX.KERNEL_GAUSSIAN_3x3,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_CUSTOM_CONVOLUTION.
 		/// </summary>
-		KernelCustomConvolution = VX.KERNEL_CUSTOM_CONVOLUTION,
+		CustomConvolution = VX.KERNEL_CUSTOM_CONVOLUTION,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_GAUSSIAN_PYRAMID.
 		/// </summary>
-		KernelGaussianPyramid = VX.KERNEL_GAUSSIAN_PYRAMID,
+		GaussianPyramid = VX.KERNEL_GAUSSIAN_PYRAMID,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_ACCUMULATE.
 		/// </summary>
-		KernelAccumulate = VX.KERNEL_ACCUMULATE,
+		Accumulate = VX.KERNEL_ACCUMULATE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_ACCUMULATE_WEIGHTED.
 		/// </summary>
-		KernelAccumulateWeighted = VX.KERNEL_ACCUMULATE_WEIGHTED,
+		AccumulateWeighted = VX.KERNEL_ACCUMULATE_WEIGHTED,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_ACCUMULATE_SQUARE.
 		/// </summary>
-		KernelAccumulateSquare = VX.KERNEL_ACCUMULATE_SQUARE,
+		AccumulateSquare = VX.KERNEL_ACCUMULATE_SQUARE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_MINMAXLOC.
 		/// </summary>
-		KernelMinmaxloc = VX.KERNEL_MINMAXLOC,
+		Minmaxloc = VX.KERNEL_MINMAXLOC,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_CONVERTDEPTH.
 		/// </summary>
-		KernelConvertdepth = VX.KERNEL_CONVERTDEPTH,
+		Convertdepth = VX.KERNEL_CONVERTDEPTH,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_CANNY_EDGE_DETECTOR.
 		/// </summary>
-		KernelCannyEdgeDetector = VX.KERNEL_CANNY_EDGE_DETECTOR,
+		CannyEdgeDetector = VX.KERNEL_CANNY_EDGE_DETECTOR,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_AND.
 		/// </summary>
-		KernelAnd = VX.KERNEL_AND,
+		And = VX.KERNEL_AND,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_OR.
 		/// </summary>
-		KernelOr = VX.KERNEL_OR,
+		Or = VX.KERNEL_OR,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_XOR.
 		/// </summary>
-		KernelXor = VX.KERNEL_XOR,
+		Xor = VX.KERNEL_XOR,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_NOT.
 		/// </summary>
-		KernelNot = VX.KERNEL_NOT,
+		Not = VX.KERNEL_NOT,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_MULTIPLY.
 		/// </summary>
-		KernelMultiply = VX.KERNEL_MULTIPLY,
+		Multiply = VX.KERNEL_MULTIPLY,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_ADD.
 		/// </summary>
-		KernelAdd = VX.KERNEL_ADD,
+		Add = VX.KERNEL_ADD,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_SUBTRACT.
 		/// </summary>
-		KernelSubtract = VX.KERNEL_SUBTRACT,
+		Subtract = VX.KERNEL_SUBTRACT,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_WARP_AFFINE.
 		/// </summary>
-		KernelWarpAffine = VX.KERNEL_WARP_AFFINE,
+		WarpAffine = VX.KERNEL_WARP_AFFINE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_WARP_PERSPECTIVE.
 		/// </summary>
-		KernelWarpPerspective = VX.KERNEL_WARP_PERSPECTIVE,
+		WarpPerspective = VX.KERNEL_WARP_PERSPECTIVE,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_HARRIS_CORNERS.
 		/// </summary>
-		KernelHarrisCorners = VX.KERNEL_HARRIS_CORNERS,
+		HarrisCorners = VX.KERNEL_HARRIS_CORNERS,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_FAST_CORNERS.
 		/// </summary>
-		KernelFastCorners = VX.KERNEL_FAST_CORNERS,
+		FastCorners = VX.KERNEL_FAST_CORNERS,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_OPTICAL_FLOW_PYR_LK.
 		/// </summary>
-		KernelOpticalFlowPyrLk = VX.KERNEL_OPTICAL_FLOW_PYR_LK,
+		OpticalFlowPyrLk = VX.KERNEL_OPTICAL_FLOW_PYR_LK,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_REMAP.
 		/// </summary>
-		KernelRemap = VX.KERNEL_REMAP,
+		Remap = VX.KERNEL_REMAP,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_HALFSCALE_GAUSSIAN.
 		/// </summary>
-		KernelHalfscaleGaussian = VX.KERNEL_HALFSCALE_GAUSSIAN,
+		HalfscaleGaussian = VX.KERNEL_HALFSCALE_GAUSSIAN,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_LAPLACIAN_PYRAMID.
 		/// </summary>
-		KernelLaplacianPyramid = VX.KERNEL_LAPLACIAN_PYRAMID,
+		LaplacianPyramid = VX.KERNEL_LAPLACIAN_PYRAMID,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_LAPLACIAN_RECONSTRUCT.
 		/// </summary>
-		KernelLaplacianReconstruct = VX.KERNEL_LAPLACIAN_RECONSTRUCT,
+		LaplacianReconstruct = VX.KERNEL_LAPLACIAN_RECONSTRUCT,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_NON_LINEAR_FILTER.
 		/// </summary>
-		KernelNonLinearFilter = VX.KERNEL_NON_LINEAR_FILTER,
+		NonLinearFilter = VX.KERNEL_NON_LINEAR_FILTER,
 
 	}
 
@@ -1061,22 +1061,22 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value KERNEL_PARAMETERS.
 		/// </summary>
-		KernelParameters = VX.KERNEL_PARAMETERS,
+		Parameters = VX.KERNEL_PARAMETERS,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_NAME.
 		/// </summary>
-		KernelName = VX.KERNEL_NAME,
+		Name = VX.KERNEL_NAME,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_ENUM.
 		/// </summary>
-		KernelEnum = VX.KERNEL_ENUM,
+		Enum = VX.KERNEL_ENUM,
 
 		/// <summary>
 		/// Strongly typed for value KERNEL_LOCAL_DATA_SIZE.
 		/// </summary>
-		KernelLocalDataSize = VX.KERNEL_LOCAL_DATA_SIZE,
+		LocalDataSize = VX.KERNEL_LOCAL_DATA_SIZE,
 
 	}
 
@@ -1088,7 +1088,7 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value LIBRARY_KHR_BASE.
 		/// </summary>
-		LibraryKhrBase = VX.LIBRARY_KHR_BASE,
+		KhrBase = VX.LIBRARY_KHR_BASE,
 
 	}
 
@@ -1139,32 +1139,32 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value MATRIX_TYPE.
 		/// </summary>
-		MatrixType = VX.MATRIX_TYPE,
+		Type = VX.MATRIX_TYPE,
 
 		/// <summary>
 		/// Strongly typed for value MATRIX_ROWS.
 		/// </summary>
-		MatrixRows = VX.MATRIX_ROWS,
+		Rows = VX.MATRIX_ROWS,
 
 		/// <summary>
 		/// Strongly typed for value MATRIX_COLUMNS.
 		/// </summary>
-		MatrixColumns = VX.MATRIX_COLUMNS,
+		Columns = VX.MATRIX_COLUMNS,
 
 		/// <summary>
 		/// Strongly typed for value MATRIX_SIZE.
 		/// </summary>
-		MatrixSize = VX.MATRIX_SIZE,
+		Size = VX.MATRIX_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value MATRIX_ORIGIN.
 		/// </summary>
-		MatrixOrigin = VX.MATRIX_ORIGIN,
+		Origin = VX.MATRIX_ORIGIN,
 
 		/// <summary>
 		/// Strongly typed for value MATRIX_PATTERN.
 		/// </summary>
-		MatrixPattern = VX.MATRIX_PATTERN,
+		Pattern = VX.MATRIX_PATTERN,
 
 	}
 
@@ -1176,12 +1176,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value MEMORY_TYPE_NONE.
 		/// </summary>
-		MemoryTypeNone = VX.MEMORY_TYPE_NONE,
+		None = VX.MEMORY_TYPE_NONE,
 
 		/// <summary>
 		/// Strongly typed for value MEMORY_TYPE_HOST.
 		/// </summary>
-		MemoryTypeHost = VX.MEMORY_TYPE_HOST,
+		Host = VX.MEMORY_TYPE_HOST,
 
 	}
 
@@ -1205,47 +1205,47 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value NODE_STATUS.
 		/// </summary>
-		NodeStatus = VX.NODE_STATUS,
+		Status = VX.NODE_STATUS,
 
 		/// <summary>
 		/// Strongly typed for value NODE_PERFORMANCE.
 		/// </summary>
-		NodePerformance = VX.NODE_PERFORMANCE,
+		Performance = VX.NODE_PERFORMANCE,
 
 		/// <summary>
 		/// Strongly typed for value NODE_BORDER.
 		/// </summary>
-		NodeBorder = VX.NODE_BORDER,
+		Border = VX.NODE_BORDER,
 
 		/// <summary>
 		/// Strongly typed for value NODE_LOCAL_DATA_SIZE.
 		/// </summary>
-		NodeLocalDataSize = VX.NODE_LOCAL_DATA_SIZE,
+		LocalDataSize = VX.NODE_LOCAL_DATA_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value NODE_LOCAL_DATA_PTR.
 		/// </summary>
-		NodeLocalDataPtr = VX.NODE_LOCAL_DATA_PTR,
+		LocalDataPtr = VX.NODE_LOCAL_DATA_PTR,
 
 		/// <summary>
 		/// Strongly typed for value NODE_PARAMETERS.
 		/// </summary>
-		NodeParameters = VX.NODE_PARAMETERS,
+		Parameters = VX.NODE_PARAMETERS,
 
 		/// <summary>
 		/// Strongly typed for value NODE_IS_REPLICATED.
 		/// </summary>
-		NodeIsReplicated = VX.NODE_IS_REPLICATED,
+		IsReplicated = VX.NODE_IS_REPLICATED,
 
 		/// <summary>
 		/// Strongly typed for value NODE_REPLICATE_FLAGS.
 		/// </summary>
-		NodeReplicateFlags = VX.NODE_REPLICATE_FLAGS,
+		ReplicateFlags = VX.NODE_REPLICATE_FLAGS,
 
 		/// <summary>
 		/// Strongly typed for value NODE_VALID_RECT_RESET.
 		/// </summary>
-		NodeValidRectReset = VX.NODE_VALID_RECT_RESET,
+		ValidRectReset = VX.NODE_VALID_RECT_RESET,
 
 	}
 
@@ -1279,12 +1279,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value NORM_L1.
 		/// </summary>
-		NormL1 = VX.NORM_L1,
+		L1 = VX.NORM_L1,
 
 		/// <summary>
 		/// Strongly typed for value NORM_L2.
 		/// </summary>
-		NormL2 = VX.NORM_L2,
+		L2 = VX.NORM_L2,
 
 	}
 
@@ -1313,27 +1313,27 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value PARAMETER_INDEX.
 		/// </summary>
-		ParameterIndex = VX.PARAMETER_INDEX,
+		Index = VX.PARAMETER_INDEX,
 
 		/// <summary>
 		/// Strongly typed for value PARAMETER_DIRECTION.
 		/// </summary>
-		ParameterDirection = VX.PARAMETER_DIRECTION,
+		Direction = VX.PARAMETER_DIRECTION,
 
 		/// <summary>
 		/// Strongly typed for value PARAMETER_TYPE.
 		/// </summary>
-		ParameterType = VX.PARAMETER_TYPE,
+		Type = VX.PARAMETER_TYPE,
 
 		/// <summary>
 		/// Strongly typed for value PARAMETER_STATE.
 		/// </summary>
-		ParameterState = VX.PARAMETER_STATE,
+		State = VX.PARAMETER_STATE,
 
 		/// <summary>
 		/// Strongly typed for value PARAMETER_REF.
 		/// </summary>
-		ParameterRef = VX.PARAMETER_REF,
+		Ref = VX.PARAMETER_REF,
 
 	}
 
@@ -1345,12 +1345,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value PARAMETER_STATE_REQUIRED.
 		/// </summary>
-		ParameterStateRequired = VX.PARAMETER_STATE_REQUIRED,
+		Required = VX.PARAMETER_STATE_REQUIRED,
 
 		/// <summary>
 		/// Strongly typed for value PARAMETER_STATE_OPTIONAL.
 		/// </summary>
-		ParameterStateOptional = VX.PARAMETER_STATE_OPTIONAL,
+		Optional = VX.PARAMETER_STATE_OPTIONAL,
 
 	}
 
@@ -1362,22 +1362,22 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value PATTERN_BOX.
 		/// </summary>
-		PatternBox = VX.PATTERN_BOX,
+		Box = VX.PATTERN_BOX,
 
 		/// <summary>
 		/// Strongly typed for value PATTERN_CROSS.
 		/// </summary>
-		PatternCross = VX.PATTERN_CROSS,
+		Cross = VX.PATTERN_CROSS,
 
 		/// <summary>
 		/// Strongly typed for value PATTERN_DISK.
 		/// </summary>
-		PatternDisk = VX.PATTERN_DISK,
+		Disk = VX.PATTERN_DISK,
 
 		/// <summary>
 		/// Strongly typed for value PATTERN_OTHER.
 		/// </summary>
-		PatternOther = VX.PATTERN_OTHER,
+		Other = VX.PATTERN_OTHER,
 
 	}
 
@@ -1389,27 +1389,27 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value PYRAMID_LEVELS.
 		/// </summary>
-		PyramidLevels = VX.PYRAMID_LEVELS,
+		Levels = VX.PYRAMID_LEVELS,
 
 		/// <summary>
 		/// Strongly typed for value PYRAMID_SCALE.
 		/// </summary>
-		PyramidScale = VX.PYRAMID_SCALE,
+		Scale = VX.PYRAMID_SCALE,
 
 		/// <summary>
 		/// Strongly typed for value PYRAMID_WIDTH.
 		/// </summary>
-		PyramidWidth = VX.PYRAMID_WIDTH,
+		Width = VX.PYRAMID_WIDTH,
 
 		/// <summary>
 		/// Strongly typed for value PYRAMID_HEIGHT.
 		/// </summary>
-		PyramidHeight = VX.PYRAMID_HEIGHT,
+		Height = VX.PYRAMID_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value PYRAMID_FORMAT.
 		/// </summary>
-		PyramidFormat = VX.PYRAMID_FORMAT,
+		Format = VX.PYRAMID_FORMAT,
 
 	}
 
@@ -1421,17 +1421,17 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value REFERENCE_COUNT.
 		/// </summary>
-		ReferenceCount = VX.REFERENCE_COUNT,
+		Count = VX.REFERENCE_COUNT,
 
 		/// <summary>
 		/// Strongly typed for value REFERENCE_TYPE.
 		/// </summary>
-		ReferenceType = VX.REFERENCE_TYPE,
+		Type = VX.REFERENCE_TYPE,
 
 		/// <summary>
 		/// Strongly typed for value REFERENCE_NAME.
 		/// </summary>
-		ReferenceName = VX.REFERENCE_NAME,
+		Name = VX.REFERENCE_NAME,
 
 	}
 
@@ -1443,22 +1443,22 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value REMAP_SOURCE_WIDTH.
 		/// </summary>
-		RemapSourceWidth = VX.REMAP_SOURCE_WIDTH,
+		SourceWidth = VX.REMAP_SOURCE_WIDTH,
 
 		/// <summary>
 		/// Strongly typed for value REMAP_SOURCE_HEIGHT.
 		/// </summary>
-		RemapSourceHeight = VX.REMAP_SOURCE_HEIGHT,
+		SourceHeight = VX.REMAP_SOURCE_HEIGHT,
 
 		/// <summary>
 		/// Strongly typed for value REMAP_DESTINATION_WIDTH.
 		/// </summary>
-		RemapDestinationWidth = VX.REMAP_DESTINATION_WIDTH,
+		DestinationWidth = VX.REMAP_DESTINATION_WIDTH,
 
 		/// <summary>
 		/// Strongly typed for value REMAP_DESTINATION_HEIGHT.
 		/// </summary>
-		RemapDestinationHeight = VX.REMAP_DESTINATION_HEIGHT,
+		DestinationHeight = VX.REMAP_DESTINATION_HEIGHT,
 
 	}
 
@@ -1470,12 +1470,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value ROUND_POLICY_TO_ZERO.
 		/// </summary>
-		RoundPolicyToZero = VX.ROUND_POLICY_TO_ZERO,
+		ToZero = VX.ROUND_POLICY_TO_ZERO,
 
 		/// <summary>
 		/// Strongly typed for value ROUND_POLICY_TO_NEAREST_EVEN.
 		/// </summary>
-		RoundPolicyToNearestEven = VX.ROUND_POLICY_TO_NEAREST_EVEN,
+		ToNearestEven = VX.ROUND_POLICY_TO_NEAREST_EVEN,
 
 	}
 
@@ -1487,7 +1487,7 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value SCALAR_TYPE.
 		/// </summary>
-		ScalarType = VX.SCALAR_TYPE,
+		Type = VX.SCALAR_TYPE,
 
 	}
 
@@ -1636,17 +1636,17 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value TARGET_ANY.
 		/// </summary>
-		TargetAny = VX.TARGET_ANY,
+		Any = VX.TARGET_ANY,
 
 		/// <summary>
 		/// Strongly typed for value TARGET_STRING.
 		/// </summary>
-		TargetString = VX.TARGET_STRING,
+		String = VX.TARGET_STRING,
 
 		/// <summary>
 		/// Strongly typed for value TARGET_VENDOR_BEGIN.
 		/// </summary>
-		TargetVendorBegin = VX.TARGET_VENDOR_BEGIN,
+		VendorBegin = VX.TARGET_VENDOR_BEGIN,
 
 	}
 
@@ -1680,37 +1680,37 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_TYPE.
 		/// </summary>
-		ThresholdType = VX.THRESHOLD_TYPE,
+		Type = VX.THRESHOLD_TYPE,
 
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_THRESHOLD_VALUE.
 		/// </summary>
-		ThresholdThresholdValue = VX.THRESHOLD_THRESHOLD_VALUE,
+		ThresholdValue = VX.THRESHOLD_THRESHOLD_VALUE,
 
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_THRESHOLD_LOWER.
 		/// </summary>
-		ThresholdThresholdLower = VX.THRESHOLD_THRESHOLD_LOWER,
+		ThresholdLower = VX.THRESHOLD_THRESHOLD_LOWER,
 
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_THRESHOLD_UPPER.
 		/// </summary>
-		ThresholdThresholdUpper = VX.THRESHOLD_THRESHOLD_UPPER,
+		ThresholdUpper = VX.THRESHOLD_THRESHOLD_UPPER,
 
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_TRUE_VALUE.
 		/// </summary>
-		ThresholdTrueValue = VX.THRESHOLD_TRUE_VALUE,
+		TrueValue = VX.THRESHOLD_TRUE_VALUE,
 
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_FALSE_VALUE.
 		/// </summary>
-		ThresholdFalseValue = VX.THRESHOLD_FALSE_VALUE,
+		FalseValue = VX.THRESHOLD_FALSE_VALUE,
 
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_DATA_TYPE.
 		/// </summary>
-		ThresholdDataType = VX.THRESHOLD_DATA_TYPE,
+		DataType = VX.THRESHOLD_DATA_TYPE,
 
 	}
 
@@ -1722,12 +1722,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_TYPE_BINARY.
 		/// </summary>
-		ThresholdTypeBinary = VX.THRESHOLD_TYPE_BINARY,
+		Binary = VX.THRESHOLD_TYPE_BINARY,
 
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_TYPE_RANGE.
 		/// </summary>
-		ThresholdTypeRange = VX.THRESHOLD_TYPE_RANGE,
+		Range = VX.THRESHOLD_TYPE_RANGE,
 
 	}
 
@@ -1739,252 +1739,252 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value TYPE_INVALID.
 		/// </summary>
-		TypeInvalid = VX.TYPE_INVALID,
+		Invalid = VX.TYPE_INVALID,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_CHAR.
 		/// </summary>
-		TypeChar = VX.TYPE_CHAR,
+		Char = VX.TYPE_CHAR,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_INT8.
 		/// </summary>
-		TypeInt8 = VX.TYPE_INT8,
+		Int8 = VX.TYPE_INT8,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_UINT8.
 		/// </summary>
-		TypeUint8 = VX.TYPE_UINT8,
+		Uint8 = VX.TYPE_UINT8,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_INT16.
 		/// </summary>
-		TypeInt16 = VX.TYPE_INT16,
+		Int16 = VX.TYPE_INT16,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_UINT16.
 		/// </summary>
-		TypeUint16 = VX.TYPE_UINT16,
+		Uint16 = VX.TYPE_UINT16,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_INT32.
 		/// </summary>
-		TypeInt32 = VX.TYPE_INT32,
+		Int32 = VX.TYPE_INT32,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_UINT32.
 		/// </summary>
-		TypeUint32 = VX.TYPE_UINT32,
+		Uint32 = VX.TYPE_UINT32,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_INT64.
 		/// </summary>
-		TypeInt64 = VX.TYPE_INT64,
+		Int64 = VX.TYPE_INT64,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_UINT64.
 		/// </summary>
-		TypeUint64 = VX.TYPE_UINT64,
+		Uint64 = VX.TYPE_UINT64,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_FLOAT32.
 		/// </summary>
-		TypeFloat32 = VX.TYPE_FLOAT32,
+		Float32 = VX.TYPE_FLOAT32,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_FLOAT64.
 		/// </summary>
-		TypeFloat64 = VX.TYPE_FLOAT64,
+		Float64 = VX.TYPE_FLOAT64,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_ENUM.
 		/// </summary>
-		TypeEnum = VX.TYPE_ENUM,
+		Enum = VX.TYPE_ENUM,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_SIZE.
 		/// </summary>
-		TypeSize = VX.TYPE_SIZE,
+		Size = VX.TYPE_SIZE,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_DF_IMAGE.
 		/// </summary>
-		TypeDfImage = VX.TYPE_DF_IMAGE,
+		DfImage = VX.TYPE_DF_IMAGE,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_FLOAT16.
 		/// </summary>
-		TypeFloat16 = VX.TYPE_FLOAT16,
+		Float16 = VX.TYPE_FLOAT16,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_BOOL.
 		/// </summary>
-		TypeBool = VX.TYPE_BOOL,
+		Bool = VX.TYPE_BOOL,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_RECTANGLE.
 		/// </summary>
-		TypeRectangle = VX.TYPE_RECTANGLE,
+		Rectangle = VX.TYPE_RECTANGLE,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_KEYPOINT.
 		/// </summary>
-		TypeKeypoint = VX.TYPE_KEYPOINT,
+		Keypoint = VX.TYPE_KEYPOINT,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_COORDINATES2D.
 		/// </summary>
-		TypeCoordinates2d = VX.TYPE_COORDINATES2D,
+		Coordinates2d = VX.TYPE_COORDINATES2D,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_COORDINATES3D.
 		/// </summary>
-		TypeCoordinates3d = VX.TYPE_COORDINATES3D,
+		Coordinates3d = VX.TYPE_COORDINATES3D,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_USER_STRUCT_START.
 		/// </summary>
-		TypeUserStructStart = VX.TYPE_USER_STRUCT_START,
+		UserStructStart = VX.TYPE_USER_STRUCT_START,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_VENDOR_STRUCT_START.
 		/// </summary>
-		TypeVendorStructStart = VX.TYPE_VENDOR_STRUCT_START,
+		VendorStructStart = VX.TYPE_VENDOR_STRUCT_START,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_KHRONOS_OBJECT_START, TYPE_REFERENCE.
 		/// </summary>
-		TypeKhronosObjectStart = VX.TYPE_KHRONOS_OBJECT_START,
+		KhronosObjectStart = VX.TYPE_KHRONOS_OBJECT_START,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_KHRONOS_OBJECT_START, TYPE_REFERENCE.
 		/// </summary>
-		TypeReference = VX.TYPE_REFERENCE,
+		Reference = VX.TYPE_REFERENCE,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_VENDOR_OBJECT_START.
 		/// </summary>
-		TypeVendorObjectStart = VX.TYPE_VENDOR_OBJECT_START,
+		VendorObjectStart = VX.TYPE_VENDOR_OBJECT_START,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_KHRONOS_STRUCT_MAX.
 		/// </summary>
-		TypeKhronosStructMax = VX.TYPE_KHRONOS_STRUCT_MAX,
+		KhronosStructMax = VX.TYPE_KHRONOS_STRUCT_MAX,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_USER_STRUCT_END.
 		/// </summary>
-		TypeUserStructEnd = VX.TYPE_USER_STRUCT_END,
+		UserStructEnd = VX.TYPE_USER_STRUCT_END,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_VENDOR_STRUCT_END.
 		/// </summary>
-		TypeVendorStructEnd = VX.TYPE_VENDOR_STRUCT_END,
+		VendorStructEnd = VX.TYPE_VENDOR_STRUCT_END,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_KHRONOS_OBJECT_END.
 		/// </summary>
-		TypeKhronosObjectEnd = VX.TYPE_KHRONOS_OBJECT_END,
+		KhronosObjectEnd = VX.TYPE_KHRONOS_OBJECT_END,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_VENDOR_OBJECT_END.
 		/// </summary>
-		TypeVendorObjectEnd = VX.TYPE_VENDOR_OBJECT_END,
+		VendorObjectEnd = VX.TYPE_VENDOR_OBJECT_END,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_CONTEXT.
 		/// </summary>
-		TypeContext = VX.TYPE_CONTEXT,
+		Context = VX.TYPE_CONTEXT,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_GRAPH.
 		/// </summary>
-		TypeGraph = VX.TYPE_GRAPH,
+		Graph = VX.TYPE_GRAPH,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_NODE.
 		/// </summary>
-		TypeNode = VX.TYPE_NODE,
+		Node = VX.TYPE_NODE,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_KERNEL.
 		/// </summary>
-		TypeKernel = VX.TYPE_KERNEL,
+		Kernel = VX.TYPE_KERNEL,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_PARAMETER.
 		/// </summary>
-		TypeParameter = VX.TYPE_PARAMETER,
+		Parameter = VX.TYPE_PARAMETER,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_DELAY.
 		/// </summary>
-		TypeDelay = VX.TYPE_DELAY,
+		Delay = VX.TYPE_DELAY,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_LUT.
 		/// </summary>
-		TypeLut = VX.TYPE_LUT,
+		Lut = VX.TYPE_LUT,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_DISTRIBUTION.
 		/// </summary>
-		TypeDistribution = VX.TYPE_DISTRIBUTION,
+		Distribution = VX.TYPE_DISTRIBUTION,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_PYRAMID.
 		/// </summary>
-		TypePyramid = VX.TYPE_PYRAMID,
+		Pyramid = VX.TYPE_PYRAMID,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_THRESHOLD.
 		/// </summary>
-		TypeThreshold = VX.TYPE_THRESHOLD,
+		Threshold = VX.TYPE_THRESHOLD,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_MATRIX.
 		/// </summary>
-		TypeMatrix = VX.TYPE_MATRIX,
+		Matrix = VX.TYPE_MATRIX,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_CONVOLUTION.
 		/// </summary>
-		TypeConvolution = VX.TYPE_CONVOLUTION,
+		Convolution = VX.TYPE_CONVOLUTION,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_SCALAR.
 		/// </summary>
-		TypeScalar = VX.TYPE_SCALAR,
+		Scalar = VX.TYPE_SCALAR,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_ARRAY.
 		/// </summary>
-		TypeArray = VX.TYPE_ARRAY,
+		Array = VX.TYPE_ARRAY,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_IMAGE.
 		/// </summary>
-		TypeImage = VX.TYPE_IMAGE,
+		Image = VX.TYPE_IMAGE,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_REMAP.
 		/// </summary>
-		TypeRemap = VX.TYPE_REMAP,
+		Remap = VX.TYPE_REMAP,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_ERROR.
 		/// </summary>
-		TypeError = VX.TYPE_ERROR,
+		Error = VX.TYPE_ERROR,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_META_FORMAT.
 		/// </summary>
-		TypeMetaFormat = VX.TYPE_META_FORMAT,
+		MetaFormat = VX.TYPE_META_FORMAT,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_OBJECT_ARRAY.
 		/// </summary>
-		TypeObjectArray = VX.TYPE_OBJECT_ARRAY,
+		ObjectArray = VX.TYPE_OBJECT_ARRAY,
 
 	}
 
@@ -1996,147 +1996,147 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value ID_KHRONOS.
 		/// </summary>
-		IdKhronos = VX.ID_KHRONOS,
+		Khronos = VX.ID_KHRONOS,
 
 		/// <summary>
 		/// Strongly typed for value ID_TI.
 		/// </summary>
-		IdTi = VX.ID_TI,
+		Ti = VX.ID_TI,
 
 		/// <summary>
 		/// Strongly typed for value ID_QUALCOMM.
 		/// </summary>
-		IdQualcomm = VX.ID_QUALCOMM,
+		Qualcomm = VX.ID_QUALCOMM,
 
 		/// <summary>
 		/// Strongly typed for value ID_NVIDIA.
 		/// </summary>
-		IdNvidia = VX.ID_NVIDIA,
+		Nvidia = VX.ID_NVIDIA,
 
 		/// <summary>
 		/// Strongly typed for value ID_ARM.
 		/// </summary>
-		IdArm = VX.ID_ARM,
+		Arm = VX.ID_ARM,
 
 		/// <summary>
 		/// Strongly typed for value ID_BDTI.
 		/// </summary>
-		IdBdti = VX.ID_BDTI,
+		Bdti = VX.ID_BDTI,
 
 		/// <summary>
 		/// Strongly typed for value ID_RENESAS.
 		/// </summary>
-		IdRenesas = VX.ID_RENESAS,
+		Renesas = VX.ID_RENESAS,
 
 		/// <summary>
 		/// Strongly typed for value ID_VIVANTE.
 		/// </summary>
-		IdVivante = VX.ID_VIVANTE,
+		Vivante = VX.ID_VIVANTE,
 
 		/// <summary>
 		/// Strongly typed for value ID_XILINX.
 		/// </summary>
-		IdXilinx = VX.ID_XILINX,
+		Xilinx = VX.ID_XILINX,
 
 		/// <summary>
 		/// Strongly typed for value ID_AXIS.
 		/// </summary>
-		IdAxis = VX.ID_AXIS,
+		Axis = VX.ID_AXIS,
 
 		/// <summary>
 		/// Strongly typed for value ID_MOVIDIUS.
 		/// </summary>
-		IdMovidius = VX.ID_MOVIDIUS,
+		Movidius = VX.ID_MOVIDIUS,
 
 		/// <summary>
 		/// Strongly typed for value ID_SAMSUNG.
 		/// </summary>
-		IdSamsung = VX.ID_SAMSUNG,
+		Samsung = VX.ID_SAMSUNG,
 
 		/// <summary>
 		/// Strongly typed for value ID_FREESCALE.
 		/// </summary>
-		IdFreescale = VX.ID_FREESCALE,
+		Freescale = VX.ID_FREESCALE,
 
 		/// <summary>
 		/// Strongly typed for value ID_AMD.
 		/// </summary>
-		IdAmd = VX.ID_AMD,
+		Amd = VX.ID_AMD,
 
 		/// <summary>
 		/// Strongly typed for value ID_BROADCOM.
 		/// </summary>
-		IdBroadcom = VX.ID_BROADCOM,
+		Broadcom = VX.ID_BROADCOM,
 
 		/// <summary>
 		/// Strongly typed for value ID_INTEL.
 		/// </summary>
-		IdIntel = VX.ID_INTEL,
+		Intel = VX.ID_INTEL,
 
 		/// <summary>
 		/// Strongly typed for value ID_MARVELL.
 		/// </summary>
-		IdMarvell = VX.ID_MARVELL,
+		Marvell = VX.ID_MARVELL,
 
 		/// <summary>
 		/// Strongly typed for value ID_MEDIATEK.
 		/// </summary>
-		IdMediatek = VX.ID_MEDIATEK,
+		Mediatek = VX.ID_MEDIATEK,
 
 		/// <summary>
 		/// Strongly typed for value ID_ST.
 		/// </summary>
-		IdSt = VX.ID_ST,
+		St = VX.ID_ST,
 
 		/// <summary>
 		/// Strongly typed for value ID_CEVA.
 		/// </summary>
-		IdCeva = VX.ID_CEVA,
+		Ceva = VX.ID_CEVA,
 
 		/// <summary>
 		/// Strongly typed for value ID_ITSEEZ.
 		/// </summary>
-		IdItseez = VX.ID_ITSEEZ,
+		Itseez = VX.ID_ITSEEZ,
 
 		/// <summary>
 		/// Strongly typed for value ID_NXP.
 		/// </summary>
-		IdNxp = VX.ID_NXP,
+		Nxp = VX.ID_NXP,
 
 		/// <summary>
 		/// Strongly typed for value ID_VIDEANTIS.
 		/// </summary>
-		IdVideantis = VX.ID_VIDEANTIS,
+		Videantis = VX.ID_VIDEANTIS,
 
 		/// <summary>
 		/// Strongly typed for value ID_SYNOPSYS.
 		/// </summary>
-		IdSynopsys = VX.ID_SYNOPSYS,
+		Synopsys = VX.ID_SYNOPSYS,
 
 		/// <summary>
 		/// Strongly typed for value ID_CADENCE.
 		/// </summary>
-		IdCadence = VX.ID_CADENCE,
+		Cadence = VX.ID_CADENCE,
 
 		/// <summary>
 		/// Strongly typed for value ID_HUAWEI.
 		/// </summary>
-		IdHuawei = VX.ID_HUAWEI,
+		Huawei = VX.ID_HUAWEI,
 
 		/// <summary>
 		/// Strongly typed for value ID_USER.
 		/// </summary>
-		IdUser = VX.ID_USER,
+		User = VX.ID_USER,
 
 		/// <summary>
 		/// Strongly typed for value ID_MAX.
 		/// </summary>
-		IdMax = VX.ID_MAX,
+		Max = VX.ID_MAX,
 
 		/// <summary>
 		/// Strongly typed for value ID_DEFAULT.
 		/// </summary>
-		IdDefault = VX.ID_DEFAULT,
+		Default = VX.ID_DEFAULT,
 
 	}
 

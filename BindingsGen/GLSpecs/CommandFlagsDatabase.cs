@@ -83,6 +83,12 @@ namespace BindingsGen.GLSpecs
 			public bool Disable;
 
 			/// <summary>
+			/// Prefix to be removed to enumeration values.
+			/// </summary>
+			[XmlAttribute("prefix")]
+			public string ItemPrefix;
+
+			/// <summary>
 			/// Enumerants to be implictly added to the enumerant group.
 			/// </summary>
 			[XmlElement("add_enum")]
@@ -128,7 +134,7 @@ namespace BindingsGen.GLSpecs
 				throw new ArgumentNullException("enumName");
 
 			return (_CommandFlagsDatabase.Enumerants.Find(delegate (EnumerantItem item) {
-				return (Regex.IsMatch(enumName, item.Name));
+				return (Regex.IsMatch(enumName, item.Name) || (item.Alias != null && Regex.IsMatch(enumName, item.Alias)));
 			}));
 		}
 

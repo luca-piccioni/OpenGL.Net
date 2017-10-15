@@ -393,55 +393,55 @@
     <!-- OpenVX enumerations -->
 
     <enumerant name="^vx_accessor_e$" alias="Accessor" />
-    <enumerant name="^vx_action_e$" alias="Action" />
-    <enumerant name="^vx_array_attribute_e$" alias="ArrayAttribute" />
+    <enumerant name="^vx_action_e$" alias="Action" prefix="Action" />
+    <enumerant name="^vx_array_attribute_e$" alias="ArrayAttribute" prefix="Array" />
     <enumerant name="^vx_bool$" alias="Bool" disable="true" />
-    <enumerant name="^vx_border_e$" alias="Border" />
-    <enumerant name="^vx_border_policy_e$" alias="BorderPolicy" />
+    <enumerant name="^vx_border_e$" alias="Border" prefix="Border" />
+    <enumerant name="^vx_border_policy_e$" alias="BorderPolicy" prefix="BorderPolicy" />
     <enumerant name="^vx_channel_e$" alias="Channel" />
-    <enumerant name="^vx_channel_range_e$" alias="ChannelRange" />
-    <enumerant name="^vx_color_space_e$" alias="ColorSpace" />
-    <enumerant name="^vx_context_attribute_e$" alias="ContextAttribute" />
-    <enumerant name="^vx_convert_policy_e$" alias="ConvertPolicy" />
-    <enumerant name="^vx_convolution_attribute_e$" alias="ConvolutionAttribute" />
-    <enumerant name="^vx_delay_attribute_e$" alias="DelayAttribute" />
-    <enumerant name="^vx_df_image_e$" alias="DfImage" />
+    <enumerant name="^vx_channel_range_e$" alias="ChannelRange" prefix="ChannelRange" />
+    <enumerant name="^vx_color_space_e$" alias="ColorSpace" prefix="ColorSpace" />
+    <enumerant name="^vx_context_attribute_e$" alias="ContextAttribute" prefix="Context" />
+    <enumerant name="^vx_convert_policy_e$" alias="ConvertPolicy" prefix="ConvertPolicy" />
+    <enumerant name="^vx_convolution_attribute_e$" alias="ConvolutionAttribute" prefix="Convolution" />
+    <enumerant name="^vx_delay_attribute_e$" alias="DelayAttribute" prefix="Delay" />
+    <enumerant name="^vx_df_image_e$" alias="DfImage" prefix="DfImage" />
     <enumerant name="^vx_direction_e$" alias="Direction" />
-    <enumerant name="^vx_directive_e$" alias="Directive" />
-    <enumerant name="^vx_distribution_attribute_e$" alias="DistributionAttribute" />
-    <enumerant name="^vx_enum_e$" alias="Enum" />
-    <enumerant name="^vx_graph_attribute_e$" alias="GraphAttribute" />
-    <enumerant name="^vx_graph_state_e$" alias="GraphState" />
-    <enumerant name="^vx_hint_e$" alias="Hint" />
-    <enumerant name="^vx_image_attribute_e$" alias="ImageAttribute" />
-    <enumerant name="^vx_interpolation_type_e$" alias="InterpolationType" />
-    <enumerant name="^vx_kernel_attribute_e$" alias="KernelAttribute" />
-    <enumerant name="^vx_kernel_e$" alias="Kernel" />
-    <enumerant name="^vx_library_e$" alias="Library" />
+    <enumerant name="^vx_directive_e$" alias="Directive" prefix="Directive" />
+    <enumerant name="^vx_distribution_attribute_e$" alias="DistributionAttribute" prefix="Distribution" />
+    <enumerant name="^vx_enum_e$" alias="Enum" prefix="Enum" />
+    <enumerant name="^vx_graph_attribute_e$" alias="GraphAttribute" prefix="Graph" />
+    <enumerant name="^vx_graph_state_e$" alias="GraphState" prefix="GraphState" />
+    <enumerant name="^vx_hint_e$" alias="Hint" prefix="Hint" />
+    <enumerant name="^vx_image_attribute_e$" alias="ImageAttribute" prefix="Image" />
+    <enumerant name="^vx_interpolation_type_e$" alias="InterpolationType" prefix="Interpolation" />
+    <enumerant name="^vx_kernel_attribute_e$" alias="KernelAttribute" prefix="Kernel" />
+    <enumerant name="^vx_kernel_e$" alias="Kernel" prefix="Kernel" />
+    <enumerant name="^vx_library_e$" alias="Library" prefix="Library" />
     <enumerant name="^vx_lut_attribute_e$" alias="LutAttribute" />
     <enumerant name="^vx_map_flag_e$" alias="MapFlag" />
-    <enumerant name="^vx_matrix_attribute_e$" alias="MatrixAttribute" />
-    <enumerant name="^vx_memory_type_e$" alias="MemoryType" />
+    <enumerant name="^vx_matrix_attribute_e$" alias="MatrixAttribute" prefix="Matrix" />
+    <enumerant name="^vx_memory_type_e$" alias="MemoryType" prefix="MemoryType" />
     <enumerant name="^vx_meta_valid_rect_attribute_e$" alias="MetaValidRectAttribute" />
-    <enumerant name="^vx_node_attribute_e$" alias="NodeAttribute" />
-    <enumerant name="^vx_non_linear_filter_e$" alias="NonLinearFilter" />
-    <enumerant name="^vx_norm_type_e$" alias="NormType" />
-    <enumerant name="^vx_object_array_attribute_e$" alias="ObjectArrayAttribute" />
-    <enumerant name="^vx_parameter_attribute_e$" alias="ParameterAttribute" />
-    <enumerant name="^vx_parameter_state_e$" alias="ParameterState" />
-    <enumerant name="^vx_pattern_e$" alias="Pattern" />
-    <enumerant name="^vx_pyramid_attribute_e$" alias="PyramidAttribute" />
-    <enumerant name="^vx_reference_attribute_e$" alias="ReferenceAttribute" />
-    <enumerant name="^vx_remap_attribute_e$" alias="RemapAttribute" />
-    <enumerant name="^vx_round_policy_e$" alias="RoundPolicy" />
-    <enumerant name="^vx_scalar_attribute_e$" alias="ScalarAttribute" />
+    <enumerant name="^vx_node_attribute_e$" alias="NodeAttribute" prefix="Node" />
+    <enumerant name="^vx_non_linear_filter_e$" alias="NonLinearFilter" prefix="NonLinearFilter" />
+    <enumerant name="^vx_norm_type_e$" alias="NormType" prefix="Norm" />
+    <enumerant name="^vx_object_array_attribute_e$" alias="ObjectArrayAttribute" prefix="ObjectArray" />
+    <enumerant name="^vx_parameter_attribute_e$" alias="ParameterAttribute" prefix="Parameter" />
+    <enumerant name="^vx_parameter_state_e$" alias="ParameterState" prefix="ParameterState" />
+    <enumerant name="^vx_pattern_e$" alias="Pattern" prefix="Pattern" />
+    <enumerant name="^vx_pyramid_attribute_e$" alias="PyramidAttribute" prefix="Pyramid" />
+    <enumerant name="^vx_reference_attribute_e$" alias="ReferenceAttribute" prefix="Reference" />
+    <enumerant name="^vx_remap_attribute_e$" alias="RemapAttribute" prefix="Remap" />
+    <enumerant name="^vx_round_policy_e$" alias="RoundPolicy" prefix="RoundPolicy" />
+    <enumerant name="^vx_scalar_attribute_e$" alias="ScalarAttribute" prefix="Scalar" />
     <enumerant name="^vx_status_e$" alias="Status" />
-    <enumerant name="^vx_target_e$" alias="Target" />
-    <enumerant name="^vx_termination_criteria_e$" alias="TerminationCriteria" />
-    <enumerant name="^vx_threshold_attribute_e$" alias="ThresholdAttribute" />
-    <enumerant name="^vx_threshold_type_e$" alias="ThresholdType" />
-    <enumerant name="^vx_type_e$" alias="Type" />
-    <enumerant name="^vx_vendor_id_e$" alias="VendorId" />
+    <enumerant name="^vx_target_e$" alias="Target" prefix="Target" />
+    <enumerant name="^vx_termination_criteria_e$" alias="TerminationCriteria" prefix="TerminationCriteria" />
+    <enumerant name="^vx_threshold_attribute_e$" alias="ThresholdAttribute" prefix="Threshold" />
+    <enumerant name="^vx_threshold_type_e$" alias="ThresholdType" prefix="ThresholdType" />
+    <enumerant name="^vx_type_e$" alias="Type" prefix="Type" />
+    <enumerant name="^vx_vendor_id_e$" alias="VendorId" prefix="Id" />
 
     <command name="^vxRelease.*$">
         <flags>VariadicParams</flags>

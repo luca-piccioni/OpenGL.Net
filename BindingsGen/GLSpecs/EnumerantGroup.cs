@@ -149,6 +149,9 @@ namespace BindingsGen.GLSpecs
 				string bindingName = enumerant.EnumAlias == null ? enumerant.ImplementationName : enumerant.EnumAlias.ImplementationName;
 				string camelCase = SpecificationStyle.GetCamelCase(bindingName);
 
+				if (enumerantExtension != null && enumerantExtension.ItemPrefix != null && camelCase.StartsWith(enumerantExtension.ItemPrefix))
+					camelCase = camelCase.Substring(enumerantExtension.ItemPrefix.Length);
+
 				sw.WriteLine("/// <summary>");
 				if (allEnums.Count > 1) {
 					StringBuilder sb = new StringBuilder();
