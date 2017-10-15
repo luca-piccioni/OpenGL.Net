@@ -395,7 +395,7 @@
 
     <type name="vx_enum" value="int" />
     <type name="vx_enum*" value="int*" />
-    <type name="vx_status" value="int" />
+    <type name="vx_status" value="Status" />
     <type name="vx_action" value="int" />
     <type name="vx_map_flag_e" value="int" />
 
