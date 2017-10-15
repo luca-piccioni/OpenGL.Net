@@ -48,6 +48,7 @@
     <Compile Include="Rectangle.cs" />
     <Compile Include="VX.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VX.Enums.cs" />
     <Compile Include="VX.VERSION_1_1.cs" />
   </ItemGroup>
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />

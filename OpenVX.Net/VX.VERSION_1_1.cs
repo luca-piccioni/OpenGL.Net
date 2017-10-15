@@ -37,6 +37,746 @@ namespace OpenVX
 {
 	public partial class VX
 	{
+		public const int API_CALL = __stdcall;
+
+		public const int CALLBACK = __stdcall;
+
+		public const uint VENDOR_MASK = 0xFFF00000;
+
+		public const uint TYPE_MASK = 0x000FFF00;
+
+		public const uint LIBRARY_MASK = 0x000FF000;
+
+		public const uint KERNEL_MASK = 0x00000FFF;
+
+		public const uint ATTRIBUTE_ID_MASK = 0x000000FF;
+
+		public const uint ENUM_TYPE_MASK = 0x000FF000;
+
+		public const uint ENUM_MASK = 0x00000FFF;
+
+		public const string FMT_REF = "%I64u";
+
+		public const string FMT_SIZE = "%I64u";
+
+		public const uint SCALE_UNITY = 1024u;
+
+		public const int IMAGEPATCH_ADDR_INIT = {0u, 0u, 0, 0, 0u, 0u, 0u, 0u};
+
+		public const int PERF_INIT = {0ul, 0ul, 0ul, 0ul, 0ul, 0ul};
+
+		public const float SCALE_PYRAMID_HALF = 0.5f;
+
+		public const float SCALE_PYRAMID_ORB = 0.8408964f;
+
+		public const int vx_false_e = 0;
+
+		public const int TYPE_INVALID = 0x000;
+
+		public const int TYPE_CHAR = 0x001;
+
+		public const int TYPE_INT8 = 0x002;
+
+		public const int TYPE_UINT8 = 0x003;
+
+		public const int TYPE_INT16 = 0x004;
+
+		public const int TYPE_UINT16 = 0x005;
+
+		public const int TYPE_INT32 = 0x006;
+
+		public const int TYPE_UINT32 = 0x007;
+
+		public const int TYPE_INT64 = 0x008;
+
+		public const int TYPE_UINT64 = 0x009;
+
+		public const int TYPE_FLOAT32 = 0x00A;
+
+		public const int TYPE_FLOAT64 = 0x00B;
+
+		public const int TYPE_ENUM = 0x00C;
+
+		public const int TYPE_SIZE = 0x00D;
+
+		public const int TYPE_DF_IMAGE = 0x00E;
+
+		public const int TYPE_FLOAT16 = 0x00F;
+
+		public const int TYPE_BOOL = 0x010;
+
+		public const int TYPE_RECTANGLE = 0x020;
+
+		public const int TYPE_KEYPOINT = 0x021;
+
+		public const int TYPE_COORDINATES2D = 0x022;
+
+		public const int TYPE_COORDINATES3D = 0x023;
+
+		public const int TYPE_USER_STRUCT_START = 0x100;
+
+		public const int TYPE_VENDOR_STRUCT_START = 0x400;
+
+		public const int TYPE_KHRONOS_OBJECT_START = 0x800;
+
+		public const int TYPE_VENDOR_OBJECT_START = 0xC00;
+
+		public const int TYPE_KHRONOS_STRUCT_MAX = TYPE_USER_STRUCT_START - 1;
+
+		public const int TYPE_USER_STRUCT_END = TYPE_VENDOR_STRUCT_START - 1;
+
+		public const int TYPE_VENDOR_STRUCT_END = TYPE_KHRONOS_OBJECT_START - 1;
+
+		public const int TYPE_KHRONOS_OBJECT_END = TYPE_VENDOR_OBJECT_START - 1;
+
+		public const int TYPE_VENDOR_OBJECT_END = 0xFFF;
+
+		public const int TYPE_REFERENCE = 0x800;
+
+		public const int TYPE_CONTEXT = 0x801;
+
+		public const int TYPE_GRAPH = 0x802;
+
+		public const int TYPE_NODE = 0x803;
+
+		public const int TYPE_KERNEL = 0x804;
+
+		public const int TYPE_PARAMETER = 0x805;
+
+		public const int TYPE_DELAY = 0x806;
+
+		public const int TYPE_LUT = 0x807;
+
+		public const int TYPE_DISTRIBUTION = 0x808;
+
+		public const int TYPE_PYRAMID = 0x809;
+
+		public const int TYPE_THRESHOLD = 0x80A;
+
+		public const int TYPE_MATRIX = 0x80B;
+
+		public const int TYPE_CONVOLUTION = 0x80C;
+
+		public const int TYPE_SCALAR = 0x80D;
+
+		public const int TYPE_ARRAY = 0x80E;
+
+		public const int TYPE_IMAGE = 0x80F;
+
+		public const int TYPE_REMAP = 0x810;
+
+		public const int TYPE_ERROR = 0x811;
+
+		public const int TYPE_META_FORMAT = 0x812;
+
+		public const int TYPE_OBJECT_ARRAY = 0x813;
+
+		public const int STATUS_MIN = -25;
+
+		public const int ERROR_REFERENCE_NONZERO = -24;
+
+		public const int ERROR_MULTIPLE_WRITERS = -23;
+
+		public const int ERROR_GRAPH_ABANDONED = -22;
+
+		public const int ERROR_GRAPH_SCHEDULED = -21;
+
+		public const int ERROR_INVALID_SCOPE = -20;
+
+		public const int ERROR_INVALID_NODE = -19;
+
+		public const int ERROR_INVALID_GRAPH = -18;
+
+		public const int ERROR_INVALID_TYPE = -17;
+
+		public const int ERROR_INVALID_VALUE = -16;
+
+		public const int ERROR_INVALID_DIMENSION = -15;
+
+		public const int ERROR_INVALID_FORMAT = -14;
+
+		public const int ERROR_INVALID_LINK = -13;
+
+		public const int ERROR_INVALID_REFERENCE = -12;
+
+		public const int ERROR_INVALID_MODULE = -11;
+
+		public const int ERROR_INVALID_PARAMETERS = -10;
+
+		public const int ERROR_OPTIMIZED_AWAY = -9;
+
+		public const int ERROR_NO_MEMORY = -8;
+
+		public const int ERROR_NO_RESOURCES = -7;
+
+		public const int ERROR_NOT_COMPATIBLE = -6;
+
+		public const int ERROR_NOT_ALLOCATED = -5;
+
+		public const int ERROR_NOT_SUFFICIENT = -4;
+
+		public const int ERROR_NOT_SUPPORTED = -3;
+
+		public const int ERROR_NOT_IMPLEMENTED = -2;
+
+		public const int FAILURE = -1;
+
+		public const int SUCCESS = 0;
+
+		public const int ENUM_DIRECTION = 0x00;
+
+		public const int ENUM_ACTION = 0x01;
+
+		public const int ENUM_HINT = 0x02;
+
+		public const int ENUM_DIRECTIVE = 0x03;
+
+		public const int ENUM_INTERPOLATION = 0x04;
+
+		public const int ENUM_OVERFLOW = 0x05;
+
+		public const int ENUM_COLOR_SPACE = 0x06;
+
+		public const int ENUM_COLOR_RANGE = 0x07;
+
+		public const int ENUM_PARAMETER_STATE = 0x08;
+
+		public const int ENUM_CHANNEL = 0x09;
+
+		public const int ENUM_CONVERT_POLICY = 0x0A;
+
+		public const int ENUM_THRESHOLD_TYPE = 0x0B;
+
+		public const int ENUM_BORDER = 0x0C;
+
+		public const int ENUM_COMPARISON = 0x0D;
+
+		public const int ENUM_MEMORY_TYPE = 0x0E;
+
+		public const int ENUM_TERM_CRITERIA = 0x0F;
+
+		public const int ENUM_NORM_TYPE = 0x10;
+
+		public const int ENUM_ACCESSOR = 0x11;
+
+		public const int ENUM_ROUND_POLICY = 0x12;
+
+		public const int ENUM_TARGET = 0x13;
+
+		public const int ENUM_BORDER_POLICY = 0x14;
+
+		public const int ENUM_GRAPH_STATE = 0x15;
+
+		public const int ENUM_NONLINEAR = 0x16;
+
+		public const int ENUM_PATTERN = 0x17;
+
+		public const int ACTION_CONTINUE = ((ID_KHRONOS << 20) | ( ENUM_ACTION << 12)) + 0x0;
+
+		public const int ACTION_ABANDON = ((ID_KHRONOS << 20) | ( ENUM_ACTION << 12)) + 0x1;
+
+		public const int INPUT = ((ID_KHRONOS << 20) | ( ENUM_DIRECTION << 12)) + 0x0;
+
+		public const int OUTPUT = ((ID_KHRONOS << 20) | ( ENUM_DIRECTION << 12)) + 0x1;
+
+		public const int BIDIRECTIONAL = ((ID_KHRONOS << 20) | ( ENUM_DIRECTION << 12)) + 0x2;
+
+		public const int HINT_PERFORMANCE_DEFAULT = ((ID_KHRONOS << 20) | ( ENUM_HINT << 12)) + 0x1;
+
+		public const int HINT_PERFORMANCE_LOW_POWER = ((ID_KHRONOS << 20) | ( ENUM_HINT << 12)) + 0x2;
+
+		public const int HINT_PERFORMANCE_HIGH_SPEED = ((ID_KHRONOS << 20) | ( ENUM_HINT << 12)) + 0x3;
+
+		public const int DIRECTIVE_DISABLE_LOGGING = ((ID_KHRONOS << 20) | ( ENUM_DIRECTIVE << 12)) + 0x0;
+
+		public const int DIRECTIVE_ENABLE_LOGGING = ((ID_KHRONOS << 20) | ( ENUM_DIRECTIVE << 12)) + 0x1;
+
+		public const int DIRECTIVE_DISABLE_PERFORMANCE = ((ID_KHRONOS << 20) | ( ENUM_DIRECTIVE << 12)) + 0x2;
+
+		public const int DIRECTIVE_ENABLE_PERFORMANCE = ((ID_KHRONOS << 20) | ( ENUM_DIRECTIVE << 12)) + 0x3;
+
+		public const int GRAPH_STATE_UNVERIFIED = ((ID_KHRONOS << 20) | ( ENUM_GRAPH_STATE << 12)) + 0x0;
+
+		public const int GRAPH_STATE_VERIFIED = ((ID_KHRONOS << 20) | ( ENUM_GRAPH_STATE << 12)) + 0x1;
+
+		public const int GRAPH_STATE_RUNNING = ((ID_KHRONOS << 20) | ( ENUM_GRAPH_STATE << 12)) + 0x2;
+
+		public const int GRAPH_STATE_ABANDONED = ((ID_KHRONOS << 20) | ( ENUM_GRAPH_STATE << 12)) + 0x3;
+
+		public const int GRAPH_STATE_COMPLETED = ((ID_KHRONOS << 20) | ( ENUM_GRAPH_STATE << 12)) + 0x4;
+
+		public const int GRAPH_NUMNODES = (((ID_KHRONOS) << 20) | ( TYPE_GRAPH << 8)) + 0x0;
+
+		public const int GRAPH_PERFORMANCE = (((ID_KHRONOS) << 20) | ( TYPE_GRAPH << 8)) + 0x2;
+
+		public const int GRAPH_NUMPARAMETERS = (((ID_KHRONOS) << 20) | ( TYPE_GRAPH << 8)) + 0x3;
+
+		public const int GRAPH_STATE = (((ID_KHRONOS) << 20) | ( TYPE_GRAPH << 8)) + 0x4;
+
+		public const int CONVERT_POLICY_WRAP = ((ID_KHRONOS << 20) | ( ENUM_CONVERT_POLICY << 12)) + 0x0;
+
+		public const int CONVERT_POLICY_SATURATE = ((ID_KHRONOS << 20) | ( ENUM_CONVERT_POLICY << 12)) + 0x1;
+
+		public const int DF_IMAGE_VIRT = ((byte)'V') | ((byte)'I' << 8) | ((byte)'R' << 16) | ((byte)'T' << 24);
+
+		public const int DF_IMAGE_RGB = ((byte)'R') | ((byte)'G' << 8) | ((byte)'B' << 16) | ((byte)'2' << 24);
+
+		public const int DF_IMAGE_RGBX = ((byte)'R') | ((byte)'G' << 8) | ((byte)'B' << 16) | ((byte)'A' << 24);
+
+		public const int DF_IMAGE_NV12 = ((byte)'N') | ((byte)'V' << 8) | ((byte)'1' << 16) | ((byte)'2' << 24);
+
+		public const int DF_IMAGE_NV21 = ((byte)'N') | ((byte)'V' << 8) | ((byte)'2' << 16) | ((byte)'1' << 24);
+
+		public const int DF_IMAGE_UYVY = ((byte)'U') | ((byte)'Y' << 8) | ((byte)'V' << 16) | ((byte)'Y' << 24);
+
+		public const int DF_IMAGE_YUYV = ((byte)'Y') | ((byte)'U' << 8) | ((byte)'Y' << 16) | ((byte)'V' << 24);
+
+		public const int DF_IMAGE_IYUV = ((byte)'I') | ((byte)'Y' << 8) | ((byte)'U' << 16) | ((byte)'V' << 24);
+
+		public const int DF_IMAGE_YUV4 = ((byte)'Y') | ((byte)'U' << 8) | ((byte)'V' << 16) | ((byte)'4' << 24);
+
+		public const int DF_IMAGE_U8 = ((byte)'U') | ((byte)'0' << 8) | ((byte)'0' << 16) | ((byte)'8' << 24);
+
+		public const int DF_IMAGE_U16 = ((byte)'U') | ((byte)'0' << 8) | ((byte)'1' << 16) | ((byte)'6' << 24);
+
+		public const int DF_IMAGE_S16 = ((byte)'S') | ((byte)'0' << 8) | ((byte)'1' << 16) | ((byte)'6' << 24);
+
+		public const int DF_IMAGE_U32 = ((byte)'U') | ((byte)'0' << 8) | ((byte)'3' << 16) | ((byte)'2' << 24);
+
+		public const int DF_IMAGE_S32 = ((byte)'S') | ((byte)'0' << 8) | ((byte)'3' << 16) | ((byte)'2' << 24);
+
+		public const int TARGET_ANY = ((ID_KHRONOS << 20) | ( ENUM_TARGET << 12)) + 0x0000;
+
+		public const int TARGET_STRING = ((ID_KHRONOS << 20) | ( ENUM_TARGET << 12)) + 0x0001;
+
+		public const int TARGET_VENDOR_BEGIN = ((ID_KHRONOS << 20) | ( ENUM_TARGET << 12)) + 0x1000;
+
+		public const int REFERENCE_COUNT = (((ID_KHRONOS) << 20) | ( TYPE_REFERENCE << 8)) + 0x0;
+
+		public const int REFERENCE_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_REFERENCE << 8)) + 0x1;
+
+		public const int REFERENCE_NAME = (((ID_KHRONOS) << 20) | ( TYPE_REFERENCE << 8)) + 0x2;
+
+		public const int CONTEXT_VENDOR_ID = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x0;
+
+		public const int CONTEXT_VERSION = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x1;
+
+		public const int CONTEXT_UNIQUE_KERNELS = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x2;
+
+		public const int CONTEXT_MODULES = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x3;
+
+		public const int CONTEXT_REFERENCES = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x4;
+
+		public const int CONTEXT_IMPLEMENTATION = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x5;
+
+		public const int CONTEXT_EXTENSIONS_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x6;
+
+		public const int CONTEXT_EXTENSIONS = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x7;
+
+		public const int CONTEXT_CONVOLUTION_MAX_DIMENSION = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x8;
+
+		public const int CONTEXT_OPTICAL_FLOW_MAX_WINDOW_DIMENSION = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0x9;
+
+		public const int CONTEXT_IMMEDIATE_BORDER = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0xA;
+
+		public const int CONTEXT_UNIQUE_KERNEL_TABLE = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0xB;
+
+		public const int CONTEXT_IMMEDIATE_BORDER_POLICY = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0xC;
+
+		public const int CONTEXT_NONLINEAR_MAX_DIMENSION = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0xd;
+
+		public const int KERNEL_PARAMETERS = (((ID_KHRONOS) << 20) | ( TYPE_KERNEL << 8)) + 0x0;
+
+		public const int KERNEL_NAME = (((ID_KHRONOS) << 20) | ( TYPE_KERNEL << 8)) + 0x1;
+
+		public const int KERNEL_ENUM = (((ID_KHRONOS) << 20) | ( TYPE_KERNEL << 8)) + 0x2;
+
+		public const int KERNEL_LOCAL_DATA_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_KERNEL << 8)) + 0x3;
+
+		public const int NODE_STATUS = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x0;
+
+		public const int NODE_PERFORMANCE = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x1;
+
+		public const int NODE_BORDER = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x2;
+
+		public const int NODE_LOCAL_DATA_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x3;
+
+		public const int NODE_LOCAL_DATA_PTR = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x4;
+
+		public const int NODE_PARAMETERS = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x5;
+
+		public const int NODE_IS_REPLICATED = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x6;
+
+		public const int NODE_REPLICATE_FLAGS = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x7;
+
+		public const int NODE_VALID_RECT_RESET = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x8;
+
+		public const int PARAMETER_INDEX = (((ID_KHRONOS) << 20) | ( TYPE_PARAMETER << 8)) + 0x0;
+
+		public const int PARAMETER_DIRECTION = (((ID_KHRONOS) << 20) | ( TYPE_PARAMETER << 8)) + 0x1;
+
+		public const int PARAMETER_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_PARAMETER << 8)) + 0x2;
+
+		public const int PARAMETER_STATE = (((ID_KHRONOS) << 20) | ( TYPE_PARAMETER << 8)) + 0x3;
+
+		public const int PARAMETER_REF = (((ID_KHRONOS) << 20) | ( TYPE_PARAMETER << 8)) + 0x4;
+
+		public const int IMAGE_WIDTH = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x0;
+
+		public const int IMAGE_HEIGHT = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x1;
+
+		public const int IMAGE_FORMAT = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x2;
+
+		public const int IMAGE_PLANES = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x3;
+
+		public const int IMAGE_SPACE = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x4;
+
+		public const int IMAGE_RANGE = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x5;
+
+		public const int IMAGE_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x6;
+
+		public const int IMAGE_MEMORY_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x7;
+
+		public const int SCALAR_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_SCALAR << 8)) + 0x0;
+
+		public const int LUT_TYPE = (((ID_KHRONOS) << 20) | (TYPE_LUT << 8)) + 0x0;
+
+		public const int LUT_COUNT = (((ID_KHRONOS) << 20) | (TYPE_LUT << 8)) + 0x1;
+
+		public const int LUT_SIZE = (((ID_KHRONOS) << 20) | (TYPE_LUT << 8)) + 0x2;
+
+		public const int LUT_OFFSET = (((ID_KHRONOS) << 20) | (TYPE_LUT << 8)) + 0x3;
+
+		public const int DISTRIBUTION_DIMENSIONS = (((ID_KHRONOS) << 20) | ( TYPE_DISTRIBUTION << 8)) + 0x0;
+
+		public const int DISTRIBUTION_OFFSET = (((ID_KHRONOS) << 20) | ( TYPE_DISTRIBUTION << 8)) + 0x1;
+
+		public const int DISTRIBUTION_RANGE = (((ID_KHRONOS) << 20) | ( TYPE_DISTRIBUTION << 8)) + 0x2;
+
+		public const int DISTRIBUTION_BINS = (((ID_KHRONOS) << 20) | ( TYPE_DISTRIBUTION << 8)) + 0x3;
+
+		public const int DISTRIBUTION_WINDOW = (((ID_KHRONOS) << 20) | ( TYPE_DISTRIBUTION << 8)) + 0x4;
+
+		public const int DISTRIBUTION_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_DISTRIBUTION << 8)) + 0x5;
+
+		public const int THRESHOLD_TYPE_BINARY = ((ID_KHRONOS << 20) | ( ENUM_THRESHOLD_TYPE << 12)) + 0x0;
+
+		public const int THRESHOLD_TYPE_RANGE = ((ID_KHRONOS << 20) | ( ENUM_THRESHOLD_TYPE << 12)) + 0x1;
+
+		public const int THRESHOLD_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x0;
+
+		public const int THRESHOLD_THRESHOLD_VALUE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x1;
+
+		public const int THRESHOLD_THRESHOLD_LOWER = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x2;
+
+		public const int THRESHOLD_THRESHOLD_UPPER = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x3;
+
+		public const int THRESHOLD_TRUE_VALUE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x4;
+
+		public const int THRESHOLD_FALSE_VALUE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x5;
+
+		public const int THRESHOLD_DATA_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x6;
+
+		public const int MATRIX_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_MATRIX << 8)) + 0x0;
+
+		public const int MATRIX_ROWS = (((ID_KHRONOS) << 20) | ( TYPE_MATRIX << 8)) + 0x1;
+
+		public const int MATRIX_COLUMNS = (((ID_KHRONOS) << 20) | ( TYPE_MATRIX << 8)) + 0x2;
+
+		public const int MATRIX_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_MATRIX << 8)) + 0x3;
+
+		public const int MATRIX_ORIGIN = (((ID_KHRONOS) << 20) | ( TYPE_MATRIX << 8)) + 0x4;
+
+		public const int MATRIX_PATTERN = (((ID_KHRONOS) << 20) | ( TYPE_MATRIX << 8)) + 0x5;
+
+		public const int CONVOLUTION_ROWS = (((ID_KHRONOS) << 20) | ( TYPE_CONVOLUTION << 8)) + 0x0;
+
+		public const int CONVOLUTION_COLUMNS = (((ID_KHRONOS) << 20) | ( TYPE_CONVOLUTION << 8)) + 0x1;
+
+		public const int CONVOLUTION_SCALE = (((ID_KHRONOS) << 20) | ( TYPE_CONVOLUTION << 8)) + 0x2;
+
+		public const int CONVOLUTION_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_CONVOLUTION << 8)) + 0x3;
+
+		public const int PYRAMID_LEVELS = (((ID_KHRONOS) << 20) | ( TYPE_PYRAMID << 8)) + 0x0;
+
+		public const int PYRAMID_SCALE = (((ID_KHRONOS) << 20) | ( TYPE_PYRAMID << 8)) + 0x1;
+
+		public const int PYRAMID_WIDTH = (((ID_KHRONOS) << 20) | ( TYPE_PYRAMID << 8)) + 0x2;
+
+		public const int PYRAMID_HEIGHT = (((ID_KHRONOS) << 20) | ( TYPE_PYRAMID << 8)) + 0x3;
+
+		public const int PYRAMID_FORMAT = (((ID_KHRONOS) << 20) | ( TYPE_PYRAMID << 8)) + 0x4;
+
+		public const int REMAP_SOURCE_WIDTH = (((ID_KHRONOS) << 20) | ( TYPE_REMAP << 8)) + 0x0;
+
+		public const int REMAP_SOURCE_HEIGHT = (((ID_KHRONOS) << 20) | ( TYPE_REMAP << 8)) + 0x1;
+
+		public const int REMAP_DESTINATION_WIDTH = (((ID_KHRONOS) << 20) | ( TYPE_REMAP << 8)) + 0x2;
+
+		public const int REMAP_DESTINATION_HEIGHT = (((ID_KHRONOS) << 20) | ( TYPE_REMAP << 8)) + 0x3;
+
+		public const int ARRAY_ITEMTYPE = (((ID_KHRONOS) << 20) | ( TYPE_ARRAY << 8)) + 0x0;
+
+		public const int ARRAY_NUMITEMS = (((ID_KHRONOS) << 20) | ( TYPE_ARRAY << 8)) + 0x1;
+
+		public const int ARRAY_CAPACITY = (((ID_KHRONOS) << 20) | ( TYPE_ARRAY << 8)) + 0x2;
+
+		public const int ARRAY_ITEMSIZE = (((ID_KHRONOS) << 20) | ( TYPE_ARRAY << 8)) + 0x3;
+
+		public const int OBJECT_ARRAY_ITEMTYPE = (((ID_KHRONOS) << 20) | ( TYPE_OBJECT_ARRAY << 8)) + 0x0;
+
+		public const int OBJECT_ARRAY_NUMITEMS = (((ID_KHRONOS) << 20) | ( TYPE_OBJECT_ARRAY << 8)) + 0x1;
+
+		public const int VALID_RECT_CALLBACK = (((ID_KHRONOS) << 20) | ( TYPE_META_FORMAT << 8)) + 0x1;
+
+		public const int CHANNEL_0 = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x0;
+
+		public const int CHANNEL_1 = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x1;
+
+		public const int CHANNEL_2 = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x2;
+
+		public const int CHANNEL_3 = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x3;
+
+		public const int CHANNEL_R = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x10;
+
+		public const int CHANNEL_G = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x11;
+
+		public const int CHANNEL_B = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x12;
+
+		public const int CHANNEL_A = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x13;
+
+		public const int CHANNEL_Y = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x14;
+
+		public const int CHANNEL_U = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x15;
+
+		public const int CHANNEL_V = ((ID_KHRONOS << 20) | ( ENUM_CHANNEL << 12)) + 0x16;
+
+		public const int MEMORY_TYPE_NONE = ((ID_KHRONOS << 20) | ( ENUM_MEMORY_TYPE << 12)) + 0x0;
+
+		public const int MEMORY_TYPE_HOST = ((ID_KHRONOS << 20) | ( ENUM_MEMORY_TYPE << 12)) + 0x1;
+
+		public const int INTERPOLATION_NEAREST_NEIGHBOR = ((ID_KHRONOS << 20) | ( ENUM_INTERPOLATION << 12)) + 0x0;
+
+		public const int INTERPOLATION_BILINEAR = ((ID_KHRONOS << 20) | ( ENUM_INTERPOLATION << 12)) + 0x1;
+
+		public const int INTERPOLATION_AREA = ((ID_KHRONOS << 20) | ( ENUM_INTERPOLATION << 12)) + 0x2;
+
+		public const int NONLINEAR_FILTER_MEDIAN = ((ID_KHRONOS << 20) | ( ENUM_NONLINEAR << 12)) + 0x0;
+
+		public const int NONLINEAR_FILTER_MIN = ((ID_KHRONOS << 20) | ( ENUM_NONLINEAR << 12)) + 0x1;
+
+		public const int NONLINEAR_FILTER_MAX = ((ID_KHRONOS << 20) | ( ENUM_NONLINEAR << 12)) + 0x2;
+
+		public const int PATTERN_BOX = ((ID_KHRONOS << 20) | ( ENUM_PATTERN << 12)) + 0x0;
+
+		public const int PATTERN_CROSS = ((ID_KHRONOS << 20) | ( ENUM_PATTERN << 12)) + 0x1;
+
+		public const int PATTERN_DISK = ((ID_KHRONOS << 20) | ( ENUM_PATTERN << 12)) + 0x2;
+
+		public const int PATTERN_OTHER = ((ID_KHRONOS << 20) | ( ENUM_PATTERN << 12)) + 0x3;
+
+		public const int COLOR_SPACE_NONE = ((ID_KHRONOS << 20) | ( ENUM_COLOR_SPACE << 12)) + 0x0;
+
+		public const int COLOR_SPACE_BT601_525 = ((ID_KHRONOS << 20) | ( ENUM_COLOR_SPACE << 12)) + 0x1;
+
+		public const int COLOR_SPACE_BT601_625 = ((ID_KHRONOS << 20) | ( ENUM_COLOR_SPACE << 12)) + 0x2;
+
+		public const int COLOR_SPACE_BT709 = ((ID_KHRONOS << 20) | ( ENUM_COLOR_SPACE << 12)) + 0x3;
+
+		public const int COLOR_SPACE_DEFAULT = COLOR_SPACE_BT709;
+
+		public const int CHANNEL_RANGE_FULL = ((ID_KHRONOS << 20) | ( ENUM_COLOR_RANGE << 12)) + 0x0;
+
+		public const int CHANNEL_RANGE_RESTRICTED = ((ID_KHRONOS << 20) | ( ENUM_COLOR_RANGE << 12)) + 0x1;
+
+		public const int PARAMETER_STATE_REQUIRED = ((ID_KHRONOS << 20) | ( ENUM_PARAMETER_STATE << 12)) + 0x0;
+
+		public const int PARAMETER_STATE_OPTIONAL = ((ID_KHRONOS << 20) | ( ENUM_PARAMETER_STATE << 12)) + 0x1;
+
+		public const int BORDER_UNDEFINED = ((ID_KHRONOS << 20) | ( ENUM_BORDER << 12)) + 0x0;
+
+		public const int BORDER_CONSTANT = ((ID_KHRONOS << 20) | ( ENUM_BORDER << 12)) + 0x1;
+
+		public const int BORDER_REPLICATE = ((ID_KHRONOS << 20) | ( ENUM_BORDER << 12)) + 0x2;
+
+		public const int BORDER_POLICY_DEFAULT_TO_UNDEFINED = ((ID_KHRONOS << 20) | ( ENUM_BORDER_POLICY << 12)) + 0x0;
+
+		public const int BORDER_POLICY_RETURN_ERROR = ((ID_KHRONOS << 20) | ( ENUM_BORDER_POLICY << 12)) + 0x1;
+
+		public const int TERM_CRITERIA_ITERATIONS = ((ID_KHRONOS << 20) | ( ENUM_TERM_CRITERIA << 12)) + 0x0;
+
+		public const int TERM_CRITERIA_EPSILON = ((ID_KHRONOS << 20) | ( ENUM_TERM_CRITERIA << 12)) + 0x1;
+
+		public const int TERM_CRITERIA_BOTH = ((ID_KHRONOS << 20) | ( ENUM_TERM_CRITERIA << 12)) + 0x2;
+
+		public const int NORM_L1 = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x0;
+
+		public const int NORM_L2 = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x1;
+
+		public const int DELAY_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_DELAY << 8)) + 0x0;
+
+		public const int DELAY_SLOTS = (((ID_KHRONOS) << 20) | ( TYPE_DELAY << 8)) + 0x1;
+
+		public const int READ_ONLY = ((ID_KHRONOS << 20) | ( ENUM_ACCESSOR << 12)) + 0x1;
+
+		public const int WRITE_ONLY = ((ID_KHRONOS << 20) | ( ENUM_ACCESSOR << 12)) + 0x2;
+
+		public const int READ_AND_WRITE = ((ID_KHRONOS << 20) | ( ENUM_ACCESSOR << 12)) + 0x3;
+
+		public const int ROUND_POLICY_TO_ZERO = ((ID_KHRONOS << 20) | ( ENUM_ROUND_POLICY << 12)) + 0x1;
+
+		public const int ROUND_POLICY_TO_NEAREST_EVEN = ((ID_KHRONOS << 20) | ( ENUM_ROUND_POLICY << 12)) + 0x2;
+
+		public const int NOGAP_X = 1;
+
+		public const int LIBRARY_KHR_BASE = 0x0;
+
+		public const int KERNEL_COLOR_CONVERT = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x1;
+
+		public const int KERNEL_CHANNEL_EXTRACT = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x2;
+
+		public const int KERNEL_CHANNEL_COMBINE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x3;
+
+		public const int KERNEL_SOBEL_3x3 = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x4;
+
+		public const int KERNEL_MAGNITUDE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x5;
+
+		public const int KERNEL_PHASE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x6;
+
+		public const int KERNEL_SCALE_IMAGE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x7;
+
+		public const int KERNEL_TABLE_LOOKUP = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x8;
+
+		public const int KERNEL_HISTOGRAM = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x9;
+
+		public const int KERNEL_EQUALIZE_HISTOGRAM = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0xA;
+
+		public const int KERNEL_ABSDIFF = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0xB;
+
+		public const int KERNEL_MEAN_STDDEV = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0xC;
+
+		public const int KERNEL_THRESHOLD = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0xD;
+
+		public const int KERNEL_INTEGRAL_IMAGE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0xE;
+
+		public const int KERNEL_DILATE_3x3 = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0xF;
+
+		public const int KERNEL_ERODE_3x3 = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x10;
+
+		public const int KERNEL_MEDIAN_3x3 = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x11;
+
+		public const int KERNEL_BOX_3x3 = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x12;
+
+		public const int KERNEL_GAUSSIAN_3x3 = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x13;
+
+		public const int KERNEL_CUSTOM_CONVOLUTION = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x14;
+
+		public const int KERNEL_GAUSSIAN_PYRAMID = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x15;
+
+		public const int KERNEL_ACCUMULATE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x16;
+
+		public const int KERNEL_ACCUMULATE_WEIGHTED = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x17;
+
+		public const int KERNEL_ACCUMULATE_SQUARE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x18;
+
+		public const int KERNEL_MINMAXLOC = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x19;
+
+		public const int KERNEL_CONVERTDEPTH = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x1A;
+
+		public const int KERNEL_CANNY_EDGE_DETECTOR = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x1B;
+
+		public const int KERNEL_AND = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x1C;
+
+		public const int KERNEL_OR = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x1D;
+
+		public const int KERNEL_XOR = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x1E;
+
+		public const int KERNEL_NOT = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x1F;
+
+		public const int KERNEL_MULTIPLY = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x20;
+
+		public const int KERNEL_ADD = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x21;
+
+		public const int KERNEL_SUBTRACT = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x22;
+
+		public const int KERNEL_WARP_AFFINE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x23;
+
+		public const int KERNEL_WARP_PERSPECTIVE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x24;
+
+		public const int KERNEL_HARRIS_CORNERS = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x25;
+
+		public const int KERNEL_FAST_CORNERS = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x26;
+
+		public const int KERNEL_OPTICAL_FLOW_PYR_LK = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x27;
+
+		public const int KERNEL_REMAP = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x28;
+
+		public const int KERNEL_HALFSCALE_GAUSSIAN = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x29;
+
+		public const int KERNEL_LAPLACIAN_PYRAMID = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x2A;
+
+		public const int KERNEL_LAPLACIAN_RECONSTRUCT = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x2B;
+
+		public const int KERNEL_NON_LINEAR_FILTER = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x2C;
+
+		public const int ID_KHRONOS = 0x000;
+
+		public const int ID_TI = 0x001;
+
+		public const int ID_QUALCOMM = 0x002;
+
+		public const int ID_NVIDIA = 0x003;
+
+		public const int ID_ARM = 0x004;
+
+		public const int ID_BDTI = 0x005;
+
+		public const int ID_RENESAS = 0x006;
+
+		public const int ID_VIVANTE = 0x007;
+
+		public const int ID_XILINX = 0x008;
+
+		public const int ID_AXIS = 0x009;
+
+		public const int ID_MOVIDIUS = 0x00A;
+
+		public const int ID_SAMSUNG = 0x00B;
+
+		public const int ID_FREESCALE = 0x00C;
+
+		public const int ID_AMD = 0x00D;
+
+		public const int ID_BROADCOM = 0x00E;
+
+		public const int ID_INTEL = 0x00F;
+
+		public const int ID_MARVELL = 0x010;
+
+		public const int ID_MEDIATEK = 0x011;
+
+		public const int ID_ST = 0x012;
+
+		public const int ID_CEVA = 0x013;
+
+		public const int ID_ITSEEZ = 0x014;
+
+		public const int ID_NXP = 0x016;
+
+		public const int ID_VIDEANTIS = 0x017;
+
+		public const int ID_SYNOPSYS = 0x018;
+
+		public const int ID_CADENCE = 0x019;
+
+		public const int ID_HUAWEI = 0x01A;
+
+		public const int ID_USER = 0xFFE;
+
+		public const int ID_MAX = 0xFFF;
+
+		public const int ID_DEFAULT = ID_MAX;
+
 		public static IntPtr CreateContext()
 		{
 			IntPtr retValue;
@@ -1992,6 +2732,534 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static IntPtr ColorConvertNode(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxColorConvertNode != null, "pvxColorConvertNode not implemented");
+			retValue = Delegates.pvxColorConvertNode(graph, input, output);
+			LogCommand("vxColorConvertNode", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr ChannelExtractNode(IntPtr graph, IntPtr input, int channel, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxChannelExtractNode != null, "pvxChannelExtractNode not implemented");
+			retValue = Delegates.pvxChannelExtractNode(graph, input, channel, output);
+			LogCommand("vxChannelExtractNode", retValue, graph, input, channel, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr ChannelCombineNode(IntPtr graph, IntPtr plane0, IntPtr plane1, IntPtr plane2, IntPtr plane3, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxChannelCombineNode != null, "pvxChannelCombineNode not implemented");
+			retValue = Delegates.pvxChannelCombineNode(graph, plane0, plane1, plane2, plane3, output);
+			LogCommand("vxChannelCombineNode", retValue, graph, plane0, plane1, plane2, plane3, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr PhaseNode(IntPtr graph, IntPtr grad_x, IntPtr grad_y, IntPtr orientation)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxPhaseNode != null, "pvxPhaseNode not implemented");
+			retValue = Delegates.pvxPhaseNode(graph, grad_x, grad_y, orientation);
+			LogCommand("vxPhaseNode", retValue, graph, grad_x, grad_y, orientation			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr Sobel3x3Node(IntPtr graph, IntPtr input, IntPtr output_x, IntPtr output_y)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxSobel3x3Node != null, "pvxSobel3x3Node not implemented");
+			retValue = Delegates.pvxSobel3x3Node(graph, input, output_x, output_y);
+			LogCommand("vxSobel3x3Node", retValue, graph, input, output_x, output_y			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr MagnitudeNode(IntPtr graph, IntPtr grad_x, IntPtr grad_y, IntPtr mag)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxMagnitudeNode != null, "pvxMagnitudeNode not implemented");
+			retValue = Delegates.pvxMagnitudeNode(graph, grad_x, grad_y, mag);
+			LogCommand("vxMagnitudeNode", retValue, graph, grad_x, grad_y, mag			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr ScaleImageNode(IntPtr graph, IntPtr src, IntPtr dst, int type)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxScaleImageNode != null, "pvxScaleImageNode not implemented");
+			retValue = Delegates.pvxScaleImageNode(graph, src, dst, type);
+			LogCommand("vxScaleImageNode", retValue, graph, src, dst, type			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr TableLookupNode(IntPtr graph, IntPtr input, IntPtr lut, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxTableLookupNode != null, "pvxTableLookupNode not implemented");
+			retValue = Delegates.pvxTableLookupNode(graph, input, lut, output);
+			LogCommand("vxTableLookupNode", retValue, graph, input, lut, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr HistogramNode(IntPtr graph, IntPtr input, IntPtr distribution)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxHistogramNode != null, "pvxHistogramNode not implemented");
+			retValue = Delegates.pvxHistogramNode(graph, input, distribution);
+			LogCommand("vxHistogramNode", retValue, graph, input, distribution			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr EqualizeHistNode(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxEqualizeHistNode != null, "pvxEqualizeHistNode not implemented");
+			retValue = Delegates.pvxEqualizeHistNode(graph, input, output);
+			LogCommand("vxEqualizeHistNode", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr AbsDiffNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxAbsDiffNode != null, "pvxAbsDiffNode not implemented");
+			retValue = Delegates.pvxAbsDiffNode(graph, in1, in2, @out);
+			LogCommand("vxAbsDiffNode", retValue, graph, in1, in2, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr MeanStdDevNode(IntPtr graph, IntPtr input, IntPtr mean, IntPtr stddev)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxMeanStdDevNode != null, "pvxMeanStdDevNode not implemented");
+			retValue = Delegates.pvxMeanStdDevNode(graph, input, mean, stddev);
+			LogCommand("vxMeanStdDevNode", retValue, graph, input, mean, stddev			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr ThresholdNode(IntPtr graph, IntPtr input, IntPtr thresh, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxThresholdNode != null, "pvxThresholdNode not implemented");
+			retValue = Delegates.pvxThresholdNode(graph, input, thresh, output);
+			LogCommand("vxThresholdNode", retValue, graph, input, thresh, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr IntegralImageNode(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxIntegralImageNode != null, "pvxIntegralImageNode not implemented");
+			retValue = Delegates.pvxIntegralImageNode(graph, input, output);
+			LogCommand("vxIntegralImageNode", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr Erode3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxErode3x3Node != null, "pvxErode3x3Node not implemented");
+			retValue = Delegates.pvxErode3x3Node(graph, input, output);
+			LogCommand("vxErode3x3Node", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr Dilate3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxDilate3x3Node != null, "pvxDilate3x3Node not implemented");
+			retValue = Delegates.pvxDilate3x3Node(graph, input, output);
+			LogCommand("vxDilate3x3Node", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr Median3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxMedian3x3Node != null, "pvxMedian3x3Node not implemented");
+			retValue = Delegates.pvxMedian3x3Node(graph, input, output);
+			LogCommand("vxMedian3x3Node", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr Box3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxBox3x3Node != null, "pvxBox3x3Node not implemented");
+			retValue = Delegates.pvxBox3x3Node(graph, input, output);
+			LogCommand("vxBox3x3Node", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr Gaussian3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxGaussian3x3Node != null, "pvxGaussian3x3Node not implemented");
+			retValue = Delegates.pvxGaussian3x3Node(graph, input, output);
+			LogCommand("vxGaussian3x3Node", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr NonLinearFilterNode(IntPtr graph, int function, IntPtr input, IntPtr mask, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxNonLinearFilterNode != null, "pvxNonLinearFilterNode not implemented");
+			retValue = Delegates.pvxNonLinearFilterNode(graph, function, input, mask, output);
+			LogCommand("vxNonLinearFilterNode", retValue, graph, function, input, mask, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr ConvolveNode(IntPtr graph, IntPtr input, IntPtr conv, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxConvolveNode != null, "pvxConvolveNode not implemented");
+			retValue = Delegates.pvxConvolveNode(graph, input, conv, output);
+			LogCommand("vxConvolveNode", retValue, graph, input, conv, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr GaussianPyramidNode(IntPtr graph, IntPtr input, IntPtr gaussian)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxGaussianPyramidNode != null, "pvxGaussianPyramidNode not implemented");
+			retValue = Delegates.pvxGaussianPyramidNode(graph, input, gaussian);
+			LogCommand("vxGaussianPyramidNode", retValue, graph, input, gaussian			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr LaplacianPyramidNode(IntPtr graph, IntPtr input, IntPtr laplacian, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxLaplacianPyramidNode != null, "pvxLaplacianPyramidNode not implemented");
+			retValue = Delegates.pvxLaplacianPyramidNode(graph, input, laplacian, output);
+			LogCommand("vxLaplacianPyramidNode", retValue, graph, input, laplacian, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr LaplacianReconstructNode(IntPtr graph, IntPtr laplacian, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxLaplacianReconstructNode != null, "pvxLaplacianReconstructNode not implemented");
+			retValue = Delegates.pvxLaplacianReconstructNode(graph, laplacian, input, output);
+			LogCommand("vxLaplacianReconstructNode", retValue, graph, laplacian, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr AccumulateImageNode(IntPtr graph, IntPtr input, IntPtr accum)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxAccumulateImageNode != null, "pvxAccumulateImageNode not implemented");
+			retValue = Delegates.pvxAccumulateImageNode(graph, input, accum);
+			LogCommand("vxAccumulateImageNode", retValue, graph, input, accum			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr AccumulateWeightedImageNode(IntPtr graph, IntPtr input, IntPtr alpha, IntPtr accum)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxAccumulateWeightedImageNode != null, "pvxAccumulateWeightedImageNode not implemented");
+			retValue = Delegates.pvxAccumulateWeightedImageNode(graph, input, alpha, accum);
+			LogCommand("vxAccumulateWeightedImageNode", retValue, graph, input, alpha, accum			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr AccumulateSquareImageNode(IntPtr graph, IntPtr input, IntPtr shift, IntPtr accum)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxAccumulateSquareImageNode != null, "pvxAccumulateSquareImageNode not implemented");
+			retValue = Delegates.pvxAccumulateSquareImageNode(graph, input, shift, accum);
+			LogCommand("vxAccumulateSquareImageNode", retValue, graph, input, shift, accum			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr MinMaxLocNode(IntPtr graph, IntPtr input, IntPtr minVal, IntPtr maxVal, IntPtr minLoc, IntPtr maxLoc, IntPtr minCount, IntPtr maxCount)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxMinMaxLocNode != null, "pvxMinMaxLocNode not implemented");
+			retValue = Delegates.pvxMinMaxLocNode(graph, input, minVal, maxVal, minLoc, maxLoc, minCount, maxCount);
+			LogCommand("vxMinMaxLocNode", retValue, graph, input, minVal, maxVal, minLoc, maxLoc, minCount, maxCount			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr AndNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxAndNode != null, "pvxAndNode not implemented");
+			retValue = Delegates.pvxAndNode(graph, in1, in2, @out);
+			LogCommand("vxAndNode", retValue, graph, in1, in2, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr OrNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxOrNode != null, "pvxOrNode not implemented");
+			retValue = Delegates.pvxOrNode(graph, in1, in2, @out);
+			LogCommand("vxOrNode", retValue, graph, in1, in2, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr XorNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxXorNode != null, "pvxXorNode not implemented");
+			retValue = Delegates.pvxXorNode(graph, in1, in2, @out);
+			LogCommand("vxXorNode", retValue, graph, in1, in2, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr NotNode(IntPtr graph, IntPtr input, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxNotNode != null, "pvxNotNode not implemented");
+			retValue = Delegates.pvxNotNode(graph, input, output);
+			LogCommand("vxNotNode", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr MultiplyNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr scale, int overflow_policy, int rounding_policy, IntPtr @out)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxMultiplyNode != null, "pvxMultiplyNode not implemented");
+			retValue = Delegates.pvxMultiplyNode(graph, in1, in2, scale, overflow_policy, rounding_policy, @out);
+			LogCommand("vxMultiplyNode", retValue, graph, in1, in2, scale, overflow_policy, rounding_policy, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr AddNode(IntPtr graph, IntPtr in1, IntPtr in2, int policy, IntPtr @out)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxAddNode != null, "pvxAddNode not implemented");
+			retValue = Delegates.pvxAddNode(graph, in1, in2, policy, @out);
+			LogCommand("vxAddNode", retValue, graph, in1, in2, policy, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr SubtractNode(IntPtr graph, IntPtr in1, IntPtr in2, int policy, IntPtr @out)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxSubtractNode != null, "pvxSubtractNode not implemented");
+			retValue = Delegates.pvxSubtractNode(graph, in1, in2, policy, @out);
+			LogCommand("vxSubtractNode", retValue, graph, in1, in2, policy, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr ConvertDepthNode(IntPtr graph, IntPtr input, IntPtr output, int policy, IntPtr shift)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxConvertDepthNode != null, "pvxConvertDepthNode not implemented");
+			retValue = Delegates.pvxConvertDepthNode(graph, input, output, policy, shift);
+			LogCommand("vxConvertDepthNode", retValue, graph, input, output, policy, shift			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr CannyEdgeDetectorNode(IntPtr graph, IntPtr input, IntPtr hyst, int gradient_size, int norm_type, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxCannyEdgeDetectorNode != null, "pvxCannyEdgeDetectorNode not implemented");
+			retValue = Delegates.pvxCannyEdgeDetectorNode(graph, input, hyst, gradient_size, norm_type, output);
+			LogCommand("vxCannyEdgeDetectorNode", retValue, graph, input, hyst, gradient_size, norm_type, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr WarpAffineNode(IntPtr graph, IntPtr input, IntPtr matrix, int type, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxWarpAffineNode != null, "pvxWarpAffineNode not implemented");
+			retValue = Delegates.pvxWarpAffineNode(graph, input, matrix, type, output);
+			LogCommand("vxWarpAffineNode", retValue, graph, input, matrix, type, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr WarpPerspectiveNode(IntPtr graph, IntPtr input, IntPtr matrix, int type, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxWarpPerspectiveNode != null, "pvxWarpPerspectiveNode not implemented");
+			retValue = Delegates.pvxWarpPerspectiveNode(graph, input, matrix, type, output);
+			LogCommand("vxWarpPerspectiveNode", retValue, graph, input, matrix, type, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr HarrisCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, IntPtr min_distance, IntPtr sensitivity, int gradient_size, int block_size, IntPtr corners, IntPtr num_corners)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxHarrisCornersNode != null, "pvxHarrisCornersNode not implemented");
+			retValue = Delegates.pvxHarrisCornersNode(graph, input, strength_thresh, min_distance, sensitivity, gradient_size, block_size, corners, num_corners);
+			LogCommand("vxHarrisCornersNode", retValue, graph, input, strength_thresh, min_distance, sensitivity, gradient_size, block_size, corners, num_corners			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr FastCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, int nonmax_suppression, IntPtr corners, IntPtr num_corners)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxFastCornersNode != null, "pvxFastCornersNode not implemented");
+			retValue = Delegates.pvxFastCornersNode(graph, input, strength_thresh, nonmax_suppression, corners, num_corners);
+			LogCommand("vxFastCornersNode", retValue, graph, input, strength_thresh, nonmax_suppression, corners, num_corners			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr OpticalFlowPyrLKNode(IntPtr graph, IntPtr old_images, IntPtr new_images, IntPtr old_points, IntPtr new_points_estimates, IntPtr new_points, int termination, IntPtr epsilon, IntPtr num_iterations, IntPtr use_initial_estimate, uint window_dimension)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxOpticalFlowPyrLKNode != null, "pvxOpticalFlowPyrLKNode not implemented");
+			retValue = Delegates.pvxOpticalFlowPyrLKNode(graph, old_images, new_images, old_points, new_points_estimates, new_points, termination, epsilon, num_iterations, use_initial_estimate, window_dimension);
+			LogCommand("vxOpticalFlowPyrLKNode", retValue, graph, old_images, new_images, old_points, new_points_estimates, new_points, termination, epsilon, num_iterations, use_initial_estimate, window_dimension			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr RemapNode(IntPtr graph, IntPtr input, IntPtr table, int policy, IntPtr output)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxRemapNode != null, "pvxRemapNode not implemented");
+			retValue = Delegates.pvxRemapNode(graph, input, table, policy, output);
+			LogCommand("vxRemapNode", retValue, graph, input, table, policy, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static IntPtr HalfScaleGaussianNode(IntPtr graph, IntPtr input, IntPtr output, int kernel_size)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pvxHalfScaleGaussianNode != null, "pvxHalfScaleGaussianNode not implemented");
+			retValue = Delegates.pvxHalfScaleGaussianNode(graph, input, output, kernel_size);
+			LogCommand("vxHalfScaleGaussianNode", retValue, graph, input, output, kernel_size			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
@@ -2673,6 +3941,226 @@ namespace OpenVX
 			internal unsafe delegate int vxSetMetaFormatFromReference(IntPtr meta, IntPtr exemplar);
 
 			internal static vxSetMetaFormatFromReference pvxSetMetaFormatFromReference;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxColorConvertNode(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxColorConvertNode pvxColorConvertNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxChannelExtractNode(IntPtr graph, IntPtr input, int channel, IntPtr output);
+
+			internal static vxChannelExtractNode pvxChannelExtractNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxChannelCombineNode(IntPtr graph, IntPtr plane0, IntPtr plane1, IntPtr plane2, IntPtr plane3, IntPtr output);
+
+			internal static vxChannelCombineNode pvxChannelCombineNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxPhaseNode(IntPtr graph, IntPtr grad_x, IntPtr grad_y, IntPtr orientation);
+
+			internal static vxPhaseNode pvxPhaseNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxSobel3x3Node(IntPtr graph, IntPtr input, IntPtr output_x, IntPtr output_y);
+
+			internal static vxSobel3x3Node pvxSobel3x3Node;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxMagnitudeNode(IntPtr graph, IntPtr grad_x, IntPtr grad_y, IntPtr mag);
+
+			internal static vxMagnitudeNode pvxMagnitudeNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxScaleImageNode(IntPtr graph, IntPtr src, IntPtr dst, int type);
+
+			internal static vxScaleImageNode pvxScaleImageNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxTableLookupNode(IntPtr graph, IntPtr input, IntPtr lut, IntPtr output);
+
+			internal static vxTableLookupNode pvxTableLookupNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxHistogramNode(IntPtr graph, IntPtr input, IntPtr distribution);
+
+			internal static vxHistogramNode pvxHistogramNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxEqualizeHistNode(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxEqualizeHistNode pvxEqualizeHistNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxAbsDiffNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out);
+
+			internal static vxAbsDiffNode pvxAbsDiffNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxMeanStdDevNode(IntPtr graph, IntPtr input, IntPtr mean, IntPtr stddev);
+
+			internal static vxMeanStdDevNode pvxMeanStdDevNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxThresholdNode(IntPtr graph, IntPtr input, IntPtr thresh, IntPtr output);
+
+			internal static vxThresholdNode pvxThresholdNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxIntegralImageNode(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxIntegralImageNode pvxIntegralImageNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxErode3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxErode3x3Node pvxErode3x3Node;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxDilate3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxDilate3x3Node pvxDilate3x3Node;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxMedian3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxMedian3x3Node pvxMedian3x3Node;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxBox3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxBox3x3Node pvxBox3x3Node;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxGaussian3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxGaussian3x3Node pvxGaussian3x3Node;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxNonLinearFilterNode(IntPtr graph, int function, IntPtr input, IntPtr mask, IntPtr output);
+
+			internal static vxNonLinearFilterNode pvxNonLinearFilterNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxConvolveNode(IntPtr graph, IntPtr input, IntPtr conv, IntPtr output);
+
+			internal static vxConvolveNode pvxConvolveNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxGaussianPyramidNode(IntPtr graph, IntPtr input, IntPtr gaussian);
+
+			internal static vxGaussianPyramidNode pvxGaussianPyramidNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxLaplacianPyramidNode(IntPtr graph, IntPtr input, IntPtr laplacian, IntPtr output);
+
+			internal static vxLaplacianPyramidNode pvxLaplacianPyramidNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxLaplacianReconstructNode(IntPtr graph, IntPtr laplacian, IntPtr input, IntPtr output);
+
+			internal static vxLaplacianReconstructNode pvxLaplacianReconstructNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxAccumulateImageNode(IntPtr graph, IntPtr input, IntPtr accum);
+
+			internal static vxAccumulateImageNode pvxAccumulateImageNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxAccumulateWeightedImageNode(IntPtr graph, IntPtr input, IntPtr alpha, IntPtr accum);
+
+			internal static vxAccumulateWeightedImageNode pvxAccumulateWeightedImageNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxAccumulateSquareImageNode(IntPtr graph, IntPtr input, IntPtr shift, IntPtr accum);
+
+			internal static vxAccumulateSquareImageNode pvxAccumulateSquareImageNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxMinMaxLocNode(IntPtr graph, IntPtr input, IntPtr minVal, IntPtr maxVal, IntPtr minLoc, IntPtr maxLoc, IntPtr minCount, IntPtr maxCount);
+
+			internal static vxMinMaxLocNode pvxMinMaxLocNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxAndNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out);
+
+			internal static vxAndNode pvxAndNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxOrNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out);
+
+			internal static vxOrNode pvxOrNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxXorNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out);
+
+			internal static vxXorNode pvxXorNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxNotNode(IntPtr graph, IntPtr input, IntPtr output);
+
+			internal static vxNotNode pvxNotNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxMultiplyNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr scale, int overflow_policy, int rounding_policy, IntPtr @out);
+
+			internal static vxMultiplyNode pvxMultiplyNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxAddNode(IntPtr graph, IntPtr in1, IntPtr in2, int policy, IntPtr @out);
+
+			internal static vxAddNode pvxAddNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxSubtractNode(IntPtr graph, IntPtr in1, IntPtr in2, int policy, IntPtr @out);
+
+			internal static vxSubtractNode pvxSubtractNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxConvertDepthNode(IntPtr graph, IntPtr input, IntPtr output, int policy, IntPtr shift);
+
+			internal static vxConvertDepthNode pvxConvertDepthNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxCannyEdgeDetectorNode(IntPtr graph, IntPtr input, IntPtr hyst, int gradient_size, int norm_type, IntPtr output);
+
+			internal static vxCannyEdgeDetectorNode pvxCannyEdgeDetectorNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxWarpAffineNode(IntPtr graph, IntPtr input, IntPtr matrix, int type, IntPtr output);
+
+			internal static vxWarpAffineNode pvxWarpAffineNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxWarpPerspectiveNode(IntPtr graph, IntPtr input, IntPtr matrix, int type, IntPtr output);
+
+			internal static vxWarpPerspectiveNode pvxWarpPerspectiveNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxHarrisCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, IntPtr min_distance, IntPtr sensitivity, int gradient_size, int block_size, IntPtr corners, IntPtr num_corners);
+
+			internal static vxHarrisCornersNode pvxHarrisCornersNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxFastCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, int nonmax_suppression, IntPtr corners, IntPtr num_corners);
+
+			internal static vxFastCornersNode pvxFastCornersNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxOpticalFlowPyrLKNode(IntPtr graph, IntPtr old_images, IntPtr new_images, IntPtr old_points, IntPtr new_points_estimates, IntPtr new_points, int termination, IntPtr epsilon, IntPtr num_iterations, IntPtr use_initial_estimate, uint window_dimension);
+
+			internal static vxOpticalFlowPyrLKNode pvxOpticalFlowPyrLKNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxRemapNode(IntPtr graph, IntPtr input, IntPtr table, int policy, IntPtr output);
+
+			internal static vxRemapNode pvxRemapNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate IntPtr vxHalfScaleGaussianNode(IntPtr graph, IntPtr input, IntPtr output, int kernel_size);
+
+			internal static vxHalfScaleGaussianNode pvxHalfScaleGaussianNode;
 
 		}
 	}

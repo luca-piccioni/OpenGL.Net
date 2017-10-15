@@ -343,41 +343,47 @@ namespace BindingsGen.GLSpecs
 				if (Value == null)
 					throw new InvalidOperationException("missing specification");
 
-				string type, value;
+				string type, value = Value;
 
-				if (Value.StartsWith("0x")) {
-					if ((Value.Length > 10) || (Value.EndsWith("ull"))) {		// 0xXXXXXXXXXXull
+				// Remove trailing \r
+				value = value.TrimEnd('\r');
+				// Remove parenthesis
+				if (value.StartsWith("(") && value.EndsWith(")"))
+					value = value.Substring(1, value.Length - 2);
+
+				if (value.StartsWith("0x")) {
+					if ((value.Length > 10) || (value.EndsWith("ull"))) {		// 0xXXXXXXXXXXull
 						// Remove ull suffix
-						value = Value.Substring(0, Value.Length - 3);
+						value = value.Substring(0, value.Length - 3);
 						type = "ulong";
-					} else if (Regex.IsMatch(Value, @"0x\w{8}") && (Name.Contains("_BIT") || Name.Contains("_MASK"))) {
-						value = Value;
+					} else if (Regex.IsMatch(value, @"0x\w{8}") && (Name.Contains("_BIT") || Name.Contains("_MASK"))) {
 						type = "uint";
-					} else if (Regex.IsMatch(Value, @"0x\w{8}") && ImplementationName.StartsWith("SWAP_")) {
-						value = Value;
+					} else if (Regex.IsMatch(value, @"0x\w{8}") && ImplementationName.StartsWith("SWAP_")) {
 						type = "uint";
-					} else if (Regex.IsMatch(Value, @"0x[8F]\w{7}")) {
-						value = Value;
+					} else if (Regex.IsMatch(value, @"0x[8F]\w{7}")) {
 						type = "uint";
 					} else {													// 0xXXXX
-						value = Value;
 						type = "int";
 					}
-
-				} else if (Value.StartsWith("\"")) {
-					value = Value;
-					type = "string";	
+				} else if (value.EndsWith("u")) {
+					type = "uint";
+				} else if (value.EndsWith("f")) {
+					type = "float";
+				} else if (value.StartsWith("\"")) {
+					type = "string";
 				} else {
-					value = Value;
 					type = "int";
 				}
 
 				Match castMatch;
 
-				if ((castMatch = Regex.Match(value, @"\(\(\w+\)\(?(?<value>(\+|\-)?\d+)\)?\)")).Success) {
+				if ((castMatch = Regex.Match(value, @"\(\([\w\d_]+\)\(?(?<value>(\+|\-)?[\d\.]+)\)?\)")).Success) {
 					value = castMatch.Groups["value"].Value;
 				}
 
+				if ((castMatch = Regex.Match(value, @"\([\w\d_]+\)\(?(?<value>(\+|\-)?[\d\.]+f?)\)?")).Success) {
+					value = castMatch.Groups["value"].Value;
+				}
 
 				return (String.Format("public const {0} {1} = {2};", type, ImplementationName, value));
 			}

@@ -133,13 +133,22 @@ namespace BindingsGen.GLSpecs
 			// Split into statements
 			string[] statements = Regex.Split(headerText, ";");
 
+			string headerFeatureName = String.Format("{0}_VERSION_{1}_{2}", Class.ToUpperInvariant(), feature.Major, feature.Minor);
+
 			foreach (string statement in statements) {
 				Match match;
 
 				// Parse enumeration block
-				if ((match = Regex.Match(statement, @"typedef enum ?\{(?<Enums>.*)\}( +?)(?<Tag>[\w\d_]+)")).Success) {
+				if ((match = Regex.Match(statement, @"(typedef )?enum(?<Name> [\w\d_]+)? ?\{(?<Enums>.*)\}(?<Tag> +?[\w\d_]+)?")).Success) {
 
-					string name = match.Groups["Tag"].Value;
+					string name;
+
+					if (match.Groups["Tag"].Success)
+						name = match.Groups["Tag"].Value.Trim();
+					else if (match.Groups["Name"].Success)
+						name = match.Groups["Name"].Value.Trim();
+					else
+						throw new InvalidOperationException("unable to determine name of enum");
 
 					if (Regex.IsMatch(name, "WF(C|D)boolean"))
 						continue;
@@ -147,13 +156,17 @@ namespace BindingsGen.GLSpecs
 					#region Enumeration
 
 					EnumerantBlock enumerantBlock = new EnumerantBlock();
-					enumerantBlock.Group = "WFD_VERSION_1_0";
+					enumerantBlock.Group = headerFeatureName;
 
 					EnumerantGroup enumerantGroup = new EnumerantGroup();
 					enumerantGroup.Name = name;
 
+					// Replace enumeration macros
+					string enumDefinition = ReplaceEnumMacros(match.Groups["Enums"].Value);
+					// Replace constants in enumeration value
+					enumDefinition = ReplaceEnumConstants(enumDefinition);
 					// Parse enumerations
-					string[] enumValues = Regex.Split(match.Groups["Enums"].Value, ",");
+					string[] enumValues = Regex.Split(enumDefinition, ",");
 
 					for (int i = 0; i < enumValues.Length; i++) {
 						string enumValue = enumValues[i].Trim();
@@ -162,7 +175,7 @@ namespace BindingsGen.GLSpecs
 							Enumerant enumerant = new Enumerant();
 
 							enumerant.Name = match.Groups["Name"].Value;
-							enumerant.Value = match.Groups["Value"].Value;
+							enumerant.Value = match.Groups["Value"].Value.Trim();
 							enumerant.ParentEnumerantBlock = enumerantBlock;
 
 							enumerantBlock.Enums.Add(enumerant);
@@ -229,12 +242,17 @@ namespace BindingsGen.GLSpecs
 				}
 			}
 
-			Feature headerFeature = new Feature();
+			Feature headerFeature = _Features.Find(delegate(Feature item) { return (item.Name == headerFeatureName); });
+			if (headerFeature == null) {
+				headerFeature = new Feature();
+				headerFeature.Name = headerFeatureName;
+				headerFeature.Api = Class.ToLowerInvariant();
+				headerFeature.Number = String.Format("{0}.{1}", feature.Major, feature.Minor);
+				_Features.Add(headerFeature);
+			}
+
 			FeatureCommand headerFeatureCommand = new FeatureCommand();
 
-			headerFeature.Name = String.Format("{0}_VERSION_{1}_{2}", Class.ToUpperInvariant(), feature.Major, feature.Minor);
-			headerFeature.Api = Class.ToLowerInvariant();
-			headerFeature.Number = String.Format("{0}.{1}", feature.Major, feature.Minor);
 			headerFeature.Requirements.Add(headerFeatureCommand);
 
 			headerFeatureCommand.Enums.AddRange(_Enumerants.ConvertAll(delegate(Enumerant input) {
@@ -244,8 +262,70 @@ namespace BindingsGen.GLSpecs
 			headerFeatureCommand.Commands.AddRange(_Commands.ConvertAll(delegate(Command input) {
 				return new FeatureCommand.Item(input.Prototype.Name);
 			}));
+		}
 
-			_Features.Add(headerFeature);
+		private static string ReplaceEnumMacros(string enumDefinition)
+		{
+			MatchCollection macroMatches = Regex.Matches(enumDefinition, @"(?<Macro>[\w\d_]+)\((?<Args>(.*?))\)");
+
+			foreach (Match macroMatch in macroMatches) {
+				string[] args = Regex.Split(macroMatch.Groups["Args"].Value, ",");
+				string replacement = null;
+
+				switch (macroMatch.Groups["Macro"].Value) {
+					case "VX_ENUM_BASE":
+						replacement = ReplaceEnumMacro_VM_ENUM_BASE(args);
+						break;
+					case "VX_DF_IMAGE":
+						replacement = ReplaceEnumMacro_VX_DF_IMAGE(args);
+						break;
+					case "VX_ATTRIBUTE_BASE":
+						replacement = ReplaceEnumMacro_VX_ATTRIBUTE_BASE(args);
+						break;
+					case "VX_KERNEL_BASE":
+						replacement = ReplaceEnumMacro_VX_KERNEL_BASE(args);
+						break;
+				}
+
+				if (replacement != null)
+					enumDefinition = enumDefinition.Replace(macroMatch.Value, replacement);
+			}
+
+			return (enumDefinition);
+		}
+
+		private string ReplaceEnumConstants(string enumDefinition)
+		{
+			MatchCollection macroMatches = Regex.Matches(enumDefinition, @"[\w\d_]+");
+
+			foreach (Match macroMatch in macroMatches) {
+				if (macroMatch.Value.StartsWith(Class.ToUpperInvariant() + "_")) {
+					string replacement = macroMatch.Value.Substring(Class.Length + 1);
+					enumDefinition = enumDefinition.Replace(macroMatch.Value, replacement);
+				}
+			}
+
+			return (enumDefinition);
+		}
+
+		private static string ReplaceEnumMacro_VM_ENUM_BASE(string[] args)
+		{
+			return (String.Format("(({0} << 20) | ({1} << 12))", args[0], args[1]));
+		}
+
+		private static string ReplaceEnumMacro_VX_DF_IMAGE(string[] args)
+		{
+			return (String.Format("(((byte){0}) | ((byte){1} << 8) | ((byte){2} << 16) | ((byte){3} << 24))", args[0], args[1], args[2], args[3]));
+		}
+
+		private static string ReplaceEnumMacro_VX_ATTRIBUTE_BASE(string[] args)
+		{
+			return (String.Format("((({0}) << 20) | ({1} << 8))", args[0], args[1]));
+		}
+
+		private static string ReplaceEnumMacro_VX_KERNEL_BASE(string[] args)
+		{
+			return (String.Format("((({0}) << 20) | ({1} << 12))", args[0], args[1]));
 		}
 
 		/// <summary>

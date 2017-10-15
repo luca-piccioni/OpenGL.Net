@@ -264,6 +264,10 @@ namespace BindingsGen
 				headRegistry.CommandExportRegex = "VX_API_ENTRY ";
 				headRegistry.CommandCallConventionRegex = "VX_API_CALL ";
 				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_api.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_types.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_kernels.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_nodes.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_vendors.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
 
 				ctx = new RegistryContext("VX", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");
@@ -271,7 +275,6 @@ namespace BindingsGen
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				//glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				//glRegistryProcessor.GenerateVersionsSupportClass(ctx);
-				//glRegistryProcessor.GenerateVbCommands(ctx);
 			}
 		}
 
