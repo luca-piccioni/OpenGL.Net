@@ -442,5 +442,9 @@
     <enumerant name="^vx_threshold_type_e$" alias="ThresholdType" />
     <enumerant name="^vx_type_e$" alias="Type" />
     <enumerant name="^vx_vendor_id_e$" alias="VendorId" />
+
+    <command name="^vxRelease.*$">
+        <flags>VariadicParams</flags>
+    </command>
     
 </command_overrides>

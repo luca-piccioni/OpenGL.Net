@@ -779,7 +779,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseContext(IntPtr[] context)
+		public static int ReleaseContext(params IntPtr[] context)
 		{
 			int retValue;
 
@@ -1059,7 +1059,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseImage(IntPtr[] image)
+		public static int ReleaseImage(params IntPtr[] image)
 		{
 			int retValue;
 
@@ -1287,7 +1287,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseKernel(IntPtr[] kernel)
+		public static int ReleaseKernel(params IntPtr[] kernel)
 		{
 			int retValue;
 
@@ -1392,7 +1392,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseGraph(IntPtr[] graph)
+		public static int ReleaseGraph(params IntPtr[] graph)
 		{
 			int retValue;
 
@@ -1581,7 +1581,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseNode(IntPtr[] node)
+		public static int ReleaseNode(params IntPtr[] node)
 		{
 			int retValue;
 
@@ -1680,7 +1680,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseParameter(IntPtr[] param)
+		public static int ReleaseParameter(params IntPtr[] param)
 		{
 			int retValue;
 
@@ -1753,7 +1753,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseScalar(IntPtr[] scalar)
+		public static int ReleaseScalar(params IntPtr[] scalar)
 		{
 			int retValue;
 
@@ -1818,7 +1818,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseReference(IntPtr[] ref_ptr)
+		public static int ReleaseReference(params IntPtr[] ref_ptr)
 		{
 			int retValue;
 
@@ -1875,7 +1875,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseDelay(IntPtr[] delay)
+		public static int ReleaseDelay(params IntPtr[] delay)
 		{
 			int retValue;
 
@@ -1968,7 +1968,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseLUT(IntPtr[] lut)
+		public static int ReleaseLUT(params IntPtr[] lut)
 		{
 			int retValue;
 
@@ -2059,7 +2059,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseDistribution(IntPtr[] distribution)
+		public static int ReleaseDistribution(params IntPtr[] distribution)
 		{
 			int retValue;
 
@@ -2150,7 +2150,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseThreshold(IntPtr[] thresh)
+		public static int ReleaseThreshold(params IntPtr[] thresh)
 		{
 			int retValue;
 
@@ -2211,7 +2211,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseMatrix(IntPtr[] mat)
+		public static int ReleaseMatrix(params IntPtr[] mat)
 		{
 			int retValue;
 
@@ -2284,7 +2284,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseConvolution(IntPtr[] conv)
+		public static int ReleaseConvolution(params IntPtr[] conv)
 		{
 			int retValue;
 
@@ -2373,7 +2373,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleasePyramid(IntPtr[] pyr)
+		public static int ReleasePyramid(params IntPtr[] pyr)
 		{
 			int retValue;
 
@@ -2430,7 +2430,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseRemap(IntPtr[] table)
+		public static int ReleaseRemap(params IntPtr[] table)
 		{
 			int retValue;
 
@@ -2517,7 +2517,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseArray(IntPtr[] arr)
+		public static int ReleaseArray(params IntPtr[] arr)
 		{
 			int retValue;
 
@@ -2661,7 +2661,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReleaseObjectArray(IntPtr[] arr)
+		public static int ReleaseObjectArray(params IntPtr[] arr)
 		{
 			int retValue;
 
