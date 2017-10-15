@@ -395,7 +395,7 @@
     <enumerant name="^vx_accessor_e$" alias="Accessor" />
     <enumerant name="^vx_action_e$" alias="Action" />
     <enumerant name="^vx_array_attribute_e$" alias="ArrayAttribute" />
-    <enumerant name="^vx_bool$" alias="Bool" />
+    <enumerant name="^vx_bool$" alias="Bool" disable="true" />
     <enumerant name="^vx_border_e$" alias="Border" />
     <enumerant name="^vx_border_policy_e$" alias="BorderPolicy" />
     <enumerant name="^vx_channel_e$" alias="Channel" />

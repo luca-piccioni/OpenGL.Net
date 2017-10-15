@@ -37,10 +37,6 @@ namespace OpenVX
 {
 	public partial class VX
 	{
-		public const int API_CALL = __stdcall;
-
-		public const int CALLBACK = __stdcall;
-
 		public const uint VENDOR_MASK = 0xFFF00000;
 
 		public const uint TYPE_MASK = 0x000FFF00;
@@ -61,15 +57,9 @@ namespace OpenVX
 
 		public const uint SCALE_UNITY = 1024u;
 
-		public const int IMAGEPATCH_ADDR_INIT = {0u, 0u, 0, 0, 0u, 0u, 0u, 0u};
-
-		public const int PERF_INIT = {0ul, 0ul, 0ul, 0ul, 0ul, 0ul};
-
 		public const float SCALE_PYRAMID_HALF = 0.5f;
 
 		public const float SCALE_PYRAMID_ORB = 0.8408964f;
-
-		public const int vx_false_e = 0;
 
 		public const int TYPE_INVALID = 0x000;
 

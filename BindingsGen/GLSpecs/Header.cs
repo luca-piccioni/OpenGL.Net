@@ -97,14 +97,22 @@ namespace BindingsGen.GLSpecs
 				if (match.Value.StartsWith("#define ")) {
 					Enumerant enumerant = new Enumerant();
 
-					enumerant.Name = match.Groups["Symbol"].Value;
-					enumerant.Value = match.Groups["Value"].Value;
+					enumerant.Name = match.Groups["Symbol"].Value.Trim();
+					enumerant.Value = match.Groups["Value"].Value.Trim();
 					enumerant.ParentEnumerantBlock = definesBlock;
 
-					definesBlock.Enums.Add(enumerant);
+					bool useDefine = true;
 
-					// Collect enumerant
-					_Enumerants.Add(enumerant);
+					if (enumerant.Value.StartsWith("__"))
+						useDefine = false;
+					if (enumerant.Value.StartsWith("{") && enumerant.Value.EndsWith("}"))
+						useDefine = false;
+
+					if (useDefine) {
+						definesBlock.Enums.Add(enumerant);
+						// Collect enumerant
+						_Enumerants.Add(enumerant);
+					}
 
 					return (String.Empty);
 				}
@@ -155,6 +163,11 @@ namespace BindingsGen.GLSpecs
 
 					#region Enumeration
 
+					// Skip enumeration if required
+					CommandFlagsDatabase.EnumerantItem enumItem =  CommandFlagsDatabase.FindEnumerant(name);
+					if (enumItem != null && enumItem.Disable)
+						continue;
+
 					EnumerantBlock enumerantBlock = new EnumerantBlock();
 					enumerantBlock.Group = headerFeatureName;
 
@@ -162,7 +175,6 @@ namespace BindingsGen.GLSpecs
 					enumerantGroup.Name = name;
 
 					// Override name
-					CommandFlagsDatabase.EnumerantItem enumItem =  CommandFlagsDatabase.FindEnumerant(name);
 					if (enumItem != null && enumItem.Alias != null)
 						enumerantGroup.Name = enumItem.Alias;
 

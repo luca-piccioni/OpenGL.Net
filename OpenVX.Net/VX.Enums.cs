@@ -99,18 +99,6 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration Bool.
-	/// </summary>
-	public enum Bool
-	{
-		/// <summary>
-		/// Strongly typed for value vx_false_e.
-		/// </summary>
-		VxFalseE = VX.vx_false_e,
-
-	}
-
-	/// <summary>
 	/// Strongly typed enumeration Border.
 	/// </summary>
 	public enum Border

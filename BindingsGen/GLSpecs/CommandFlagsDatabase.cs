@@ -77,6 +77,12 @@ namespace BindingsGen.GLSpecs
 			public string Type;
 
 			/// <summary>
+			/// Disable code generation for this enumeration.
+			/// </summary>
+			[XmlAttribute("disable")]
+			public bool Disable;
+
+			/// <summary>
 			/// Enumerants to be implictly added to the enumerant group.
 			/// </summary>
 			[XmlElement("add_enum")]
