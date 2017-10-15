@@ -171,7 +171,7 @@ namespace BindingsGen
 
 					foreach (FeatureCommand.Item featureEnumItem in featureCommand.Enums) {
 						Enumerant enumerant = ctx.Registry.GetEnumerant(featureEnumItem.Name);
-
+						
 						if (enumerant == null)
 							continue;
 						if (serializedEnums.ContainsKey(enumerant.Name))

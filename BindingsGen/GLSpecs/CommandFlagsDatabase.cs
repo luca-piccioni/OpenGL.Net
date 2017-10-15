@@ -65,6 +65,12 @@ namespace BindingsGen.GLSpecs
 			public string Name;
 
 			/// <summary>
+			/// Enumeration alias, overriding the name generation.
+			/// </summary>
+			[XmlAttribute("alias")]
+			public string Alias;
+
+			/// <summary>
 			/// Attribute corresponding /registry/enums/[@type].
 			/// </summary>
 			[XmlAttribute("type")]

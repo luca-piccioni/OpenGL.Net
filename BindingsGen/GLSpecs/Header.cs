@@ -161,6 +161,11 @@ namespace BindingsGen.GLSpecs
 					EnumerantGroup enumerantGroup = new EnumerantGroup();
 					enumerantGroup.Name = name;
 
+					// Override name
+					CommandFlagsDatabase.EnumerantItem enumItem =  CommandFlagsDatabase.FindEnumerant(name);
+					if (enumItem != null && enumItem.Alias != null)
+						enumerantGroup.Name = enumItem.Alias;
+
 					// Replace enumeration macros
 					string enumDefinition = ReplaceEnumMacros(match.Groups["Enums"].Value);
 					// Replace constants in enumeration value

@@ -33,9 +33,9 @@ using Khronos;
 namespace OpenVX
 {
 	/// <summary>
-	/// Strongly typed enumeration vx_accessor_e.
+	/// Strongly typed enumeration Accessor.
 	/// </summary>
-	public enum vx_accessor_e
+	public enum Accessor
 	{
 		/// <summary>
 		/// Strongly typed for value READ_ONLY.
@@ -55,9 +55,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_action_e.
+	/// Strongly typed enumeration Action.
 	/// </summary>
-	public enum vx_action_e
+	public enum Action
 	{
 		/// <summary>
 		/// Strongly typed for value ACTION_CONTINUE.
@@ -72,9 +72,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_array_attribute_e.
+	/// Strongly typed enumeration ArrayAttribute.
 	/// </summary>
-	public enum vx_array_attribute_e
+	public enum ArrayAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value ARRAY_ITEMTYPE.
@@ -99,9 +99,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_bool.
+	/// Strongly typed enumeration Bool.
 	/// </summary>
-	public enum vx_bool
+	public enum Bool
 	{
 		/// <summary>
 		/// Strongly typed for value vx_false_e.
@@ -111,9 +111,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_border_e.
+	/// Strongly typed enumeration Border.
 	/// </summary>
-	public enum vx_border_e
+	public enum Border
 	{
 		/// <summary>
 		/// Strongly typed for value BORDER_UNDEFINED.
@@ -133,9 +133,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_border_policy_e.
+	/// Strongly typed enumeration BorderPolicy.
 	/// </summary>
-	public enum vx_border_policy_e
+	public enum BorderPolicy
 	{
 		/// <summary>
 		/// Strongly typed for value BORDER_POLICY_DEFAULT_TO_UNDEFINED.
@@ -150,9 +150,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_channel_e.
+	/// Strongly typed enumeration Channel.
 	/// </summary>
-	public enum vx_channel_e
+	public enum Channel
 	{
 		/// <summary>
 		/// Strongly typed for value CHANNEL_0.
@@ -212,9 +212,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_channel_range_e.
+	/// Strongly typed enumeration ChannelRange.
 	/// </summary>
-	public enum vx_channel_range_e
+	public enum ChannelRange
 	{
 		/// <summary>
 		/// Strongly typed for value CHANNEL_RANGE_FULL.
@@ -229,9 +229,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_color_space_e.
+	/// Strongly typed enumeration ColorSpace.
 	/// </summary>
-	public enum vx_color_space_e
+	public enum ColorSpace
 	{
 		/// <summary>
 		/// Strongly typed for value COLOR_SPACE_NONE.
@@ -261,9 +261,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_context_attribute_e.
+	/// Strongly typed enumeration ContextAttribute.
 	/// </summary>
-	public enum vx_context_attribute_e
+	public enum ContextAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value CONTEXT_VENDOR_ID.
@@ -338,9 +338,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_convert_policy_e.
+	/// Strongly typed enumeration ConvertPolicy.
 	/// </summary>
-	public enum vx_convert_policy_e
+	public enum ConvertPolicy
 	{
 		/// <summary>
 		/// Strongly typed for value CONVERT_POLICY_WRAP.
@@ -355,9 +355,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_convolution_attribute_e.
+	/// Strongly typed enumeration ConvolutionAttribute.
 	/// </summary>
-	public enum vx_convolution_attribute_e
+	public enum ConvolutionAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value CONVOLUTION_ROWS.
@@ -382,9 +382,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_delay_attribute_e.
+	/// Strongly typed enumeration DelayAttribute.
 	/// </summary>
-	public enum vx_delay_attribute_e
+	public enum DelayAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value DELAY_TYPE.
@@ -399,9 +399,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_df_image_e.
+	/// Strongly typed enumeration DfImage.
 	/// </summary>
-	public enum vx_df_image_e
+	public enum DfImage
 	{
 		/// <summary>
 		/// Strongly typed for value DF_IMAGE_VIRT.
@@ -476,9 +476,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_direction_e.
+	/// Strongly typed enumeration Direction.
 	/// </summary>
-	public enum vx_direction_e
+	public enum Direction
 	{
 		/// <summary>
 		/// Strongly typed for value INPUT.
@@ -498,9 +498,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_directive_e.
+	/// Strongly typed enumeration Directive.
 	/// </summary>
-	public enum vx_directive_e
+	public enum Directive
 	{
 		/// <summary>
 		/// Strongly typed for value DIRECTIVE_DISABLE_LOGGING.
@@ -525,9 +525,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_distribution_attribute_e.
+	/// Strongly typed enumeration DistributionAttribute.
 	/// </summary>
-	public enum vx_distribution_attribute_e
+	public enum DistributionAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value DISTRIBUTION_DIMENSIONS.
@@ -562,9 +562,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_enum_e.
+	/// Strongly typed enumeration Enum.
 	/// </summary>
-	public enum vx_enum_e
+	public enum Enum
 	{
 		/// <summary>
 		/// Strongly typed for value ENUM_DIRECTION.
@@ -689,9 +689,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_graph_attribute_e.
+	/// Strongly typed enumeration GraphAttribute.
 	/// </summary>
-	public enum vx_graph_attribute_e
+	public enum GraphAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value GRAPH_NUMNODES.
@@ -716,9 +716,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_graph_state_e.
+	/// Strongly typed enumeration GraphState.
 	/// </summary>
-	public enum vx_graph_state_e
+	public enum GraphState
 	{
 		/// <summary>
 		/// Strongly typed for value GRAPH_STATE_UNVERIFIED.
@@ -748,9 +748,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_hint_e.
+	/// Strongly typed enumeration Hint.
 	/// </summary>
-	public enum vx_hint_e
+	public enum Hint
 	{
 		/// <summary>
 		/// Strongly typed for value HINT_PERFORMANCE_DEFAULT.
@@ -770,9 +770,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_image_attribute_e.
+	/// Strongly typed enumeration ImageAttribute.
 	/// </summary>
-	public enum vx_image_attribute_e
+	public enum ImageAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value IMAGE_WIDTH.
@@ -817,9 +817,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_interpolation_type_e.
+	/// Strongly typed enumeration InterpolationType.
 	/// </summary>
-	public enum vx_interpolation_type_e
+	public enum InterpolationType
 	{
 		/// <summary>
 		/// Strongly typed for value INTERPOLATION_NEAREST_NEIGHBOR.
@@ -839,36 +839,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_kernel_attribute_e.
+	/// Strongly typed enumeration Kernel.
 	/// </summary>
-	public enum vx_kernel_attribute_e
-	{
-		/// <summary>
-		/// Strongly typed for value KERNEL_PARAMETERS.
-		/// </summary>
-		KernelParameters = VX.KERNEL_PARAMETERS,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_NAME.
-		/// </summary>
-		KernelName = VX.KERNEL_NAME,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_ENUM.
-		/// </summary>
-		KernelEnum = VX.KERNEL_ENUM,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_LOCAL_DATA_SIZE.
-		/// </summary>
-		KernelLocalDataSize = VX.KERNEL_LOCAL_DATA_SIZE,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration vx_kernel_e.
-	/// </summary>
-	public enum vx_kernel_e
+	public enum Kernel
 	{
 		/// <summary>
 		/// Strongly typed for value KERNEL_COLOR_CONVERT.
@@ -1093,9 +1066,36 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_library_e.
+	/// Strongly typed enumeration KernelAttribute.
 	/// </summary>
-	public enum vx_library_e
+	public enum KernelAttribute
+	{
+		/// <summary>
+		/// Strongly typed for value KERNEL_PARAMETERS.
+		/// </summary>
+		KernelParameters = VX.KERNEL_PARAMETERS,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_NAME.
+		/// </summary>
+		KernelName = VX.KERNEL_NAME,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_ENUM.
+		/// </summary>
+		KernelEnum = VX.KERNEL_ENUM,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_LOCAL_DATA_SIZE.
+		/// </summary>
+		KernelLocalDataSize = VX.KERNEL_LOCAL_DATA_SIZE,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration Library.
+	/// </summary>
+	public enum Library
 	{
 		/// <summary>
 		/// Strongly typed for value LIBRARY_KHR_BASE.
@@ -1105,9 +1105,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_lut_attribute_e.
+	/// Strongly typed enumeration LutAttribute.
 	/// </summary>
-	public enum vx_lut_attribute_e
+	public enum LutAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value LUT_TYPE.
@@ -1132,9 +1132,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_map_flag_e.
+	/// Strongly typed enumeration MapFlag.
 	/// </summary>
-	public enum vx_map_flag_e
+	public enum MapFlag
 	{
 		/// <summary>
 		/// Strongly typed for value NOGAP_X.
@@ -1144,9 +1144,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_matrix_attribute_e.
+	/// Strongly typed enumeration MatrixAttribute.
 	/// </summary>
-	public enum vx_matrix_attribute_e
+	public enum MatrixAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value MATRIX_TYPE.
@@ -1181,9 +1181,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_memory_type_e.
+	/// Strongly typed enumeration MemoryType.
 	/// </summary>
-	public enum vx_memory_type_e
+	public enum MemoryType
 	{
 		/// <summary>
 		/// Strongly typed for value MEMORY_TYPE_NONE.
@@ -1198,9 +1198,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_meta_valid_rect_attribute_e.
+	/// Strongly typed enumeration MetaValidRectAttribute.
 	/// </summary>
-	public enum vx_meta_valid_rect_attribute_e
+	public enum MetaValidRectAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value VALID_RECT_CALLBACK.
@@ -1210,9 +1210,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_node_attribute_e.
+	/// Strongly typed enumeration NodeAttribute.
 	/// </summary>
-	public enum vx_node_attribute_e
+	public enum NodeAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value NODE_STATUS.
@@ -1262,9 +1262,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_non_linear_filter_e.
+	/// Strongly typed enumeration NonLinearFilter.
 	/// </summary>
-	public enum vx_non_linear_filter_e
+	public enum NonLinearFilter
 	{
 		/// <summary>
 		/// Strongly typed for value NONLINEAR_FILTER_MEDIAN.
@@ -1284,9 +1284,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_norm_type_e.
+	/// Strongly typed enumeration NormType.
 	/// </summary>
-	public enum vx_norm_type_e
+	public enum NormType
 	{
 		/// <summary>
 		/// Strongly typed for value NORM_L1.
@@ -1301,9 +1301,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_object_array_attribute_e.
+	/// Strongly typed enumeration ObjectArrayAttribute.
 	/// </summary>
-	public enum vx_object_array_attribute_e
+	public enum ObjectArrayAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value OBJECT_ARRAY_ITEMTYPE.
@@ -1318,9 +1318,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_parameter_attribute_e.
+	/// Strongly typed enumeration ParameterAttribute.
 	/// </summary>
-	public enum vx_parameter_attribute_e
+	public enum ParameterAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value PARAMETER_INDEX.
@@ -1350,9 +1350,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_parameter_state_e.
+	/// Strongly typed enumeration ParameterState.
 	/// </summary>
-	public enum vx_parameter_state_e
+	public enum ParameterState
 	{
 		/// <summary>
 		/// Strongly typed for value PARAMETER_STATE_REQUIRED.
@@ -1367,9 +1367,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_pattern_e.
+	/// Strongly typed enumeration Pattern.
 	/// </summary>
-	public enum vx_pattern_e
+	public enum Pattern
 	{
 		/// <summary>
 		/// Strongly typed for value PATTERN_BOX.
@@ -1394,9 +1394,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_pyramid_attribute_e.
+	/// Strongly typed enumeration PyramidAttribute.
 	/// </summary>
-	public enum vx_pyramid_attribute_e
+	public enum PyramidAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value PYRAMID_LEVELS.
@@ -1426,9 +1426,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_reference_attribute_e.
+	/// Strongly typed enumeration ReferenceAttribute.
 	/// </summary>
-	public enum vx_reference_attribute_e
+	public enum ReferenceAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value REFERENCE_COUNT.
@@ -1448,9 +1448,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_remap_attribute_e.
+	/// Strongly typed enumeration RemapAttribute.
 	/// </summary>
-	public enum vx_remap_attribute_e
+	public enum RemapAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value REMAP_SOURCE_WIDTH.
@@ -1475,9 +1475,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_round_policy_e.
+	/// Strongly typed enumeration RoundPolicy.
 	/// </summary>
-	public enum vx_round_policy_e
+	public enum RoundPolicy
 	{
 		/// <summary>
 		/// Strongly typed for value ROUND_POLICY_TO_ZERO.
@@ -1492,9 +1492,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_scalar_attribute_e.
+	/// Strongly typed enumeration ScalarAttribute.
 	/// </summary>
-	public enum vx_scalar_attribute_e
+	public enum ScalarAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value SCALAR_TYPE.
@@ -1504,9 +1504,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_status_e.
+	/// Strongly typed enumeration Status.
 	/// </summary>
-	public enum vx_status_e
+	public enum Status
 	{
 		/// <summary>
 		/// Strongly typed for value STATUS_MIN.
@@ -1641,9 +1641,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_target_e.
+	/// Strongly typed enumeration Target.
 	/// </summary>
-	public enum vx_target_e
+	public enum Target
 	{
 		/// <summary>
 		/// Strongly typed for value TARGET_ANY.
@@ -1663,9 +1663,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_termination_criteria_e.
+	/// Strongly typed enumeration TerminationCriteria.
 	/// </summary>
-	public enum vx_termination_criteria_e
+	public enum TerminationCriteria
 	{
 		/// <summary>
 		/// Strongly typed for value TERM_CRITERIA_ITERATIONS.
@@ -1685,9 +1685,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_threshold_attribute_e.
+	/// Strongly typed enumeration ThresholdAttribute.
 	/// </summary>
-	public enum vx_threshold_attribute_e
+	public enum ThresholdAttribute
 	{
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_TYPE.
@@ -1727,9 +1727,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_threshold_type_e.
+	/// Strongly typed enumeration ThresholdType.
 	/// </summary>
-	public enum vx_threshold_type_e
+	public enum ThresholdType
 	{
 		/// <summary>
 		/// Strongly typed for value THRESHOLD_TYPE_BINARY.
@@ -1744,9 +1744,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_type_e.
+	/// Strongly typed enumeration Type.
 	/// </summary>
-	public enum vx_type_e
+	public enum Type
 	{
 		/// <summary>
 		/// Strongly typed for value TYPE_INVALID.
@@ -2001,9 +2001,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration vx_vendor_id_e.
+	/// Strongly typed enumeration VendorId.
 	/// </summary>
-	public enum vx_vendor_id_e
+	public enum VendorId
 	{
 		/// <summary>
 		/// Strongly typed for value ID_KHRONOS.
