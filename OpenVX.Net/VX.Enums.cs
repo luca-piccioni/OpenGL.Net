@@ -1658,17 +1658,17 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value TERM_CRITERIA_ITERATIONS.
 		/// </summary>
-		TermCriteriaIterations = VX.TERM_CRITERIA_ITERATIONS,
+		Iterations = VX.TERM_CRITERIA_ITERATIONS,
 
 		/// <summary>
 		/// Strongly typed for value TERM_CRITERIA_EPSILON.
 		/// </summary>
-		TermCriteriaEpsilon = VX.TERM_CRITERIA_EPSILON,
+		Epsilon = VX.TERM_CRITERIA_EPSILON,
 
 		/// <summary>
 		/// Strongly typed for value TERM_CRITERIA_BOTH.
 		/// </summary>
-		TermCriteriaBoth = VX.TERM_CRITERIA_BOTH,
+		Both = VX.TERM_CRITERIA_BOTH,
 
 	}
 

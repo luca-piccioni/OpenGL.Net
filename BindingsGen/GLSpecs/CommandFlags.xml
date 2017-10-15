@@ -437,7 +437,7 @@
     <enumerant name="^vx_scalar_attribute_e$" alias="ScalarAttribute" prefix="Scalar" />
     <enumerant name="^vx_status_e$" alias="Status" />
     <enumerant name="^vx_target_e$" alias="Target" prefix="Target" />
-    <enumerant name="^vx_termination_criteria_e$" alias="TerminationCriteria" prefix="TerminationCriteria" />
+    <enumerant name="^vx_termination_criteria_e$" alias="TerminationCriteria" prefix="TermCriteria" />
     <enumerant name="^vx_threshold_attribute_e$" alias="ThresholdAttribute" prefix="Threshold" />
     <enumerant name="^vx_threshold_type_e$" alias="ThresholdType" prefix="ThresholdType" />
     <enumerant name="^vx_type_e$" alias="Type" prefix="Type" />
