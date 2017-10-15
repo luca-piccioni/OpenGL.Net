@@ -1525,9 +1525,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int IsGraph(IntPtr graph)
+		public static bool IsGraph(IntPtr graph)
 		{
-			int retValue;
+			bool retValue;
 
 			Debug.Assert(Delegates.pvxIsGraphVerified != null, "pvxIsGraphVerified not implemented");
 			retValue = Delegates.pvxIsGraphVerified(graph);
@@ -1651,12 +1651,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int ReplicateNode(IntPtr graph, IntPtr first_node, int[] replicate, uint number_of_parameters)
+		public static int ReplicateNode(IntPtr graph, IntPtr first_node, bool[] replicate, uint number_of_parameters)
 		{
 			int retValue;
 
 			unsafe {
-				fixed (int* p_replicate = replicate)
+				fixed (bool* p_replicate = replicate)
 				{
 					Debug.Assert(Delegates.pvxReplicateNode != null, "pvxReplicateNode not implemented");
 					retValue = Delegates.pvxReplicateNode(graph, first_node, p_replicate, number_of_parameters);
@@ -1948,7 +1948,7 @@ namespace OpenVX
 			DebugCheckErrors(null);
 		}
 
-		public static void RegisterLogCallback(IntPtr context, LogCallback callback, int reentrant)
+		public static void RegisterLogCallback(IntPtr context, LogCallback callback, bool reentrant)
 		{
 			Debug.Assert(Delegates.pvxRegisterLogCallback != null, "pvxRegisterLogCallback not implemented");
 			Delegates.pvxRegisterLogCallback(context, callback, reentrant);
@@ -3202,7 +3202,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr FastCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, int nonmax_suppression, IntPtr corners, IntPtr num_corners)
+		public static IntPtr FastCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, bool nonmax_suppression, IntPtr corners, IntPtr num_corners)
 		{
 			IntPtr retValue;
 
@@ -3518,7 +3518,7 @@ namespace OpenVX
 			internal static vxGetGraphParameterByIndex pvxGetGraphParameterByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int vxIsGraphVerified(IntPtr graph);
+			internal unsafe delegate bool vxIsGraphVerified(IntPtr graph);
 
 			internal static vxIsGraphVerified pvxIsGraphVerified;
 
@@ -3563,7 +3563,7 @@ namespace OpenVX
 			internal static vxSetNodeTarget pvxSetNodeTarget;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int vxReplicateNode(IntPtr graph, IntPtr first_node, int* replicate, uint number_of_parameters);
+			internal unsafe delegate int vxReplicateNode(IntPtr graph, IntPtr first_node, bool* replicate, uint number_of_parameters);
 
 			internal static vxReplicateNode pvxReplicateNode;
 
@@ -3668,7 +3668,7 @@ namespace OpenVX
 			internal static vxAddLogEntry pvxAddLogEntry;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void vxRegisterLogCallback(IntPtr context, LogCallback callback, int reentrant);
+			internal unsafe delegate void vxRegisterLogCallback(IntPtr context, LogCallback callback, bool reentrant);
 
 			internal static vxRegisterLogCallback pvxRegisterLogCallback;
 
@@ -4133,7 +4133,7 @@ namespace OpenVX
 			internal static vxHarrisCornersNode pvxHarrisCornersNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxFastCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, int nonmax_suppression, IntPtr corners, IntPtr num_corners);
+			internal unsafe delegate IntPtr vxFastCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, bool nonmax_suppression, IntPtr corners, IntPtr num_corners);
 
 			internal static vxFastCornersNode pvxFastCornersNode;
 

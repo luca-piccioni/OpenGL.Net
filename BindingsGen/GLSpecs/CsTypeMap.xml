@@ -389,8 +389,8 @@
     <type name="vx_array*" value="IntPtr*" />
     <type name="vx_object_array" value="IntPtr" />
     <type name="vx_object_array*" value="IntPtr*" />
-    <type name="vx_bool" value="int" />
-    <type name="vx_bool*" value="int*" />
+    <type name="vx_bool" value="bool" />
+    <type name="vx_bool*" value="bool*" />
     <type name="vx_meta_format" value="IntPtr" />
 
     <type name="vx_enum" value="int" />
