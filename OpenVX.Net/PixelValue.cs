@@ -19,9 +19,65 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Runtime.InteropServices;
+
 namespace OpenVX
 {
+	/// <summary>
+	/// Union that describes the value of a pixel for any image format. Use the field corresponding to the image format.
+	/// </summary>
+	[StructLayout(LayoutKind.Explicit, Pack = 4, Size = 16)]
 	public struct PixelValue
 	{
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.Rgb"/>.
+		/// </summary>
+		[FieldOffset(0)]
+		[MarshalAs(UnmanagedType.LPArray, SizeConst = 3)]
+		public byte[] RGB;
+
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.Rgbx"/>.
+		/// </summary>
+		[FieldOffset(0)]
+		[MarshalAs(UnmanagedType.LPArray, SizeConst = 4)]
+		public byte[] RGBX;
+
+		/// <summary>
+		/// Pixel value for all YUV formats in <see cref="DfImage"/>.
+		/// </summary>
+		[FieldOffset(0)]
+		[MarshalAs(UnmanagedType.LPArray, SizeConst = 3)]
+		public byte[] YUV;
+
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.U8"/>.
+		/// </summary>
+		[FieldOffset(0)]
+		public byte U8;
+
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.U16"/>.
+		/// </summary>
+		[FieldOffset(0)]
+		public ushort U16;
+
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.S16"/>.
+		/// </summary>
+		[FieldOffset(0)]
+		public short S16;
+
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.U32"/>.
+		/// </summary>
+		[FieldOffset(0)]
+		public uint U32;
+
+		/// <summary>
+		/// Pixel value for <see cref="DfImage.S32"/>.
+		/// </summary>
+		[FieldOffset(0)]
+		public int S32;
 	}
 }

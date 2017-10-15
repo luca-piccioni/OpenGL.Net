@@ -19,10 +19,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Runtime.InteropServices;
+
 namespace OpenVX
 {
+	/// <summary>
+	/// The rectangle data structure that is shared with the users. The area of the rectangle can be computed as (end_x-start_x)*(end_y-start_y)
+	/// </summary>
+	[StructLayout(LayoutKind.Sequential, Pack = 4)]
 	public struct Rectangle
 	{
+		/// <summary>
+		/// The Start X coordinate.
+		/// </summary>
+		public uint StartX;
 
+		/// <summary>
+		/// The Start Y coordinate.
+		/// </summary>
+		public uint StartY;
+
+		/// <summary>
+		/// The End X coordinate.
+		/// </summary>
+		public uint EndX;
+
+		/// <summary>
+		/// The End Y coordinate.
+		/// </summary>
+		public uint EndY;
 	}
 }
