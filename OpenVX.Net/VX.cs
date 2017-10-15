@@ -27,6 +27,9 @@ using Khronos;
 
 namespace OpenVX
 {
+	/// <summary>
+	/// OpenVX bindings.
+	/// </summary>
 	public partial class VX : KhronosApi
 	{
 		#region Constructors
@@ -99,6 +102,45 @@ namespace OpenVX
 		#endregion
 
 		#region Error Handling
+
+		public static void CheckObject(IntPtr obj)
+		{
+			Status objStatus = GetStatus(obj);
+
+			if (objStatus != Status.Success)
+				throw new InvalidOperationException("object status " + objStatus);
+		}
+
+		[Conditional("VX_DEBUG")]
+		public static void DebugCheckObject(IntPtr obj)
+		{
+			CheckObject(obj);
+		}
+
+		/// <summary>
+		/// OpenGL error checking.
+		/// </summary>
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the function returned value, if any.
+		/// </param>
+		[Conditional("VX_DEBUG")]
+		private static void DebugCheckErrors(Status returnValue)
+		{
+			if (returnValue != Status.Success)
+				throw new InvalidOperationException("command status " + returnValue);
+		}
+
+		/// <summary>
+		/// OpenGL error checking.
+		/// </summary>
+		/// <param name="returnValue">
+		/// A <see cref="Object"/> that specifies the function returned value, if any.
+		/// </param>
+		[Conditional("VX_DEBUG")]
+		private static void DebugCheckErrors(IntPtr returnValue)
+		{
+			CheckObject(returnValue);
+		}
 
 		/// <summary>
 		/// OpenGL error checking.

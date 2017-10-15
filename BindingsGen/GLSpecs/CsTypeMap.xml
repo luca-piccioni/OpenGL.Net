@@ -352,7 +352,7 @@
     <type name="vx_reference*" value="IntPtr*" />
     <type name="vx_size" value="uint" />
     <type name="vx_size*" value="uint*" />
-    <type name="vx_df_image" value="uint" />
+    <type name="vx_df_image" value="DfImage" />
     <type name="vx_map_id" value="UIntPtr" />
     <type name="vx_map_id*" value="UIntPtr*" />
     <type name="vx_scalar" value="IntPtr" />

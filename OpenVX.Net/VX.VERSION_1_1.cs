@@ -938,7 +938,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateImage(IntPtr context, uint width, uint height, uint color)
+		public static IntPtr CreateImage(IntPtr context, uint width, uint height, DfImage color)
 		{
 			IntPtr retValue;
 
@@ -967,7 +967,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateUniformImage(IntPtr context, uint width, uint height, uint color, PixelValue value)
+		public static IntPtr CreateUniformImage(IntPtr context, uint width, uint height, DfImage color, PixelValue value)
 		{
 			IntPtr retValue;
 
@@ -979,7 +979,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateVirtualImage(IntPtr graph, uint width, uint height, uint color)
+		public static IntPtr CreateVirtualImage(IntPtr graph, uint width, uint height, DfImage color)
 		{
 			IntPtr retValue;
 
@@ -991,7 +991,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateImageFromHandle(IntPtr context, uint color, ImagePatchAddressing[] addrs, IntPtr[] ptrs, int memory_type)
+		public static IntPtr CreateImageFromHandle(IntPtr context, DfImage color, ImagePatchAddressing[] addrs, IntPtr[] ptrs, int memory_type)
 		{
 			IntPtr retValue;
 
@@ -1093,7 +1093,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr FormatImagePatchAdd(IntPtr ptr, uint index, ImagePatchAddressing[] addr)
+		public static IntPtr FormatImagePatchAddress1d(IntPtr ptr, uint index, ImagePatchAddressing[] addr)
 		{
 			IntPtr retValue;
 
@@ -1110,7 +1110,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr FormatImagePatchAdd(IntPtr ptr, uint x, uint y, ImagePatchAddressing[] addr)
+		public static IntPtr FormatImagePatchAddress2d(IntPtr ptr, uint x, uint y, ImagePatchAddressing[] addr)
 		{
 			IntPtr retValue;
 
@@ -2349,7 +2349,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreatePyramid(IntPtr context, uint levels, float scale, uint width, uint height, uint format)
+		public static IntPtr CreatePyramid(IntPtr context, uint levels, float scale, uint width, uint height, DfImage format)
 		{
 			IntPtr retValue;
 
@@ -2361,7 +2361,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateVirtualPyramid(IntPtr graph, uint levels, float scale, uint width, uint height, uint format)
+		public static IntPtr CreateVirtualPyramid(IntPtr graph, uint levels, float scale, uint width, uint height, DfImage format)
 		{
 			IntPtr retValue;
 
@@ -3313,7 +3313,7 @@ namespace OpenVX
 			internal static vxSetImmediateModeTarget pvxSetImmediateModeTarget;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateImage(IntPtr context, uint width, uint height, uint color);
+			internal unsafe delegate IntPtr vxCreateImage(IntPtr context, uint width, uint height, DfImage color);
 
 			internal static vxCreateImage pvxCreateImage;
 
@@ -3323,17 +3323,17 @@ namespace OpenVX
 			internal static vxCreateImageFromROI pvxCreateImageFromROI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateUniformImage(IntPtr context, uint width, uint height, uint color, PixelValue value);
+			internal unsafe delegate IntPtr vxCreateUniformImage(IntPtr context, uint width, uint height, DfImage color, PixelValue value);
 
 			internal static vxCreateUniformImage pvxCreateUniformImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateVirtualImage(IntPtr graph, uint width, uint height, uint color);
+			internal unsafe delegate IntPtr vxCreateVirtualImage(IntPtr graph, uint width, uint height, DfImage color);
 
 			internal static vxCreateVirtualImage pvxCreateVirtualImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateImageFromHandle(IntPtr context, uint color, ImagePatchAddressing* addrs, IntPtr* ptrs, int memory_type);
+			internal unsafe delegate IntPtr vxCreateImageFromHandle(IntPtr context, DfImage color, ImagePatchAddressing* addrs, IntPtr* ptrs, int memory_type);
 
 			internal static vxCreateImageFromHandle pvxCreateImageFromHandle;
 
@@ -3803,12 +3803,12 @@ namespace OpenVX
 			internal static vxCopyConvolutionCoefficients pvxCopyConvolutionCoefficients;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreatePyramid(IntPtr context, uint levels, float scale, uint width, uint height, uint format);
+			internal unsafe delegate IntPtr vxCreatePyramid(IntPtr context, uint levels, float scale, uint width, uint height, DfImage format);
 
 			internal static vxCreatePyramid pvxCreatePyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateVirtualPyramid(IntPtr graph, uint levels, float scale, uint width, uint height, uint format);
+			internal unsafe delegate IntPtr vxCreateVirtualPyramid(IntPtr graph, uint levels, float scale, uint width, uint height, DfImage format);
 
 			internal static vxCreateVirtualPyramid pvxCreateVirtualPyramid;
 
