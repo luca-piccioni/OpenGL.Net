@@ -37,17 +37,17 @@ namespace OpenWF
 {
 	public partial class Wfd
 	{
-		public const int OPENWFD_VERSION_1_0 = (1);
+		public const int OPENWFD_VERSION_1_0 = 1;
 
-		public const int NONE = (0);
+		public const int NONE = 0;
 
-		public const int INVALID_PORT_ID = (0);
+		public const int INVALID_PORT_ID = 0;
 
-		public const int INVALID_PIPELINE_ID = (0);
+		public const int INVALID_PIPELINE_ID = 0;
 
-		public const int INVALID_PIPELINE_LAYER = (0);
+		public const int INVALID_PIPELINE_LAYER = 0;
 
-		public const int DEFAULT_DEVICE_ID = (0);
+		public const int DEFAULT_DEVICE_ID = 0;
 
 		public const int MAX_INT = 16777216;
 
@@ -299,13 +299,13 @@ namespace OpenWF
 
 		public const int TRANSPARENCY_NONE = 0;
 
-		public const int TRANSPARENCY_SOURCE_COLOR = (1 << 0);
+		public const int TRANSPARENCY_SOURCE_COLOR = 1 << 0;
 
-		public const int TRANSPARENCY_GLOBAL_ALPHA = (1 << 1);
+		public const int TRANSPARENCY_GLOBAL_ALPHA = 1 << 1;
 
-		public const int TRANSPARENCY_SOURCE_ALPHA = (1 << 2);
+		public const int TRANSPARENCY_SOURCE_ALPHA = 1 << 2;
 
-		public const int TRANSPARENCY_MASK = (1 << 3);
+		public const int TRANSPARENCY_MASK = 1 << 3;
 
 		public const int TRANSPARENCY_FORCE_32BIT = 0x7FFFFFFF;
 

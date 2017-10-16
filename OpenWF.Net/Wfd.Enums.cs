@@ -38,22 +38,22 @@ namespace OpenWF
 	public enum WFDCommitType
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_COMMIT_ENTIRE_DEVICE.
+		/// Strongly typed for value COMMIT_ENTIRE_DEVICE.
 		/// </summary>
 		CommitEntireDevice = Wfd.COMMIT_ENTIRE_DEVICE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_COMMIT_ENTIRE_PORT.
+		/// Strongly typed for value COMMIT_ENTIRE_PORT.
 		/// </summary>
 		CommitEntirePort = Wfd.COMMIT_ENTIRE_PORT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_COMMIT_PIPELINE.
+		/// Strongly typed for value COMMIT_PIPELINE.
 		/// </summary>
 		CommitPipeline = Wfd.COMMIT_PIPELINE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_COMMIT_FORCE_32BIT.
+		/// Strongly typed for value COMMIT_FORCE_32BIT.
 		/// </summary>
 		CommitForce32bit = Wfd.COMMIT_FORCE_32BIT,
 
@@ -65,12 +65,12 @@ namespace OpenWF
 	public enum WFDDeviceAttrib
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_DEVICE_ID.
+		/// Strongly typed for value DEVICE_ID.
 		/// </summary>
 		DeviceId = Wfd.DEVICE_ID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_DEVICE_ATTRIB_FORCE_32BIT.
+		/// Strongly typed for value DEVICE_ATTRIB_FORCE_32BIT.
 		/// </summary>
 		DeviceAttribForce32bit = Wfd.DEVICE_ATTRIB_FORCE_32BIT,
 
@@ -82,12 +82,12 @@ namespace OpenWF
 	public enum WFDDeviceFilter
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_DEVICE_FILTER_PORT_ID.
+		/// Strongly typed for value DEVICE_FILTER_PORT_ID.
 		/// </summary>
 		DeviceFilterPortId = Wfd.DEVICE_FILTER_PORT_ID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_DEVICE_FILTER_FORCE_32BIT.
+		/// Strongly typed for value DEVICE_FILTER_FORCE_32BIT.
 		/// </summary>
 		DeviceFilterForce32bit = Wfd.DEVICE_FILTER_FORCE_32BIT,
 
@@ -99,27 +99,27 @@ namespace OpenWF
 	public enum WFDDisplayDataFormat
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_DISPLAY_DATA_FORMAT_NONE.
+		/// Strongly typed for value DISPLAY_DATA_FORMAT_NONE.
 		/// </summary>
 		DisplayDataFormatNone = Wfd.DISPLAY_DATA_FORMAT_NONE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_DISPLAY_DATA_FORMAT_EDID_V1.
+		/// Strongly typed for value DISPLAY_DATA_FORMAT_EDID_V1.
 		/// </summary>
 		DisplayDataFormatEdidV1 = Wfd.DISPLAY_DATA_FORMAT_EDID_V1,
 
 		/// <summary>
-		/// Strongly typed for value WFD_DISPLAY_DATA_FORMAT_EDID_V2.
+		/// Strongly typed for value DISPLAY_DATA_FORMAT_EDID_V2.
 		/// </summary>
 		DisplayDataFormatEdidV2 = Wfd.DISPLAY_DATA_FORMAT_EDID_V2,
 
 		/// <summary>
-		/// Strongly typed for value WFD_DISPLAY_DATA_FORMAT_DISPLAYID.
+		/// Strongly typed for value DISPLAY_DATA_FORMAT_DISPLAYID.
 		/// </summary>
 		DisplayDataFormatDisplayid = Wfd.DISPLAY_DATA_FORMAT_DISPLAYID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_DISPLAY_DATA_FORMAT_FORCE_32BIT.
+		/// Strongly typed for value DISPLAY_DATA_FORMAT_FORCE_32BIT.
 		/// </summary>
 		DisplayDataFormatForce32bit = Wfd.DISPLAY_DATA_FORMAT_FORCE_32BIT,
 
@@ -131,57 +131,57 @@ namespace OpenWF
 	public enum WFDErrorCode
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_NONE.
+		/// Strongly typed for value ERROR_NONE.
 		/// </summary>
 		ErrorNone = Wfd.ERROR_NONE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_OUT_OF_MEMORY.
+		/// Strongly typed for value ERROR_OUT_OF_MEMORY.
 		/// </summary>
 		ErrorOutOfMemory = Wfd.ERROR_OUT_OF_MEMORY,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_ILLEGAL_ARGUMENT.
+		/// Strongly typed for value ERROR_ILLEGAL_ARGUMENT.
 		/// </summary>
 		ErrorIllegalArgument = Wfd.ERROR_ILLEGAL_ARGUMENT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_NOT_SUPPORTED.
+		/// Strongly typed for value ERROR_NOT_SUPPORTED.
 		/// </summary>
 		ErrorNotSupported = Wfd.ERROR_NOT_SUPPORTED,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_BAD_ATTRIBUTE.
+		/// Strongly typed for value ERROR_BAD_ATTRIBUTE.
 		/// </summary>
 		ErrorBadAttribute = Wfd.ERROR_BAD_ATTRIBUTE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_IN_USE.
+		/// Strongly typed for value ERROR_IN_USE.
 		/// </summary>
 		ErrorInUse = Wfd.ERROR_IN_USE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_BUSY.
+		/// Strongly typed for value ERROR_BUSY.
 		/// </summary>
 		ErrorBusy = Wfd.ERROR_BUSY,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_BAD_DEVICE.
+		/// Strongly typed for value ERROR_BAD_DEVICE.
 		/// </summary>
 		ErrorBadDevice = Wfd.ERROR_BAD_DEVICE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_BAD_HANDLE.
+		/// Strongly typed for value ERROR_BAD_HANDLE.
 		/// </summary>
 		ErrorBadHandle = Wfd.ERROR_BAD_HANDLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_INCONSISTENCY.
+		/// Strongly typed for value ERROR_INCONSISTENCY.
 		/// </summary>
 		ErrorInconsistency = Wfd.ERROR_INCONSISTENCY,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ERROR_FORCE_32BIT.
+		/// Strongly typed for value ERROR_FORCE_32BIT.
 		/// </summary>
 		ErrorForce32bit = Wfd.ERROR_FORCE_32BIT,
 
@@ -193,52 +193,52 @@ namespace OpenWF
 	public enum WFDEventAttrib
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PIPELINE_BIND_QUEUE_SIZE.
+		/// Strongly typed for value EVENT_PIPELINE_BIND_QUEUE_SIZE.
 		/// </summary>
 		EventPipelineBindQueueSize = Wfd.EVENT_PIPELINE_BIND_QUEUE_SIZE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_TYPE.
+		/// Strongly typed for value EVENT_TYPE.
 		/// </summary>
 		EventType = Wfd.EVENT_TYPE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PORT_ATTACH_PORT_ID.
+		/// Strongly typed for value EVENT_PORT_ATTACH_PORT_ID.
 		/// </summary>
 		EventPortAttachPortId = Wfd.EVENT_PORT_ATTACH_PORT_ID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PORT_ATTACH_STATE.
+		/// Strongly typed for value EVENT_PORT_ATTACH_STATE.
 		/// </summary>
 		EventPortAttachState = Wfd.EVENT_PORT_ATTACH_STATE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PORT_PROTECTION_PORT_ID.
+		/// Strongly typed for value EVENT_PORT_PROTECTION_PORT_ID.
 		/// </summary>
 		EventPortProtectionPortId = Wfd.EVENT_PORT_PROTECTION_PORT_ID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PIPELINE_BIND_PIPELINE_ID.
+		/// Strongly typed for value EVENT_PIPELINE_BIND_PIPELINE_ID.
 		/// </summary>
 		EventPipelineBindPipelineId = Wfd.EVENT_PIPELINE_BIND_PIPELINE_ID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PIPELINE_BIND_SOURCE.
+		/// Strongly typed for value EVENT_PIPELINE_BIND_SOURCE.
 		/// </summary>
 		EventPipelineBindSource = Wfd.EVENT_PIPELINE_BIND_SOURCE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PIPELINE_BIND_MASK.
+		/// Strongly typed for value EVENT_PIPELINE_BIND_MASK.
 		/// </summary>
 		EventPipelineBindMask = Wfd.EVENT_PIPELINE_BIND_MASK,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PIPELINE_BIND_QUEUE_OVERFLOW.
+		/// Strongly typed for value EVENT_PIPELINE_BIND_QUEUE_OVERFLOW.
 		/// </summary>
 		EventPipelineBindQueueOverflow = Wfd.EVENT_PIPELINE_BIND_QUEUE_OVERFLOW,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_ATTRIB_FORCE_32BIT.
+		/// Strongly typed for value EVENT_ATTRIB_FORCE_32BIT.
 		/// </summary>
 		EventAttribForce32bit = Wfd.EVENT_ATTRIB_FORCE_32BIT,
 
@@ -250,42 +250,42 @@ namespace OpenWF
 	public enum WFDEventType
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_INVALID.
+		/// Strongly typed for value EVENT_INVALID.
 		/// </summary>
 		EventInvalid = Wfd.EVENT_INVALID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_NONE.
+		/// Strongly typed for value EVENT_NONE.
 		/// </summary>
 		EventNone = Wfd.EVENT_NONE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_DESTROYED.
+		/// Strongly typed for value EVENT_DESTROYED.
 		/// </summary>
 		EventDestroyed = Wfd.EVENT_DESTROYED,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PORT_ATTACH_DETACH.
+		/// Strongly typed for value EVENT_PORT_ATTACH_DETACH.
 		/// </summary>
 		EventPortAttachDetach = Wfd.EVENT_PORT_ATTACH_DETACH,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PORT_PROTECTION_FAILURE.
+		/// Strongly typed for value EVENT_PORT_PROTECTION_FAILURE.
 		/// </summary>
 		EventPortProtectionFailure = Wfd.EVENT_PORT_PROTECTION_FAILURE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PIPELINE_BIND_SOURCE_COMPLETE.
+		/// Strongly typed for value EVENT_PIPELINE_BIND_SOURCE_COMPLETE.
 		/// </summary>
 		EventPipelineBindSourceComplete = Wfd.EVENT_PIPELINE_BIND_SOURCE_COMPLETE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_PIPELINE_BIND_MASK_COMPLETE.
+		/// Strongly typed for value EVENT_PIPELINE_BIND_MASK_COMPLETE.
 		/// </summary>
 		EventPipelineBindMaskComplete = Wfd.EVENT_PIPELINE_BIND_MASK_COMPLETE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EVENT_FORCE_32BIT.
+		/// Strongly typed for value EVENT_FORCE_32BIT.
 		/// </summary>
 		EventForce32bit = Wfd.EVENT_FORCE_32BIT,
 
@@ -297,27 +297,27 @@ namespace OpenWF
 	public enum WFDPartialRefresh
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_PARTIAL_REFRESH_NONE.
+		/// Strongly typed for value PARTIAL_REFRESH_NONE.
 		/// </summary>
 		PartialRefreshNone = Wfd.PARTIAL_REFRESH_NONE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PARTIAL_REFRESH_VERTICAL.
+		/// Strongly typed for value PARTIAL_REFRESH_VERTICAL.
 		/// </summary>
 		PartialRefreshVertical = Wfd.PARTIAL_REFRESH_VERTICAL,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PARTIAL_REFRESH_HORIZONTAL.
+		/// Strongly typed for value PARTIAL_REFRESH_HORIZONTAL.
 		/// </summary>
 		PartialRefreshHorizontal = Wfd.PARTIAL_REFRESH_HORIZONTAL,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PARTIAL_REFRESH_BOTH.
+		/// Strongly typed for value PARTIAL_REFRESH_BOTH.
 		/// </summary>
 		PartialRefreshBoth = Wfd.PARTIAL_REFRESH_BOTH,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PARTIAL_REFRESH_FORCE_32BIT.
+		/// Strongly typed for value PARTIAL_REFRESH_FORCE_32BIT.
 		/// </summary>
 		PartialRefreshForce32bit = Wfd.PARTIAL_REFRESH_FORCE_32BIT,
 
@@ -329,87 +329,87 @@ namespace OpenWF
 	public enum WFDPipelineConfigAttrib
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_ID.
+		/// Strongly typed for value PIPELINE_ID.
 		/// </summary>
 		PipelineId = Wfd.PIPELINE_ID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_PORTID.
+		/// Strongly typed for value PIPELINE_PORTID.
 		/// </summary>
 		PipelinePortid = Wfd.PIPELINE_PORTID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_LAYER.
+		/// Strongly typed for value PIPELINE_LAYER.
 		/// </summary>
 		PipelineLayer = Wfd.PIPELINE_LAYER,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_SHAREABLE.
+		/// Strongly typed for value PIPELINE_SHAREABLE.
 		/// </summary>
 		PipelineShareable = Wfd.PIPELINE_SHAREABLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_DIRECT_REFRESH.
+		/// Strongly typed for value PIPELINE_DIRECT_REFRESH.
 		/// </summary>
 		PipelineDirectRefresh = Wfd.PIPELINE_DIRECT_REFRESH,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_MAX_SOURCE_SIZE.
+		/// Strongly typed for value PIPELINE_MAX_SOURCE_SIZE.
 		/// </summary>
 		PipelineMaxSourceSize = Wfd.PIPELINE_MAX_SOURCE_SIZE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_SOURCE_RECTANGLE.
+		/// Strongly typed for value PIPELINE_SOURCE_RECTANGLE.
 		/// </summary>
 		PipelineSourceRectangle = Wfd.PIPELINE_SOURCE_RECTANGLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_FLIP.
+		/// Strongly typed for value PIPELINE_FLIP.
 		/// </summary>
 		PipelineFlip = Wfd.PIPELINE_FLIP,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_MIRROR.
+		/// Strongly typed for value PIPELINE_MIRROR.
 		/// </summary>
 		PipelineMirror = Wfd.PIPELINE_MIRROR,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_ROTATION_SUPPORT.
+		/// Strongly typed for value PIPELINE_ROTATION_SUPPORT.
 		/// </summary>
 		PipelineRotationSupport = Wfd.PIPELINE_ROTATION_SUPPORT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_ROTATION.
+		/// Strongly typed for value PIPELINE_ROTATION.
 		/// </summary>
 		PipelineRotation = Wfd.PIPELINE_ROTATION,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_SCALE_RANGE.
+		/// Strongly typed for value PIPELINE_SCALE_RANGE.
 		/// </summary>
 		PipelineScaleRange = Wfd.PIPELINE_SCALE_RANGE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_SCALE_FILTER.
+		/// Strongly typed for value PIPELINE_SCALE_FILTER.
 		/// </summary>
 		PipelineScaleFilter = Wfd.PIPELINE_SCALE_FILTER,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_DESTINATION_RECTANGLE.
+		/// Strongly typed for value PIPELINE_DESTINATION_RECTANGLE.
 		/// </summary>
 		PipelineDestinationRectangle = Wfd.PIPELINE_DESTINATION_RECTANGLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_TRANSPARENCY_ENABLE.
+		/// Strongly typed for value PIPELINE_TRANSPARENCY_ENABLE.
 		/// </summary>
 		PipelineTransparencyEnable = Wfd.PIPELINE_TRANSPARENCY_ENABLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_GLOBAL_ALPHA.
+		/// Strongly typed for value PIPELINE_GLOBAL_ALPHA.
 		/// </summary>
 		PipelineGlobalAlpha = Wfd.PIPELINE_GLOBAL_ALPHA,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PIPELINE_ATTRIB_FORCE_32BIT.
+		/// Strongly typed for value PIPELINE_ATTRIB_FORCE_32BIT.
 		/// </summary>
 		PipelineAttribForce32bit = Wfd.PIPELINE_ATTRIB_FORCE_32BIT,
 
@@ -421,112 +421,112 @@ namespace OpenWF
 	public enum WFDPortConfigAttrib
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_ID.
+		/// Strongly typed for value PORT_ID.
 		/// </summary>
 		PortId = Wfd.PORT_ID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE.
+		/// Strongly typed for value PORT_TYPE.
 		/// </summary>
 		PortType = Wfd.PORT_TYPE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_DETACHABLE.
+		/// Strongly typed for value PORT_DETACHABLE.
 		/// </summary>
 		PortDetachable = Wfd.PORT_DETACHABLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_ATTACHED.
+		/// Strongly typed for value PORT_ATTACHED.
 		/// </summary>
 		PortAttached = Wfd.PORT_ATTACHED,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_NATIVE_RESOLUTION.
+		/// Strongly typed for value PORT_NATIVE_RESOLUTION.
 		/// </summary>
 		PortNativeResolution = Wfd.PORT_NATIVE_RESOLUTION,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_PHYSICAL_SIZE.
+		/// Strongly typed for value PORT_PHYSICAL_SIZE.
 		/// </summary>
 		PortPhysicalSize = Wfd.PORT_PHYSICAL_SIZE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_FILL_PORT_AREA.
+		/// Strongly typed for value PORT_FILL_PORT_AREA.
 		/// </summary>
 		PortFillPortArea = Wfd.PORT_FILL_PORT_AREA,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_BACKGROUND_COLOR.
+		/// Strongly typed for value PORT_BACKGROUND_COLOR.
 		/// </summary>
 		PortBackgroundColor = Wfd.PORT_BACKGROUND_COLOR,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_FLIP.
+		/// Strongly typed for value PORT_FLIP.
 		/// </summary>
 		PortFlip = Wfd.PORT_FLIP,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_MIRROR.
+		/// Strongly typed for value PORT_MIRROR.
 		/// </summary>
 		PortMirror = Wfd.PORT_MIRROR,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_ROTATION.
+		/// Strongly typed for value PORT_ROTATION.
 		/// </summary>
 		PortRotation = Wfd.PORT_ROTATION,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_POWER_MODE.
+		/// Strongly typed for value PORT_POWER_MODE.
 		/// </summary>
 		PortPowerMode = Wfd.PORT_POWER_MODE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_GAMMA_RANGE.
+		/// Strongly typed for value PORT_GAMMA_RANGE.
 		/// </summary>
 		PortGammaRange = Wfd.PORT_GAMMA_RANGE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_GAMMA.
+		/// Strongly typed for value PORT_GAMMA.
 		/// </summary>
 		PortGamma = Wfd.PORT_GAMMA,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_PARTIAL_REFRESH_SUPPORT.
+		/// Strongly typed for value PORT_PARTIAL_REFRESH_SUPPORT.
 		/// </summary>
 		PortPartialRefreshSupport = Wfd.PORT_PARTIAL_REFRESH_SUPPORT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_PARTIAL_REFRESH_MAXIMUM.
+		/// Strongly typed for value PORT_PARTIAL_REFRESH_MAXIMUM.
 		/// </summary>
 		PortPartialRefreshMaximum = Wfd.PORT_PARTIAL_REFRESH_MAXIMUM,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_PARTIAL_REFRESH_ENABLE.
+		/// Strongly typed for value PORT_PARTIAL_REFRESH_ENABLE.
 		/// </summary>
 		PortPartialRefreshEnable = Wfd.PORT_PARTIAL_REFRESH_ENABLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_PARTIAL_REFRESH_RECTANGLE.
+		/// Strongly typed for value PORT_PARTIAL_REFRESH_RECTANGLE.
 		/// </summary>
 		PortPartialRefreshRectangle = Wfd.PORT_PARTIAL_REFRESH_RECTANGLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_PIPELINE_ID_COUNT.
+		/// Strongly typed for value PORT_PIPELINE_ID_COUNT.
 		/// </summary>
 		PortPipelineIdCount = Wfd.PORT_PIPELINE_ID_COUNT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_BINDABLE_PIPELINE_IDS.
+		/// Strongly typed for value PORT_BINDABLE_PIPELINE_IDS.
 		/// </summary>
 		PortBindablePipelineIds = Wfd.PORT_BINDABLE_PIPELINE_IDS,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_PROTECTION_ENABLE.
+		/// Strongly typed for value PORT_PROTECTION_ENABLE.
 		/// </summary>
 		PortProtectionEnable = Wfd.PORT_PROTECTION_ENABLE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_ATTRIB_FORCE_32BIT.
+		/// Strongly typed for value PORT_ATTRIB_FORCE_32BIT.
 		/// </summary>
 		PortAttribForce32bit = Wfd.PORT_ATTRIB_FORCE_32BIT,
 
@@ -538,37 +538,37 @@ namespace OpenWF
 	public enum WFDPortModeAttrib
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_MODE_WIDTH.
+		/// Strongly typed for value PORT_MODE_WIDTH.
 		/// </summary>
 		PortModeWidth = Wfd.PORT_MODE_WIDTH,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_MODE_HEIGHT.
+		/// Strongly typed for value PORT_MODE_HEIGHT.
 		/// </summary>
 		PortModeHeight = Wfd.PORT_MODE_HEIGHT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_MODE_REFRESH_RATE.
+		/// Strongly typed for value PORT_MODE_REFRESH_RATE.
 		/// </summary>
 		PortModeRefreshRate = Wfd.PORT_MODE_REFRESH_RATE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_MODE_FLIP_MIRROR_SUPPORT.
+		/// Strongly typed for value PORT_MODE_FLIP_MIRROR_SUPPORT.
 		/// </summary>
 		PortModeFlipMirrorSupport = Wfd.PORT_MODE_FLIP_MIRROR_SUPPORT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_MODE_ROTATION_SUPPORT.
+		/// Strongly typed for value PORT_MODE_ROTATION_SUPPORT.
 		/// </summary>
 		PortModeRotationSupport = Wfd.PORT_MODE_ROTATION_SUPPORT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_MODE_INTERLACED.
+		/// Strongly typed for value PORT_MODE_INTERLACED.
 		/// </summary>
 		PortModeInterlaced = Wfd.PORT_MODE_INTERLACED,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_MODE_ATTRIB_FORCE_32BIT.
+		/// Strongly typed for value PORT_MODE_ATTRIB_FORCE_32BIT.
 		/// </summary>
 		PortModeAttribForce32bit = Wfd.PORT_MODE_ATTRIB_FORCE_32BIT,
 
@@ -580,57 +580,57 @@ namespace OpenWF
 	public enum WFDPortType
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_INTERNAL.
+		/// Strongly typed for value PORT_TYPE_INTERNAL.
 		/// </summary>
 		PortTypeInternal = Wfd.PORT_TYPE_INTERNAL,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_COMPOSITE.
+		/// Strongly typed for value PORT_TYPE_COMPOSITE.
 		/// </summary>
 		PortTypeComposite = Wfd.PORT_TYPE_COMPOSITE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_SVIDEO.
+		/// Strongly typed for value PORT_TYPE_SVIDEO.
 		/// </summary>
 		PortTypeSvideo = Wfd.PORT_TYPE_SVIDEO,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_COMPONENT_YPbPr.
+		/// Strongly typed for value PORT_TYPE_COMPONENT_YPbPr.
 		/// </summary>
 		PortTypeComponentYpbpr = Wfd.PORT_TYPE_COMPONENT_YPbPr,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_COMPONENT_RGB.
+		/// Strongly typed for value PORT_TYPE_COMPONENT_RGB.
 		/// </summary>
 		PortTypeComponentRgb = Wfd.PORT_TYPE_COMPONENT_RGB,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_COMPONENT_RGBHV.
+		/// Strongly typed for value PORT_TYPE_COMPONENT_RGBHV.
 		/// </summary>
 		PortTypeComponentRgbhv = Wfd.PORT_TYPE_COMPONENT_RGBHV,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_DVI.
+		/// Strongly typed for value PORT_TYPE_DVI.
 		/// </summary>
 		PortTypeDvi = Wfd.PORT_TYPE_DVI,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_HDMI.
+		/// Strongly typed for value PORT_TYPE_HDMI.
 		/// </summary>
 		PortTypeHdmi = Wfd.PORT_TYPE_HDMI,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_DISPLAYPORT.
+		/// Strongly typed for value PORT_TYPE_DISPLAYPORT.
 		/// </summary>
 		PortTypeDisplayport = Wfd.PORT_TYPE_DISPLAYPORT,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_OTHER.
+		/// Strongly typed for value PORT_TYPE_OTHER.
 		/// </summary>
 		PortTypeOther = Wfd.PORT_TYPE_OTHER,
 
 		/// <summary>
-		/// Strongly typed for value WFD_PORT_TYPE_FORCE_32BIT.
+		/// Strongly typed for value PORT_TYPE_FORCE_32BIT.
 		/// </summary>
 		PortTypeForce32bit = Wfd.PORT_TYPE_FORCE_32BIT,
 
@@ -642,27 +642,27 @@ namespace OpenWF
 	public enum WFDPowerMode
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_POWER_MODE_OFF.
+		/// Strongly typed for value POWER_MODE_OFF.
 		/// </summary>
 		PowerModeOff = Wfd.POWER_MODE_OFF,
 
 		/// <summary>
-		/// Strongly typed for value WFD_POWER_MODE_SUSPEND.
+		/// Strongly typed for value POWER_MODE_SUSPEND.
 		/// </summary>
 		PowerModeSuspend = Wfd.POWER_MODE_SUSPEND,
 
 		/// <summary>
-		/// Strongly typed for value WFD_POWER_MODE_LIMITED_USE.
+		/// Strongly typed for value POWER_MODE_LIMITED_USE.
 		/// </summary>
 		PowerModeLimitedUse = Wfd.POWER_MODE_LIMITED_USE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_POWER_MODE_ON.
+		/// Strongly typed for value POWER_MODE_ON.
 		/// </summary>
 		PowerModeOn = Wfd.POWER_MODE_ON,
 
 		/// <summary>
-		/// Strongly typed for value WFD_POWER_MODE_FORCE_32BIT.
+		/// Strongly typed for value POWER_MODE_FORCE_32BIT.
 		/// </summary>
 		PowerModeForce32bit = Wfd.POWER_MODE_FORCE_32BIT,
 
@@ -674,17 +674,17 @@ namespace OpenWF
 	public enum WFDRotationSupport
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_ROTATION_SUPPORT_NONE.
+		/// Strongly typed for value ROTATION_SUPPORT_NONE.
 		/// </summary>
 		RotationSupportNone = Wfd.ROTATION_SUPPORT_NONE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ROTATION_SUPPORT_LIMITED.
+		/// Strongly typed for value ROTATION_SUPPORT_LIMITED.
 		/// </summary>
 		RotationSupportLimited = Wfd.ROTATION_SUPPORT_LIMITED,
 
 		/// <summary>
-		/// Strongly typed for value WFD_ROTATION_SUPPORT_FORMAT_FORCE_32BIT.
+		/// Strongly typed for value ROTATION_SUPPORT_FORMAT_FORCE_32BIT.
 		/// </summary>
 		RotationSupportFormatForce32bit = Wfd.ROTATION_SUPPORT_FORMAT_FORCE_32BIT,
 
@@ -696,22 +696,22 @@ namespace OpenWF
 	public enum WFDScaleFilter
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_SCALE_FILTER_NONE.
+		/// Strongly typed for value SCALE_FILTER_NONE.
 		/// </summary>
 		ScaleFilterNone = Wfd.SCALE_FILTER_NONE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_SCALE_FILTER_FASTER.
+		/// Strongly typed for value SCALE_FILTER_FASTER.
 		/// </summary>
 		ScaleFilterFaster = Wfd.SCALE_FILTER_FASTER,
 
 		/// <summary>
-		/// Strongly typed for value WFD_SCALE_FILTER_BETTER.
+		/// Strongly typed for value SCALE_FILTER_BETTER.
 		/// </summary>
 		ScaleFilterBetter = Wfd.SCALE_FILTER_BETTER,
 
 		/// <summary>
-		/// Strongly typed for value WFD_SCALE_FILTER_FORCE_32BIT.
+		/// Strongly typed for value SCALE_FILTER_FORCE_32BIT.
 		/// </summary>
 		ScaleFilterForce32bit = Wfd.SCALE_FILTER_FORCE_32BIT,
 
@@ -723,27 +723,27 @@ namespace OpenWF
 	public enum WFDStringID
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_VENDOR.
+		/// Strongly typed for value VENDOR.
 		/// </summary>
 		Vendor = Wfd.VENDOR,
 
 		/// <summary>
-		/// Strongly typed for value WFD_RENDERER.
+		/// Strongly typed for value RENDERER.
 		/// </summary>
 		Renderer = Wfd.RENDERER,
 
 		/// <summary>
-		/// Strongly typed for value WFD_VERSION.
+		/// Strongly typed for value VERSION.
 		/// </summary>
 		Version = Wfd.VERSION,
 
 		/// <summary>
-		/// Strongly typed for value WFD_EXTENSIONS.
+		/// Strongly typed for value EXTENSIONS.
 		/// </summary>
 		Extensions = Wfd.EXTENSIONS,
 
 		/// <summary>
-		/// Strongly typed for value WFD_STRING_ID_FORCE_32BIT.
+		/// Strongly typed for value STRING_ID_FORCE_32BIT.
 		/// </summary>
 		StringIdForce32bit = Wfd.STRING_ID_FORCE_32BIT,
 
@@ -755,22 +755,22 @@ namespace OpenWF
 	public enum WFDTransition
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSITION_INVALID.
+		/// Strongly typed for value TRANSITION_INVALID.
 		/// </summary>
 		TransitionInvalid = Wfd.TRANSITION_INVALID,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSITION_IMMEDIATE.
+		/// Strongly typed for value TRANSITION_IMMEDIATE.
 		/// </summary>
 		TransitionImmediate = Wfd.TRANSITION_IMMEDIATE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSITION_AT_VSYNC.
+		/// Strongly typed for value TRANSITION_AT_VSYNC.
 		/// </summary>
 		TransitionAtVsync = Wfd.TRANSITION_AT_VSYNC,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSITION_FORCE_32BIT.
+		/// Strongly typed for value TRANSITION_FORCE_32BIT.
 		/// </summary>
 		TransitionForce32bit = Wfd.TRANSITION_FORCE_32BIT,
 
@@ -782,32 +782,32 @@ namespace OpenWF
 	public enum WFDTransparency
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSPARENCY_NONE.
+		/// Strongly typed for value TRANSPARENCY_NONE.
 		/// </summary>
 		TransparencyNone = Wfd.TRANSPARENCY_NONE,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSPARENCY_SOURCE_COLOR.
+		/// Strongly typed for value TRANSPARENCY_SOURCE_COLOR.
 		/// </summary>
 		TransparencySourceColor = Wfd.TRANSPARENCY_SOURCE_COLOR,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSPARENCY_GLOBAL_ALPHA.
+		/// Strongly typed for value TRANSPARENCY_GLOBAL_ALPHA.
 		/// </summary>
 		TransparencyGlobalAlpha = Wfd.TRANSPARENCY_GLOBAL_ALPHA,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSPARENCY_SOURCE_ALPHA.
+		/// Strongly typed for value TRANSPARENCY_SOURCE_ALPHA.
 		/// </summary>
 		TransparencySourceAlpha = Wfd.TRANSPARENCY_SOURCE_ALPHA,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSPARENCY_MASK.
+		/// Strongly typed for value TRANSPARENCY_MASK.
 		/// </summary>
 		TransparencyMask = Wfd.TRANSPARENCY_MASK,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TRANSPARENCY_FORCE_32BIT.
+		/// Strongly typed for value TRANSPARENCY_FORCE_32BIT.
 		/// </summary>
 		TransparencyForce32bit = Wfd.TRANSPARENCY_FORCE_32BIT,
 
@@ -819,17 +819,17 @@ namespace OpenWF
 	public enum WFDTSColorFormat
 	{
 		/// <summary>
-		/// Strongly typed for value WFD_TSC_FORMAT_UINT8_RGB_8_8_8_LINEAR.
+		/// Strongly typed for value TSC_FORMAT_UINT8_RGB_8_8_8_LINEAR.
 		/// </summary>
 		TscFormatUint8Rgb888Linear = Wfd.TSC_FORMAT_UINT8_RGB_8_8_8_LINEAR,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TSC_FORMAT_UINT8_RGB_5_6_5_LINEAR.
+		/// Strongly typed for value TSC_FORMAT_UINT8_RGB_5_6_5_LINEAR.
 		/// </summary>
 		TscFormatUint8Rgb565Linear = Wfd.TSC_FORMAT_UINT8_RGB_5_6_5_LINEAR,
 
 		/// <summary>
-		/// Strongly typed for value WFD_TSC_FORMAT_FORCE_32BIT.
+		/// Strongly typed for value TSC_FORMAT_FORCE_32BIT.
 		/// </summary>
 		TscFormatForce32bit = Wfd.TSC_FORMAT_FORCE_32BIT,
 

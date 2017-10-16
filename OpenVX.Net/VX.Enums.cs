@@ -128,12 +128,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value BORDER_POLICY_DEFAULT_TO_UNDEFINED.
 		/// </summary>
-		PolicyDefaultToUndefined = VX.BORDER_POLICY_DEFAULT_TO_UNDEFINED,
+		DefaultToUndefined = VX.BORDER_POLICY_DEFAULT_TO_UNDEFINED,
 
 		/// <summary>
 		/// Strongly typed for value BORDER_POLICY_RETURN_ERROR.
 		/// </summary>
-		PolicyReturnError = VX.BORDER_POLICY_RETURN_ERROR,
+		ReturnError = VX.BORDER_POLICY_RETURN_ERROR,
 
 	}
 
@@ -207,12 +207,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value CHANNEL_RANGE_FULL.
 		/// </summary>
-		ChannelRangeFull = VX.CHANNEL_RANGE_FULL,
+		Full = VX.CHANNEL_RANGE_FULL,
 
 		/// <summary>
 		/// Strongly typed for value CHANNEL_RANGE_RESTRICTED.
 		/// </summary>
-		ChannelRangeRestricted = VX.CHANNEL_RANGE_RESTRICTED,
+		Restricted = VX.CHANNEL_RANGE_RESTRICTED,
 
 	}
 
@@ -1296,12 +1296,12 @@ namespace OpenVX
 		/// <summary>
 		/// Strongly typed for value OBJECT_ARRAY_ITEMTYPE.
 		/// </summary>
-		ObjectArrayItemtype = VX.OBJECT_ARRAY_ITEMTYPE,
+		Itemtype = VX.OBJECT_ARRAY_ITEMTYPE,
 
 		/// <summary>
 		/// Strongly typed for value OBJECT_ARRAY_NUMITEMS.
 		/// </summary>
-		ObjectArrayNumitems = VX.OBJECT_ARRAY_NUMITEMS,
+		Numitems = VX.OBJECT_ARRAY_NUMITEMS,
 
 	}
 

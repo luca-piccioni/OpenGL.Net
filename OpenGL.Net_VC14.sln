@@ -54,16 +54,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle.VideoCore", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.VideoCore", "OpenGL.Net.VideoCore\OpenGL.Net.VideoCore.csproj", "{53BDDF50-1755-4A72-935E-A052FC28BCBA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WF", "WF", "{CA1B5E95-F2B3-4A2E-B3E8-9D2A86E20B7D}"
-	ProjectSection(SolutionItems) = preProject
-		GLSpecs\WF\wfc.h = GLSpecs\WF\wfc.h
-		GLSpecs\WF\wfcext.h = GLSpecs\WF\wfcext.h
-		GLSpecs\WF\wfcplatform.h = GLSpecs\WF\wfcplatform.h
-		GLSpecs\WF\wfd.h = GLSpecs\WF\wfd.h
-		GLSpecs\WF\wfdext.h = GLSpecs\WF\wfdext.h
-		GLSpecs\WF\wfdplatform.h = GLSpecs\WF\wfdplatform.h
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWF.Net", "OpenWF.Net\OpenWF.Net.csproj", "{E8E7D5BA-D0A6-4A6C-A748-C1AAAF2C0473}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.OpenWF", "OpenGL.Net.OpenWF\OpenGL.Net.OpenWF.csproj", "{7D2E34E4-2173-4D6F-9A01-E661618F5C79}"
@@ -164,6 +154,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AMDOVX", "AMDOVX", "{9A875C71-0616-482D-8AE3-BDC115143960}"
 	ProjectSection(SolutionItems) = preProject
 		AMDOVX\README.md = AMDOVX\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenWF Specs", "OpenWF Specs", "{26BD55E0-CFEA-4CA1-97B5-3CBF72B6F50B}"
+	ProjectSection(SolutionItems) = preProject
+		GLSpecs\WF\wfc.h = GLSpecs\WF\wfc.h
+		GLSpecs\WF\wfcext.h = GLSpecs\WF\wfcext.h
+		GLSpecs\WF\wfcplatform.h = GLSpecs\WF\wfcplatform.h
+		GLSpecs\WF\wfd.h = GLSpecs\WF\wfd.h
+		GLSpecs\WF\wfdext.h = GLSpecs\WF\wfdext.h
+		GLSpecs\WF\wfdplatform.h = GLSpecs\WF\wfdplatform.h
 	EndProjectSection
 EndProject
 Global
@@ -496,7 +496,6 @@ Global
 		{32492BB6-936E-4DDA-8086-21EC3B630CE2} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{2125A880-2A7D-4122-988A-1075D0E1FB22} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{53BDDF50-1755-4A72-935E-A052FC28BCBA} = {81BBBDCD-40F4-43F2-BAA6-AE8280C19105}
-		{CA1B5E95-F2B3-4A2E-B3E8-9D2A86E20B7D} = {74055295-3E82-45FF-8748-6130F534C8B0}
 		{7D2E34E4-2173-4D6F-9A01-E661618F5C79} = {81BBBDCD-40F4-43F2-BAA6-AE8280C19105}
 		{562101BC-C94F-4D6D-A06D-3C9A2CB5DB0A} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{849A96E5-53A3-4D6C-AACA-7567F1A4AB46} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}

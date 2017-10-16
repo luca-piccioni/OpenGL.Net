@@ -134,7 +134,7 @@ namespace BindingsGen.GLSpecs
 				throw new ArgumentNullException("enumName");
 
 			return (_CommandFlagsDatabase.Enumerants.Find(delegate (EnumerantItem item) {
-				return (Regex.IsMatch(enumName, item.Name) || (item.Alias != null && Regex.IsMatch(enumName, item.Alias)));
+				return (Regex.IsMatch(enumName, item.Name) || (item.Alias != null && Regex.IsMatch(enumName, "^" + item.Alias + "$")));
 			}));
 		}
 
