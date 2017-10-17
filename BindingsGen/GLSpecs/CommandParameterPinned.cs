@@ -109,7 +109,7 @@ namespace BindingsGen.GLSpecs
 				if (paramModifier != null)
 					sw.Write("{0} ", paramModifier);
 				// Fixed parameters are fixed in overloaded method call
-				sw.Write(DelegateCallVarName);
+				sw.Write(GetDelegateCallVarName(parentCommand));
 			} else
 				base.WriteDelegateParam(sw, ctx, parentCommand);
 		}

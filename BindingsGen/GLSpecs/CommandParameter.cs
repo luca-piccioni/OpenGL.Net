@@ -140,15 +140,12 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Determine whether this CommandParameter can be used in a safe context when marshalling argument.
 		/// </summary>
-		internal bool IsSafeMarshal
+		internal bool IsSafeMarshal(Command parentCommand)
 		{
-			get
-			{
-				if ((ManagedImplementationType == "IntPtr") && (ImportType != "IntPtr"))
-					return (true);
+			if ((GetManagedImplementationType(parentCommand) == "IntPtr") && (GetImportType(parentCommand) != "IntPtr"))
+				return (true);
 
-				return (false);
-			}
+			return (false);
 		}
 
 		/// <summary>
@@ -159,8 +156,8 @@ namespace BindingsGen.GLSpecs
 		/// <returns></returns>
 		internal virtual bool IsFixed(RegistryContext ctx, Command parentCommand)
 		{
-			string implementationType = ManagedImplementationType;
-			string importType = ImportType;
+			string implementationType = GetManagedImplementationType(parentCommand);
+			string importType = GetImportType(parentCommand);
 
 			if (Regex.IsMatch(implementationType.ToLower(), @"(string|bool)\[\]"))
 				return (Regex.IsMatch(importType.ToLower(), @"(string|bool)\*"));
@@ -199,7 +196,7 @@ namespace BindingsGen.GLSpecs
 		/// </remarks>
 		public virtual string GetImplementationType(RegistryContext ctx, Command parentCommand)
 		{
-			string implementationType = ManagedImplementationType;
+			string implementationType = GetManagedImplementationType(parentCommand);
 
 			// Type[] + Length=1 -> out Type
 			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
@@ -213,7 +210,7 @@ namespace BindingsGen.GLSpecs
 
 		public string GetImplementationTypeModifier(RegistryContext ctx, Command parentCommand)
 		{
-			string implementationType = ManagedImplementationType;
+			string implementationType = GetManagedImplementationType(parentCommand);
 
 			// Type[] + Length=1 -> out Type
 			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && (parentCommand.IsGetImplementation(ctx)))
@@ -227,7 +224,7 @@ namespace BindingsGen.GLSpecs
 
 		public string GetImplementationTypeAttributes(RegistryContext ctx, Command parentCommand)
 		{
-			string implementationType = ManagedImplementationType;
+			string implementationType = GetManagedImplementationType(parentCommand);
 			string implementationMod = GetImplementationTypeModifier(ctx, parentCommand);
 			string attribute = null;
 
@@ -253,20 +250,17 @@ namespace BindingsGen.GLSpecs
 		/// In the case the <see cref="InputType"/> is a <code>void*</code>, is will be translated into <see cref="IntPtr"/>.
 		/// </para>
 		/// </remarks>
-		public string ManagedImplementationType
+		public string GetManagedImplementationType(Command parentCommand)
 		{
-			get
-			{
-				string implementationType = ImportType;
+			string implementationType = GetImportType(parentCommand);
 
-				implementationType = implementationType.Replace("*", "[]");
+			implementationType = implementationType.Replace("*", "[]");
 
-				// void* > IntPtr
-				if (implementationType == "void[]")
-					implementationType = "IntPtr";
+			// void* > IntPtr
+			if (implementationType == "void[]")
+				implementationType = "IntPtr";
 
-				return (implementationType);
-			}
+			return (implementationType);
 		}
 
 		/// <summary>
@@ -308,17 +302,14 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
-		public virtual string DelegateCallVarName
+		public virtual string GetDelegateCallVarName(Command parentCommand)
 		{
-			get
-			{
-				string delegateVarName = ImplementationName;
+			string delegateVarName = ImplementationName;
 
-				if ((ManagedImplementationType == "IntPtr") && (ImportType != "IntPtr"))
-					delegateVarName = String.Format("{0}.ToPointer()", ImplementationName);
+			if ((GetManagedImplementationType(parentCommand) == "IntPtr") && (GetImportType(parentCommand) != "IntPtr"))
+				delegateVarName = String.Format("{0}.ToPointer()", ImplementationName);
 
-				return (delegateVarName);
-			}
+			return (delegateVarName);
 		}
 
 		#endregion
@@ -327,7 +318,7 @@ namespace BindingsGen.GLSpecs
 
 		public string GetDelegateType(RegistryContext ctx, Command parentCommand)
 		{
-			string implementationType = ImportType;
+			string implementationType = GetImportType(parentCommand);
 
 			// String + Length!=null -> [Out] StringBuilder
 			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
@@ -343,7 +334,7 @@ namespace BindingsGen.GLSpecs
 
 		public string GetDelegateTypeAttributes(RegistryContext ctx, Command parentCommand)
 		{
-			string implementationType = ManagedImplementationType;
+			string implementationType = GetManagedImplementationType(parentCommand);
 			string attribute = null;
 
 			// String + Length!=null -> [Out] StringBuilder
@@ -357,7 +348,23 @@ namespace BindingsGen.GLSpecs
 
 		#region Code Generation - Import
 
-		public string ImportType
+		public string GetImportType()
+		{
+			if (ParentCommand == null)
+				throw new InvalidOperationException("no parent command");
+			return (GetImportType(ParentCommand));
+		}
+
+		public string GetImportType(Command parentCommand)
+		{
+			string retype = CommandFlagsDatabase.GetCommandArgumentAlternativeType(parentCommand, this);
+			if (retype != null)
+				return (TypeMap.CsTypeMap.MapType(retype));
+
+			return (ImportType);
+		}
+
+		private string ImportType
 		{
 			get
 			{
@@ -398,12 +405,9 @@ namespace BindingsGen.GLSpecs
 
 		#region Code Generation - Common
 
-		public bool IsManagedArray
+		public bool IsManagedArray(Command parentCommand)
 		{
-			get
-			{
-				return (ManagedImplementationType.EndsWith("[]"));
-			}
+			return (GetManagedImplementationType(parentCommand).EndsWith("[]"));
 		}
 
 		public bool IsConstant
@@ -477,18 +481,18 @@ namespace BindingsGen.GLSpecs
 					break;
 			}
 
-			sw.WriteLine("fixed ({0} {1} = {2}{3})", ImportType, FixedLocalVarName, dereference, ImplementationName);
+			sw.WriteLine("fixed ({0} {1} = {2}{3})", GetImportType(parentCommand), FixedLocalVarName, dereference, ImplementationName);
 		}
 
 		public virtual void WriteImplementationParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			sw.Write(DelegateCallVarName);
+			sw.Write(GetDelegateCallVarName(parentCommand));
 		}
 
 		public virtual void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
 			if (IsFixed(ctx, parentCommand) == false)
-				sw.Write(DelegateCallVarName);
+				sw.Write(GetDelegateCallVarName(parentCommand));
 			else
 				sw.Write(FixedLocalVarName);
 		}

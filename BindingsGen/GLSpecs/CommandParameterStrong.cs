@@ -85,7 +85,7 @@ namespace BindingsGen.GLSpecs
 		{
 			if (_IsStrong) {
 				// Strongly typed enum must be casted to delegate call type (int or uint)
-				sw.Write("({0}){1}", OverridenParameter.ImportType, DelegateCallVarName);
+				sw.Write("({0}){1}", OverridenParameter.GetImportType(parentCommand), GetDelegateCallVarName(parentCommand));
 			} else
 				base.WriteDelegateParam(sw, ctx, parentCommand);
 		}

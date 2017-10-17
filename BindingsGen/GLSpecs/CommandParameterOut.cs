@@ -68,7 +68,7 @@ namespace BindingsGen.GLSpecs
 			if (param.GetImplementationTypeModifier(ctx, command) == "out")
 				return (false);
 
-			string implementationType = param.ManagedImplementationType;
+			string implementationType = param.GetManagedImplementationType(command);
 
 			// Type[] + IsGetImplementation -> out Type
 			// Type[] + OutParam -> out Type
@@ -87,7 +87,7 @@ namespace BindingsGen.GLSpecs
 		{
 			if (mIsStrong) {
 				// Strongly typed enum must be casted to delegate call type (int or uint)
-				sw.Write("({0}){1}", OverridenParameter.ImportType, DelegateCallVarName);
+				sw.Write("({0}){1}", OverridenParameter.GetImportType(parentCommand), GetDelegateCallVarName(parentCommand));
 			} else
 				base.WriteDelegateParam(sw, ctx, parentCommand);
 		}

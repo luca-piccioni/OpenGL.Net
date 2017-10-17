@@ -218,6 +218,12 @@ namespace BindingsGen.GLSpecs
 				public string Rename;
 
 				/// <summary>
+				/// Force a specific type for command argument (as specification name).
+				/// </summary>
+				[XmlElement("retype")]
+				public string Retype;
+
+				/// <summary>
 				/// Parameter flags.
 				/// </summary>
 				[XmlElement("flags")]
@@ -260,7 +266,8 @@ namespace BindingsGen.GLSpecs
 		{
 			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name))
-					return (commandItem.Rename ?? null);
+					if (commandItem.Rename != null)
+						return (commandItem.Rename);
 			}
 
 			return (null);
@@ -293,8 +300,28 @@ namespace BindingsGen.GLSpecs
 			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
 					foreach (CommandItem.ParameterItem parameterItem in commandItem.Parameters) {
-						if (parameterItem.Id == arg.Name)
+						if (parameterItem.Id == arg.Name && parameterItem.Rename != null)
 							return (parameterItem.Rename);
+					}
+				}
+			}
+
+			// arg.Name
+			return (null);
+		}
+
+		public static string GetCommandArgumentAlternativeType(Command command, CommandParameter arg)
+		{
+			if (command == null)
+				throw new ArgumentNullException("command");
+			if (arg == null)
+				throw new ArgumentNullException("arg");
+
+			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
+				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
+					foreach (CommandItem.ParameterItem parameterItem in commandItem.Parameters) {
+						if (parameterItem.Id == arg.Name && parameterItem.Retype != null)
+							return (parameterItem.Retype);
 					}
 				}
 			}

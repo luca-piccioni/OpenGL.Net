@@ -65,7 +65,7 @@ namespace BindingsGen.GLSpecs
 		internal static bool IsCompatible(RegistryContext ctx, Command command, CommandParameter param)
 		{
 			// Pointer types ends with an '*'
-			return (param.ImportType.EndsWith("*"));
+			return (param.GetImportType(command).EndsWith("*"));
 		}
 
 		#endregion
@@ -90,7 +90,7 @@ namespace BindingsGen.GLSpecs
 		/// </remarks>
 		public override string GetImplementationType(RegistryContext ctx, Command parentCommand)
 		{
-			return (ImportType);
+			return (GetImportType(parentCommand));
 		}
 
 		/// <summary>
@@ -112,7 +112,7 @@ namespace BindingsGen.GLSpecs
 		{
 			if (_IsPointer == true) {
 				// Writer plain variable name
-				sw.Write(DelegateCallVarName);
+				sw.Write(GetDelegateCallVarName(parentCommand));
 			} else
 				base.WriteDelegateParam(sw, ctx, parentCommand);
 		}

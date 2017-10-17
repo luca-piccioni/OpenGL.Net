@@ -59,7 +59,7 @@ namespace BindingsGen.GLSpecs
 
 		internal static new bool IsCompatible(RegistryContext ctx, Command parentCommand, CommandParameter param)
 		{
-			if (!param.IsManagedArray || param.Length == null)
+			if (!param.IsManagedArray(parentCommand) || param.Length == null)
 				return (false);
 
 			int sizeParamIndex = parentCommand.Parameters.FindIndex(delegate (CommandParameter item) { return (item.Name == param.Length); });
@@ -74,7 +74,7 @@ namespace BindingsGen.GLSpecs
 		{
 			CommandParameter arrayParameter = GetArrayLengthParameter(param, ctx, parentCommand);
 
-			return (arrayParameter != null && arrayParameter.IsManagedArray);
+			return (arrayParameter != null && arrayParameter.IsManagedArray(parentCommand));
 		}
 
 		internal static CommandParameter GetArrayLengthParameter(CommandParameter param, RegistryContext ctx, Command parentCommand)
@@ -113,10 +113,10 @@ namespace BindingsGen.GLSpecs
 					return (parentCommand.Parameters.FindIndex(delegate(CommandParameter subitem) { return (item.Length == Name); }) >= 0);
 				});
 
-				if (OverridenParameter.ImportType != "int")
-					sw.Write("({0})", OverridenParameter.ImportType);
+				if (OverridenParameter.GetImportType(parentCommand) != "int")
+					sw.Write("({0})", OverridenParameter.GetImportType(parentCommand));
 
-				sw.Write("{0}.Length", parentCommand.Parameters[arrayLengthParamIndex].DelegateCallVarName);
+				sw.Write("{0}.Length", parentCommand.Parameters[arrayLengthParamIndex].GetDelegateCallVarName(parentCommand));
 			} else
 				base.WriteDelegateParam(sw, ctx, parentCommand);
 		}
@@ -128,7 +128,7 @@ namespace BindingsGen.GLSpecs
 					return (parentCommand.Parameters.FindIndex(delegate(CommandParameter subitem) { return (item.Length == Name); }) >= 0);
 				});
 
-				sw.Write("{0}.Length", parentCommand.Parameters[arrayLengthParamIndex].DelegateCallVarName);
+				sw.Write("{0}.Length", parentCommand.Parameters[arrayLengthParamIndex].GetDelegateCallVarName(parentCommand));
 			} else
 				base.WriteCallLogArgParam(sw, ctx, parentCommand);
 		}

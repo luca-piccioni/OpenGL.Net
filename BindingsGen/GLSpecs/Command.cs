@@ -440,7 +440,7 @@ namespace BindingsGen.GLSpecs
 		private bool IsSafeMarshalImplementation(RegistryContext ctx, List<CommandParameter> commandParams)
 		{
 			foreach (CommandParameter param in commandParams)
-				if (param.IsSafeMarshal)
+				if (param.IsSafeMarshal(this))
 					return (true);
 
 			return (false);
@@ -647,7 +647,7 @@ namespace BindingsGen.GLSpecs
 				if (paramModifier != null)
 					sw.Write("{0} ", paramModifier);
 
-				if ((paramCount == 1) && (param.IsManagedArray) && ((Flags & CommandFlags.VariadicParams) != 0))
+				if ((paramCount == 1) && (param.IsManagedArray(this)) && ((Flags & CommandFlags.VariadicParams) != 0))
 					sw.Write("params ");
 
 				sw.Write("{0} {1}", param.GetImplementationType(ctx, this), param.ImplementationName);
