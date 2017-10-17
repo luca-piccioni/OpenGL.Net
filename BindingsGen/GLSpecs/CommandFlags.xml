@@ -443,7 +443,24 @@
     <enumerant name="^vx_type_e$" alias="Type" prefix="Type" />
     <enumerant name="^vx_vendor_id_e$" alias="VendorId" prefix="Id" />
 
+    <command name="^vxGet(Kernel|Graph)ParameterByIndex$">
+        <rename>GetParameterByIndex</rename>
+    </command>
+    
+    <command name="^vxQuery\w+$">
+        <rename>Query</rename>
+    </command>
+    
+    <command name="^vxSet(Context|Image|Kernel|Graph|Node)Attribute">
+        <rename>SetAttribute</rename>
+    </command>
+    
+    <command name="^vxSet(Kernel|Graph)ParameterByIndex$">
+        <rename>SetParameterByIndex</rename>
+    </command>
+    
     <command name="^vxRelease.*$">
+        <rename>Release</rename>
         <flags>VariadicParams</flags>
     </command>
     

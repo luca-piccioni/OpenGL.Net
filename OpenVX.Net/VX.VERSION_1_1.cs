@@ -779,7 +779,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseContext(params Context[] context)
+		public static Status Release(params Context[] context)
 		{
 			Status retValue;
 
@@ -808,7 +808,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryContext(Context context, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Context context, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -824,7 +824,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetContextAttribute(Context context, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Context context, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1027,7 +1027,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryImage(Image image, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Image image, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1043,7 +1043,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetImageAttribute(Image image, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Image image, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1059,7 +1059,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseImage(params Image[] image)
+		public static Status Release(params Image[] image)
 		{
 			Status retValue;
 
@@ -1271,7 +1271,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryKernel(Kernel kernel, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Kernel kernel, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1287,7 +1287,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseKernel(params Kernel[] kernel)
+		public static Status Release(params Kernel[] kernel)
 		{
 			Status retValue;
 
@@ -1352,7 +1352,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetKernelAttribute(Kernel kernel, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Kernel kernel, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1368,7 +1368,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Parameter GetKernelParameterByIndex(Kernel kernel, uint index)
+		public static Parameter GetParameterByIndex(Kernel kernel, uint index)
 		{
 			Parameter retValue;
 
@@ -1392,7 +1392,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseGraph(params Graph[] graph)
+		public static Status Release(params Graph[] graph)
 		{
 			Status retValue;
 
@@ -1457,7 +1457,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryGraph(Graph graph, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Graph graph, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1473,7 +1473,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetGraphAttribute(Graph graph, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Graph graph, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1501,7 +1501,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetGraphParameterByIndex(Graph graph, uint index, Reference value)
+		public static Status SetParameterByIndex(Graph graph, uint index, Reference value)
 		{
 			Status retValue;
 
@@ -1513,7 +1513,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Parameter GetGraphParameterByIndex(Graph graph, uint index)
+		public static Parameter GetParameterByIndex(Graph graph, uint index)
 		{
 			Parameter retValue;
 
@@ -1549,7 +1549,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryNode(Node node, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Node node, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1565,7 +1565,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetNodeAttribute(Node node, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Node node, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1581,7 +1581,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseNode(params Node[] node)
+		public static Status Release(params Node[] node)
 		{
 			Status retValue;
 
@@ -1680,7 +1680,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseParameter(params Parameter[] param)
+		public static Status Release(params Parameter[] param)
 		{
 			Status retValue;
 
@@ -1721,7 +1721,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryParameter(Parameter parameter, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Parameter parameter, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1753,7 +1753,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseScalar(params Scalar[] scalar)
+		public static Status Release(params Scalar[] scalar)
 		{
 			Status retValue;
 
@@ -1770,7 +1770,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryScalar(Scalar scalar, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Scalar scalar, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1802,7 +1802,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryReference(Reference @ref, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Reference @ref, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1818,7 +1818,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseReference(params Reference[] ref_ptr)
+		public static Status Release(params Reference[] ref_ptr)
 		{
 			Status retValue;
 
@@ -1859,7 +1859,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryDelay(Delay delay, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Delay delay, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1875,7 +1875,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseDelay(params Delay[] delay)
+		public static Status Release(params Delay[] delay)
 		{
 			Status retValue;
 
@@ -1968,7 +1968,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseLUT(params Lut[] lut)
+		public static Status Release(params Lut[] lut)
 		{
 			Status retValue;
 
@@ -1985,7 +1985,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryLUT(Lut lut, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Lut lut, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2059,7 +2059,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseDistribution(params Distribution[] distribution)
+		public static Status Release(params Distribution[] distribution)
 		{
 			Status retValue;
 
@@ -2076,7 +2076,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryDistribution(Distribution distribution, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Distribution distribution, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2150,7 +2150,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseThreshold(params Threshold[] thresh)
+		public static Status Release(params Threshold[] thresh)
 		{
 			Status retValue;
 
@@ -2183,7 +2183,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryThreshold(Threshold thresh, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Threshold thresh, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2211,7 +2211,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseMatrix(params Matrix[] mat)
+		public static Status Release(params Matrix[] mat)
 		{
 			Status retValue;
 
@@ -2228,7 +2228,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryMatrix(Matrix mat, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Matrix mat, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2284,7 +2284,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseConvolution(params Convolution[] conv)
+		public static Status Release(params Convolution[] conv)
 		{
 			Status retValue;
 
@@ -2301,7 +2301,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryConvolution(Convolution conv, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Convolution conv, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2373,7 +2373,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleasePyramid(params Pyramid[] pyr)
+		public static Status Release(params Pyramid[] pyr)
 		{
 			Status retValue;
 
@@ -2390,7 +2390,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryPyramid(Pyramid pyr, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Pyramid pyr, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2430,7 +2430,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseRemap(params Remap[] table)
+		public static Status Release(params Remap[] table)
 		{
 			Status retValue;
 
@@ -2477,7 +2477,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryRemap(Remap table, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Remap table, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2517,7 +2517,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseArray(params Array[] arr)
+		public static Status Release(params Array[] arr)
 		{
 			Status retValue;
 
@@ -2534,7 +2534,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryArray(Array arr, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Array arr, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2661,7 +2661,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseObjectArray(params ObjectArray[] arr)
+		public static Status Release(params ObjectArray[] arr)
 		{
 			Status retValue;
 
@@ -2678,7 +2678,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryObjectArray(ObjectArray arr, int attribute, IntPtr ptr, uint size)
+		public static Status Query(ObjectArray arr, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
