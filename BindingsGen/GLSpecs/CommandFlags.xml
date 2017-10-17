@@ -451,7 +451,83 @@
         <rename>Query</rename>
     </command>
     
-    <command name="^vxSet(Context|Image|Kernel|Graph|Node)Attribute">
+    <command name="^vxQueryContext|vxSetContextAttribute$">
+        <param id="attribute"><retype>vx_context_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryImage|vxSetImageAttribute$">
+        <param id="attribute"><retype>vx_image_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryKernel|vxSetKernelAttribute$">
+        <param id="attribute"><retype>vx_kernel_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryGraph|vxSetGraphAttribute$">
+        <param id="attribute"><retype>vx_graph_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryNode|vxSetNodeAttribute$">
+        <param id="attribute"><retype>vx_node_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryParameter">
+        <param id="attribute"><retype>vx_parameter_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryScalar">
+        <param id="attribute"><retype>vx_scalar_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryReference">
+        <param id="attribute"><retype>vx_reference_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryDelay">
+        <param id="attribute"><retype>vx_delay_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryLUT$">
+        <param id="attribute"><retype>vx_lut_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryDistribution$">
+        <param id="attribute"><retype>vx_distribution_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryThreshold|vxSetThresholdAttribute$">
+        <param id="attribute"><retype>vx_threshold_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryMatrix$">
+        <param id="attribute"><retype>vx_matrix_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryConvolution|vxSetConvolutionAttribute$">
+        <param id="attribute"><retype>vx_convolution_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryPyramid$">
+        <param id="attribute"><retype>vx_pyramid_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryRemap$">
+        <param id="attribute"><retype>vx_remap_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryArray$">
+        <param id="attribute"><retype>vx_array_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryObjectArray$">
+        <param id="attribute"><retype>vx_object_array_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxQueryTensor$">
+        <param id="attribute"><retype>vx_tensor_attribute_e</retype></param>
+    </command>
+    
+    <command name="^vxSet(Context|Convolution|Image|Kernel|Graph|MetaFormat|Node|Threshold|)Attribute">
         <rename>SetAttribute</rename>
     </command>
     

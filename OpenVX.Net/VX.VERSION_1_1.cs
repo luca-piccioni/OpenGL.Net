@@ -808,7 +808,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Context context, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Context context, ContextAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -824,7 +824,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Context context, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Context context, ContextAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1027,7 +1027,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Image image, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Image image, ImageAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1043,7 +1043,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Image image, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Image image, ImageAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1271,7 +1271,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Kernel kernel, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Kernel kernel, KernelAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1352,7 +1352,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Kernel kernel, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Kernel kernel, KernelAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1457,7 +1457,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Graph graph, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Graph graph, GraphAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1473,7 +1473,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Graph graph, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Graph graph, GraphAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1549,7 +1549,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Node node, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Node node, NodeAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1565,7 +1565,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Node node, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Node node, NodeAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1721,7 +1721,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Parameter parameter, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Parameter parameter, ParameterAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1770,7 +1770,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Scalar scalar, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Scalar scalar, ScalarAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1802,7 +1802,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Reference @ref, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Reference @ref, ReferenceAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1859,7 +1859,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Delay delay, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Delay delay, DelayAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1985,7 +1985,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Lut lut, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Lut lut, LutAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2076,7 +2076,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Distribution distribution, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Distribution distribution, DistributionAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2167,7 +2167,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetThresholdAttribute(Threshold thresh, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Threshold thresh, ThresholdAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2183,7 +2183,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Threshold thresh, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Threshold thresh, ThresholdAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2228,7 +2228,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Matrix mat, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Matrix mat, MatrixAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2301,7 +2301,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Convolution conv, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Convolution conv, ConvolutionAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2317,7 +2317,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetConvolutionAttribute(Convolution conv, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Convolution conv, ConvolutionAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2390,7 +2390,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Pyramid pyr, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Pyramid pyr, PyramidAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2477,7 +2477,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Remap table, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Remap table, RemapAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2534,7 +2534,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Array arr, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Array arr, ArrayAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2678,7 +2678,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(ObjectArray arr, int attribute, IntPtr ptr, uint size)
+		public static Status Query(ObjectArray arr, ObjectArrayAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2694,7 +2694,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetMetaFormatAttribute(MetaFormat meta, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(MetaFormat meta, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -3268,12 +3268,12 @@ namespace OpenVX
 			internal static vxGetContext pvxGetContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryContext(Context context, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryContext(Context context, ContextAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryContext pvxQueryContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetContextAttribute(Context context, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetContextAttribute(Context context, ContextAttribute attribute, void* ptr, uint size);
 
 			internal static vxSetContextAttribute pvxSetContextAttribute;
 
@@ -3343,12 +3343,12 @@ namespace OpenVX
 			internal static vxSwapImageHandle pvxSwapImageHandle;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryImage(Image image, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryImage(Image image, ImageAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryImage pvxQueryImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetImageAttribute(Image image, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetImageAttribute(Image image, ImageAttribute attribute, void* ptr, uint size);
 
 			internal static vxSetImageAttribute pvxSetImageAttribute;
 
@@ -3423,7 +3423,7 @@ namespace OpenVX
 			internal static vxGetKernelByEnum pvxGetKernelByEnum;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryKernel(Kernel kernel, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryKernel(Kernel kernel, KernelAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryKernel pvxQueryKernel;
 
@@ -3453,7 +3453,7 @@ namespace OpenVX
 			internal static vxRemoveKernel pvxRemoveKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetKernelAttribute(Kernel kernel, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetKernelAttribute(Kernel kernel, KernelAttribute attribute, void* ptr, uint size);
 
 			internal static vxSetKernelAttribute pvxSetKernelAttribute;
 
@@ -3493,12 +3493,12 @@ namespace OpenVX
 			internal static vxWaitGraph pvxWaitGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryGraph(Graph graph, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryGraph(Graph graph, GraphAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryGraph pvxQueryGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetGraphAttribute(Graph graph, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetGraphAttribute(Graph graph, GraphAttribute attribute, void* ptr, uint size);
 
 			internal static vxSetGraphAttribute pvxSetGraphAttribute;
 
@@ -3528,12 +3528,12 @@ namespace OpenVX
 			internal static vxCreateGenericNode pvxCreateGenericNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryNode(Node node, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryNode(Node node, NodeAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryNode pvxQueryNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetNodeAttribute(Node node, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetNodeAttribute(Node node, NodeAttribute attribute, void* ptr, uint size);
 
 			internal static vxSetNodeAttribute pvxSetNodeAttribute;
 
@@ -3588,7 +3588,7 @@ namespace OpenVX
 			internal static vxSetParameterByReference pvxSetParameterByReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryParameter(Parameter parameter, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryParameter(Parameter parameter, ParameterAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryParameter pvxQueryParameter;
 
@@ -3603,7 +3603,7 @@ namespace OpenVX
 			internal static vxReleaseScalar pvxReleaseScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryScalar(Scalar scalar, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryScalar(Scalar scalar, ScalarAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryScalar pvxQueryScalar;
 
@@ -3613,7 +3613,7 @@ namespace OpenVX
 			internal static vxCopyScalar pvxCopyScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryReference(Reference @ref, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryReference(Reference @ref, ReferenceAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryReference pvxQueryReference;
 
@@ -3633,7 +3633,7 @@ namespace OpenVX
 			internal static vxSetReferenceName pvxSetReferenceName;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryDelay(Delay delay, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryDelay(Delay delay, DelayAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryDelay pvxQueryDelay;
 
@@ -3683,7 +3683,7 @@ namespace OpenVX
 			internal static vxReleaseLUT pvxReleaseLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryLUT(Lut lut, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryLUT(Lut lut, LutAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryLUT pvxQueryLUT;
 
@@ -3713,7 +3713,7 @@ namespace OpenVX
 			internal static vxReleaseDistribution pvxReleaseDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryDistribution(Distribution distribution, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryDistribution(Distribution distribution, DistributionAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryDistribution pvxQueryDistribution;
 
@@ -3743,12 +3743,12 @@ namespace OpenVX
 			internal static vxReleaseThreshold pvxReleaseThreshold;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetThresholdAttribute(Threshold thresh, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetThresholdAttribute(Threshold thresh, ThresholdAttribute attribute, void* ptr, uint size);
 
 			internal static vxSetThresholdAttribute pvxSetThresholdAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryThreshold(Threshold thresh, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryThreshold(Threshold thresh, ThresholdAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryThreshold pvxQueryThreshold;
 
@@ -3763,7 +3763,7 @@ namespace OpenVX
 			internal static vxReleaseMatrix pvxReleaseMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryMatrix(Matrix mat, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryMatrix(Matrix mat, MatrixAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryMatrix pvxQueryMatrix;
 
@@ -3788,12 +3788,12 @@ namespace OpenVX
 			internal static vxReleaseConvolution pvxReleaseConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryConvolution(Convolution conv, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryConvolution(Convolution conv, ConvolutionAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryConvolution pvxQueryConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetConvolutionAttribute(Convolution conv, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetConvolutionAttribute(Convolution conv, ConvolutionAttribute attribute, void* ptr, uint size);
 
 			internal static vxSetConvolutionAttribute pvxSetConvolutionAttribute;
 
@@ -3818,7 +3818,7 @@ namespace OpenVX
 			internal static vxReleasePyramid pvxReleasePyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryPyramid(Pyramid pyr, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryPyramid(Pyramid pyr, PyramidAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryPyramid pvxQueryPyramid;
 
@@ -3848,7 +3848,7 @@ namespace OpenVX
 			internal static vxGetRemapPoint pvxGetRemapPoint;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryRemap(Remap table, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryRemap(Remap table, RemapAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryRemap pvxQueryRemap;
 
@@ -3868,7 +3868,7 @@ namespace OpenVX
 			internal static vxReleaseArray pvxReleaseArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryArray(Array arr, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryArray(Array arr, ArrayAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryArray pvxQueryArray;
 
@@ -3918,7 +3918,7 @@ namespace OpenVX
 			internal static vxReleaseObjectArray pvxReleaseObjectArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryObjectArray(ObjectArray arr, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryObjectArray(ObjectArray arr, ObjectArrayAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryObjectArray pvxQueryObjectArray;
 

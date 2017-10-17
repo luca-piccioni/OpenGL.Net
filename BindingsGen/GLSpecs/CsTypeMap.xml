@@ -395,6 +395,26 @@
 
     <type name="vx_enum" value="int" />
     <type name="vx_enum*" value="int*" />
+    <type name="vx_context_attribute_e" value="ContextAttribute" />
+    <type name="vx_image_attribute_e" value="ImageAttribute" />
+    <type name="vx_kernel_attribute_e" value="KernelAttribute" />
+    <type name="vx_graph_attribute_e" value="GraphAttribute" />
+    <type name="vx_node_attribute_e" value="NodeAttribute" />
+    <type name="vx_parameter_attribute_e" value="ParameterAttribute" />
+    <type name="vx_scalar_attribute_e" value="ScalarAttribute" />
+    <type name="vx_reference_attribute_e" value="ReferenceAttribute" />
+    <type name="vx_delay_attribute_e" value="DelayAttribute" />
+    <type name="vx_lut_attribute_e" value="LutAttribute" />
+    <type name="vx_distribution_attribute_e" value="DistributionAttribute" />
+    <type name="vx_threshold_attribute_e" value="ThresholdAttribute" />
+    <type name="vx_matrix_attribute_e" value="MatrixAttribute" />
+    <type name="vx_convolution_attribute_e" value="ConvolutionAttribute" />
+    <type name="vx_pyramid_attribute_e" value="PyramidAttribute" />
+    <type name="vx_remap_attribute_e" value="RemapAttribute" />
+    <type name="vx_array_attribute_e" value="ArrayAttribute" />
+    <type name="vx_object_array_attribute_e" value="ObjectArrayAttribute" />
+    <type name="vx_tensor_attribute_e" value="TensorAttribute" />
+    
     <type name="vx_status" value="Status" />
     <type name="vx_action" value="int" />
     <type name="vx_map_flag_e" value="int" />
