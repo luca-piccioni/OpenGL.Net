@@ -767,9 +767,9 @@ namespace OpenVX
 
 		public const int ID_DEFAULT = ID_MAX;
 
-		public static IntPtr CreateContext()
+		public static Context CreateContext()
 		{
-			IntPtr retValue;
+			Context retValue;
 
 			Debug.Assert(Delegates.pvxCreateContext != null, "pvxCreateContext not implemented");
 			retValue = Delegates.pvxCreateContext();
@@ -779,12 +779,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseContext(params IntPtr[] context)
+		public static Status ReleaseContext(params Context[] context)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_context = context)
+				fixed (Context* p_context = context)
 				{
 					Debug.Assert(Delegates.pvxReleaseContext != null, "pvxReleaseContext not implemented");
 					retValue = Delegates.pvxReleaseContext(p_context);
@@ -796,9 +796,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetContext(IntPtr reference)
+		public static Context GetContext(Reference reference)
 		{
-			IntPtr retValue;
+			Context retValue;
 
 			Debug.Assert(Delegates.pvxGetContext != null, "pvxGetContext not implemented");
 			retValue = Delegates.pvxGetContext(reference);
@@ -808,7 +808,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryContext(IntPtr context, int attribute, IntPtr ptr, uint size)
+		public static Status QueryContext(Context context, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -824,7 +824,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetContextAttribute(IntPtr context, int attribute, IntPtr ptr, uint size)
+		public static Status SetContextAttribute(Context context, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -840,7 +840,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Hint(IntPtr reference, int hint, IntPtr data, uint data_size)
+		public static Status Hint(Reference reference, int hint, IntPtr data, uint data_size)
 		{
 			Status retValue;
 
@@ -856,7 +856,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Directive(IntPtr reference, int directive)
+		public static Status Directive(Reference reference, int directive)
 		{
 			Status retValue;
 
@@ -868,7 +868,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status GetStatus(IntPtr reference)
+		public static Status GetStatus(Reference reference)
 		{
 			Status retValue;
 
@@ -880,7 +880,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int RegisterUserStruct(IntPtr context, uint size)
+		public static int RegisterUserStruct(Context context, uint size)
 		{
 			int retValue;
 
@@ -892,7 +892,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AllocateUserKernelId(IntPtr context, int[] pKernelEnumId)
+		public static Status AllocateUserKernelId(Context context, int[] pKernelEnumId)
 		{
 			Status retValue;
 
@@ -909,7 +909,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AllocateUserKernelLibraryId(IntPtr context, int[] pLibraryId)
+		public static Status AllocateUserKernelLibraryId(Context context, int[] pLibraryId)
 		{
 			Status retValue;
 
@@ -926,7 +926,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetImmediateModeTarget(IntPtr context, int target_enum, string target_string)
+		public static Status SetImmediateModeTarget(Context context, int target_enum, string target_string)
 		{
 			Status retValue;
 
@@ -938,9 +938,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateImage(IntPtr context, uint width, uint height, DfImage color)
+		public static Image CreateImage(Context context, uint width, uint height, DfImage color)
 		{
-			IntPtr retValue;
+			Image retValue;
 
 			Debug.Assert(Delegates.pvxCreateImage != null, "pvxCreateImage not implemented");
 			retValue = Delegates.pvxCreateImage(context, width, height, color);
@@ -950,9 +950,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateImageFromROI(IntPtr img, Rectangle[] rect)
+		public static Image CreateImageFromROI(Image img, Rectangle[] rect)
 		{
-			IntPtr retValue;
+			Image retValue;
 
 			unsafe {
 				fixed (Rectangle* p_rect = rect)
@@ -967,9 +967,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateUniformImage(IntPtr context, uint width, uint height, DfImage color, PixelValue value)
+		public static Image CreateUniformImage(Context context, uint width, uint height, DfImage color, PixelValue value)
 		{
-			IntPtr retValue;
+			Image retValue;
 
 			Debug.Assert(Delegates.pvxCreateUniformImage != null, "pvxCreateUniformImage not implemented");
 			retValue = Delegates.pvxCreateUniformImage(context, width, height, color, value);
@@ -979,9 +979,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateVirtualImage(IntPtr graph, uint width, uint height, DfImage color)
+		public static Image CreateVirtualImage(Graph graph, uint width, uint height, DfImage color)
 		{
-			IntPtr retValue;
+			Image retValue;
 
 			Debug.Assert(Delegates.pvxCreateVirtualImage != null, "pvxCreateVirtualImage not implemented");
 			retValue = Delegates.pvxCreateVirtualImage(graph, width, height, color);
@@ -991,9 +991,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateImageFromHandle(IntPtr context, DfImage color, ImagePatchAddressing[] addrs, IntPtr[] ptrs, int memory_type)
+		public static Image CreateImageFromHandle(Context context, DfImage color, ImagePatchAddressing[] addrs, IntPtr[] ptrs, int memory_type)
 		{
-			IntPtr retValue;
+			Image retValue;
 
 			unsafe {
 				fixed (ImagePatchAddressing* p_addrs = addrs)
@@ -1009,7 +1009,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SwapImageHandle(IntPtr image, IntPtr[] new_ptrs, IntPtr[] prev_ptrs, uint num_planes)
+		public static Status SwapImageHandle(Image image, IntPtr[] new_ptrs, IntPtr[] prev_ptrs, uint num_planes)
 		{
 			Status retValue;
 
@@ -1027,7 +1027,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryImage(IntPtr image, int attribute, IntPtr ptr, uint size)
+		public static Status QueryImage(Image image, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1043,7 +1043,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetImageAttribute(IntPtr image, int attribute, IntPtr ptr, uint size)
+		public static Status SetImageAttribute(Image image, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1059,12 +1059,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseImage(params IntPtr[] image)
+		public static Status ReleaseImage(params Image[] image)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_image = image)
+				fixed (Image* p_image = image)
 				{
 					Debug.Assert(Delegates.pvxReleaseImage != null, "pvxReleaseImage not implemented");
 					retValue = Delegates.pvxReleaseImage(p_image);
@@ -1076,7 +1076,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static uint ComputeImagePatchSize(IntPtr image, Rectangle[] rect, uint plane_index)
+		public static uint ComputeImagePatchSize(Image image, Rectangle[] rect, uint plane_index)
 		{
 			uint retValue;
 
@@ -1127,7 +1127,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status GetValidRegionImage(IntPtr image, [Out] Rectangle[] rect)
+		public static Status GetValidRegionImage(Image image, [Out] Rectangle[] rect)
 		{
 			Status retValue;
 
@@ -1144,7 +1144,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyImagePatch(IntPtr image, Rectangle[] image_rect, uint image_plane_index, ImagePatchAddressing[] user_addr, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyImagePatch(Image image, Rectangle[] image_rect, uint image_plane_index, ImagePatchAddressing[] user_addr, IntPtr user_ptr, int usage, int user_mem_type)
 		{
 			Status retValue;
 
@@ -1162,13 +1162,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapImagePatch(IntPtr image, Rectangle[] rect, uint plane_index, UIntPtr[] map_id, ImagePatchAddressing[] addr, IntPtr[] ptr, int usage, int mem_type, uint flags)
+		public static Status MapImagePatch(Image image, Rectangle[] rect, uint plane_index, MapId[] map_id, ImagePatchAddressing[] addr, IntPtr[] ptr, int usage, int mem_type, uint flags)
 		{
 			Status retValue;
 
 			unsafe {
 				fixed (Rectangle* p_rect = rect)
-				fixed (UIntPtr* p_map_id = map_id)
+				fixed (MapId* p_map_id = map_id)
 				fixed (ImagePatchAddressing* p_addr = addr)
 				fixed (IntPtr* p_ptr = ptr)
 				{
@@ -1182,7 +1182,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status UnmapImagePatch(IntPtr image, UIntPtr map_id)
+		public static Status UnmapImagePatch(Image image, MapId map_id)
 		{
 			Status retValue;
 
@@ -1194,9 +1194,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateImageFromChannel(IntPtr img, int channel)
+		public static Image CreateImageFromChannel(Image img, int channel)
 		{
-			IntPtr retValue;
+			Image retValue;
 
 			Debug.Assert(Delegates.pvxCreateImageFromChannel != null, "pvxCreateImageFromChannel not implemented");
 			retValue = Delegates.pvxCreateImageFromChannel(img, channel);
@@ -1206,7 +1206,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetImageValidRectangle(IntPtr image, Rectangle[] rect)
+		public static Status SetImageValidRectangle(Image image, Rectangle[] rect)
 		{
 			Status retValue;
 
@@ -1223,7 +1223,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status LoadKernels(IntPtr context, string module)
+		public static Status LoadKernels(Context context, string module)
 		{
 			Status retValue;
 
@@ -1235,7 +1235,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status UnloadKernels(IntPtr context, string module)
+		public static Status UnloadKernels(Context context, string module)
 		{
 			Status retValue;
 
@@ -1247,9 +1247,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetKernelByName(IntPtr context, string name)
+		public static Kernel GetKernelByName(Context context, string name)
 		{
-			IntPtr retValue;
+			Kernel retValue;
 
 			Debug.Assert(Delegates.pvxGetKernelByName != null, "pvxGetKernelByName not implemented");
 			retValue = Delegates.pvxGetKernelByName(context, name);
@@ -1259,9 +1259,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetKernelByEnum(IntPtr context, int kernel)
+		public static Kernel GetKernelByEnum(Context context, int kernel)
 		{
-			IntPtr retValue;
+			Kernel retValue;
 
 			Debug.Assert(Delegates.pvxGetKernelByEnum != null, "pvxGetKernelByEnum not implemented");
 			retValue = Delegates.pvxGetKernelByEnum(context, kernel);
@@ -1271,7 +1271,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryKernel(IntPtr kernel, int attribute, IntPtr ptr, uint size)
+		public static Status QueryKernel(Kernel kernel, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1287,12 +1287,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseKernel(params IntPtr[] kernel)
+		public static Status ReleaseKernel(params Kernel[] kernel)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_kernel = kernel)
+				fixed (Kernel* p_kernel = kernel)
 				{
 					Debug.Assert(Delegates.pvxReleaseKernel != null, "pvxReleaseKernel not implemented");
 					retValue = Delegates.pvxReleaseKernel(p_kernel);
@@ -1304,9 +1304,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr AddUserKernel(IntPtr context, string name, int enumeration, KernelCallback func_ptr, uint numParams, KernelValidateCallbackCallback validate, KernelInitializeCallback init, KernelDeinitializeCallback deinit)
+		public static Kernel AddUserKernel(Context context, string name, int enumeration, KernelCallback func_ptr, uint numParams, KernelValidateCallbackCallback validate, KernelInitializeCallback init, KernelDeinitializeCallback deinit)
 		{
-			IntPtr retValue;
+			Kernel retValue;
 
 			Debug.Assert(Delegates.pvxAddUserKernel != null, "pvxAddUserKernel not implemented");
 			retValue = Delegates.pvxAddUserKernel(context, name, enumeration, func_ptr, numParams, validate, init, deinit);
@@ -1316,7 +1316,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status FinalizeKernel(IntPtr kernel)
+		public static Status FinalizeKernel(Kernel kernel)
 		{
 			Status retValue;
 
@@ -1328,7 +1328,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AddParameterToKernel(IntPtr kernel, uint index, int dir, int data_type, int state)
+		public static Status AddParameterToKernel(Kernel kernel, uint index, int dir, int data_type, int state)
 		{
 			Status retValue;
 
@@ -1340,7 +1340,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status RemoveKernel(IntPtr kernel)
+		public static Status RemoveKernel(Kernel kernel)
 		{
 			Status retValue;
 
@@ -1352,7 +1352,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetKernelAttribute(IntPtr kernel, int attribute, IntPtr ptr, uint size)
+		public static Status SetKernelAttribute(Kernel kernel, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1368,9 +1368,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetKernelParameterByIndex(IntPtr kernel, uint index)
+		public static Parameter GetKernelParameterByIndex(Kernel kernel, uint index)
 		{
-			IntPtr retValue;
+			Parameter retValue;
 
 			Debug.Assert(Delegates.pvxGetKernelParameterByIndex != null, "pvxGetKernelParameterByIndex not implemented");
 			retValue = Delegates.pvxGetKernelParameterByIndex(kernel, index);
@@ -1380,9 +1380,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateGraph(IntPtr context)
+		public static Graph CreateGraph(Context context)
 		{
-			IntPtr retValue;
+			Graph retValue;
 
 			Debug.Assert(Delegates.pvxCreateGraph != null, "pvxCreateGraph not implemented");
 			retValue = Delegates.pvxCreateGraph(context);
@@ -1392,12 +1392,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseGraph(params IntPtr[] graph)
+		public static Status ReleaseGraph(params Graph[] graph)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_graph = graph)
+				fixed (Graph* p_graph = graph)
 				{
 					Debug.Assert(Delegates.pvxReleaseGraph != null, "pvxReleaseGraph not implemented");
 					retValue = Delegates.pvxReleaseGraph(p_graph);
@@ -1409,7 +1409,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status VerifyGraph(IntPtr graph)
+		public static Status VerifyGraph(Graph graph)
 		{
 			Status retValue;
 
@@ -1421,7 +1421,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ProcessGraph(IntPtr graph)
+		public static Status ProcessGraph(Graph graph)
 		{
 			Status retValue;
 
@@ -1433,7 +1433,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ScheduleGraph(IntPtr graph)
+		public static Status ScheduleGraph(Graph graph)
 		{
 			Status retValue;
 
@@ -1445,7 +1445,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status WaitGraph(IntPtr graph)
+		public static Status WaitGraph(Graph graph)
 		{
 			Status retValue;
 
@@ -1457,7 +1457,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryGraph(IntPtr graph, int attribute, IntPtr ptr, uint size)
+		public static Status QueryGraph(Graph graph, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1473,7 +1473,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetGraphAttribute(IntPtr graph, int attribute, IntPtr ptr, uint size)
+		public static Status SetGraphAttribute(Graph graph, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1489,7 +1489,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AddParameterToGraph(IntPtr graph, IntPtr parameter)
+		public static Status AddParameterToGraph(Graph graph, Parameter parameter)
 		{
 			Status retValue;
 
@@ -1501,7 +1501,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetGraphParameterByIndex(IntPtr graph, uint index, IntPtr value)
+		public static Status SetGraphParameterByIndex(Graph graph, uint index, Reference value)
 		{
 			Status retValue;
 
@@ -1513,9 +1513,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetGraphParameterByIndex(IntPtr graph, uint index)
+		public static Parameter GetGraphParameterByIndex(Graph graph, uint index)
 		{
-			IntPtr retValue;
+			Parameter retValue;
 
 			Debug.Assert(Delegates.pvxGetGraphParameterByIndex != null, "pvxGetGraphParameterByIndex not implemented");
 			retValue = Delegates.pvxGetGraphParameterByIndex(graph, index);
@@ -1525,7 +1525,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static bool IsGraph(IntPtr graph)
+		public static bool IsGraph(Graph graph)
 		{
 			bool retValue;
 
@@ -1537,9 +1537,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateGenericNode(IntPtr graph, IntPtr kernel)
+		public static Node CreateGenericNode(Graph graph, Kernel kernel)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxCreateGenericNode != null, "pvxCreateGenericNode not implemented");
 			retValue = Delegates.pvxCreateGenericNode(graph, kernel);
@@ -1549,7 +1549,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryNode(IntPtr node, int attribute, IntPtr ptr, uint size)
+		public static Status QueryNode(Node node, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1565,7 +1565,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetNodeAttribute(IntPtr node, int attribute, IntPtr ptr, uint size)
+		public static Status SetNodeAttribute(Node node, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1581,12 +1581,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseNode(params IntPtr[] node)
+		public static Status ReleaseNode(params Node[] node)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_node = node)
+				fixed (Node* p_node = node)
 				{
 					Debug.Assert(Delegates.pvxReleaseNode != null, "pvxReleaseNode not implemented");
 					retValue = Delegates.pvxReleaseNode(p_node);
@@ -1598,12 +1598,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status RemoveNode(IntPtr[] node)
+		public static Status RemoveNode(Node[] node)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_node = node)
+				fixed (Node* p_node = node)
 				{
 					Debug.Assert(Delegates.pvxRemoveNode != null, "pvxRemoveNode not implemented");
 					retValue = Delegates.pvxRemoveNode(p_node);
@@ -1615,7 +1615,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AssignNodeCallback(IntPtr node, NodeCompleteCallback callback)
+		public static Status AssignNodeCallback(Node node, NodeCompleteCallback callback)
 		{
 			Status retValue;
 
@@ -1627,7 +1627,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static NodeCompleteCallback RetrieveNodeCallback(IntPtr node)
+		public static NodeCompleteCallback RetrieveNodeCallback(Node node)
 		{
 			NodeCompleteCallback retValue;
 
@@ -1639,7 +1639,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetNodeTarget(IntPtr node, int target_enum, string target_string)
+		public static Status SetNodeTarget(Node node, int target_enum, string target_string)
 		{
 			Status retValue;
 
@@ -1651,7 +1651,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReplicateNode(IntPtr graph, IntPtr first_node, bool[] replicate, uint number_of_parameters)
+		public static Status ReplicateNode(Graph graph, Node first_node, bool[] replicate, uint number_of_parameters)
 		{
 			Status retValue;
 
@@ -1668,9 +1668,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetParameterByIndex(IntPtr node, uint index)
+		public static Parameter GetParameterByIndex(Node node, uint index)
 		{
-			IntPtr retValue;
+			Parameter retValue;
 
 			Debug.Assert(Delegates.pvxGetParameterByIndex != null, "pvxGetParameterByIndex not implemented");
 			retValue = Delegates.pvxGetParameterByIndex(node, index);
@@ -1680,12 +1680,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseParameter(params IntPtr[] param)
+		public static Status ReleaseParameter(params Parameter[] param)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_param = param)
+				fixed (Parameter* p_param = param)
 				{
 					Debug.Assert(Delegates.pvxReleaseParameter != null, "pvxReleaseParameter not implemented");
 					retValue = Delegates.pvxReleaseParameter(p_param);
@@ -1697,7 +1697,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetParameterByIndex(IntPtr node, uint index, IntPtr value)
+		public static Status SetParameterByIndex(Node node, uint index, Reference value)
 		{
 			Status retValue;
 
@@ -1709,7 +1709,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetParameterByReference(IntPtr parameter, IntPtr value)
+		public static Status SetParameterByReference(Parameter parameter, Reference value)
 		{
 			Status retValue;
 
@@ -1721,7 +1721,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryParameter(IntPtr parameter, int attribute, IntPtr ptr, uint size)
+		public static Status QueryParameter(Parameter parameter, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1737,9 +1737,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateScalar(IntPtr context, int data_type, IntPtr ptr)
+		public static Scalar CreateScalar(Context context, int data_type, IntPtr ptr)
 		{
-			IntPtr retValue;
+			Scalar retValue;
 
 			unsafe {
 				{
@@ -1753,12 +1753,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseScalar(params IntPtr[] scalar)
+		public static Status ReleaseScalar(params Scalar[] scalar)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_scalar = scalar)
+				fixed (Scalar* p_scalar = scalar)
 				{
 					Debug.Assert(Delegates.pvxReleaseScalar != null, "pvxReleaseScalar not implemented");
 					retValue = Delegates.pvxReleaseScalar(p_scalar);
@@ -1770,7 +1770,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryScalar(IntPtr scalar, int attribute, IntPtr ptr, uint size)
+		public static Status QueryScalar(Scalar scalar, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1786,7 +1786,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyScalar(IntPtr scalar, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyScalar(Scalar scalar, IntPtr user_ptr, int usage, int user_mem_type)
 		{
 			Status retValue;
 
@@ -1802,7 +1802,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryReference(IntPtr @ref, int attribute, IntPtr ptr, uint size)
+		public static Status QueryReference(Reference @ref, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1818,12 +1818,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseReference(params IntPtr[] ref_ptr)
+		public static Status ReleaseReference(params Reference[] ref_ptr)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_ref_ptr = ref_ptr)
+				fixed (Reference* p_ref_ptr = ref_ptr)
 				{
 					Debug.Assert(Delegates.pvxReleaseReference != null, "pvxReleaseReference not implemented");
 					retValue = Delegates.pvxReleaseReference(p_ref_ptr);
@@ -1835,7 +1835,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status RetainReference(IntPtr @ref)
+		public static Status RetainReference(Reference @ref)
 		{
 			Status retValue;
 
@@ -1847,7 +1847,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetReferenceName(IntPtr @ref, string name)
+		public static Status SetReferenceName(Reference @ref, string name)
 		{
 			Status retValue;
 
@@ -1859,7 +1859,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryDelay(IntPtr delay, int attribute, IntPtr ptr, uint size)
+		public static Status QueryDelay(Delay delay, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1875,12 +1875,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseDelay(params IntPtr[] delay)
+		public static Status ReleaseDelay(params Delay[] delay)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_delay = delay)
+				fixed (Delay* p_delay = delay)
 				{
 					Debug.Assert(Delegates.pvxReleaseDelay != null, "pvxReleaseDelay not implemented");
 					retValue = Delegates.pvxReleaseDelay(p_delay);
@@ -1892,9 +1892,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateDelay(IntPtr context, IntPtr exemplar, uint num_slots)
+		public static Delay CreateDelay(Context context, Reference exemplar, uint num_slots)
 		{
-			IntPtr retValue;
+			Delay retValue;
 
 			Debug.Assert(Delegates.pvxCreateDelay != null, "pvxCreateDelay not implemented");
 			retValue = Delegates.pvxCreateDelay(context, exemplar, num_slots);
@@ -1904,9 +1904,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetReferenceFromDelay(IntPtr delay, int index)
+		public static Reference GetReferenceFromDelay(Delay delay, int index)
 		{
-			IntPtr retValue;
+			Reference retValue;
 
 			Debug.Assert(Delegates.pvxGetReferenceFromDelay != null, "pvxGetReferenceFromDelay not implemented");
 			retValue = Delegates.pvxGetReferenceFromDelay(delay, index);
@@ -1916,7 +1916,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AgeDelay(IntPtr delay)
+		public static Status AgeDelay(Delay delay)
 		{
 			Status retValue;
 
@@ -1928,7 +1928,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status RegisterAutoAging(IntPtr graph, IntPtr delay)
+		public static Status RegisterAutoAging(Graph graph, Delay delay)
 		{
 			Status retValue;
 
@@ -1940,7 +1940,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static void AddLogEntry(IntPtr @ref, Status status, string message, Int32 vaArgs)
+		public static void AddLogEntry(Reference @ref, Status status, string message, Int32 vaArgs)
 		{
 			Debug.Assert(Delegates.pvxAddLogEntry != null, "pvxAddLogEntry not implemented");
 			Delegates.pvxAddLogEntry(@ref, status, message, vaArgs);
@@ -1948,7 +1948,7 @@ namespace OpenVX
 			DebugCheckErrors(null);
 		}
 
-		public static void RegisterLogCallback(IntPtr context, LogCallback callback, bool reentrant)
+		public static void RegisterLogCallback(Context context, LogCallback callback, bool reentrant)
 		{
 			Debug.Assert(Delegates.pvxRegisterLogCallback != null, "pvxRegisterLogCallback not implemented");
 			Delegates.pvxRegisterLogCallback(context, callback, reentrant);
@@ -1956,9 +1956,9 @@ namespace OpenVX
 			DebugCheckErrors(null);
 		}
 
-		public static IntPtr CreateLUT(IntPtr context, int data_type, uint count)
+		public static Lut CreateLUT(Context context, int data_type, uint count)
 		{
-			IntPtr retValue;
+			Lut retValue;
 
 			Debug.Assert(Delegates.pvxCreateLUT != null, "pvxCreateLUT not implemented");
 			retValue = Delegates.pvxCreateLUT(context, data_type, count);
@@ -1968,12 +1968,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseLUT(params IntPtr[] lut)
+		public static Status ReleaseLUT(params Lut[] lut)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_lut = lut)
+				fixed (Lut* p_lut = lut)
 				{
 					Debug.Assert(Delegates.pvxReleaseLUT != null, "pvxReleaseLUT not implemented");
 					retValue = Delegates.pvxReleaseLUT(p_lut);
@@ -1985,7 +1985,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryLUT(IntPtr lut, int attribute, IntPtr ptr, uint size)
+		public static Status QueryLUT(Lut lut, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2001,7 +2001,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyLUT(IntPtr lut, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyLUT(Lut lut, IntPtr user_ptr, int usage, int user_mem_type)
 		{
 			Status retValue;
 
@@ -2017,12 +2017,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapLUT(IntPtr lut, UIntPtr[] map_id, IntPtr[] ptr, int usage, int mem_type, uint flags)
+		public static Status MapLUT(Lut lut, MapId[] map_id, IntPtr[] ptr, int usage, int mem_type, uint flags)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (UIntPtr* p_map_id = map_id)
+				fixed (MapId* p_map_id = map_id)
 				fixed (IntPtr* p_ptr = ptr)
 				{
 					Debug.Assert(Delegates.pvxMapLUT != null, "pvxMapLUT not implemented");
@@ -2035,7 +2035,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status UnmapLUT(IntPtr lut, UIntPtr map_id)
+		public static Status UnmapLUT(Lut lut, MapId map_id)
 		{
 			Status retValue;
 
@@ -2047,9 +2047,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateDistribution(IntPtr context, uint numBins, int offset, uint range)
+		public static Distribution CreateDistribution(Context context, uint numBins, int offset, uint range)
 		{
-			IntPtr retValue;
+			Distribution retValue;
 
 			Debug.Assert(Delegates.pvxCreateDistribution != null, "pvxCreateDistribution not implemented");
 			retValue = Delegates.pvxCreateDistribution(context, numBins, offset, range);
@@ -2059,12 +2059,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseDistribution(params IntPtr[] distribution)
+		public static Status ReleaseDistribution(params Distribution[] distribution)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_distribution = distribution)
+				fixed (Distribution* p_distribution = distribution)
 				{
 					Debug.Assert(Delegates.pvxReleaseDistribution != null, "pvxReleaseDistribution not implemented");
 					retValue = Delegates.pvxReleaseDistribution(p_distribution);
@@ -2076,7 +2076,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryDistribution(IntPtr distribution, int attribute, IntPtr ptr, uint size)
+		public static Status QueryDistribution(Distribution distribution, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2092,7 +2092,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyDistribution(IntPtr distribution, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyDistribution(Distribution distribution, IntPtr user_ptr, int usage, int user_mem_type)
 		{
 			Status retValue;
 
@@ -2108,12 +2108,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapDistribution(IntPtr distribution, UIntPtr[] map_id, IntPtr[] ptr, int usage, int mem_type, uint flags)
+		public static Status MapDistribution(Distribution distribution, MapId[] map_id, IntPtr[] ptr, int usage, int mem_type, uint flags)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (UIntPtr* p_map_id = map_id)
+				fixed (MapId* p_map_id = map_id)
 				fixed (IntPtr* p_ptr = ptr)
 				{
 					Debug.Assert(Delegates.pvxMapDistribution != null, "pvxMapDistribution not implemented");
@@ -2126,7 +2126,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status UnmapDistribution(IntPtr distribution, UIntPtr map_id)
+		public static Status UnmapDistribution(Distribution distribution, MapId map_id)
 		{
 			Status retValue;
 
@@ -2138,9 +2138,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateThreshold(IntPtr c, int thresh_type, int data_type)
+		public static Threshold CreateThreshold(Context c, int thresh_type, int data_type)
 		{
-			IntPtr retValue;
+			Threshold retValue;
 
 			Debug.Assert(Delegates.pvxCreateThreshold != null, "pvxCreateThreshold not implemented");
 			retValue = Delegates.pvxCreateThreshold(c, thresh_type, data_type);
@@ -2150,12 +2150,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseThreshold(params IntPtr[] thresh)
+		public static Status ReleaseThreshold(params Threshold[] thresh)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_thresh = thresh)
+				fixed (Threshold* p_thresh = thresh)
 				{
 					Debug.Assert(Delegates.pvxReleaseThreshold != null, "pvxReleaseThreshold not implemented");
 					retValue = Delegates.pvxReleaseThreshold(p_thresh);
@@ -2167,7 +2167,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetThresholdAttribute(IntPtr thresh, int attribute, IntPtr ptr, uint size)
+		public static Status SetThresholdAttribute(Threshold thresh, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2183,7 +2183,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryThreshold(IntPtr thresh, int attribute, IntPtr ptr, uint size)
+		public static Status QueryThreshold(Threshold thresh, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2199,9 +2199,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateMatrix(IntPtr c, int data_type, uint columns, uint rows)
+		public static Matrix CreateMatrix(Context c, int data_type, uint columns, uint rows)
 		{
-			IntPtr retValue;
+			Matrix retValue;
 
 			Debug.Assert(Delegates.pvxCreateMatrix != null, "pvxCreateMatrix not implemented");
 			retValue = Delegates.pvxCreateMatrix(c, data_type, columns, rows);
@@ -2211,12 +2211,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseMatrix(params IntPtr[] mat)
+		public static Status ReleaseMatrix(params Matrix[] mat)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_mat = mat)
+				fixed (Matrix* p_mat = mat)
 				{
 					Debug.Assert(Delegates.pvxReleaseMatrix != null, "pvxReleaseMatrix not implemented");
 					retValue = Delegates.pvxReleaseMatrix(p_mat);
@@ -2228,7 +2228,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryMatrix(IntPtr mat, int attribute, IntPtr ptr, uint size)
+		public static Status QueryMatrix(Matrix mat, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2244,7 +2244,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyMatrix(IntPtr matrix, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyMatrix(Matrix matrix, IntPtr user_ptr, int usage, int user_mem_type)
 		{
 			Status retValue;
 
@@ -2260,9 +2260,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateMatrixFromPattern(IntPtr context, int pattern, uint columns, uint rows)
+		public static Matrix CreateMatrixFromPattern(Context context, int pattern, uint columns, uint rows)
 		{
-			IntPtr retValue;
+			Matrix retValue;
 
 			Debug.Assert(Delegates.pvxCreateMatrixFromPattern != null, "pvxCreateMatrixFromPattern not implemented");
 			retValue = Delegates.pvxCreateMatrixFromPattern(context, pattern, columns, rows);
@@ -2272,9 +2272,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateConvolution(IntPtr context, uint columns, uint rows)
+		public static Convolution CreateConvolution(Context context, uint columns, uint rows)
 		{
-			IntPtr retValue;
+			Convolution retValue;
 
 			Debug.Assert(Delegates.pvxCreateConvolution != null, "pvxCreateConvolution not implemented");
 			retValue = Delegates.pvxCreateConvolution(context, columns, rows);
@@ -2284,12 +2284,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseConvolution(params IntPtr[] conv)
+		public static Status ReleaseConvolution(params Convolution[] conv)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_conv = conv)
+				fixed (Convolution* p_conv = conv)
 				{
 					Debug.Assert(Delegates.pvxReleaseConvolution != null, "pvxReleaseConvolution not implemented");
 					retValue = Delegates.pvxReleaseConvolution(p_conv);
@@ -2301,7 +2301,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryConvolution(IntPtr conv, int attribute, IntPtr ptr, uint size)
+		public static Status QueryConvolution(Convolution conv, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2317,7 +2317,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetConvolutionAttribute(IntPtr conv, int attribute, IntPtr ptr, uint size)
+		public static Status SetConvolutionAttribute(Convolution conv, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2333,7 +2333,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyConvolutionCoefficients(IntPtr conv, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyConvolutionCoefficients(Convolution conv, IntPtr user_ptr, int usage, int user_mem_type)
 		{
 			Status retValue;
 
@@ -2349,9 +2349,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreatePyramid(IntPtr context, uint levels, float scale, uint width, uint height, DfImage format)
+		public static Pyramid CreatePyramid(Context context, uint levels, float scale, uint width, uint height, DfImage format)
 		{
-			IntPtr retValue;
+			Pyramid retValue;
 
 			Debug.Assert(Delegates.pvxCreatePyramid != null, "pvxCreatePyramid not implemented");
 			retValue = Delegates.pvxCreatePyramid(context, levels, scale, width, height, format);
@@ -2361,9 +2361,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateVirtualPyramid(IntPtr graph, uint levels, float scale, uint width, uint height, DfImage format)
+		public static Pyramid CreateVirtualPyramid(Graph graph, uint levels, float scale, uint width, uint height, DfImage format)
 		{
-			IntPtr retValue;
+			Pyramid retValue;
 
 			Debug.Assert(Delegates.pvxCreateVirtualPyramid != null, "pvxCreateVirtualPyramid not implemented");
 			retValue = Delegates.pvxCreateVirtualPyramid(graph, levels, scale, width, height, format);
@@ -2373,12 +2373,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleasePyramid(params IntPtr[] pyr)
+		public static Status ReleasePyramid(params Pyramid[] pyr)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_pyr = pyr)
+				fixed (Pyramid* p_pyr = pyr)
 				{
 					Debug.Assert(Delegates.pvxReleasePyramid != null, "pvxReleasePyramid not implemented");
 					retValue = Delegates.pvxReleasePyramid(p_pyr);
@@ -2390,7 +2390,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryPyramid(IntPtr pyr, int attribute, IntPtr ptr, uint size)
+		public static Status QueryPyramid(Pyramid pyr, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2406,9 +2406,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetPyramidLevel(IntPtr pyr, uint index)
+		public static Image GetPyramidLevel(Pyramid pyr, uint index)
 		{
-			IntPtr retValue;
+			Image retValue;
 
 			Debug.Assert(Delegates.pvxGetPyramidLevel != null, "pvxGetPyramidLevel not implemented");
 			retValue = Delegates.pvxGetPyramidLevel(pyr, index);
@@ -2418,9 +2418,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateRemap(IntPtr context, uint src_width, uint src_height, uint dst_width, uint dst_height)
+		public static Remap CreateRemap(Context context, uint src_width, uint src_height, uint dst_width, uint dst_height)
 		{
-			IntPtr retValue;
+			Remap retValue;
 
 			Debug.Assert(Delegates.pvxCreateRemap != null, "pvxCreateRemap not implemented");
 			retValue = Delegates.pvxCreateRemap(context, src_width, src_height, dst_width, dst_height);
@@ -2430,12 +2430,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseRemap(params IntPtr[] table)
+		public static Status ReleaseRemap(params Remap[] table)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_table = table)
+				fixed (Remap* p_table = table)
 				{
 					Debug.Assert(Delegates.pvxReleaseRemap != null, "pvxReleaseRemap not implemented");
 					retValue = Delegates.pvxReleaseRemap(p_table);
@@ -2447,7 +2447,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetRemapPoint(IntPtr table, uint dst_x, uint dst_y, float src_x, float src_y)
+		public static Status SetRemapPoint(Remap table, uint dst_x, uint dst_y, float src_x, float src_y)
 		{
 			Status retValue;
 
@@ -2459,7 +2459,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status GetRemapPoint(IntPtr table, uint dst_x, uint dst_y, [Out] float[] src_x, [Out] float[] src_y)
+		public static Status GetRemapPoint(Remap table, uint dst_x, uint dst_y, [Out] float[] src_x, [Out] float[] src_y)
 		{
 			Status retValue;
 
@@ -2477,7 +2477,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryRemap(IntPtr table, int attribute, IntPtr ptr, uint size)
+		public static Status QueryRemap(Remap table, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2493,9 +2493,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateArray(IntPtr context, int item_type, uint capacity)
+		public static Array CreateArray(Context context, int item_type, uint capacity)
 		{
-			IntPtr retValue;
+			Array retValue;
 
 			Debug.Assert(Delegates.pvxCreateArray != null, "pvxCreateArray not implemented");
 			retValue = Delegates.pvxCreateArray(context, item_type, capacity);
@@ -2505,9 +2505,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateVirtualArray(IntPtr graph, int item_type, uint capacity)
+		public static Array CreateVirtualArray(Graph graph, int item_type, uint capacity)
 		{
-			IntPtr retValue;
+			Array retValue;
 
 			Debug.Assert(Delegates.pvxCreateVirtualArray != null, "pvxCreateVirtualArray not implemented");
 			retValue = Delegates.pvxCreateVirtualArray(graph, item_type, capacity);
@@ -2517,12 +2517,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseArray(params IntPtr[] arr)
+		public static Status ReleaseArray(params Array[] arr)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_arr = arr)
+				fixed (Array* p_arr = arr)
 				{
 					Debug.Assert(Delegates.pvxReleaseArray != null, "pvxReleaseArray not implemented");
 					retValue = Delegates.pvxReleaseArray(p_arr);
@@ -2534,7 +2534,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryArray(IntPtr arr, int attribute, IntPtr ptr, uint size)
+		public static Status QueryArray(Array arr, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2550,7 +2550,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AddArrayItems(IntPtr arr, uint count, IntPtr ptr, uint stride)
+		public static Status AddArrayItems(Array arr, uint count, IntPtr ptr, uint stride)
 		{
 			Status retValue;
 
@@ -2566,7 +2566,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status TruncateArray(IntPtr arr, uint new_num_items)
+		public static Status TruncateArray(Array arr, uint new_num_items)
 		{
 			Status retValue;
 
@@ -2578,7 +2578,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyArrayRange(IntPtr array, uint range_start, uint range_end, uint user_stride, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyArrayRange(Array array, uint range_start, uint range_end, uint user_stride, IntPtr user_ptr, int usage, int user_mem_type)
 		{
 			Status retValue;
 
@@ -2594,12 +2594,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapArrayRange(IntPtr array, uint range_start, uint range_end, UIntPtr[] map_id, uint[] stride, IntPtr[] ptr, int usage, int mem_type, uint flags)
+		public static Status MapArrayRange(Array array, uint range_start, uint range_end, MapId[] map_id, uint[] stride, IntPtr[] ptr, int usage, int mem_type, uint flags)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (UIntPtr* p_map_id = map_id)
+				fixed (MapId* p_map_id = map_id)
 				fixed (uint* p_stride = stride)
 				fixed (IntPtr* p_ptr = ptr)
 				{
@@ -2613,7 +2613,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status UnmapArrayRange(IntPtr array, UIntPtr map_id)
+		public static Status UnmapArrayRange(Array array, MapId map_id)
 		{
 			Status retValue;
 
@@ -2625,9 +2625,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateObjectArray(IntPtr context, IntPtr exemplar, uint count)
+		public static ObjectArray CreateObjectArray(Context context, Reference exemplar, uint count)
 		{
-			IntPtr retValue;
+			ObjectArray retValue;
 
 			Debug.Assert(Delegates.pvxCreateObjectArray != null, "pvxCreateObjectArray not implemented");
 			retValue = Delegates.pvxCreateObjectArray(context, exemplar, count);
@@ -2637,9 +2637,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CreateVirtualObjectArray(IntPtr graph, IntPtr exemplar, uint count)
+		public static ObjectArray CreateVirtualObjectArray(Graph graph, Reference exemplar, uint count)
 		{
-			IntPtr retValue;
+			ObjectArray retValue;
 
 			Debug.Assert(Delegates.pvxCreateVirtualObjectArray != null, "pvxCreateVirtualObjectArray not implemented");
 			retValue = Delegates.pvxCreateVirtualObjectArray(graph, exemplar, count);
@@ -2649,9 +2649,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GetObjectArrayItem(IntPtr arr, uint index)
+		public static Reference GetObjectArrayItem(ObjectArray arr, uint index)
 		{
-			IntPtr retValue;
+			Reference retValue;
 
 			Debug.Assert(Delegates.pvxGetObjectArrayItem != null, "pvxGetObjectArrayItem not implemented");
 			retValue = Delegates.pvxGetObjectArrayItem(arr, index);
@@ -2661,12 +2661,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status ReleaseObjectArray(params IntPtr[] arr)
+		public static Status ReleaseObjectArray(params ObjectArray[] arr)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (IntPtr* p_arr = arr)
+				fixed (ObjectArray* p_arr = arr)
 				{
 					Debug.Assert(Delegates.pvxReleaseObjectArray != null, "pvxReleaseObjectArray not implemented");
 					retValue = Delegates.pvxReleaseObjectArray(p_arr);
@@ -2678,7 +2678,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status QueryObjectArray(IntPtr arr, int attribute, IntPtr ptr, uint size)
+		public static Status QueryObjectArray(ObjectArray arr, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2694,7 +2694,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetMetaFormatAttribute(IntPtr meta, int attribute, IntPtr ptr, uint size)
+		public static Status SetMetaFormatAttribute(MetaFormat meta, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2710,7 +2710,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetMetaFormatFromReference(IntPtr meta, IntPtr exemplar)
+		public static Status SetMetaFormatFromReference(MetaFormat meta, Reference exemplar)
 		{
 			Status retValue;
 
@@ -2722,9 +2722,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr ColorConvertNode(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node ColorConvertNode(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxColorConvertNode != null, "pvxColorConvertNode not implemented");
 			retValue = Delegates.pvxColorConvertNode(graph, input, output);
@@ -2734,9 +2734,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr ChannelExtractNode(IntPtr graph, IntPtr input, int channel, IntPtr output)
+		public static Node ChannelExtractNode(Graph graph, Image input, int channel, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxChannelExtractNode != null, "pvxChannelExtractNode not implemented");
 			retValue = Delegates.pvxChannelExtractNode(graph, input, channel, output);
@@ -2746,9 +2746,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr ChannelCombineNode(IntPtr graph, IntPtr plane0, IntPtr plane1, IntPtr plane2, IntPtr plane3, IntPtr output)
+		public static Node ChannelCombineNode(Graph graph, Image plane0, Image plane1, Image plane2, Image plane3, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxChannelCombineNode != null, "pvxChannelCombineNode not implemented");
 			retValue = Delegates.pvxChannelCombineNode(graph, plane0, plane1, plane2, plane3, output);
@@ -2758,9 +2758,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr PhaseNode(IntPtr graph, IntPtr grad_x, IntPtr grad_y, IntPtr orientation)
+		public static Node PhaseNode(Graph graph, Image grad_x, Image grad_y, Image orientation)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxPhaseNode != null, "pvxPhaseNode not implemented");
 			retValue = Delegates.pvxPhaseNode(graph, grad_x, grad_y, orientation);
@@ -2770,9 +2770,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr Sobel3x3Node(IntPtr graph, IntPtr input, IntPtr output_x, IntPtr output_y)
+		public static Node Sobel3x3Node(Graph graph, Image input, Image output_x, Image output_y)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxSobel3x3Node != null, "pvxSobel3x3Node not implemented");
 			retValue = Delegates.pvxSobel3x3Node(graph, input, output_x, output_y);
@@ -2782,9 +2782,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr MagnitudeNode(IntPtr graph, IntPtr grad_x, IntPtr grad_y, IntPtr mag)
+		public static Node MagnitudeNode(Graph graph, Image grad_x, Image grad_y, Image mag)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxMagnitudeNode != null, "pvxMagnitudeNode not implemented");
 			retValue = Delegates.pvxMagnitudeNode(graph, grad_x, grad_y, mag);
@@ -2794,9 +2794,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr ScaleImageNode(IntPtr graph, IntPtr src, IntPtr dst, int type)
+		public static Node ScaleImageNode(Graph graph, Image src, Image dst, int type)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxScaleImageNode != null, "pvxScaleImageNode not implemented");
 			retValue = Delegates.pvxScaleImageNode(graph, src, dst, type);
@@ -2806,9 +2806,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr TableLookupNode(IntPtr graph, IntPtr input, IntPtr lut, IntPtr output)
+		public static Node TableLookupNode(Graph graph, Image input, Lut lut, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxTableLookupNode != null, "pvxTableLookupNode not implemented");
 			retValue = Delegates.pvxTableLookupNode(graph, input, lut, output);
@@ -2818,9 +2818,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr HistogramNode(IntPtr graph, IntPtr input, IntPtr distribution)
+		public static Node HistogramNode(Graph graph, Image input, Distribution distribution)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxHistogramNode != null, "pvxHistogramNode not implemented");
 			retValue = Delegates.pvxHistogramNode(graph, input, distribution);
@@ -2830,9 +2830,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr EqualizeHistNode(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node EqualizeHistNode(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxEqualizeHistNode != null, "pvxEqualizeHistNode not implemented");
 			retValue = Delegates.pvxEqualizeHistNode(graph, input, output);
@@ -2842,9 +2842,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr AbsDiffNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out)
+		public static Node AbsDiffNode(Graph graph, Image in1, Image in2, Image @out)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxAbsDiffNode != null, "pvxAbsDiffNode not implemented");
 			retValue = Delegates.pvxAbsDiffNode(graph, in1, in2, @out);
@@ -2854,9 +2854,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr MeanStdDevNode(IntPtr graph, IntPtr input, IntPtr mean, IntPtr stddev)
+		public static Node MeanStdDevNode(Graph graph, Image input, Scalar mean, Scalar stddev)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxMeanStdDevNode != null, "pvxMeanStdDevNode not implemented");
 			retValue = Delegates.pvxMeanStdDevNode(graph, input, mean, stddev);
@@ -2866,9 +2866,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr ThresholdNode(IntPtr graph, IntPtr input, IntPtr thresh, IntPtr output)
+		public static Node ThresholdNode(Graph graph, Image input, Threshold thresh, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxThresholdNode != null, "pvxThresholdNode not implemented");
 			retValue = Delegates.pvxThresholdNode(graph, input, thresh, output);
@@ -2878,9 +2878,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr IntegralImageNode(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node IntegralImageNode(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxIntegralImageNode != null, "pvxIntegralImageNode not implemented");
 			retValue = Delegates.pvxIntegralImageNode(graph, input, output);
@@ -2890,9 +2890,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr Erode3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node Erode3x3Node(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxErode3x3Node != null, "pvxErode3x3Node not implemented");
 			retValue = Delegates.pvxErode3x3Node(graph, input, output);
@@ -2902,9 +2902,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr Dilate3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node Dilate3x3Node(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxDilate3x3Node != null, "pvxDilate3x3Node not implemented");
 			retValue = Delegates.pvxDilate3x3Node(graph, input, output);
@@ -2914,9 +2914,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr Median3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node Median3x3Node(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxMedian3x3Node != null, "pvxMedian3x3Node not implemented");
 			retValue = Delegates.pvxMedian3x3Node(graph, input, output);
@@ -2926,9 +2926,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr Box3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node Box3x3Node(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxBox3x3Node != null, "pvxBox3x3Node not implemented");
 			retValue = Delegates.pvxBox3x3Node(graph, input, output);
@@ -2938,9 +2938,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr Gaussian3x3Node(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node Gaussian3x3Node(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxGaussian3x3Node != null, "pvxGaussian3x3Node not implemented");
 			retValue = Delegates.pvxGaussian3x3Node(graph, input, output);
@@ -2950,9 +2950,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr NonLinearFilterNode(IntPtr graph, int function, IntPtr input, IntPtr mask, IntPtr output)
+		public static Node NonLinearFilterNode(Graph graph, int function, Image input, Matrix mask, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxNonLinearFilterNode != null, "pvxNonLinearFilterNode not implemented");
 			retValue = Delegates.pvxNonLinearFilterNode(graph, function, input, mask, output);
@@ -2962,9 +2962,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr ConvolveNode(IntPtr graph, IntPtr input, IntPtr conv, IntPtr output)
+		public static Node ConvolveNode(Graph graph, Image input, Convolution conv, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxConvolveNode != null, "pvxConvolveNode not implemented");
 			retValue = Delegates.pvxConvolveNode(graph, input, conv, output);
@@ -2974,9 +2974,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr GaussianPyramidNode(IntPtr graph, IntPtr input, IntPtr gaussian)
+		public static Node GaussianPyramidNode(Graph graph, Image input, Pyramid gaussian)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxGaussianPyramidNode != null, "pvxGaussianPyramidNode not implemented");
 			retValue = Delegates.pvxGaussianPyramidNode(graph, input, gaussian);
@@ -2986,9 +2986,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr LaplacianPyramidNode(IntPtr graph, IntPtr input, IntPtr laplacian, IntPtr output)
+		public static Node LaplacianPyramidNode(Graph graph, Image input, Pyramid laplacian, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxLaplacianPyramidNode != null, "pvxLaplacianPyramidNode not implemented");
 			retValue = Delegates.pvxLaplacianPyramidNode(graph, input, laplacian, output);
@@ -2998,9 +2998,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr LaplacianReconstructNode(IntPtr graph, IntPtr laplacian, IntPtr input, IntPtr output)
+		public static Node LaplacianReconstructNode(Graph graph, Pyramid laplacian, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxLaplacianReconstructNode != null, "pvxLaplacianReconstructNode not implemented");
 			retValue = Delegates.pvxLaplacianReconstructNode(graph, laplacian, input, output);
@@ -3010,9 +3010,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr AccumulateImageNode(IntPtr graph, IntPtr input, IntPtr accum)
+		public static Node AccumulateImageNode(Graph graph, Image input, Image accum)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxAccumulateImageNode != null, "pvxAccumulateImageNode not implemented");
 			retValue = Delegates.pvxAccumulateImageNode(graph, input, accum);
@@ -3022,9 +3022,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr AccumulateWeightedImageNode(IntPtr graph, IntPtr input, IntPtr alpha, IntPtr accum)
+		public static Node AccumulateWeightedImageNode(Graph graph, Image input, Scalar alpha, Image accum)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxAccumulateWeightedImageNode != null, "pvxAccumulateWeightedImageNode not implemented");
 			retValue = Delegates.pvxAccumulateWeightedImageNode(graph, input, alpha, accum);
@@ -3034,9 +3034,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr AccumulateSquareImageNode(IntPtr graph, IntPtr input, IntPtr shift, IntPtr accum)
+		public static Node AccumulateSquareImageNode(Graph graph, Image input, Scalar shift, Image accum)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxAccumulateSquareImageNode != null, "pvxAccumulateSquareImageNode not implemented");
 			retValue = Delegates.pvxAccumulateSquareImageNode(graph, input, shift, accum);
@@ -3046,9 +3046,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr MinMaxLocNode(IntPtr graph, IntPtr input, IntPtr minVal, IntPtr maxVal, IntPtr minLoc, IntPtr maxLoc, IntPtr minCount, IntPtr maxCount)
+		public static Node MinMaxLocNode(Graph graph, Image input, Scalar minVal, Scalar maxVal, Array minLoc, Array maxLoc, Scalar minCount, Scalar maxCount)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxMinMaxLocNode != null, "pvxMinMaxLocNode not implemented");
 			retValue = Delegates.pvxMinMaxLocNode(graph, input, minVal, maxVal, minLoc, maxLoc, minCount, maxCount);
@@ -3058,9 +3058,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr AndNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out)
+		public static Node AndNode(Graph graph, Image in1, Image in2, Image @out)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxAndNode != null, "pvxAndNode not implemented");
 			retValue = Delegates.pvxAndNode(graph, in1, in2, @out);
@@ -3070,9 +3070,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr OrNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out)
+		public static Node OrNode(Graph graph, Image in1, Image in2, Image @out)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxOrNode != null, "pvxOrNode not implemented");
 			retValue = Delegates.pvxOrNode(graph, in1, in2, @out);
@@ -3082,9 +3082,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr XorNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out)
+		public static Node XorNode(Graph graph, Image in1, Image in2, Image @out)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxXorNode != null, "pvxXorNode not implemented");
 			retValue = Delegates.pvxXorNode(graph, in1, in2, @out);
@@ -3094,9 +3094,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr NotNode(IntPtr graph, IntPtr input, IntPtr output)
+		public static Node NotNode(Graph graph, Image input, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxNotNode != null, "pvxNotNode not implemented");
 			retValue = Delegates.pvxNotNode(graph, input, output);
@@ -3106,9 +3106,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr MultiplyNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr scale, int overflow_policy, int rounding_policy, IntPtr @out)
+		public static Node MultiplyNode(Graph graph, Image in1, Image in2, Scalar scale, int overflow_policy, int rounding_policy, Image @out)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxMultiplyNode != null, "pvxMultiplyNode not implemented");
 			retValue = Delegates.pvxMultiplyNode(graph, in1, in2, scale, overflow_policy, rounding_policy, @out);
@@ -3118,9 +3118,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr AddNode(IntPtr graph, IntPtr in1, IntPtr in2, int policy, IntPtr @out)
+		public static Node AddNode(Graph graph, Image in1, Image in2, int policy, Image @out)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxAddNode != null, "pvxAddNode not implemented");
 			retValue = Delegates.pvxAddNode(graph, in1, in2, policy, @out);
@@ -3130,9 +3130,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr SubtractNode(IntPtr graph, IntPtr in1, IntPtr in2, int policy, IntPtr @out)
+		public static Node SubtractNode(Graph graph, Image in1, Image in2, int policy, Image @out)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxSubtractNode != null, "pvxSubtractNode not implemented");
 			retValue = Delegates.pvxSubtractNode(graph, in1, in2, policy, @out);
@@ -3142,9 +3142,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr ConvertDepthNode(IntPtr graph, IntPtr input, IntPtr output, int policy, IntPtr shift)
+		public static Node ConvertDepthNode(Graph graph, Image input, Image output, int policy, Scalar shift)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxConvertDepthNode != null, "pvxConvertDepthNode not implemented");
 			retValue = Delegates.pvxConvertDepthNode(graph, input, output, policy, shift);
@@ -3154,9 +3154,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr CannyEdgeDetectorNode(IntPtr graph, IntPtr input, IntPtr hyst, int gradient_size, int norm_type, IntPtr output)
+		public static Node CannyEdgeDetectorNode(Graph graph, Image input, Threshold hyst, int gradient_size, int norm_type, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxCannyEdgeDetectorNode != null, "pvxCannyEdgeDetectorNode not implemented");
 			retValue = Delegates.pvxCannyEdgeDetectorNode(graph, input, hyst, gradient_size, norm_type, output);
@@ -3166,9 +3166,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr WarpAffineNode(IntPtr graph, IntPtr input, IntPtr matrix, int type, IntPtr output)
+		public static Node WarpAffineNode(Graph graph, Image input, Matrix matrix, int type, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxWarpAffineNode != null, "pvxWarpAffineNode not implemented");
 			retValue = Delegates.pvxWarpAffineNode(graph, input, matrix, type, output);
@@ -3178,9 +3178,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr WarpPerspectiveNode(IntPtr graph, IntPtr input, IntPtr matrix, int type, IntPtr output)
+		public static Node WarpPerspectiveNode(Graph graph, Image input, Matrix matrix, int type, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxWarpPerspectiveNode != null, "pvxWarpPerspectiveNode not implemented");
 			retValue = Delegates.pvxWarpPerspectiveNode(graph, input, matrix, type, output);
@@ -3190,9 +3190,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr HarrisCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, IntPtr min_distance, IntPtr sensitivity, int gradient_size, int block_size, IntPtr corners, IntPtr num_corners)
+		public static Node HarrisCornersNode(Graph graph, Image input, Scalar strength_thresh, Scalar min_distance, Scalar sensitivity, int gradient_size, int block_size, Array corners, Scalar num_corners)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxHarrisCornersNode != null, "pvxHarrisCornersNode not implemented");
 			retValue = Delegates.pvxHarrisCornersNode(graph, input, strength_thresh, min_distance, sensitivity, gradient_size, block_size, corners, num_corners);
@@ -3202,9 +3202,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr FastCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, bool nonmax_suppression, IntPtr corners, IntPtr num_corners)
+		public static Node FastCornersNode(Graph graph, Image input, Scalar strength_thresh, bool nonmax_suppression, Array corners, Scalar num_corners)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxFastCornersNode != null, "pvxFastCornersNode not implemented");
 			retValue = Delegates.pvxFastCornersNode(graph, input, strength_thresh, nonmax_suppression, corners, num_corners);
@@ -3214,9 +3214,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr OpticalFlowPyrLKNode(IntPtr graph, IntPtr old_images, IntPtr new_images, IntPtr old_points, IntPtr new_points_estimates, IntPtr new_points, int termination, IntPtr epsilon, IntPtr num_iterations, IntPtr use_initial_estimate, uint window_dimension)
+		public static Node OpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, int termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, uint window_dimension)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxOpticalFlowPyrLKNode != null, "pvxOpticalFlowPyrLKNode not implemented");
 			retValue = Delegates.pvxOpticalFlowPyrLKNode(graph, old_images, new_images, old_points, new_points_estimates, new_points, termination, epsilon, num_iterations, use_initial_estimate, window_dimension);
@@ -3226,9 +3226,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr RemapNode(IntPtr graph, IntPtr input, IntPtr table, int policy, IntPtr output)
+		public static Node RemapNode(Graph graph, Image input, Remap table, int policy, Image output)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxRemapNode != null, "pvxRemapNode not implemented");
 			retValue = Delegates.pvxRemapNode(graph, input, table, policy, output);
@@ -3238,9 +3238,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static IntPtr HalfScaleGaussianNode(IntPtr graph, IntPtr input, IntPtr output, int kernel_size)
+		public static Node HalfScaleGaussianNode(Graph graph, Image input, Image output, int kernel_size)
 		{
-			IntPtr retValue;
+			Node retValue;
 
 			Debug.Assert(Delegates.pvxHalfScaleGaussianNode != null, "pvxHalfScaleGaussianNode not implemented");
 			retValue = Delegates.pvxHalfScaleGaussianNode(graph, input, output, kernel_size);
@@ -3253,112 +3253,112 @@ namespace OpenVX
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr vxCreateContext();
+			internal delegate Context vxCreateContext();
 
 			internal static vxCreateContext pvxCreateContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseContext(IntPtr* context);
+			internal unsafe delegate Status vxReleaseContext(Context* context);
 
 			internal static vxReleaseContext pvxReleaseContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetContext(IntPtr reference);
+			internal delegate Context vxGetContext(Reference reference);
 
 			internal static vxGetContext pvxGetContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryContext(IntPtr context, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryContext(Context context, int attribute, void* ptr, uint size);
 
 			internal static vxQueryContext pvxQueryContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetContextAttribute(IntPtr context, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetContextAttribute(Context context, int attribute, void* ptr, uint size);
 
 			internal static vxSetContextAttribute pvxSetContextAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxHint(IntPtr reference, int hint, void* data, uint data_size);
+			internal unsafe delegate Status vxHint(Reference reference, int hint, void* data, uint data_size);
 
 			internal static vxHint pvxHint;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxDirective(IntPtr reference, int directive);
+			internal delegate Status vxDirective(Reference reference, int directive);
 
 			internal static vxDirective pvxDirective;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxGetStatus(IntPtr reference);
+			internal delegate Status vxGetStatus(Reference reference);
 
 			internal static vxGetStatus pvxGetStatus;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int vxRegisterUserStruct(IntPtr context, uint size);
+			internal delegate int vxRegisterUserStruct(Context context, uint size);
 
 			internal static vxRegisterUserStruct pvxRegisterUserStruct;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAllocateUserKernelId(IntPtr context, int* pKernelEnumId);
+			internal unsafe delegate Status vxAllocateUserKernelId(Context context, int* pKernelEnumId);
 
 			internal static vxAllocateUserKernelId pvxAllocateUserKernelId;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAllocateUserKernelLibraryId(IntPtr context, int* pLibraryId);
+			internal unsafe delegate Status vxAllocateUserKernelLibraryId(Context context, int* pLibraryId);
 
 			internal static vxAllocateUserKernelLibraryId pvxAllocateUserKernelLibraryId;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetImmediateModeTarget(IntPtr context, int target_enum, string target_string);
+			internal delegate Status vxSetImmediateModeTarget(Context context, int target_enum, string target_string);
 
 			internal static vxSetImmediateModeTarget pvxSetImmediateModeTarget;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateImage(IntPtr context, uint width, uint height, DfImage color);
+			internal delegate Image vxCreateImage(Context context, uint width, uint height, DfImage color);
 
 			internal static vxCreateImage pvxCreateImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateImageFromROI(IntPtr img, Rectangle* rect);
+			internal unsafe delegate Image vxCreateImageFromROI(Image img, Rectangle* rect);
 
 			internal static vxCreateImageFromROI pvxCreateImageFromROI;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateUniformImage(IntPtr context, uint width, uint height, DfImage color, PixelValue value);
+			internal delegate Image vxCreateUniformImage(Context context, uint width, uint height, DfImage color, PixelValue value);
 
 			internal static vxCreateUniformImage pvxCreateUniformImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateVirtualImage(IntPtr graph, uint width, uint height, DfImage color);
+			internal delegate Image vxCreateVirtualImage(Graph graph, uint width, uint height, DfImage color);
 
 			internal static vxCreateVirtualImage pvxCreateVirtualImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateImageFromHandle(IntPtr context, DfImage color, ImagePatchAddressing* addrs, IntPtr* ptrs, int memory_type);
+			internal unsafe delegate Image vxCreateImageFromHandle(Context context, DfImage color, ImagePatchAddressing* addrs, IntPtr* ptrs, int memory_type);
 
 			internal static vxCreateImageFromHandle pvxCreateImageFromHandle;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSwapImageHandle(IntPtr image, IntPtr* new_ptrs, IntPtr* prev_ptrs, uint num_planes);
+			internal unsafe delegate Status vxSwapImageHandle(Image image, IntPtr* new_ptrs, IntPtr* prev_ptrs, uint num_planes);
 
 			internal static vxSwapImageHandle pvxSwapImageHandle;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryImage(IntPtr image, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryImage(Image image, int attribute, void* ptr, uint size);
 
 			internal static vxQueryImage pvxQueryImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetImageAttribute(IntPtr image, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetImageAttribute(Image image, int attribute, void* ptr, uint size);
 
 			internal static vxSetImageAttribute pvxSetImageAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseImage(IntPtr* image);
+			internal unsafe delegate Status vxReleaseImage(Image* image);
 
 			internal static vxReleaseImage pvxReleaseImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate uint vxComputeImagePatchSize(IntPtr image, Rectangle* rect, uint plane_index);
+			internal unsafe delegate uint vxComputeImagePatchSize(Image image, Rectangle* rect, uint plane_index);
 
 			internal static vxComputeImagePatchSize pvxComputeImagePatchSize;
 
@@ -3373,782 +3373,782 @@ namespace OpenVX
 			internal static vxFormatImagePatchAddress2d pvxFormatImagePatchAddress2d;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxGetValidRegionImage(IntPtr image, Rectangle* rect);
+			internal unsafe delegate Status vxGetValidRegionImage(Image image, Rectangle* rect);
 
 			internal static vxGetValidRegionImage pvxGetValidRegionImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyImagePatch(IntPtr image, Rectangle* image_rect, uint image_plane_index, ImagePatchAddressing* user_addr, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyImagePatch(Image image, Rectangle* image_rect, uint image_plane_index, ImagePatchAddressing* user_addr, void* user_ptr, int usage, int user_mem_type);
 
 			internal static vxCopyImagePatch pvxCopyImagePatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapImagePatch(IntPtr image, Rectangle* rect, uint plane_index, UIntPtr* map_id, ImagePatchAddressing* addr, IntPtr* ptr, int usage, int mem_type, uint flags);
+			internal unsafe delegate Status vxMapImagePatch(Image image, Rectangle* rect, uint plane_index, MapId* map_id, ImagePatchAddressing* addr, IntPtr* ptr, int usage, int mem_type, uint flags);
 
 			internal static vxMapImagePatch pvxMapImagePatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxUnmapImagePatch(IntPtr image, UIntPtr map_id);
+			internal delegate Status vxUnmapImagePatch(Image image, MapId map_id);
 
 			internal static vxUnmapImagePatch pvxUnmapImagePatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateImageFromChannel(IntPtr img, int channel);
+			internal delegate Image vxCreateImageFromChannel(Image img, int channel);
 
 			internal static vxCreateImageFromChannel pvxCreateImageFromChannel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetImageValidRectangle(IntPtr image, Rectangle* rect);
+			internal unsafe delegate Status vxSetImageValidRectangle(Image image, Rectangle* rect);
 
 			internal static vxSetImageValidRectangle pvxSetImageValidRectangle;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxLoadKernels(IntPtr context, string module);
+			internal delegate Status vxLoadKernels(Context context, string module);
 
 			internal static vxLoadKernels pvxLoadKernels;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxUnloadKernels(IntPtr context, string module);
+			internal delegate Status vxUnloadKernels(Context context, string module);
 
 			internal static vxUnloadKernels pvxUnloadKernels;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetKernelByName(IntPtr context, string name);
+			internal delegate Kernel vxGetKernelByName(Context context, string name);
 
 			internal static vxGetKernelByName pvxGetKernelByName;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetKernelByEnum(IntPtr context, int kernel);
+			internal delegate Kernel vxGetKernelByEnum(Context context, int kernel);
 
 			internal static vxGetKernelByEnum pvxGetKernelByEnum;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryKernel(IntPtr kernel, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryKernel(Kernel kernel, int attribute, void* ptr, uint size);
 
 			internal static vxQueryKernel pvxQueryKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseKernel(IntPtr* kernel);
+			internal unsafe delegate Status vxReleaseKernel(Kernel* kernel);
 
 			internal static vxReleaseKernel pvxReleaseKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxAddUserKernel(IntPtr context, string name, int enumeration, KernelCallback func_ptr, uint numParams, KernelValidateCallbackCallback validate, KernelInitializeCallback init, KernelDeinitializeCallback deinit);
+			internal delegate Kernel vxAddUserKernel(Context context, string name, int enumeration, KernelCallback func_ptr, uint numParams, KernelValidateCallbackCallback validate, KernelInitializeCallback init, KernelDeinitializeCallback deinit);
 
 			internal static vxAddUserKernel pvxAddUserKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxFinalizeKernel(IntPtr kernel);
+			internal delegate Status vxFinalizeKernel(Kernel kernel);
 
 			internal static vxFinalizeKernel pvxFinalizeKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAddParameterToKernel(IntPtr kernel, uint index, int dir, int data_type, int state);
+			internal delegate Status vxAddParameterToKernel(Kernel kernel, uint index, int dir, int data_type, int state);
 
 			internal static vxAddParameterToKernel pvxAddParameterToKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxRemoveKernel(IntPtr kernel);
+			internal delegate Status vxRemoveKernel(Kernel kernel);
 
 			internal static vxRemoveKernel pvxRemoveKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetKernelAttribute(IntPtr kernel, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetKernelAttribute(Kernel kernel, int attribute, void* ptr, uint size);
 
 			internal static vxSetKernelAttribute pvxSetKernelAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetKernelParameterByIndex(IntPtr kernel, uint index);
+			internal delegate Parameter vxGetKernelParameterByIndex(Kernel kernel, uint index);
 
 			internal static vxGetKernelParameterByIndex pvxGetKernelParameterByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateGraph(IntPtr context);
+			internal delegate Graph vxCreateGraph(Context context);
 
 			internal static vxCreateGraph pvxCreateGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseGraph(IntPtr* graph);
+			internal unsafe delegate Status vxReleaseGraph(Graph* graph);
 
 			internal static vxReleaseGraph pvxReleaseGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxVerifyGraph(IntPtr graph);
+			internal delegate Status vxVerifyGraph(Graph graph);
 
 			internal static vxVerifyGraph pvxVerifyGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxProcessGraph(IntPtr graph);
+			internal delegate Status vxProcessGraph(Graph graph);
 
 			internal static vxProcessGraph pvxProcessGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxScheduleGraph(IntPtr graph);
+			internal delegate Status vxScheduleGraph(Graph graph);
 
 			internal static vxScheduleGraph pvxScheduleGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxWaitGraph(IntPtr graph);
+			internal delegate Status vxWaitGraph(Graph graph);
 
 			internal static vxWaitGraph pvxWaitGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryGraph(IntPtr graph, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryGraph(Graph graph, int attribute, void* ptr, uint size);
 
 			internal static vxQueryGraph pvxQueryGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetGraphAttribute(IntPtr graph, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetGraphAttribute(Graph graph, int attribute, void* ptr, uint size);
 
 			internal static vxSetGraphAttribute pvxSetGraphAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAddParameterToGraph(IntPtr graph, IntPtr parameter);
+			internal delegate Status vxAddParameterToGraph(Graph graph, Parameter parameter);
 
 			internal static vxAddParameterToGraph pvxAddParameterToGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetGraphParameterByIndex(IntPtr graph, uint index, IntPtr value);
+			internal delegate Status vxSetGraphParameterByIndex(Graph graph, uint index, Reference value);
 
 			internal static vxSetGraphParameterByIndex pvxSetGraphParameterByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetGraphParameterByIndex(IntPtr graph, uint index);
+			internal delegate Parameter vxGetGraphParameterByIndex(Graph graph, uint index);
 
 			internal static vxGetGraphParameterByIndex pvxGetGraphParameterByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool vxIsGraphVerified(IntPtr graph);
+			internal delegate bool vxIsGraphVerified(Graph graph);
 
 			internal static vxIsGraphVerified pvxIsGraphVerified;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateGenericNode(IntPtr graph, IntPtr kernel);
+			internal delegate Node vxCreateGenericNode(Graph graph, Kernel kernel);
 
 			internal static vxCreateGenericNode pvxCreateGenericNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryNode(IntPtr node, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryNode(Node node, int attribute, void* ptr, uint size);
 
 			internal static vxQueryNode pvxQueryNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetNodeAttribute(IntPtr node, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetNodeAttribute(Node node, int attribute, void* ptr, uint size);
 
 			internal static vxSetNodeAttribute pvxSetNodeAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseNode(IntPtr* node);
+			internal unsafe delegate Status vxReleaseNode(Node* node);
 
 			internal static vxReleaseNode pvxReleaseNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxRemoveNode(IntPtr* node);
+			internal unsafe delegate Status vxRemoveNode(Node* node);
 
 			internal static vxRemoveNode pvxRemoveNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAssignNodeCallback(IntPtr node, NodeCompleteCallback callback);
+			internal delegate Status vxAssignNodeCallback(Node node, NodeCompleteCallback callback);
 
 			internal static vxAssignNodeCallback pvxAssignNodeCallback;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate NodeCompleteCallback vxRetrieveNodeCallback(IntPtr node);
+			internal delegate NodeCompleteCallback vxRetrieveNodeCallback(Node node);
 
 			internal static vxRetrieveNodeCallback pvxRetrieveNodeCallback;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetNodeTarget(IntPtr node, int target_enum, string target_string);
+			internal delegate Status vxSetNodeTarget(Node node, int target_enum, string target_string);
 
 			internal static vxSetNodeTarget pvxSetNodeTarget;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReplicateNode(IntPtr graph, IntPtr first_node, bool* replicate, uint number_of_parameters);
+			internal unsafe delegate Status vxReplicateNode(Graph graph, Node first_node, bool* replicate, uint number_of_parameters);
 
 			internal static vxReplicateNode pvxReplicateNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetParameterByIndex(IntPtr node, uint index);
+			internal delegate Parameter vxGetParameterByIndex(Node node, uint index);
 
 			internal static vxGetParameterByIndex pvxGetParameterByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseParameter(IntPtr* param);
+			internal unsafe delegate Status vxReleaseParameter(Parameter* param);
 
 			internal static vxReleaseParameter pvxReleaseParameter;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetParameterByIndex(IntPtr node, uint index, IntPtr value);
+			internal delegate Status vxSetParameterByIndex(Node node, uint index, Reference value);
 
 			internal static vxSetParameterByIndex pvxSetParameterByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetParameterByReference(IntPtr parameter, IntPtr value);
+			internal delegate Status vxSetParameterByReference(Parameter parameter, Reference value);
 
 			internal static vxSetParameterByReference pvxSetParameterByReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryParameter(IntPtr parameter, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryParameter(Parameter parameter, int attribute, void* ptr, uint size);
 
 			internal static vxQueryParameter pvxQueryParameter;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateScalar(IntPtr context, int data_type, void* ptr);
+			internal unsafe delegate Scalar vxCreateScalar(Context context, int data_type, void* ptr);
 
 			internal static vxCreateScalar pvxCreateScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseScalar(IntPtr* scalar);
+			internal unsafe delegate Status vxReleaseScalar(Scalar* scalar);
 
 			internal static vxReleaseScalar pvxReleaseScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryScalar(IntPtr scalar, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryScalar(Scalar scalar, int attribute, void* ptr, uint size);
 
 			internal static vxQueryScalar pvxQueryScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyScalar(IntPtr scalar, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyScalar(Scalar scalar, void* user_ptr, int usage, int user_mem_type);
 
 			internal static vxCopyScalar pvxCopyScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryReference(IntPtr @ref, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryReference(Reference @ref, int attribute, void* ptr, uint size);
 
 			internal static vxQueryReference pvxQueryReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseReference(IntPtr* ref_ptr);
+			internal unsafe delegate Status vxReleaseReference(Reference* ref_ptr);
 
 			internal static vxReleaseReference pvxReleaseReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxRetainReference(IntPtr @ref);
+			internal delegate Status vxRetainReference(Reference @ref);
 
 			internal static vxRetainReference pvxRetainReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetReferenceName(IntPtr @ref, string name);
+			internal delegate Status vxSetReferenceName(Reference @ref, string name);
 
 			internal static vxSetReferenceName pvxSetReferenceName;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryDelay(IntPtr delay, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryDelay(Delay delay, int attribute, void* ptr, uint size);
 
 			internal static vxQueryDelay pvxQueryDelay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseDelay(IntPtr* delay);
+			internal unsafe delegate Status vxReleaseDelay(Delay* delay);
 
 			internal static vxReleaseDelay pvxReleaseDelay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateDelay(IntPtr context, IntPtr exemplar, uint num_slots);
+			internal delegate Delay vxCreateDelay(Context context, Reference exemplar, uint num_slots);
 
 			internal static vxCreateDelay pvxCreateDelay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetReferenceFromDelay(IntPtr delay, int index);
+			internal delegate Reference vxGetReferenceFromDelay(Delay delay, int index);
 
 			internal static vxGetReferenceFromDelay pvxGetReferenceFromDelay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAgeDelay(IntPtr delay);
+			internal delegate Status vxAgeDelay(Delay delay);
 
 			internal static vxAgeDelay pvxAgeDelay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxRegisterAutoAging(IntPtr graph, IntPtr delay);
+			internal delegate Status vxRegisterAutoAging(Graph graph, Delay delay);
 
 			internal static vxRegisterAutoAging pvxRegisterAutoAging;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void vxAddLogEntry(IntPtr @ref, Status status, string message, Int32 vaArgs);
+			internal delegate void vxAddLogEntry(Reference @ref, Status status, string message, Int32 vaArgs);
 
 			internal static vxAddLogEntry pvxAddLogEntry;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void vxRegisterLogCallback(IntPtr context, LogCallback callback, bool reentrant);
+			internal delegate void vxRegisterLogCallback(Context context, LogCallback callback, bool reentrant);
 
 			internal static vxRegisterLogCallback pvxRegisterLogCallback;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateLUT(IntPtr context, int data_type, uint count);
+			internal delegate Lut vxCreateLUT(Context context, int data_type, uint count);
 
 			internal static vxCreateLUT pvxCreateLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseLUT(IntPtr* lut);
+			internal unsafe delegate Status vxReleaseLUT(Lut* lut);
 
 			internal static vxReleaseLUT pvxReleaseLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryLUT(IntPtr lut, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryLUT(Lut lut, int attribute, void* ptr, uint size);
 
 			internal static vxQueryLUT pvxQueryLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyLUT(IntPtr lut, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyLUT(Lut lut, void* user_ptr, int usage, int user_mem_type);
 
 			internal static vxCopyLUT pvxCopyLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapLUT(IntPtr lut, UIntPtr* map_id, IntPtr* ptr, int usage, int mem_type, uint flags);
+			internal unsafe delegate Status vxMapLUT(Lut lut, MapId* map_id, IntPtr* ptr, int usage, int mem_type, uint flags);
 
 			internal static vxMapLUT pvxMapLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxUnmapLUT(IntPtr lut, UIntPtr map_id);
+			internal delegate Status vxUnmapLUT(Lut lut, MapId map_id);
 
 			internal static vxUnmapLUT pvxUnmapLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateDistribution(IntPtr context, uint numBins, int offset, uint range);
+			internal delegate Distribution vxCreateDistribution(Context context, uint numBins, int offset, uint range);
 
 			internal static vxCreateDistribution pvxCreateDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseDistribution(IntPtr* distribution);
+			internal unsafe delegate Status vxReleaseDistribution(Distribution* distribution);
 
 			internal static vxReleaseDistribution pvxReleaseDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryDistribution(IntPtr distribution, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryDistribution(Distribution distribution, int attribute, void* ptr, uint size);
 
 			internal static vxQueryDistribution pvxQueryDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyDistribution(IntPtr distribution, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyDistribution(Distribution distribution, void* user_ptr, int usage, int user_mem_type);
 
 			internal static vxCopyDistribution pvxCopyDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapDistribution(IntPtr distribution, UIntPtr* map_id, IntPtr* ptr, int usage, int mem_type, uint flags);
+			internal unsafe delegate Status vxMapDistribution(Distribution distribution, MapId* map_id, IntPtr* ptr, int usage, int mem_type, uint flags);
 
 			internal static vxMapDistribution pvxMapDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxUnmapDistribution(IntPtr distribution, UIntPtr map_id);
+			internal delegate Status vxUnmapDistribution(Distribution distribution, MapId map_id);
 
 			internal static vxUnmapDistribution pvxUnmapDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateThreshold(IntPtr c, int thresh_type, int data_type);
+			internal delegate Threshold vxCreateThreshold(Context c, int thresh_type, int data_type);
 
 			internal static vxCreateThreshold pvxCreateThreshold;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseThreshold(IntPtr* thresh);
+			internal unsafe delegate Status vxReleaseThreshold(Threshold* thresh);
 
 			internal static vxReleaseThreshold pvxReleaseThreshold;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetThresholdAttribute(IntPtr thresh, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetThresholdAttribute(Threshold thresh, int attribute, void* ptr, uint size);
 
 			internal static vxSetThresholdAttribute pvxSetThresholdAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryThreshold(IntPtr thresh, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryThreshold(Threshold thresh, int attribute, void* ptr, uint size);
 
 			internal static vxQueryThreshold pvxQueryThreshold;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateMatrix(IntPtr c, int data_type, uint columns, uint rows);
+			internal delegate Matrix vxCreateMatrix(Context c, int data_type, uint columns, uint rows);
 
 			internal static vxCreateMatrix pvxCreateMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseMatrix(IntPtr* mat);
+			internal unsafe delegate Status vxReleaseMatrix(Matrix* mat);
 
 			internal static vxReleaseMatrix pvxReleaseMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryMatrix(IntPtr mat, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryMatrix(Matrix mat, int attribute, void* ptr, uint size);
 
 			internal static vxQueryMatrix pvxQueryMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyMatrix(IntPtr matrix, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyMatrix(Matrix matrix, void* user_ptr, int usage, int user_mem_type);
 
 			internal static vxCopyMatrix pvxCopyMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateMatrixFromPattern(IntPtr context, int pattern, uint columns, uint rows);
+			internal delegate Matrix vxCreateMatrixFromPattern(Context context, int pattern, uint columns, uint rows);
 
 			internal static vxCreateMatrixFromPattern pvxCreateMatrixFromPattern;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateConvolution(IntPtr context, uint columns, uint rows);
+			internal delegate Convolution vxCreateConvolution(Context context, uint columns, uint rows);
 
 			internal static vxCreateConvolution pvxCreateConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseConvolution(IntPtr* conv);
+			internal unsafe delegate Status vxReleaseConvolution(Convolution* conv);
 
 			internal static vxReleaseConvolution pvxReleaseConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryConvolution(IntPtr conv, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryConvolution(Convolution conv, int attribute, void* ptr, uint size);
 
 			internal static vxQueryConvolution pvxQueryConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetConvolutionAttribute(IntPtr conv, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetConvolutionAttribute(Convolution conv, int attribute, void* ptr, uint size);
 
 			internal static vxSetConvolutionAttribute pvxSetConvolutionAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyConvolutionCoefficients(IntPtr conv, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyConvolutionCoefficients(Convolution conv, void* user_ptr, int usage, int user_mem_type);
 
 			internal static vxCopyConvolutionCoefficients pvxCopyConvolutionCoefficients;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreatePyramid(IntPtr context, uint levels, float scale, uint width, uint height, DfImage format);
+			internal delegate Pyramid vxCreatePyramid(Context context, uint levels, float scale, uint width, uint height, DfImage format);
 
 			internal static vxCreatePyramid pvxCreatePyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateVirtualPyramid(IntPtr graph, uint levels, float scale, uint width, uint height, DfImage format);
+			internal delegate Pyramid vxCreateVirtualPyramid(Graph graph, uint levels, float scale, uint width, uint height, DfImage format);
 
 			internal static vxCreateVirtualPyramid pvxCreateVirtualPyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleasePyramid(IntPtr* pyr);
+			internal unsafe delegate Status vxReleasePyramid(Pyramid* pyr);
 
 			internal static vxReleasePyramid pvxReleasePyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryPyramid(IntPtr pyr, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryPyramid(Pyramid pyr, int attribute, void* ptr, uint size);
 
 			internal static vxQueryPyramid pvxQueryPyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetPyramidLevel(IntPtr pyr, uint index);
+			internal delegate Image vxGetPyramidLevel(Pyramid pyr, uint index);
 
 			internal static vxGetPyramidLevel pvxGetPyramidLevel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateRemap(IntPtr context, uint src_width, uint src_height, uint dst_width, uint dst_height);
+			internal delegate Remap vxCreateRemap(Context context, uint src_width, uint src_height, uint dst_width, uint dst_height);
 
 			internal static vxCreateRemap pvxCreateRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseRemap(IntPtr* table);
+			internal unsafe delegate Status vxReleaseRemap(Remap* table);
 
 			internal static vxReleaseRemap pvxReleaseRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetRemapPoint(IntPtr table, uint dst_x, uint dst_y, float src_x, float src_y);
+			internal delegate Status vxSetRemapPoint(Remap table, uint dst_x, uint dst_y, float src_x, float src_y);
 
 			internal static vxSetRemapPoint pvxSetRemapPoint;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxGetRemapPoint(IntPtr table, uint dst_x, uint dst_y, float* src_x, float* src_y);
+			internal unsafe delegate Status vxGetRemapPoint(Remap table, uint dst_x, uint dst_y, float* src_x, float* src_y);
 
 			internal static vxGetRemapPoint pvxGetRemapPoint;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryRemap(IntPtr table, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryRemap(Remap table, int attribute, void* ptr, uint size);
 
 			internal static vxQueryRemap pvxQueryRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateArray(IntPtr context, int item_type, uint capacity);
+			internal delegate Array vxCreateArray(Context context, int item_type, uint capacity);
 
 			internal static vxCreateArray pvxCreateArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateVirtualArray(IntPtr graph, int item_type, uint capacity);
+			internal delegate Array vxCreateVirtualArray(Graph graph, int item_type, uint capacity);
 
 			internal static vxCreateVirtualArray pvxCreateVirtualArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseArray(IntPtr* arr);
+			internal unsafe delegate Status vxReleaseArray(Array* arr);
 
 			internal static vxReleaseArray pvxReleaseArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryArray(IntPtr arr, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryArray(Array arr, int attribute, void* ptr, uint size);
 
 			internal static vxQueryArray pvxQueryArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAddArrayItems(IntPtr arr, uint count, void* ptr, uint stride);
+			internal unsafe delegate Status vxAddArrayItems(Array arr, uint count, void* ptr, uint stride);
 
 			internal static vxAddArrayItems pvxAddArrayItems;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxTruncateArray(IntPtr arr, uint new_num_items);
+			internal delegate Status vxTruncateArray(Array arr, uint new_num_items);
 
 			internal static vxTruncateArray pvxTruncateArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyArrayRange(IntPtr array, uint range_start, uint range_end, uint user_stride, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyArrayRange(Array array, uint range_start, uint range_end, uint user_stride, void* user_ptr, int usage, int user_mem_type);
 
 			internal static vxCopyArrayRange pvxCopyArrayRange;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapArrayRange(IntPtr array, uint range_start, uint range_end, UIntPtr* map_id, uint* stride, IntPtr* ptr, int usage, int mem_type, uint flags);
+			internal unsafe delegate Status vxMapArrayRange(Array array, uint range_start, uint range_end, MapId* map_id, uint* stride, IntPtr* ptr, int usage, int mem_type, uint flags);
 
 			internal static vxMapArrayRange pvxMapArrayRange;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxUnmapArrayRange(IntPtr array, UIntPtr map_id);
+			internal delegate Status vxUnmapArrayRange(Array array, MapId map_id);
 
 			internal static vxUnmapArrayRange pvxUnmapArrayRange;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateObjectArray(IntPtr context, IntPtr exemplar, uint count);
+			internal delegate ObjectArray vxCreateObjectArray(Context context, Reference exemplar, uint count);
 
 			internal static vxCreateObjectArray pvxCreateObjectArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCreateVirtualObjectArray(IntPtr graph, IntPtr exemplar, uint count);
+			internal delegate ObjectArray vxCreateVirtualObjectArray(Graph graph, Reference exemplar, uint count);
 
 			internal static vxCreateVirtualObjectArray pvxCreateVirtualObjectArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGetObjectArrayItem(IntPtr arr, uint index);
+			internal delegate Reference vxGetObjectArrayItem(ObjectArray arr, uint index);
 
 			internal static vxGetObjectArrayItem pvxGetObjectArrayItem;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseObjectArray(IntPtr* arr);
+			internal unsafe delegate Status vxReleaseObjectArray(ObjectArray* arr);
 
 			internal static vxReleaseObjectArray pvxReleaseObjectArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryObjectArray(IntPtr arr, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryObjectArray(ObjectArray arr, int attribute, void* ptr, uint size);
 
 			internal static vxQueryObjectArray pvxQueryObjectArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetMetaFormatAttribute(IntPtr meta, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetMetaFormatAttribute(MetaFormat meta, int attribute, void* ptr, uint size);
 
 			internal static vxSetMetaFormatAttribute pvxSetMetaFormatAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetMetaFormatFromReference(IntPtr meta, IntPtr exemplar);
+			internal delegate Status vxSetMetaFormatFromReference(MetaFormat meta, Reference exemplar);
 
 			internal static vxSetMetaFormatFromReference pvxSetMetaFormatFromReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxColorConvertNode(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxColorConvertNode(Graph graph, Image input, Image output);
 
 			internal static vxColorConvertNode pvxColorConvertNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxChannelExtractNode(IntPtr graph, IntPtr input, int channel, IntPtr output);
+			internal delegate Node vxChannelExtractNode(Graph graph, Image input, int channel, Image output);
 
 			internal static vxChannelExtractNode pvxChannelExtractNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxChannelCombineNode(IntPtr graph, IntPtr plane0, IntPtr plane1, IntPtr plane2, IntPtr plane3, IntPtr output);
+			internal delegate Node vxChannelCombineNode(Graph graph, Image plane0, Image plane1, Image plane2, Image plane3, Image output);
 
 			internal static vxChannelCombineNode pvxChannelCombineNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxPhaseNode(IntPtr graph, IntPtr grad_x, IntPtr grad_y, IntPtr orientation);
+			internal delegate Node vxPhaseNode(Graph graph, Image grad_x, Image grad_y, Image orientation);
 
 			internal static vxPhaseNode pvxPhaseNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxSobel3x3Node(IntPtr graph, IntPtr input, IntPtr output_x, IntPtr output_y);
+			internal delegate Node vxSobel3x3Node(Graph graph, Image input, Image output_x, Image output_y);
 
 			internal static vxSobel3x3Node pvxSobel3x3Node;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxMagnitudeNode(IntPtr graph, IntPtr grad_x, IntPtr grad_y, IntPtr mag);
+			internal delegate Node vxMagnitudeNode(Graph graph, Image grad_x, Image grad_y, Image mag);
 
 			internal static vxMagnitudeNode pvxMagnitudeNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxScaleImageNode(IntPtr graph, IntPtr src, IntPtr dst, int type);
+			internal delegate Node vxScaleImageNode(Graph graph, Image src, Image dst, int type);
 
 			internal static vxScaleImageNode pvxScaleImageNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxTableLookupNode(IntPtr graph, IntPtr input, IntPtr lut, IntPtr output);
+			internal delegate Node vxTableLookupNode(Graph graph, Image input, Lut lut, Image output);
 
 			internal static vxTableLookupNode pvxTableLookupNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxHistogramNode(IntPtr graph, IntPtr input, IntPtr distribution);
+			internal delegate Node vxHistogramNode(Graph graph, Image input, Distribution distribution);
 
 			internal static vxHistogramNode pvxHistogramNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxEqualizeHistNode(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxEqualizeHistNode(Graph graph, Image input, Image output);
 
 			internal static vxEqualizeHistNode pvxEqualizeHistNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxAbsDiffNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out);
+			internal delegate Node vxAbsDiffNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxAbsDiffNode pvxAbsDiffNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxMeanStdDevNode(IntPtr graph, IntPtr input, IntPtr mean, IntPtr stddev);
+			internal delegate Node vxMeanStdDevNode(Graph graph, Image input, Scalar mean, Scalar stddev);
 
 			internal static vxMeanStdDevNode pvxMeanStdDevNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxThresholdNode(IntPtr graph, IntPtr input, IntPtr thresh, IntPtr output);
+			internal delegate Node vxThresholdNode(Graph graph, Image input, Threshold thresh, Image output);
 
 			internal static vxThresholdNode pvxThresholdNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxIntegralImageNode(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxIntegralImageNode(Graph graph, Image input, Image output);
 
 			internal static vxIntegralImageNode pvxIntegralImageNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxErode3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxErode3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxErode3x3Node pvxErode3x3Node;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxDilate3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxDilate3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxDilate3x3Node pvxDilate3x3Node;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxMedian3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxMedian3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxMedian3x3Node pvxMedian3x3Node;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxBox3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxBox3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxBox3x3Node pvxBox3x3Node;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGaussian3x3Node(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxGaussian3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxGaussian3x3Node pvxGaussian3x3Node;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxNonLinearFilterNode(IntPtr graph, int function, IntPtr input, IntPtr mask, IntPtr output);
+			internal delegate Node vxNonLinearFilterNode(Graph graph, int function, Image input, Matrix mask, Image output);
 
 			internal static vxNonLinearFilterNode pvxNonLinearFilterNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxConvolveNode(IntPtr graph, IntPtr input, IntPtr conv, IntPtr output);
+			internal delegate Node vxConvolveNode(Graph graph, Image input, Convolution conv, Image output);
 
 			internal static vxConvolveNode pvxConvolveNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxGaussianPyramidNode(IntPtr graph, IntPtr input, IntPtr gaussian);
+			internal delegate Node vxGaussianPyramidNode(Graph graph, Image input, Pyramid gaussian);
 
 			internal static vxGaussianPyramidNode pvxGaussianPyramidNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxLaplacianPyramidNode(IntPtr graph, IntPtr input, IntPtr laplacian, IntPtr output);
+			internal delegate Node vxLaplacianPyramidNode(Graph graph, Image input, Pyramid laplacian, Image output);
 
 			internal static vxLaplacianPyramidNode pvxLaplacianPyramidNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxLaplacianReconstructNode(IntPtr graph, IntPtr laplacian, IntPtr input, IntPtr output);
+			internal delegate Node vxLaplacianReconstructNode(Graph graph, Pyramid laplacian, Image input, Image output);
 
 			internal static vxLaplacianReconstructNode pvxLaplacianReconstructNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxAccumulateImageNode(IntPtr graph, IntPtr input, IntPtr accum);
+			internal delegate Node vxAccumulateImageNode(Graph graph, Image input, Image accum);
 
 			internal static vxAccumulateImageNode pvxAccumulateImageNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxAccumulateWeightedImageNode(IntPtr graph, IntPtr input, IntPtr alpha, IntPtr accum);
+			internal delegate Node vxAccumulateWeightedImageNode(Graph graph, Image input, Scalar alpha, Image accum);
 
 			internal static vxAccumulateWeightedImageNode pvxAccumulateWeightedImageNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxAccumulateSquareImageNode(IntPtr graph, IntPtr input, IntPtr shift, IntPtr accum);
+			internal delegate Node vxAccumulateSquareImageNode(Graph graph, Image input, Scalar shift, Image accum);
 
 			internal static vxAccumulateSquareImageNode pvxAccumulateSquareImageNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxMinMaxLocNode(IntPtr graph, IntPtr input, IntPtr minVal, IntPtr maxVal, IntPtr minLoc, IntPtr maxLoc, IntPtr minCount, IntPtr maxCount);
+			internal delegate Node vxMinMaxLocNode(Graph graph, Image input, Scalar minVal, Scalar maxVal, Array minLoc, Array maxLoc, Scalar minCount, Scalar maxCount);
 
 			internal static vxMinMaxLocNode pvxMinMaxLocNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxAndNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out);
+			internal delegate Node vxAndNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxAndNode pvxAndNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxOrNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out);
+			internal delegate Node vxOrNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxOrNode pvxOrNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxXorNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr @out);
+			internal delegate Node vxXorNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxXorNode pvxXorNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxNotNode(IntPtr graph, IntPtr input, IntPtr output);
+			internal delegate Node vxNotNode(Graph graph, Image input, Image output);
 
 			internal static vxNotNode pvxNotNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxMultiplyNode(IntPtr graph, IntPtr in1, IntPtr in2, IntPtr scale, int overflow_policy, int rounding_policy, IntPtr @out);
+			internal delegate Node vxMultiplyNode(Graph graph, Image in1, Image in2, Scalar scale, int overflow_policy, int rounding_policy, Image @out);
 
 			internal static vxMultiplyNode pvxMultiplyNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxAddNode(IntPtr graph, IntPtr in1, IntPtr in2, int policy, IntPtr @out);
+			internal delegate Node vxAddNode(Graph graph, Image in1, Image in2, int policy, Image @out);
 
 			internal static vxAddNode pvxAddNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxSubtractNode(IntPtr graph, IntPtr in1, IntPtr in2, int policy, IntPtr @out);
+			internal delegate Node vxSubtractNode(Graph graph, Image in1, Image in2, int policy, Image @out);
 
 			internal static vxSubtractNode pvxSubtractNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxConvertDepthNode(IntPtr graph, IntPtr input, IntPtr output, int policy, IntPtr shift);
+			internal delegate Node vxConvertDepthNode(Graph graph, Image input, Image output, int policy, Scalar shift);
 
 			internal static vxConvertDepthNode pvxConvertDepthNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxCannyEdgeDetectorNode(IntPtr graph, IntPtr input, IntPtr hyst, int gradient_size, int norm_type, IntPtr output);
+			internal delegate Node vxCannyEdgeDetectorNode(Graph graph, Image input, Threshold hyst, int gradient_size, int norm_type, Image output);
 
 			internal static vxCannyEdgeDetectorNode pvxCannyEdgeDetectorNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxWarpAffineNode(IntPtr graph, IntPtr input, IntPtr matrix, int type, IntPtr output);
+			internal delegate Node vxWarpAffineNode(Graph graph, Image input, Matrix matrix, int type, Image output);
 
 			internal static vxWarpAffineNode pvxWarpAffineNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxWarpPerspectiveNode(IntPtr graph, IntPtr input, IntPtr matrix, int type, IntPtr output);
+			internal delegate Node vxWarpPerspectiveNode(Graph graph, Image input, Matrix matrix, int type, Image output);
 
 			internal static vxWarpPerspectiveNode pvxWarpPerspectiveNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxHarrisCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, IntPtr min_distance, IntPtr sensitivity, int gradient_size, int block_size, IntPtr corners, IntPtr num_corners);
+			internal delegate Node vxHarrisCornersNode(Graph graph, Image input, Scalar strength_thresh, Scalar min_distance, Scalar sensitivity, int gradient_size, int block_size, Array corners, Scalar num_corners);
 
 			internal static vxHarrisCornersNode pvxHarrisCornersNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxFastCornersNode(IntPtr graph, IntPtr input, IntPtr strength_thresh, bool nonmax_suppression, IntPtr corners, IntPtr num_corners);
+			internal delegate Node vxFastCornersNode(Graph graph, Image input, Scalar strength_thresh, bool nonmax_suppression, Array corners, Scalar num_corners);
 
 			internal static vxFastCornersNode pvxFastCornersNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxOpticalFlowPyrLKNode(IntPtr graph, IntPtr old_images, IntPtr new_images, IntPtr old_points, IntPtr new_points_estimates, IntPtr new_points, int termination, IntPtr epsilon, IntPtr num_iterations, IntPtr use_initial_estimate, uint window_dimension);
+			internal delegate Node vxOpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, int termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, uint window_dimension);
 
 			internal static vxOpticalFlowPyrLKNode pvxOpticalFlowPyrLKNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxRemapNode(IntPtr graph, IntPtr input, IntPtr table, int policy, IntPtr output);
+			internal delegate Node vxRemapNode(Graph graph, Image input, Remap table, int policy, Image output);
 
 			internal static vxRemapNode pvxRemapNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr vxHalfScaleGaussianNode(IntPtr graph, IntPtr input, IntPtr output, int kernel_size);
+			internal delegate Node vxHalfScaleGaussianNode(Graph graph, Image input, Image output, int kernel_size);
 
 			internal static vxHalfScaleGaussianNode pvxHalfScaleGaussianNode;
 

@@ -103,7 +103,7 @@ namespace OpenVX
 
 		#region Error Handling
 
-		public static void CheckObject(IntPtr obj)
+		public static void CheckObject(Reference obj)
 		{
 			Status objStatus = GetStatus(obj);
 
@@ -112,7 +112,7 @@ namespace OpenVX
 		}
 
 		[Conditional("VX_DEBUG")]
-		public static void DebugCheckObject(IntPtr obj)
+		public static void DebugCheckObject(Reference obj)
 		{
 			CheckObject(obj);
 		}
@@ -137,7 +137,7 @@ namespace OpenVX
 		/// A <see cref="Object"/> that specifies the function returned value, if any.
 		/// </param>
 		[Conditional("VX_DEBUG")]
-		private static void DebugCheckErrors(IntPtr returnValue)
+		private static void DebugCheckErrors(Reference returnValue)
 		{
 			CheckObject(returnValue);
 		}

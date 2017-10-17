@@ -348,50 +348,50 @@
     <type name="vx_float32" value="float" />
     <type name="vx_float32*" value="float*" />
     <type name="vx_float64" value="double" />
-    <type name="vx_reference" value="IntPtr" />
-    <type name="vx_reference*" value="IntPtr*" />
+    <type name="vx_reference" value="Reference" />
+    <type name="vx_reference*" value="Reference*" />
     <type name="vx_size" value="uint" />
     <type name="vx_size*" value="uint*" />
     <type name="vx_df_image" value="DfImage" />
-    <type name="vx_map_id" value="UIntPtr" />
-    <type name="vx_map_id*" value="UIntPtr*" />
-    <type name="vx_scalar" value="IntPtr" />
-    <type name="vx_scalar*" value="IntPtr*" />
-    <type name="vx_image" value="IntPtr" />
-    <type name="vx_image*" value="IntPtr*" />
-    <type name="vx_kernel" value="IntPtr" />
-    <type name="vx_kernel*" value="IntPtr*" />
-    <type name="vx_parameter" value="IntPtr" />
-    <type name="vx_parameter*" value="IntPtr*" />
-    <type name="vx_node" value="IntPtr" />
-    <type name="vx_node*" value="IntPtr*" />
-    <type name="vx_graph" value="IntPtr" />
-    <type name="vx_graph*" value="IntPtr*" />
-    <type name="vx_context" value="IntPtr" />
-    <type name="vx_context*" value="IntPtr*" />
-    <type name="vx_delay" value="IntPtr" />
-    <type name="vx_delay*" value="IntPtr*" />
-    <type name="vx_lut" value="IntPtr" />
-    <type name="vx_lut*" value="IntPtr*" />
-    <type name="vx_distribution" value="IntPtr" />
-    <type name="vx_distribution*" value="IntPtr*" />
-    <type name="vx_matrix" value="IntPtr" />
-    <type name="vx_matrix*" value="IntPtr*" />
-    <type name="vx_pyramid" value="IntPtr" />
-    <type name="vx_pyramid*" value="IntPtr*" />
-    <type name="vx_threshold" value="IntPtr" />
-    <type name="vx_threshold*" value="IntPtr*" />
-    <type name="vx_convolution" value="IntPtr" />
-    <type name="vx_convolution*" value="IntPtr*" />
-    <type name="vx_remap" value="IntPtr" />
-    <type name="vx_remap*" value="IntPtr*" />
-    <type name="vx_array" value="IntPtr" />
-    <type name="vx_array*" value="IntPtr*" />
-    <type name="vx_object_array" value="IntPtr" />
-    <type name="vx_object_array*" value="IntPtr*" />
+    <type name="vx_map_id" value="MapId" />
+    <type name="vx_map_id*" value="MapId*" />
+    <type name="vx_scalar" value="Scalar" />
+    <type name="vx_scalar*" value="Scalar*" />
+    <type name="vx_image" value="Image" />
+    <type name="vx_image*" value="Image*" />
+    <type name="vx_kernel" value="Kernel" />
+    <type name="vx_kernel*" value="Kernel*" />
+    <type name="vx_parameter" value="Parameter" />
+    <type name="vx_parameter*" value="Parameter*" />
+    <type name="vx_node" value="Node" />
+    <type name="vx_node*" value="Node*" />
+    <type name="vx_graph" value="Graph" />
+    <type name="vx_graph*" value="Graph*" />
+    <type name="vx_context" value="Context" />
+    <type name="vx_context*" value="Context*" />
+    <type name="vx_delay" value="Delay" />
+    <type name="vx_delay*" value="Delay*" />
+    <type name="vx_lut" value="Lut" />
+    <type name="vx_lut*" value="Lut*" />
+    <type name="vx_distribution" value="Distribution" />
+    <type name="vx_distribution*" value="Distribution*" />
+    <type name="vx_matrix" value="Matrix" />
+    <type name="vx_matrix*" value="Matrix*" />
+    <type name="vx_pyramid" value="Pyramid" />
+    <type name="vx_pyramid*" value="Pyramid*" />
+    <type name="vx_threshold" value="Threshold" />
+    <type name="vx_threshold*" value="Threshold*" />
+    <type name="vx_convolution" value="Convolution" />
+    <type name="vx_convolution*" value="Convolution*" />
+    <type name="vx_remap" value="Remap" />
+    <type name="vx_remap*" value="Remap*" />
+    <type name="vx_array" value="Array" />
+    <type name="vx_array*" value="Array*" />
+    <type name="vx_object_array" value="ObjectArray" />
+    <type name="vx_object_array*" value="ObjectArray*" />
     <type name="vx_bool" value="bool" />
     <type name="vx_bool*" value="bool*" />
-    <type name="vx_meta_format" value="IntPtr" />
+    <type name="vx_meta_format" value="MetaFormat" />
 
     <type name="vx_enum" value="int" />
     <type name="vx_enum*" value="int*" />

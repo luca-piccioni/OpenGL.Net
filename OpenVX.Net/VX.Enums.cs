@@ -827,9 +827,36 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration Kernel.
+	/// Strongly typed enumeration KernelAttribute.
 	/// </summary>
-	public enum Kernel
+	public enum KernelAttribute
+	{
+		/// <summary>
+		/// Strongly typed for value KERNEL_PARAMETERS.
+		/// </summary>
+		Parameters = VX.KERNEL_PARAMETERS,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_NAME.
+		/// </summary>
+		Name = VX.KERNEL_NAME,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_ENUM.
+		/// </summary>
+		Enum = VX.KERNEL_ENUM,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_LOCAL_DATA_SIZE.
+		/// </summary>
+		LocalDataSize = VX.KERNEL_LOCAL_DATA_SIZE,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration KernelType.
+	/// </summary>
+	public enum KernelType
 	{
 		/// <summary>
 		/// Strongly typed for value KERNEL_COLOR_CONVERT.
@@ -1050,33 +1077,6 @@ namespace OpenVX
 		/// Strongly typed for value KERNEL_NON_LINEAR_FILTER.
 		/// </summary>
 		NonLinearFilter = VX.KERNEL_NON_LINEAR_FILTER,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration KernelAttribute.
-	/// </summary>
-	public enum KernelAttribute
-	{
-		/// <summary>
-		/// Strongly typed for value KERNEL_PARAMETERS.
-		/// </summary>
-		Parameters = VX.KERNEL_PARAMETERS,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_NAME.
-		/// </summary>
-		Name = VX.KERNEL_NAME,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_ENUM.
-		/// </summary>
-		Enum = VX.KERNEL_ENUM,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_LOCAL_DATA_SIZE.
-		/// </summary>
-		LocalDataSize = VX.KERNEL_LOCAL_DATA_SIZE,
 
 	}
 

@@ -66,6 +66,12 @@ namespace BindingsGen.GLSpecs
 			/// </summary>
 			[XmlAttribute("value")]
 			public String Value;
+
+			/// <summary>
+			/// The base type actually used instead of <see cref="Value"/>.
+			/// </summary>
+			[XmlAttribute("base")]
+			public String BaseType;
 		}
 
 		/// <summary>
@@ -86,10 +92,30 @@ namespace BindingsGen.GLSpecs
 		/// </returns>
 		public string MapType(string type)
 		{
+			return (MapType(type, true));
+		}
+
+		/// <summary>
+		/// Get the value associated to a registered name.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="String"/> that specifies the name to map.
+		/// </param>
+		/// <returns>
+		/// It returns the value corresponding to <paramref name="type"/> in the case it is known, otherwise
+		/// it returns <paramref name="type"/>.
+		/// </returns>
+		public string MapType(string type, bool @base)
+		{
 			Pair value = Map.Find(delegate(Pair item) { return (item.Name == type); });
 
-			//Debug.Assert(value != null);
-			return (value != null ? value.Value : type);
+			if (value != null) {
+				if (@base)
+					return (value.BaseType ?? value.Value);
+				else
+					return (value.Value);
+			} else
+				return (type);
 		}
 
 		#endregion

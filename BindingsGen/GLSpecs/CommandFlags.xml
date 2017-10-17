@@ -416,7 +416,7 @@
     <enumerant name="^vx_image_attribute_e$" alias="ImageAttribute" prefix="Image" />
     <enumerant name="^vx_interpolation_type_e$" alias="InterpolationType" prefix="Interpolation" />
     <enumerant name="^vx_kernel_attribute_e$" alias="KernelAttribute" prefix="Kernel" />
-    <enumerant name="^vx_kernel_e$" alias="Kernel" prefix="Kernel" />
+    <enumerant name="^vx_kernel_e$" alias="KernelType" prefix="Kernel" />
     <enumerant name="^vx_library_e$" alias="Library" prefix="Library" />
     <enumerant name="^vx_lut_attribute_e$" alias="LutAttribute" />
     <enumerant name="^vx_map_flag_e$" alias="MapFlag" />

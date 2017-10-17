@@ -47,10 +47,25 @@
     <Compile Include="ImagePatchAddressing.cs" />
     <Compile Include="PixelValue.cs" />
     <Compile Include="Rectangle.cs" />
+    <Compile Include="Reference.cs" />
+    <Compile Include="ReferenceTypes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReferenceTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="VX.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VX.Enums.cs" />
     <Compile Include="VX.VERSION_1_1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReferenceTypes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReferenceTypes.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
