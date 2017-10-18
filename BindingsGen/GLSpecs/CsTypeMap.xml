@@ -385,6 +385,8 @@
     <type name="vx_convolution*" value="Convolution*" />
     <type name="vx_remap" value="Remap" />
     <type name="vx_remap*" value="Remap*" />
+    <type name="vx_tensor" value="Tensor" />
+    <type name="vx_tensor*" value="Tensor*" />
     <type name="vx_array" value="Array" />
     <type name="vx_array*" value="Array*" />
     <type name="vx_object_array" value="ObjectArray" />
@@ -395,6 +397,22 @@
 
     <type name="vx_enum" value="int" />
     <type name="vx_enum*" value="int*" />
+    
+    <type name="vx_accessor_e" value="Accessor" />
+    <type name="vx_channel_e" value="Channel" />
+    <type name="vx_map_flag_e" value="MapFlag" /> <!-- as vx_uint32 -->
+    <type name="vx_directive_e" value="Directive" />
+    <type name="vx_direction_e" value="Direction" />
+    <type name="vx_hint_e" value="Hint" />
+    <type name="vx_kernel_e" value="KernelType" />
+    <type name="vx_map_flag_e" value="int" />
+    <type name="vx_memory_type_e" value="MemoryType" />
+    <type name="vx_parameter_state_e" value="ParameterState" />
+    <type name="vx_pattern_e" value="Pattern" />
+    <type name="vx_status" value="Status" />
+    <type name="vx_target_e" value="Target" />
+    <type name="vx_type_e" value="Type" />
+    
     <type name="vx_context_attribute_e" value="ContextAttribute" />
     <type name="vx_image_attribute_e" value="ImageAttribute" />
     <type name="vx_kernel_attribute_e" value="KernelAttribute" />
@@ -415,12 +433,16 @@
     <type name="vx_object_array_attribute_e" value="ObjectArrayAttribute" />
     <type name="vx_tensor_attribute_e" value="TensorAttribute" />
     
-    <type name="vx_status" value="Status" />
     <type name="vx_action" value="int" />
-    <type name="vx_map_flag_e" value="int" />
 
     <type name="vx_imagepatch_addressing_t" value="ImagePatchAddressing" />
     <type name="vx_imagepatch_addressing_t*" value="ImagePatchAddressing*" />
+    <type name="vx_hog_t" value="Hog" />
+    <type name="vx_hog_t*" value="Hog*" />
+    <type name="vx_hough_lines_p_t" value="HoughLinesParams" />
+    <type name="vx_hough_lines_p_t*" value="HoughLinesParams*" />
+    <type name="vx_matrix_multiply_params_t" value="MatrixMulParams" />
+    <type name="vx_matrix_multiply_params_t*" value="MatrixMulParams*" />
     <type name="vx_perf_t" value="Perf" />
     <type name="vx_kernel_info_t" value="KernelInfo" />
     <type name="vx_keypoint_t" value="KeyPoint" />

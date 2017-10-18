@@ -370,6 +370,25 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	public struct Tensor
+	{
+		/// <summary>
+		/// Reference handle.
+		/// </summary>
+		private IntPtr _Reference;
+
+		/// <summary>
+		/// Implicit cast to <see cref="Reference"/>.
+		/// </summary>
+		/// <param name="context">
+		/// The <see cref="Tensor"/> to be converted to <see cref="Reference"/>.
+		/// </param>
+		public static implicit operator Reference(Tensor obj) { return (new Reference(obj._Reference)); }
+	}
+
+	/// <summary>
+	/// OpenVX object.
+	/// </summary>
 	public struct Threshold
 	{
 		/// <summary>

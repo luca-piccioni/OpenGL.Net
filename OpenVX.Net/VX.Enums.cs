@@ -323,6 +323,11 @@ namespace OpenVX
 		/// </summary>
 		NonlinearMaxDimension = VX.CONTEXT_NONLINEAR_MAX_DIMENSION,
 
+		/// <summary>
+		/// Strongly typed for value CONTEXT_MAX_TENSOR_DIMS.
+		/// </summary>
+		MaxTensorDims = VX.CONTEXT_MAX_TENSOR_DIMS,
+
 	}
 
 	/// <summary>
@@ -674,6 +679,16 @@ namespace OpenVX
 		/// </summary>
 		Pattern = VX.ENUM_PATTERN,
 
+		/// <summary>
+		/// Strongly typed for value ENUM_LBP_FORMAT.
+		/// </summary>
+		LbpFormat = VX.ENUM_LBP_FORMAT,
+
+		/// <summary>
+		/// Strongly typed for value ENUM_COMP_METRIC.
+		/// </summary>
+		CompMetric = VX.ENUM_COMP_METRIC,
+
 	}
 
 	/// <summary>
@@ -793,14 +808,19 @@ namespace OpenVX
 		Range = VX.IMAGE_RANGE,
 
 		/// <summary>
-		/// Strongly typed for value IMAGE_SIZE.
-		/// </summary>
-		Size = VX.IMAGE_SIZE,
-
-		/// <summary>
 		/// Strongly typed for value IMAGE_MEMORY_TYPE.
 		/// </summary>
 		MemoryType = VX.IMAGE_MEMORY_TYPE,
+
+		/// <summary>
+		/// Strongly typed for value IMAGE_IS_UNIFORM.
+		/// </summary>
+		IsUniform = VX.IMAGE_IS_UNIFORM,
+
+		/// <summary>
+		/// Strongly typed for value IMAGE_UNIFORM_VALUE.
+		/// </summary>
+		UniformValue = VX.IMAGE_UNIFORM_VALUE,
 
 	}
 
@@ -1077,6 +1097,91 @@ namespace OpenVX
 		/// Strongly typed for value KERNEL_NON_LINEAR_FILTER.
 		/// </summary>
 		NonLinearFilter = VX.KERNEL_NON_LINEAR_FILTER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_MATCH_TEMPLATE.
+		/// </summary>
+		MatchTemplate = VX.KERNEL_MATCH_TEMPLATE,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_LBP.
+		/// </summary>
+		Lbp = VX.KERNEL_LBP,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_HOUGH_LINES_P.
+		/// </summary>
+		HoughLinesP = VX.KERNEL_HOUGH_LINES_P,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_MULTIPLY.
+		/// </summary>
+		TensorMultiply = VX.KERNEL_TENSOR_MULTIPLY,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_ADD.
+		/// </summary>
+		TensorAdd = VX.KERNEL_TENSOR_ADD,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_SUBTRACT.
+		/// </summary>
+		TensorSubtract = VX.KERNEL_TENSOR_SUBTRACT,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_TABLELOOKUP.
+		/// </summary>
+		TensorTablelookup = VX.KERNEL_TENSOR_TABLELOOKUP,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_TRANSPOSE.
+		/// </summary>
+		TensorTranspose = VX.KERNEL_TENSOR_TRANSPOSE,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_CONVERT_DEPTH.
+		/// </summary>
+		TensorConvertDepth = VX.KERNEL_TENSOR_CONVERT_DEPTH,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_MATRIX_MULTIPLY.
+		/// </summary>
+		TensorMatrixMultiply = VX.KERNEL_TENSOR_MATRIX_MULTIPLY,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_COPY.
+		/// </summary>
+		Copy = VX.KERNEL_COPY,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_NON_MAX_SUPPRESSION.
+		/// </summary>
+		NonMaxSuppression = VX.KERNEL_NON_MAX_SUPPRESSION,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_SCALAR_OPERATION.
+		/// </summary>
+		ScalarOperation = VX.KERNEL_SCALAR_OPERATION,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_HOG_FEATURES.
+		/// </summary>
+		HogFeatures = VX.KERNEL_HOG_FEATURES,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_HOG_CELLS.
+		/// </summary>
+		HogCells = VX.KERNEL_HOG_CELLS,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_BILATERAL_FILTER.
+		/// </summary>
+		BilateralFilter = VX.KERNEL_BILATERAL_FILTER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_SELECT.
+		/// </summary>
+		Select = VX.KERNEL_SELECT,
 
 	}
 
@@ -1651,6 +1756,33 @@ namespace OpenVX
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration TensorAttribute.
+	/// </summary>
+	public enum TensorAttribute
+	{
+		/// <summary>
+		/// Strongly typed for value TENSOR_NUMBER_OF_DIMS.
+		/// </summary>
+		NumberOfDims = VX.TENSOR_NUMBER_OF_DIMS,
+
+		/// <summary>
+		/// Strongly typed for value TENSOR_DIMS.
+		/// </summary>
+		Dims = VX.TENSOR_DIMS,
+
+		/// <summary>
+		/// Strongly typed for value TENSOR_DATA_TYPE.
+		/// </summary>
+		DataType = VX.TENSOR_DATA_TYPE,
+
+		/// <summary>
+		/// Strongly typed for value TENSOR_FIXED_POINT_POSITION.
+		/// </summary>
+		FixedPointPosition = VX.TENSOR_FIXED_POINT_POSITION,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration TerminationCriteria.
 	/// </summary>
 	public enum TerminationCriteria
@@ -1683,34 +1815,14 @@ namespace OpenVX
 		Type = VX.THRESHOLD_TYPE,
 
 		/// <summary>
-		/// Strongly typed for value THRESHOLD_THRESHOLD_VALUE.
+		/// Strongly typed for value THRESHOLD_INPUT_FORMAT.
 		/// </summary>
-		ThresholdValue = VX.THRESHOLD_THRESHOLD_VALUE,
+		InputFormat = VX.THRESHOLD_INPUT_FORMAT,
 
 		/// <summary>
-		/// Strongly typed for value THRESHOLD_THRESHOLD_LOWER.
+		/// Strongly typed for value THRESHOLD_OUTPUT_FORMAT.
 		/// </summary>
-		ThresholdLower = VX.THRESHOLD_THRESHOLD_LOWER,
-
-		/// <summary>
-		/// Strongly typed for value THRESHOLD_THRESHOLD_UPPER.
-		/// </summary>
-		ThresholdUpper = VX.THRESHOLD_THRESHOLD_UPPER,
-
-		/// <summary>
-		/// Strongly typed for value THRESHOLD_TRUE_VALUE.
-		/// </summary>
-		TrueValue = VX.THRESHOLD_TRUE_VALUE,
-
-		/// <summary>
-		/// Strongly typed for value THRESHOLD_FALSE_VALUE.
-		/// </summary>
-		FalseValue = VX.THRESHOLD_FALSE_VALUE,
-
-		/// <summary>
-		/// Strongly typed for value THRESHOLD_DATA_TYPE.
-		/// </summary>
-		DataType = VX.THRESHOLD_DATA_TYPE,
+		OutputFormat = VX.THRESHOLD_OUTPUT_FORMAT,
 
 	}
 
@@ -1840,6 +1952,11 @@ namespace OpenVX
 		/// Strongly typed for value TYPE_COORDINATES3D.
 		/// </summary>
 		Coordinates3d = VX.TYPE_COORDINATES3D,
+
+		/// <summary>
+		/// Strongly typed for value TYPE_COORDINATES2DF.
+		/// </summary>
+		Coordinates2df = VX.TYPE_COORDINATES2DF,
 
 		/// <summary>
 		/// Strongly typed for value TYPE_USER_STRUCT_START.
@@ -1986,6 +2103,11 @@ namespace OpenVX
 		/// </summary>
 		ObjectArray = VX.TYPE_OBJECT_ARRAY,
 
+		/// <summary>
+		/// Strongly typed for value TYPE_TENSOR.
+		/// </summary>
+		Tensor = VX.TYPE_TENSOR,
+
 	}
 
 	/// <summary>
@@ -2124,6 +2246,11 @@ namespace OpenVX
 		Huawei = VX.ID_HUAWEI,
 
 		/// <summary>
+		/// Strongly typed for value ID_SOCIONEXT.
+		/// </summary>
+		Socionext = VX.ID_SOCIONEXT,
+
+		/// <summary>
 		/// Strongly typed for value ID_USER.
 		/// </summary>
 		User = VX.ID_USER,
@@ -2137,6 +2264,157 @@ namespace OpenVX
 		/// Strongly typed for value ID_DEFAULT.
 		/// </summary>
 		Default = VX.ID_DEFAULT,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_comp_metric_e.
+	/// </summary>
+	public enum vx_comp_metric_e
+	{
+		/// <summary>
+		/// Strongly typed for value COMPARE_HAMMING.
+		/// </summary>
+		CompareHamming = VX.COMPARE_HAMMING,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_L1.
+		/// </summary>
+		CompareL1 = VX.COMPARE_L1,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_L2.
+		/// </summary>
+		CompareL2 = VX.COMPARE_L2,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_CCORR.
+		/// </summary>
+		CompareCcorr = VX.COMPARE_CCORR,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_L2_NORM.
+		/// </summary>
+		CompareL2Norm = VX.COMPARE_L2_NORM,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_CCORR_NORM.
+		/// </summary>
+		CompareCcorrNorm = VX.COMPARE_CCORR_NORM,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_lbp_format_e.
+	/// </summary>
+	public enum vx_lbp_format_e
+	{
+		/// <summary>
+		/// Strongly typed for value LBP.
+		/// </summary>
+		Lbp = VX.LBP,
+
+		/// <summary>
+		/// Strongly typed for value MLBP.
+		/// </summary>
+		Mlbp = VX.MLBP,
+
+		/// <summary>
+		/// Strongly typed for value ULBP.
+		/// </summary>
+		Ulbp = VX.ULBP,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_scalar_operation_e.
+	/// </summary>
+	public enum vx_scalar_operation_e
+	{
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_AND.
+		/// </summary>
+		ScalarOpAnd = VX.SCALAR_OP_AND,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_OR.
+		/// </summary>
+		ScalarOpOr = VX.SCALAR_OP_OR,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_XOR.
+		/// </summary>
+		ScalarOpXor = VX.SCALAR_OP_XOR,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_NAND.
+		/// </summary>
+		ScalarOpNand = VX.SCALAR_OP_NAND,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_EQUAL.
+		/// </summary>
+		ScalarOpEqual = VX.SCALAR_OP_EQUAL,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_NOTEQUAL.
+		/// </summary>
+		ScalarOpNotequal = VX.SCALAR_OP_NOTEQUAL,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_LESS.
+		/// </summary>
+		ScalarOpLess = VX.SCALAR_OP_LESS,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_LESSEQ.
+		/// </summary>
+		ScalarOpLesseq = VX.SCALAR_OP_LESSEQ,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_GREATER.
+		/// </summary>
+		ScalarOpGreater = VX.SCALAR_OP_GREATER,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_GREATEREQ.
+		/// </summary>
+		ScalarOpGreatereq = VX.SCALAR_OP_GREATEREQ,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_ADD.
+		/// </summary>
+		ScalarOpAdd = VX.SCALAR_OP_ADD,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_SUBTRACT.
+		/// </summary>
+		ScalarOpSubtract = VX.SCALAR_OP_SUBTRACT,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_MULTIPLY.
+		/// </summary>
+		ScalarOpMultiply = VX.SCALAR_OP_MULTIPLY,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_DIVIDE.
+		/// </summary>
+		ScalarOpDivide = VX.SCALAR_OP_DIVIDE,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_MODULUS.
+		/// </summary>
+		ScalarOpModulus = VX.SCALAR_OP_MODULUS,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_MIN.
+		/// </summary>
+		ScalarOpMin = VX.SCALAR_OP_MIN,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_MAX.
+		/// </summary>
+		ScalarOpMax = VX.SCALAR_OP_MAX,
 
 	}
 

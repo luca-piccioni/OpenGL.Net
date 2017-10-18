@@ -52,6 +52,7 @@ namespace OpenVX
 		"Pyramid",
 		"Remap",
 		"Scalar",
+		"Tensor",
 		"Threshold"
 	};
 

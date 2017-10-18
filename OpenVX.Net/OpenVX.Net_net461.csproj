@@ -44,7 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Callbacks.cs" />
+    <Compile Include="Hog.cs" />
+    <Compile Include="HoughLinesParams.cs" />
     <Compile Include="ImagePatchAddressing.cs" />
+    <Compile Include="MatrixMulParams.cs" />
     <Compile Include="PixelValue.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Reference.cs" />

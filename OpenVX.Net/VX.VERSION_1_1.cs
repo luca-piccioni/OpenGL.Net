@@ -103,6 +103,8 @@ namespace OpenVX
 
 		public const int TYPE_COORDINATES3D = 0x023;
 
+		public const int TYPE_COORDINATES2DF = 0x024;
+
 		public const int TYPE_USER_STRUCT_START = 0x100;
 
 		public const int TYPE_VENDOR_STRUCT_START = 0x400;
@@ -160,6 +162,8 @@ namespace OpenVX
 		public const int TYPE_META_FORMAT = 0x812;
 
 		public const int TYPE_OBJECT_ARRAY = 0x813;
+
+		public const int TYPE_TENSOR = 0x815;
 
 		public const int STATUS_MIN = -25;
 
@@ -260,6 +264,10 @@ namespace OpenVX
 		public const int ENUM_NONLINEAR = 0x16;
 
 		public const int ENUM_PATTERN = 0x17;
+
+		public const int ENUM_LBP_FORMAT = 0x18;
+
+		public const int ENUM_COMP_METRIC = 0x19;
 
 		public const int ACTION_CONTINUE = ((ID_KHRONOS << 20) | ( ENUM_ACTION << 12)) + 0x0;
 
@@ -375,6 +383,8 @@ namespace OpenVX
 
 		public const int CONTEXT_NONLINEAR_MAX_DIMENSION = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0xd;
 
+		public const int CONTEXT_MAX_TENSOR_DIMS = (((ID_KHRONOS) << 20) | ( TYPE_CONTEXT << 8)) + 0xE;
+
 		public const int KERNEL_PARAMETERS = (((ID_KHRONOS) << 20) | ( TYPE_KERNEL << 8)) + 0x0;
 
 		public const int KERNEL_NAME = (((ID_KHRONOS) << 20) | ( TYPE_KERNEL << 8)) + 0x1;
@@ -423,11 +433,47 @@ namespace OpenVX
 
 		public const int IMAGE_RANGE = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x5;
 
-		public const int IMAGE_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x6;
-
 		public const int IMAGE_MEMORY_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x7;
 
+		public const int IMAGE_IS_UNIFORM = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x8;
+
+		public const int IMAGE_UNIFORM_VALUE = (((ID_KHRONOS) << 20) | ( TYPE_IMAGE << 8)) + 0x9;
+
 		public const int SCALAR_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_SCALAR << 8)) + 0x0;
+
+		public const int SCALAR_OP_AND = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x0;
+
+		public const int SCALAR_OP_OR = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x1;
+
+		public const int SCALAR_OP_XOR = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x2;
+
+		public const int SCALAR_OP_NAND = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x3;
+
+		public const int SCALAR_OP_EQUAL = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x4;
+
+		public const int SCALAR_OP_NOTEQUAL = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x5;
+
+		public const int SCALAR_OP_LESS = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x6;
+
+		public const int SCALAR_OP_LESSEQ = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x7;
+
+		public const int SCALAR_OP_GREATER = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x8;
+
+		public const int SCALAR_OP_GREATEREQ = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x9;
+
+		public const int SCALAR_OP_ADD = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0xA;
+
+		public const int SCALAR_OP_SUBTRACT = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0xB;
+
+		public const int SCALAR_OP_MULTIPLY = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0xC;
+
+		public const int SCALAR_OP_DIVIDE = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0xD;
+
+		public const int SCALAR_OP_MODULUS = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0xE;
+
+		public const int SCALAR_OP_MIN = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0xF;
+
+		public const int SCALAR_OP_MAX = ((ID_KHRONOS << 20) | ( ENUM_NORM_TYPE << 12)) + 0x10;
 
 		public const int LUT_TYPE = (((ID_KHRONOS) << 20) | (TYPE_LUT << 8)) + 0x0;
 
@@ -455,17 +501,9 @@ namespace OpenVX
 
 		public const int THRESHOLD_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x0;
 
-		public const int THRESHOLD_THRESHOLD_VALUE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x1;
+		public const int THRESHOLD_INPUT_FORMAT = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x7;
 
-		public const int THRESHOLD_THRESHOLD_LOWER = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x2;
-
-		public const int THRESHOLD_THRESHOLD_UPPER = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x3;
-
-		public const int THRESHOLD_TRUE_VALUE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x4;
-
-		public const int THRESHOLD_FALSE_VALUE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x5;
-
-		public const int THRESHOLD_DATA_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x6;
+		public const int THRESHOLD_OUTPUT_FORMAT = (((ID_KHRONOS) << 20) | ( TYPE_THRESHOLD << 8)) + 0x8;
 
 		public const int MATRIX_TYPE = (((ID_KHRONOS) << 20) | ( TYPE_MATRIX << 8)) + 0x0;
 
@@ -516,6 +554,14 @@ namespace OpenVX
 		public const int OBJECT_ARRAY_ITEMTYPE = (((ID_KHRONOS) << 20) | ( TYPE_OBJECT_ARRAY << 8)) + 0x0;
 
 		public const int OBJECT_ARRAY_NUMITEMS = (((ID_KHRONOS) << 20) | ( TYPE_OBJECT_ARRAY << 8)) + 0x1;
+
+		public const int TENSOR_NUMBER_OF_DIMS = ((( ID_KHRONOS) << 20) | ( TYPE_TENSOR  << 8)) + 0x0;
+
+		public const int TENSOR_DIMS = ((( ID_KHRONOS) << 20) | ( TYPE_TENSOR  << 8)) + 0x1;
+
+		public const int TENSOR_DATA_TYPE = ((( ID_KHRONOS) << 20) | ( TYPE_TENSOR  << 8)) + 0x2;
+
+		public const int TENSOR_FIXED_POINT_POSITION = (((ID_KHRONOS) << 20) | ( TYPE_TENSOR << 8)) + 0x3;
 
 		public const int VALID_RECT_CALLBACK = (((ID_KHRONOS) << 20) | ( TYPE_META_FORMAT << 8)) + 0x1;
 
@@ -617,6 +663,24 @@ namespace OpenVX
 
 		public const int ROUND_POLICY_TO_NEAREST_EVEN = ((ID_KHRONOS << 20) | ( ENUM_ROUND_POLICY << 12)) + 0x2;
 
+		public const int LBP = (( ID_KHRONOS << 20) | ( ENUM_LBP_FORMAT  << 12)) + 0x0;
+
+		public const int MLBP = (( ID_KHRONOS << 20) | ( ENUM_LBP_FORMAT  << 12)) + 0x1;
+
+		public const int ULBP = (( ID_KHRONOS << 20) | ( ENUM_LBP_FORMAT  << 12)) + 0x2;
+
+		public const int COMPARE_HAMMING = (( ID_KHRONOS << 20) | ( ENUM_COMP_METRIC  << 12)) + 0x0;
+
+		public const int COMPARE_L1 = (( ID_KHRONOS << 20) | ( ENUM_COMP_METRIC  << 12)) + 0x1;
+
+		public const int COMPARE_L2 = (( ID_KHRONOS << 20) | ( ENUM_COMP_METRIC  << 12)) + 0x2;
+
+		public const int COMPARE_CCORR = (( ID_KHRONOS << 20) | ( ENUM_COMP_METRIC  << 12)) + 0x3;
+
+		public const int COMPARE_L2_NORM = (( ID_KHRONOS << 20) | ( ENUM_COMP_METRIC  << 12)) + 0x4;
+
+		public const int COMPARE_CCORR_NORM = (( ID_KHRONOS << 20) | ( ENUM_COMP_METRIC  << 12)) + 0x5;
+
 		public const int NOGAP_X = 1;
 
 		public const int LIBRARY_KHR_BASE = 0x0;
@@ -709,6 +773,40 @@ namespace OpenVX
 
 		public const int KERNEL_NON_LINEAR_FILTER = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x2C;
 
+		public const int KERNEL_MATCH_TEMPLATE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x2D;
+
+		public const int KERNEL_LBP = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x2E;
+
+		public const int KERNEL_HOUGH_LINES_P = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x2F;
+
+		public const int KERNEL_TENSOR_MULTIPLY = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x30;
+
+		public const int KERNEL_TENSOR_ADD = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x31;
+
+		public const int KERNEL_TENSOR_SUBTRACT = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x32;
+
+		public const int KERNEL_TENSOR_TABLELOOKUP = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x33;
+
+		public const int KERNEL_TENSOR_TRANSPOSE = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x34;
+
+		public const int KERNEL_TENSOR_CONVERT_DEPTH = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x35;
+
+		public const int KERNEL_TENSOR_MATRIX_MULTIPLY = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x36;
+
+		public const int KERNEL_COPY = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x37;
+
+		public const int KERNEL_NON_MAX_SUPPRESSION = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x38;
+
+		public const int KERNEL_SCALAR_OPERATION = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x39;
+
+		public const int KERNEL_HOG_FEATURES = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x3A;
+
+		public const int KERNEL_HOG_CELLS = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x3B;
+
+		public const int KERNEL_BILATERAL_FILTER = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x3C;
+
+		public const int KERNEL_SELECT = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_BASE << 12)) + 0x3D;
+
 		public const int ID_KHRONOS = 0x000;
 
 		public const int ID_TI = 0x001;
@@ -760,6 +858,8 @@ namespace OpenVX
 		public const int ID_CADENCE = 0x019;
 
 		public const int ID_HUAWEI = 0x01A;
+
+		public const int ID_SOCIONEXT = 0x01B;
 
 		public const int ID_USER = 0xFFE;
 
@@ -840,7 +940,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Hint(Reference reference, int hint, IntPtr data, uint data_size)
+		public static Status Hint(Reference reference, Hint hint, IntPtr data, uint data_size)
 		{
 			Status retValue;
 
@@ -856,7 +956,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Directive(Reference reference, int directive)
+		public static Status Directive(Reference reference, Directive directive)
 		{
 			Status retValue;
 
@@ -880,9 +980,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static int RegisterUserStruct(Context context, uint size)
+		public static Type RegisterUserStruct(Context context, uint size)
 		{
-			int retValue;
+			Type retValue;
 
 			Debug.Assert(Delegates.pvxRegisterUserStruct != null, "pvxRegisterUserStruct not implemented");
 			retValue = Delegates.pvxRegisterUserStruct(context, size);
@@ -1027,7 +1127,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Image image, ImageAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Image image, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1043,7 +1143,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Image image, ImageAttribute attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Image image, int attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1059,6 +1159,18 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Status SetImagePixelValues(Image image, PixelValue pixel_value)
+		{
+			Status retValue;
+
+			Debug.Assert(Delegates.pvxSetImagePixelValues != null, "pvxSetImagePixelValues not implemented");
+			retValue = Delegates.pvxSetImagePixelValues(image, pixel_value);
+			LogCommand("vxSetImagePixelValues", retValue, image, pixel_value			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		public static Status Release(params Image[] image)
 		{
 			Status retValue;
@@ -1069,23 +1181,6 @@ namespace OpenVX
 					Debug.Assert(Delegates.pvxReleaseImage != null, "pvxReleaseImage not implemented");
 					retValue = Delegates.pvxReleaseImage(p_image);
 					LogCommand("vxReleaseImage", retValue, image					);
-				}
-			}
-			DebugCheckErrors(retValue);
-
-			return (retValue);
-		}
-
-		public static uint ComputeImagePatchSize(Image image, Rectangle[] rect, uint plane_index)
-		{
-			uint retValue;
-
-			unsafe {
-				fixed (Rectangle* p_rect = rect)
-				{
-					Debug.Assert(Delegates.pvxComputeImagePatchSize != null, "pvxComputeImagePatchSize not implemented");
-					retValue = Delegates.pvxComputeImagePatchSize(image, p_rect, plane_index);
-					LogCommand("vxComputeImagePatchSize", retValue, image, rect, plane_index					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -1144,7 +1239,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyImagePatch(Image image, Rectangle[] image_rect, uint image_plane_index, ImagePatchAddressing[] user_addr, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyImagePatch(Image image, Rectangle[] image_rect, uint image_plane_index, ImagePatchAddressing[] user_addr, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -1162,7 +1257,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapImagePatch(Image image, Rectangle[] rect, uint plane_index, MapId[] map_id, ImagePatchAddressing[] addr, IntPtr[] ptr, int usage, int mem_type, uint flags)
+		public static Status MapImagePatch(Image image, Rectangle[] rect, uint plane_index, MapId[] map_id, ImagePatchAddressing[] addr, IntPtr[] ptr, Accessor usage, MemoryType mem_type, MapFlag flags)
 		{
 			Status retValue;
 
@@ -1194,7 +1289,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Image CreateImageFromChannel(Image img, int channel)
+		public static Image CreateImageFromChannel(Image img, Channel channel)
 		{
 			Image retValue;
 
@@ -1259,7 +1354,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Kernel GetKernelByEnum(Context context, int kernel)
+		public static Kernel GetKernelByEnum(Context context, KernelType kernel)
 		{
 			Kernel retValue;
 
@@ -1328,7 +1423,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AddParameterToKernel(Kernel kernel, uint index, int dir, int data_type, int state)
+		public static Status AddParameterToKernel(Kernel kernel, uint index, Direction dir, Type data_type, ParameterState state)
 		{
 			Status retValue;
 
@@ -1639,7 +1734,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetNodeTarget(Node node, int target_enum, string target_string)
+		public static Status SetNodeTarget(Node node, Target target_enum, string target_string)
 		{
 			Status retValue;
 
@@ -1753,6 +1848,34 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Scalar CreateScalarWithSize(Context context, int data_type, IntPtr ptr, uint size)
+		{
+			Scalar retValue;
+
+			unsafe {
+				{
+					Debug.Assert(Delegates.pvxCreateScalarWithSize != null, "pvxCreateScalarWithSize not implemented");
+					retValue = Delegates.pvxCreateScalarWithSize(context, data_type, ptr.ToPointer(), size);
+					LogCommand("vxCreateScalarWithSize", retValue, context, data_type, ptr, size					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Scalar CreateVirtualScalar(Graph graph, int data_type)
+		{
+			Scalar retValue;
+
+			Debug.Assert(Delegates.pvxCreateVirtualScalar != null, "pvxCreateVirtualScalar not implemented");
+			retValue = Delegates.pvxCreateVirtualScalar(graph, data_type);
+			LogCommand("vxCreateVirtualScalar", retValue, graph, data_type			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		public static Status Release(params Scalar[] scalar)
 		{
 			Status retValue;
@@ -1786,7 +1909,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyScalar(Scalar scalar, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyScalar(Scalar scalar, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -1968,6 +2091,18 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Lut CreateVirtualLUT(Graph graph, int data_type, uint count)
+		{
+			Lut retValue;
+
+			Debug.Assert(Delegates.pvxCreateVirtualLUT != null, "pvxCreateVirtualLUT not implemented");
+			retValue = Delegates.pvxCreateVirtualLUT(graph, data_type, count);
+			LogCommand("vxCreateVirtualLUT", retValue, graph, data_type, count			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		public static Status Release(params Lut[] lut)
 		{
 			Status retValue;
@@ -2001,7 +2136,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyLUT(Lut lut, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyLUT(Lut lut, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -2017,7 +2152,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapLUT(Lut lut, MapId[] map_id, IntPtr[] ptr, int usage, int mem_type, uint flags)
+		public static Status MapLUT(Lut lut, MapId[] map_id, IntPtr[] ptr, Accessor usage, MemoryType mem_type, uint flags)
 		{
 			Status retValue;
 
@@ -2059,6 +2194,18 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Distribution CreateVirtualDistribution(Graph graph, uint numBins, int offset, uint range)
+		{
+			Distribution retValue;
+
+			Debug.Assert(Delegates.pvxCreateVirtualDistribution != null, "pvxCreateVirtualDistribution not implemented");
+			retValue = Delegates.pvxCreateVirtualDistribution(graph, numBins, offset, range);
+			LogCommand("vxCreateVirtualDistribution", retValue, graph, numBins, offset, range			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		public static Status Release(params Distribution[] distribution)
 		{
 			Status retValue;
@@ -2092,7 +2239,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyDistribution(Distribution distribution, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyDistribution(Distribution distribution, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -2108,7 +2255,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapDistribution(Distribution distribution, MapId[] map_id, IntPtr[] ptr, int usage, int mem_type, uint flags)
+		public static Status MapDistribution(Distribution distribution, MapId[] map_id, IntPtr[] ptr, Accessor usage, MemoryType mem_type, uint flags)
 		{
 			Status retValue;
 
@@ -2138,13 +2285,61 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Threshold CreateThreshold(Context c, int thresh_type, int data_type)
+		public static Threshold CreateThresholdForImage(Context context, int thresh_type, DfImage input_format, DfImage output_format)
 		{
 			Threshold retValue;
 
-			Debug.Assert(Delegates.pvxCreateThreshold != null, "pvxCreateThreshold not implemented");
-			retValue = Delegates.pvxCreateThreshold(c, thresh_type, data_type);
-			LogCommand("vxCreateThreshold", retValue, c, thresh_type, data_type			);
+			Debug.Assert(Delegates.pvxCreateThresholdForImage != null, "pvxCreateThresholdForImage not implemented");
+			retValue = Delegates.pvxCreateThresholdForImage(context, thresh_type, input_format, output_format);
+			LogCommand("vxCreateThresholdForImage", retValue, context, thresh_type, input_format, output_format			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Threshold CreateVirtualThresholdForImage(Graph graph, int thresh_type, DfImage input_format, DfImage output_format)
+		{
+			Threshold retValue;
+
+			Debug.Assert(Delegates.pvxCreateVirtualThresholdForImage != null, "pvxCreateVirtualThresholdForImage not implemented");
+			retValue = Delegates.pvxCreateVirtualThresholdForImage(graph, thresh_type, input_format, output_format);
+			LogCommand("vxCreateVirtualThresholdForImage", retValue, graph, thresh_type, input_format, output_format			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Status CopyThresholdValue(Threshold thresh, PixelValue value_ptr, Accessor usage, MemoryType user_mem_type)
+		{
+			Status retValue;
+
+			Debug.Assert(Delegates.pvxCopyThresholdValue != null, "pvxCopyThresholdValue not implemented");
+			retValue = Delegates.pvxCopyThresholdValue(thresh, value_ptr, usage, user_mem_type);
+			LogCommand("vxCopyThresholdValue", retValue, thresh, value_ptr, usage, user_mem_type			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Status CopyThresholdRange(Threshold thresh, PixelValue lower_value_ptr, PixelValue upper_value_ptr, Accessor usage, MemoryType user_mem_type)
+		{
+			Status retValue;
+
+			Debug.Assert(Delegates.pvxCopyThresholdRange != null, "pvxCopyThresholdRange not implemented");
+			retValue = Delegates.pvxCopyThresholdRange(thresh, lower_value_ptr, upper_value_ptr, usage, user_mem_type);
+			LogCommand("vxCopyThresholdRange", retValue, thresh, lower_value_ptr, upper_value_ptr, usage, user_mem_type			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Status CopyThresholdOutput(Threshold thresh, PixelValue true_value_ptr, PixelValue false_value_ptr, Accessor usage, MemoryType user_mem_type)
+		{
+			Status retValue;
+
+			Debug.Assert(Delegates.pvxCopyThresholdOutput != null, "pvxCopyThresholdOutput not implemented");
+			retValue = Delegates.pvxCopyThresholdOutput(thresh, true_value_ptr, false_value_ptr, usage, user_mem_type);
+			LogCommand("vxCopyThresholdOutput", retValue, thresh, true_value_ptr, false_value_ptr, usage, user_mem_type			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2211,6 +2406,18 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Matrix CreateVirtualMatrix(Graph graph, int data_type, uint columns, uint rows)
+		{
+			Matrix retValue;
+
+			Debug.Assert(Delegates.pvxCreateVirtualMatrix != null, "pvxCreateVirtualMatrix not implemented");
+			retValue = Delegates.pvxCreateVirtualMatrix(graph, data_type, columns, rows);
+			LogCommand("vxCreateVirtualMatrix", retValue, graph, data_type, columns, rows			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		public static Status Release(params Matrix[] mat)
 		{
 			Status retValue;
@@ -2244,7 +2451,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyMatrix(Matrix matrix, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyMatrix(Matrix matrix, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -2272,6 +2479,18 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Matrix CreateMatrixFromPattern(Context context, Pattern pattern, uint columns, uint rows, uint origin_col, uint origin_row)
+		{
+			Matrix retValue;
+
+			Debug.Assert(Delegates.pvxCreateMatrixFromPatternAndOrigin != null, "pvxCreateMatrixFromPatternAndOrigin not implemented");
+			retValue = Delegates.pvxCreateMatrixFromPatternAndOrigin(context, pattern, columns, rows, origin_col, origin_row);
+			LogCommand("vxCreateMatrixFromPatternAndOrigin", retValue, context, pattern, columns, rows, origin_col, origin_row			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		public static Convolution CreateConvolution(Context context, uint columns, uint rows)
 		{
 			Convolution retValue;
@@ -2279,6 +2498,18 @@ namespace OpenVX
 			Debug.Assert(Delegates.pvxCreateConvolution != null, "pvxCreateConvolution not implemented");
 			retValue = Delegates.pvxCreateConvolution(context, columns, rows);
 			LogCommand("vxCreateConvolution", retValue, context, columns, rows			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Convolution CreateVirtualConvolution(Graph graph, uint columns, uint rows)
+		{
+			Convolution retValue;
+
+			Debug.Assert(Delegates.pvxCreateVirtualConvolution != null, "pvxCreateVirtualConvolution not implemented");
+			retValue = Delegates.pvxCreateVirtualConvolution(graph, columns, rows);
+			LogCommand("vxCreateVirtualConvolution", retValue, graph, columns, rows			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2333,7 +2564,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyConvolutionCoefficients(Convolution conv, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyConvolutionCoefficients(Convolution conv, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -2430,6 +2661,18 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Remap CreateVirtualRemap(Graph graph, uint src_width, uint src_height, uint dst_width, uint dst_height)
+		{
+			Remap retValue;
+
+			Debug.Assert(Delegates.pvxCreateVirtualRemap != null, "pvxCreateVirtualRemap not implemented");
+			retValue = Delegates.pvxCreateVirtualRemap(graph, src_width, src_height, dst_width, dst_height);
+			LogCommand("vxCreateVirtualRemap", retValue, graph, src_width, src_height, dst_width, dst_height			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		public static Status Release(params Remap[] table)
 		{
 			Status retValue;
@@ -2447,29 +2690,48 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetRemapPoint(Remap table, uint dst_x, uint dst_y, float src_x, float src_y)
+		public static Status MapRemapPatch(Remap remap, Rectangle[] rect, MapId[] map_id, uint[] stride_y, IntPtr[] ptr, Type coordinate_type, Accessor usage, MemoryType mem_type)
 		{
 			Status retValue;
 
-			Debug.Assert(Delegates.pvxSetRemapPoint != null, "pvxSetRemapPoint not implemented");
-			retValue = Delegates.pvxSetRemapPoint(table, dst_x, dst_y, src_x, src_y);
-			LogCommand("vxSetRemapPoint", retValue, table, dst_x, dst_y, src_x, src_y			);
+			unsafe {
+				fixed (Rectangle* p_rect = rect)
+				fixed (MapId* p_map_id = map_id)
+				fixed (uint* p_stride_y = stride_y)
+				fixed (IntPtr* p_ptr = ptr)
+				{
+					Debug.Assert(Delegates.pvxMapRemapPatch != null, "pvxMapRemapPatch not implemented");
+					retValue = Delegates.pvxMapRemapPatch(remap, p_rect, p_map_id, p_stride_y, p_ptr, coordinate_type, usage, mem_type);
+					LogCommand("vxMapRemapPatch", retValue, remap, rect, map_id, stride_y, ptr, coordinate_type, usage, mem_type					);
+				}
+			}
 			DebugCheckErrors(retValue);
 
 			return (retValue);
 		}
 
-		public static Status GetRemapPoint(Remap table, uint dst_x, uint dst_y, [Out] float[] src_x, [Out] float[] src_y)
+		public static Status UnmapRemapPatch(Remap remap, MapId map_id)
+		{
+			Status retValue;
+
+			Debug.Assert(Delegates.pvxUnmapRemapPatch != null, "pvxUnmapRemapPatch not implemented");
+			retValue = Delegates.pvxUnmapRemapPatch(remap, map_id);
+			LogCommand("vxUnmapRemapPatch", retValue, remap, map_id			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Status CopyRemapPatch(Remap remap, Rectangle[] rect, uint user_stride_y, IntPtr user_ptr, Type user_coordinate_type, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (float* p_src_x = src_x)
-				fixed (float* p_src_y = src_y)
+				fixed (Rectangle* p_rect = rect)
 				{
-					Debug.Assert(Delegates.pvxGetRemapPoint != null, "pvxGetRemapPoint not implemented");
-					retValue = Delegates.pvxGetRemapPoint(table, dst_x, dst_y, p_src_x, p_src_y);
-					LogCommand("vxGetRemapPoint", retValue, table, dst_x, dst_y, src_x, src_y					);
+					Debug.Assert(Delegates.pvxCopyRemapPatch != null, "pvxCopyRemapPatch not implemented");
+					retValue = Delegates.pvxCopyRemapPatch(remap, p_rect, user_stride_y, user_ptr.ToPointer(), user_coordinate_type, usage, user_mem_type);
+					LogCommand("vxCopyRemapPatch", retValue, remap, rect, user_stride_y, user_ptr, user_coordinate_type, usage, user_mem_type					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -2578,7 +2840,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyArrayRange(Array array, uint range_start, uint range_end, uint user_stride, IntPtr user_ptr, int usage, int user_mem_type)
+		public static Status CopyArrayRange(Array array, uint range_start, uint range_end, uint user_stride, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -2594,7 +2856,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapArrayRange(Array array, uint range_start, uint range_end, MapId[] map_id, uint[] stride, IntPtr[] ptr, int usage, int mem_type, uint flags)
+		public static Status MapArrayRange(Array array, uint range_start, uint range_end, MapId[] map_id, uint[] stride, IntPtr[] ptr, Accessor usage, MemoryType mem_type, uint flags)
 		{
 			Status retValue;
 
@@ -2717,6 +2979,127 @@ namespace OpenVX
 			Debug.Assert(Delegates.pvxSetMetaFormatFromReference != null, "pvxSetMetaFormatFromReference not implemented");
 			retValue = Delegates.pvxSetMetaFormatFromReference(meta, exemplar);
 			LogCommand("vxSetMetaFormatFromReference", retValue, meta, exemplar			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Tensor CreateTensor(Context context, uint number_of_dims, uint[] dims, Type data_type, sbyte fixed_point_position)
+		{
+			Tensor retValue;
+
+			unsafe {
+				fixed (uint* p_dims = dims)
+				{
+					Debug.Assert(Delegates.pvxCreateTensor != null, "pvxCreateTensor not implemented");
+					retValue = Delegates.pvxCreateTensor(context, number_of_dims, p_dims, data_type, fixed_point_position);
+					LogCommand("vxCreateTensor", retValue, context, number_of_dims, dims, data_type, fixed_point_position					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static ObjectArray CreateImageObjectArrayFromTensor(Tensor tensor, Rectangle[] rect, uint array_size, uint jump, DfImage image_format)
+		{
+			ObjectArray retValue;
+
+			unsafe {
+				fixed (Rectangle* p_rect = rect)
+				{
+					Debug.Assert(Delegates.pvxCreateImageObjectArrayFromTensor != null, "pvxCreateImageObjectArrayFromTensor not implemented");
+					retValue = Delegates.pvxCreateImageObjectArrayFromTensor(tensor, p_rect, array_size, jump, image_format);
+					LogCommand("vxCreateImageObjectArrayFromTensor", retValue, tensor, rect, array_size, jump, image_format					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Tensor CreateTensorFrom(Tensor tensor, uint number_of_dims, uint[] view_start, uint[] view_end)
+		{
+			Tensor retValue;
+
+			unsafe {
+				fixed (uint* p_view_start = view_start)
+				fixed (uint* p_view_end = view_end)
+				{
+					Debug.Assert(Delegates.pvxCreateTensorFromView != null, "pvxCreateTensorFromView not implemented");
+					retValue = Delegates.pvxCreateTensorFromView(tensor, number_of_dims, p_view_start, p_view_end);
+					LogCommand("vxCreateTensorFromView", retValue, tensor, number_of_dims, view_start, view_end					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Tensor CreateVirtualTensor(Graph graph, uint number_of_dims, uint[] dims, Type data_type, sbyte fixed_point_position)
+		{
+			Tensor retValue;
+
+			unsafe {
+				fixed (uint* p_dims = dims)
+				{
+					Debug.Assert(Delegates.pvxCreateVirtualTensor != null, "pvxCreateVirtualTensor not implemented");
+					retValue = Delegates.pvxCreateVirtualTensor(graph, number_of_dims, p_dims, data_type, fixed_point_position);
+					LogCommand("vxCreateVirtualTensor", retValue, graph, number_of_dims, dims, data_type, fixed_point_position					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Status CopyTensorPatch(Tensor tensor, uint number_of_dims, uint[] view_start, uint[] view_end, uint[] user_stride, IntPtr user_ptr, Accessor usage, MemoryType user_memory_type)
+		{
+			Status retValue;
+
+			unsafe {
+				fixed (uint* p_view_start = view_start)
+				fixed (uint* p_view_end = view_end)
+				fixed (uint* p_user_stride = user_stride)
+				{
+					Debug.Assert(Delegates.pvxCopyTensorPatch != null, "pvxCopyTensorPatch not implemented");
+					retValue = Delegates.pvxCopyTensorPatch(tensor, number_of_dims, p_view_start, p_view_end, p_user_stride, user_ptr.ToPointer(), usage, user_memory_type);
+					LogCommand("vxCopyTensorPatch", retValue, tensor, number_of_dims, view_start, view_end, user_stride, user_ptr, usage, user_memory_type					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Status Query(Tensor tensor, TensorAttribute attribute, IntPtr ptr, uint size)
+		{
+			Status retValue;
+
+			unsafe {
+				{
+					Debug.Assert(Delegates.pvxQueryTensor != null, "pvxQueryTensor not implemented");
+					retValue = Delegates.pvxQueryTensor(tensor, attribute, ptr.ToPointer(), size);
+					LogCommand("vxQueryTensor", retValue, tensor, attribute, ptr, size					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Status Release(params Tensor[] tensor)
+		{
+			Status retValue;
+
+			unsafe {
+				fixed (Tensor* p_tensor = tensor)
+				{
+					Debug.Assert(Delegates.pvxReleaseTensor != null, "pvxReleaseTensor not implemented");
+					retValue = Delegates.pvxReleaseTensor(p_tensor);
+					LogCommand("vxReleaseTensor", retValue, tensor					);
+				}
+			}
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2873,6 +3256,18 @@ namespace OpenVX
 			Debug.Assert(Delegates.pvxThresholdNode != null, "pvxThresholdNode not implemented");
 			retValue = Delegates.pvxThresholdNode(graph, input, thresh, output);
 			LogCommand("vxThresholdNode", retValue, graph, input, thresh, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node NonMaxSuppressionNode(Graph graph, Image input, Image mask, int win_size, Image output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxNonMaxSuppressionNode != null, "pvxNonMaxSuppressionNode not implemented");
+			retValue = Delegates.pvxNonMaxSuppressionNode(graph, input, mask, win_size, output);
+			LogCommand("vxNonMaxSuppressionNode", retValue, graph, input, mask, win_size, output			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -3058,6 +3453,30 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Node MinNode(Graph graph, Image in1, Image in2, Image @out)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxMinNode != null, "pvxMinNode not implemented");
+			retValue = Delegates.pvxMinNode(graph, in1, in2, @out);
+			LogCommand("vxMinNode", retValue, graph, in1, in2, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node MaxNode(Graph graph, Image in1, Image in2, Image @out)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxMaxNode != null, "pvxMaxNode not implemented");
+			retValue = Delegates.pvxMaxNode(graph, in1, in2, @out);
+			LogCommand("vxMaxNode", retValue, graph, in1, in2, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		public static Node AndNode(Graph graph, Image in1, Image in2, Image @out)
 		{
 			Node retValue;
@@ -3101,6 +3520,30 @@ namespace OpenVX
 			Debug.Assert(Delegates.pvxNotNode != null, "pvxNotNode not implemented");
 			retValue = Delegates.pvxNotNode(graph, input, output);
 			LogCommand("vxNotNode", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node ScalarOperationNode(Graph graph, int scalar_operation, Scalar a, Scalar b, Scalar output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxScalarOperationNode != null, "pvxScalarOperationNode not implemented");
+			retValue = Delegates.pvxScalarOperationNode(graph, scalar_operation, a, b, output);
+			LogCommand("vxScalarOperationNode", retValue, graph, scalar_operation, a, b, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node SelectNode(Graph graph, Scalar condition, Reference true_value, Reference false_value, Reference output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxSelectNode != null, "pvxSelectNode not implemented");
+			retValue = Delegates.pvxSelectNode(graph, condition, true_value, false_value, output);
+			LogCommand("vxSelectNode", retValue, graph, condition, true_value, false_value, output			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -3250,6 +3693,189 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Node MatchTemplateNode(Graph graph, Image src, Image templateImage, int matchingMethod, Image output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxMatchTemplateNode != null, "pvxMatchTemplateNode not implemented");
+			retValue = Delegates.pvxMatchTemplateNode(graph, src, templateImage, matchingMethod, output);
+			LogCommand("vxMatchTemplateNode", retValue, graph, src, templateImage, matchingMethod, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node LBPNode(Graph graph, Image @in, int format, sbyte kernel_size, Image @out)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxLBPNode != null, "pvxLBPNode not implemented");
+			retValue = Delegates.pvxLBPNode(graph, @in, format, kernel_size, @out);
+			LogCommand("vxLBPNode", retValue, graph, @in, format, kernel_size, @out			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node HOGFeaturesNode(Graph graph, Image input, Tensor magnitudes, Tensor bins, Hog[] @params, uint hog_param_size, Tensor features)
+		{
+			Node retValue;
+
+			unsafe {
+				fixed (Hog* p_params = @params)
+				{
+					Debug.Assert(Delegates.pvxHOGFeaturesNode != null, "pvxHOGFeaturesNode not implemented");
+					retValue = Delegates.pvxHOGFeaturesNode(graph, input, magnitudes, bins, p_params, hog_param_size, features);
+					LogCommand("vxHOGFeaturesNode", retValue, graph, input, magnitudes, bins, @params, hog_param_size, features					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node HOGCellsNode(Graph graph, Image input, int cell_width, int cell_height, int num_bins, Tensor magnitudes, Tensor bins)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxHOGCellsNode != null, "pvxHOGCellsNode not implemented");
+			retValue = Delegates.pvxHOGCellsNode(graph, input, cell_width, cell_height, num_bins, magnitudes, bins);
+			LogCommand("vxHOGCellsNode", retValue, graph, input, cell_width, cell_height, num_bins, magnitudes, bins			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node HoughLinesPNode(Graph graph, Image input, HoughLinesParams[] @params, Array lines_array, Scalar num_lines)
+		{
+			Node retValue;
+
+			unsafe {
+				fixed (HoughLinesParams* p_params = @params)
+				{
+					Debug.Assert(Delegates.pvxHoughLinesPNode != null, "pvxHoughLinesPNode not implemented");
+					retValue = Delegates.pvxHoughLinesPNode(graph, input, p_params, lines_array, num_lines);
+					LogCommand("vxHoughLinesPNode", retValue, graph, input, @params, lines_array, num_lines					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node BilateralFilterNode(Graph graph, Tensor src, int diameter, float sigmaSpace, float sigmaValues, Tensor dst)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxBilateralFilterNode != null, "pvxBilateralFilterNode not implemented");
+			retValue = Delegates.pvxBilateralFilterNode(graph, src, diameter, sigmaSpace, sigmaValues, dst);
+			LogCommand("vxBilateralFilterNode", retValue, graph, src, diameter, sigmaSpace, sigmaValues, dst			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node TensorMultiplyNode(Graph graph, Tensor input1, Tensor input2, Scalar scale, int overflow_policy, int rounding_policy, Tensor output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxTensorMultiplyNode != null, "pvxTensorMultiplyNode not implemented");
+			retValue = Delegates.pvxTensorMultiplyNode(graph, input1, input2, scale, overflow_policy, rounding_policy, output);
+			LogCommand("vxTensorMultiplyNode", retValue, graph, input1, input2, scale, overflow_policy, rounding_policy, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node TensorAddNode(Graph graph, Tensor input1, Tensor input2, int policy, Tensor output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxTensorAddNode != null, "pvxTensorAddNode not implemented");
+			retValue = Delegates.pvxTensorAddNode(graph, input1, input2, policy, output);
+			LogCommand("vxTensorAddNode", retValue, graph, input1, input2, policy, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node TensorSubtractNode(Graph graph, Tensor input1, Tensor input2, int policy, Tensor output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxTensorSubtractNode != null, "pvxTensorSubtractNode not implemented");
+			retValue = Delegates.pvxTensorSubtractNode(graph, input1, input2, policy, output);
+			LogCommand("vxTensorSubtractNode", retValue, graph, input1, input2, policy, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node TensorTableLookupNode(Graph graph, Tensor input1, Lut lut, Tensor output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxTensorTableLookupNode != null, "pvxTensorTableLookupNode not implemented");
+			retValue = Delegates.pvxTensorTableLookupNode(graph, input1, lut, output);
+			LogCommand("vxTensorTableLookupNode", retValue, graph, input1, lut, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node TensorTransposeNode(Graph graph, Tensor input, Tensor output, uint dimension1, uint dimension2)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxTensorTransposeNode != null, "pvxTensorTransposeNode not implemented");
+			retValue = Delegates.pvxTensorTransposeNode(graph, input, output, dimension1, dimension2);
+			LogCommand("vxTensorTransposeNode", retValue, graph, input, output, dimension1, dimension2			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node TensorConvertDepthNode(Graph graph, Tensor input, int policy, Scalar norm, Scalar offset, Tensor output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxTensorConvertDepthNode != null, "pvxTensorConvertDepthNode not implemented");
+			retValue = Delegates.pvxTensorConvertDepthNode(graph, input, policy, norm, offset, output);
+			LogCommand("vxTensorConvertDepthNode", retValue, graph, input, policy, norm, offset, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node MatrixMultiplyNode(Graph graph, Tensor input1, Tensor input2, Tensor input3, MatrixMulParams[] matrix_multiply_params, Tensor output)
+		{
+			Node retValue;
+
+			unsafe {
+				fixed (MatrixMulParams* p_matrix_multiply_params = matrix_multiply_params)
+				{
+					Debug.Assert(Delegates.pvxMatrixMultiplyNode != null, "pvxMatrixMultiplyNode not implemented");
+					retValue = Delegates.pvxMatrixMultiplyNode(graph, input1, input2, input3, p_matrix_multiply_params, output);
+					LogCommand("vxMatrixMultiplyNode", retValue, graph, input1, input2, input3, matrix_multiply_params, output					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Node CopyNode(Graph graph, Reference input, Reference output)
+		{
+			Node retValue;
+
+			Debug.Assert(Delegates.pvxCopyNode != null, "pvxCopyNode not implemented");
+			retValue = Delegates.pvxCopyNode(graph, input, output);
+			LogCommand("vxCopyNode", retValue, graph, input, output			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
@@ -3278,12 +3904,12 @@ namespace OpenVX
 			internal static vxSetContextAttribute pvxSetContextAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxHint(Reference reference, int hint, void* data, uint data_size);
+			internal unsafe delegate Status vxHint(Reference reference, Hint hint, void* data, uint data_size);
 
 			internal static vxHint pvxHint;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Status vxDirective(Reference reference, int directive);
+			internal delegate Status vxDirective(Reference reference, Directive directive);
 
 			internal static vxDirective pvxDirective;
 
@@ -3293,7 +3919,7 @@ namespace OpenVX
 			internal static vxGetStatus pvxGetStatus;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate int vxRegisterUserStruct(Context context, uint size);
+			internal delegate Type vxRegisterUserStruct(Context context, uint size);
 
 			internal static vxRegisterUserStruct pvxRegisterUserStruct;
 
@@ -3343,24 +3969,24 @@ namespace OpenVX
 			internal static vxSwapImageHandle pvxSwapImageHandle;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryImage(Image image, ImageAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryImage(Image image, int attribute, void* ptr, uint size);
 
 			internal static vxQueryImage pvxQueryImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetImageAttribute(Image image, ImageAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetImageAttribute(Image image, int attribute, void* ptr, uint size);
 
 			internal static vxSetImageAttribute pvxSetImageAttribute;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Status vxSetImagePixelValues(Image image, PixelValue pixel_value);
+
+			internal static vxSetImagePixelValues pvxSetImagePixelValues;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxReleaseImage(Image* image);
 
 			internal static vxReleaseImage pvxReleaseImage;
-
-			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate uint vxComputeImagePatchSize(Image image, Rectangle* rect, uint plane_index);
-
-			internal static vxComputeImagePatchSize pvxComputeImagePatchSize;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr vxFormatImagePatchAddress1d(void* ptr, uint index, ImagePatchAddressing* addr);
@@ -3378,12 +4004,12 @@ namespace OpenVX
 			internal static vxGetValidRegionImage pvxGetValidRegionImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyImagePatch(Image image, Rectangle* image_rect, uint image_plane_index, ImagePatchAddressing* user_addr, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyImagePatch(Image image, Rectangle* image_rect, uint image_plane_index, ImagePatchAddressing* user_addr, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyImagePatch pvxCopyImagePatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapImagePatch(Image image, Rectangle* rect, uint plane_index, MapId* map_id, ImagePatchAddressing* addr, IntPtr* ptr, int usage, int mem_type, uint flags);
+			internal unsafe delegate Status vxMapImagePatch(Image image, Rectangle* rect, uint plane_index, MapId* map_id, ImagePatchAddressing* addr, IntPtr* ptr, Accessor usage, MemoryType mem_type, MapFlag flags);
 
 			internal static vxMapImagePatch pvxMapImagePatch;
 
@@ -3393,7 +4019,7 @@ namespace OpenVX
 			internal static vxUnmapImagePatch pvxUnmapImagePatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Image vxCreateImageFromChannel(Image img, int channel);
+			internal delegate Image vxCreateImageFromChannel(Image img, Channel channel);
 
 			internal static vxCreateImageFromChannel pvxCreateImageFromChannel;
 
@@ -3418,7 +4044,7 @@ namespace OpenVX
 			internal static vxGetKernelByName pvxGetKernelByName;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Kernel vxGetKernelByEnum(Context context, int kernel);
+			internal delegate Kernel vxGetKernelByEnum(Context context, KernelType kernel);
 
 			internal static vxGetKernelByEnum pvxGetKernelByEnum;
 
@@ -3443,7 +4069,7 @@ namespace OpenVX
 			internal static vxFinalizeKernel pvxFinalizeKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Status vxAddParameterToKernel(Kernel kernel, uint index, int dir, int data_type, int state);
+			internal delegate Status vxAddParameterToKernel(Kernel kernel, uint index, Direction dir, Type data_type, ParameterState state);
 
 			internal static vxAddParameterToKernel pvxAddParameterToKernel;
 
@@ -3558,7 +4184,7 @@ namespace OpenVX
 			internal static vxRetrieveNodeCallback pvxRetrieveNodeCallback;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Status vxSetNodeTarget(Node node, int target_enum, string target_string);
+			internal delegate Status vxSetNodeTarget(Node node, Target target_enum, string target_string);
 
 			internal static vxSetNodeTarget pvxSetNodeTarget;
 
@@ -3598,6 +4224,16 @@ namespace OpenVX
 			internal static vxCreateScalar pvxCreateScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Scalar vxCreateScalarWithSize(Context context, int data_type, void* ptr, uint size);
+
+			internal static vxCreateScalarWithSize pvxCreateScalarWithSize;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Scalar vxCreateVirtualScalar(Graph graph, int data_type);
+
+			internal static vxCreateVirtualScalar pvxCreateVirtualScalar;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxReleaseScalar(Scalar* scalar);
 
 			internal static vxReleaseScalar pvxReleaseScalar;
@@ -3608,7 +4244,7 @@ namespace OpenVX
 			internal static vxQueryScalar pvxQueryScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyScalar(Scalar scalar, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyScalar(Scalar scalar, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyScalar pvxCopyScalar;
 
@@ -3678,6 +4314,11 @@ namespace OpenVX
 			internal static vxCreateLUT pvxCreateLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Lut vxCreateVirtualLUT(Graph graph, int data_type, uint count);
+
+			internal static vxCreateVirtualLUT pvxCreateVirtualLUT;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxReleaseLUT(Lut* lut);
 
 			internal static vxReleaseLUT pvxReleaseLUT;
@@ -3688,12 +4329,12 @@ namespace OpenVX
 			internal static vxQueryLUT pvxQueryLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyLUT(Lut lut, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyLUT(Lut lut, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyLUT pvxCopyLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapLUT(Lut lut, MapId* map_id, IntPtr* ptr, int usage, int mem_type, uint flags);
+			internal unsafe delegate Status vxMapLUT(Lut lut, MapId* map_id, IntPtr* ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapLUT pvxMapLUT;
 
@@ -3708,6 +4349,11 @@ namespace OpenVX
 			internal static vxCreateDistribution pvxCreateDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Distribution vxCreateVirtualDistribution(Graph graph, uint numBins, int offset, uint range);
+
+			internal static vxCreateVirtualDistribution pvxCreateVirtualDistribution;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxReleaseDistribution(Distribution* distribution);
 
 			internal static vxReleaseDistribution pvxReleaseDistribution;
@@ -3718,12 +4364,12 @@ namespace OpenVX
 			internal static vxQueryDistribution pvxQueryDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyDistribution(Distribution distribution, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyDistribution(Distribution distribution, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyDistribution pvxCopyDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapDistribution(Distribution distribution, MapId* map_id, IntPtr* ptr, int usage, int mem_type, uint flags);
+			internal unsafe delegate Status vxMapDistribution(Distribution distribution, MapId* map_id, IntPtr* ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapDistribution pvxMapDistribution;
 
@@ -3733,9 +4379,29 @@ namespace OpenVX
 			internal static vxUnmapDistribution pvxUnmapDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Threshold vxCreateThreshold(Context c, int thresh_type, int data_type);
+			internal delegate Threshold vxCreateThresholdForImage(Context context, int thresh_type, DfImage input_format, DfImage output_format);
 
-			internal static vxCreateThreshold pvxCreateThreshold;
+			internal static vxCreateThresholdForImage pvxCreateThresholdForImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Threshold vxCreateVirtualThresholdForImage(Graph graph, int thresh_type, DfImage input_format, DfImage output_format);
+
+			internal static vxCreateVirtualThresholdForImage pvxCreateVirtualThresholdForImage;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Status vxCopyThresholdValue(Threshold thresh, PixelValue value_ptr, Accessor usage, MemoryType user_mem_type);
+
+			internal static vxCopyThresholdValue pvxCopyThresholdValue;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Status vxCopyThresholdRange(Threshold thresh, PixelValue lower_value_ptr, PixelValue upper_value_ptr, Accessor usage, MemoryType user_mem_type);
+
+			internal static vxCopyThresholdRange pvxCopyThresholdRange;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Status vxCopyThresholdOutput(Threshold thresh, PixelValue true_value_ptr, PixelValue false_value_ptr, Accessor usage, MemoryType user_mem_type);
+
+			internal static vxCopyThresholdOutput pvxCopyThresholdOutput;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxReleaseThreshold(Threshold* thresh);
@@ -3758,6 +4424,11 @@ namespace OpenVX
 			internal static vxCreateMatrix pvxCreateMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Matrix vxCreateVirtualMatrix(Graph graph, int data_type, uint columns, uint rows);
+
+			internal static vxCreateVirtualMatrix pvxCreateVirtualMatrix;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxReleaseMatrix(Matrix* mat);
 
 			internal static vxReleaseMatrix pvxReleaseMatrix;
@@ -3768,7 +4439,7 @@ namespace OpenVX
 			internal static vxQueryMatrix pvxQueryMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyMatrix(Matrix matrix, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyMatrix(Matrix matrix, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyMatrix pvxCopyMatrix;
 
@@ -3778,9 +4449,19 @@ namespace OpenVX
 			internal static vxCreateMatrixFromPattern pvxCreateMatrixFromPattern;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Matrix vxCreateMatrixFromPatternAndOrigin(Context context, Pattern pattern, uint columns, uint rows, uint origin_col, uint origin_row);
+
+			internal static vxCreateMatrixFromPatternAndOrigin pvxCreateMatrixFromPatternAndOrigin;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Convolution vxCreateConvolution(Context context, uint columns, uint rows);
 
 			internal static vxCreateConvolution pvxCreateConvolution;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Convolution vxCreateVirtualConvolution(Graph graph, uint columns, uint rows);
+
+			internal static vxCreateVirtualConvolution pvxCreateVirtualConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxReleaseConvolution(Convolution* conv);
@@ -3798,7 +4479,7 @@ namespace OpenVX
 			internal static vxSetConvolutionAttribute pvxSetConvolutionAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyConvolutionCoefficients(Convolution conv, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyConvolutionCoefficients(Convolution conv, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyConvolutionCoefficients pvxCopyConvolutionCoefficients;
 
@@ -3833,19 +4514,29 @@ namespace OpenVX
 			internal static vxCreateRemap pvxCreateRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Remap vxCreateVirtualRemap(Graph graph, uint src_width, uint src_height, uint dst_width, uint dst_height);
+
+			internal static vxCreateVirtualRemap pvxCreateVirtualRemap;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxReleaseRemap(Remap* table);
 
 			internal static vxReleaseRemap pvxReleaseRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Status vxSetRemapPoint(Remap table, uint dst_x, uint dst_y, float src_x, float src_y);
+			internal unsafe delegate Status vxMapRemapPatch(Remap remap, Rectangle* rect, MapId* map_id, uint* stride_y, IntPtr* ptr, Type coordinate_type, Accessor usage, MemoryType mem_type);
 
-			internal static vxSetRemapPoint pvxSetRemapPoint;
+			internal static vxMapRemapPatch pvxMapRemapPatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxGetRemapPoint(Remap table, uint dst_x, uint dst_y, float* src_x, float* src_y);
+			internal delegate Status vxUnmapRemapPatch(Remap remap, MapId map_id);
 
-			internal static vxGetRemapPoint pvxGetRemapPoint;
+			internal static vxUnmapRemapPatch pvxUnmapRemapPatch;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Status vxCopyRemapPatch(Remap remap, Rectangle* rect, uint user_stride_y, void* user_ptr, Type user_coordinate_type, Accessor usage, MemoryType user_mem_type);
+
+			internal static vxCopyRemapPatch pvxCopyRemapPatch;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate Status vxQueryRemap(Remap table, RemapAttribute attribute, void* ptr, uint size);
@@ -3883,12 +4574,12 @@ namespace OpenVX
 			internal static vxTruncateArray pvxTruncateArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyArrayRange(Array array, uint range_start, uint range_end, uint user_stride, void* user_ptr, int usage, int user_mem_type);
+			internal unsafe delegate Status vxCopyArrayRange(Array array, uint range_start, uint range_end, uint user_stride, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyArrayRange pvxCopyArrayRange;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapArrayRange(Array array, uint range_start, uint range_end, MapId* map_id, uint* stride, IntPtr* ptr, int usage, int mem_type, uint flags);
+			internal unsafe delegate Status vxMapArrayRange(Array array, uint range_start, uint range_end, MapId* map_id, uint* stride, IntPtr* ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapArrayRange pvxMapArrayRange;
 
@@ -3931,6 +4622,41 @@ namespace OpenVX
 			internal delegate Status vxSetMetaFormatFromReference(MetaFormat meta, Reference exemplar);
 
 			internal static vxSetMetaFormatFromReference pvxSetMetaFormatFromReference;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Tensor vxCreateTensor(Context context, uint number_of_dims, uint* dims, Type data_type, sbyte fixed_point_position);
+
+			internal static vxCreateTensor pvxCreateTensor;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate ObjectArray vxCreateImageObjectArrayFromTensor(Tensor tensor, Rectangle* rect, uint array_size, uint jump, DfImage image_format);
+
+			internal static vxCreateImageObjectArrayFromTensor pvxCreateImageObjectArrayFromTensor;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Tensor vxCreateTensorFromView(Tensor tensor, uint number_of_dims, uint* view_start, uint* view_end);
+
+			internal static vxCreateTensorFromView pvxCreateTensorFromView;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Tensor vxCreateVirtualTensor(Graph graph, uint number_of_dims, uint* dims, Type data_type, sbyte fixed_point_position);
+
+			internal static vxCreateVirtualTensor pvxCreateVirtualTensor;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Status vxCopyTensorPatch(Tensor tensor, uint number_of_dims, uint* view_start, uint* view_end, uint* user_stride, void* user_ptr, Accessor usage, MemoryType user_memory_type);
+
+			internal static vxCopyTensorPatch pvxCopyTensorPatch;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Status vxQueryTensor(Tensor tensor, TensorAttribute attribute, void* ptr, uint size);
+
+			internal static vxQueryTensor pvxQueryTensor;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Status vxReleaseTensor(Tensor* tensor);
+
+			internal static vxReleaseTensor pvxReleaseTensor;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Node vxColorConvertNode(Graph graph, Image input, Image output);
@@ -3996,6 +4722,11 @@ namespace OpenVX
 			internal delegate Node vxThresholdNode(Graph graph, Image input, Threshold thresh, Image output);
 
 			internal static vxThresholdNode pvxThresholdNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxNonMaxSuppressionNode(Graph graph, Image input, Image mask, int win_size, Image output);
+
+			internal static vxNonMaxSuppressionNode pvxNonMaxSuppressionNode;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Node vxIntegralImageNode(Graph graph, Image input, Image output);
@@ -4073,6 +4804,16 @@ namespace OpenVX
 			internal static vxMinMaxLocNode pvxMinMaxLocNode;
 
 			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxMinNode(Graph graph, Image in1, Image in2, Image @out);
+
+			internal static vxMinNode pvxMinNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxMaxNode(Graph graph, Image in1, Image in2, Image @out);
+
+			internal static vxMaxNode pvxMaxNode;
+
+			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Node vxAndNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxAndNode pvxAndNode;
@@ -4091,6 +4832,16 @@ namespace OpenVX
 			internal delegate Node vxNotNode(Graph graph, Image input, Image output);
 
 			internal static vxNotNode pvxNotNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxScalarOperationNode(Graph graph, int scalar_operation, Scalar a, Scalar b, Scalar output);
+
+			internal static vxScalarOperationNode pvxScalarOperationNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxSelectNode(Graph graph, Scalar condition, Reference true_value, Reference false_value, Reference output);
+
+			internal static vxSelectNode pvxSelectNode;
 
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Node vxMultiplyNode(Graph graph, Image in1, Image in2, Scalar scale, int overflow_policy, int rounding_policy, Image @out);
@@ -4151,6 +4902,76 @@ namespace OpenVX
 			internal delegate Node vxHalfScaleGaussianNode(Graph graph, Image input, Image output, int kernel_size);
 
 			internal static vxHalfScaleGaussianNode pvxHalfScaleGaussianNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxMatchTemplateNode(Graph graph, Image src, Image templateImage, int matchingMethod, Image output);
+
+			internal static vxMatchTemplateNode pvxMatchTemplateNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxLBPNode(Graph graph, Image @in, int format, sbyte kernel_size, Image @out);
+
+			internal static vxLBPNode pvxLBPNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Node vxHOGFeaturesNode(Graph graph, Image input, Tensor magnitudes, Tensor bins, Hog* @params, uint hog_param_size, Tensor features);
+
+			internal static vxHOGFeaturesNode pvxHOGFeaturesNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxHOGCellsNode(Graph graph, Image input, int cell_width, int cell_height, int num_bins, Tensor magnitudes, Tensor bins);
+
+			internal static vxHOGCellsNode pvxHOGCellsNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Node vxHoughLinesPNode(Graph graph, Image input, HoughLinesParams* @params, Array lines_array, Scalar num_lines);
+
+			internal static vxHoughLinesPNode pvxHoughLinesPNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxBilateralFilterNode(Graph graph, Tensor src, int diameter, float sigmaSpace, float sigmaValues, Tensor dst);
+
+			internal static vxBilateralFilterNode pvxBilateralFilterNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxTensorMultiplyNode(Graph graph, Tensor input1, Tensor input2, Scalar scale, int overflow_policy, int rounding_policy, Tensor output);
+
+			internal static vxTensorMultiplyNode pvxTensorMultiplyNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxTensorAddNode(Graph graph, Tensor input1, Tensor input2, int policy, Tensor output);
+
+			internal static vxTensorAddNode pvxTensorAddNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxTensorSubtractNode(Graph graph, Tensor input1, Tensor input2, int policy, Tensor output);
+
+			internal static vxTensorSubtractNode pvxTensorSubtractNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxTensorTableLookupNode(Graph graph, Tensor input1, Lut lut, Tensor output);
+
+			internal static vxTensorTableLookupNode pvxTensorTableLookupNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxTensorTransposeNode(Graph graph, Tensor input, Tensor output, uint dimension1, uint dimension2);
+
+			internal static vxTensorTransposeNode pvxTensorTransposeNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxTensorConvertDepthNode(Graph graph, Tensor input, int policy, Scalar norm, Scalar offset, Tensor output);
+
+			internal static vxTensorConvertDepthNode pvxTensorConvertDepthNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Node vxMatrixMultiplyNode(Graph graph, Tensor input1, Tensor input2, Tensor input3, MatrixMulParams* matrix_multiply_params, Tensor output);
+
+			internal static vxMatrixMultiplyNode pvxMatrixMultiplyNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Node vxCopyNode(Graph graph, Reference input, Reference output);
+
+			internal static vxCopyNode pvxCopyNode;
 
 		}
 	}

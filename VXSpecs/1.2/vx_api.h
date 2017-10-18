@@ -89,7 +89,7 @@ VX_API_ENTRY vx_context VX_API_CALL vxGetContext(vx_reference reference);
  * \retval VX_ERROR_NOT_SUPPORTED If the attribute is not supported on this implementation.
  * \ingroup group_context
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryContext(vx_context context, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryContext(vx_context context, vx_context_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Sets an attribute on the context.
  * \param [in] context The handle to the overall context.
@@ -103,7 +103,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryContext(vx_context context, vx_enum at
  * \retval VX_ERROR_NOT_SUPPORTED If the attribute is not settable.
  * \ingroup group_context
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetContextAttribute(vx_context context, vx_enum attribute, const void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxSetContextAttribute(vx_context context, vx_context_attribute_e attribute, const void *ptr, vx_size size);
 
 /*! \brief Provides a generic API to give platform-specific hints to the implementation.
  * \param [in] reference The reference to the object to hint at.
@@ -117,7 +117,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxSetContextAttribute(vx_context context, vx_
  * \retval VX_ERROR_NOT_SUPPORTED If the hint is not supported.
  * \ingroup group_hint
  */
-VX_API_ENTRY vx_status VX_API_CALL vxHint(vx_reference reference, vx_enum hint, const void* data, vx_size data_size);
+VX_API_ENTRY vx_status VX_API_CALL vxHint(vx_reference reference, vx_hint_e hint, const void* data, vx_size data_size);
 
 /*! \brief Provides a generic API to give platform-specific directives to the implementations.
  * \param [in] reference The reference to the object to set the directive on.
@@ -131,7 +131,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxHint(vx_reference reference, vx_enum hint, 
  *       Error VX_ERROR_NOT_SUPPORTED is returned when used with any other reference.
  * \ingroup group_directive
  */
-VX_API_ENTRY vx_status VX_API_CALL vxDirective(vx_reference reference, vx_enum directive);
+VX_API_ENTRY vx_status VX_API_CALL vxDirective(vx_reference reference, vx_directive_e directive);
 
 /*! \brief Provides a generic API to return status values from Object constructors if they
  * fail.
@@ -165,7 +165,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxGetStatus(vx_reference reference);
  * a specific structure.
  * \ingroup group_adv_array
  */
-VX_API_ENTRY vx_enum VX_API_CALL vxRegisterUserStruct(vx_context context, vx_size size);
+VX_API_ENTRY vx_type_e VX_API_CALL vxRegisterUserStruct(vx_context context, vx_size size);
 
 /*!
  * \brief Allocates and registers user-defined kernel enumeration to a context.
@@ -523,7 +523,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxGetValidRegionImage(vx_image image, vx_rect
  * such data has an undefined value.
  * \ingroup group_image
  */
-VX_API_ENTRY vx_status VX_API_CALL vxCopyImagePatch(vx_image image, const vx_rectangle_t *image_rect, vx_uint32 image_plane_index, const vx_imagepatch_addressing_t *user_addr, void * user_ptr, vx_enum usage, vx_enum user_mem_type);
+VX_API_ENTRY vx_status VX_API_CALL vxCopyImagePatch(vx_image image, const vx_rectangle_t *image_rect, vx_uint32 image_plane_index, const vx_imagepatch_addressing_t *user_addr, void * user_ptr, vx_accessor_e usage, vx_memory_type_e user_mem_type);
 
 
 /*! \brief Allows the application to get direct access to a rectangular patch of an image object plane.
@@ -587,7 +587,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyImagePatch(vx_image image, const vx_rec
  * \ingroup group_image
  * \post <tt>\ref vxUnmapImagePatch </tt> with same (*map_id) value.
  */
-VX_API_ENTRY vx_status VX_API_CALL vxMapImagePatch(vx_image image, const vx_rectangle_t *rect, vx_uint32 plane_index, vx_map_id *map_id, vx_imagepatch_addressing_t *addr, void **ptr, vx_enum usage, vx_enum mem_type, vx_uint32 flags);
+VX_API_ENTRY vx_status VX_API_CALL vxMapImagePatch(vx_image image, const vx_rectangle_t *rect, vx_uint32 plane_index, vx_map_id *map_id, vx_imagepatch_addressing_t *addr, void **ptr, vx_accessor_e usage, vx_memory_type_e mem_type, vx_map_flag_e flags);
 
 
 /*! \brief Unmap and commit potential changes to a image object patch that were previously mapped.
@@ -623,7 +623,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxUnmapImagePatch(vx_image image, vx_map_id m
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \ingroup group_image
  */
-VX_API_ENTRY vx_image VX_API_CALL vxCreateImageFromChannel(vx_image img, vx_enum channel);
+VX_API_ENTRY vx_image VX_API_CALL vxCreateImageFromChannel(vx_image img, vx_channel_e channel);
 
 
 /*! \brief Sets the valid rectangle for an image according to a supplied rectangle.
@@ -846,7 +846,7 @@ VX_API_ENTRY vx_kernel VX_API_CALL vxGetKernelByName(vx_context context, const v
  * \pre <tt>\ref vxLoadKernels</tt> if the kernel is not provided by the
  * OpenVX implementation.
  */
-VX_API_ENTRY vx_kernel VX_API_CALL vxGetKernelByEnum(vx_context context, vx_enum kernel);
+VX_API_ENTRY vx_kernel VX_API_CALL vxGetKernelByEnum(vx_context context, vx_kernel_e kernel);
 
 /*! \brief This allows the client to query the kernel to get information about
  * the number of parameters, enum values, etc.
@@ -861,7 +861,7 @@ VX_API_ENTRY vx_kernel VX_API_CALL vxGetKernelByEnum(vx_context context, vx_enum
  * \retval VX_ERROR_NOT_SUPPORTED If the attribute value is not supported in this implementation.
  * \ingroup group_kernel
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryKernel(vx_kernel kernel, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryKernel(vx_kernel kernel, vx_kernel_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Release the reference to the kernel.
  * The object may not be garbage collected until its total reference count is zero.
@@ -925,7 +925,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxFinalizeKernel(vx_kernel kernel);
  * \pre <tt>\ref vxAddUserKernel</tt>
  * \ingroup group_user_kernels
  */
-VX_API_ENTRY vx_status VX_API_CALL vxAddParameterToKernel(vx_kernel kernel, vx_uint32 index, vx_enum dir, vx_enum data_type, vx_enum state);
+VX_API_ENTRY vx_status VX_API_CALL vxAddParameterToKernel(vx_kernel kernel, vx_uint32 index, vx_direction_e dir, vx_type_e data_type, vx_parameter_state_e state);
 
 /*! \brief Removes a custom kernel from its context and releases it.
  * \param [in] kernel The reference to the kernel to remove. Returned from <tt>\ref vxAddUserKernel</tt>.
@@ -957,7 +957,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxRemoveKernel(vx_kernel kernel);
  * \retval VX_ERROR_INVALID_REFERENCE kernel is not a valid <tt>\ref vx_kernel</tt> reference.
  * \ingroup group_user_kernels
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetKernelAttribute(vx_kernel kernel, vx_enum attribute, const void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxSetKernelAttribute(vx_kernel kernel, vx_kernel_attribute_e attribute, const void *ptr, vx_size size);
 
 /*! \brief Retrieves a <tt>\ref vx_parameter</tt> from a <tt>\ref vx_kernel</tt>.
  * \param [in] kernel The reference to the kernel.
@@ -1079,7 +1079,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxWaitGraph(vx_graph graph);
  * \retval VX_ERROR_INVALID_REFERENCE graph is not a valid <tt>\ref vx_graph</tt> reference.
  * \ingroup group_graph
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryGraph(vx_graph graph, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryGraph(vx_graph graph, vx_graph_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Allows the attributes of the Graph to be set to the provided value.
  * \param [in] graph The reference to the graph.
@@ -1091,7 +1091,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryGraph(vx_graph graph, vx_enum attribut
  * \retval VX_ERROR_INVALID_REFERENCE graph is not a valid <tt>\ref vx_graph</tt> reference.
  * \ingroup group_graph
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetGraphAttribute(vx_graph graph, vx_enum attribute, const void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxSetGraphAttribute(vx_graph graph, vx_graph_attribute_e attribute, const void *ptr, vx_size size);
 
 /*! \brief Adds the given parameter extracted from a <tt>\ref vx_node</tt> to the graph.
  * \param [in] graph The graph reference that contains the node.
@@ -1170,7 +1170,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxCreateGenericNode(vx_graph graph, vx_kernel k
  * \retval VX_ERROR_INVALID_PARAMETERS The type or size is incorrect.
  * \ingroup group_node
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryNode(vx_node node, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryNode(vx_node node, vx_node_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Allows a user to set attribute of a node before Graph Validation.
  * \param [in] node The reference to the node to set.
@@ -1186,7 +1186,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryNode(vx_node node, vx_enum attribute, 
  * \retval VX_ERROR_INVALID_REFERENCE node is not a valid <tt>\ref vx_node</tt> reference.
  * \retval VX_ERROR_INVALID_PARAMETERS size is not correct for the type needed.
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetNodeAttribute(vx_node node, vx_enum attribute, const void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxSetNodeAttribute(vx_node node, vx_node_attribute_e attribute, const void *ptr, vx_size size);
 
 /*! \brief Releases a reference to a Node object.
  * The object may not be garbage collected until its total reference count is zero.
@@ -1246,7 +1246,7 @@ VX_API_ENTRY vx_nodecomplete_f VX_API_CALL vxRetrieveNodeCallback(vx_node node);
  * \retval VX_ERROR_INVALID_REFERENCE node is not a valid <tt>\ref vx_node</tt> reference.
  * \retval VX_ERROR_NOT_SUPPORTED If the node kernel is not supported by the specified target.
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetNodeTarget(vx_node node, vx_enum target_enum, const char* target_string);
+VX_API_ENTRY vx_status VX_API_CALL vxSetNodeTarget(vx_node node, vx_target_e target_enum, const char* target_string);
 
 /*! \brief Creates replicas of the same node first_node to process a set of objects
  * stored in <tt>\ref vx_pyramid</tt> or <tt>\ref vx_object_array</tt>.
@@ -1334,7 +1334,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxSetParameterByReference(vx_parameter parame
  * \retval VX_ERROR_INVALID_REFERENCE parameter is not a valid <tt>\ref vx_parameter</tt> reference.
  * \ingroup group_parameter
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryParameter(vx_parameter parameter, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryParameter(vx_parameter parameter, vx_parameter_attribute_e attribute, void *ptr, vx_size size);
 
 /*==============================================================================
  SCALAR
@@ -1398,7 +1398,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleaseScalar(vx_scalar *scalar);
  * \retval VX_ERROR_INVALID_REFERENCE scalar is not a valid <tt>\ref vx_scalar</tt> reference.
  * \ingroup group_scalar
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryScalar(vx_scalar scalar, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryScalar(vx_scalar scalar, vx_scalar_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Allows the application to copy from/into a scalar object.
  * \param [in] scalar The reference to the scalar object that is the source or the
@@ -1421,7 +1421,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryScalar(vx_scalar scalar, vx_enum attri
  * \retval VX_ERROR_INVALID_PARAMETERS An other parameter is incorrect.
  * \ingroup group_scalar
  */
-VX_API_ENTRY vx_status VX_API_CALL vxCopyScalar(vx_scalar scalar, void *user_ptr, vx_enum usage, vx_enum user_mem_type);
+VX_API_ENTRY vx_status VX_API_CALL vxCopyScalar(vx_scalar scalar, void *user_ptr, vx_accessor_e usage, vx_memory_type_e user_mem_type);
 
 /*! \brief Allows the application to copy from/into a scalar object with size.
  * \param [in] scalar The reference to the scalar object that is the source or the
@@ -1444,7 +1444,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyScalar(vx_scalar scalar, void *user_ptr
  * \retval VX_ERROR_INVALID_PARAMETERS An other parameter is incorrect.
  * \ingroup group_scalar
  */
-VX_API_ENTRY vx_status vxCopyScalarWithSize(vx_scalar scalar, vx_size size, void *user_ptr, vx_enum usage, vx_enum user_mem_type);
+VX_API_ENTRY vx_status vxCopyScalarWithSize(vx_scalar scalar, vx_size size, void *user_ptr, vx_accessor_e usage, vx_memory_type_e user_mem_type);
 
 /*==============================================================================
  REFERENCE
@@ -1460,7 +1460,7 @@ VX_API_ENTRY vx_status vxCopyScalarWithSize(vx_scalar scalar, vx_size size, void
  * \retval VX_ERROR_INVALID_REFERENCE ref is not a valid <tt>\ref vx_reference</tt> reference.
  * \ingroup group_reference
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryReference(vx_reference ref, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryReference(vx_reference ref, vx_reference_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Releases a reference. The reference may potentially refer to multiple OpenVX objects of different types.
  * This function can be used instead of calling a specific release function for each individual object type
@@ -1526,7 +1526,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxSetReferenceName(vx_reference ref, const vx
  * \retval VX_ERROR_INVALID_REFERENCE delay is not a valid <tt>\ref vx_delay</tt> reference.
  * \ingroup group_delay
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryDelay(vx_delay delay, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryDelay(vx_delay delay, vx_delay_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Releases a reference to a delay object.
  * The object may not be garbage collected until its total reference count is zero.
@@ -1697,7 +1697,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleaseLUT(vx_lut *lut);
  * \retval VX_ERROR_INVALID_REFERENCE lut is not a valid <tt>\ref vx_lut</tt> reference.
  * \ingroup group_lut
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryLUT(vx_lut lut, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryLUT(vx_lut lut, vx_lut_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Allows the application to copy from/into a LUT object.
  * \param [in] lut The reference to the LUT object that is the source or the
@@ -1723,7 +1723,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryLUT(vx_lut lut, vx_enum attribute, voi
  * \retval VX_ERROR_INVALID_PARAMETERS An other parameter is incorrect.
  * \ingroup group_lut
  */
-VX_API_ENTRY vx_status VX_API_CALL vxCopyLUT(vx_lut lut, void *user_ptr, vx_enum usage, vx_enum user_mem_type);
+VX_API_ENTRY vx_status VX_API_CALL vxCopyLUT(vx_lut lut, void *user_ptr, vx_accessor_e usage, vx_memory_type_e user_mem_type);
 
 /*! \brief Allows the application to get direct access to LUT object.
  * \param [in] lut The reference to the LUT object to map.
@@ -1763,7 +1763,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyLUT(vx_lut lut, void *user_ptr, vx_enum
  * \ingroup group_lut
  * \post <tt>\ref vxUnmapLUT </tt> with same (*map_id) value.
  */
-VX_API_ENTRY vx_status VX_API_CALL vxMapLUT(vx_lut lut, vx_map_id *map_id, void **ptr, vx_enum usage, vx_enum mem_type, vx_bitfield flags);
+VX_API_ENTRY vx_status VX_API_CALL vxMapLUT(vx_lut lut, vx_map_id *map_id, void **ptr, vx_accessor_e usage, vx_memory_type_e mem_type, vx_bitfield flags);
 
 /*! \brief Unmap and commit potential changes to LUT object that was previously mapped.
  * Unmapping a LUT invalidates the memory location from which the LUT data could
@@ -1830,7 +1830,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleaseDistribution(vx_distribution *distri
  * \retval VX_ERROR_INVALID_REFERENCE distribution is not a valid <tt>\ref vx_distribution</tt> reference.
  * \ingroup group_distribution
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryDistribution(vx_distribution distribution, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryDistribution(vx_distribution distribution, vx_distribution_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Allows the application to copy from/into a distribution object.
  * \param [in] distribution The reference to the distribution object that is the source or the
@@ -1855,7 +1855,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryDistribution(vx_distribution distribut
  * \retval VX_ERROR_INVALID_PARAMETERS An other parameter is incorrect.
  * \ingroup group_distribution
  */
-VX_API_ENTRY vx_status VX_API_CALL vxCopyDistribution(vx_distribution distribution, void *user_ptr, vx_enum usage, vx_enum user_mem_type);
+VX_API_ENTRY vx_status VX_API_CALL vxCopyDistribution(vx_distribution distribution, void *user_ptr, vx_accessor_e usage, vx_memory_type_e user_mem_type);
 
 /*! \brief Allows the application to get direct access to distribution object.
  * \param [in] distribution The reference to the distribution object to map.
@@ -1897,7 +1897,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyDistribution(vx_distribution distributi
  * \ingroup group_distribution
  * \post <tt>\ref vxUnmapDistribution </tt> with same (*map_id) value.
  */
-VX_API_ENTRY vx_status VX_API_CALL vxMapDistribution(vx_distribution distribution, vx_map_id *map_id, void **ptr, vx_enum usage, vx_enum mem_type, vx_bitfield flags);
+VX_API_ENTRY vx_status VX_API_CALL vxMapDistribution(vx_distribution distribution, vx_map_id *map_id, void **ptr, vx_accessor_e usage, vx_memory_type_e mem_type, vx_bitfield flags);
 
 /*! \brief Unmap and commit potential changes to distribution object that was previously mapped.
  * Unmapping a distribution invalidates the memory location from which the distribution data
@@ -2009,8 +2009,8 @@ VX_API_ENTRY vx_threshold VX_API_CALL vxCreateVirtualThresholdForImage(vx_graph 
  */
 VX_API_ENTRY vx_status VX_API_CALL vxCopyThresholdValue(vx_threshold thresh,
                                                         vx_pixel_value_t * value_ptr,
-                                                        vx_enum usage,
-                                                        vx_enum user_mem_type
+                                                        vx_accessor_e usage,
+                                                        vx_memory_type_e user_mem_type
                                                         );
 
 /*! \brief Allows the application to copy thresholding values from/into a
@@ -2049,8 +2049,8 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyThresholdValue(vx_threshold thresh,
 VX_API_ENTRY vx_status VX_API_CALL vxCopyThresholdRange(vx_threshold thresh,
                                                         vx_pixel_value_t * lower_value_ptr,
                                                         vx_pixel_value_t * upper_value_ptr,
-                                                        vx_enum usage,
-                                                        vx_enum user_mem_type);
+                                                        vx_accessor_e usage,
+                                                        vx_memory_type_e user_mem_type);
 
 /*! \brief Allows the application to copy the true and false output values
  * from/into a threshold object.
@@ -2086,8 +2086,8 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyThresholdRange(vx_threshold thresh,
 VX_API_ENTRY vx_status VX_API_CALL vxCopyThresholdOutput(vx_threshold thresh,
                                                          vx_pixel_value_t * true_value_ptr,
                                                          vx_pixel_value_t * false_value_ptr,
-                                                         vx_enum usage,
-                                                         vx_enum user_mem_type);
+                                                         vx_accessor_e usage,
+                                                         vx_memory_type_e user_mem_type);
 
 /*! \brief Releases a reference to a threshold object.
  * The object may not be garbage collected until its total reference count is zero.
@@ -2110,7 +2110,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleaseThreshold(vx_threshold *thresh);
  * \retval VX_ERROR_INVALID_REFERENCE thresh is not a valid <tt>\ref vx_threshold</tt> reference.
  * \ingroup group_threshold
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetThresholdAttribute(vx_threshold thresh, vx_enum attribute, const void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxSetThresholdAttribute(vx_threshold thresh, vx_threshold_attribute_e attribute, const void *ptr, vx_size size);
 
 /*! \brief Queries an attribute on the threshold object.
  * \param [in] thresh The threshold object to set.
@@ -2122,7 +2122,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxSetThresholdAttribute(vx_threshold thresh, 
  * \retval VX_ERROR_INVALID_REFERENCE thresh is not a valid <tt>\ref vx_threshold</tt> reference.
  * \ingroup group_threshold
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryThreshold(vx_threshold thresh, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryThreshold(vx_threshold thresh, vx_threshold_attribute_e attribute, void *ptr, vx_size size);
 
 /*==============================================================================
  MATRIX
@@ -2172,7 +2172,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleaseMatrix(vx_matrix *mat);
  * \retval VX_ERROR_INVALID_REFERENCE mat is not a valid <tt>\ref vx_matrix</tt> reference.
  * \ingroup group_matrix
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryMatrix(vx_matrix mat, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryMatrix(vx_matrix mat, vx_matrix_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Allows the application to copy from/into a matrix object.
  * \param [in] matrix The reference to the matrix object that is the source or the
@@ -2199,7 +2199,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryMatrix(vx_matrix mat, vx_enum attribut
  * \retval VX_ERROR_INVALID_PARAMETERS An other parameter is incorrect.
  * \ingroup group_matrix
  */
-VX_API_ENTRY vx_status VX_API_CALL vxCopyMatrix(vx_matrix matrix, void *user_ptr, vx_enum usage, vx_enum user_mem_type);
+VX_API_ENTRY vx_status VX_API_CALL vxCopyMatrix(vx_matrix matrix, void *user_ptr, vx_accessor_e usage, vx_memory_type_e user_mem_type);
 
 /*! \brief Creates a reference to a matrix object from a boolean pattern.
  * \see <tt>\ref vxCreateMatrixFromPatternAndOrigin</tt> for a description of the matrix pattern.
@@ -2241,7 +2241,7 @@ VX_API_ENTRY vx_matrix VX_API_CALL vxCreateMatrixFromPattern(vx_context context,
  * preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \ingroup group_matrix
  */
-VX_API_ENTRY vx_matrix VX_API_CALL vxCreateMatrixFromPatternAndOrigin(vx_context context, vx_enum pattern, vx_size columns, vx_size rows, vx_size origin_col, vx_size origin_row);
+VX_API_ENTRY vx_matrix VX_API_CALL vxCreateMatrixFromPatternAndOrigin(vx_context context, vx_pattern_e pattern, vx_size columns, vx_size rows, vx_size origin_col, vx_size origin_row);
 
 
 /*==============================================================================
@@ -2298,7 +2298,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleaseConvolution(vx_convolution *conv);
  * \retval VX_ERROR_INVALID_REFERENCE conv is not a valid <tt>\ref vx_convolution</tt> reference.
  * \ingroup group_convolution
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryConvolution(vx_convolution conv, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryConvolution(vx_convolution conv, vx_convolution_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Sets attributes on the convolution object.
  * \param [in] conv The coordinates object to set.
@@ -2310,7 +2310,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryConvolution(vx_convolution conv, vx_en
  * \retval VX_ERROR_INVALID_REFERENCE conv is not a valid <tt>\ref vx_convolution</tt> reference.
  * \ingroup group_convolution
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetConvolutionAttribute(vx_convolution conv, vx_enum attribute, const void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxSetConvolutionAttribute(vx_convolution conv, vx_convolution_attribute_e attribute, const void *ptr, vx_size size);
 
 /*! \brief Allows the application to copy coefficients from/into a convolution object.
  * \param [in] conv The reference to the convolution object that is the source or the destination of the copy.
@@ -2337,7 +2337,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxSetConvolutionAttribute(vx_convolution conv
  * \retval VX_ERROR_INVALID_PARAMETERS An other parameter is incorrect.
  * \ingroup group_convolution
  */
-VX_API_ENTRY vx_status VX_API_CALL vxCopyConvolutionCoefficients(vx_convolution conv, void *user_ptr, vx_enum usage, vx_enum user_mem_type);
+VX_API_ENTRY vx_status VX_API_CALL vxCopyConvolutionCoefficients(vx_convolution conv, void *user_ptr, vx_accessor_e usage, vx_memory_type_e user_mem_type);
 
 
 /*==============================================================================
@@ -2408,7 +2408,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleasePyramid(vx_pyramid *pyr);
  * \retval VX_ERROR_INVALID_REFERENCE pyr is not a valid <tt>\ref vx_pyramid</tt> reference.
  * \ingroup group_pyramid
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryPyramid(vx_pyramid pyr, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryPyramid(vx_pyramid pyr, vx_pyramid_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Retrieves a level of the pyramid as a <tt>\ref vx_image</tt>, which can be used
  * elsewhere in OpenVX. A call to vxReleaseImage is necessary to release an image for each
@@ -2545,9 +2545,9 @@ VX_API_ENTRY vx_status VX_API_CALL vxMapRemapPatch(vx_remap remap,
                                                    vx_map_id *map_id,
                                                    vx_size *stride_y,
                                                    void **ptr,
-                                                   vx_enum coordinate_type,
-                                                   vx_enum usage,
-                                                   vx_enum mem_type);
+                                                   vx_type_e coordinate_type,
+                                                   vx_accessor_e usage,
+                                                   vx_memory_type_e mem_type);
 
 /*! \brief Unmap and commit potential changes to a remap object patch that was previously mapped.
  *
@@ -2626,9 +2626,9 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyRemapPatch(vx_remap remap,
                                                     const vx_rectangle_t *rect,
                                                     vx_size user_stride_y,
                                                     void * user_ptr,
-                                                    vx_enum user_coordinate_type,
-                                                    vx_enum usage,
-                                                    vx_enum user_mem_type);
+                                                    vx_type_e user_coordinate_type,
+                                                    vx_accessor_e usage,
+                                                    vx_memory_type_e user_mem_type);
 
 /*! \brief Queries attributes from a Remap table.
  * \param [in] table The remap to query.
@@ -2640,7 +2640,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyRemapPatch(vx_remap remap,
  * \retval VX_ERROR_INVALID_REFERENCE table is not a valid <tt>\ref vx_remap</tt> reference.
  * \ingroup group_remap
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryRemap(vx_remap table, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryRemap(vx_remap table, vx_remap_attribute_e attribute, void *ptr, vx_size size);
 
 /*==============================================================================
  ARRAY
@@ -2724,7 +2724,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleaseArray(vx_array *arr);
  *
  * \ingroup group_array
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryArray(vx_array arr, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryArray(vx_array arr, vx_array_attribute_e attribute, void *ptr, vx_size size);
 
 /*!
  * \brief Adds items to the Array.
@@ -2798,7 +2798,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxTruncateArray(vx_array arr, vx_size new_num
  * \retval VX_ERROR_INVALID_PARAMETERS An other parameter is incorrect.
  * \ingroup group_array
  */
-VX_API_ENTRY vx_status VX_API_CALL vxCopyArrayRange(vx_array array, vx_size range_start, vx_size range_end, vx_size user_stride, void *user_ptr, vx_enum usage, vx_enum user_mem_type);
+VX_API_ENTRY vx_status VX_API_CALL vxCopyArrayRange(vx_array array, vx_size range_start, vx_size range_end, vx_size user_stride, void *user_ptr, vx_accessor_e usage, vx_memory_type_e user_mem_type);
 
 /*! \brief Allows the application to get direct access to a range of an array object.
  * \param [in] array The reference to the array object that contains the range to map.
@@ -2851,7 +2851,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyArrayRange(vx_array array, vx_size rang
  * \ingroup group_array
  * \post <tt>\ref vxUnmapArrayRange </tt> with same (*map_id) value.
  */
-VX_API_ENTRY vx_status VX_API_CALL vxMapArrayRange(vx_array array, vx_size range_start, vx_size range_end, vx_map_id *map_id, vx_size *stride, void **ptr, vx_enum usage, vx_enum mem_type, vx_uint32 flags);
+VX_API_ENTRY vx_status VX_API_CALL vxMapArrayRange(vx_array array, vx_size range_start, vx_size range_end, vx_map_id *map_id, vx_size *stride, void **ptr, vx_accessor_e usage, vx_memory_type_e mem_type, vx_uint32 flags);
 
 /*! \brief Unmap and commit potential changes to an array object range that was previously mapped.
  * Unmapping an array range invalidates the memory location from which the range could
@@ -2975,7 +2975,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxReleaseObjectArray(vx_object_array *arr);
  *
  * \ingroup group_object_array
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryObjectArray(vx_object_array arr, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryObjectArray(vx_object_array arr, vx_object_array_attribute_e attribute, void *ptr, vx_size size);
 
 
 /*==============================================================================
@@ -3046,7 +3046,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxSetMetaFormatFromReference(vx_meta_format m
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \ingroup group_object_tensor
  */
-VX_API_ENTRY vx_tensor VX_API_CALL vxCreateTensor(vx_context context, vx_size number_of_dims, const vx_size * dims, vx_enum data_type,vx_int8 fixed_point_position);
+VX_API_ENTRY vx_tensor VX_API_CALL vxCreateTensor(vx_context context, vx_size number_of_dims, const vx_size * dims, vx_type_e data_type, vx_int8 fixed_point_position);
 
 /*! \brief Creates an array of images into the multi-dimension data, this can be adjacent 2D images or not depending on the stride value.
  * The stride value is representing bytes in the third dimension.
@@ -3094,14 +3094,14 @@ VX_API_ENTRY vx_tensor VX_API_CALL vxCreateTensorFromView(vx_tensor tensor, vx_s
  * \param [in] graph The reference to the parent graph.
  * \param [in] number_of_dimensions The number of dimensions.
  * \param [in] dimensions Dimensions sizes in elements.
- * \param [in] data_type The <tt>\ref vx_type_t</tt> that represents the data type of the tensor data elements.
+ * \param [in] data_type The <tt>\ref vx_type_e</tt> that represents the data type of the tensor data elements.
  * \param [in] fixed_point_position Specifies the fixed point position when the input element type is integer. If 0, calculations are performed in integer math.
  * \return A tensor data reference.Any possible errors preventing a
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \note Passing this reference to <tt>\ref vxCopyTensorPatch</tt> will return an error.
  * \ingroup group_object_tensor
  */
-VX_API_ENTRY vx_tensor VX_API_CALL vxCreateVirtualTensor(vx_graph graph, vx_size number_of_dims, vx_size *dims, vx_enum data_type, vx_int8 fixed_point_position);
+VX_API_ENTRY vx_tensor VX_API_CALL vxCreateVirtualTensor(vx_graph graph, vx_size number_of_dims, vx_size *dims, vx_type_e data_type, vx_int8 fixed_point_position);
 
 
 /*! \brief Allows the application to copy a view patch from/into an tensor object .
@@ -3132,7 +3132,7 @@ VX_API_ENTRY vx_tensor VX_API_CALL vxCreateVirtualTensor(vx_graph graph, vx_size
  * \ingroup group_object_tensor
  */
 VX_API_ENTRY vx_status VX_API_CALL vxCopyTensorPatch(vx_tensor tensor, vx_size number_of_dims, const vx_size * view_start, const vx_size * view_end,
-        const vx_size * user_stride, void * user_ptr, vx_enum usage, vx_enum user_memory_type);
+        const vx_size * user_stride, void * user_ptr, vx_accessor_e usage, vx_memory_type_e user_memory_type);
 
 /*! \brief Retrieves various attributes of a tensor data.
  * \param [in] tensor The reference to the tensor data to query.
@@ -3145,7 +3145,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyTensorPatch(vx_tensor tensor, vx_size n
  * \retval <tt>\ref VX_ERROR_INVALID_PARAMETERS</tt> If any of the other parameters are incorrect.
  * \ingroup group_object_tensor
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryTensor(vx_tensor tensor, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryTensor(vx_tensor tensor, vx_tensor_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Releases a reference to a tensor data object.
  * The object may not be garbage collected until its total reference count is zero.

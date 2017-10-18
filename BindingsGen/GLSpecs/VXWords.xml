@@ -50,6 +50,7 @@
     <word>Name</word>
     <word>Node</word>
     <word>Object</word>
+    <word>Output</word>
     <word>Patch</word>
     <word>Pattern</word>
     <word>Parameter</word>
@@ -69,16 +70,20 @@
     <word>Scalar</word>
     <word>Schedule</word>
     <word>Set</word>
+    <word>Size</word>
     <word>Status</word>
     <word>Struct</word>
     <word>Swap</word>
     <word>Target</word>
+    <word>Tensor</word>
     <word>Threshold</word>
     <word>Uniform</word>
     <word>Unmap</word>
     <word>User</word>
     <word>Valid</word>
+    <word>Value</word>
     <word>Verify</word>
     <word>Virtual</word>
     <word>Wait</word>
+    <word>With</word>
 </words>
