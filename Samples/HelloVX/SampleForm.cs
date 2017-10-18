@@ -28,7 +28,7 @@ namespace HelloVX
 			_PyramidDelay = VX.CreateDelay(_Context, _Pyramid, 2);
 			VX.Release(_Pyramid);
 
-			_KeypointsExemplar = VXCreateArray(_Context, VX.TYPE_KEYPOINT, max_keypoint_count);
+			_KeypointsExemplar = VX.CreateArray(_Context, VX.TYPE_KEYPOINT, max_keypoint_count);
 			_KeypointsDelay = VX.CreateDelay(_Context, _KeypointsExemplar, 2);
 		}
 
