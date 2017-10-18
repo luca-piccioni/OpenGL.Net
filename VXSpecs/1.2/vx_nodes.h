@@ -62,7 +62,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxColorConvertNode(vx_graph graph, vx_image inp
  */
 VX_API_ENTRY vx_node VX_API_CALL vxChannelExtractNode(vx_graph graph,
                              vx_image input,
-                             vx_enum channel,
+                             vx_channel_e channel,
                              vx_image output);
 
 /*! \brief [Graph] Creates a channel combine node.
@@ -133,7 +133,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxMagnitudeNode(vx_graph graph, vx_image grad_x
  * \return <tt>\ref vx_node</tt>.
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  */
-VX_API_ENTRY vx_node VX_API_CALL vxScaleImageNode(vx_graph graph, vx_image src, vx_image dst, vx_enum type);
+VX_API_ENTRY vx_node VX_API_CALL vxScaleImageNode(vx_graph graph, vx_image src, vx_image dst, vx_interpolation_type_e type);
 
 /*! \brief [Graph] Creates a Table Lookup node. If a value from the input image is not present in the lookup table, the result is undefined.
  * \param [in] graph The reference to the graph.
@@ -286,7 +286,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxGaussian3x3Node(vx_graph graph, vx_image inpu
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  * \ingroup group_vision_function_nonlinear_filter
  */
-VX_API_ENTRY vx_node VX_API_CALL vxNonLinearFilterNode(vx_graph graph, vx_enum function, vx_image input, vx_matrix mask, vx_image output);
+VX_API_ENTRY vx_node VX_API_CALL vxNonLinearFilterNode(vx_graph graph, vx_non_linear_filter_e function, vx_image input, vx_matrix mask, vx_image output);
 
 /*! \brief [Graph] Creates a custom convolution node.
  * \param [in] graph The reference to the graph.
@@ -463,7 +463,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxNotNode(vx_graph graph, vx_image input, vx_im
  * \return <tt>\ref vx_node</tt>.
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  */
-VX_API_ENTRY vx_node VX_API_CALL vxScalarOperationNode(vx_graph graph, vx_enum scalar_operation, vx_scalar a, vx_scalar b, vx_scalar output);
+VX_API_ENTRY vx_node VX_API_CALL vxScalarOperationNode(vx_graph graph, vx_scalar_operation_e scalar_operation, vx_scalar a, vx_scalar b, vx_scalar output);
 
 /*! \brief [Graph] Selects one of two data objects depending on the the value of a condition (boolean scalar), and copies its data into another data object.
  * \details This node supports predicated execution flow within a graph. All the data objects passed to this kernel shall
@@ -499,8 +499,8 @@ VX_API_ENTRY vx_node VX_API_CALL vxSelectNode(vx_graph graph, vx_scalar conditio
 VX_API_ENTRY vx_node VX_API_CALL vxMultiplyNode(vx_graph graph,
                        vx_image in1, vx_image in2,
                        vx_scalar scale,
-                       vx_enum overflow_policy,
-                       vx_enum rounding_policy,
+                       vx_convert_policy_e overflow_policy,
+                       vx_round_policy_e rounding_policy,
                        vx_image out);
 
 /*! \brief [Graph] Creates an arithmetic addition node.
@@ -515,7 +515,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxMultiplyNode(vx_graph graph,
  */
 VX_API_ENTRY vx_node VX_API_CALL vxAddNode(vx_graph graph,
                   vx_image in1, vx_image in2,
-                  vx_enum policy,
+                  vx_convert_policy_e policy,
                   vx_image out);
 
 /*! \brief [Graph] Creates an arithmetic subtraction node.
@@ -530,7 +530,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxAddNode(vx_graph graph,
  */
 VX_API_ENTRY vx_node VX_API_CALL vxSubtractNode(vx_graph graph,
                        vx_image in1, vx_image in2,
-                       vx_enum policy,
+                       vx_convert_policy_e policy,
                        vx_image out);
 
 /*! \brief [Graph] Creates a bit-depth conversion node.
@@ -543,7 +543,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxSubtractNode(vx_graph graph,
  * \return <tt>\ref vx_node</tt>.
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  */
-VX_API_ENTRY vx_node VX_API_CALL vxConvertDepthNode(vx_graph graph, vx_image input, vx_image output, vx_enum policy, vx_scalar shift);
+VX_API_ENTRY vx_node VX_API_CALL vxConvertDepthNode(vx_graph graph, vx_image input, vx_image output, vx_convert_policy_e policy, vx_scalar shift);
 
 /*! \brief [Graph] Creates a Canny Edge Detection Node.
  * \param [in] graph The reference to the graph.
@@ -559,7 +559,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxConvertDepthNode(vx_graph graph, vx_image inp
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  */
 VX_API_ENTRY vx_node VX_API_CALL vxCannyEdgeDetectorNode(vx_graph graph, vx_image input, vx_threshold hyst,
-                                vx_int32 gradient_size, vx_enum norm_type,
+                                vx_int32 gradient_size, vx_norm_type_e norm_type,
                                 vx_image output);
 
 /*! \brief [Graph] Creates an Affine Warp Node.
@@ -575,7 +575,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxCannyEdgeDetectorNode(vx_graph graph, vx_imag
  * \return <tt>\ref vx_node</tt>.
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  */
-VX_API_ENTRY vx_node VX_API_CALL vxWarpAffineNode(vx_graph graph, vx_image input, vx_matrix matrix, vx_enum type, vx_image output);
+VX_API_ENTRY vx_node VX_API_CALL vxWarpAffineNode(vx_graph graph, vx_image input, vx_matrix matrix, vx_interpolation_type_e type, vx_image output);
 
 /*! \brief [Graph] Creates a Perspective Warp Node.
  * \param [in] graph The reference to the graph.
@@ -590,7 +590,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxWarpAffineNode(vx_graph graph, vx_image input
  * \return <tt>\ref vx_node</tt>.
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  */
-VX_API_ENTRY vx_node VX_API_CALL vxWarpPerspectiveNode(vx_graph graph, vx_image input, vx_matrix matrix, vx_enum type, vx_image output);
+VX_API_ENTRY vx_node VX_API_CALL vxWarpPerspectiveNode(vx_graph graph, vx_image input, vx_matrix matrix, vx_interpolation_type_e type, vx_image output);
 
 /*! \brief [Graph] Creates a Harris Corners Node.
  * \param [in] graph The reference to the graph.
@@ -662,7 +662,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxOpticalFlowPyrLKNode(vx_graph graph,
                                vx_array old_points,
                                vx_array new_points_estimates,
                                vx_array new_points,
-                               vx_enum termination,
+                               vx_termination_criteria_e termination,
                                vx_scalar epsilon,
                                vx_scalar num_iterations,
                                vx_scalar use_initial_estimate,
@@ -684,7 +684,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxOpticalFlowPyrLKNode(vx_graph graph,
 VX_API_ENTRY vx_node VX_API_CALL vxRemapNode(vx_graph graph,
                     vx_image input,
                     vx_remap table,
-                    vx_enum policy,
+                    vx_interpolation_type_e policy,
                     vx_image output);
 
 /*! \brief [Graph] Performs a Gaussian Blur on an image then half-scales it. The interpolation mode used is nearest-neighbor.
@@ -718,7 +718,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxHalfScaleGaussianNode(vx_graph graph, vx_imag
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  * \ingroup group_vision_function_match_template
  */
- VX_API_ENTRY vx_node VX_API_CALL vxMatchTemplateNode(vx_graph graph, vx_image src, vx_image templateImage, vx_enum matchingMethod, vx_image output);
+ VX_API_ENTRY vx_node VX_API_CALL vxMatchTemplateNode(vx_graph graph, vx_image src, vx_image templateImage, vx_comp_metric_e matchingMethod, vx_image output);
 
  /*! \brief [Graph] Creates a node that extracts LBP image from an input image
 * \param [in] graph	The reference to the graph.
@@ -731,7 +731,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxHalfScaleGaussianNode(vx_graph graph, vx_imag
 * \ingroup group_vision_function_lbp
 */
 VX_API_ENTRY vx_node VX_API_CALL vxLBPNode(vx_graph graph,
-	vx_image in, vx_enum format, vx_int8 kernel_size, vx_image out);
+	vx_image in, vx_lbp_format_e format, vx_int8 kernel_size, vx_image out);
 
 /*! \brief [Graph] The node produces HOG features for the W1xW2 window in a sliding window fashion over the whole input image. Each position produces a HOG feature vector.
  * \details To account for changes in illumination and contrast, the gradient strengths must be locally normalized, which requires grouping the cells together into larger, spatially connected blocks. 
@@ -837,8 +837,8 @@ VX_API_ENTRY vx_node VX_API_CALL vxBilateralFilterNode(vx_graph graph, vx_tensor
  * \returns A node reference <tt>\ref vx_node</tt>. Any possible errors preventing a
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  */
-VX_API_ENTRY vx_node VX_API_CALL vxTensorMultiplyNode(vx_graph graph, vx_tensor input1, vx_tensor input2, vx_scalar scale, vx_enum overflow_policy,
-        vx_enum rounding_policy, vx_tensor output);
+VX_API_ENTRY vx_node VX_API_CALL vxTensorMultiplyNode(vx_graph graph, vx_tensor input1, vx_tensor input2, vx_scalar scale, vx_convert_policy_e overflow_policy,
+        vx_round_policy_e rounding_policy, vx_tensor output);
 
 /*! \brief [Graph] Performs arithmetic addition on element values in the input tensor data.
  * \param [in] graph The handle to the graph.
@@ -855,7 +855,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxTensorMultiplyNode(vx_graph graph, vx_tensor 
  * \returns A node reference <tt>\ref vx_node</tt>. Any possible errors preventing a
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  */
-VX_API_ENTRY vx_node VX_API_CALL vxTensorAddNode(vx_graph graph, vx_tensor input1, vx_tensor input2, vx_enum policy, vx_tensor output);
+VX_API_ENTRY vx_node VX_API_CALL vxTensorAddNode(vx_graph graph, vx_tensor input1, vx_tensor input2, vx_convert_policy_e policy, vx_tensor output);
 
 /*! \brief [Graph] Performs arithmetic subtraction on element values in the input tensor data.
  * \param [in] graph The handle to the graph.
@@ -872,7 +872,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxTensorAddNode(vx_graph graph, vx_tensor input
  * \returns A node reference <tt>\ref vx_node</tt>. Any possible errors preventing a
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  */
-VX_API_ENTRY vx_node VX_API_CALL vxTensorSubtractNode(vx_graph graph, vx_tensor input1, vx_tensor input2, vx_enum policy, vx_tensor output);
+VX_API_ENTRY vx_node VX_API_CALL vxTensorSubtractNode(vx_graph graph, vx_tensor input1, vx_tensor input2, vx_convert_policy_e policy, vx_tensor output);
 
 /*! \brief [Graph] Performs LUT on element values in the input tensor data.
  * \param [in] graph The handle to the graph.
@@ -916,7 +916,7 @@ VX_API_ENTRY vx_node VX_API_CALL vxTensorTransposeNode(vx_graph graph, vx_tensor
  * \return <tt>\ref vx_node</tt>.
  * \retval vx_node A node reference. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>
  */
-VX_API_ENTRY vx_node VX_API_CALL vxTensorConvertDepthNode(vx_graph graph, vx_tensor input, vx_enum policy, vx_scalar norm, vx_scalar offset, vx_tensor output);
+VX_API_ENTRY vx_node VX_API_CALL vxTensorConvertDepthNode(vx_graph graph, vx_tensor input, vx_convert_policy_e policy, vx_scalar norm, vx_scalar offset, vx_tensor output);
 
 /*! \brief [Graph] Creates a generalized matrix multiplication node.
  * \param [in] graph The reference to the graph.

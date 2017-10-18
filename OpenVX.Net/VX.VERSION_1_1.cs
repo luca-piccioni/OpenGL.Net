@@ -992,12 +992,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AllocateUserKernelId(Context context, int[] pKernelEnumId)
+		public static Status AllocateUserKernelId(Context context, Type[] pKernelEnumId)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (int* p_pKernelEnumId = pKernelEnumId)
+				fixed (Type* p_pKernelEnumId = pKernelEnumId)
 				{
 					Debug.Assert(Delegates.pvxAllocateUserKernelId != null, "pvxAllocateUserKernelId not implemented");
 					retValue = Delegates.pvxAllocateUserKernelId(context, p_pKernelEnumId);
@@ -1026,7 +1026,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetImmediateModeTarget(Context context, int target_enum, string target_string)
+		public static Status SetImmediateModeTarget(Context context, Target target_enum, string target_string)
 		{
 			Status retValue;
 
@@ -1091,7 +1091,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Image CreateImageFromHandle(Context context, DfImage color, ImagePatchAddressing[] addrs, IntPtr[] ptrs, int memory_type)
+		public static Image CreateImageFromHandle(Context context, DfImage color, ImagePatchAddressing[] addrs, IntPtr[] ptrs, MemoryType memory_type)
 		{
 			Image retValue;
 
@@ -1127,7 +1127,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Image image, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Image image, ImageAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -1143,7 +1143,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Image image, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Image image, ImageAttribute attribute, IntPtr ptr, uint size)
 		{
 			Status retValue;
 
@@ -2467,7 +2467,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Matrix CreateMatrixFromPattern(Context context, int pattern, uint columns, uint rows)
+		public static Matrix CreateMatrixFromPattern(Context context, MatrixAttribute pattern, uint columns, uint rows)
 		{
 			Matrix retValue;
 
@@ -3117,7 +3117,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node ChannelExtractNode(Graph graph, Image input, int channel, Image output)
+		public static Node ChannelExtractNode(Graph graph, Image input, Channel channel, Image output)
 		{
 			Node retValue;
 
@@ -3177,7 +3177,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node ScaleImageNode(Graph graph, Image src, Image dst, int type)
+		public static Node ScaleImageNode(Graph graph, Image src, Image dst, InterpolationType type)
 		{
 			Node retValue;
 
@@ -3345,7 +3345,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node NonLinearFilterNode(Graph graph, int function, Image input, Matrix mask, Image output)
+		public static Node NonLinearFilterNode(Graph graph, NonLinearFilter function, Image input, Matrix mask, Image output)
 		{
 			Node retValue;
 
@@ -3525,7 +3525,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node ScalarOperationNode(Graph graph, int scalar_operation, Scalar a, Scalar b, Scalar output)
+		public static Node ScalarOperationNode(Graph graph, ScalarOperation scalar_operation, Scalar a, Scalar b, Scalar output)
 		{
 			Node retValue;
 
@@ -3549,7 +3549,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node MultiplyNode(Graph graph, Image in1, Image in2, Scalar scale, int overflow_policy, int rounding_policy, Image @out)
+		public static Node MultiplyNode(Graph graph, Image in1, Image in2, Scalar scale, ConvertPolicy overflow_policy, RoundPolicy rounding_policy, Image @out)
 		{
 			Node retValue;
 
@@ -3561,7 +3561,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node AddNode(Graph graph, Image in1, Image in2, int policy, Image @out)
+		public static Node AddNode(Graph graph, Image in1, Image in2, ConvertPolicy policy, Image @out)
 		{
 			Node retValue;
 
@@ -3573,7 +3573,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node SubtractNode(Graph graph, Image in1, Image in2, int policy, Image @out)
+		public static Node SubtractNode(Graph graph, Image in1, Image in2, ConvertPolicy policy, Image @out)
 		{
 			Node retValue;
 
@@ -3585,7 +3585,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node ConvertDepthNode(Graph graph, Image input, Image output, int policy, Scalar shift)
+		public static Node ConvertDepthNode(Graph graph, Image input, Image output, ConvertPolicy policy, Scalar shift)
 		{
 			Node retValue;
 
@@ -3597,7 +3597,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node CannyEdgeDetectorNode(Graph graph, Image input, Threshold hyst, int gradient_size, int norm_type, Image output)
+		public static Node CannyEdgeDetectorNode(Graph graph, Image input, Threshold hyst, int gradient_size, NormType norm_type, Image output)
 		{
 			Node retValue;
 
@@ -3609,7 +3609,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node WarpAffineNode(Graph graph, Image input, Matrix matrix, int type, Image output)
+		public static Node WarpAffineNode(Graph graph, Image input, Matrix matrix, InterpolationType type, Image output)
 		{
 			Node retValue;
 
@@ -3621,7 +3621,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node WarpPerspectiveNode(Graph graph, Image input, Matrix matrix, int type, Image output)
+		public static Node WarpPerspectiveNode(Graph graph, Image input, Matrix matrix, InterpolationType type, Image output)
 		{
 			Node retValue;
 
@@ -3657,7 +3657,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node OpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, int termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, uint window_dimension)
+		public static Node OpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, TerminationCriteria termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, uint window_dimension)
 		{
 			Node retValue;
 
@@ -3669,7 +3669,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node RemapNode(Graph graph, Image input, Remap table, int policy, Image output)
+		public static Node RemapNode(Graph graph, Image input, Remap table, InterpolationType policy, Image output)
 		{
 			Node retValue;
 
@@ -3693,7 +3693,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node MatchTemplateNode(Graph graph, Image src, Image templateImage, int matchingMethod, Image output)
+		public static Node MatchTemplateNode(Graph graph, Image src, Image templateImage, CompareMetric matchingMethod, Image output)
 		{
 			Node retValue;
 
@@ -3705,7 +3705,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node LBPNode(Graph graph, Image @in, int format, sbyte kernel_size, Image @out)
+		public static Node LBPNode(Graph graph, Image @in, LbpFormat format, sbyte kernel_size, Image @out)
 		{
 			Node retValue;
 
@@ -3775,7 +3775,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node TensorMultiplyNode(Graph graph, Tensor input1, Tensor input2, Scalar scale, int overflow_policy, int rounding_policy, Tensor output)
+		public static Node TensorMultiplyNode(Graph graph, Tensor input1, Tensor input2, Scalar scale, ConvertPolicy overflow_policy, RoundPolicy rounding_policy, Tensor output)
 		{
 			Node retValue;
 
@@ -3787,7 +3787,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node TensorAddNode(Graph graph, Tensor input1, Tensor input2, int policy, Tensor output)
+		public static Node TensorAddNode(Graph graph, Tensor input1, Tensor input2, ConvertPolicy policy, Tensor output)
 		{
 			Node retValue;
 
@@ -3799,7 +3799,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node TensorSubtractNode(Graph graph, Tensor input1, Tensor input2, int policy, Tensor output)
+		public static Node TensorSubtractNode(Graph graph, Tensor input1, Tensor input2, ConvertPolicy policy, Tensor output)
 		{
 			Node retValue;
 
@@ -3835,7 +3835,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node TensorConvertDepthNode(Graph graph, Tensor input, int policy, Scalar norm, Scalar offset, Tensor output)
+		public static Node TensorConvertDepthNode(Graph graph, Tensor input, ConvertPolicy policy, Scalar norm, Scalar offset, Tensor output)
 		{
 			Node retValue;
 
@@ -3924,7 +3924,7 @@ namespace OpenVX
 			internal static vxRegisterUserStruct pvxRegisterUserStruct;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAllocateUserKernelId(Context context, int* pKernelEnumId);
+			internal unsafe delegate Status vxAllocateUserKernelId(Context context, Type* pKernelEnumId);
 
 			internal static vxAllocateUserKernelId pvxAllocateUserKernelId;
 
@@ -3934,7 +3934,7 @@ namespace OpenVX
 			internal static vxAllocateUserKernelLibraryId pvxAllocateUserKernelLibraryId;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Status vxSetImmediateModeTarget(Context context, int target_enum, string target_string);
+			internal delegate Status vxSetImmediateModeTarget(Context context, Target target_enum, string target_string);
 
 			internal static vxSetImmediateModeTarget pvxSetImmediateModeTarget;
 
@@ -3959,7 +3959,7 @@ namespace OpenVX
 			internal static vxCreateVirtualImage pvxCreateVirtualImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Image vxCreateImageFromHandle(Context context, DfImage color, ImagePatchAddressing* addrs, IntPtr* ptrs, int memory_type);
+			internal unsafe delegate Image vxCreateImageFromHandle(Context context, DfImage color, ImagePatchAddressing* addrs, IntPtr* ptrs, MemoryType memory_type);
 
 			internal static vxCreateImageFromHandle pvxCreateImageFromHandle;
 
@@ -3969,12 +3969,12 @@ namespace OpenVX
 			internal static vxSwapImageHandle pvxSwapImageHandle;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryImage(Image image, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryImage(Image image, ImageAttribute attribute, void* ptr, uint size);
 
 			internal static vxQueryImage pvxQueryImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetImageAttribute(Image image, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetImageAttribute(Image image, ImageAttribute attribute, void* ptr, uint size);
 
 			internal static vxSetImageAttribute pvxSetImageAttribute;
 
@@ -4444,7 +4444,7 @@ namespace OpenVX
 			internal static vxCopyMatrix pvxCopyMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Matrix vxCreateMatrixFromPattern(Context context, int pattern, uint columns, uint rows);
+			internal delegate Matrix vxCreateMatrixFromPattern(Context context, MatrixAttribute pattern, uint columns, uint rows);
 
 			internal static vxCreateMatrixFromPattern pvxCreateMatrixFromPattern;
 
@@ -4664,7 +4664,7 @@ namespace OpenVX
 			internal static vxColorConvertNode pvxColorConvertNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxChannelExtractNode(Graph graph, Image input, int channel, Image output);
+			internal delegate Node vxChannelExtractNode(Graph graph, Image input, Channel channel, Image output);
 
 			internal static vxChannelExtractNode pvxChannelExtractNode;
 
@@ -4689,7 +4689,7 @@ namespace OpenVX
 			internal static vxMagnitudeNode pvxMagnitudeNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxScaleImageNode(Graph graph, Image src, Image dst, int type);
+			internal delegate Node vxScaleImageNode(Graph graph, Image src, Image dst, InterpolationType type);
 
 			internal static vxScaleImageNode pvxScaleImageNode;
 
@@ -4759,7 +4759,7 @@ namespace OpenVX
 			internal static vxGaussian3x3Node pvxGaussian3x3Node;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxNonLinearFilterNode(Graph graph, int function, Image input, Matrix mask, Image output);
+			internal delegate Node vxNonLinearFilterNode(Graph graph, NonLinearFilter function, Image input, Matrix mask, Image output);
 
 			internal static vxNonLinearFilterNode pvxNonLinearFilterNode;
 
@@ -4834,7 +4834,7 @@ namespace OpenVX
 			internal static vxNotNode pvxNotNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxScalarOperationNode(Graph graph, int scalar_operation, Scalar a, Scalar b, Scalar output);
+			internal delegate Node vxScalarOperationNode(Graph graph, ScalarOperation scalar_operation, Scalar a, Scalar b, Scalar output);
 
 			internal static vxScalarOperationNode pvxScalarOperationNode;
 
@@ -4844,37 +4844,37 @@ namespace OpenVX
 			internal static vxSelectNode pvxSelectNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxMultiplyNode(Graph graph, Image in1, Image in2, Scalar scale, int overflow_policy, int rounding_policy, Image @out);
+			internal delegate Node vxMultiplyNode(Graph graph, Image in1, Image in2, Scalar scale, ConvertPolicy overflow_policy, RoundPolicy rounding_policy, Image @out);
 
 			internal static vxMultiplyNode pvxMultiplyNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxAddNode(Graph graph, Image in1, Image in2, int policy, Image @out);
+			internal delegate Node vxAddNode(Graph graph, Image in1, Image in2, ConvertPolicy policy, Image @out);
 
 			internal static vxAddNode pvxAddNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxSubtractNode(Graph graph, Image in1, Image in2, int policy, Image @out);
+			internal delegate Node vxSubtractNode(Graph graph, Image in1, Image in2, ConvertPolicy policy, Image @out);
 
 			internal static vxSubtractNode pvxSubtractNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxConvertDepthNode(Graph graph, Image input, Image output, int policy, Scalar shift);
+			internal delegate Node vxConvertDepthNode(Graph graph, Image input, Image output, ConvertPolicy policy, Scalar shift);
 
 			internal static vxConvertDepthNode pvxConvertDepthNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxCannyEdgeDetectorNode(Graph graph, Image input, Threshold hyst, int gradient_size, int norm_type, Image output);
+			internal delegate Node vxCannyEdgeDetectorNode(Graph graph, Image input, Threshold hyst, int gradient_size, NormType norm_type, Image output);
 
 			internal static vxCannyEdgeDetectorNode pvxCannyEdgeDetectorNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxWarpAffineNode(Graph graph, Image input, Matrix matrix, int type, Image output);
+			internal delegate Node vxWarpAffineNode(Graph graph, Image input, Matrix matrix, InterpolationType type, Image output);
 
 			internal static vxWarpAffineNode pvxWarpAffineNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxWarpPerspectiveNode(Graph graph, Image input, Matrix matrix, int type, Image output);
+			internal delegate Node vxWarpPerspectiveNode(Graph graph, Image input, Matrix matrix, InterpolationType type, Image output);
 
 			internal static vxWarpPerspectiveNode pvxWarpPerspectiveNode;
 
@@ -4889,12 +4889,12 @@ namespace OpenVX
 			internal static vxFastCornersNode pvxFastCornersNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxOpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, int termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, uint window_dimension);
+			internal delegate Node vxOpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, TerminationCriteria termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, uint window_dimension);
 
 			internal static vxOpticalFlowPyrLKNode pvxOpticalFlowPyrLKNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxRemapNode(Graph graph, Image input, Remap table, int policy, Image output);
+			internal delegate Node vxRemapNode(Graph graph, Image input, Remap table, InterpolationType policy, Image output);
 
 			internal static vxRemapNode pvxRemapNode;
 
@@ -4904,12 +4904,12 @@ namespace OpenVX
 			internal static vxHalfScaleGaussianNode pvxHalfScaleGaussianNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxMatchTemplateNode(Graph graph, Image src, Image templateImage, int matchingMethod, Image output);
+			internal delegate Node vxMatchTemplateNode(Graph graph, Image src, Image templateImage, CompareMetric matchingMethod, Image output);
 
 			internal static vxMatchTemplateNode pvxMatchTemplateNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxLBPNode(Graph graph, Image @in, int format, sbyte kernel_size, Image @out);
+			internal delegate Node vxLBPNode(Graph graph, Image @in, LbpFormat format, sbyte kernel_size, Image @out);
 
 			internal static vxLBPNode pvxLBPNode;
 
@@ -4934,17 +4934,17 @@ namespace OpenVX
 			internal static vxBilateralFilterNode pvxBilateralFilterNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxTensorMultiplyNode(Graph graph, Tensor input1, Tensor input2, Scalar scale, int overflow_policy, int rounding_policy, Tensor output);
+			internal delegate Node vxTensorMultiplyNode(Graph graph, Tensor input1, Tensor input2, Scalar scale, ConvertPolicy overflow_policy, RoundPolicy rounding_policy, Tensor output);
 
 			internal static vxTensorMultiplyNode pvxTensorMultiplyNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxTensorAddNode(Graph graph, Tensor input1, Tensor input2, int policy, Tensor output);
+			internal delegate Node vxTensorAddNode(Graph graph, Tensor input1, Tensor input2, ConvertPolicy policy, Tensor output);
 
 			internal static vxTensorAddNode pvxTensorAddNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxTensorSubtractNode(Graph graph, Tensor input1, Tensor input2, int policy, Tensor output);
+			internal delegate Node vxTensorSubtractNode(Graph graph, Tensor input1, Tensor input2, ConvertPolicy policy, Tensor output);
 
 			internal static vxTensorSubtractNode pvxTensorSubtractNode;
 
@@ -4959,7 +4959,7 @@ namespace OpenVX
 			internal static vxTensorTransposeNode pvxTensorTransposeNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxTensorConvertDepthNode(Graph graph, Tensor input, int policy, Scalar norm, Scalar offset, Tensor output);
+			internal delegate Node vxTensorConvertDepthNode(Graph graph, Tensor input, ConvertPolicy policy, Scalar norm, Scalar offset, Tensor output);
 
 			internal static vxTensorConvertDepthNode pvxTensorConvertDepthNode;
 

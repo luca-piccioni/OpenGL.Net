@@ -412,7 +412,18 @@
     <type name="vx_status" value="Status" />
     <type name="vx_target_e" value="Target" />
     <type name="vx_type_e" value="Type" />
-    
+
+    <type name="vx_type_e" value="Type" />
+    <type name="vx_type_e*" value="Type*" />
+    <type name="vx_interpolation_type_e" value="InterpolationType" />
+    <type name="vx_non_linear_filter_e" value="NonLinearFilter" />
+    <type name="vx_scalar_operation_e" value="ScalarOperation" />
+    <type name="vx_convert_policy_e" value="ConvertPolicy" />
+    <type name="vx_round_policy_e" value="RoundPolicy" />
+    <type name="vx_norm_type_e" value="NormType" />
+    <type name="vx_termination_criteria_e" value="TerminationCriteria" />
+    <type name="vx_comp_metric_e" value="CompareMetric" />
+    <type name="vx_lbp_format_e" value="LbpFormat" />
     <type name="vx_context_attribute_e" value="ContextAttribute" />
     <type name="vx_image_attribute_e" value="ImageAttribute" />
     <type name="vx_kernel_attribute_e" value="KernelAttribute" />

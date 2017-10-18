@@ -396,7 +396,7 @@
     <enumerant name="^vx_action_e$" alias="Action" prefix="Action" />
     <enumerant name="^vx_array_attribute_e$" alias="ArrayAttribute" prefix="Array" />
     <enumerant name="^vx_bool$" alias="Bool" disable="true" />
-    <enumerant name="^vx_border_e$" alias="Border" prefix="Border" />
+    <enumerant name="^vx_border_e$" alias="BorderMode" prefix="Border" />
     <enumerant name="^vx_border_policy_e$" alias="BorderPolicy" prefix="BorderPolicy" />
     <enumerant name="^vx_channel_e$" alias="Channel" />
     <enumerant name="^vx_channel_range_e$" alias="ChannelRange" prefix="ChannelRange" />
@@ -443,6 +443,9 @@
     <enumerant name="^vx_type_e$" alias="Type" prefix="Type" />
     <enumerant name="^vx_vendor_id_e$" alias="VendorId" prefix="Id" />
     <enumerant name="^vx_tensor_attribute_e$" alias="TensorAttribute" prefix="Tensor" />
+    <enumerant name="^vx_scalar_operation_e$" alias="ScalarOperation" prefix="ScalarOp" />
+    <enumerant name="^vx_comp_metric_e" alias="CompareMetric" prefix="Compare" />
+    <enumerant name="^vx_lbp_format_e" alias="LbpFormat" />
 
     <!-- OpenVX renamed commands -->
     

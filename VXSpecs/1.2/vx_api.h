@@ -178,7 +178,7 @@ VX_API_ENTRY vx_type_e VX_API_CALL vxRegisterUserStruct(vx_context context, vx_s
  * \retval VX_ERROR_NO_RESOURCES The enumerations has been exhausted.
  * \ingroup group_user_kernels
  */
-VX_API_ENTRY vx_status VX_API_CALL vxAllocateUserKernelId(vx_context context, vx_enum * pKernelEnumId);
+VX_API_ENTRY vx_status VX_API_CALL vxAllocateUserKernelId(vx_context context, vx_type_e * pKernelEnumId);
 
 /*!
  * \brief Allocates and registers user-defined kernel library ID to a context.
@@ -214,7 +214,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxAllocateUserKernelLibraryId(vx_context cont
  * \retval VX_ERROR_INVALID_REFERENCE If the context is not a valid <tt>\ref vx_context</tt> reference.
  * \retval VX_ERROR_NOT_SUPPORTED If the specified target is not supported in this context.
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetImmediateModeTarget(vx_context context, vx_enum target_enum, const char* target_string);
+VX_API_ENTRY vx_status VX_API_CALL vxSetImmediateModeTarget(vx_context context, vx_target_e target_enum, const char* target_string);
 
 /*==============================================================================
  IMAGE
@@ -339,7 +339,7 @@ VX_API_ENTRY vx_image VX_API_CALL vxCreateVirtualImage(vx_graph graph, vx_uint32
  *
  * \ingroup group_image
  */
-VX_API_ENTRY vx_image VX_API_CALL vxCreateImageFromHandle(vx_context context, vx_df_image color, const vx_imagepatch_addressing_t addrs[], void *const ptrs[], vx_enum memory_type);
+VX_API_ENTRY vx_image VX_API_CALL vxCreateImageFromHandle(vx_context context, vx_df_image color, const vx_imagepatch_addressing_t addrs[], void *const ptrs[], vx_memory_type_e memory_type);
 
 /*! \brief Swaps the image handle of an image previously created from handle.
  *
@@ -403,7 +403,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxSwapImageHandle(vx_image image, void* const
  * \retval VX_ERROR_NOT_SUPPORTED If the attribute is not supported on this implementation.
  * \ingroup group_image
  */
-VX_API_ENTRY vx_status VX_API_CALL vxQueryImage(vx_image image, vx_enum attribute, void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxQueryImage(vx_image image, vx_image_attribute_e attribute, void *ptr, vx_size size);
 
 /*! \brief Allows setting attributes on the image.
  * \param [in] image The reference to the image on which to set the attribute.
@@ -416,7 +416,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryImage(vx_image image, vx_enum attribut
  * \retval VX_ERROR_INVALID_PARAMETERS If any of the other parameters are incorrect.
  * \ingroup group_image
  */
-VX_API_ENTRY vx_status VX_API_CALL vxSetImageAttribute(vx_image image, vx_enum attribute, const void *ptr, vx_size size);
+VX_API_ENTRY vx_status VX_API_CALL vxSetImageAttribute(vx_image image, vx_image_attribute_e attribute, const void *ptr, vx_size size);
 
 /*! \brief Initialize an image with constant pixel value.
  * \param [in] image The reference to the image to initialize.
@@ -2212,7 +2212,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxCopyMatrix(vx_matrix matrix, void *user_ptr
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \ingroup group_matrix
  */
-VX_API_ENTRY vx_matrix VX_API_CALL vxCreateMatrixFromPattern(vx_context context, vx_enum pattern, vx_size columns, vx_size rows);
+VX_API_ENTRY vx_matrix VX_API_CALL vxCreateMatrixFromPattern(vx_context context, vx_matrix_attribute_e pattern, vx_size columns, vx_size rows);
 
 /*! \brief Creates a reference to a matrix object from a boolean pattern, with a user-specified origin.
  *

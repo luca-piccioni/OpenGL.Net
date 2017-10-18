@@ -99,9 +99,9 @@ namespace OpenVX
 	}
 
 	/// <summary>
-	/// Strongly typed enumeration Border.
+	/// Strongly typed enumeration BorderMode.
 	/// </summary>
-	public enum Border
+	public enum BorderMode
 	{
 		/// <summary>
 		/// Strongly typed for value BORDER_UNDEFINED.
@@ -245,6 +245,43 @@ namespace OpenVX
 		/// Strongly typed for value COLOR_SPACE_DEFAULT.
 		/// </summary>
 		Default = VX.COLOR_SPACE_DEFAULT,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration CompareMetric.
+	/// </summary>
+	public enum CompareMetric
+	{
+		/// <summary>
+		/// Strongly typed for value COMPARE_HAMMING.
+		/// </summary>
+		Hamming = VX.COMPARE_HAMMING,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_L1.
+		/// </summary>
+		L1 = VX.COMPARE_L1,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_L2.
+		/// </summary>
+		L2 = VX.COMPARE_L2,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_CCORR.
+		/// </summary>
+		Ccorr = VX.COMPARE_CCORR,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_L2_NORM.
+		/// </summary>
+		L2Norm = VX.COMPARE_L2_NORM,
+
+		/// <summary>
+		/// Strongly typed for value COMPARE_CCORR_NORM.
+		/// </summary>
+		CcorrNorm = VX.COMPARE_CCORR_NORM,
 
 	}
 
@@ -1186,6 +1223,28 @@ namespace OpenVX
 	}
 
 	/// <summary>
+	/// Strongly typed enumeration LbpFormat.
+	/// </summary>
+	public enum LbpFormat
+	{
+		/// <summary>
+		/// Strongly typed for value LBP.
+		/// </summary>
+		Lbp = VX.LBP,
+
+		/// <summary>
+		/// Strongly typed for value MLBP.
+		/// </summary>
+		Mlbp = VX.MLBP,
+
+		/// <summary>
+		/// Strongly typed for value ULBP.
+		/// </summary>
+		Ulbp = VX.ULBP,
+
+	}
+
+	/// <summary>
 	/// Strongly typed enumeration Library.
 	/// </summary>
 	public enum Library
@@ -1593,6 +1652,98 @@ namespace OpenVX
 		/// Strongly typed for value SCALAR_TYPE.
 		/// </summary>
 		Type = VX.SCALAR_TYPE,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration ScalarOperation.
+	/// </summary>
+	public enum ScalarOperation
+	{
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_AND.
+		/// </summary>
+		And = VX.SCALAR_OP_AND,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_OR.
+		/// </summary>
+		Or = VX.SCALAR_OP_OR,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_XOR.
+		/// </summary>
+		Xor = VX.SCALAR_OP_XOR,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_NAND.
+		/// </summary>
+		Nand = VX.SCALAR_OP_NAND,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_EQUAL.
+		/// </summary>
+		Equal = VX.SCALAR_OP_EQUAL,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_NOTEQUAL.
+		/// </summary>
+		Notequal = VX.SCALAR_OP_NOTEQUAL,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_LESS.
+		/// </summary>
+		Less = VX.SCALAR_OP_LESS,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_LESSEQ.
+		/// </summary>
+		Lesseq = VX.SCALAR_OP_LESSEQ,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_GREATER.
+		/// </summary>
+		Greater = VX.SCALAR_OP_GREATER,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_GREATEREQ.
+		/// </summary>
+		Greatereq = VX.SCALAR_OP_GREATEREQ,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_ADD.
+		/// </summary>
+		Add = VX.SCALAR_OP_ADD,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_SUBTRACT.
+		/// </summary>
+		Subtract = VX.SCALAR_OP_SUBTRACT,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_MULTIPLY.
+		/// </summary>
+		Multiply = VX.SCALAR_OP_MULTIPLY,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_DIVIDE.
+		/// </summary>
+		Divide = VX.SCALAR_OP_DIVIDE,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_MODULUS.
+		/// </summary>
+		Modulus = VX.SCALAR_OP_MODULUS,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_MIN.
+		/// </summary>
+		Min = VX.SCALAR_OP_MIN,
+
+		/// <summary>
+		/// Strongly typed for value SCALAR_OP_MAX.
+		/// </summary>
+		Max = VX.SCALAR_OP_MAX,
 
 	}
 
@@ -2264,157 +2415,6 @@ namespace OpenVX
 		/// Strongly typed for value ID_DEFAULT.
 		/// </summary>
 		Default = VX.ID_DEFAULT,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration vx_comp_metric_e.
-	/// </summary>
-	public enum vx_comp_metric_e
-	{
-		/// <summary>
-		/// Strongly typed for value COMPARE_HAMMING.
-		/// </summary>
-		CompareHamming = VX.COMPARE_HAMMING,
-
-		/// <summary>
-		/// Strongly typed for value COMPARE_L1.
-		/// </summary>
-		CompareL1 = VX.COMPARE_L1,
-
-		/// <summary>
-		/// Strongly typed for value COMPARE_L2.
-		/// </summary>
-		CompareL2 = VX.COMPARE_L2,
-
-		/// <summary>
-		/// Strongly typed for value COMPARE_CCORR.
-		/// </summary>
-		CompareCcorr = VX.COMPARE_CCORR,
-
-		/// <summary>
-		/// Strongly typed for value COMPARE_L2_NORM.
-		/// </summary>
-		CompareL2Norm = VX.COMPARE_L2_NORM,
-
-		/// <summary>
-		/// Strongly typed for value COMPARE_CCORR_NORM.
-		/// </summary>
-		CompareCcorrNorm = VX.COMPARE_CCORR_NORM,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration vx_lbp_format_e.
-	/// </summary>
-	public enum vx_lbp_format_e
-	{
-		/// <summary>
-		/// Strongly typed for value LBP.
-		/// </summary>
-		Lbp = VX.LBP,
-
-		/// <summary>
-		/// Strongly typed for value MLBP.
-		/// </summary>
-		Mlbp = VX.MLBP,
-
-		/// <summary>
-		/// Strongly typed for value ULBP.
-		/// </summary>
-		Ulbp = VX.ULBP,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration vx_scalar_operation_e.
-	/// </summary>
-	public enum vx_scalar_operation_e
-	{
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_AND.
-		/// </summary>
-		ScalarOpAnd = VX.SCALAR_OP_AND,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_OR.
-		/// </summary>
-		ScalarOpOr = VX.SCALAR_OP_OR,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_XOR.
-		/// </summary>
-		ScalarOpXor = VX.SCALAR_OP_XOR,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_NAND.
-		/// </summary>
-		ScalarOpNand = VX.SCALAR_OP_NAND,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_EQUAL.
-		/// </summary>
-		ScalarOpEqual = VX.SCALAR_OP_EQUAL,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_NOTEQUAL.
-		/// </summary>
-		ScalarOpNotequal = VX.SCALAR_OP_NOTEQUAL,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_LESS.
-		/// </summary>
-		ScalarOpLess = VX.SCALAR_OP_LESS,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_LESSEQ.
-		/// </summary>
-		ScalarOpLesseq = VX.SCALAR_OP_LESSEQ,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_GREATER.
-		/// </summary>
-		ScalarOpGreater = VX.SCALAR_OP_GREATER,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_GREATEREQ.
-		/// </summary>
-		ScalarOpGreatereq = VX.SCALAR_OP_GREATEREQ,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_ADD.
-		/// </summary>
-		ScalarOpAdd = VX.SCALAR_OP_ADD,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_SUBTRACT.
-		/// </summary>
-		ScalarOpSubtract = VX.SCALAR_OP_SUBTRACT,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_MULTIPLY.
-		/// </summary>
-		ScalarOpMultiply = VX.SCALAR_OP_MULTIPLY,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_DIVIDE.
-		/// </summary>
-		ScalarOpDivide = VX.SCALAR_OP_DIVIDE,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_MODULUS.
-		/// </summary>
-		ScalarOpModulus = VX.SCALAR_OP_MODULUS,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_MIN.
-		/// </summary>
-		ScalarOpMin = VX.SCALAR_OP_MIN,
-
-		/// <summary>
-		/// Strongly typed for value SCALAR_OP_MAX.
-		/// </summary>
-		ScalarOpMax = VX.SCALAR_OP_MAX,
 
 	}
 
