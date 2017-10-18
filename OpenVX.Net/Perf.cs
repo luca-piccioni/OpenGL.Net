@@ -1,5 +1,7 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// MIT License
+// 
+// Copyright (c) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,59 +28,49 @@ using System.Runtime.InteropServices;
 namespace OpenVX
 {
 	/// <summary>
-	/// The HOG descriptor structure.
+	/// The performance measurement structure. The time or durations are in units of nano seconds.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	public struct Hog
+	public struct Perf
 	{
 		/// <summary>
-		/// The histogram cell width.
+		/// Holds the last measurement.
 		/// </summary>
-		public int CellWidth;
+		public ulong Tmp;
 
 		/// <summary>
-		/// The histogram cell height.
+		/// Holds the first measurement in a set.
 		/// </summary>
-		public int CellHeight; 
+		public ulong Begin;
 
 		/// <summary>
-		/// The histogram block width. Must be divisible by <see cref="CellWidth"/>.
+		/// Holds the last measurement in a set.
 		/// </summary>
-		public int BlockWidth;
+		public ulong End;
 
 		/// <summary>
-		/// The histogram block height. Must be divisible by CellHeight.
+		/// Holds the summation of durations.
 		/// </summary>
-		public int BlockHeight;
+		public ulong Sum;
 
 		/// <summary>
-		/// The histogram block stride within the window . Must be an integral number of CellWidth and CellHeight.
+		/// Holds the average of the durations.
 		/// </summary>
-		public int BlockStride;
+		public ulong Avg;
 
 		/// <summary>
-		/// The histogram size.
+		/// Holds the minimum of the durations.
 		/// </summary>
-		public int NumBins;
+		public ulong Min;
 
 		/// <summary>
-		/// The feature descriptor window width.
+		/// Holds the number of measurements.
 		/// </summary>
-		public int WindowWidth;
+		public ulong Num;
 
 		/// <summary>
-		///  The feature descriptor window height.
+		/// Holds the maximum of the durations.
 		/// </summary>
-		public int WindowHeight;
-
-		/// <summary>
-		/// The feature descriptor window stride.
-		/// </summary>
-		public int WindowStride;
-
-		/// <summary>
-		/// The threshold for the minimum L2 value for a histogram bin used in block normalization, default is 0.2.
-		/// </summary>
-		public float Threshold;
+		public ulong Max;
 	}
 }

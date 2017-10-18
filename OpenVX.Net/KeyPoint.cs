@@ -1,5 +1,7 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// MIT License
+// 
+// Copyright (c) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,59 +28,44 @@ using System.Runtime.InteropServices;
 namespace OpenVX
 {
 	/// <summary>
-	/// The HOG descriptor structure.
+	/// The keypoint data structure.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	public struct Hog
+	public struct KeyPoint
 	{
 		/// <summary>
-		/// The histogram cell width.
+		/// The X coordinate.
 		/// </summary>
-		public int CellWidth;
+		public int X;
 
 		/// <summary>
-		/// The histogram cell height.
+		/// The Y coordinate.
 		/// </summary>
-		public int CellHeight; 
+		public int Y;
 
 		/// <summary>
-		/// The histogram block width. Must be divisible by <see cref="CellWidth"/>.
+		/// The strength of the keypoint. Its definition is specific to the corner detector.
 		/// </summary>
-		public int BlockWidth;
+		public float Strength;
 
 		/// <summary>
-		/// The histogram block height. Must be divisible by CellHeight.
+		/// Initialized to 0 by corner detectors.
 		/// </summary>
-		public int BlockHeight;
+		public float Scale;
 
 		/// <summary>
-		/// The histogram block stride within the window . Must be an integral number of CellWidth and CellHeight.
+		/// Initialized to 0 by corner detectors.
 		/// </summary>
-		public int BlockStride;
+		public float Orientation;
 
 		/// <summary>
-		/// The histogram size.
+		/// A zero indicates a lost point. Initialized to 1 by corner detectors.
 		/// </summary>
-		public int NumBins;
+		public int TrackingStatus;
 
 		/// <summary>
-		/// The feature descriptor window width.
+		/// A tracking method specific error. Initialized to 0 by corner detectors.
 		/// </summary>
-		public int WindowWidth;
-
-		/// <summary>
-		///  The feature descriptor window height.
-		/// </summary>
-		public int WindowHeight;
-
-		/// <summary>
-		/// The feature descriptor window stride.
-		/// </summary>
-		public int WindowStride;
-
-		/// <summary>
-		/// The threshold for the minimum L2 value for a histogram bin used in block normalization, default is 0.2.
-		/// </summary>
-		public float Threshold;
+		public float Error;
 	}
 }

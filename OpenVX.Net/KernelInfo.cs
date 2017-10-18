@@ -1,5 +1,7 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// MIT License
+// 
+// Copyright (c) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,44 +28,23 @@ using System.Runtime.InteropServices;
 namespace OpenVX
 {
 	/// <summary>
-	/// Hough lines probability parameters.
+	/// The Kernel Information Structure. This is returned by the Context to indicate which kernels
+	/// are available in the OpenVX implementation.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	public struct HoughLinesParams
+	public struct KernelInfo
 	{
-		/// <summary>
-		/// Distance resolution of the parameter in pixels.
-		/// </summary>
-		public float Rho;
+		/*! \brief The kernel enumeration value from <tt>\ref vx_kernel_e</tt> (or an
+		 * extension thereof).
+		 * \see vxGetKernelByEnum
+		 */
+		public KernelType Enumeration;
 
-		/// <summary>
-		/// Angle resolution of the parameter in radians.
-		/// </summary>
-		public float Theta;
-
-		/// <summary>
-		/// The minimum number of intersections to detect a line.
-		/// </summary>
-		public int Threshold;
-
-		/// <summary>
-		/// The minimum number of points that can form a line. Line segments shorter than that are rejected.
-		/// </summary>
-		public int LineLength;
-
-		/// <summary>
-		/// The maximum allowed gap between points on the same line to link them.
-		/// </summary>
-		public int LineGap;
-
-		/// <summary>
-		/// Optional restriction on theta. The max allowed value.
-		/// </summary>
-		public float ThetaMax;
-
-		/// <summary>
-		/// Optional restriction on theta. The min allowed value.
-		/// </summary>
-		public float ThetaMin;
-	};
+		/*! \brief The kernel name in dotted hierarchical format.
+		 * e.g. "org.khronos.openvx.sobel_3x3"
+		 * \see vxGetKernelByName
+		 */
+		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256]
+		public string Name;
+	}
 }

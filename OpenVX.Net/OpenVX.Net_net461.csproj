@@ -44,10 +44,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Callbacks.cs" />
+    <Compile Include="Border.cs" />
+    <Compile Include="Coordinate3d.cs" />
+    <Compile Include="Coordinate2df.cs" />
+    <Compile Include="Coordinate2d.cs" />
     <Compile Include="Hog.cs" />
     <Compile Include="HoughLinesParams.cs" />
     <Compile Include="ImagePatchAddressing.cs" />
+    <Compile Include="KernelInfo.cs" />
+    <Compile Include="KeyPoint.cs" />
+    <Compile Include="Line2d.cs" />
     <Compile Include="MatrixMulParams.cs" />
+    <Compile Include="Perf.cs" />
     <Compile Include="PixelValue.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Reference.cs" />

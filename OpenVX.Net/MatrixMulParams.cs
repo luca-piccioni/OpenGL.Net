@@ -21,20 +21,29 @@
 
 #pragma warning disable 169
 
+using System.Runtime.InteropServices;
+
 namespace OpenVX
 {
-	/*! \brief Matrix Multiply Parameters 
-	 *
-	 * transpose_input1/input2/input3 : if True the matrix is transposed before the operation, otherwise the matrix is used as is. \n
-	 * \ingroup group_vision_function_tensor_matrix_multiply
-	 */			
+	/// <summary>
+	/// Matrix Multiply Parameters.
+	/// </summary>
+	[StructLayout(LayoutKind.Sequential, Pack = 4)]
 	public struct MatrixMulParams
 	{
-		/*! \brief if True the matrix is transposed before the operation, otherwise the matrix is used as is*/
-		bool  transpose_input1;
-		/*! \brief if True the matrix is transposed before the operation, otherwise the matrix is used as is*/
-		bool  transpose_input2;
-		/*! \brief if True the matrix is transposed before the operation, otherwise the matrix is used as is*/
-		bool  transpose_input3;
+		/// <summary>
+		/// If True the matrix is transposed before the operation, otherwise the matrix is used as is
+		/// </summary>
+		public bool TransposeInput1;
+
+		/// <summary>
+		/// If True the matrix is transposed before the operation, otherwise the matrix is used as is.
+		/// </summary>
+		public bool TransposeInput2;
+
+		/// <summary>
+		/// If True the matrix is transposed before the operation, otherwise the matrix is used as is
+		/// </summary>
+		public bool TransposeInput3;
 	}
 }
