@@ -336,6 +336,8 @@
     <type name="vx_char" value="Char" />
     <type name="vx_char*" value="string" />
     <type name="vx_uint8" value="byte" />
+    <type name="vx_uint8*" value="byte*" />
+    <type name="vx_uint8**" value="IntPtr*" />
     <type name="vx_uint16" value="ushort" />
     <type name="vx_uint32" value="uint" />
     <type name="vx_uint64" value="ulong" />
@@ -394,6 +396,9 @@
     <type name="vx_bool" value="bool" />
     <type name="vx_bool*" value="bool*" />
     <type name="vx_meta_format" value="MetaFormat" />
+
+    <type name="vx_import" value="Import" />
+    <type name="vx_import*" value="Import*" />
 
     <type name="vx_enum" value="int" />
     <type name="vx_enum*" value="int*" />
@@ -474,6 +479,9 @@
     <type name="vx_kernel_image_valid_rectangle_f" value="KernelImageValidRectangleCallback" />
     <type name="vx_log_callback_f" value="LogCallback" />
     <type name="vx_nodecomplete_f" value="NodeCompleteCallback" />
+    <type name="vx_tiling_kernel_f" value="TilingKernelCallback" />
+    <type name="vx_kernel_input_validate_f" value="KernelInputValidateCallback" />
+    <type name="vx_kernel_output_validate_f" value="KernelOutputValidateCallback" />
 
 	<!-- Bad decorators -->
 	<type name="GLfloatconst" value="float" />

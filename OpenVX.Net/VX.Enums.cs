@@ -2372,6 +2372,11 @@ namespace OpenVX
 		Itseez = VX.ID_ITSEEZ,
 
 		/// <summary>
+		/// Strongly typed for value ID_IMAGINATION.
+		/// </summary>
+		Imagination = VX.ID_IMAGINATION,
+
+		/// <summary>
 		/// Strongly typed for value ID_NXP.
 		/// </summary>
 		Nxp = VX.ID_NXP,
@@ -2415,6 +2420,320 @@ namespace OpenVX
 		/// Strongly typed for value ID_DEFAULT.
 		/// </summary>
 		Default = VX.ID_DEFAULT,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_border_tiling_e.
+	/// </summary>
+	public enum vx_border_tiling_e
+	{
+		/// <summary>
+		/// Strongly typed for value BORDER_SELF.
+		/// </summary>
+		BorderSelf = VX.BORDER_SELF,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_ext_import_types_e.
+	/// </summary>
+	public enum vx_ext_import_types_e
+	{
+		/// <summary>
+		/// Strongly typed for value IMPORT_TYPE_XML.
+		/// </summary>
+		ImportTypeXml = VX.IMPORT_TYPE_XML,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_import_attribute_e.
+	/// </summary>
+	public enum vx_import_attribute_e
+	{
+		/// <summary>
+		/// Strongly typed for value IMPORT_ATTRIBUTE_COUNT.
+		/// </summary>
+		ImportAttributeCount = VX.IMPORT_ATTRIBUTE_COUNT,
+
+		/// <summary>
+		/// Strongly typed for value IMPORT_ATTRIBUTE_TYPE.
+		/// </summary>
+		ImportAttributeType = VX.IMPORT_ATTRIBUTE_TYPE,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_kernel_attribute_tiling_e.
+	/// </summary>
+	public enum vx_kernel_attribute_tiling_e
+	{
+		/// <summary>
+		/// Strongly typed for value KERNEL_INPUT_NEIGHBORHOOD.
+		/// </summary>
+		KernelInputNeighborhood = VX.KERNEL_INPUT_NEIGHBORHOOD,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_OUTPUT_TILE_BLOCK_SIZE.
+		/// </summary>
+		KernelOutputTileBlockSize = VX.KERNEL_OUTPUT_TILE_BLOCK_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_BORDER.
+		/// </summary>
+		KernelBorder = VX.KERNEL_BORDER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TILE_MEMORY_SIZE.
+		/// </summary>
+		KernelTileMemorySize = VX.KERNEL_TILE_MEMORY_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_INPUT_TILE_BLOCK_SIZE.
+		/// </summary>
+		KernelInputTileBlockSize = VX.KERNEL_INPUT_TILE_BLOCK_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_OUTPUT_NEIGHBORHOOD.
+		/// </summary>
+		KernelOutputNeighborhood = VX.KERNEL_OUTPUT_NEIGHBORHOOD,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_kernel_nn_ext_e.
+	/// </summary>
+	public enum vx_kernel_nn_ext_e
+	{
+		/// <summary>
+		/// Strongly typed for value KERNEL_CONVOLUTION_LAYER.
+		/// </summary>
+		KernelConvolutionLayer = VX.KERNEL_CONVOLUTION_LAYER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_FULLYCONNECTED_LAYER.
+		/// </summary>
+		KernelFullyconnectedLayer = VX.KERNEL_FULLYCONNECTED_LAYER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_POOLING_LAYER.
+		/// </summary>
+		KernelPoolingLayer = VX.KERNEL_POOLING_LAYER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_SOFTMAX_LAYER.
+		/// </summary>
+		KernelSoftmaxLayer = VX.KERNEL_SOFTMAX_LAYER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_NORMALIZATION_LAYER.
+		/// </summary>
+		KernelNormalizationLayer = VX.KERNEL_NORMALIZATION_LAYER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_ACTIVATION_LAYER.
+		/// </summary>
+		KernelActivationLayer = VX.KERNEL_ACTIVATION_LAYER,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_MULTIPLY.
+		/// </summary>
+		KernelTensorMultiply = VX.KERNEL_TENSOR_MULTIPLY,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_ADD.
+		/// </summary>
+		KernelTensorAdd = VX.KERNEL_TENSOR_ADD,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_SUBTRACT.
+		/// </summary>
+		KernelTensorSubtract = VX.KERNEL_TENSOR_SUBTRACT,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_TABLELOOKUP.
+		/// </summary>
+		KernelTensorTablelookup = VX.KERNEL_TENSOR_TABLELOOKUP,
+
+		/// <summary>
+		/// Strongly typed for value KERNEL_TENSOR_TRANSPOSE.
+		/// </summary>
+		KernelTensorTranspose = VX.KERNEL_TENSOR_TRANSPOSE,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_nn_activation_function_e.
+	/// </summary>
+	public enum vx_nn_activation_function_e
+	{
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_LOGISTIC.
+		/// </summary>
+		NnActivationLogistic = VX.NN_ACTIVATION_LOGISTIC,
+
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_HYPERBOLIC_TAN.
+		/// </summary>
+		NnActivationHyperbolicTan = VX.NN_ACTIVATION_HYPERBOLIC_TAN,
+
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_RELU.
+		/// </summary>
+		NnActivationRelu = VX.NN_ACTIVATION_RELU,
+
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_BRELU.
+		/// </summary>
+		NnActivationBrelu = VX.NN_ACTIVATION_BRELU,
+
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_SOFTRELU.
+		/// </summary>
+		NnActivationSoftrelu = VX.NN_ACTIVATION_SOFTRELU,
+
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_ABS.
+		/// </summary>
+		NnActivationAbs = VX.NN_ACTIVATION_ABS,
+
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_SQUARE.
+		/// </summary>
+		NnActivationSquare = VX.NN_ACTIVATION_SQUARE,
+
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_SQRT.
+		/// </summary>
+		NnActivationSqrt = VX.NN_ACTIVATION_SQRT,
+
+		/// <summary>
+		/// Strongly typed for value NN_ACTIVATION_LINEAR.
+		/// </summary>
+		NnActivationLinear = VX.NN_ACTIVATION_LINEAR,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_nn_enum_e.
+	/// </summary>
+	public enum vx_nn_enum_e
+	{
+		/// <summary>
+		/// Strongly typed for value ENUM_NN_ROUNDING_TYPE.
+		/// </summary>
+		EnumNnRoundingType = VX.ENUM_NN_ROUNDING_TYPE,
+
+		/// <summary>
+		/// Strongly typed for value ENUM_NN_POOLING_TYPE.
+		/// </summary>
+		EnumNnPoolingType = VX.ENUM_NN_POOLING_TYPE,
+
+		/// <summary>
+		/// Strongly typed for value ENUM_NN_NORMALIZATION_TYPE.
+		/// </summary>
+		EnumNnNormalizationType = VX.ENUM_NN_NORMALIZATION_TYPE,
+
+		/// <summary>
+		/// Strongly typed for value ENUM_NN_ACTIVATION_FUNCTION.
+		/// </summary>
+		EnumNnActivationFunction = VX.ENUM_NN_ACTIVATION_FUNCTION,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_nn_norm_type_e.
+	/// </summary>
+	public enum vx_nn_norm_type_e
+	{
+		/// <summary>
+		/// Strongly typed for value NN_NORMALIZATION_SAME_MAP.
+		/// </summary>
+		NnNormalizationSameMap = VX.NN_NORMALIZATION_SAME_MAP,
+
+		/// <summary>
+		/// Strongly typed for value NN_NORMALIZATION_ACROSS_MAPS.
+		/// </summary>
+		NnNormalizationAcrossMaps = VX.NN_NORMALIZATION_ACROSS_MAPS,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_nn_pooling_type_e.
+	/// </summary>
+	public enum vx_nn_pooling_type_e
+	{
+		/// <summary>
+		/// Strongly typed for value NN_POOLING_MAX.
+		/// </summary>
+		NnPoolingMax = VX.NN_POOLING_MAX,
+
+		/// <summary>
+		/// Strongly typed for value NN_POOLING_AVG.
+		/// </summary>
+		NnPoolingAvg = VX.NN_POOLING_AVG,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_nn_rounding_type_e.
+	/// </summary>
+	public enum vx_nn_rounding_type_e
+	{
+		/// <summary>
+		/// Strongly typed for value NN_DS_SIZE_ROUNDING_FLOOR.
+		/// </summary>
+		NnDsSizeRoundingFloor = VX.NN_DS_SIZE_ROUNDING_FLOOR,
+
+		/// <summary>
+		/// Strongly typed for value NN_DS_SIZE_ROUNDING_CEILING.
+		/// </summary>
+		NnDsSizeRoundingCeiling = VX.NN_DS_SIZE_ROUNDING_CEILING,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_node_attribute_tiling_e.
+	/// </summary>
+	public enum vx_node_attribute_tiling_e
+	{
+		/// <summary>
+		/// Strongly typed for value NODE_INPUT_NEIGHBORHOOD.
+		/// </summary>
+		NodeInputNeighborhood = VX.NODE_INPUT_NEIGHBORHOOD,
+
+		/// <summary>
+		/// Strongly typed for value NODE_OUTPUT_TILE_BLOCK_SIZE.
+		/// </summary>
+		NodeOutputTileBlockSize = VX.NODE_OUTPUT_TILE_BLOCK_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value NODE_TILE_MEMORY_SIZE.
+		/// </summary>
+		NodeTileMemorySize = VX.NODE_TILE_MEMORY_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value NODE_INPUT_TILE_BLOCK_SIZE.
+		/// </summary>
+		NodeInputTileBlockSize = VX.NODE_INPUT_TILE_BLOCK_SIZE,
+
+		/// <summary>
+		/// Strongly typed for value NODE_OUTPUT_NEIGHBORHOOD.
+		/// </summary>
+		NodeOutputNeighborhood = VX.NODE_OUTPUT_NEIGHBORHOOD,
+
+	}
+
+	/// <summary>
+	/// Strongly typed enumeration vx_tensor_context_attribute_e.
+	/// </summary>
+	public enum vx_tensor_context_attribute_e
+	{
+		/// <summary>
+		/// Strongly typed for value CONTEXT_MAX_TENSOR_DIMS.
+		/// </summary>
+		ContextMaxTensorDims = VX.CONTEXT_MAX_TENSOR_DIMS,
 
 	}
 

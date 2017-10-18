@@ -62,6 +62,19 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		public void AppendHeader(string path, KhronosVersion feature)
 		{
+			string headerFeatureName = String.Format("{0}_VERSION_{1}_{2}", Class.ToUpperInvariant(), feature.Major, feature.Minor);
+
+			AppendHeader(path, headerFeatureName);
+		}
+
+		/// <summary>
+		/// Append definitions recognized in a header file.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="System.String"/> that specified the path of the header file.
+		/// </param>
+		public void AppendHeader(string path, string headerFeatureName)
+		{
 			if (path == null)
 				throw new ArgumentNullException("path");
 
@@ -97,8 +110,13 @@ namespace BindingsGen.GLSpecs
 				if (match.Value.StartsWith("#define ")) {
 					Enumerant enumerant = new Enumerant();
 
+					// Replace enumeration macros
+					string enumDefinition = ReplaceEnumMacros(match.Groups["Value"].Value.Trim());
+					// Replace constants in enumeration value
+					enumDefinition = ReplaceEnumConstants(enumDefinition);
+
 					enumerant.Name = match.Groups["Symbol"].Value.Trim();
-					enumerant.Value = match.Groups["Value"].Value.Trim();
+					enumerant.Value = enumDefinition;
 					enumerant.ParentEnumerantBlock = definesBlock;
 
 					bool useDefine = true;
@@ -140,8 +158,6 @@ namespace BindingsGen.GLSpecs
 
 			// Split into statements
 			string[] statements = Regex.Split(headerText, ";");
-
-			string headerFeatureName = String.Format("{0}_VERSION_{1}_{2}", Class.ToUpperInvariant(), feature.Major, feature.Minor);
 
 			foreach (string statement in statements) {
 				Match match;
@@ -188,7 +204,7 @@ namespace BindingsGen.GLSpecs
 					for (int i = 0; i < enumValues.Length; i++) {
 						string enumValue = enumValues[i].Trim();
 
-						if ((match = Regex.Match(enumValue, @"(?<Name>(\w|_)+) = (?<Value>.*)")).Success) {
+						if ((match = Regex.Match(enumValue, @"(?<Name>(\w|_)+)\s*=\s*(?<Value>.*)")).Success) {
 							Enumerant enumerant = new Enumerant();
 
 							enumerant.Name = match.Groups["Name"].Value;
@@ -264,7 +280,6 @@ namespace BindingsGen.GLSpecs
 				headerFeature = new Feature();
 				headerFeature.Name = headerFeatureName;
 				headerFeature.Api = Class.ToLowerInvariant();
-				headerFeature.Number = String.Format("{0}.{1}", feature.Major, feature.Minor);
 				_Features.Add(headerFeature);
 			}
 

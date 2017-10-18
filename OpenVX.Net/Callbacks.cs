@@ -40,4 +40,13 @@ namespace OpenVX
 	public delegate void LogCallback(IntPtr context, IntPtr reference, Status status, string @string);
 
 	public delegate Action NodeCompleteCallback(IntPtr node);
+
+	// typedef void (*vx_tiling_kernel_f)(void * VX_RESTRICT parameters[], void * VX_RESTRICT tile_memory, vx_size tile_memory_size);
+	public delegate void TilingKernelCallback(IntPtr[] parameters, IntPtr tileMemory, uint tileMemorySize);
+
+	// typedef vx_status(VX_CALLBACK *vx_kernel_input_validate_f)(vx_node node, vx_uint32 index);
+	public delegate Status KernelInputValidateCallback(Node node, uint index);
+
+	// typedef vx_status(VX_CALLBACK *vx_kernel_output_validate_f)(vx_node node, vx_uint32 index, vx_meta_format meta);
+	public delegate Status KernelOutputValidateCallback(Node node, uint index, MetaFormat meta);
 }

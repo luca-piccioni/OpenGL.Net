@@ -42,6 +42,7 @@ namespace OpenVX
 		"Graph",
 		"Kernel",
 		"Image",
+		"Import",
 		"Lut",
 		"MapId",
 		"Matrix",

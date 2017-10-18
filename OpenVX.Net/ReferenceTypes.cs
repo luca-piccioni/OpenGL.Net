@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +32,7 @@ using System;
 
 namespace OpenVX
 {
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -43,6 +51,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Array obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -63,6 +72,7 @@ namespace OpenVX
 		public static implicit operator Reference(Context obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -81,6 +91,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Convolution obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -101,6 +112,7 @@ namespace OpenVX
 		public static implicit operator Reference(Delay obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -119,6 +131,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Distribution obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -139,6 +152,7 @@ namespace OpenVX
 		public static implicit operator Reference(Graph obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -157,6 +171,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Kernel obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -177,6 +192,27 @@ namespace OpenVX
 		public static implicit operator Reference(Image obj) { return (new Reference(obj._Reference)); }
 	}
 
+
+	/// <summary>
+	/// OpenVX object.
+	/// </summary>
+	public struct Import
+	{
+		/// <summary>
+		/// Reference handle.
+		/// </summary>
+		private IntPtr _Reference;
+
+		/// <summary>
+		/// Implicit cast to <see cref="Reference"/>.
+		/// </summary>
+		/// <param name="context">
+		/// The <see cref="Import"/> to be converted to <see cref="Reference"/>.
+		/// </param>
+		public static implicit operator Reference(Import obj) { return (new Reference(obj._Reference)); }
+	}
+
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -195,6 +231,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Lut obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -215,6 +252,7 @@ namespace OpenVX
 		public static implicit operator Reference(MapId obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -233,6 +271,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Matrix obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -253,6 +292,7 @@ namespace OpenVX
 		public static implicit operator Reference(MetaFormat obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -271,6 +311,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Node obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -291,6 +332,7 @@ namespace OpenVX
 		public static implicit operator Reference(ObjectArray obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -309,6 +351,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Parameter obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -329,6 +372,7 @@ namespace OpenVX
 		public static implicit operator Reference(Pyramid obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -347,6 +391,7 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Remap obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 	/// <summary>
 	/// OpenVX object.
@@ -367,6 +412,7 @@ namespace OpenVX
 		public static implicit operator Reference(Scalar obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -386,6 +432,7 @@ namespace OpenVX
 		public static implicit operator Reference(Tensor obj) { return (new Reference(obj._Reference)); }
 	}
 
+
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
@@ -404,5 +451,6 @@ namespace OpenVX
 		/// </param>
 		public static implicit operator Reference(Threshold obj) { return (new Reference(obj._Reference)); }
 	}
+
 
 }

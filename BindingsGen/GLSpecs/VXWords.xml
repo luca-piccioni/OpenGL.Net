@@ -2,6 +2,7 @@
 <words>
     <word>1d</word>
     <word>2d</word>
+    <word>Activation</word>
     <word>Address</word>
     <word>Add</word>
     <word>Age</word>
@@ -13,6 +14,7 @@
     <word>Auto</word>
     <word>By</word>
     <word>Callback</word>
+    <word>Connected</word>
     <word>Create</word>
     <word>Channel</word>
     <word>Coefficients</word>
@@ -24,8 +26,11 @@
     <word>Distribution</word>
     <word>Enum</word>
     <word>Entry</word>
+    <word>Exported</word>
+    <word>Export</word>
     <word>Format</word>
     <word>From</word>
+    <word>Fully</word>
     <word>Generic</word>
     <word>Get</word>
     <word>Graph</word>
@@ -36,25 +41,31 @@
     <word>Is</word>
     <word>Image</word>
     <word>Immediate</word>
+    <word>Import</word>
     <word>Index</word>
     <word>Items</word>
     <word>Item</word>
+    <word>Layer</word>
     <word>Level</word>
     <word>Library</word>
     <word>Log</word>
     <word>LUT</word>
     <word>Matrix</word>
     <word>Map</word>
+    <word>Memory</word>
     <word>Meta</word>
     <word>Mode</word>
     <word>Name</word>
     <word>Node</word>
+    <word>Normalization</word>
+    <word>Objects</word>
     <word>Object</word>
     <word>Output</word>
     <word>Patch</word>
     <word>Pattern</word>
     <word>Parameter</word>
     <word>Point</word>
+    <word>Polling</word>
     <word>Process</word>
     <word>Pyramid</word>
     <word>Query</word>
@@ -71,11 +82,13 @@
     <word>Schedule</word>
     <word>Set</word>
     <word>Size</word>
+    <word>Softmax</word>
     <word>Status</word>
     <word>Struct</word>
     <word>Swap</word>
     <word>Target</word>
     <word>Tensor</word>
+    <word>To</word>
     <word>Threshold</word>
     <word>Uniform</word>
     <word>Unmap</word>
@@ -86,4 +99,5 @@
     <word>Virtual</word>
     <word>Wait</word>
     <word>With</word>
+    <word>XML</word>
 </words>

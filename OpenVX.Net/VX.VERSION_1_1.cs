@@ -849,6 +849,8 @@ namespace OpenVX
 
 		public const int ID_ITSEEZ = 0x014;
 
+		public const int ID_IMAGINATION = 0x015;
+
 		public const int ID_NXP = 0x016;
 
 		public const int ID_VIDEANTIS = 0x017;
@@ -866,6 +868,16 @@ namespace OpenVX
 		public const int ID_MAX = 0xFFF;
 
 		public const int ID_DEFAULT = ID_MAX;
+
+		public const int ENUM_IX_USE = 0x18;
+
+		public const int IX_USE_APPLICATION_CREATE = ((ID_KHRONOS << 20) | ( ENUM_IX_USE << 12)) + 0x0;
+
+		public const int IX_USE_EXPORT_VALUES = ((ID_KHRONOS << 20) | ( ENUM_IX_USE << 12)) + 0x1;
+
+		public const int IX_USE_NO_EXPORT_VALUES = ((ID_KHRONOS << 20) | ( ENUM_IX_USE << 12)) + 0x2;
+
+		public const int TYPE_IMPORT = 0x814;
 
 		public static Context CreateContext()
 		{
@@ -3876,6 +3888,54 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Import ImportObjectsFromMemory(Context context, uint numrefs, Reference[] refs, int[] uses, byte[] ptr, uint length)
+		{
+			Import retValue;
+
+			unsafe {
+				fixed (Reference* p_refs = refs)
+				fixed (int* p_uses = uses)
+				fixed (byte* p_ptr = ptr)
+				{
+					Debug.Assert(Delegates.pvxImportObjectsFromMemory != null, "pvxImportObjectsFromMemory not implemented");
+					retValue = Delegates.pvxImportObjectsFromMemory(context, numrefs, p_refs, p_uses, p_ptr, length);
+					LogCommand("vxImportObjectsFromMemory", retValue, context, numrefs, refs, uses, ptr, length					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Status Release(params Import[] import)
+		{
+			Status retValue;
+
+			unsafe {
+				fixed (Import* p_import = import)
+				{
+					Debug.Assert(Delegates.pvxReleaseImport != null, "pvxReleaseImport not implemented");
+					retValue = Delegates.pvxReleaseImport(p_import);
+					LogCommand("vxReleaseImport", retValue, import					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
+		public static Reference GetImportReferenceByName(Import import, string name)
+		{
+			Reference retValue;
+
+			Debug.Assert(Delegates.pvxGetImportReferenceByName != null, "pvxGetImportReferenceByName not implemented");
+			retValue = Delegates.pvxGetImportReferenceByName(import, name);
+			LogCommand("vxGetImportReferenceByName", retValue, import, name			);
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
@@ -4972,6 +5032,21 @@ namespace OpenVX
 			internal delegate Node vxCopyNode(Graph graph, Reference input, Reference output);
 
 			internal static vxCopyNode pvxCopyNode;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Import vxImportObjectsFromMemory(Context context, uint numrefs, Reference* refs, int* uses, byte* ptr, uint length);
+
+			internal static vxImportObjectsFromMemory pvxImportObjectsFromMemory;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Status vxReleaseImport(Import* import);
+
+			internal static vxReleaseImport pvxReleaseImport;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal delegate Reference vxGetImportReferenceByName(Import import, string name);
+
+			internal static vxGetImportReferenceByName pvxGetImportReferenceByName;
 
 		}
 	}

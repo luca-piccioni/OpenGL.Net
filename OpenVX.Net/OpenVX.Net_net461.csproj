@@ -53,6 +53,10 @@
     <Compile Include="ImagePatchAddressing.cs" />
     <Compile Include="KernelInfo.cs" />
     <Compile Include="KeyPoint.cs" />
+    <Compile Include="KHR\VX.KHR_ix.cs" />
+    <Compile Include="KHR\VX.KHR_nn.cs" />
+    <Compile Include="KHR\VX.KHR_tiling.cs" />
+    <Compile Include="KHR\VX.KHR_xml.cs" />
     <Compile Include="Line2d.cs" />
     <Compile Include="MatrixMulParams.cs" />
     <Compile Include="Perf.cs" />
