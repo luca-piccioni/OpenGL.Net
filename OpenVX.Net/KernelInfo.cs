@@ -34,17 +34,15 @@ namespace OpenVX
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
 	public struct KernelInfo
 	{
-		/*! \brief The kernel enumeration value from <tt>\ref vx_kernel_e</tt> (or an
-		 * extension thereof).
-		 * \see vxGetKernelByEnum
-		 */
+		/// <summary>
+		/// The kernel enumeration value from <tt>\ref vx_kernel_e</tt> (or an extension thereof).
+		/// </summary>
 		public KernelType Enumeration;
 
-		/*! \brief The kernel name in dotted hierarchical format.
-		 * e.g. "org.khronos.openvx.sobel_3x3"
-		 * \see vxGetKernelByName
-		 */
-		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256]
+		/// <summary>
+		/// The kernel name in dotted hierarchical format (e.g. "org.khronos.openvx.sobel_3x3").
+		/// </summary>
+		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
 		public string Name;
 	}
 }
