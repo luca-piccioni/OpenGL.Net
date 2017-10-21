@@ -22,7 +22,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace OpenGL
+namespace Khronos
 {
 	public sealed class MemoryLock : IDisposable
 	{
