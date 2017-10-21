@@ -21,26 +21,48 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#pragma warning disable 169
-
-using System.Runtime.InteropServices;
-
 namespace OpenVX
 {
 	/// <summary>
-	/// The 2D Coordinates structure.
+	/// Input parameters for a convolution operation.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	public struct Coordinate2df
+	public struct NnConvolutionParams
 	{
 		/// <summary>
-		/// The X coordinate.
+		/// Number of elements added at each side in the x dimension of the input.
 		/// </summary>
-		public float X;
+		public uint PaddingX;
 
 		/// <summary>
-		/// The Y coordinate.
+		/// Number of elements added at each side in the y dimension of the input.
 		/// </summary>
-		public float Y;
+		public uint PaddingY;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public ConvertPolicy OverflowPolicy;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public RoundPolicy RoundingPolicy;
+
+		/// <summary>
+		/// Rounding method for calculating output dimensions.
+		/// </summary>
+		public int DownScaleSizeRounding; /*!< \brief  See <tt>\ref vx_nn_rounding_type_e</tt> */
+
+		/// <summary>
+		/// “inflate” the kernel by inserting zeros between the kernel elements in the x direction.
+		/// The value is the number of zeros to insert.
+		/// </summary>
+		public uint DilationX;
+
+		/// <summary>
+		/// “inflate” the kernel by inserting zeros between the kernel elements in the y direction.
+		/// The value is the number of zeros to insert.
+		/// </summary>
+		public uint DilationY;
 	}
 }

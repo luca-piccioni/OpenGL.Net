@@ -26,6 +26,9 @@ namespace OpenVX
 	/// <summary>
 	/// Blittable OpenVX object reference (vx_reference).
 	/// </summary>
+	/// <remarks>
+	/// All OpenVX references can be cast to <see cref="Reference"/>.
+	/// </remarks>
 	public struct Reference
 	{
 		/// <summary>

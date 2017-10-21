@@ -268,13 +268,13 @@ namespace BindingsGen
 				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_kernels.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
 				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_nodes.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
 				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_vendors.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_import.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_import.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
 
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_khr_icd.h"), "VX_KHR_icd");
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_khr_ix.h"), "VX_KHR_ix");
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_khr_nn.h"), "VX_KHR_nn");
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_khr_tiling.h"), "VX_KHR_tiling");
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.1/vx_khr_xml.h"), "VX_KHR_xml");
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_icd.h"), "VX_KHR_icd");
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_ix.h"), "VX_KHR_ix");
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_nn.h"), "VX_KHR_nn");
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_tiling.h"), "VX_KHR_tiling");
+				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_xml.h"), "VX_KHR_xml");
 
 				ctx = new RegistryContext("VX", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");

@@ -53,17 +53,17 @@ namespace OpenVX
 
 		public const int KERNEL_OUTPUT_NEIGHBORHOOD = (((ID_KHRONOS) << 20) | ( TYPE_KERNEL << 8)) + 0xC;
 
-		public const int NODE_INPUT_NEIGHBORHOOD = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x7;
+		public const int NODE_INPUT_NEIGHBORHOOD = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0xB;
 
-		public const int NODE_OUTPUT_TILE_BLOCK_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0x8;
+		public const int NODE_OUTPUT_TILE_BLOCK_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0xC;
 
-		public const int NODE_TILE_MEMORY_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0xA;
+		public const int NODE_TILE_MEMORY_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0xD;
 
-		public const int NODE_INPUT_TILE_BLOCK_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0xB;
+		public const int NODE_INPUT_TILE_BLOCK_SIZE = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0xE;
 
-		public const int NODE_OUTPUT_NEIGHBORHOOD = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0xC;
+		public const int NODE_OUTPUT_NEIGHBORHOOD = (((ID_KHRONOS) << 20) | ( TYPE_NODE << 8)) + 0xF;
 
-		public const int BORDER_SELF = ((ID_KHRONOS << 20) | ( ENUM_BORDER << 12)) + 0x3;
+		public const int BORDER_MODE_SELF = ((ID_KHRONOS << 20) | ( ENUM_BORDER << 12)) + 0x3;
 
 		public static Kernel AddTilingKernel(Context context, string name, int enumeration, TilingKernelCallback flexible_func_ptr, TilingKernelCallback fast_func_ptr, uint num_params, KernelInputValidateCallback input, KernelOutputValidateCallback output)
 		{

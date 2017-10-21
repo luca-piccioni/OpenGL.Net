@@ -53,13 +53,17 @@ namespace OpenVX
 
 		public const int KERNEL_ACTIVATION_LAYER = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_NN_EXTENSION << 12)) + 0x5;
 
+		public const int KERNEL_ROIPOOLING_LAYER = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_NN_EXTENSION << 12)) + 0x6;
+
+		public const int KERNEL_DECONVOLUTION_LAYER = (((ID_KHRONOS) << 20) | ( LIBRARY_KHR_NN_EXTENSION << 12)) + 0x7;
+
 		public const int ENUM_NN_ROUNDING_TYPE = 0x18;
 
 		public const int ENUM_NN_POOLING_TYPE = 0x19;
 
 		public const int ENUM_NN_NORMALIZATION_TYPE = 0x1A;
 
-		public const int ENUM_NN_ACTIVATION_FUNCTION = 0x1B;
+		public const int ENUM_NN_ACTIVATION_FUNCTION_TYPE = 0x1B;
 
 		public const int NN_DS_SIZE_ROUNDING_FLOOR = ((ID_KHRONOS << 20) | ( ENUM_NN_ROUNDING_TYPE << 12)) + 0x0;
 
@@ -73,31 +77,36 @@ namespace OpenVX
 
 		public const int NN_NORMALIZATION_ACROSS_MAPS = ((ID_KHRONOS << 20) | ( ENUM_NN_NORMALIZATION_TYPE << 12)) + 0x1;
 
-		public const int NN_ACTIVATION_LOGISTIC = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x0;
+		public const int NN_ACTIVATION_LOGISTIC = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x0;
 
-		public const int NN_ACTIVATION_HYPERBOLIC_TAN = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x1;
+		public const int NN_ACTIVATION_HYPERBOLIC_TAN = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x1;
 
-		public const int NN_ACTIVATION_RELU = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x2;
+		public const int NN_ACTIVATION_RELU = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x2;
 
-		public const int NN_ACTIVATION_BRELU = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x3;
+		public const int NN_ACTIVATION_BRELU = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x3;
 
-		public const int NN_ACTIVATION_SOFTRELU = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x4;
+		public const int NN_ACTIVATION_SOFTRELU = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x4;
 
-		public const int NN_ACTIVATION_ABS = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x5;
+		public const int NN_ACTIVATION_ABS = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x5;
 
-		public const int NN_ACTIVATION_SQUARE = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x6;
+		public const int NN_ACTIVATION_SQUARE = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x6;
 
-		public const int NN_ACTIVATION_SQRT = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x7;
+		public const int NN_ACTIVATION_SQRT = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x7;
 
-		public const int NN_ACTIVATION_LINEAR = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION << 12)) + 0x8;
+		public const int NN_ACTIVATION_LINEAR = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x8;
 
-		public static Node ConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, uint padding_x, uint padding_y, int overflow_policy, int rounding_policy, int down_scale_size_rounding, Tensor outputs)
+		public static Node ConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams[] convolution_params, uint size_of_convolution_params, Tensor outputs)
 		{
 			Node retValue;
 
-			Debug.Assert(Delegates.pvxConvolutionLayer != null, "pvxConvolutionLayer not implemented");
-			retValue = Delegates.pvxConvolutionLayer(graph, inputs, weights, biases, padding_x, padding_y, overflow_policy, rounding_policy, down_scale_size_rounding, outputs);
-			LogCommand("vxConvolutionLayer", retValue, graph, inputs, weights, biases, padding_x, padding_y, overflow_policy, rounding_policy, down_scale_size_rounding, outputs			);
+			unsafe {
+				fixed (NnConvolutionParams* p_convolution_params = convolution_params)
+				{
+					Debug.Assert(Delegates.pvxConvolutionLayer != null, "pvxConvolutionLayer not implemented");
+					retValue = Delegates.pvxConvolutionLayer(graph, inputs, weights, biases, p_convolution_params, size_of_convolution_params, outputs);
+					LogCommand("vxConvolutionLayer", retValue, graph, inputs, weights, biases, convolution_params, size_of_convolution_params, outputs					);
+				}
+			}
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -163,10 +172,27 @@ namespace OpenVX
 			return (retValue);
 		}
 
+		public static Node DeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams[] deconvolution_params, uint size_of_deconv_params, Tensor outputs)
+		{
+			Node retValue;
+
+			unsafe {
+				fixed (NnDeconvolutionParams* p_deconvolution_params = deconvolution_params)
+				{
+					Debug.Assert(Delegates.pvxDeconvolutionLayer != null, "pvxDeconvolutionLayer not implemented");
+					retValue = Delegates.pvxDeconvolutionLayer(graph, inputs, weights, biases, p_deconvolution_params, size_of_deconv_params, outputs);
+					LogCommand("vxDeconvolutionLayer", retValue, graph, inputs, weights, biases, deconvolution_params, size_of_deconv_params, outputs					);
+				}
+			}
+			DebugCheckErrors(retValue);
+
+			return (retValue);
+		}
+
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, uint padding_x, uint padding_y, int overflow_policy, int rounding_policy, int down_scale_size_rounding, Tensor outputs);
+			internal unsafe delegate Node vxConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams* convolution_params, uint size_of_convolution_params, Tensor outputs);
 
 			internal static vxConvolutionLayer pvxConvolutionLayer;
 
@@ -194,6 +220,11 @@ namespace OpenVX
 			internal delegate Node vxActivationLayer(Graph graph, Tensor inputs, int function, float a, float b, Tensor outputs);
 
 			internal static vxActivationLayer pvxActivationLayer;
+
+			[SuppressUnmanagedCodeSecurity()]
+			internal unsafe delegate Node vxDeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams* deconvolution_params, uint size_of_deconv_params, Tensor outputs);
+
+			internal static vxDeconvolutionLayer pvxDeconvolutionLayer;
 
 		}
 	}

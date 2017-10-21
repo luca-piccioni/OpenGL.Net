@@ -59,6 +59,8 @@
     <Compile Include="KHR\VX.KHR_xml.cs" />
     <Compile Include="Line2d.cs" />
     <Compile Include="MatrixMulParams.cs" />
+    <Compile Include="NnDeconvolutionParams.cs" />
+    <Compile Include="NnConvolutionParams.cs" />
     <Compile Include="Perf.cs" />
     <Compile Include="PixelValue.cs" />
     <Compile Include="Rectangle.cs" />

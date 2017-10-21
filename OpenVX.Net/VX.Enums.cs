@@ -2429,9 +2429,9 @@ namespace OpenVX
 	public enum vx_border_tiling_e
 	{
 		/// <summary>
-		/// Strongly typed for value BORDER_SELF.
+		/// Strongly typed for value BORDER_MODE_SELF.
 		/// </summary>
-		BorderSelf = VX.BORDER_SELF,
+		BorderModeSelf = VX.BORDER_MODE_SELF,
 
 	}
 
@@ -2537,29 +2537,14 @@ namespace OpenVX
 		KernelActivationLayer = VX.KERNEL_ACTIVATION_LAYER,
 
 		/// <summary>
-		/// Strongly typed for value KERNEL_TENSOR_MULTIPLY.
+		/// Strongly typed for value KERNEL_ROIPOOLING_LAYER.
 		/// </summary>
-		KernelTensorMultiply = VX.KERNEL_TENSOR_MULTIPLY,
+		KernelRoipoolingLayer = VX.KERNEL_ROIPOOLING_LAYER,
 
 		/// <summary>
-		/// Strongly typed for value KERNEL_TENSOR_ADD.
+		/// Strongly typed for value KERNEL_DECONVOLUTION_LAYER.
 		/// </summary>
-		KernelTensorAdd = VX.KERNEL_TENSOR_ADD,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_TENSOR_SUBTRACT.
-		/// </summary>
-		KernelTensorSubtract = VX.KERNEL_TENSOR_SUBTRACT,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_TENSOR_TABLELOOKUP.
-		/// </summary>
-		KernelTensorTablelookup = VX.KERNEL_TENSOR_TABLELOOKUP,
-
-		/// <summary>
-		/// Strongly typed for value KERNEL_TENSOR_TRANSPOSE.
-		/// </summary>
-		KernelTensorTranspose = VX.KERNEL_TENSOR_TRANSPOSE,
+		KernelDeconvolutionLayer = VX.KERNEL_DECONVOLUTION_LAYER,
 
 	}
 
@@ -2636,9 +2621,9 @@ namespace OpenVX
 		EnumNnNormalizationType = VX.ENUM_NN_NORMALIZATION_TYPE,
 
 		/// <summary>
-		/// Strongly typed for value ENUM_NN_ACTIVATION_FUNCTION.
+		/// Strongly typed for value ENUM_NN_ACTIVATION_FUNCTION_TYPE.
 		/// </summary>
-		EnumNnActivationFunction = VX.ENUM_NN_ACTIVATION_FUNCTION,
+		EnumNnActivationFunctionType = VX.ENUM_NN_ACTIVATION_FUNCTION_TYPE,
 
 	}
 
@@ -2722,18 +2707,6 @@ namespace OpenVX
 		/// Strongly typed for value NODE_OUTPUT_NEIGHBORHOOD.
 		/// </summary>
 		NodeOutputNeighborhood = VX.NODE_OUTPUT_NEIGHBORHOOD,
-
-	}
-
-	/// <summary>
-	/// Strongly typed enumeration vx_tensor_context_attribute_e.
-	/// </summary>
-	public enum vx_tensor_context_attribute_e
-	{
-		/// <summary>
-		/// Strongly typed for value CONTEXT_MAX_TENSOR_DIMS.
-		/// </summary>
-		ContextMaxTensorDims = VX.CONTEXT_MAX_TENSOR_DIMS,
 
 	}
 

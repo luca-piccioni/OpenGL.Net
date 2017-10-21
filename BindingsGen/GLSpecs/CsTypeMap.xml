@@ -469,6 +469,11 @@
     <type name="vx_pixel_value_t" value="PixelValue" />
     <type name="vx_pixel_value_t*" value="PixelValue" />
     <type name="vx_border_t" value="Border" />
+    <type name="vx_nn_convolution_params_t" value="NnConvolutionParams" />
+    <type name="vx_nn_convolution_params_t*" value="NnConvolutionParams*" />
+    <type name="vx_nn_deconvolution_params_t" value="NnDeconvolutionParams" />
+    <type name="vx_nn_deconvolution_params_t*" value="NnDeconvolutionParams*" />
+    
 
     <type name="vx_publish_kernels_f" value="PublishKernelsCallback" />
     <type name="vx_unpublish_kernels_f" value="UnpublishKernelsCallback" />
