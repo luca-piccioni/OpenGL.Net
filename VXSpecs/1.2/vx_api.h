@@ -1350,7 +1350,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryParameter(vx_parameter parameter, vx_p
  * \returns A scalar reference <tt>\ref vx_scalar</tt>. Any possible errors preventing a
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  */
-VX_API_ENTRY vx_scalar VX_API_CALL vxCreateScalar(vx_context context, vx_enum data_type, const void *ptr);
+VX_API_ENTRY vx_scalar VX_API_CALL vxCreateScalar(vx_context context, vx_type_e data_type, const void *ptr);
 
 /*! \brief Creates a reference to a scalar object. Also see \ref sub_node_parameters.
  * \param [in] context The reference to the system context.
@@ -1363,7 +1363,7 @@ VX_API_ENTRY vx_scalar VX_API_CALL vxCreateScalar(vx_context context, vx_enum da
  * \returns A scalar reference <tt>\ref vx_scalar</tt>. Any possible errors preventing a
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  */
-VX_API_ENTRY vx_scalar VX_API_CALL vxCreateScalarWithSize(vx_context context, vx_enum data_type, const void *ptr, vx_size size);
+VX_API_ENTRY vx_scalar VX_API_CALL vxCreateScalarWithSize(vx_context context, vx_type_e data_type, const void *ptr, vx_size size);
 
 /*! \brief Creates an opaque reference to a scalar object with no direct user access.
  * \param [in] graph The reference to the parent graph.
@@ -1375,7 +1375,7 @@ VX_API_ENTRY vx_scalar VX_API_CALL vxCreateScalarWithSize(vx_context context, vx
  * \returns A scalar reference <tt>\ref vx_scalar</tt>. Any possible errors preventing a
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  */
-VX_API_ENTRY vx_scalar VX_API_CALL vxCreateVirtualScalar(vx_graph graph, vx_enum data_type);
+VX_API_ENTRY vx_scalar VX_API_CALL vxCreateVirtualScalar(vx_graph graph, vx_type_e data_type);
 
 /*! \brief Releases a reference to a scalar object.
  * The object may not be garbage collected until its total reference count is zero.
@@ -1661,7 +1661,7 @@ VX_API_ENTRY void VX_API_CALL vxRegisterLogCallback(vx_context context, vx_log_c
  * \returns An LUT reference <tt>\ref vx_lut</tt>. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \ingroup group_lut
  */
-VX_API_ENTRY vx_lut VX_API_CALL vxCreateLUT(vx_context context, vx_enum data_type, vx_size count);
+VX_API_ENTRY vx_lut VX_API_CALL vxCreateLUT(vx_context context, vx_type_e data_type, vx_size count);
 
 /*! \brief Creates an opaque reference to a LUT object with no direct user access.
  * \param [in] graph The reference to the parent graph.
@@ -1674,7 +1674,7 @@ VX_API_ENTRY vx_lut VX_API_CALL vxCreateLUT(vx_context context, vx_enum data_typ
  * \returns An LUT reference <tt>\ref vx_lut</tt>. Any possible errors preventing a successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \ingroup group_lut
  */
-VX_API_ENTRY vx_lut VX_API_CALL vxCreateVirtualLUT(vx_graph graph, vx_enum data_type, vx_size count);
+VX_API_ENTRY vx_lut VX_API_CALL vxCreateVirtualLUT(vx_graph graph, vx_type_e data_type, vx_size count);
 
 /*! \brief Releases a reference to a LUT object.
  * The object may not be garbage collected until its total reference count is zero.
@@ -2137,7 +2137,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryThreshold(vx_threshold thresh, vx_thre
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \ingroup group_matrix
  */
-VX_API_ENTRY vx_matrix VX_API_CALL vxCreateMatrix(vx_context c, vx_enum data_type, vx_size columns, vx_size rows);
+VX_API_ENTRY vx_matrix VX_API_CALL vxCreateMatrix(vx_context c, vx_type_e data_type, vx_size columns, vx_size rows);
 
 /*! \brief Creates an opaque reference to a matrix object without direct user access.
  * \param [in] graph The reference to the parent graph.
@@ -2149,7 +2149,7 @@ VX_API_ENTRY vx_matrix VX_API_CALL vxCreateMatrix(vx_context c, vx_enum data_typ
  * successful creation should be checked using <tt>\ref vxGetStatus</tt>.
  * \ingroup group_matrix
  */
-VX_API_ENTRY vx_matrix VX_API_CALL vxCreateVirtualMatrix(vx_graph graph, vx_enum data_type, vx_size columns, vx_size rows);
+VX_API_ENTRY vx_matrix VX_API_CALL vxCreateVirtualMatrix(vx_graph graph, vx_type_e data_type, vx_size columns, vx_size rows);
 
 /*! \brief Releases a reference to a matrix object.
  * The object may not be garbage collected until its total reference count is zero.
@@ -2662,7 +2662,7 @@ VX_API_ENTRY vx_status VX_API_CALL vxQueryRemap(vx_remap table, vx_remap_attribu
  *
  * \ingroup group_array
  */
-VX_API_ENTRY vx_array VX_API_CALL vxCreateArray(vx_context context, vx_enum item_type, vx_size capacity);
+VX_API_ENTRY vx_array VX_API_CALL vxCreateArray(vx_context context, vx_type_e item_type, vx_size capacity);
 
 /*!
  * \brief Creates an opaque reference to a virtual Array with no direct user access.
@@ -2694,7 +2694,7 @@ VX_API_ENTRY vx_array VX_API_CALL vxCreateArray(vx_context context, vx_enum item
  *
  * \ingroup group_array
  */
-VX_API_ENTRY vx_array VX_API_CALL vxCreateVirtualArray(vx_graph graph, vx_enum item_type, vx_size capacity);
+VX_API_ENTRY vx_array VX_API_CALL vxCreateVirtualArray(vx_graph graph, vx_type_e item_type, vx_size capacity);
 
 /*!
  * \brief Releases a reference of an Array object.

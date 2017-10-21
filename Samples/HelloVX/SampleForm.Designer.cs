@@ -27,15 +27,30 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.glControl1 = new OpenGL.GlControl();
 			this.SuspendLayout();
+			// 
+			// glControl1
+			// 
+			this.glControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.glControl1.ColorBits = ((uint)(24u));
+			this.glControl1.DepthBits = ((uint)(0u));
+			this.glControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.glControl1.Location = new System.Drawing.Point(0, 0);
+			this.glControl1.MultisampleBits = ((uint)(0u));
+			this.glControl1.Name = "glControl1";
+			this.glControl1.Size = new System.Drawing.Size(532, 415);
+			this.glControl1.StencilBits = ((uint)(0u));
+			this.glControl1.TabIndex = 0;
 			// 
 			// SampleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 262);
+			this.ClientSize = new System.Drawing.Size(532, 415);
+			this.Controls.Add(this.glControl1);
 			this.Name = "SampleForm";
-			this.Text = "Form1";
+			this.Text = "OpenVX Sample";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SampleForm_FormClosing);
 			this.Load += new System.EventHandler(this.SampleForm_Load);
 			this.ResumeLayout(false);
@@ -43,6 +58,8 @@
 		}
 
 		#endregion
+
+		private OpenGL.GlControl glControl1;
 	}
 }
 

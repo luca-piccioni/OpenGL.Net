@@ -66,6 +66,17 @@ namespace OpenVX
 	public struct <#= underlyingType #>
 	{
 		/// <summary>
+		/// Construct a <#= underlyingType #> from a raw handle.
+		/// </summary>
+		/// <param name="context">
+		/// The <see cref="IntPtr"/> to be converted to <#= underlyingType #>.
+		/// </param>
+		internal <#= underlyingType #>(IntPtr reference)
+		{
+			_Reference = reference;
+		}
+
+		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
@@ -77,6 +88,14 @@ namespace OpenVX
 		/// The <see cref="<#= underlyingType #>"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Reference(<#= underlyingType #> obj) { return (new Reference(obj._Reference)); }
+
+		/// <summary>
+		/// Implicit cast to <see cref="<#= underlyingType #>"/> from <see cref="Reference"/>.
+		/// </summary>
+		/// <param name="context">
+		/// The <see cref="<#= underlyingType #>"/> to be converted to <see cref="Reference"/>.
+		/// </param>
+		public static implicit operator <#= underlyingType #>(Reference obj) { return (new <#= underlyingType #>(obj._Reference)); }
 	}
 
 <#

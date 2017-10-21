@@ -45,6 +45,11 @@ namespace OpenVX
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
-		private IntPtr _Reference;
+		internal IntPtr _Reference;
+
+		/// <summary>
+		/// Null <see cref="Reference"/>.
+		/// </summary>
+		public static Reference Null = new Reference(IntPtr.Zero);
 	}
 }

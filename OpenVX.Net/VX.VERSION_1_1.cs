@@ -1844,7 +1844,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Scalar CreateScalar(Context context, int data_type, IntPtr ptr)
+		public static Scalar CreateScalar(Context context, Type data_type, IntPtr ptr)
 		{
 			Scalar retValue;
 
@@ -1860,7 +1860,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Scalar CreateScalarWithSize(Context context, int data_type, IntPtr ptr, uint size)
+		public static Scalar CreateScalarWithSize(Context context, Type data_type, IntPtr ptr, uint size)
 		{
 			Scalar retValue;
 
@@ -1876,7 +1876,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Scalar CreateVirtualScalar(Graph graph, int data_type)
+		public static Scalar CreateVirtualScalar(Graph graph, Type data_type)
 		{
 			Scalar retValue;
 
@@ -2091,7 +2091,7 @@ namespace OpenVX
 			DebugCheckErrors(null);
 		}
 
-		public static Lut CreateLUT(Context context, int data_type, uint count)
+		public static Lut CreateLUT(Context context, Type data_type, uint count)
 		{
 			Lut retValue;
 
@@ -2103,7 +2103,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Lut CreateVirtualLUT(Graph graph, int data_type, uint count)
+		public static Lut CreateVirtualLUT(Graph graph, Type data_type, uint count)
 		{
 			Lut retValue;
 
@@ -2406,7 +2406,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Matrix CreateMatrix(Context c, int data_type, uint columns, uint rows)
+		public static Matrix CreateMatrix(Context c, Type data_type, uint columns, uint rows)
 		{
 			Matrix retValue;
 
@@ -2418,7 +2418,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Matrix CreateVirtualMatrix(Graph graph, int data_type, uint columns, uint rows)
+		public static Matrix CreateVirtualMatrix(Graph graph, Type data_type, uint columns, uint rows)
 		{
 			Matrix retValue;
 
@@ -2767,7 +2767,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Array CreateArray(Context context, int item_type, uint capacity)
+		public static Array CreateArray(Context context, Type item_type, uint capacity)
 		{
 			Array retValue;
 
@@ -2779,7 +2779,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Array CreateVirtualArray(Graph graph, int item_type, uint capacity)
+		public static Array CreateVirtualArray(Graph graph, Type item_type, uint capacity)
 		{
 			Array retValue;
 
@@ -4279,17 +4279,17 @@ namespace OpenVX
 			internal static vxQueryParameter pvxQueryParameter;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Scalar vxCreateScalar(Context context, int data_type, void* ptr);
+			internal unsafe delegate Scalar vxCreateScalar(Context context, Type data_type, void* ptr);
 
 			internal static vxCreateScalar pvxCreateScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Scalar vxCreateScalarWithSize(Context context, int data_type, void* ptr, uint size);
+			internal unsafe delegate Scalar vxCreateScalarWithSize(Context context, Type data_type, void* ptr, uint size);
 
 			internal static vxCreateScalarWithSize pvxCreateScalarWithSize;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Scalar vxCreateVirtualScalar(Graph graph, int data_type);
+			internal delegate Scalar vxCreateVirtualScalar(Graph graph, Type data_type);
 
 			internal static vxCreateVirtualScalar pvxCreateVirtualScalar;
 
@@ -4369,12 +4369,12 @@ namespace OpenVX
 			internal static vxRegisterLogCallback pvxRegisterLogCallback;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Lut vxCreateLUT(Context context, int data_type, uint count);
+			internal delegate Lut vxCreateLUT(Context context, Type data_type, uint count);
 
 			internal static vxCreateLUT pvxCreateLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Lut vxCreateVirtualLUT(Graph graph, int data_type, uint count);
+			internal delegate Lut vxCreateVirtualLUT(Graph graph, Type data_type, uint count);
 
 			internal static vxCreateVirtualLUT pvxCreateVirtualLUT;
 
@@ -4479,12 +4479,12 @@ namespace OpenVX
 			internal static vxQueryThreshold pvxQueryThreshold;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Matrix vxCreateMatrix(Context c, int data_type, uint columns, uint rows);
+			internal delegate Matrix vxCreateMatrix(Context c, Type data_type, uint columns, uint rows);
 
 			internal static vxCreateMatrix pvxCreateMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Matrix vxCreateVirtualMatrix(Graph graph, int data_type, uint columns, uint rows);
+			internal delegate Matrix vxCreateVirtualMatrix(Graph graph, Type data_type, uint columns, uint rows);
 
 			internal static vxCreateVirtualMatrix pvxCreateVirtualMatrix;
 
@@ -4604,12 +4604,12 @@ namespace OpenVX
 			internal static vxQueryRemap pvxQueryRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Array vxCreateArray(Context context, int item_type, uint capacity);
+			internal delegate Array vxCreateArray(Context context, Type item_type, uint capacity);
 
 			internal static vxCreateArray pvxCreateArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Array vxCreateVirtualArray(Graph graph, int item_type, uint capacity);
+			internal delegate Array vxCreateVirtualArray(Graph graph, Type item_type, uint capacity);
 
 			internal static vxCreateVirtualArray pvxCreateVirtualArray;
 
