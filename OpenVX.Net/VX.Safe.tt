@@ -1,0 +1,107 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Runtime.InteropServices" #>
+
+// Copyright (C) 2017 Luca Piccioni
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+using System;
+using System.Runtime.InteropServices;
+
+namespace OpenVX
+{
+	public partial class VX
+	{
+		#region CreateScalar
+
+		public static Scalar CreateScalar(Context context, Type data_type, object obj)
+		{
+			GCHandle pin_obj = GCHandle.Alloc(obj, GCHandleType.Pinned);
+			try {
+				return (CreateScalar(context, data_type, pin_obj.AddrOfPinnedObject()));
+			} finally {
+				pin_obj.Free();
+			}
+		}
+
+<#
+	object[] templatesParams =	new object[] {
+		new[] { "Int8", "sbyte" },
+		new[] { "Uint8", "byte" },
+		new[] { "Int16", "short" },
+		new[] { "Uint16", "ushort" },
+		new[] { "Int32", "int" },
+		new[] { "Uint32", "uint" },
+		new[] { "Int64", "long" },
+		new[] { "Uint64", "ulong" },
+		new[] { "Float32", "float" },
+		new[] { "Float64", "double" },
+		new[] { "DfImage", "DfImage" },
+		new[] { "Bool", "bool" },
+	};
+
+	for (int i = 0; i < templatesParams.Length; i++) {
+		object[] templateParams = (object[])templatesParams[i];
+		string vxType = (string)templateParams[0];
+		string underlyingType = (string)templateParams[1];
+#>
+		public static Scalar CreateScalar(Context context, <#= underlyingType #> obj)
+		{
+			return (CreateScalar(context, OpenVX.Type.<#= vxType #>, obj));
+		}
+
+<#
+}
+#>
+	
+		#endregion
+
+		#region Query(Array)
+
+<#
+	object[] queryTemplatesParams =	new object[] {
+		new[] { "OpenVX.Type", "4" },
+		new[] { "uint", "4" },
+	};
+
+	for (int i = 0; i < queryTemplatesParams.Length; i++) {
+		object[] templateParams = (object[])queryTemplatesParams[i];
+		string underlyingType = (string)templateParams[0];
+		string underlyingTypeSize = (string)templateParams[1];
+#>
+		public static Status Query(Array arr, ArrayAttribute attribute, out <#= underlyingType #> obj)
+		{
+			unsafe {
+				fixed (<#= underlyingType #> *p_obj = &obj) {
+					return (Query(arr, attribute, new IntPtr(p_obj), <#= underlyingTypeSize #>));
+				}
+			}
+		}
+
+<#
+}
+#>
+		#endregion
+	}
+}

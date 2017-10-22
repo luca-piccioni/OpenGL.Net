@@ -1251,16 +1251,14 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyImagePatch(Image image, Rectangle[] image_rect, uint image_plane_index, ImagePatchAddressing[] user_addr, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
+		public static Status CopyImagePatch(Image image, ref Rectangle image_rect, uint image_plane_index, ref ImagePatchAddressing user_addr, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (Rectangle* p_image_rect = image_rect)
-				fixed (ImagePatchAddressing* p_user_addr = user_addr)
 				{
 					Debug.Assert(Delegates.pvxCopyImagePatch != null, "pvxCopyImagePatch not implemented");
-					retValue = Delegates.pvxCopyImagePatch(image, p_image_rect, image_plane_index, p_user_addr, user_ptr.ToPointer(), usage, user_mem_type);
+					retValue = Delegates.pvxCopyImagePatch(image, ref image_rect, image_plane_index, ref user_addr, user_ptr.ToPointer(), usage, user_mem_type);
 					LogCommand("vxCopyImagePatch", retValue, image, image_rect, image_plane_index, user_addr, user_ptr, usage, user_mem_type					);
 				}
 			}
@@ -2868,20 +2866,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapArrayRange(Array array, uint range_start, uint range_end, MapId[] map_id, uint[] stride, IntPtr[] ptr, Accessor usage, MemoryType mem_type, uint flags)
+		public static Status MapArrayRange(Array array, uint range_start, uint range_end, ref MapId map_id, ref uint stride, out IntPtr ptr, Accessor usage, MemoryType mem_type, uint flags)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (MapId* p_map_id = map_id)
-				fixed (uint* p_stride = stride)
-				fixed (IntPtr* p_ptr = ptr)
-				{
-					Debug.Assert(Delegates.pvxMapArrayRange != null, "pvxMapArrayRange not implemented");
-					retValue = Delegates.pvxMapArrayRange(array, range_start, range_end, p_map_id, p_stride, p_ptr, usage, mem_type, flags);
-					LogCommand("vxMapArrayRange", retValue, array, range_start, range_end, map_id, stride, ptr, usage, mem_type, flags					);
-				}
-			}
+			Debug.Assert(Delegates.pvxMapArrayRange != null, "pvxMapArrayRange not implemented");
+			retValue = Delegates.pvxMapArrayRange(array, range_start, range_end, ref map_id, ref stride, out ptr, usage, mem_type, flags);
+			LogCommand("vxMapArrayRange", retValue, array, range_start, range_end, map_id, stride, ptr, usage, mem_type, flags			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -4064,7 +4055,7 @@ namespace OpenVX
 			internal static vxGetValidRegionImage pvxGetValidRegionImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyImagePatch(Image image, Rectangle* image_rect, uint image_plane_index, ImagePatchAddressing* user_addr, void* user_ptr, Accessor usage, MemoryType user_mem_type);
+			internal unsafe delegate Status vxCopyImagePatch(Image image, ref Rectangle image_rect, uint image_plane_index, ref ImagePatchAddressing user_addr, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyImagePatch pvxCopyImagePatch;
 
@@ -4639,7 +4630,7 @@ namespace OpenVX
 			internal static vxCopyArrayRange pvxCopyArrayRange;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapArrayRange(Array array, uint range_start, uint range_end, MapId* map_id, uint* stride, IntPtr* ptr, Accessor usage, MemoryType mem_type, uint flags);
+			internal unsafe delegate Status vxMapArrayRange(Array array, uint range_start, uint range_end, ref MapId map_id, ref uint stride, out IntPtr ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapArrayRange pvxMapArrayRange;
 

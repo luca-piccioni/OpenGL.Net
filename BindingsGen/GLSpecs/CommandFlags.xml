@@ -448,9 +448,20 @@
     <enumerant name="^vx_lbp_format_e" alias="LbpFormat" />
 
     <!-- OpenVX renamed commands -->
+
+    <command name="^vxCopyImagePatch$">
+        <param id="image_rect"><modifier>ref</modifier></param>
+        <param id="user_addr"><modifier>ref</modifier></param>
+    </command>
     
     <command name="^vxGet(Kernel|Graph)ParameterByIndex$">
         <rename>GetParameterByIndex</rename>
+    </command>
+    
+    <command name="^vxMapArrayRange$">
+        <param id="map_id"><modifier>ref</modifier></param>
+        <param id="stride"><modifier>ref</modifier></param>
+        <param id="ptr"><modifier>out</modifier></param>
     </command>
     
     <command name="^vxQuery\w+$">
