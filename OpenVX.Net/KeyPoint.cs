@@ -23,6 +23,7 @@
 
 #pragma warning disable 169
 
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace OpenVX
@@ -30,6 +31,7 @@ namespace OpenVX
 	/// <summary>
 	/// The keypoint data structure.
 	/// </summary>
+	[DebuggerDisplay("KeyPoint: X={X} Y={Y} Strength={Strength} Tracked={TrackingStatus}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
 	public struct KeyPoint
 	{
