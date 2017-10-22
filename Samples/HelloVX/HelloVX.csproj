@@ -74,9 +74,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OpenGL.Net.Objects\OpenGL.Net.Objects_net461.csproj">
+      <Project>{01314a39-ae2a-44f6-ba14-8c961583c75c}</Project>
+      <Name>OpenGL.Net.Objects_net461</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms_net461.csproj">
       <Project>{1da7d767-b83a-416e-a235-2ebe0fbe1769}</Project>
       <Name>OpenGL.Net.WinForms_net461</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_net461.csproj">
+      <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
+      <Name>OpenGL.Net_net461</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenVX.Net\OpenVX.Net_net461.csproj">
       <Project>{a12173ce-c66c-4700-83be-edfce0b6be30}</Project>

@@ -42,6 +42,7 @@
 			this.VisionControl.Size = new System.Drawing.Size(532, 415);
 			this.VisionControl.StencilBits = ((uint)(0u));
 			this.VisionControl.TabIndex = 0;
+			this.VisionControl.ContextCreated += new System.EventHandler<OpenGL.GlControlEventArgs>(this.VisionControl_ContextCreated);
 			this.VisionControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.VisionControl_Render);
 			// 
 			// SampleForm

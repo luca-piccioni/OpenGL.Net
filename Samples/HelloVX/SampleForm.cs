@@ -27,6 +27,8 @@ using System;
 using System.Windows.Forms;
 
 using Khronos;
+using OpenGL;
+using OpenGL.Objects;
 using OpenVX;
 
 namespace HelloVX
@@ -46,6 +48,8 @@ namespace HelloVX
 
 		private void SampleForm_Load(object sender, EventArgs e)
 		{
+			#region Corner Tracking Initialization
+
 			uint width = 1014, height = 1014;
 			uint    max_keypoint_count      = 10000;                 // maximum number of keypoints to track
 			float harris_strength_thresh  = 0.0005f;               // minimum corner strength to keep a corner
@@ -76,15 +80,12 @@ namespace HelloVX
 			// Create OpenVX pyramid and array object exemplars and create OpenVX delay
 			// objects for both to hold two of each. Note that the exemplar objects are not
 			// needed once the delay objects are created.
-			Pyramid _Pyramid;
-			OpenVX.Array _KeypointsExemplar;
+			using (Pyramid pyramid = VX.CreatePyramid(_Context, lk_pyramid_levels, lk_pyramid_scale, 256, 256, DfImage.U8))
+				_PyramidDelay = VX.CreateDelay(_Context, pyramid, 2);
 
-			_Pyramid = VX.CreatePyramid(_Context, lk_pyramid_levels, lk_pyramid_scale, 256, 256, DfImage.U8);
-			_PyramidDelay = VX.CreateDelay(_Context, _Pyramid, 2);
-			VX.Release(_Pyramid);
-			_KeypointsExemplar = VX.CreateArray(_Context, OpenVX.Type.Keypoint, max_keypoint_count);
-			_KeypointsDelay = VX.CreateDelay(_Context, _KeypointsExemplar, 2);
-			VX.Release(_KeypointsExemplar);
+			using (OpenVX.Array keypoints = VX.CreateArray(_Context, OpenVX.Type.Keypoint, max_keypoint_count))
+				_KeypointsDelay = VX.CreateDelay(_Context, keypoints, 2);
+			
 
 			// An object from a delay slot can be accessed using vxGetReferenceFromDelay API.
 			// You need to use index = 0 for the current object and index = -1 for the previous object.
@@ -109,10 +110,10 @@ namespace HelloVX
 			// This requires two intermediate OpenVX image objects. Since you don't
 			// need to access these objects from the application, they can be virtual
 			// objects that can be created using the vxCreateVirtualImage API.
-			Image harris_yuv_image       = VX.CreateVirtualImage(graphHarris, width, height, DfImage.Iyuv);
-			Image harris_gray_image      = VX.CreateVirtualImage(graphHarris, width, height, DfImage.U8);
-			Image opticalflow_yuv_image  = VX.CreateVirtualImage(graphTrack,  width, height, DfImage.Iyuv);
-			Image opticalflow_gray_image = VX.CreateVirtualImage(graphTrack,  width, height, DfImage.U8);
+			OpenVX.Image harris_yuv_image       = VX.CreateVirtualImage(graphHarris, width, height, DfImage.Iyuv);
+			OpenVX.Image harris_gray_image      = VX.CreateVirtualImage(graphHarris, width, height, DfImage.U8);
+			OpenVX.Image opticalflow_yuv_image  = VX.CreateVirtualImage(graphTrack,  width, height, DfImage.Iyuv);
+			OpenVX.Image opticalflow_gray_image = VX.CreateVirtualImage(graphTrack,  width, height, DfImage.U8);
 
 			// The Harris corner detector and optical flow nodes (see "VX/vx_nodes.h")
 			// need several scalar objects as parameters.
@@ -152,6 +153,8 @@ namespace HelloVX
 
 			_GraphHarris = graphHarris;
 			_GraphTrack = graphTrack;
+
+			#endregion
 		}
 
 		OpenVX.Image _ImageInput;
@@ -164,29 +167,60 @@ namespace HelloVX
 
 		Graph _GraphHarris, _GraphTrack;
 
+		private void VisionControl_ContextCreated(object sender, OpenGL.GlControlEventArgs e)
+		{
+			// Create GL context abstraction
+			_GraphicsContext = new GraphicsContext(e.DeviceContext, e.RenderContext);
+
+			// Create texture
+			_FramebufferTexture = new Texture2d(1024, 1024, PixelLayout.RGB24);
+			_FramebufferTexture.Create(_GraphicsContext);
+
+			// Create framebuffer
+			_Framebuffer = new Framebuffer();
+			_Framebuffer.AttachColor(0, _FramebufferTexture);
+			_Framebuffer.Create(_GraphicsContext);
+		}
+
+		private GraphicsContext _GraphicsContext;
+
+		private Framebuffer _Framebuffer;
+
+		private Texture2d _FramebufferTexture;
+
 		private void VisionControl_Render(object sender, OpenGL.GlControlEventArgs e)
 		{
+			#region Draw Basic Picture
+
+			_Framebuffer.BindDraw(_GraphicsContext);
+
+			// Update image input
+			_Framebuffer.Clear(_GraphicsContext, ClearBufferMask.ColorBufferBit);
+
+			// Read back image input pixels
+			OpenGL.Objects.Image imageInput = _FramebufferTexture.Get(_GraphicsContext, PixelLayout.RGB24, 0);
+
+			#endregion
+
+			#region Track Corners
+
 			// Copy the input RGB frame from OpenGL to OpenVX
 			Rectangle cv_rgb_image_region = new Rectangle();
 			cv_rgb_image_region.StartX = 0;
 			cv_rgb_image_region.StartY = 0;
-			cv_rgb_image_region.EndX = (uint)VisionControl.Width;
-			cv_rgb_image_region.EndY = (uint)VisionControl.Height;
+			cv_rgb_image_region.EndX = imageInput.Width;
+			cv_rgb_image_region.EndY = imageInput.Height;
 
 			ImagePatchAddressing cv_rgb_image_layout = new ImagePatchAddressing();
 			cv_rgb_image_layout.StrideX   = 3;
-			cv_rgb_image_layout.StrideY   = VisionControl.Width * cv_rgb_image_layout.StrideX; //gui.GetStride();
+			cv_rgb_image_layout.StrideY   = (int)imageInput.Width * (int)imageInput.Stride;
 
-			byte[] cv_rgb_image_buffer = null;
-
-			using (MemoryLock rgbImageBuffer = new MemoryLock(cv_rgb_image_buffer)) {
-				VX.CopyImagePatch(_ImageInput, ref cv_rgb_image_region, 0, ref cv_rgb_image_layout, rgbImageBuffer.Address, Accessor.WriteOnly, MemoryType.Host);
-			}
+			VX.CopyImagePatch(_ImageInput, ref cv_rgb_image_region, 0, ref cv_rgb_image_layout, imageInput.ImageBuffer, Accessor.WriteOnly, MemoryType.Host);
 
 			// Now that input RGB image is ready, just run a graph.
 			// Run Harris at the beginning to initialize the previous keypoints,
 			// on other frames run the tracking graph.
-			VX.ProcessGraph( frame_index == 0 ? _GraphHarris : _GraphTrack);
+			VX.ProcessGraph(frame_index++ == 0 ? _GraphHarris : _GraphTrack);
 
 			// To mark the keypoints in display, you need to access the output
 			// keypoint array and draw each item on the output window using gui.DrawArrow().
@@ -200,30 +234,46 @@ namespace HelloVX
 				uint kp_old_stride = 0, kp_new_stride = 0;
 				MapId kp_old_map = new MapId(), kp_new_map = new MapId();
 				IntPtr kp_old_buf, kp_new_buf;
-			//	byte * kp_old_buf, * kp_new_buf;
 
 				VX.MapArrayRange(_KeypointsPrevious, 0, num_corners, ref kp_old_map, ref kp_old_stride, out kp_old_buf, Accessor.ReadOnly, MemoryType.Host, 0);
 				VX.MapArrayRange(_KeypointsCurrent, 0, num_corners, ref kp_new_map, ref kp_new_stride, out kp_new_buf, Accessor.ReadOnly, MemoryType.Host, 0);
 				for (uint i = 0; i < num_corners; i++ ) {
-			//		vx_keypoint_t * kp_old = (vx_keypoint_t *) ( kp_old_buf + i * kp_old_stride );
-			//		vx_keypoint_t * kp_new = (vx_keypoint_t *) ( kp_new_buf + i * kp_new_stride );
+					KeyPoint kp_old = VX.ArrayItem<KeyPoint>(kp_old_buf, i, kp_old_stride);
+					KeyPoint kp_new = VX.ArrayItem<KeyPoint>(kp_new_buf, i, kp_new_stride);
 
-			//		if (kp_new->tracking_status ) {
-			//			num_tracking++;
+					if (kp_new.TrackingStatus != 0) {
+						num_tracking++;
 
 			//			// gui.DrawArrow( kp_old->x, kp_old->y, kp_new->x, kp_new->y );
-			//		}
+					}
 				}
 				VX.UnmapArrayRange(_KeypointsPrevious, kp_old_map);
 				VX.UnmapArrayRange(_KeypointsCurrent, kp_new_map);
 			}
+
+			// Increase the age of the delay objects to make the current entry become previous entry
+			VX.AgeDelay(_PyramidDelay);
+			VX.AgeDelay(_KeypointsDelay);
+
+			#endregion
 		}
 
 		static int frame_index = 0;
 
 		private void SampleForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			VX.Release(_Context);
+			// Query graph performance using VX_GRAPH_PERFORMANCE and print timing
+			// in milliseconds. Note that time units of vx_perf_t fields are nanoseconds.
+			Perf perfHarris = new Perf(), perfTrack = new Perf();
+
+			VX.Query(_GraphHarris, GraphAttribute.Performance,  out perfHarris);
+			VX.Query(_GraphTrack, GraphAttribute.Performance, out perfTrack);
+
+			// Release all the OpenVX objects created in this exercise, and make the context as the last one to release.
+			// To release an OpenVX object, you need to call vxRelease<Object> API which takes a pointer to the object.
+			// If the release operation is successful, the OpenVX framework will reset the object to NULL.
+
+			VX.Release(ref _Context);
 		}
 
 		private Context _Context;
