@@ -891,18 +891,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Context[] context)
+		public static Status Release(ref Context context)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Context* p_context = context)
-				{
-					Debug.Assert(Delegates.pvxReleaseContext != null, "pvxReleaseContext not implemented");
-					retValue = Delegates.pvxReleaseContext(p_context);
-					LogCommand("vxReleaseContext", retValue, context					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseContext != null, "pvxReleaseContext not implemented");
+			retValue = Delegates.pvxReleaseContext(ref context);
+			LogCommand("vxReleaseContext", retValue, context			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1183,18 +1178,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Image[] image)
+		public static Status Release(ref Image image)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Image* p_image = image)
-				{
-					Debug.Assert(Delegates.pvxReleaseImage != null, "pvxReleaseImage not implemented");
-					retValue = Delegates.pvxReleaseImage(p_image);
-					LogCommand("vxReleaseImage", retValue, image					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseImage != null, "pvxReleaseImage not implemented");
+			retValue = Delegates.pvxReleaseImage(ref image);
+			LogCommand("vxReleaseImage", retValue, image			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1392,18 +1382,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Kernel[] kernel)
+		public static Status Release(ref Kernel kernel)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Kernel* p_kernel = kernel)
-				{
-					Debug.Assert(Delegates.pvxReleaseKernel != null, "pvxReleaseKernel not implemented");
-					retValue = Delegates.pvxReleaseKernel(p_kernel);
-					LogCommand("vxReleaseKernel", retValue, kernel					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseKernel != null, "pvxReleaseKernel not implemented");
+			retValue = Delegates.pvxReleaseKernel(ref kernel);
+			LogCommand("vxReleaseKernel", retValue, kernel			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1497,18 +1482,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Graph[] graph)
+		public static Status Release(ref Graph graph)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Graph* p_graph = graph)
-				{
-					Debug.Assert(Delegates.pvxReleaseGraph != null, "pvxReleaseGraph not implemented");
-					retValue = Delegates.pvxReleaseGraph(p_graph);
-					LogCommand("vxReleaseGraph", retValue, graph					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseGraph != null, "pvxReleaseGraph not implemented");
+			retValue = Delegates.pvxReleaseGraph(ref graph);
+			LogCommand("vxReleaseGraph", retValue, graph			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1686,18 +1666,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Node[] node)
+		public static Status Release(ref Node node)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Node* p_node = node)
-				{
-					Debug.Assert(Delegates.pvxReleaseNode != null, "pvxReleaseNode not implemented");
-					retValue = Delegates.pvxReleaseNode(p_node);
-					LogCommand("vxReleaseNode", retValue, node					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseNode != null, "pvxReleaseNode not implemented");
+			retValue = Delegates.pvxReleaseNode(ref node);
+			LogCommand("vxReleaseNode", retValue, node			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1785,18 +1760,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Parameter[] param)
+		public static Status Release(ref Parameter param)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Parameter* p_param = param)
-				{
-					Debug.Assert(Delegates.pvxReleaseParameter != null, "pvxReleaseParameter not implemented");
-					retValue = Delegates.pvxReleaseParameter(p_param);
-					LogCommand("vxReleaseParameter", retValue, param					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseParameter != null, "pvxReleaseParameter not implemented");
+			retValue = Delegates.pvxReleaseParameter(ref param);
+			LogCommand("vxReleaseParameter", retValue, param			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1886,18 +1856,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Scalar[] scalar)
+		public static Status Release(ref Scalar scalar)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Scalar* p_scalar = scalar)
-				{
-					Debug.Assert(Delegates.pvxReleaseScalar != null, "pvxReleaseScalar not implemented");
-					retValue = Delegates.pvxReleaseScalar(p_scalar);
-					LogCommand("vxReleaseScalar", retValue, scalar					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseScalar != null, "pvxReleaseScalar not implemented");
+			retValue = Delegates.pvxReleaseScalar(ref scalar);
+			LogCommand("vxReleaseScalar", retValue, scalar			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -1951,18 +1916,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Reference[] ref_ptr)
+		public static Status Release(ref Reference ref_ptr)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Reference* p_ref_ptr = ref_ptr)
-				{
-					Debug.Assert(Delegates.pvxReleaseReference != null, "pvxReleaseReference not implemented");
-					retValue = Delegates.pvxReleaseReference(p_ref_ptr);
-					LogCommand("vxReleaseReference", retValue, ref_ptr					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseReference != null, "pvxReleaseReference not implemented");
+			retValue = Delegates.pvxReleaseReference(ref ref_ptr);
+			LogCommand("vxReleaseReference", retValue, ref_ptr			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2008,18 +1968,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Delay[] delay)
+		public static Status Release(ref Delay delay)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Delay* p_delay = delay)
-				{
-					Debug.Assert(Delegates.pvxReleaseDelay != null, "pvxReleaseDelay not implemented");
-					retValue = Delegates.pvxReleaseDelay(p_delay);
-					LogCommand("vxReleaseDelay", retValue, delay					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseDelay != null, "pvxReleaseDelay not implemented");
+			retValue = Delegates.pvxReleaseDelay(ref delay);
+			LogCommand("vxReleaseDelay", retValue, delay			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2113,18 +2068,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Lut[] lut)
+		public static Status Release(ref Lut lut)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Lut* p_lut = lut)
-				{
-					Debug.Assert(Delegates.pvxReleaseLUT != null, "pvxReleaseLUT not implemented");
-					retValue = Delegates.pvxReleaseLUT(p_lut);
-					LogCommand("vxReleaseLUT", retValue, lut					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseLUT != null, "pvxReleaseLUT not implemented");
+			retValue = Delegates.pvxReleaseLUT(ref lut);
+			LogCommand("vxReleaseLUT", retValue, lut			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2216,18 +2166,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Distribution[] distribution)
+		public static Status Release(ref Distribution distribution)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Distribution* p_distribution = distribution)
-				{
-					Debug.Assert(Delegates.pvxReleaseDistribution != null, "pvxReleaseDistribution not implemented");
-					retValue = Delegates.pvxReleaseDistribution(p_distribution);
-					LogCommand("vxReleaseDistribution", retValue, distribution					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseDistribution != null, "pvxReleaseDistribution not implemented");
+			retValue = Delegates.pvxReleaseDistribution(ref distribution);
+			LogCommand("vxReleaseDistribution", retValue, distribution			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2355,18 +2300,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Threshold[] thresh)
+		public static Status Release(ref Threshold thresh)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Threshold* p_thresh = thresh)
-				{
-					Debug.Assert(Delegates.pvxReleaseThreshold != null, "pvxReleaseThreshold not implemented");
-					retValue = Delegates.pvxReleaseThreshold(p_thresh);
-					LogCommand("vxReleaseThreshold", retValue, thresh					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseThreshold != null, "pvxReleaseThreshold not implemented");
+			retValue = Delegates.pvxReleaseThreshold(ref thresh);
+			LogCommand("vxReleaseThreshold", retValue, thresh			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2428,18 +2368,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Matrix[] mat)
+		public static Status Release(ref Matrix mat)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Matrix* p_mat = mat)
-				{
-					Debug.Assert(Delegates.pvxReleaseMatrix != null, "pvxReleaseMatrix not implemented");
-					retValue = Delegates.pvxReleaseMatrix(p_mat);
-					LogCommand("vxReleaseMatrix", retValue, mat					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseMatrix != null, "pvxReleaseMatrix not implemented");
+			retValue = Delegates.pvxReleaseMatrix(ref mat);
+			LogCommand("vxReleaseMatrix", retValue, mat			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2525,18 +2460,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Convolution[] conv)
+		public static Status Release(ref Convolution conv)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Convolution* p_conv = conv)
-				{
-					Debug.Assert(Delegates.pvxReleaseConvolution != null, "pvxReleaseConvolution not implemented");
-					retValue = Delegates.pvxReleaseConvolution(p_conv);
-					LogCommand("vxReleaseConvolution", retValue, conv					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseConvolution != null, "pvxReleaseConvolution not implemented");
+			retValue = Delegates.pvxReleaseConvolution(ref conv);
+			LogCommand("vxReleaseConvolution", retValue, conv			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2614,18 +2544,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Pyramid[] pyr)
+		public static Status Release(ref Pyramid pyr)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Pyramid* p_pyr = pyr)
-				{
-					Debug.Assert(Delegates.pvxReleasePyramid != null, "pvxReleasePyramid not implemented");
-					retValue = Delegates.pvxReleasePyramid(p_pyr);
-					LogCommand("vxReleasePyramid", retValue, pyr					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleasePyramid != null, "pvxReleasePyramid not implemented");
+			retValue = Delegates.pvxReleasePyramid(ref pyr);
+			LogCommand("vxReleasePyramid", retValue, pyr			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2683,18 +2608,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Remap[] table)
+		public static Status Release(ref Remap table)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Remap* p_table = table)
-				{
-					Debug.Assert(Delegates.pvxReleaseRemap != null, "pvxReleaseRemap not implemented");
-					retValue = Delegates.pvxReleaseRemap(p_table);
-					LogCommand("vxReleaseRemap", retValue, table					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseRemap != null, "pvxReleaseRemap not implemented");
+			retValue = Delegates.pvxReleaseRemap(ref table);
+			LogCommand("vxReleaseRemap", retValue, table			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2789,18 +2709,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Array[] arr)
+		public static Status Release(ref Array arr)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Array* p_arr = arr)
-				{
-					Debug.Assert(Delegates.pvxReleaseArray != null, "pvxReleaseArray not implemented");
-					retValue = Delegates.pvxReleaseArray(p_arr);
-					LogCommand("vxReleaseArray", retValue, arr					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseArray != null, "pvxReleaseArray not implemented");
+			retValue = Delegates.pvxReleaseArray(ref arr);
+			LogCommand("vxReleaseArray", retValue, arr			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -2926,18 +2841,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params ObjectArray[] arr)
+		public static Status Release(ref ObjectArray arr)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (ObjectArray* p_arr = arr)
-				{
-					Debug.Assert(Delegates.pvxReleaseObjectArray != null, "pvxReleaseObjectArray not implemented");
-					retValue = Delegates.pvxReleaseObjectArray(p_arr);
-					LogCommand("vxReleaseObjectArray", retValue, arr					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseObjectArray != null, "pvxReleaseObjectArray not implemented");
+			retValue = Delegates.pvxReleaseObjectArray(ref arr);
+			LogCommand("vxReleaseObjectArray", retValue, arr			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -3091,18 +3001,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Tensor[] tensor)
+		public static Status Release(ref Tensor tensor)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Tensor* p_tensor = tensor)
-				{
-					Debug.Assert(Delegates.pvxReleaseTensor != null, "pvxReleaseTensor not implemented");
-					retValue = Delegates.pvxReleaseTensor(p_tensor);
-					LogCommand("vxReleaseTensor", retValue, tensor					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseTensor != null, "pvxReleaseTensor not implemented");
+			retValue = Delegates.pvxReleaseTensor(ref tensor);
+			LogCommand("vxReleaseTensor", retValue, tensor			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -3898,18 +3803,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(params Import[] import)
+		public static Status Release(ref Import import)
 		{
 			Status retValue;
 
-			unsafe {
-				fixed (Import* p_import = import)
-				{
-					Debug.Assert(Delegates.pvxReleaseImport != null, "pvxReleaseImport not implemented");
-					retValue = Delegates.pvxReleaseImport(p_import);
-					LogCommand("vxReleaseImport", retValue, import					);
-				}
-			}
+			Debug.Assert(Delegates.pvxReleaseImport != null, "pvxReleaseImport not implemented");
+			retValue = Delegates.pvxReleaseImport(ref import);
+			LogCommand("vxReleaseImport", retValue, import			);
 			DebugCheckErrors(retValue);
 
 			return (retValue);
@@ -3935,7 +3835,7 @@ namespace OpenVX
 			internal static vxCreateContext pvxCreateContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseContext(Context* context);
+			internal unsafe delegate Status vxReleaseContext(ref Context context);
 
 			internal static vxReleaseContext pvxReleaseContext;
 
@@ -4035,7 +3935,7 @@ namespace OpenVX
 			internal static vxSetImagePixelValues pvxSetImagePixelValues;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseImage(Image* image);
+			internal unsafe delegate Status vxReleaseImage(ref Image image);
 
 			internal static vxReleaseImage pvxReleaseImage;
 
@@ -4105,7 +4005,7 @@ namespace OpenVX
 			internal static vxQueryKernel pvxQueryKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseKernel(Kernel* kernel);
+			internal unsafe delegate Status vxReleaseKernel(ref Kernel kernel);
 
 			internal static vxReleaseKernel pvxReleaseKernel;
 
@@ -4145,7 +4045,7 @@ namespace OpenVX
 			internal static vxCreateGraph pvxCreateGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseGraph(Graph* graph);
+			internal unsafe delegate Status vxReleaseGraph(ref Graph graph);
 
 			internal static vxReleaseGraph pvxReleaseGraph;
 
@@ -4215,7 +4115,7 @@ namespace OpenVX
 			internal static vxSetNodeAttribute pvxSetNodeAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseNode(Node* node);
+			internal unsafe delegate Status vxReleaseNode(ref Node node);
 
 			internal static vxReleaseNode pvxReleaseNode;
 
@@ -4250,7 +4150,7 @@ namespace OpenVX
 			internal static vxGetParameterByIndex pvxGetParameterByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseParameter(Parameter* param);
+			internal unsafe delegate Status vxReleaseParameter(ref Parameter param);
 
 			internal static vxReleaseParameter pvxReleaseParameter;
 
@@ -4285,7 +4185,7 @@ namespace OpenVX
 			internal static vxCreateVirtualScalar pvxCreateVirtualScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseScalar(Scalar* scalar);
+			internal unsafe delegate Status vxReleaseScalar(ref Scalar scalar);
 
 			internal static vxReleaseScalar pvxReleaseScalar;
 
@@ -4305,7 +4205,7 @@ namespace OpenVX
 			internal static vxQueryReference pvxQueryReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseReference(Reference* ref_ptr);
+			internal unsafe delegate Status vxReleaseReference(ref Reference ref_ptr);
 
 			internal static vxReleaseReference pvxReleaseReference;
 
@@ -4325,7 +4225,7 @@ namespace OpenVX
 			internal static vxQueryDelay pvxQueryDelay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseDelay(Delay* delay);
+			internal unsafe delegate Status vxReleaseDelay(ref Delay delay);
 
 			internal static vxReleaseDelay pvxReleaseDelay;
 
@@ -4370,7 +4270,7 @@ namespace OpenVX
 			internal static vxCreateVirtualLUT pvxCreateVirtualLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseLUT(Lut* lut);
+			internal unsafe delegate Status vxReleaseLUT(ref Lut lut);
 
 			internal static vxReleaseLUT pvxReleaseLUT;
 
@@ -4405,7 +4305,7 @@ namespace OpenVX
 			internal static vxCreateVirtualDistribution pvxCreateVirtualDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseDistribution(Distribution* distribution);
+			internal unsafe delegate Status vxReleaseDistribution(ref Distribution distribution);
 
 			internal static vxReleaseDistribution pvxReleaseDistribution;
 
@@ -4455,7 +4355,7 @@ namespace OpenVX
 			internal static vxCopyThresholdOutput pvxCopyThresholdOutput;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseThreshold(Threshold* thresh);
+			internal unsafe delegate Status vxReleaseThreshold(ref Threshold thresh);
 
 			internal static vxReleaseThreshold pvxReleaseThreshold;
 
@@ -4480,7 +4380,7 @@ namespace OpenVX
 			internal static vxCreateVirtualMatrix pvxCreateVirtualMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseMatrix(Matrix* mat);
+			internal unsafe delegate Status vxReleaseMatrix(ref Matrix mat);
 
 			internal static vxReleaseMatrix pvxReleaseMatrix;
 
@@ -4515,7 +4415,7 @@ namespace OpenVX
 			internal static vxCreateVirtualConvolution pvxCreateVirtualConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseConvolution(Convolution* conv);
+			internal unsafe delegate Status vxReleaseConvolution(ref Convolution conv);
 
 			internal static vxReleaseConvolution pvxReleaseConvolution;
 
@@ -4545,7 +4445,7 @@ namespace OpenVX
 			internal static vxCreateVirtualPyramid pvxCreateVirtualPyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleasePyramid(Pyramid* pyr);
+			internal unsafe delegate Status vxReleasePyramid(ref Pyramid pyr);
 
 			internal static vxReleasePyramid pvxReleasePyramid;
 
@@ -4570,7 +4470,7 @@ namespace OpenVX
 			internal static vxCreateVirtualRemap pvxCreateVirtualRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseRemap(Remap* table);
+			internal unsafe delegate Status vxReleaseRemap(ref Remap table);
 
 			internal static vxReleaseRemap pvxReleaseRemap;
 
@@ -4605,7 +4505,7 @@ namespace OpenVX
 			internal static vxCreateVirtualArray pvxCreateVirtualArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseArray(Array* arr);
+			internal unsafe delegate Status vxReleaseArray(ref Array arr);
 
 			internal static vxReleaseArray pvxReleaseArray;
 
@@ -4655,7 +4555,7 @@ namespace OpenVX
 			internal static vxGetObjectArrayItem pvxGetObjectArrayItem;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseObjectArray(ObjectArray* arr);
+			internal unsafe delegate Status vxReleaseObjectArray(ref ObjectArray arr);
 
 			internal static vxReleaseObjectArray pvxReleaseObjectArray;
 
@@ -4705,7 +4605,7 @@ namespace OpenVX
 			internal static vxQueryTensor pvxQueryTensor;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseTensor(Tensor* tensor);
+			internal unsafe delegate Status vxReleaseTensor(ref Tensor tensor);
 
 			internal static vxReleaseTensor pvxReleaseTensor;
 
@@ -5030,7 +4930,7 @@ namespace OpenVX
 			internal static vxImportObjectsFromMemory pvxImportObjectsFromMemory;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseImport(Import* import);
+			internal unsafe delegate Status vxReleaseImport(ref Import import);
 
 			internal static vxReleaseImport pvxReleaseImport;
 

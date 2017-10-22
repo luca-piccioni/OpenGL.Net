@@ -212,6 +212,12 @@ namespace BindingsGen.GLSpecs
 				public string Id;
 
 				/// <summary>
+				/// Argument index, zero based.
+				/// </summary>
+				[XmlAttribute("index")]
+				public int Index = -1;
+
+				/// <summary>
 				/// Force a specific name for command argument (as specification name).
 				/// </summary>
 				[XmlElement("rename")]
@@ -345,8 +351,12 @@ namespace BindingsGen.GLSpecs
 
 			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
-					foreach (CommandItem.ParameterItem parameterItem in commandItem.Parameters) {
-						if (parameterItem.Id == arg.Name && parameterItem.Modifier != null)
+					for (int i = 0; i < commandItem.Parameters.Count; i++) {
+						CommandItem.ParameterItem parameterItem = commandItem.Parameters[i];
+
+						if (parameterItem.Id != null && parameterItem.Id == arg.Name && parameterItem.Modifier != null)
+							return (parameterItem.Modifier);
+						if (parameterItem.Index == arg.GetCommandIndex(command) && parameterItem.Modifier != null)
 							return (parameterItem.Modifier);
 					}
 				}

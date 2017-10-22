@@ -454,6 +454,11 @@ namespace BindingsGen.GLSpecs
 
 		#region Information Linkage
 
+		public int GetCommandIndex(Command parentCommand)
+		{
+			return (parentCommand.Parameters.IndexOf(this));
+		}
+
 		/// <summary>
 		/// The parent command which this command parameter belongs to.
 		/// </summary>

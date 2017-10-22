@@ -36,8 +36,10 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Array
+	public struct Array : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Array from a raw handle.
 		/// </summary>
@@ -49,10 +51,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -69,14 +79,35 @@ namespace OpenVX
 		/// The <see cref="Array"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Array(Reference obj) { return (new Array(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Array"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Array thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Context
+	public struct Context : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Context from a raw handle.
 		/// </summary>
@@ -88,10 +119,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -108,14 +147,35 @@ namespace OpenVX
 		/// The <see cref="Context"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Context(Reference obj) { return (new Context(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Context"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Context thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Convolution
+	public struct Convolution : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Convolution from a raw handle.
 		/// </summary>
@@ -127,10 +187,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -147,14 +215,35 @@ namespace OpenVX
 		/// The <see cref="Convolution"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Convolution(Reference obj) { return (new Convolution(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Convolution"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Convolution thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Delay
+	public struct Delay : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Delay from a raw handle.
 		/// </summary>
@@ -166,10 +255,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -186,14 +283,35 @@ namespace OpenVX
 		/// The <see cref="Delay"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Delay(Reference obj) { return (new Delay(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Delay"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Delay thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Distribution
+	public struct Distribution : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Distribution from a raw handle.
 		/// </summary>
@@ -205,10 +323,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -225,14 +351,35 @@ namespace OpenVX
 		/// The <see cref="Distribution"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Distribution(Reference obj) { return (new Distribution(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Distribution"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Distribution thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Graph
+	public struct Graph : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Graph from a raw handle.
 		/// </summary>
@@ -244,10 +391,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -264,14 +419,35 @@ namespace OpenVX
 		/// The <see cref="Graph"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Graph(Reference obj) { return (new Graph(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Graph"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Graph thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Kernel
+	public struct Kernel : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Kernel from a raw handle.
 		/// </summary>
@@ -283,10 +459,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -303,14 +487,35 @@ namespace OpenVX
 		/// The <see cref="Kernel"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Kernel(Reference obj) { return (new Kernel(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Kernel"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Kernel thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Image
+	public struct Image : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Image from a raw handle.
 		/// </summary>
@@ -322,10 +527,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -342,14 +555,35 @@ namespace OpenVX
 		/// The <see cref="Image"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Image(Reference obj) { return (new Image(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Image"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Image thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Import
+	public struct Import : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Import from a raw handle.
 		/// </summary>
@@ -361,10 +595,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -381,14 +623,35 @@ namespace OpenVX
 		/// The <see cref="Import"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Import(Reference obj) { return (new Import(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Import"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Import thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Lut
+	public struct Lut : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Lut from a raw handle.
 		/// </summary>
@@ -400,10 +663,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -420,6 +691,25 @@ namespace OpenVX
 		/// The <see cref="Lut"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Lut(Reference obj) { return (new Lut(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Lut"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Lut thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
@@ -428,6 +718,8 @@ namespace OpenVX
 	/// </summary>
 	public struct MapId
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a MapId from a raw handle.
 		/// </summary>
@@ -439,10 +731,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -459,14 +759,19 @@ namespace OpenVX
 		/// The <see cref="MapId"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator MapId(Reference obj) { return (new MapId(obj._Reference)); }
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Matrix
+	public struct Matrix : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Matrix from a raw handle.
 		/// </summary>
@@ -478,10 +783,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -498,6 +811,25 @@ namespace OpenVX
 		/// The <see cref="Matrix"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Matrix(Reference obj) { return (new Matrix(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Matrix"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Matrix thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
@@ -506,6 +838,8 @@ namespace OpenVX
 	/// </summary>
 	public struct MetaFormat
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a MetaFormat from a raw handle.
 		/// </summary>
@@ -517,10 +851,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -537,14 +879,19 @@ namespace OpenVX
 		/// The <see cref="MetaFormat"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator MetaFormat(Reference obj) { return (new MetaFormat(obj._Reference)); }
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Node
+	public struct Node : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Node from a raw handle.
 		/// </summary>
@@ -556,10 +903,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -576,14 +931,35 @@ namespace OpenVX
 		/// The <see cref="Node"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Node(Reference obj) { return (new Node(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Node"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Node thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct ObjectArray
+	public struct ObjectArray : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a ObjectArray from a raw handle.
 		/// </summary>
@@ -595,10 +971,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -615,14 +999,35 @@ namespace OpenVX
 		/// The <see cref="ObjectArray"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator ObjectArray(Reference obj) { return (new ObjectArray(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="ObjectArray"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			ObjectArray thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Parameter
+	public struct Parameter : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Parameter from a raw handle.
 		/// </summary>
@@ -634,10 +1039,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -654,14 +1067,35 @@ namespace OpenVX
 		/// The <see cref="Parameter"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Parameter(Reference obj) { return (new Parameter(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Parameter"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Parameter thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Pyramid
+	public struct Pyramid : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Pyramid from a raw handle.
 		/// </summary>
@@ -673,10 +1107,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -693,14 +1135,35 @@ namespace OpenVX
 		/// The <see cref="Pyramid"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Pyramid(Reference obj) { return (new Pyramid(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Pyramid"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Pyramid thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Remap
+	public struct Remap : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Remap from a raw handle.
 		/// </summary>
@@ -712,10 +1175,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -732,14 +1203,35 @@ namespace OpenVX
 		/// The <see cref="Remap"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Remap(Reference obj) { return (new Remap(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Remap"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Remap thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Scalar
+	public struct Scalar : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Scalar from a raw handle.
 		/// </summary>
@@ -751,10 +1243,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -771,14 +1271,35 @@ namespace OpenVX
 		/// The <see cref="Scalar"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Scalar(Reference obj) { return (new Scalar(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Scalar"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Scalar thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Tensor
+	public struct Tensor : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Tensor from a raw handle.
 		/// </summary>
@@ -790,10 +1311,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -810,14 +1339,35 @@ namespace OpenVX
 		/// The <see cref="Tensor"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Tensor(Reference obj) { return (new Tensor(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Tensor"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Tensor thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct Threshold
+	public struct Threshold : IDisposable
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a Threshold from a raw handle.
 		/// </summary>
@@ -829,10 +1379,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -849,6 +1407,25 @@ namespace OpenVX
 		/// The <see cref="Threshold"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator Threshold(Reference obj) { return (new Threshold(obj._Reference)); }
+
+		#endregion
+
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="Threshold"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			Threshold thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+
 	}
 
 

@@ -59,7 +59,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Release(Context context, params IntPtr[] ptr)
+		public static Status ReleaseExportedMemory(Context context, IntPtr[] ptr)
 		{
 			Status retValue;
 

@@ -33,38 +33,42 @@ using System;
 namespace OpenVX
 {
 <#
-	string[] underlyingTypes =	new[] {
-		"Array",
-		"Context",
-		"Convolution",
-		"Delay",
-		"Distribution",
-		"Graph",
-		"Kernel",
-		"Image",
-		"Import",
-		"Lut",
-		"MapId",
-		"Matrix",
-		"MetaFormat",
-		"Node",
-		"ObjectArray",
-		"Parameter",
-		"Pyramid",
-		"Remap",
-		"Scalar",
-		"Tensor",
-		"Threshold"
+	object[] templatesParams =	new[] {
+		new object[] { "Array",			true },
+		new object[] { "Context",		true },
+		new object[] { "Convolution",	true },
+		new object[] { "Delay",			true },
+		new object[] { "Distribution",	true },
+		new object[] { "Graph",			true },
+		new object[] { "Kernel",		true },
+		new object[] { "Image",			true },
+		new object[] { "Import",		true },
+		new object[] { "Lut",			true },
+		new object[] { "MapId",			false },
+		new object[] { "Matrix",		true },
+		new object[] { "MetaFormat",	false },
+		new object[] { "Node",			true },
+		new object[] { "ObjectArray",	true },
+		new object[] { "Parameter",		true },
+		new object[] { "Pyramid",		true },
+		new object[] { "Remap",			true },
+		new object[] { "Scalar",		true },
+		new object[] { "Tensor",		true },
+		new object[] { "Threshold",		true }
 	};
 
-	for (int i = 0; i < underlyingTypes.Length; i++) {
-		string underlyingType = underlyingTypes[i];
+	for (int i = 0; i < templatesParams.Length; i++) {
+		object[] templateParams = (object[])templatesParams[i];
+		string underlyingType = (string)templateParams[0];
+		bool underlyingObject = (bool)templateParams[1];
 #>
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
-	public struct <#= underlyingType #>
+	public struct <#= underlyingType #><# if (underlyingObject) { #> : IDisposable<# }#>
 	{
+		#region Constructors
+
 		/// <summary>
 		/// Construct a <#= underlyingType #> from a raw handle.
 		/// </summary>
@@ -76,10 +80,18 @@ namespace OpenVX
 			_Reference = reference;
 		}
 
+		#endregion
+
+		#region Blittable Structure
+
 		/// <summary>
 		/// Reference handle.
 		/// </summary>
 		private IntPtr _Reference;
+
+		#endregion
+
+		#region Cast Operators
 
 		/// <summary>
 		/// Implicit cast to <see cref="Reference"/>.
@@ -96,6 +108,25 @@ namespace OpenVX
 		/// The <see cref="<#= underlyingType #>"/> to be converted to <see cref="Reference"/>.
 		/// </param>
 		public static implicit operator <#= underlyingType #>(Reference obj) { return (new <#= underlyingType #>(obj._Reference)); }
+
+		#endregion
+<# if (underlyingObject) { #>
+		#region IDisposable Implementation
+
+		/// <summary>
+		/// Release this <see cref="<#= underlyingType #>"/>.
+		/// </summary>
+		public void Dispose()
+		{
+			<#= underlyingType #> thisReference = this;
+
+			VX.Release(ref thisReference);
+
+			_Reference = thisReference._Reference;
+		}
+
+		#endregion
+<# } #>
 	}
 
 <#

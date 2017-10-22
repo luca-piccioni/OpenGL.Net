@@ -476,9 +476,9 @@
         <rename>SetParameterByIndex</rename>
     </command>
     
-    <command name="^vxRelease.*$">
+    <command name="^vxRelease(Array|Context|Convolution|Delay|Distribution|Kernel|Graph|Image|Import|LUT|Matrix|Node|ObjectArray|Parameter|Pyramid|Reference|Remap|Scalar|Tensor|Threshold)$">
         <rename>Release</rename>
-        <flags>VariadicParams</flags>
+        <param index="0"><modifier>ref</modifier></param>
     </command>
     
 </command_overrides>
