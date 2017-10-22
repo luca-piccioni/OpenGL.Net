@@ -129,5 +129,36 @@ namespace OpenVX
 		}
 
 		#endregion
+
+		#region Query(Graph)
+
+		public static Status Query(Graph graph, GraphAttribute attribute, out uint obj)
+		{
+			unsafe {
+				fixed (uint *p_obj = &obj) {
+					return (Query(graph, attribute, new IntPtr(p_obj), 4));
+				}
+			}
+		}
+
+		public static Status Query(Graph graph, GraphAttribute attribute, out Status obj)
+		{
+			unsafe {
+				fixed (Status *p_obj = &obj) {
+					return (Query(graph, attribute, new IntPtr(p_obj), 4));
+				}
+			}
+		}
+
+		public static Status Query(Graph graph, GraphAttribute attribute, out Perf obj)
+		{
+			unsafe {
+				fixed (Perf *p_obj = &obj) {
+					return (Query(graph, attribute, new IntPtr(p_obj), 64));
+				}
+			}
+		}
+
+		#endregion
 	}
 }

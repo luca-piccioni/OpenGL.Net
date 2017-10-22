@@ -103,5 +103,33 @@ namespace OpenVX
 }
 #>
 		#endregion
+
+		#region Query(Graph)
+
+<#
+	object[] graphTemplatesParams =	new object[] {
+		new[] { "uint", "4" },
+		new[] { "Status", "4" },
+		new[] { "Perf", "64" },
+	};
+
+	for (int i = 0; i < graphTemplatesParams.Length; i++) {
+		object[] templateParams = (object[])graphTemplatesParams[i];
+		string underlyingType = (string)templateParams[0];
+		string underlyingTypeSize = (string)templateParams[1];
+#>
+		public static Status Query(Graph graph, GraphAttribute attribute, out <#= underlyingType #> obj)
+		{
+			unsafe {
+				fixed (<#= underlyingType #> *p_obj = &obj) {
+					return (Query(graph, attribute, new IntPtr(p_obj), <#= underlyingTypeSize #>));
+				}
+			}
+		}
+
+<#
+}
+#>
+		#endregion
 	}
 }
