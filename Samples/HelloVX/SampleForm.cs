@@ -50,7 +50,7 @@ namespace HelloVX
 		{
 			#region Corner Tracking Initialization
 
-			uint width = 1014, height = 1014;
+			uint width = 1024, height = 1024;
 			uint    max_keypoint_count      = 10000;                 // maximum number of keypoints to track
 			float harris_strength_thresh  = 0.0005f;               // minimum corner strength to keep a corner
 			float harris_min_distance     = 5.0f;                  // radial L2 distance for non-max suppression
@@ -62,7 +62,7 @@ namespace HelloVX
 			TerminationCriteria lk_termination = TerminationCriteria.Both; // iteration termination criteria (eps & iterations)
 			float lk_epsilon              = 0.01f;                 // convergence criterion
 			uint  lk_num_iterations       = 5;                     // maximum number of iterations
-			bool    lk_use_initial_estimate = false;            // don't use initial estimate
+			bool  lk_use_initial_estimate = false;            // don't use initial estimate
 			uint  lk_window_dimension     = 6;                     // window size for evaluation
 			float trackable_kp_ratio_thr  = 0.8f;                  // threshold for the ration of tracked keypoints to all
 
@@ -70,7 +70,7 @@ namespace HelloVX
 			_Context = VX.CreateContext();
 
 			// Create OpenVX image object for input RGB image.
-			_ImageInput = VX.CreateImage(_Context, 256, 256, DfImage.Rgb);
+			_ImageInput = VX.CreateImage(_Context, width, height, DfImage.Rgb);
 
 			// OpenVX optical flow functionality requires image pyramids for the current
 			// and the previous image. It also requires keypoints that correspond
@@ -80,7 +80,7 @@ namespace HelloVX
 			// Create OpenVX pyramid and array object exemplars and create OpenVX delay
 			// objects for both to hold two of each. Note that the exemplar objects are not
 			// needed once the delay objects are created.
-			using (Pyramid pyramid = VX.CreatePyramid(_Context, lk_pyramid_levels, lk_pyramid_scale, 256, 256, DfImage.U8))
+			using (Pyramid pyramid = VX.CreatePyramid(_Context, lk_pyramid_levels, lk_pyramid_scale, width, height, DfImage.U8))
 				_PyramidDelay = VX.CreateDelay(_Context, pyramid, 2);
 
 			using (OpenVX.Array keypoints = VX.CreateArray(_Context, OpenVX.Type.Keypoint, max_keypoint_count))
@@ -117,12 +117,12 @@ namespace HelloVX
 
 			// The Harris corner detector and optical flow nodes (see "VX/vx_nodes.h")
 			// need several scalar objects as parameters.
-			Scalar strength_thresh      = VX.CreateScalar(_Context, harris_strength_thresh);
-			Scalar min_distance         = VX.CreateScalar(_Context, harris_min_distance);
-			Scalar sensitivity          = VX.CreateScalar(_Context, harris_sensitivity);
-			Scalar epsilon              = VX.CreateScalar(_Context, lk_epsilon);
-			Scalar num_iterations       = VX.CreateScalar(_Context, lk_num_iterations);
-			Scalar use_initial_estimate = VX.CreateScalar(_Context, lk_use_initial_estimate);
+			Scalar strength_thresh      = VX.CreateScalar(_Context, ref harris_strength_thresh);
+			Scalar min_distance         = VX.CreateScalar(_Context, ref harris_min_distance);
+			Scalar sensitivity          = VX.CreateScalar(_Context, ref harris_sensitivity);
+			Scalar epsilon              = VX.CreateScalar(_Context, ref lk_epsilon);
+			Scalar num_iterations       = VX.CreateScalar(_Context, ref lk_num_iterations);
+			Scalar use_initial_estimate = VX.CreateScalar(_Context, ref lk_use_initial_estimate);
 
 			// Now all the objects have been created for building the graphs.
 			// First, build a graph that performs Harris corner detection and initial pyramid computation.
@@ -133,7 +133,7 @@ namespace HelloVX
 				VX.GaussianPyramidNode(graphHarris, harris_gray_image, _PyramidCurrent),
 				VX.HarrisCornersNode(graphHarris, harris_gray_image, strength_thresh, min_distance, sensitivity, harris_gradient_size, harris_block_size, _KeypointsCurrent, Reference.Null)
 			};
-			// VX.Release(nodesHarris);
+			VX.Release(nodesHarris);
 
 			VX.VerifyGraph(graphHarris);
 
@@ -148,6 +148,7 @@ namespace HelloVX
 													use_initial_estimate, lk_window_dimension
 													)
 			};
+			VX.Release(nodesTrack);
 
 			VX.VerifyGraph(graphTrack);
 
@@ -197,6 +198,8 @@ namespace HelloVX
 			// Update image input
 			_Framebuffer.Clear(_GraphicsContext, ClearBufferMask.ColorBufferBit);
 
+			_Framebuffer.UnbindDraw(_GraphicsContext);
+
 			// Read back image input pixels
 			OpenGL.Objects.Image imageInput = _FramebufferTexture.Get(_GraphicsContext, PixelLayout.RGB24, 0);
 
@@ -213,7 +216,7 @@ namespace HelloVX
 
 			ImagePatchAddressing cv_rgb_image_layout = new ImagePatchAddressing();
 			cv_rgb_image_layout.StrideX   = 3;
-			cv_rgb_image_layout.StrideY   = (int)imageInput.Width * (int)imageInput.Stride;
+			cv_rgb_image_layout.StrideY   = (int)imageInput.Stride;
 
 			VX.CopyImagePatch(_ImageInput, ref cv_rgb_image_region, 0, ref cv_rgb_image_layout, imageInput.ImageBuffer, Accessor.WriteOnly, MemoryType.Host);
 
@@ -256,6 +259,9 @@ namespace HelloVX
 			VX.AgeDelay(_KeypointsDelay);
 
 			#endregion
+
+			Gl.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			Gl.Clear(ClearBufferMask.ColorBufferBit);
 		}
 
 		static int frame_index = 0;
