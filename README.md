@@ -9,6 +9,7 @@ Modern OpenGL bindings for C#.
 - [OpenGL 4.6](https://www.opengl.org/registry/), including compatibility profile.
 - [OpenGL ES 3.2](https://www.khronos.org/registry/gles/), including OpenGL ES 1.0.
 - [OpenGL SC 2.0](https://www.khronos.org/openglsc/); OpenGL SC 1.0 is not supported.
+- [OpenVX 1.2](https://www.khronos.org/openvx/); currently under development.
 - WGL, GLX 1.4 and [EGL (Native Platform Interface) 1.5](https://www.khronos.org/registry/egl/) as platform APIs.
 - [Broadcom VideoCore IV](http://elinux.org/Raspberry_Pi_VideoCore_APIs).
 - [OpenWF Composition](https://www.khronos.org/openwf/).
