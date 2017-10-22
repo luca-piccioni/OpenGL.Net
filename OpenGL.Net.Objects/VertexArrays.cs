@@ -103,6 +103,51 @@ namespace OpenGL.Objects
 		/// A <see cref="Int32"/> that specifies the index of the element to draw. If it is less than 0, it draws
 		/// all elements set. The index can be obtained by the value returned by <see cref="SetElementArray"/>.
 		/// </param>
+		/// <param name="offset">
+		/// A <see cref="UInt32"/> that specifies the offset of the first element to draw.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="UInt32"/> that specifies the number of items to draw.
+		/// </param>
+		public void Draw(GraphicsContext ctx, ShaderProgram shader, int elementIndex, uint offset, uint count)
+		{
+			Element drawElement = GetElementArray(elementIndex) as Element;
+			if (drawElement == null)
+				throw new InvalidOperationException("no element at index " + elementIndex);
+
+			CheckThisExistence(ctx);
+
+			// Set vertex arrays
+			SetVertexArrayState(ctx, shader);
+
+			// Fixed or programmable pipeline?
+			if (shader != null)
+				ctx.Bind(shader);
+			else
+				ctx.ResetProgram();
+
+			if (_FeedbackBuffer != null)
+				_FeedbackBuffer.Begin(ctx, drawElement.ElementsMode);
+
+			drawElement.Draw(ctx, offset, count);
+
+			if (_FeedbackBuffer != null)
+				_FeedbackBuffer.End(ctx);
+		}
+
+		/// <summary>
+		/// Draw a specific element set.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for rendering.
+		/// </param>
+		/// <param name="shader">
+		/// The <see cref="ShaderProgram"/> used for drawing the vertex arrays.
+		/// </param>
+		/// <param name="elementIndex">
+		/// A <see cref="Int32"/> that specifies the index of the element to draw. If it is less than 0, it draws
+		/// all elements set. The index can be obtained by the value returned by <see cref="SetElementArray"/>.
+		/// </param>
 		public void Draw(GraphicsContext ctx, ShaderProgram shader, params IElement[] elements)
 		{
 			CheckThisExistence(ctx);
@@ -162,10 +207,10 @@ namespace OpenGL.Objects
 
 					IVertexArray currentVertexArray = _VertexArrayState[attributeBinding.Location];
 					//if (ReferenceEquals(shaderVertexArray, currentVertexArray) == false) {
-						shaderVertexArray.SetVertexAttribute(ctx, attributeBinding, attributeName);
-						_VertexArrayState[attributeBinding.Location] = shaderVertexArray;
+					shaderVertexArray.SetVertexAttribute(ctx, attributeBinding, attributeName);
+					_VertexArrayState[attributeBinding.Location] = shaderVertexArray;
 					//}
-					
+
 					attributesSet++;
 				}
 
@@ -338,7 +383,7 @@ namespace OpenGL.Objects
 			// Interface initialization (i.e. stats and other information)
 			vertexArrayTexGen.Initialize(this);
 			// Process texture coords as usual
-			GenerateTexCoords(delegate(Vertex3f position) {
+			GenerateTexCoords(delegate (Vertex3f position) {
 				return (vertexArrayTexGen.Generate(position));
 			});
 		}
@@ -462,32 +507,32 @@ namespace OpenGL.Objects
 
 			/* top stack */
 			for (int j = 0; j < slices; j++, idx += 2) {
-				indices[idx] = (ushort)(j + 1);	/* 0 is top vertex, 1 is first for first stack */
+				indices[idx] = (ushort)(j + 1); /* 0 is top vertex, 1 is first for first stack */
 				indices[idx + 1] = 0;
 			}
-			indices[idx] = 1;						/* repeat first slice's idx for closing off shape */
+			indices[idx] = 1;                       /* repeat first slice's idx for closing off shape */
 			indices[idx + 1] = 0;
 			idx += 2;
 
 			/* middle stacks: */
 			/* Strip indices are relative to first index belonging to strip, NOT relative to first vertex/normal pair in array */
 			for (int i = 0; i < stacks - 2; i++, idx += 2) {
-				offset = 1 + i * slices;						/* triangle_strip indices start at 1 (0 is top vertex), and we advance one stack down as we go along */
+				offset = 1 + i * slices;                        /* triangle_strip indices start at 1 (0 is top vertex), and we advance one stack down as we go along */
 				for (int j = 0; j < slices; j++, idx += 2) {
 					indices[idx] = (ushort)(offset + j + slices);
 					indices[idx + 1] = (ushort)(offset + j);
 				}
-				indices[idx] = (ushort)(offset + slices);		/* repeat first slice's idx for closing off shape */
+				indices[idx] = (ushort)(offset + slices);       /* repeat first slice's idx for closing off shape */
 				indices[idx + 1] = (ushort)offset;
 			}
 
 			/* bottom stack */
-			offset = 1 + (stacks - 2) * slices;					/* triangle_strip indices start at 1 (0 is top vertex), and we advance one stack down as we go along */
+			offset = 1 + (stacks - 2) * slices;                 /* triangle_strip indices start at 1 (0 is top vertex), and we advance one stack down as we go along */
 			for (int j = 0; j < slices; j++, idx += 2) {
-				indices[idx] = (ushort)(vertexCount - 1);		/* zero based index, last element in array (bottom vertex)... */
+				indices[idx] = (ushort)(vertexCount - 1);       /* zero based index, last element in array (bottom vertex)... */
 				indices[idx + 1] = (ushort)(offset + j);
 			}
-			indices[idx] = (ushort)(vertexCount - 1);			/* repeat first slice's idx for closing off shape */
+			indices[idx] = (ushort)(vertexCount - 1);           /* repeat first slice's idx for closing off shape */
 			indices[idx + 1] = (ushort)(offset);
 		}
 
@@ -607,7 +652,7 @@ namespace OpenGL.Objects
 			int positionIndex = 0;
 
 			position[positionIndex++] = new Vertex3f(0.0f, 0.0f, -height);
-			
+
 			double angleStep = Math.PI * 2.0 / dr;
 
 			for (double angle = 0.0f; angle <= Math.PI * 2.0; angle += angleStep) {
@@ -643,8 +688,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public override Guid ObjectClass
 		{
-			get
-			{
+			get {
 				return (ThisObjectClass);
 			}
 		}

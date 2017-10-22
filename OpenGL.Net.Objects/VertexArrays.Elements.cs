@@ -91,12 +91,26 @@ namespace OpenGL.Objects
 			public virtual void Create(GraphicsContext ctx) { }
 
 			/// <summary>
-			/// Draw the elements.
+			/// Draw the element.
 			/// </summary>
 			/// <param name="ctx">
 			/// The <see cref="GraphicsContext"/> used for drawing.
 			/// </param>
 			public abstract void Draw(GraphicsContext ctx);
+
+			/// <summary>
+			/// Draw the element, applying an offset and a count.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			/// <param name="offset">
+			/// A <see cref="UInt32"/> that specifies the offset of the first element to draw.
+			/// </param>
+			/// <param name="count">
+			/// A <see cref="UInt32"/> that specifies the number of items to draw.
+			/// </param>
+			public abstract void Draw(GraphicsContext ctx, uint offset, uint count);
 
 			/// <summary>
 			/// Draw the elements instances
@@ -254,6 +268,23 @@ namespace OpenGL.Objects
 				uint count = ElementCount != 0 ? ElementCount : _VertexArrayObject.ArrayLength;
 
 				Gl.DrawArrays(ElementsMode, (int)ElementOffset, (int)count);
+			}
+
+			/// <summary>
+			/// Draw the element, applying an offset and a count.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			/// <param name="offset">
+			/// A <see cref="UInt32"/> that specifies the offset of the first element to draw.
+			/// </param>
+			/// <param name="count">
+			/// A <see cref="UInt32"/> that specifies the number of items to draw.
+			/// </param>
+			public override void Draw(GraphicsContext ctx, uint offset, uint count)
+			{
+				Gl.DrawArrays(ElementsMode, (int)(ElementOffset + offset), (int)count);
 			}
 
 			/// <summary>
@@ -557,6 +588,23 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
+			/// Draw the element, applying an offset and a count.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			/// <param name="offset">
+			/// A <see cref="UInt32"/> that specifies the offset of the first element to draw.
+			/// </param>
+			/// <param name="count">
+			/// A <see cref="UInt32"/> that specifies the number of items to draw.
+			/// </param>
+			public override void Draw(GraphicsContext ctx, uint offset, uint count)
+			{
+				throw new NotImplementedException("TBD");
+			}
+
+			/// <summary>
 			/// Draw the elements instances
 			/// </summary>
 			///  <param name="ctx">
@@ -710,6 +758,23 @@ namespace OpenGL.Objects
 					// Draw vertex arrays by indices
 					DrawElements(ctx, arraySection.Pointer);
 				}
+			}
+
+			/// <summary>
+			/// Draw the element, applying an offset and a count.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			/// <param name="offset">
+			/// A <see cref="UInt32"/> that specifies the offset of the first element to draw.
+			/// </param>
+			/// <param name="count">
+			/// A <see cref="UInt32"/> that specifies the number of items to draw.
+			/// </param>
+			public override void Draw(GraphicsContext ctx, uint offset, uint count)
+			{
+				throw new NotImplementedException("TBD");
 			}
 
 			/// <summary>

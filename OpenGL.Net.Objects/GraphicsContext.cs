@@ -1526,7 +1526,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Determine an unique identifier that specify the linked shader program.
+		/// Determine an unique identifier that specify the shader program.
 		/// </summary>
 		/// <param name="libraryId">
 		/// A <see cref="String"/> that identifies the shader object in library.
