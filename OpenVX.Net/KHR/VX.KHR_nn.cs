@@ -95,7 +95,7 @@ namespace OpenVX
 
 		public const int NN_ACTIVATION_LINEAR = ((ID_KHRONOS << 20) | ( ENUM_NN_ACTIVATION_FUNCTION_TYPE << 12)) + 0x8;
 
-		public static Node ConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams[] convolution_params, uint size_of_convolution_params, Tensor outputs)
+		public static Node ConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams[] convolution_params, UIntPtr size_of_convolution_params, Tensor outputs)
 		{
 			Node retValue;
 
@@ -124,7 +124,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node PoolingLayer(Graph graph, Tensor inputs, int pooling_type, uint pooling_size_x, uint pooling_size_y, uint pooling_padding_x, uint pooling_padding_y, int rounding, Tensor outputs)
+		public static Node PoolingLayer(Graph graph, Tensor inputs, int pooling_type, UIntPtr pooling_size_x, UIntPtr pooling_size_y, UIntPtr pooling_padding_x, UIntPtr pooling_padding_y, int rounding, Tensor outputs)
 		{
 			Node retValue;
 
@@ -148,7 +148,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node NormalizationLayer(Graph graph, Tensor inputs, int type, uint normalization_size, float alpha, float beta, Tensor outputs)
+		public static Node NormalizationLayer(Graph graph, Tensor inputs, int type, UIntPtr normalization_size, float alpha, float beta, Tensor outputs)
 		{
 			Node retValue;
 
@@ -172,7 +172,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node DeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams[] deconvolution_params, uint size_of_deconv_params, Tensor outputs)
+		public static Node DeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams[] deconvolution_params, UIntPtr size_of_deconv_params, Tensor outputs)
 		{
 			Node retValue;
 
@@ -192,7 +192,7 @@ namespace OpenVX
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Node vxConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams* convolution_params, uint size_of_convolution_params, Tensor outputs);
+			internal unsafe delegate Node vxConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams* convolution_params, UIntPtr size_of_convolution_params, Tensor outputs);
 
 			internal static vxConvolutionLayer pvxConvolutionLayer;
 
@@ -202,7 +202,7 @@ namespace OpenVX
 			internal static vxFullyConnectedLayer pvxFullyConnectedLayer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxPoolingLayer(Graph graph, Tensor inputs, int pooling_type, uint pooling_size_x, uint pooling_size_y, uint pooling_padding_x, uint pooling_padding_y, int rounding, Tensor outputs);
+			internal delegate Node vxPoolingLayer(Graph graph, Tensor inputs, int pooling_type, UIntPtr pooling_size_x, UIntPtr pooling_size_y, UIntPtr pooling_padding_x, UIntPtr pooling_padding_y, int rounding, Tensor outputs);
 
 			internal static vxPoolingLayer pvxPoolingLayer;
 
@@ -212,7 +212,7 @@ namespace OpenVX
 			internal static vxSoftmaxLayer pvxSoftmaxLayer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxNormalizationLayer(Graph graph, Tensor inputs, int type, uint normalization_size, float alpha, float beta, Tensor outputs);
+			internal delegate Node vxNormalizationLayer(Graph graph, Tensor inputs, int type, UIntPtr normalization_size, float alpha, float beta, Tensor outputs);
 
 			internal static vxNormalizationLayer pvxNormalizationLayer;
 
@@ -222,7 +222,7 @@ namespace OpenVX
 			internal static vxActivationLayer pvxActivationLayer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Node vxDeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams* deconvolution_params, uint size_of_deconv_params, Tensor outputs);
+			internal unsafe delegate Node vxDeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams* deconvolution_params, UIntPtr size_of_deconv_params, Tensor outputs);
 
 			internal static vxDeconvolutionLayer pvxDeconvolutionLayer;
 

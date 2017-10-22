@@ -915,7 +915,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Context context, ContextAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Context context, ContextAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -931,7 +931,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Context context, ContextAttribute attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Context context, ContextAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -947,7 +947,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Hint(Reference reference, Hint hint, IntPtr data, uint data_size)
+		public static Status Hint(Reference reference, Hint hint, IntPtr data, UIntPtr data_size)
 		{
 			Status retValue;
 
@@ -987,7 +987,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Type RegisterUserStruct(Context context, uint size)
+		public static Type RegisterUserStruct(Context context, UIntPtr size)
 		{
 			Type retValue;
 
@@ -1116,7 +1116,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SwapImageHandle(Image image, IntPtr[] new_ptrs, IntPtr[] prev_ptrs, uint num_planes)
+		public static Status SwapImageHandle(Image image, IntPtr[] new_ptrs, IntPtr[] prev_ptrs, UIntPtr num_planes)
 		{
 			Status retValue;
 
@@ -1134,7 +1134,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Image image, ImageAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Image image, ImageAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1150,7 +1150,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Image image, ImageAttribute attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Image image, ImageAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1366,7 +1366,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Kernel kernel, KernelAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Kernel kernel, KernelAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1442,7 +1442,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Kernel kernel, KernelAttribute attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Kernel kernel, KernelAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1542,7 +1542,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Graph graph, GraphAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Graph graph, GraphAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1558,7 +1558,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Graph graph, GraphAttribute attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Graph graph, GraphAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1634,7 +1634,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Node node, NodeAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Node node, NodeAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1650,7 +1650,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Node node, NodeAttribute attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Node node, NodeAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1796,7 +1796,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Parameter parameter, ParameterAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Parameter parameter, ParameterAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1828,7 +1828,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Scalar CreateScalarWithSize(Context context, Type data_type, IntPtr ptr, uint size)
+		public static Scalar CreateScalarWithSize(Context context, Type data_type, IntPtr ptr, UIntPtr size)
 		{
 			Scalar retValue;
 
@@ -1868,7 +1868,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Scalar scalar, ScalarAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Scalar scalar, ScalarAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1900,7 +1900,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Reference @ref, ReferenceAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Reference @ref, ReferenceAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1952,7 +1952,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Delay delay, DelayAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Delay delay, DelayAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -1980,7 +1980,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Delay CreateDelay(Context context, Reference exemplar, uint num_slots)
+		public static Delay CreateDelay(Context context, Reference exemplar, UIntPtr num_slots)
 		{
 			Delay retValue;
 
@@ -2044,7 +2044,7 @@ namespace OpenVX
 			DebugCheckErrors(null);
 		}
 
-		public static Lut CreateLUT(Context context, Type data_type, uint count)
+		public static Lut CreateLUT(Context context, Type data_type, UIntPtr count)
 		{
 			Lut retValue;
 
@@ -2056,7 +2056,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Lut CreateVirtualLUT(Graph graph, Type data_type, uint count)
+		public static Lut CreateVirtualLUT(Graph graph, Type data_type, UIntPtr count)
 		{
 			Lut retValue;
 
@@ -2080,7 +2080,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Lut lut, LutAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Lut lut, LutAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2142,7 +2142,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Distribution CreateDistribution(Context context, uint numBins, int offset, uint range)
+		public static Distribution CreateDistribution(Context context, UIntPtr numBins, int offset, uint range)
 		{
 			Distribution retValue;
 
@@ -2154,7 +2154,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Distribution CreateVirtualDistribution(Graph graph, uint numBins, int offset, uint range)
+		public static Distribution CreateVirtualDistribution(Graph graph, UIntPtr numBins, int offset, uint range)
 		{
 			Distribution retValue;
 
@@ -2178,7 +2178,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Distribution distribution, DistributionAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Distribution distribution, DistributionAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2312,7 +2312,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Threshold thresh, ThresholdAttribute attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Threshold thresh, ThresholdAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2328,7 +2328,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Threshold thresh, ThresholdAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Threshold thresh, ThresholdAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2344,7 +2344,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Matrix CreateMatrix(Context c, Type data_type, uint columns, uint rows)
+		public static Matrix CreateMatrix(Context c, Type data_type, UIntPtr columns, UIntPtr rows)
 		{
 			Matrix retValue;
 
@@ -2356,7 +2356,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Matrix CreateVirtualMatrix(Graph graph, Type data_type, uint columns, uint rows)
+		public static Matrix CreateVirtualMatrix(Graph graph, Type data_type, UIntPtr columns, UIntPtr rows)
 		{
 			Matrix retValue;
 
@@ -2380,7 +2380,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Matrix mat, MatrixAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Matrix mat, MatrixAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2412,7 +2412,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Matrix CreateMatrixFromPattern(Context context, MatrixAttribute pattern, uint columns, uint rows)
+		public static Matrix CreateMatrixFromPattern(Context context, MatrixAttribute pattern, UIntPtr columns, UIntPtr rows)
 		{
 			Matrix retValue;
 
@@ -2424,7 +2424,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Matrix CreateMatrixFromPattern(Context context, Pattern pattern, uint columns, uint rows, uint origin_col, uint origin_row)
+		public static Matrix CreateMatrixFromPattern(Context context, Pattern pattern, UIntPtr columns, UIntPtr rows, UIntPtr origin_col, UIntPtr origin_row)
 		{
 			Matrix retValue;
 
@@ -2436,7 +2436,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Convolution CreateConvolution(Context context, uint columns, uint rows)
+		public static Convolution CreateConvolution(Context context, UIntPtr columns, UIntPtr rows)
 		{
 			Convolution retValue;
 
@@ -2448,7 +2448,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Convolution CreateVirtualConvolution(Graph graph, uint columns, uint rows)
+		public static Convolution CreateVirtualConvolution(Graph graph, UIntPtr columns, UIntPtr rows)
 		{
 			Convolution retValue;
 
@@ -2472,7 +2472,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Convolution conv, ConvolutionAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Convolution conv, ConvolutionAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2488,7 +2488,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(Convolution conv, ConvolutionAttribute attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(Convolution conv, ConvolutionAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2520,7 +2520,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Pyramid CreatePyramid(Context context, uint levels, float scale, uint width, uint height, DfImage format)
+		public static Pyramid CreatePyramid(Context context, UIntPtr levels, float scale, uint width, uint height, DfImage format)
 		{
 			Pyramid retValue;
 
@@ -2532,7 +2532,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Pyramid CreateVirtualPyramid(Graph graph, uint levels, float scale, uint width, uint height, DfImage format)
+		public static Pyramid CreateVirtualPyramid(Graph graph, UIntPtr levels, float scale, uint width, uint height, DfImage format)
 		{
 			Pyramid retValue;
 
@@ -2556,7 +2556,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Pyramid pyr, PyramidAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Pyramid pyr, PyramidAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2620,14 +2620,14 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapRemapPatch(Remap remap, Rectangle[] rect, MapId[] map_id, uint[] stride_y, IntPtr[] ptr, Type coordinate_type, Accessor usage, MemoryType mem_type)
+		public static Status MapRemapPatch(Remap remap, Rectangle[] rect, MapId[] map_id, UIntPtr[] stride_y, IntPtr[] ptr, Type coordinate_type, Accessor usage, MemoryType mem_type)
 		{
 			Status retValue;
 
 			unsafe {
 				fixed (Rectangle* p_rect = rect)
 				fixed (MapId* p_map_id = map_id)
-				fixed (uint* p_stride_y = stride_y)
+				fixed (UIntPtr* p_stride_y = stride_y)
 				fixed (IntPtr* p_ptr = ptr)
 				{
 					Debug.Assert(Delegates.pvxMapRemapPatch != null, "pvxMapRemapPatch not implemented");
@@ -2652,7 +2652,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyRemapPatch(Remap remap, Rectangle[] rect, uint user_stride_y, IntPtr user_ptr, Type user_coordinate_type, Accessor usage, MemoryType user_mem_type)
+		public static Status CopyRemapPatch(Remap remap, Rectangle[] rect, UIntPtr user_stride_y, IntPtr user_ptr, Type user_coordinate_type, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -2669,7 +2669,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Remap table, RemapAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Remap table, RemapAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2685,7 +2685,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Array CreateArray(Context context, Type item_type, uint capacity)
+		public static Array CreateArray(Context context, Type item_type, UIntPtr capacity)
 		{
 			Array retValue;
 
@@ -2697,7 +2697,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Array CreateVirtualArray(Graph graph, Type item_type, uint capacity)
+		public static Array CreateVirtualArray(Graph graph, Type item_type, UIntPtr capacity)
 		{
 			Array retValue;
 
@@ -2721,7 +2721,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Array arr, ArrayAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Array arr, ArrayAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2737,7 +2737,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status AddArrayItems(Array arr, uint count, IntPtr ptr, uint stride)
+		public static Status AddArrayItems(Array arr, UIntPtr count, IntPtr ptr, UIntPtr stride)
 		{
 			Status retValue;
 
@@ -2753,7 +2753,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status TruncateArray(Array arr, uint new_num_items)
+		public static Status TruncateArray(Array arr, UIntPtr new_num_items)
 		{
 			Status retValue;
 
@@ -2765,7 +2765,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyArrayRange(Array array, uint range_start, uint range_end, uint user_stride, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
+		public static Status CopyArrayRange(Array array, UIntPtr range_start, UIntPtr range_end, UIntPtr user_stride, IntPtr user_ptr, Accessor usage, MemoryType user_mem_type)
 		{
 			Status retValue;
 
@@ -2781,7 +2781,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status MapArrayRange(Array array, uint range_start, uint range_end, ref MapId map_id, ref uint stride, out IntPtr ptr, Accessor usage, MemoryType mem_type, uint flags)
+		public static Status MapArrayRange(Array array, UIntPtr range_start, UIntPtr range_end, ref MapId map_id, ref UIntPtr stride, out IntPtr ptr, Accessor usage, MemoryType mem_type, uint flags)
 		{
 			Status retValue;
 
@@ -2805,7 +2805,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static ObjectArray CreateObjectArray(Context context, Reference exemplar, uint count)
+		public static ObjectArray CreateObjectArray(Context context, Reference exemplar, UIntPtr count)
 		{
 			ObjectArray retValue;
 
@@ -2817,7 +2817,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static ObjectArray CreateVirtualObjectArray(Graph graph, Reference exemplar, uint count)
+		public static ObjectArray CreateVirtualObjectArray(Graph graph, Reference exemplar, UIntPtr count)
 		{
 			ObjectArray retValue;
 
@@ -2853,7 +2853,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(ObjectArray arr, ObjectArrayAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(ObjectArray arr, ObjectArrayAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2869,7 +2869,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status SetAttribute(MetaFormat meta, int attribute, IntPtr ptr, uint size)
+		public static Status SetAttribute(MetaFormat meta, int attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -2897,12 +2897,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Tensor CreateTensor(Context context, uint number_of_dims, uint[] dims, Type data_type, sbyte fixed_point_position)
+		public static Tensor CreateTensor(Context context, UIntPtr number_of_dims, UIntPtr[] dims, Type data_type, sbyte fixed_point_position)
 		{
 			Tensor retValue;
 
 			unsafe {
-				fixed (uint* p_dims = dims)
+				fixed (UIntPtr* p_dims = dims)
 				{
 					Debug.Assert(Delegates.pvxCreateTensor != null, "pvxCreateTensor not implemented");
 					retValue = Delegates.pvxCreateTensor(context, number_of_dims, p_dims, data_type, fixed_point_position);
@@ -2914,7 +2914,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static ObjectArray CreateImageObjectArrayFromTensor(Tensor tensor, Rectangle[] rect, uint array_size, uint jump, DfImage image_format)
+		public static ObjectArray CreateImageObjectArrayFromTensor(Tensor tensor, Rectangle[] rect, UIntPtr array_size, UIntPtr jump, DfImage image_format)
 		{
 			ObjectArray retValue;
 
@@ -2931,13 +2931,13 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Tensor CreateTensorFrom(Tensor tensor, uint number_of_dims, uint[] view_start, uint[] view_end)
+		public static Tensor CreateTensorFrom(Tensor tensor, UIntPtr number_of_dims, UIntPtr[] view_start, UIntPtr[] view_end)
 		{
 			Tensor retValue;
 
 			unsafe {
-				fixed (uint* p_view_start = view_start)
-				fixed (uint* p_view_end = view_end)
+				fixed (UIntPtr* p_view_start = view_start)
+				fixed (UIntPtr* p_view_end = view_end)
 				{
 					Debug.Assert(Delegates.pvxCreateTensorFromView != null, "pvxCreateTensorFromView not implemented");
 					retValue = Delegates.pvxCreateTensorFromView(tensor, number_of_dims, p_view_start, p_view_end);
@@ -2949,12 +2949,12 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Tensor CreateVirtualTensor(Graph graph, uint number_of_dims, uint[] dims, Type data_type, sbyte fixed_point_position)
+		public static Tensor CreateVirtualTensor(Graph graph, UIntPtr number_of_dims, UIntPtr[] dims, Type data_type, sbyte fixed_point_position)
 		{
 			Tensor retValue;
 
 			unsafe {
-				fixed (uint* p_dims = dims)
+				fixed (UIntPtr* p_dims = dims)
 				{
 					Debug.Assert(Delegates.pvxCreateVirtualTensor != null, "pvxCreateVirtualTensor not implemented");
 					retValue = Delegates.pvxCreateVirtualTensor(graph, number_of_dims, p_dims, data_type, fixed_point_position);
@@ -2966,14 +2966,14 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status CopyTensorPatch(Tensor tensor, uint number_of_dims, uint[] view_start, uint[] view_end, uint[] user_stride, IntPtr user_ptr, Accessor usage, MemoryType user_memory_type)
+		public static Status CopyTensorPatch(Tensor tensor, UIntPtr number_of_dims, UIntPtr[] view_start, UIntPtr[] view_end, UIntPtr[] user_stride, IntPtr user_ptr, Accessor usage, MemoryType user_memory_type)
 		{
 			Status retValue;
 
 			unsafe {
-				fixed (uint* p_view_start = view_start)
-				fixed (uint* p_view_end = view_end)
-				fixed (uint* p_user_stride = user_stride)
+				fixed (UIntPtr* p_view_start = view_start)
+				fixed (UIntPtr* p_view_end = view_end)
+				fixed (UIntPtr* p_user_stride = user_stride)
 				{
 					Debug.Assert(Delegates.pvxCopyTensorPatch != null, "pvxCopyTensorPatch not implemented");
 					retValue = Delegates.pvxCopyTensorPatch(tensor, number_of_dims, p_view_start, p_view_end, p_user_stride, user_ptr.ToPointer(), usage, user_memory_type);
@@ -2985,7 +2985,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Tensor tensor, TensorAttribute attribute, IntPtr ptr, uint size)
+		public static Status Query(Tensor tensor, TensorAttribute attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -3565,7 +3565,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node OpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, TerminationCriteria termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, uint window_dimension)
+		public static Node OpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, TerminationCriteria termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, UIntPtr window_dimension)
 		{
 			Node retValue;
 
@@ -3625,7 +3625,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node HOGFeaturesNode(Graph graph, Image input, Tensor magnitudes, Tensor bins, Hog[] @params, uint hog_param_size, Tensor features)
+		public static Node HOGFeaturesNode(Graph graph, Image input, Tensor magnitudes, Tensor bins, Hog[] @params, UIntPtr hog_param_size, Tensor features)
 		{
 			Node retValue;
 
@@ -3731,7 +3731,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Node TensorTransposeNode(Graph graph, Tensor input, Tensor output, uint dimension1, uint dimension2)
+		public static Node TensorTransposeNode(Graph graph, Tensor input, Tensor output, UIntPtr dimension1, UIntPtr dimension2)
 		{
 			Node retValue;
 
@@ -3784,7 +3784,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Import ImportObjectsFromMemory(Context context, uint numrefs, Reference[] refs, int[] uses, byte[] ptr, uint length)
+		public static Import ImportObjectsFromMemory(Context context, UIntPtr numrefs, Reference[] refs, int[] uses, byte[] ptr, UIntPtr length)
 		{
 			Import retValue;
 
@@ -3845,17 +3845,17 @@ namespace OpenVX
 			internal static vxGetContext pvxGetContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryContext(Context context, ContextAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryContext(Context context, ContextAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryContext pvxQueryContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetContextAttribute(Context context, ContextAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetContextAttribute(Context context, ContextAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetContextAttribute pvxSetContextAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxHint(Reference reference, Hint hint, void* data, uint data_size);
+			internal unsafe delegate Status vxHint(Reference reference, Hint hint, void* data, UIntPtr data_size);
 
 			internal static vxHint pvxHint;
 
@@ -3870,7 +3870,7 @@ namespace OpenVX
 			internal static vxGetStatus pvxGetStatus;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Type vxRegisterUserStruct(Context context, uint size);
+			internal delegate Type vxRegisterUserStruct(Context context, UIntPtr size);
 
 			internal static vxRegisterUserStruct pvxRegisterUserStruct;
 
@@ -3915,17 +3915,17 @@ namespace OpenVX
 			internal static vxCreateImageFromHandle pvxCreateImageFromHandle;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSwapImageHandle(Image image, IntPtr* new_ptrs, IntPtr* prev_ptrs, uint num_planes);
+			internal unsafe delegate Status vxSwapImageHandle(Image image, IntPtr* new_ptrs, IntPtr* prev_ptrs, UIntPtr num_planes);
 
 			internal static vxSwapImageHandle pvxSwapImageHandle;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryImage(Image image, ImageAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryImage(Image image, ImageAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryImage pvxQueryImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetImageAttribute(Image image, ImageAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetImageAttribute(Image image, ImageAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetImageAttribute pvxSetImageAttribute;
 
@@ -4000,7 +4000,7 @@ namespace OpenVX
 			internal static vxGetKernelByEnum pvxGetKernelByEnum;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryKernel(Kernel kernel, KernelAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryKernel(Kernel kernel, KernelAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryKernel pvxQueryKernel;
 
@@ -4030,7 +4030,7 @@ namespace OpenVX
 			internal static vxRemoveKernel pvxRemoveKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetKernelAttribute(Kernel kernel, KernelAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetKernelAttribute(Kernel kernel, KernelAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetKernelAttribute pvxSetKernelAttribute;
 
@@ -4070,12 +4070,12 @@ namespace OpenVX
 			internal static vxWaitGraph pvxWaitGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryGraph(Graph graph, GraphAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryGraph(Graph graph, GraphAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryGraph pvxQueryGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetGraphAttribute(Graph graph, GraphAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetGraphAttribute(Graph graph, GraphAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetGraphAttribute pvxSetGraphAttribute;
 
@@ -4105,12 +4105,12 @@ namespace OpenVX
 			internal static vxCreateGenericNode pvxCreateGenericNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryNode(Node node, NodeAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryNode(Node node, NodeAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryNode pvxQueryNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetNodeAttribute(Node node, NodeAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetNodeAttribute(Node node, NodeAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetNodeAttribute pvxSetNodeAttribute;
 
@@ -4165,7 +4165,7 @@ namespace OpenVX
 			internal static vxSetParameterByReference pvxSetParameterByReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryParameter(Parameter parameter, ParameterAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryParameter(Parameter parameter, ParameterAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryParameter pvxQueryParameter;
 
@@ -4175,7 +4175,7 @@ namespace OpenVX
 			internal static vxCreateScalar pvxCreateScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Scalar vxCreateScalarWithSize(Context context, Type data_type, void* ptr, uint size);
+			internal unsafe delegate Scalar vxCreateScalarWithSize(Context context, Type data_type, void* ptr, UIntPtr size);
 
 			internal static vxCreateScalarWithSize pvxCreateScalarWithSize;
 
@@ -4190,7 +4190,7 @@ namespace OpenVX
 			internal static vxReleaseScalar pvxReleaseScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryScalar(Scalar scalar, ScalarAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryScalar(Scalar scalar, ScalarAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryScalar pvxQueryScalar;
 
@@ -4200,7 +4200,7 @@ namespace OpenVX
 			internal static vxCopyScalar pvxCopyScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryReference(Reference @ref, ReferenceAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryReference(Reference @ref, ReferenceAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryReference pvxQueryReference;
 
@@ -4220,7 +4220,7 @@ namespace OpenVX
 			internal static vxSetReferenceName pvxSetReferenceName;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryDelay(Delay delay, DelayAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryDelay(Delay delay, DelayAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryDelay pvxQueryDelay;
 
@@ -4230,7 +4230,7 @@ namespace OpenVX
 			internal static vxReleaseDelay pvxReleaseDelay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Delay vxCreateDelay(Context context, Reference exemplar, uint num_slots);
+			internal delegate Delay vxCreateDelay(Context context, Reference exemplar, UIntPtr num_slots);
 
 			internal static vxCreateDelay pvxCreateDelay;
 
@@ -4260,12 +4260,12 @@ namespace OpenVX
 			internal static vxRegisterLogCallback pvxRegisterLogCallback;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Lut vxCreateLUT(Context context, Type data_type, uint count);
+			internal delegate Lut vxCreateLUT(Context context, Type data_type, UIntPtr count);
 
 			internal static vxCreateLUT pvxCreateLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Lut vxCreateVirtualLUT(Graph graph, Type data_type, uint count);
+			internal delegate Lut vxCreateVirtualLUT(Graph graph, Type data_type, UIntPtr count);
 
 			internal static vxCreateVirtualLUT pvxCreateVirtualLUT;
 
@@ -4275,7 +4275,7 @@ namespace OpenVX
 			internal static vxReleaseLUT pvxReleaseLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryLUT(Lut lut, LutAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryLUT(Lut lut, LutAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryLUT pvxQueryLUT;
 
@@ -4295,12 +4295,12 @@ namespace OpenVX
 			internal static vxUnmapLUT pvxUnmapLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Distribution vxCreateDistribution(Context context, uint numBins, int offset, uint range);
+			internal delegate Distribution vxCreateDistribution(Context context, UIntPtr numBins, int offset, uint range);
 
 			internal static vxCreateDistribution pvxCreateDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Distribution vxCreateVirtualDistribution(Graph graph, uint numBins, int offset, uint range);
+			internal delegate Distribution vxCreateVirtualDistribution(Graph graph, UIntPtr numBins, int offset, uint range);
 
 			internal static vxCreateVirtualDistribution pvxCreateVirtualDistribution;
 
@@ -4310,7 +4310,7 @@ namespace OpenVX
 			internal static vxReleaseDistribution pvxReleaseDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryDistribution(Distribution distribution, DistributionAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryDistribution(Distribution distribution, DistributionAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryDistribution pvxQueryDistribution;
 
@@ -4360,22 +4360,22 @@ namespace OpenVX
 			internal static vxReleaseThreshold pvxReleaseThreshold;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetThresholdAttribute(Threshold thresh, ThresholdAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetThresholdAttribute(Threshold thresh, ThresholdAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetThresholdAttribute pvxSetThresholdAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryThreshold(Threshold thresh, ThresholdAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryThreshold(Threshold thresh, ThresholdAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryThreshold pvxQueryThreshold;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Matrix vxCreateMatrix(Context c, Type data_type, uint columns, uint rows);
+			internal delegate Matrix vxCreateMatrix(Context c, Type data_type, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateMatrix pvxCreateMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Matrix vxCreateVirtualMatrix(Graph graph, Type data_type, uint columns, uint rows);
+			internal delegate Matrix vxCreateVirtualMatrix(Graph graph, Type data_type, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateVirtualMatrix pvxCreateVirtualMatrix;
 
@@ -4385,7 +4385,7 @@ namespace OpenVX
 			internal static vxReleaseMatrix pvxReleaseMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryMatrix(Matrix mat, MatrixAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryMatrix(Matrix mat, MatrixAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryMatrix pvxQueryMatrix;
 
@@ -4395,22 +4395,22 @@ namespace OpenVX
 			internal static vxCopyMatrix pvxCopyMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Matrix vxCreateMatrixFromPattern(Context context, MatrixAttribute pattern, uint columns, uint rows);
+			internal delegate Matrix vxCreateMatrixFromPattern(Context context, MatrixAttribute pattern, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateMatrixFromPattern pvxCreateMatrixFromPattern;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Matrix vxCreateMatrixFromPatternAndOrigin(Context context, Pattern pattern, uint columns, uint rows, uint origin_col, uint origin_row);
+			internal delegate Matrix vxCreateMatrixFromPatternAndOrigin(Context context, Pattern pattern, UIntPtr columns, UIntPtr rows, UIntPtr origin_col, UIntPtr origin_row);
 
 			internal static vxCreateMatrixFromPatternAndOrigin pvxCreateMatrixFromPatternAndOrigin;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Convolution vxCreateConvolution(Context context, uint columns, uint rows);
+			internal delegate Convolution vxCreateConvolution(Context context, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateConvolution pvxCreateConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Convolution vxCreateVirtualConvolution(Graph graph, uint columns, uint rows);
+			internal delegate Convolution vxCreateVirtualConvolution(Graph graph, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateVirtualConvolution pvxCreateVirtualConvolution;
 
@@ -4420,12 +4420,12 @@ namespace OpenVX
 			internal static vxReleaseConvolution pvxReleaseConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryConvolution(Convolution conv, ConvolutionAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryConvolution(Convolution conv, ConvolutionAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryConvolution pvxQueryConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetConvolutionAttribute(Convolution conv, ConvolutionAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetConvolutionAttribute(Convolution conv, ConvolutionAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetConvolutionAttribute pvxSetConvolutionAttribute;
 
@@ -4435,12 +4435,12 @@ namespace OpenVX
 			internal static vxCopyConvolutionCoefficients pvxCopyConvolutionCoefficients;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Pyramid vxCreatePyramid(Context context, uint levels, float scale, uint width, uint height, DfImage format);
+			internal delegate Pyramid vxCreatePyramid(Context context, UIntPtr levels, float scale, uint width, uint height, DfImage format);
 
 			internal static vxCreatePyramid pvxCreatePyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Pyramid vxCreateVirtualPyramid(Graph graph, uint levels, float scale, uint width, uint height, DfImage format);
+			internal delegate Pyramid vxCreateVirtualPyramid(Graph graph, UIntPtr levels, float scale, uint width, uint height, DfImage format);
 
 			internal static vxCreateVirtualPyramid pvxCreateVirtualPyramid;
 
@@ -4450,7 +4450,7 @@ namespace OpenVX
 			internal static vxReleasePyramid pvxReleasePyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryPyramid(Pyramid pyr, PyramidAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryPyramid(Pyramid pyr, PyramidAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryPyramid pvxQueryPyramid;
 
@@ -4475,7 +4475,7 @@ namespace OpenVX
 			internal static vxReleaseRemap pvxReleaseRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapRemapPatch(Remap remap, Rectangle* rect, MapId* map_id, uint* stride_y, IntPtr* ptr, Type coordinate_type, Accessor usage, MemoryType mem_type);
+			internal unsafe delegate Status vxMapRemapPatch(Remap remap, Rectangle* rect, MapId* map_id, UIntPtr* stride_y, IntPtr* ptr, Type coordinate_type, Accessor usage, MemoryType mem_type);
 
 			internal static vxMapRemapPatch pvxMapRemapPatch;
 
@@ -4485,22 +4485,22 @@ namespace OpenVX
 			internal static vxUnmapRemapPatch pvxUnmapRemapPatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyRemapPatch(Remap remap, Rectangle* rect, uint user_stride_y, void* user_ptr, Type user_coordinate_type, Accessor usage, MemoryType user_mem_type);
+			internal unsafe delegate Status vxCopyRemapPatch(Remap remap, Rectangle* rect, UIntPtr user_stride_y, void* user_ptr, Type user_coordinate_type, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyRemapPatch pvxCopyRemapPatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryRemap(Remap table, RemapAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryRemap(Remap table, RemapAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryRemap pvxQueryRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Array vxCreateArray(Context context, Type item_type, uint capacity);
+			internal delegate Array vxCreateArray(Context context, Type item_type, UIntPtr capacity);
 
 			internal static vxCreateArray pvxCreateArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Array vxCreateVirtualArray(Graph graph, Type item_type, uint capacity);
+			internal delegate Array vxCreateVirtualArray(Graph graph, Type item_type, UIntPtr capacity);
 
 			internal static vxCreateVirtualArray pvxCreateVirtualArray;
 
@@ -4510,27 +4510,27 @@ namespace OpenVX
 			internal static vxReleaseArray pvxReleaseArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryArray(Array arr, ArrayAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryArray(Array arr, ArrayAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryArray pvxQueryArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxAddArrayItems(Array arr, uint count, void* ptr, uint stride);
+			internal unsafe delegate Status vxAddArrayItems(Array arr, UIntPtr count, void* ptr, UIntPtr stride);
 
 			internal static vxAddArrayItems pvxAddArrayItems;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Status vxTruncateArray(Array arr, uint new_num_items);
+			internal delegate Status vxTruncateArray(Array arr, UIntPtr new_num_items);
 
 			internal static vxTruncateArray pvxTruncateArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyArrayRange(Array array, uint range_start, uint range_end, uint user_stride, void* user_ptr, Accessor usage, MemoryType user_mem_type);
+			internal unsafe delegate Status vxCopyArrayRange(Array array, UIntPtr range_start, UIntPtr range_end, UIntPtr user_stride, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyArrayRange pvxCopyArrayRange;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapArrayRange(Array array, uint range_start, uint range_end, ref MapId map_id, ref uint stride, out IntPtr ptr, Accessor usage, MemoryType mem_type, uint flags);
+			internal unsafe delegate Status vxMapArrayRange(Array array, UIntPtr range_start, UIntPtr range_end, ref MapId map_id, ref UIntPtr stride, out IntPtr ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapArrayRange pvxMapArrayRange;
 
@@ -4540,12 +4540,12 @@ namespace OpenVX
 			internal static vxUnmapArrayRange pvxUnmapArrayRange;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate ObjectArray vxCreateObjectArray(Context context, Reference exemplar, uint count);
+			internal delegate ObjectArray vxCreateObjectArray(Context context, Reference exemplar, UIntPtr count);
 
 			internal static vxCreateObjectArray pvxCreateObjectArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate ObjectArray vxCreateVirtualObjectArray(Graph graph, Reference exemplar, uint count);
+			internal delegate ObjectArray vxCreateVirtualObjectArray(Graph graph, Reference exemplar, UIntPtr count);
 
 			internal static vxCreateVirtualObjectArray pvxCreateVirtualObjectArray;
 
@@ -4560,12 +4560,12 @@ namespace OpenVX
 			internal static vxReleaseObjectArray pvxReleaseObjectArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryObjectArray(ObjectArray arr, ObjectArrayAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryObjectArray(ObjectArray arr, ObjectArrayAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryObjectArray pvxQueryObjectArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxSetMetaFormatAttribute(MetaFormat meta, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxSetMetaFormatAttribute(MetaFormat meta, int attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetMetaFormatAttribute pvxSetMetaFormatAttribute;
 
@@ -4575,32 +4575,32 @@ namespace OpenVX
 			internal static vxSetMetaFormatFromReference pvxSetMetaFormatFromReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Tensor vxCreateTensor(Context context, uint number_of_dims, uint* dims, Type data_type, sbyte fixed_point_position);
+			internal unsafe delegate Tensor vxCreateTensor(Context context, UIntPtr number_of_dims, UIntPtr* dims, Type data_type, sbyte fixed_point_position);
 
 			internal static vxCreateTensor pvxCreateTensor;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate ObjectArray vxCreateImageObjectArrayFromTensor(Tensor tensor, Rectangle* rect, uint array_size, uint jump, DfImage image_format);
+			internal unsafe delegate ObjectArray vxCreateImageObjectArrayFromTensor(Tensor tensor, Rectangle* rect, UIntPtr array_size, UIntPtr jump, DfImage image_format);
 
 			internal static vxCreateImageObjectArrayFromTensor pvxCreateImageObjectArrayFromTensor;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Tensor vxCreateTensorFromView(Tensor tensor, uint number_of_dims, uint* view_start, uint* view_end);
+			internal unsafe delegate Tensor vxCreateTensorFromView(Tensor tensor, UIntPtr number_of_dims, UIntPtr* view_start, UIntPtr* view_end);
 
 			internal static vxCreateTensorFromView pvxCreateTensorFromView;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Tensor vxCreateVirtualTensor(Graph graph, uint number_of_dims, uint* dims, Type data_type, sbyte fixed_point_position);
+			internal unsafe delegate Tensor vxCreateVirtualTensor(Graph graph, UIntPtr number_of_dims, UIntPtr* dims, Type data_type, sbyte fixed_point_position);
 
 			internal static vxCreateVirtualTensor pvxCreateVirtualTensor;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyTensorPatch(Tensor tensor, uint number_of_dims, uint* view_start, uint* view_end, uint* user_stride, void* user_ptr, Accessor usage, MemoryType user_memory_type);
+			internal unsafe delegate Status vxCopyTensorPatch(Tensor tensor, UIntPtr number_of_dims, UIntPtr* view_start, UIntPtr* view_end, UIntPtr* user_stride, void* user_ptr, Accessor usage, MemoryType user_memory_type);
 
 			internal static vxCopyTensorPatch pvxCopyTensorPatch;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryTensor(Tensor tensor, TensorAttribute attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryTensor(Tensor tensor, TensorAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryTensor pvxQueryTensor;
 
@@ -4840,7 +4840,7 @@ namespace OpenVX
 			internal static vxFastCornersNode pvxFastCornersNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxOpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, TerminationCriteria termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, uint window_dimension);
+			internal delegate Node vxOpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, TerminationCriteria termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, UIntPtr window_dimension);
 
 			internal static vxOpticalFlowPyrLKNode pvxOpticalFlowPyrLKNode;
 
@@ -4865,7 +4865,7 @@ namespace OpenVX
 			internal static vxLBPNode pvxLBPNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Node vxHOGFeaturesNode(Graph graph, Image input, Tensor magnitudes, Tensor bins, Hog* @params, uint hog_param_size, Tensor features);
+			internal unsafe delegate Node vxHOGFeaturesNode(Graph graph, Image input, Tensor magnitudes, Tensor bins, Hog* @params, UIntPtr hog_param_size, Tensor features);
 
 			internal static vxHOGFeaturesNode pvxHOGFeaturesNode;
 
@@ -4905,7 +4905,7 @@ namespace OpenVX
 			internal static vxTensorTableLookupNode pvxTensorTableLookupNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Node vxTensorTransposeNode(Graph graph, Tensor input, Tensor output, uint dimension1, uint dimension2);
+			internal delegate Node vxTensorTransposeNode(Graph graph, Tensor input, Tensor output, UIntPtr dimension1, UIntPtr dimension2);
 
 			internal static vxTensorTransposeNode pvxTensorTransposeNode;
 
@@ -4925,7 +4925,7 @@ namespace OpenVX
 			internal static vxCopyNode pvxCopyNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Import vxImportObjectsFromMemory(Context context, uint numrefs, Reference* refs, int* uses, byte* ptr, uint length);
+			internal unsafe delegate Import vxImportObjectsFromMemory(Context context, UIntPtr numrefs, Reference* refs, int* uses, byte* ptr, UIntPtr length);
 
 			internal static vxImportObjectsFromMemory pvxImportObjectsFromMemory;
 

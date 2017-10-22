@@ -352,8 +352,8 @@
     <type name="vx_float64" value="double" />
     <type name="vx_reference" value="Reference" />
     <type name="vx_reference*" value="Reference*" />
-    <type name="vx_size" value="uint" />
-    <type name="vx_size*" value="uint*" />
+    <type name="vx_size" value="UIntPtr" />
+    <type name="vx_size*" value="UIntPtr*" />
     <type name="vx_df_image" value="DfImage" />
     <type name="vx_map_id" value="MapId" />
     <type name="vx_map_id*" value="MapId*" />

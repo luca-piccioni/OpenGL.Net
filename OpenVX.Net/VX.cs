@@ -174,9 +174,9 @@ namespace OpenVX
 		/// <returns>
 		/// 
 		/// </returns>
-		public static IntPtr FormatArrayPointer(IntPtr ptr, uint index, uint stride)
+		public static IntPtr FormatArrayPointer(IntPtr ptr, uint index, UIntPtr stride)
 		{
-			return (new IntPtr(ptr.ToInt64() + index * stride));
+			return (new IntPtr((long)((ulong)ptr.ToInt64() + index * stride.ToUInt64())));
 		}
 
 		/// <summary>
@@ -195,7 +195,7 @@ namespace OpenVX
 		/// The 'number of bytes' between the beginning of two consecutive elements.
 		/// </param>
 		/// <returns></returns>
-		public static T ArrayItem<T>(IntPtr ptr, uint index, uint stride)
+		public static T ArrayItem<T>(IntPtr ptr, uint index, UIntPtr stride)
 		{
 			return (Marshal.PtrToStructure<T>(FormatArrayPointer(ptr, index, stride)));
 		}

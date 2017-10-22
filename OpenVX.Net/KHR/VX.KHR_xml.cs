@@ -81,7 +81,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Status Query(Import import, int attribute, IntPtr ptr, uint size)
+		public static Status Query(Import import, int attribute, IntPtr ptr, UIntPtr size)
 		{
 			Status retValue;
 
@@ -115,7 +115,7 @@ namespace OpenVX
 			internal static vxGetImportReferenceByIndex pvxGetImportReferenceByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryImport(Import import, int attribute, void* ptr, uint size);
+			internal unsafe delegate Status vxQueryImport(Import import, int attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryImport pvxQueryImport;
 

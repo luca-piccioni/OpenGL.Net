@@ -39,7 +39,7 @@ namespace OpenVX
 	{
 		public const string OPENVX_KHR_IX = "vx_khr_ix";
 
-		public static Status ExportObjectsToMemory(Context context, uint numrefs, Reference[] refs, int[] uses, IntPtr[] ptr, uint[] length)
+		public static Status ExportObjectsToMemory(Context context, UIntPtr numrefs, Reference[] refs, int[] uses, IntPtr[] ptr, UIntPtr[] length)
 		{
 			Status retValue;
 
@@ -47,7 +47,7 @@ namespace OpenVX
 				fixed (Reference* p_refs = refs)
 				fixed (int* p_uses = uses)
 				fixed (IntPtr* p_ptr = ptr)
-				fixed (uint* p_length = length)
+				fixed (UIntPtr* p_length = length)
 				{
 					Debug.Assert(Delegates.pvxExportObjectsToMemory != null, "pvxExportObjectsToMemory not implemented");
 					retValue = Delegates.pvxExportObjectsToMemory(context, numrefs, p_refs, p_uses, p_ptr, p_length);
@@ -79,7 +79,7 @@ namespace OpenVX
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxExportObjectsToMemory(Context context, uint numrefs, Reference* refs, int* uses, IntPtr* ptr, uint* length);
+			internal unsafe delegate Status vxExportObjectsToMemory(Context context, UIntPtr numrefs, Reference* refs, int* uses, IntPtr* ptr, UIntPtr* length);
 
 			internal static vxExportObjectsToMemory pvxExportObjectsToMemory;
 

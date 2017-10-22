@@ -136,16 +136,16 @@ namespace OpenVX
 		{
 			unsafe {
 				fixed (OpenVX.Type *p_obj = &obj) {
-					return (Query(arr, attribute, new IntPtr(p_obj), 4));
+					return (Query(arr, attribute, new IntPtr(p_obj), (UIntPtr)4));
 				}
 			}
 		}
 
-		public static Status Query(Array arr, ArrayAttribute attribute, out uint obj)
+		public static Status Query(Array arr, ArrayAttribute attribute, out UIntPtr obj)
 		{
 			unsafe {
-				fixed (uint *p_obj = &obj) {
-					return (Query(arr, attribute, new IntPtr(p_obj), 4));
+				fixed (UIntPtr *p_obj = &obj) {
+					return (Query(arr, attribute, new IntPtr(p_obj), (UIntPtr)UIntPtr.Size));
 				}
 			}
 		}
@@ -154,11 +154,11 @@ namespace OpenVX
 
 		#region Query(Graph)
 
-		public static Status Query(Graph graph, GraphAttribute attribute, out uint obj)
+		public static Status Query(Graph graph, GraphAttribute attribute, out UIntPtr obj)
 		{
 			unsafe {
-				fixed (uint *p_obj = &obj) {
-					return (Query(graph, attribute, new IntPtr(p_obj), 4));
+				fixed (UIntPtr *p_obj = &obj) {
+					return (Query(graph, attribute, new IntPtr(p_obj), (UIntPtr)UIntPtr.Size));
 				}
 			}
 		}
@@ -167,7 +167,7 @@ namespace OpenVX
 		{
 			unsafe {
 				fixed (Status *p_obj = &obj) {
-					return (Query(graph, attribute, new IntPtr(p_obj), 4));
+					return (Query(graph, attribute, new IntPtr(p_obj), (UIntPtr)4));
 				}
 			}
 		}
@@ -176,7 +176,7 @@ namespace OpenVX
 		{
 			unsafe {
 				fixed (Perf *p_obj = &obj) {
-					return (Query(graph, attribute, new IntPtr(p_obj), 64));
+					return (Query(graph, attribute, new IntPtr(p_obj), (UIntPtr)64));
 				}
 			}
 		}

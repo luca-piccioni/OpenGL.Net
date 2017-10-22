@@ -51,13 +51,13 @@ namespace HelloVX
 			#region Corner Tracking Initialization
 
 			uint width = 1024, height = 1024;
-			uint    max_keypoint_count      = 10000;                 // maximum number of keypoints to track
+			UIntPtr max_keypoint_count      = (UIntPtr)10000;                 // maximum number of keypoints to track
 			float harris_strength_thresh  = 0.0005f;               // minimum corner strength to keep a corner
 			float harris_min_distance     = 5.0f;                  // radial L2 distance for non-max suppression
 			float harris_sensitivity      = 0.04f;                 // multiplier k in det(A) - k * trace(A)^2
 			int   harris_gradient_size    = 3;                     // window size for gradient computation
 			int   harris_block_size       = 3;                     // block window size for Harris corner score
-			uint  lk_pyramid_levels       = 6;                     // number of pyramid levels for optical flow
+			UIntPtr lk_pyramid_levels       = (UIntPtr)6;                     // number of pyramid levels for optical flow
 			float lk_pyramid_scale        = VX.SCALE_PYRAMID_HALF; // pyramid levels scale by factor of two
 			TerminationCriteria lk_termination = TerminationCriteria.Both; // iteration termination criteria (eps & iterations)
 			float lk_epsilon              = 0.01f;                 // convergence criterion
@@ -81,10 +81,10 @@ namespace HelloVX
 			// objects for both to hold two of each. Note that the exemplar objects are not
 			// needed once the delay objects are created.
 			using (Pyramid pyramid = VX.CreatePyramid(_Context, lk_pyramid_levels, lk_pyramid_scale, width, height, DfImage.U8))
-				_PyramidDelay = VX.CreateDelay(_Context, pyramid, 2);
+				_PyramidDelay = VX.CreateDelay(_Context, pyramid, (UIntPtr)2);
 
 			using (OpenVX.Array keypoints = VX.CreateArray(_Context, OpenVX.Type.Keypoint, max_keypoint_count))
-				_KeypointsDelay = VX.CreateDelay(_Context, keypoints, 2);
+				_KeypointsDelay = VX.CreateDelay(_Context, keypoints, (UIntPtr)2);
 			
 
 			// An object from a delay slot can be accessed using vxGetReferenceFromDelay API.
@@ -145,7 +145,7 @@ namespace HelloVX
 				VX.GaussianPyramidNode(graphTrack, opticalflow_gray_image, _PyramidCurrent),
 				VX.OpticalFlowPyrLKNode(graphTrack, _PyramidPrevious, _PyramidCurrent, _KeypointsPrevious, _KeypointsPrevious, _KeypointsCurrent,
 													lk_termination, epsilon, num_iterations,
-													use_initial_estimate, lk_window_dimension
+													use_initial_estimate, (UIntPtr)lk_window_dimension
 													)
 			};
 			VX.Release(nodesTrack);
@@ -227,20 +227,21 @@ namespace HelloVX
 
 			// To mark the keypoints in display, you need to access the output
 			// keypoint array and draw each item on the output window using gui.DrawArrow().
-			uint num_corners = 0, num_tracking = 0;
+			UIntPtr num_corners = UIntPtr.Zero;
+			uint num_tracking = 0;
 
 			_KeypointsPrevious = VX.GetReferenceFromDelay(_KeypointsDelay, -1);
 			_KeypointsCurrent  = VX.GetReferenceFromDelay(_KeypointsDelay,  0);
 
 			VX.Query(_KeypointsPrevious, ArrayAttribute.Numitems, out num_corners);
-			if (num_corners > 0) {
-				uint kp_old_stride = 0, kp_new_stride = 0;
+			if (num_corners.ToUInt64() > 0) {
+				UIntPtr kp_old_stride = UIntPtr.Zero, kp_new_stride = UIntPtr.Zero;
 				MapId kp_old_map = new MapId(), kp_new_map = new MapId();
 				IntPtr kp_old_buf, kp_new_buf;
 
-				VX.MapArrayRange(_KeypointsPrevious, 0, num_corners, ref kp_old_map, ref kp_old_stride, out kp_old_buf, Accessor.ReadOnly, MemoryType.Host, 0);
-				VX.MapArrayRange(_KeypointsCurrent, 0, num_corners, ref kp_new_map, ref kp_new_stride, out kp_new_buf, Accessor.ReadOnly, MemoryType.Host, 0);
-				for (uint i = 0; i < num_corners; i++ ) {
+				VX.MapArrayRange(_KeypointsPrevious, (UIntPtr)0, (UIntPtr)num_corners, ref kp_old_map, ref kp_old_stride, out kp_old_buf, Accessor.ReadOnly, MemoryType.Host, 0);
+				VX.MapArrayRange(_KeypointsCurrent, (UIntPtr)0, (UIntPtr)num_corners, ref kp_new_map, ref kp_new_stride, out kp_new_buf, Accessor.ReadOnly, MemoryType.Host, 0);
+				for (uint i = 0; i < num_corners.ToUInt64(); i++ ) {
 					KeyPoint kp_old = VX.ArrayItem<KeyPoint>(kp_old_buf, i, kp_old_stride);
 					KeyPoint kp_new = VX.ArrayItem<KeyPoint>(kp_new_buf, i, kp_new_stride);
 

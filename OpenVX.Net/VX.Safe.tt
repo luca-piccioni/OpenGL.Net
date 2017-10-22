@@ -75,7 +75,7 @@ namespace OpenVX
 <#
 	object[] queryTemplatesParams =	new object[] {
 		new[] { "OpenVX.Type", "4" },
-		new[] { "uint", "4" },
+		new[] { "UIntPtr", "UIntPtr.Size" },
 	};
 
 	for (int i = 0; i < queryTemplatesParams.Length; i++) {
@@ -87,7 +87,7 @@ namespace OpenVX
 		{
 			unsafe {
 				fixed (<#= underlyingType #> *p_obj = &obj) {
-					return (Query(arr, attribute, new IntPtr(p_obj), <#= underlyingTypeSize #>));
+					return (Query(arr, attribute, new IntPtr(p_obj), (UIntPtr)<#= underlyingTypeSize #>));
 				}
 			}
 		}
@@ -101,7 +101,7 @@ namespace OpenVX
 
 <#
 	object[] graphTemplatesParams =	new object[] {
-		new[] { "uint", "4" },
+		new[] { "UIntPtr", "UIntPtr.Size" },
 		new[] { "Status", "4" },
 		new[] { "Perf", "64" },
 	};
@@ -115,7 +115,7 @@ namespace OpenVX
 		{
 			unsafe {
 				fixed (<#= underlyingType #> *p_obj = &obj) {
-					return (Query(graph, attribute, new IntPtr(p_obj), <#= underlyingTypeSize #>));
+					return (Query(graph, attribute, new IntPtr(p_obj), (UIntPtr)<#= underlyingTypeSize #>));
 				}
 			}
 		}
