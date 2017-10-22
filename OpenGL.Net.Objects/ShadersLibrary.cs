@@ -404,7 +404,7 @@ namespace OpenGL.Objects
 				// Objects hash
 				if (Objects != null) {
 					foreach (Object programObject in Objects)
-						hashMessage.Append(programObject);
+						programObject.GetHashInfo(hashMessage, cctx);
 				}
 
 				// Compilation parameters (common to all shaders?)
