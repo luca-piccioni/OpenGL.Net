@@ -535,6 +535,7 @@
     <Compile Include="MatrixDouble3x3.cs" />
     <Compile Include="MatrixDouble4x4.cs" />
     <Compile Include="Memory.cs" />
+    <Compile Include="MemoryLock.cs" />
     <Compile Include="MESAX\Gl.MESAX_texture_stack.cs" />
     <Compile Include="MESA\Egl.MESA_drm_image.cs" />
     <Compile Include="MESA\Egl.MESA_platform_surfaceless.cs" />

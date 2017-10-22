@@ -22,7 +22,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Khronos
+namespace OpenVX
 {
 	public sealed class MemoryLock : IDisposable
 	{

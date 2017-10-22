@@ -18,7 +18,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)KhronosLogMap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)KhronosVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LogAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MemoryLock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Platform.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RemovedByFeatureAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RequiredByFeatureAttribute.cs" />
