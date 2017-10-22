@@ -32,6 +32,7 @@
 			// 
 			// VisionControl
 			// 
+			this.VisionControl.Animation = true;
 			this.VisionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.VisionControl.ColorBits = ((uint)(24u));
 			this.VisionControl.DepthBits = ((uint)(0u));
@@ -44,6 +45,7 @@
 			this.VisionControl.TabIndex = 0;
 			this.VisionControl.ContextCreated += new System.EventHandler<OpenGL.GlControlEventArgs>(this.VisionControl_ContextCreated);
 			this.VisionControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.VisionControl_Render);
+			this.VisionControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VisionControl_KeyPress);
 			// 
 			// SampleForm
 			// 

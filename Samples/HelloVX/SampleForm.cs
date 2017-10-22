@@ -175,12 +175,60 @@ namespace HelloVX
 
 			// Create texture
 			_FramebufferTexture = new Texture2d(1024, 1024, PixelLayout.RGB24);
+			_FramebufferTexture.SamplerParams.MagFilter = TextureMagFilter.Linear;
+			_FramebufferTexture.SamplerParams.MinFilter = TextureMinFilter.Linear;
 			_FramebufferTexture.Create(_GraphicsContext);
 
 			// Create framebuffer
 			_Framebuffer = new Framebuffer();
 			_Framebuffer.AttachColor(0, _FramebufferTexture);
 			_Framebuffer.Create(_GraphicsContext);
+
+			// Create shader (standard)
+			_ProgramStd = _GraphicsContext.CreateProgram("OpenGL.Standard");
+			_ProgramStd.Create(_GraphicsContext);
+
+			// Create program (standard + texture)
+			_ProgramStdTex = _GraphicsContext.CreateProgram("OpenGL.Standard+Texture");
+			_ProgramStdTex.Create(_GraphicsContext);
+
+			// Create vertex arrays (square)
+			ArrayBuffer<Vertex2f> quadBuffer = new ArrayBuffer<Vertex2f>(BufferUsage.StaticDraw);
+			quadBuffer.Create(new Vertex2f[] {
+				new Vertex2f(-0.5f, +0.5f),
+				new Vertex2f(-0.5f, -0.5f),
+				new Vertex2f(+0.5f, +0.5f),
+				new Vertex2f(+0.5f, -0.5f),
+			});
+
+			_ArraysQuad = new VertexArrays();
+			_ArraysQuad.SetArray(quadBuffer, VertexArraySemantic.Position);
+			_ArraysQuad.SetElementArray(PrimitiveType.TriangleStrip);
+			_ArraysQuad.Create(_GraphicsContext);
+
+			// Create vertex arrays (square)
+			ArrayBuffer<Vertex2f> postquadBuffer = new ArrayBuffer<Vertex2f>(BufferUsage.StaticDraw);
+			postquadBuffer.Create(new Vertex2f[] {
+				new Vertex2f(0.0f, 1.0f),
+				new Vertex2f(0.0f, 0.0f),
+				new Vertex2f(1.0f, 1.0f),
+				new Vertex2f(1.0f, 0.0f),
+			});
+
+			_ArraysPostQuad = new VertexArrays();
+			_ArraysPostQuad.SetArray(postquadBuffer, VertexArraySemantic.Position);
+			_ArraysPostQuad.SetArray(postquadBuffer, VertexArraySemantic.TexCoord);
+			_ArraysPostQuad.SetElementArray(PrimitiveType.TriangleStrip);
+			_ArraysPostQuad.Create(_GraphicsContext);
+
+			// Create vertex arrays (optical markers)
+			_BufferOpticalMarkers = new ArrayBuffer<Vertex2f>(BufferUsage.DynamicDraw);
+			_BufferOpticalMarkers.Create(10000 * 2);
+
+			_ArraysOpticalMarkers = new VertexArrays();
+			_ArraysOpticalMarkers.SetArray(_BufferOpticalMarkers, VertexArraySemantic.Position);
+			_ArraysOpticalMarkers.SetElementArray(PrimitiveType.Lines);
+			_ArraysOpticalMarkers.Create(_GraphicsContext);
 		}
 
 		private GraphicsContext _GraphicsContext;
@@ -189,41 +237,81 @@ namespace HelloVX
 
 		private Texture2d _FramebufferTexture;
 
+		private ShaderProgram _ProgramStd;
+
+		private ShaderProgram _ProgramStdTex;
+
+		private VertexArrays _ArraysQuad;
+
+		private VertexArrays _ArraysPostQuad;
+
+		private ArrayBuffer<Vertex2f> _BufferOpticalMarkers;
+
+		private VertexArrays _ArraysOpticalMarkers;
+
+		private float _Angle = 0.0f;
+
+		private bool _DetectCorners = true;
+
+		private void VisionControl_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			_DetectCorners = true;
+		}
+
 		private void VisionControl_Render(object sender, OpenGL.GlControlEventArgs e)
 		{
 			#region Draw Basic Picture
 
-			_Framebuffer.BindDraw(_GraphicsContext);
-
 			// Update image input
+			_Framebuffer.BindDraw(_GraphicsContext);
+			Gl.Viewport(0, 0, (int)_Framebuffer.Width, (int)_Framebuffer.Height);
 			_Framebuffer.Clear(_GraphicsContext, ClearBufferMask.ColorBufferBit);
+			{	// Draw a quad
+				ProjectionMatrix quadProj = new OrthoProjectionMatrix(-1.0f, +1.0f, -1.0f, +1.0f);
+				ModelMatrix quadModel = new ModelMatrix();
 
+				_Angle += 1.0f;
+
+				quadModel.RotateZ(10.0f * Math.Cos(_Angle / 180.0 * Math.PI));
+
+				_GraphicsContext.Bind(_ProgramStd);
+				_ProgramStd.SetUniform(_GraphicsContext, "glo_ModelViewProjection", quadProj * quadModel);
+				_ProgramStd.SetUniform(_GraphicsContext, "glo_UniformColor", Vertex4f.One);
+
+				_ArraysQuad.Draw(_GraphicsContext, _ProgramStd);
+			}
 			_Framebuffer.UnbindDraw(_GraphicsContext);
-
-			// Read back image input pixels
-			OpenGL.Objects.Image imageInput = _FramebufferTexture.Get(_GraphicsContext, PixelLayout.RGB24, 0);
 
 			#endregion
 
 			#region Track Corners
 
-			// Copy the input RGB frame from OpenGL to OpenVX
-			Rectangle cv_rgb_image_region = new Rectangle();
-			cv_rgb_image_region.StartX = 0;
-			cv_rgb_image_region.StartY = 0;
-			cv_rgb_image_region.EndX = imageInput.Width;
-			cv_rgb_image_region.EndY = imageInput.Height;
+			// Read back image input pixels
+			using (OpenGL.Objects.Image imageInput = _FramebufferTexture.Get(_GraphicsContext, PixelLayout.RGB24, 0)) {
+				// Copy the input RGB frame from OpenGL to OpenVX
+				Rectangle cv_rgb_image_region = new Rectangle();
+				cv_rgb_image_region.StartX = 0;
+				cv_rgb_image_region.StartY = 0;
+				cv_rgb_image_region.EndX = imageInput.Width;
+				cv_rgb_image_region.EndY = imageInput.Height;
 
-			ImagePatchAddressing cv_rgb_image_layout = new ImagePatchAddressing();
-			cv_rgb_image_layout.StrideX   = 3;
-			cv_rgb_image_layout.StrideY   = (int)imageInput.Stride;
+				ImagePatchAddressing cv_rgb_image_layout = new ImagePatchAddressing();
+				cv_rgb_image_layout.StrideX   = 3;
+				cv_rgb_image_layout.StrideY   = (int)imageInput.Stride;
 
-			VX.CopyImagePatch(_ImageInput, ref cv_rgb_image_region, 0, ref cv_rgb_image_layout, imageInput.ImageBuffer, Accessor.WriteOnly, MemoryType.Host);
+				VX.CopyImagePatch(_ImageInput, ref cv_rgb_image_region, 0, ref cv_rgb_image_layout, imageInput.ImageBuffer, Accessor.WriteOnly, MemoryType.Host);
+			}
 
 			// Now that input RGB image is ready, just run a graph.
 			// Run Harris at the beginning to initialize the previous keypoints,
 			// on other frames run the tracking graph.
-			VX.ProcessGraph(frame_index++ == 0 ? _GraphHarris : _GraphTrack);
+			VX.ProcessGraph(_DetectCorners ? _GraphHarris : _GraphTrack);
+
+			_DetectCorners = false;
+
+			#endregion
+
+			#region Store Markers on GPU
 
 			// To mark the keypoints in display, you need to access the output
 			// keypoint array and draw each item on the output window using gui.DrawArrow().
@@ -239,33 +327,64 @@ namespace HelloVX
 				MapId kp_old_map = new MapId(), kp_new_map = new MapId();
 				IntPtr kp_old_buf, kp_new_buf;
 
-				VX.MapArrayRange(_KeypointsPrevious, (UIntPtr)0, (UIntPtr)num_corners, ref kp_old_map, ref kp_old_stride, out kp_old_buf, Accessor.ReadOnly, MemoryType.Host, 0);
-				VX.MapArrayRange(_KeypointsCurrent, (UIntPtr)0, (UIntPtr)num_corners, ref kp_new_map, ref kp_new_stride, out kp_new_buf, Accessor.ReadOnly, MemoryType.Host, 0);
+				VX.MapArrayRange(_KeypointsPrevious, (UIntPtr)0, num_corners, ref kp_old_map, ref kp_old_stride, out kp_old_buf, Accessor.ReadOnly, MemoryType.Host, 0);
+				VX.MapArrayRange(_KeypointsCurrent, (UIntPtr)0, num_corners, ref kp_new_map, ref kp_new_stride, out kp_new_buf, Accessor.ReadOnly, MemoryType.Host, 0);
+
+				_BufferOpticalMarkers.Map(_GraphicsContext, BufferAccess.WriteOnly);
+
 				for (uint i = 0; i < num_corners.ToUInt64(); i++ ) {
 					KeyPoint kp_old = VX.ArrayItem<KeyPoint>(kp_old_buf, i, kp_old_stride);
 					KeyPoint kp_new = VX.ArrayItem<KeyPoint>(kp_new_buf, i, kp_new_stride);
 
 					if (kp_new.TrackingStatus != 0) {
-						num_tracking++;
+						Vertex2f vOld = new Vertex2f(kp_old.X / 1024.0f, kp_old.Y / 1024.0f);
+						Vertex2f vNew = new Vertex2f(kp_new.X / 1024.0f, kp_new.Y / 1024.0f);
 
-			//			// gui.DrawArrow( kp_old->x, kp_old->y, kp_new->x, kp_new->y );
+						_BufferOpticalMarkers.SetElement(vOld, (num_tracking * 2) + 0, 0);
+						_BufferOpticalMarkers.SetElement(vNew, (num_tracking * 2) + 1, 0);
+
+						num_tracking++;
 					}
 				}
+
+				_BufferOpticalMarkers.Unmap(_GraphicsContext);
+
 				VX.UnmapArrayRange(_KeypointsPrevious, kp_old_map);
 				VX.UnmapArrayRange(_KeypointsCurrent, kp_new_map);
 			}
 
-			// Increase the age of the delay objects to make the current entry become previous entry
-			VX.AgeDelay(_PyramidDelay);
-			VX.AgeDelay(_KeypointsDelay);
+			#endregion
+
+			Gl.Viewport(0, 0, VisionControl.Width, VisionControl.Height);
+			Gl.ClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+			Gl.Clear(ClearBufferMask.ColorBufferBit);
+
+			#region Draw Input Image
+
+			_GraphicsContext.Bind(_ProgramStdTex);
+			_ProgramStdTex.SetUniform(_GraphicsContext, "glo_ModelViewProjection", new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f));
+			_ProgramStdTex.SetUniform(_GraphicsContext, "glo_Texture", _FramebufferTexture);
+			
+			_ArraysPostQuad.Draw(_GraphicsContext, _ProgramStdTex);
 
 			#endregion
 
-			Gl.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-			Gl.Clear(ClearBufferMask.ColorBufferBit);
-		}
+			#region Draw Markers
 
-		static int frame_index = 0;
+			if (num_tracking > 0) {
+				_GraphicsContext.Bind(_ProgramStd);
+				_ProgramStd.SetUniform(_GraphicsContext, "glo_ModelViewProjection", new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f));
+				_ProgramStd.SetUniform(_GraphicsContext, "glo_UniformColor", new Vertex4f(1.0f, 0.0f, 0.0f, 1.0f));
+
+				_ArraysOpticalMarkers.Draw(_GraphicsContext, _ProgramStd, 0, 0, num_tracking * 2);
+			}
+
+			#endregion
+
+			// Increase the age of the delay objects to make the current entry become previous entry
+			VX.AgeDelay(_PyramidDelay);
+			VX.AgeDelay(_KeypointsDelay);
+		}
 
 		private void SampleForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
