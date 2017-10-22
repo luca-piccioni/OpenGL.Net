@@ -26,6 +26,7 @@
 using System;
 using System.Windows.Forms;
 
+using Khronos;
 using OpenVX;
 
 namespace HelloVX
@@ -65,7 +66,7 @@ namespace HelloVX
 			_Context = VX.CreateContext();
 
 			// Create OpenVX image object for input RGB image.
-			OpenVX.Image _ImageInput = VX.CreateImage(_Context, 256, 256, DfImage.Rgb);
+			_ImageInput = VX.CreateImage(_Context, 256, 256, DfImage.Rgb);
 
 			// OpenVX optical flow functionality requires image pyramids for the current
 			// and the previous image. It also requires keypoints that correspond
@@ -77,7 +78,6 @@ namespace HelloVX
 			// needed once the delay objects are created.
 			Pyramid _Pyramid;
 			OpenVX.Array _KeypointsExemplar;
-			Delay _PyramidDelay, _KeypointsDelay;
 
 			_Pyramid = VX.CreatePyramid(_Context, lk_pyramid_levels, lk_pyramid_scale, 256, 256, DfImage.U8);
 			_PyramidDelay = VX.CreateDelay(_Context, _Pyramid, 2);
@@ -88,8 +88,6 @@ namespace HelloVX
 
 			// An object from a delay slot can be accessed using vxGetReferenceFromDelay API.
 			// You need to use index = 0 for the current object and index = -1 for the previous object.
-			Pyramid _PyramidCurrent, _PyramidPrevious;
-			OpenVX.Array _KeypointsCurrent, _KeypointsPrevious;
 
 			_PyramidCurrent = VX.GetReferenceFromDelay(_PyramidDelay, 0);
 			_PyramidPrevious = VX.GetReferenceFromDelay(_PyramidDelay, -1);
@@ -111,19 +109,19 @@ namespace HelloVX
 			// This requires two intermediate OpenVX image objects. Since you don't
 			// need to access these objects from the application, they can be virtual
 			// objects that can be created using the vxCreateVirtualImage API.
-			Image harris_yuv_image       = VX.CreateVirtualImage( graphHarris, width, height, DfImage.Iyuv);
-			Image harris_gray_image      = VX.CreateVirtualImage( graphHarris, width, height, DfImage.U8);
-			Image opticalflow_yuv_image  = VX.CreateVirtualImage( graphTrack,  width, height, DfImage.Iyuv);
-			Image opticalflow_gray_image = VX.CreateVirtualImage( graphTrack,  width, height, DfImage.U8);
+			Image harris_yuv_image       = VX.CreateVirtualImage(graphHarris, width, height, DfImage.Iyuv);
+			Image harris_gray_image      = VX.CreateVirtualImage(graphHarris, width, height, DfImage.U8);
+			Image opticalflow_yuv_image  = VX.CreateVirtualImage(graphTrack,  width, height, DfImage.Iyuv);
+			Image opticalflow_gray_image = VX.CreateVirtualImage(graphTrack,  width, height, DfImage.U8);
 
 			// The Harris corner detector and optical flow nodes (see "VX/vx_nodes.h")
 			// need several scalar objects as parameters.
-			Scalar strength_thresh      = VX.CreateScalar(_Context, OpenVX.Type.Float32, harris_strength_thresh );
-			Scalar min_distance         = VX.CreateScalar(_Context, OpenVX.Type.Float32, harris_min_distance );
-			Scalar sensitivity          = VX.CreateScalar(_Context, OpenVX.Type.Float32, harris_sensitivity );
-			Scalar epsilon              = VX.CreateScalar(_Context, OpenVX.Type.Float32, lk_epsilon );
-			Scalar num_iterations       = VX.CreateScalar(_Context, OpenVX.Type.Uint32,  lk_num_iterations );
-			Scalar use_initial_estimate = VX.CreateScalar(_Context, OpenVX.Type.Bool,    lk_use_initial_estimate );
+			Scalar strength_thresh      = VX.CreateScalar(_Context, harris_strength_thresh);
+			Scalar min_distance         = VX.CreateScalar(_Context, harris_min_distance);
+			Scalar sensitivity          = VX.CreateScalar(_Context, harris_sensitivity);
+			Scalar epsilon              = VX.CreateScalar(_Context, lk_epsilon);
+			Scalar num_iterations       = VX.CreateScalar(_Context, lk_num_iterations);
+			Scalar use_initial_estimate = VX.CreateScalar(_Context, lk_use_initial_estimate);
 
 			// Now all the objects have been created for building the graphs.
 			// First, build a graph that performs Harris corner detection and initial pyramid computation.
@@ -151,7 +149,77 @@ namespace HelloVX
 			};
 
 			VX.VerifyGraph(graphTrack);
+
+			_GraphHarris = graphHarris;
+			_GraphTrack = graphTrack;
 		}
+
+		OpenVX.Image _ImageInput;
+
+		Delay _PyramidDelay, _KeypointsDelay;
+
+		Pyramid _PyramidCurrent, _PyramidPrevious;
+
+		OpenVX.Array _KeypointsCurrent, _KeypointsPrevious;
+
+		Graph _GraphHarris, _GraphTrack;
+
+		private void VisionControl_Render(object sender, OpenGL.GlControlEventArgs e)
+		{
+			// Copy the input RGB frame from OpenGL to OpenVX
+			Rectangle cv_rgb_image_region = new Rectangle();
+			cv_rgb_image_region.StartX = 0;
+			cv_rgb_image_region.StartY = 0;
+			cv_rgb_image_region.EndX = (uint)VisionControl.Width;
+			cv_rgb_image_region.EndY = (uint)VisionControl.Height;
+
+			ImagePatchAddressing cv_rgb_image_layout = new ImagePatchAddressing();
+			cv_rgb_image_layout.StrideX   = 3;
+			cv_rgb_image_layout.StrideY   = VisionControl.Width * cv_rgb_image_layout.StrideX; //gui.GetStride();
+
+			byte[] cv_rgb_image_buffer = null;
+
+			using (MemoryLock rgbImageBuffer = new MemoryLock(cv_rgb_image_buffer)) {
+				VX.CopyImagePatch(_ImageInput, ref cv_rgb_image_region, 0, ref cv_rgb_image_layout, rgbImageBuffer.Address, Accessor.WriteOnly, MemoryType.Host);
+			}
+
+			// Now that input RGB image is ready, just run a graph.
+			// Run Harris at the beginning to initialize the previous keypoints,
+			// on other frames run the tracking graph.
+			VX.ProcessGraph( frame_index == 0 ? _GraphHarris : _GraphTrack);
+
+			// To mark the keypoints in display, you need to access the output
+			// keypoint array and draw each item on the output window using gui.DrawArrow().
+			uint num_corners = 0, num_tracking = 0;
+
+			_KeypointsPrevious = VX.GetReferenceFromDelay(_KeypointsDelay, -1);
+			_KeypointsCurrent  = VX.GetReferenceFromDelay(_KeypointsDelay,  0);
+
+			VX.Query(_KeypointsPrevious, ArrayAttribute.Numitems, out num_corners);
+			if (num_corners > 0) {
+				uint kp_old_stride = 0, kp_new_stride = 0;
+				MapId kp_old_map = new MapId(), kp_new_map = new MapId();
+				IntPtr kp_old_buf, kp_new_buf;
+			//	byte * kp_old_buf, * kp_new_buf;
+
+				VX.MapArrayRange(_KeypointsPrevious, 0, num_corners, ref kp_old_map, ref kp_old_stride, out kp_old_buf, Accessor.ReadOnly, MemoryType.Host, 0);
+				VX.MapArrayRange(_KeypointsCurrent, 0, num_corners, ref kp_new_map, ref kp_new_stride, out kp_new_buf, Accessor.ReadOnly, MemoryType.Host, 0);
+				for (uint i = 0; i < num_corners; i++ ) {
+			//		vx_keypoint_t * kp_old = (vx_keypoint_t *) ( kp_old_buf + i * kp_old_stride );
+			//		vx_keypoint_t * kp_new = (vx_keypoint_t *) ( kp_new_buf + i * kp_new_stride );
+
+			//		if (kp_new->tracking_status ) {
+			//			num_tracking++;
+
+			//			// gui.DrawArrow( kp_old->x, kp_old->y, kp_new->x, kp_new->y );
+			//		}
+				}
+				VX.UnmapArrayRange(_KeypointsPrevious, kp_old_map);
+				VX.UnmapArrayRange(_KeypointsCurrent, kp_new_map);
+			}
+		}
+
+		static int frame_index = 0;
 
 		private void SampleForm_FormClosing(object sender, FormClosingEventArgs e)
 		{

@@ -27,28 +27,29 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.glControl1 = new OpenGL.GlControl();
+			this.VisionControl = new OpenGL.GlControl();
 			this.SuspendLayout();
 			// 
-			// glControl1
+			// VisionControl
 			// 
-			this.glControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.glControl1.ColorBits = ((uint)(24u));
-			this.glControl1.DepthBits = ((uint)(0u));
-			this.glControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.glControl1.Location = new System.Drawing.Point(0, 0);
-			this.glControl1.MultisampleBits = ((uint)(0u));
-			this.glControl1.Name = "glControl1";
-			this.glControl1.Size = new System.Drawing.Size(532, 415);
-			this.glControl1.StencilBits = ((uint)(0u));
-			this.glControl1.TabIndex = 0;
+			this.VisionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.VisionControl.ColorBits = ((uint)(24u));
+			this.VisionControl.DepthBits = ((uint)(0u));
+			this.VisionControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.VisionControl.Location = new System.Drawing.Point(0, 0);
+			this.VisionControl.MultisampleBits = ((uint)(0u));
+			this.VisionControl.Name = "VisionControl";
+			this.VisionControl.Size = new System.Drawing.Size(532, 415);
+			this.VisionControl.StencilBits = ((uint)(0u));
+			this.VisionControl.TabIndex = 0;
+			this.VisionControl.Render += new System.EventHandler<OpenGL.GlControlEventArgs>(this.VisionControl_Render);
 			// 
 			// SampleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(532, 415);
-			this.Controls.Add(this.glControl1);
+			this.Controls.Add(this.VisionControl);
 			this.Name = "SampleForm";
 			this.Text = "OpenVX Sample";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SampleForm_FormClosing);
@@ -59,7 +60,7 @@
 
 		#endregion
 
-		private OpenGL.GlControl glControl1;
+		private OpenGL.GlControl VisionControl;
 	}
 }
 
