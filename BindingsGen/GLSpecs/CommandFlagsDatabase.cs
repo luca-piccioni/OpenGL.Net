@@ -224,6 +224,12 @@ namespace BindingsGen.GLSpecs
 				public string Retype;
 
 				/// <summary>
+				/// Force a specific modified for command argument.
+				/// </summary>
+				[XmlElement("modifier")]
+				public string Modifier;
+
+				/// <summary>
 				/// Parameter flags.
 				/// </summary>
 				[XmlElement("flags")]
@@ -322,6 +328,26 @@ namespace BindingsGen.GLSpecs
 					foreach (CommandItem.ParameterItem parameterItem in commandItem.Parameters) {
 						if (parameterItem.Id == arg.Name && parameterItem.Retype != null)
 							return (parameterItem.Retype);
+					}
+				}
+			}
+
+			// arg.Name
+			return (null);
+		}
+
+		public static string GetCommandArgumentModifier(Command command, CommandParameter arg)
+		{
+			if (command == null)
+				throw new ArgumentNullException("command");
+			if (arg == null)
+				throw new ArgumentNullException("arg");
+
+			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
+				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
+					foreach (CommandItem.ParameterItem parameterItem in commandItem.Parameters) {
+						if (parameterItem.Id == arg.Name && parameterItem.Modifier != null)
+							return (parameterItem.Modifier);
 					}
 				}
 			}

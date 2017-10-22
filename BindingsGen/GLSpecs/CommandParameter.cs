@@ -156,6 +156,10 @@ namespace BindingsGen.GLSpecs
 		/// <returns></returns>
 		internal virtual bool IsFixed(RegistryContext ctx, Command parentCommand)
 		{
+			string modifier = CommandFlagsDatabase.GetCommandArgumentModifier(parentCommand, this);
+			if (modifier == "ref" || modifier == "out")
+				return (false);
+
 			string implementationType = GetManagedImplementationType(parentCommand);
 			string importType = GetImportType(parentCommand);
 
@@ -196,6 +200,7 @@ namespace BindingsGen.GLSpecs
 		/// </remarks>
 		public virtual string GetImplementationType(RegistryContext ctx, Command parentCommand)
 		{
+			string modifier = CommandFlagsDatabase.GetCommandArgumentModifier(parentCommand, this);
 			string implementationType = GetManagedImplementationType(parentCommand);
 
 			// Type[] + Length=1 -> out Type
@@ -204,6 +209,9 @@ namespace BindingsGen.GLSpecs
 			// String + Length!=null && !IsConst -> [Out] StringBuilder (in Get commands)
 			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
+			// Support 'ref' argument
+			if (IsManagedArray(parentCommand) && (modifier == "ref" || modifier == "out"))
+				implementationType = modifier + " " + implementationType.Substring(0, implementationType.Length - 2);
 
 			return (implementationType);
 		}
@@ -318,11 +326,15 @@ namespace BindingsGen.GLSpecs
 
 		public string GetDelegateType(RegistryContext ctx, Command parentCommand)
 		{
+			string modifier = CommandFlagsDatabase.GetCommandArgumentModifier(parentCommand, this);
 			string implementationType = GetImportType(parentCommand);
 
 			// String + Length!=null -> [Out] StringBuilder
 			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
+			// Support 'ref' argument
+			if (IsManagedArray(parentCommand) && (modifier == "ref" || modifier == "out"))
+				implementationType = modifier + " " + implementationType.Substring(0, implementationType.Length - 1);
 
 			return (implementationType.Trim());
 		}
@@ -491,9 +503,14 @@ namespace BindingsGen.GLSpecs
 
 		public virtual void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			if (IsFixed(ctx, parentCommand) == false)
+			if (IsFixed(ctx, parentCommand) == false) {
+				string modifier = CommandFlagsDatabase.GetCommandArgumentModifier(parentCommand, this);
+
+				if (modifier != null)
+					sw.Write(modifier + " ");
+
 				sw.Write(GetDelegateCallVarName(parentCommand));
-			else
+			} else
 				sw.Write(FixedLocalVarName);
 		}
 
