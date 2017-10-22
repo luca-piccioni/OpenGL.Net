@@ -29,6 +29,7 @@
 #pragma warning disable 649
 
 using System;
+using System.Diagnostics;
 
 namespace OpenVX
 {
@@ -36,6 +37,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Array: Reference={_Reference}")]
 	public struct Array : IDisposable
 	{
 		#region Constructors
@@ -104,6 +106,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Context: Reference={_Reference}")]
 	public struct Context : IDisposable
 	{
 		#region Constructors
@@ -172,6 +175,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Convolution: Reference={_Reference}")]
 	public struct Convolution : IDisposable
 	{
 		#region Constructors
@@ -240,6 +244,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Delay: Reference={_Reference}")]
 	public struct Delay : IDisposable
 	{
 		#region Constructors
@@ -308,6 +313,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Distribution: Reference={_Reference}")]
 	public struct Distribution : IDisposable
 	{
 		#region Constructors
@@ -376,6 +382,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Graph: Reference={_Reference}")]
 	public struct Graph : IDisposable
 	{
 		#region Constructors
@@ -444,6 +451,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Kernel: Reference={_Reference}")]
 	public struct Kernel : IDisposable
 	{
 		#region Constructors
@@ -512,6 +520,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Image: Reference={_Reference}")]
 	public struct Image : IDisposable
 	{
 		#region Constructors
@@ -580,6 +589,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Import: Reference={_Reference}")]
 	public struct Import : IDisposable
 	{
 		#region Constructors
@@ -648,6 +658,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Lut: Reference={_Reference}")]
 	public struct Lut : IDisposable
 	{
 		#region Constructors
@@ -716,6 +727,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("MapId: Reference={_Reference}")]
 	public struct MapId
 	{
 		#region Constructors
@@ -768,6 +780,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Matrix: Reference={_Reference}")]
 	public struct Matrix : IDisposable
 	{
 		#region Constructors
@@ -836,6 +849,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("MetaFormat: Reference={_Reference}")]
 	public struct MetaFormat
 	{
 		#region Constructors
@@ -888,6 +902,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Node: Reference={_Reference}")]
 	public struct Node : IDisposable
 	{
 		#region Constructors
@@ -956,6 +971,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("ObjectArray: Reference={_Reference}")]
 	public struct ObjectArray : IDisposable
 	{
 		#region Constructors
@@ -1024,6 +1040,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Parameter: Reference={_Reference}")]
 	public struct Parameter : IDisposable
 	{
 		#region Constructors
@@ -1092,6 +1109,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Pyramid: Reference={_Reference}")]
 	public struct Pyramid : IDisposable
 	{
 		#region Constructors
@@ -1160,6 +1178,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Remap: Reference={_Reference}")]
 	public struct Remap : IDisposable
 	{
 		#region Constructors
@@ -1228,6 +1247,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Scalar: Reference={_Reference}")]
 	public struct Scalar : IDisposable
 	{
 		#region Constructors
@@ -1296,6 +1316,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Tensor: Reference={_Reference}")]
 	public struct Tensor : IDisposable
 	{
 		#region Constructors
@@ -1364,6 +1385,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("Threshold: Reference={_Reference}")]
 	public struct Threshold : IDisposable
 	{
 		#region Constructors

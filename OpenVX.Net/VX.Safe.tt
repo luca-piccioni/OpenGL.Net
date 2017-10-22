@@ -35,16 +35,6 @@ namespace OpenVX
 	{
 		#region CreateScalar
 
-		public static Scalar CreateScalar(Context context, Type data_type, object obj)
-		{
-			GCHandle pin_obj = GCHandle.Alloc(obj, GCHandleType.Pinned);
-			try {
-				return (CreateScalar(context, data_type, pin_obj.AddrOfPinnedObject()));
-			} finally {
-				pin_obj.Free();
-			}
-		}
-
 <#
 	object[] templatesParams =	new object[] {
 		new[] { "Int8", "sbyte" },
@@ -57,8 +47,7 @@ namespace OpenVX
 		new[] { "Uint64", "ulong" },
 		new[] { "Float32", "float" },
 		new[] { "Float64", "double" },
-		new[] { "DfImage", "DfImage" },
-		new[] { "Bool", "bool" },
+		new[] { "DfImage", "DfImage" }
 	};
 
 	for (int i = 0; i < templatesParams.Length; i++) {
@@ -66,9 +55,13 @@ namespace OpenVX
 		string vxType = (string)templateParams[0];
 		string underlyingType = (string)templateParams[1];
 #>
-		public static Scalar CreateScalar(Context context, <#= underlyingType #> obj)
+		public static Scalar CreateScalar(Context context, ref <#= underlyingType #> obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.<#= vxType #>, obj));
+			unsafe {
+				fixed (<#= underlyingType #>* p_obj = &obj) {
+					return (CreateScalar(context, Type.<#= vxType #>, new IntPtr(p_obj)));
+				}
+			}
 		}
 
 <#
@@ -125,6 +118,46 @@ namespace OpenVX
 					return (Query(graph, attribute, new IntPtr(p_obj), <#= underlyingTypeSize #>));
 				}
 			}
+		}
+
+<#
+}
+#>
+		#endregion
+
+		#region Release(params Object[])
+
+<#
+	object[] releaseObjectsTemplatesParams =	new object[] {
+		new object[] { "Array",			true },
+		new object[] { "Context",		true },
+		new object[] { "Convolution",	true },
+		new object[] { "Delay",			true },
+		new object[] { "Distribution",	true },
+		new object[] { "Graph",			true },
+		new object[] { "Kernel",		true },
+		new object[] { "Image",			true },
+		new object[] { "Import",		true },
+		new object[] { "Lut",			true },
+		new object[] { "Matrix",		true },
+		new object[] { "Node",			true },
+		new object[] { "ObjectArray",	true },
+		new object[] { "Parameter",		true },
+		new object[] { "Pyramid",		true },
+		new object[] { "Remap",			true },
+		new object[] { "Scalar",		true },
+		new object[] { "Tensor",		true },
+		new object[] { "Threshold",		true }
+	};
+
+	for (int i = 0; i < releaseObjectsTemplatesParams.Length; i++) {
+		object[] templateParams = (object[])releaseObjectsTemplatesParams[i];
+		string underlyingType = (string)templateParams[0];
+#>
+		public static void Release(params <#= underlyingType #>[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
 		}
 
 <#

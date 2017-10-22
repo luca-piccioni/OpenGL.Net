@@ -71,6 +71,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReferenceTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="VX.Overrides.cs" />
     <Compile Include="VX.Safe.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

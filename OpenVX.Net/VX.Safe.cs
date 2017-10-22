@@ -1,11 +1,4 @@
 ﻿
-
-
-
-
-
-
-
 // Copyright (C) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,74 +28,103 @@ namespace OpenVX
 	{
 		#region CreateScalar
 
-		public static Scalar CreateScalar(Context context, Type data_type, object obj)
+		public static Scalar CreateScalar(Context context, ref sbyte obj)
 		{
-			GCHandle pin_obj = GCHandle.Alloc(obj, GCHandleType.Pinned);
-			try {
-				return (CreateScalar(context, data_type, pin_obj.AddrOfPinnedObject()));
-			} finally {
-				pin_obj.Free();
+			unsafe {
+				fixed (sbyte* p_obj = &obj) {
+					return (CreateScalar(context, Type.Int8, new IntPtr(p_obj)));
+				}
 			}
 		}
 
-		public static Scalar CreateScalar(Context context, sbyte obj)
+		public static Scalar CreateScalar(Context context, ref byte obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Int8, obj));
+			unsafe {
+				fixed (byte* p_obj = &obj) {
+					return (CreateScalar(context, Type.Uint8, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, byte obj)
+		public static Scalar CreateScalar(Context context, ref short obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Uint8, obj));
+			unsafe {
+				fixed (short* p_obj = &obj) {
+					return (CreateScalar(context, Type.Int16, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, short obj)
+		public static Scalar CreateScalar(Context context, ref ushort obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Int16, obj));
+			unsafe {
+				fixed (ushort* p_obj = &obj) {
+					return (CreateScalar(context, Type.Uint16, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, ushort obj)
+		public static Scalar CreateScalar(Context context, ref int obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Uint16, obj));
+			unsafe {
+				fixed (int* p_obj = &obj) {
+					return (CreateScalar(context, Type.Int32, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, int obj)
+		public static Scalar CreateScalar(Context context, ref uint obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Int32, obj));
+			unsafe {
+				fixed (uint* p_obj = &obj) {
+					return (CreateScalar(context, Type.Uint32, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, uint obj)
+		public static Scalar CreateScalar(Context context, ref long obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Uint32, obj));
+			unsafe {
+				fixed (long* p_obj = &obj) {
+					return (CreateScalar(context, Type.Int64, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, long obj)
+		public static Scalar CreateScalar(Context context, ref ulong obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Int64, obj));
+			unsafe {
+				fixed (ulong* p_obj = &obj) {
+					return (CreateScalar(context, Type.Uint64, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, ulong obj)
+		public static Scalar CreateScalar(Context context, ref float obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Uint64, obj));
+			unsafe {
+				fixed (float* p_obj = &obj) {
+					return (CreateScalar(context, Type.Float32, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, float obj)
+		public static Scalar CreateScalar(Context context, ref double obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Float32, obj));
+			unsafe {
+				fixed (double* p_obj = &obj) {
+					return (CreateScalar(context, Type.Float64, new IntPtr(p_obj)));
+				}
+			}
 		}
 
-		public static Scalar CreateScalar(Context context, double obj)
+		public static Scalar CreateScalar(Context context, ref DfImage obj)
 		{
-			return (CreateScalar(context, OpenVX.Type.Float64, obj));
-		}
-
-		public static Scalar CreateScalar(Context context, DfImage obj)
-		{
-			return (CreateScalar(context, OpenVX.Type.DfImage, obj));
-		}
-
-		public static Scalar CreateScalar(Context context, bool obj)
-		{
-			return (CreateScalar(context, OpenVX.Type.Bool, obj));
+			unsafe {
+				fixed (DfImage* p_obj = &obj) {
+					return (CreateScalar(context, Type.DfImage, new IntPtr(p_obj)));
+				}
+			}
 		}
 
 	
@@ -157,6 +179,124 @@ namespace OpenVX
 					return (Query(graph, attribute, new IntPtr(p_obj), 64));
 				}
 			}
+		}
+
+		#endregion
+
+		#region Release(params Object[])
+
+		public static void Release(params Array[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Context[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Convolution[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Delay[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Distribution[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Graph[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Kernel[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Image[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Import[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Lut[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Matrix[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Node[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params ObjectArray[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Parameter[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Pyramid[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Remap[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Scalar[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Tensor[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
+		}
+
+		public static void Release(params Threshold[] objs)
+		{
+			for (int i = 0; i < objs.Length; i++)
+				Release(ref objs[i]);
 		}
 
 		#endregion

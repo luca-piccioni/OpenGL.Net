@@ -29,6 +29,7 @@
 #pragma warning disable 649
 
 using System;
+using System.Diagnostics;
 
 namespace OpenVX
 {
@@ -65,6 +66,7 @@ namespace OpenVX
 	/// <summary>
 	/// OpenVX object.
 	/// </summary>
+	[DebuggerDisplay("<#= underlyingType #>: Reference={_Reference}")]
 	public struct <#= underlyingType #><# if (underlyingObject) { #> : IDisposable<# }#>
 	{
 		#region Constructors
