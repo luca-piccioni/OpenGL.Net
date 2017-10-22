@@ -22,6 +22,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 
 using Khronos;
 
@@ -152,6 +153,51 @@ namespace OpenVX
 		private static void DebugCheckErrors(object returnValue)
 		{
 			
+		}
+
+		#endregion
+
+		#region vxFormatArrayPointer/vxArrayItem
+
+		/// <summary>
+		/// Accesses a specific indexed element in an array.
+		/// </summary>
+		/// <param name="ptr">
+		/// The base pointer for the array range.
+		/// </param>
+		/// <param name="index">
+		/// The index of the element, not byte, to access.
+		/// </param>
+		/// <param name="stride">
+		/// The 'number of bytes' between the beginning of two consecutive elements.
+		/// </param>
+		/// <returns>
+		/// 
+		/// </returns>
+		public static IntPtr FormatArrayPointer(IntPtr ptr, uint index, uint stride)
+		{
+			return (new IntPtr(ptr.ToInt64() + index * stride));
+		}
+
+		/// <summary>
+		/// Allows access to an array item as a typecast pointer deference.
+		/// </summary>
+		/// <typeparam name="T">
+		/// The type of the item to access.
+		/// </typeparam>
+		/// <param name="ptr">
+		/// The base pointer for the array range.
+		/// </param>
+		/// <param name="index">
+		/// The index of the element, not byte, to access.
+		/// </param>
+		/// <param name="stride">
+		/// The 'number of bytes' between the beginning of two consecutive elements.
+		/// </param>
+		/// <returns></returns>
+		public static T ArrayItem<T>(IntPtr ptr, uint index, uint stride)
+		{
+			return (Marshal.PtrToStructure<T>(FormatArrayPointer(ptr, index, stride)));
 		}
 
 		#endregion
