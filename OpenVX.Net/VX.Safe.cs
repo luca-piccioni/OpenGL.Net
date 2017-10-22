@@ -152,6 +152,28 @@ namespace OpenVX
 
 		#endregion
 
+		#region Query(Delay)
+
+		public static Status Query(Delay delay, DelayAttribute attribute, out OpenVX.Type obj)
+		{
+			unsafe {
+				fixed (OpenVX.Type *p_obj = &obj) {
+					return (Query(delay, attribute, new IntPtr(p_obj), (UIntPtr)4));
+				}
+			}
+		}
+
+		public static Status Query(Delay delay, DelayAttribute attribute, out UIntPtr obj)
+		{
+			unsafe {
+				fixed (UIntPtr *p_obj = &obj) {
+					return (Query(delay, attribute, new IntPtr(p_obj), (UIntPtr)UIntPtr.Size));
+				}
+			}
+		}
+
+		#endregion
+
 		#region Query(Graph)
 
 		public static Status Query(Graph graph, GraphAttribute attribute, out UIntPtr obj)
@@ -177,6 +199,19 @@ namespace OpenVX
 			unsafe {
 				fixed (Perf *p_obj = &obj) {
 					return (Query(graph, attribute, new IntPtr(p_obj), (UIntPtr)64));
+				}
+			}
+		}
+
+		#endregion
+
+		#region Query(Scalar)
+
+		public static Status Query(Scalar scalar, ScalarAttribute attribute, out OpenVX.Type obj)
+		{
+			unsafe {
+				fixed (OpenVX.Type *p_obj = &obj) {
+					return (Query(scalar, attribute, new IntPtr(p_obj), (UIntPtr)4));
 				}
 			}
 		}

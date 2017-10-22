@@ -97,6 +97,33 @@ namespace OpenVX
 #>
 		#endregion
 
+		#region Query(Delay)
+
+<#
+	object[] queryDelayTemplatesParams =	new object[] {
+		new[] { "OpenVX.Type", "4" },
+		new[] { "UIntPtr", "UIntPtr.Size" },
+	};
+
+	for (int i = 0; i < queryDelayTemplatesParams.Length; i++) {
+		object[] templateParams = (object[])queryDelayTemplatesParams[i];
+		string underlyingType = (string)templateParams[0];
+		string underlyingTypeSize = (string)templateParams[1];
+#>
+		public static Status Query(Delay delay, DelayAttribute attribute, out <#= underlyingType #> obj)
+		{
+			unsafe {
+				fixed (<#= underlyingType #> *p_obj = &obj) {
+					return (Query(delay, attribute, new IntPtr(p_obj), (UIntPtr)<#= underlyingTypeSize #>));
+				}
+			}
+		}
+
+<#
+}
+#>
+		#endregion
+
 		#region Query(Graph)
 
 <#
@@ -116,6 +143,32 @@ namespace OpenVX
 			unsafe {
 				fixed (<#= underlyingType #> *p_obj = &obj) {
 					return (Query(graph, attribute, new IntPtr(p_obj), (UIntPtr)<#= underlyingTypeSize #>));
+				}
+			}
+		}
+
+<#
+}
+#>
+		#endregion
+
+		#region Query(Scalar)
+
+<#
+	object[] queryScalarTemplatesParams = new object[] {
+		new[] { "OpenVX.Type", "4" },
+	};
+
+	for (int i = 0; i < queryScalarTemplatesParams.Length; i++) {
+		object[] templateParams = (object[])queryScalarTemplatesParams[i];
+		string underlyingType = (string)templateParams[0];
+		string underlyingTypeSize = (string)templateParams[1];
+#>
+		public static Status Query(Scalar scalar, ScalarAttribute attribute, out <#= underlyingType #> obj)
+		{
+			unsafe {
+				fixed (<#= underlyingType #> *p_obj = &obj) {
+					return (Query(scalar, attribute, new IntPtr(p_obj), (UIntPtr)<#= underlyingTypeSize #>));
 				}
 			}
 		}
