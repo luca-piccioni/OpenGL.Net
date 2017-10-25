@@ -52,12 +52,12 @@ configuration:
 before_build:
   - nuget restore %SLN_PATH%
 
-build:
-  parallel: true
-  project: %SLN_PATH%
-  verbosity: normal               # quiet|minimal|normal|detailed
-  publish_nuget: %PUBLISH_NUGET%
-  publish_nuget_symbols: false
+#build:
+#  publish_nuget: %PUBLISH_NUGET%
+#  publish_nuget_symbols: false
+
+build_script:
+  msbuild %SLN_PATH% /configuration:Release /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 # Happy to have a GL 1.1 software driver ^^
 test: 
