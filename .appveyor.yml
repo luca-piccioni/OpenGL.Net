@@ -43,12 +43,6 @@ assembly_info:
   assembly_file_version: "{version}"
   assembly_informational_version: "{version}"
 
-platform:
-  - Any CPU
-
-configuration:
-  - Release
-
 before_build:
   - nuget restore %SLN_PATH%
 
