@@ -8,7 +8,18 @@ init:
   - ps: Write-Host "Setting version to '$env:TAG_VERSION'"
   - ps: Update-AppveyorBuild -Version "$env:TAG_VERSION"
 
-image: Visual Studio 2015
+image:
+- Visual Studio 2015
+- Visual Studio 2017
+
+environment:
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      SLN_PATH: OpenGL.Net_VC14.sln
+      PUBLISH_NUGET: true
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      SLN_PATH: OpenGL.Net_VC15.sln
+      PUBLISH_NUGET: false
 
 pull_requests:
   do_not_increment_build_number: true
@@ -39,13 +50,13 @@ configuration:
   - Release
 
 before_build:
-  - nuget restore OpenGL.Net_VC14.sln
+  - nuget restore %SLN_PATH%
 
 build:
   parallel: true
-  project: OpenGL.Net_VC14.sln
+  project: %SLN_PATH%
   verbosity: normal               # quiet|minimal|normal|detailed
-  publish_nuget: true
+  publish_nuget: %PUBLISH_NUGET%
   publish_nuget_symbols: false
 
 # Happy to have a GL 1.1 software driver ^^
