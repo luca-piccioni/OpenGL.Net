@@ -85,28 +85,28 @@ namespace BindingsGen
 			if ((args.Length > 0) && (Array.FindIndex(args, delegate(string item) { return (item == "--only-logmaps"); }) >= 0)) {
 				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
 					Console.WriteLine("Generating GL log map...");
-					ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
+					ctx = new RegistryContext("Gl", "Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
 					glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 					glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapGl.xml"));
 				}
 
 				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0)) {
 					Console.WriteLine("Generating WGL log map...");
-					ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
+					ctx = new RegistryContext("Wgl", "Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
 					glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 					glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapWgl.xml"));
 				}
 
 				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--glx"); }) >= 0)) {
 					Console.WriteLine("Generating GLX log map...");
-					ctx = new RegistryContext("Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
+					ctx = new RegistryContext("Glx", "Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
 					glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 					glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapGlx.xml"));
 				}
 
 				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0)) {
 					Console.WriteLine("Generating EGL log map...");
-					ctx = new RegistryContext("Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
+					ctx = new RegistryContext("Egl", "Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
 					glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 					glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapEgl.xml"));
 				}
@@ -152,7 +152,7 @@ namespace BindingsGen
 					gles1Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es1.1"));
 
 				Console.WriteLine("Loading GL specification...");
-				ctx = new RegistryContext("Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
+				ctx = new RegistryContext("Gl", "Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
 				ctx.RefPages.Add(gl4Documentation);
 				ctx.RefPages.Add(gl2Documentation);
 				ctx.RefPages.Add(gles3Documentation);
@@ -170,7 +170,7 @@ namespace BindingsGen
 
 			// OpenGL for Windows
 			if (genWGL) {
-				ctx = new RegistryContext("Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
+				ctx = new RegistryContext("Wgl", "Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
 				ctx.RefPages.Add(gl4Documentation);
 				ctx.RefPages.Add(gl2Documentation);
 
@@ -185,7 +185,7 @@ namespace BindingsGen
 
 			// OpenGL for Unix
 			if (genGLX) {
-				ctx = new RegistryContext("Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
+				ctx = new RegistryContext("Glx", "Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
 				ctx.RefPages.Add(gl4Documentation);
 				ctx.RefPages.Add(gl2Documentation);
 
@@ -204,7 +204,7 @@ namespace BindingsGen
 				eglDocumentation.Api = "EGL";
 				eglDocumentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/EGL-Registry/sdk/docs/man"));
 
-				ctx = new RegistryContext("Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
+				ctx = new RegistryContext("Egl", "Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
 				ctx.RefPages.Add(eglDocumentation);
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
@@ -229,7 +229,7 @@ namespace BindingsGen
 				headRegistry.CommandExitRegex = " WF(D|C)_APIEXIT";
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfc.h"), new KhronosVersion(1, 0, KhronosVersion.ApiWfc));
 
-				ctx = new RegistryContext("Wfc", headRegistry);
+				ctx = new RegistryContext("Wfc", "Wfc", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenWF");
 				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
@@ -246,7 +246,7 @@ namespace BindingsGen
 				headRegistry.CommandExitRegex = " WF(D|C)_APIEXIT";
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfd.h"), new KhronosVersion(1, 0, KhronosVersion.ApiWfd));
 
-				ctx = new RegistryContext("Wfd", headRegistry);
+				ctx = new RegistryContext("Wfd", "Wfd", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenWF");
 				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
@@ -260,28 +260,37 @@ namespace BindingsGen
 			OutputBasePath = "OpenVX.Net";
 
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--vx"); }) >= 0)) {
-				Header headRegistry = new Header("VX");
-				headRegistry.CommandExportRegex = "VX_API_ENTRY ";
-				headRegistry.CommandCallConventionRegex = "VX_API_CALL ";
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_api.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_types.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_kernels.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_nodes.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_vendors.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_import.h"), new KhronosVersion(1, 1, KhronosVersion.ApiVx));
+				Header vxRegistry = new Header("VX");
+				vxRegistry.CommandExportRegex = "VX_API_ENTRY ";
+				vxRegistry.CommandCallConventionRegex = "VX_API_CALL ";
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_api.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_types.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_kernels.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_nodes.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_vendors.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_import.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
 
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_icd.h"), "VX_KHR_icd");
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_ix.h"), "VX_KHR_ix");
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_nn.h"), "VX_KHR_nn");
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_tiling.h"), "VX_KHR_tiling");
-				headRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_xml.h"), "VX_KHR_xml");
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_icd.h"), "VX_KHR_icd");
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_ix.h"), "VX_KHR_ix");
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_nn.h"), "VX_KHR_nn");
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_tiling.h"), "VX_KHR_tiling");
+				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_khr_xml.h"), "VX_KHR_xml");
 
-				ctx = new RegistryContext("VX", headRegistry);
+				ctx = new RegistryContext("VX", "VX", vxRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");
 				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				//glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				//glRegistryProcessor.GenerateVersionsSupportClass(ctx);
+
+				Header vxuRegistry = new Header("VXU");
+				vxuRegistry.CommandExportRegex = "VX_API_ENTRY ";
+				vxuRegistry.CommandCallConventionRegex = "VX_API_CALL ";
+				vxuRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vxu.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
+
+				ctx = new RegistryContext("VXU", "VX", vxuRegistry);
+				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");
+				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 			}
 		}
 

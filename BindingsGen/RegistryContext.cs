@@ -46,7 +46,7 @@ namespace BindingsGen
 		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
 		/// - The features selection to include in the generated sources
 		/// </param>
-		private RegistryContext(string @class)
+		private RegistryContext(string @class, string wordsClass)
 		{
 			// Store the class
 			Class = @class;
@@ -68,7 +68,7 @@ namespace BindingsGen
 			// Loads the extension dictionary
 			ExtensionsDictionary = SpecWordsDictionary.Load("BindingsGen.GLSpecs.ExtWords.xml");
 			// Loads the words dictionary
-			WordsDictionary = SpecWordsDictionary.Load(String.Format("BindingsGen.GLSpecs.{0}Words.xml", @class));
+			WordsDictionary = SpecWordsDictionary.Load(String.Format("BindingsGen.GLSpecs.{0}Words.xml", wordsClass ?? @class));
 		}
 
 		/// <summary>
@@ -82,8 +82,8 @@ namespace BindingsGen
 		/// <param name="registryPath">
 		/// A <see cref="String"/> that specifies the path of the OpenGL specification to parse.
 		/// </param>
-		public RegistryContext(string @class, string registryPath) :
-			this( @class)
+		public RegistryContext(string @class, string wordsClass, string registryPath) :
+			this(@class, wordsClass)
 		{
 			using (StreamReader sr = new StreamReader(registryPath)) {
 				Registry specRegistry = (Registry)SpecSerializer.Deserialize(sr);
@@ -105,8 +105,8 @@ namespace BindingsGen
 		/// <param name="registry">
 		/// A <see cref="IRegistry"/> that specifies the elements of the OpenGL specification.
 		/// </param>
-		public RegistryContext(string @class, IRegistry registry) :
-			this( @class)
+		public RegistryContext(string @class, string wordsClass, IRegistry registry) :
+			this(@class, wordsClass)
 		{
 			Registry = registry;
 		}

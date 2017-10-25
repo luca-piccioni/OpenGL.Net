@@ -2,41 +2,70 @@
 <words>
     <word>1d</word>
     <word>2d</word>
+    <word>Abs</word>
     <word>Activation</word>
     <word>Address</word>
     <word>Add</word>
     <word>Age</word>
     <word>Aging</word>
     <word>Allocate</word>
+    <word>And</word>
+    <word>Affine</word>
     <word>Attribute</word>
     <word>Array</word>
     <word>Assign</word>
     <word>Auto</word>
+    <word>Box3x3</word>
     <word>By</word>
     <word>Callback</word>
+    <word>Canny</word>
+    <word>Cells</word>
     <word>Connected</word>
+    <word>Corners</word>
     <word>Create</word>
     <word>Channel</word>
     <word>Coefficients</word>
+    <word>Color</word>
+    <word>Combine</word>
     <word>Context</word>
+    <word>Convert</word>
     <word>Convolution</word>
+    <word>Convolve</word>
     <word>Copy</word>
     <word>Delay</word>
+    <word>Depth</word>
+    <word>Detector</word>
+    <word>Dev</word>
+    <word>Diff</word>
+    <word>Dilate3x3</word>
     <word>Directive</word>
     <word>Distribution</word>
+    <word>Edge</word>
     <word>Enum</word>
     <word>Entry</word>
+    <word>Equalize</word>
+    <word>Erode3x3</word>
     <word>Exported</word>
     <word>Export</word>
+    <word>Extract</word>
+    <word>Fast</word>
+    <word>Features</word>
+    <word>Flow</word>
+    <word>Filter</word>
     <word>Format</word>
     <word>From</word>
     <word>Fully</word>
+    <word>Gaussian3x3</word>
     <word>Generic</word>
     <word>Get</word>
     <word>Graph</word>
     <word>Kernel</word>
     <word>Handle</word>
+    <word>Harris</word>
     <word>Hint</word>
+    <word>Histogram</word>
+    <word>Hist</word>
+    <word>HOG</word>
     <word>Id</word>
     <word>Is</word>
     <word>Image</word>
@@ -45,31 +74,50 @@
     <word>Index</word>
     <word>Items</word>
     <word>Item</word>
+    <word>Laplacian</word>
     <word>Layer</word>
     <word>Level</word>
     <word>Library</word>
+    <word>Linear</word>
+    <word>Loc</word>
     <word>Log</word>
+    <word>Lookup</word>
+    <word>LK</word>
     <word>LUT</word>
+    <word>Magnitude</word>
     <word>Matrix</word>
     <word>Map</word>
+    <word>Max</word>
+    <word>Median3x3</word>
     <word>Memory</word>
+    <word>Mean</word>
     <word>Meta</word>
+    <word>Min</word>
     <word>Mode</word>
+    <word>Multiply</word>
     <word>Name</word>
     <word>Node</word>
+    <word>Non</word>
     <word>Normalization</word>
+    <word>Not</word>
     <word>Objects</word>
     <word>Object</word>
+    <word>Or</word>
+    <word>Optical</word>
     <word>Output</word>
     <word>Patch</word>
     <word>Pattern</word>
     <word>Parameter</word>
+    <word>Perspective</word>
+    <word>Phase</word>
     <word>Point</word>
     <word>Polling</word>
     <word>Process</word>
     <word>Pyramid</word>
+    <word>Pyr</word>
     <word>Query</word>
     <word>Range</word>
+    <word>Reconstruct</word>
     <word>Rectangle</word>
     <word>Release</word>
     <word>Reference</word>
@@ -79,13 +127,19 @@
     <word>Retrieve</word>
     <word>ROI</word>
     <word>Scalar</word>
+    <word>Scale</word>
     <word>Schedule</word>
     <word>Set</word>
     <word>Size</word>
+    <word>Sobel3x3</word>
     <word>Softmax</word>
     <word>Status</word>
+    <word>Std</word>
     <word>Struct</word>
+    <word>Subtract</word>
+    <word>Suppression</word>
     <word>Swap</word>
+    <word>Table</word>
     <word>Target</word>
     <word>Tensor</word>
     <word>To</word>
@@ -98,6 +152,8 @@
     <word>Verify</word>
     <word>Virtual</word>
     <word>Wait</word>
+    <word>Warp</word>
     <word>With</word>
     <word>XML</word>
+    <word>Xor</word>
 </words>

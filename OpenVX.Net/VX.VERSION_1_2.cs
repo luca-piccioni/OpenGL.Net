@@ -2424,7 +2424,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static Matrix CreateMatrixFromPattern(Context context, Pattern pattern, UIntPtr columns, UIntPtr rows, UIntPtr origin_col, UIntPtr origin_row)
+		public static Matrix CreateMatrixFromPatternAndOr(Context context, Pattern pattern, UIntPtr columns, UIntPtr rows, UIntPtr origin_col, UIntPtr origin_row)
 		{
 			Matrix retValue;
 
