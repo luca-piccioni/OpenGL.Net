@@ -743,7 +743,7 @@ namespace OpenGL
 			for (uint i = 0; i < v.Length; i++) {
 				Vector3 v3 = new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w;
 
-				vmin = Vector3.Max(vmin, v3);
+				vmin = Vector3.Min(vmin, v3);
 				vmax = Vector3.Max(vmax, v3);
 			}
 
@@ -795,7 +795,7 @@ namespace OpenGL
 			for (uint i = 0; i < count; i++) {
 				Vector3 v3 = new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w;
 
-				vmin = Vector3.Max(vmin, v3);
+				vmin = Vector3.Min(vmin, v3);
 				vmax = Vector3.Max(vmax, v3);
 			}
 
