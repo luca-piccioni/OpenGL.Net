@@ -44,8 +44,6 @@
     <None Remove="KhronosLogMapWgl.xml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="KhronosLogMap.cs" />
-  </ItemGroup>
+  <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
 
 </Project>

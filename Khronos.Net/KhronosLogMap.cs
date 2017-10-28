@@ -32,7 +32,9 @@ namespace Khronos
 	/// <summary>
 	/// Contains metedata information for Khronos API commands.
 	/// </summary>
+#if NETFRAMEWORK
 	[XmlType("KhronosLogMap")]
+#endif
 	public sealed class KhronosLogMap
 	{
 		#region XML Schema
@@ -40,7 +42,9 @@ namespace Khronos
 		/// <summary>
 		/// Commands.
 		/// </summary>
+#if NETFRAMEWORK
 		[XmlElement("command")]
+#endif
 		public Command[] Commands
 		{
 			get { return (_Commands.Values.ToArray()); }
@@ -63,33 +67,45 @@ namespace Khronos
 		/// <summary>
 		/// Command element.
 		/// </summary>
+#if NETFRAMEWORK
 		[XmlType("command")]
+#endif
 		public sealed class Command
 		{
 			/// <summary>
 			/// Command name.
 			/// </summary>
+#if NETFRAMEWORK
 			[XmlAttribute("name")]
+#endif
 			public string Name;
 
 			/// <summary>
 			/// Command parameters flags.
 			/// </summary>
+#if NETFRAMEWORK
 			[XmlElement("param")]
+#endif
 			public CommandParam[] Params;
 		}
 
 		/// <summary>
 		/// Command parameter element.
 		/// </summary>
+#if NETFRAMEWORK
 		[XmlType("command_param")]
+#endif
 		public sealed class CommandParam
 		{
+#if NETFRAMEWORK
 			[XmlAttribute("name")]
+#endif
 			public string Name;
 
+#if NETFRAMEWORK
 			[XmlAttribute("flags")]
 			[DefaultValue(KhronosLogCommandParameterFlags.None)]
+#endif
 			public KhronosLogCommandParameterFlags Flags = KhronosLogCommandParameterFlags.None;
 		}
 
@@ -111,9 +127,13 @@ namespace Khronos
 			if (resourcePath == null)
 				throw new ArgumentNullException("resourcePath");
 
+#if NETFRAMEWORK
 			using (Stream xmlStream = Assembly.GetCallingAssembly().GetManifestResourceStream(resourcePath)) {
 				return ((KhronosLogMap)_XmlSerializer.Deserialize(xmlStream));
 			}
+#else
+			throw new NotImplementedException();
+#endif
 		}
 
 		/// <summary>
@@ -132,15 +152,21 @@ namespace Khronos
 			if (logMap == null)
 				throw new ArgumentNullException("logMap");
 
+#if NETFRAMEWORK
 			using (FileStream fs = new FileStream(resourcePath, FileMode.Create, FileAccess.Write)) {
 				_XmlSerializer.Serialize(fs, logMap);
 			}
+#else
+			throw new NotImplementedException();
+#endif
 		}
 
+#if NETFRAMEWORK
 		/// <summary>
 		/// XML serializer used by <see cref="Load"/> for loading log maps.
 		/// </summary>
 		private static XmlSerializer _XmlSerializer = new XmlSerializer(typeof(KhronosLogMap));
+#endif
 
 		#endregion
 

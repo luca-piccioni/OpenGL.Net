@@ -136,11 +136,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloObjects_net461", "Samp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net_netstd1.1", "OpenGL.Net\OpenGL.Net_netstd1.1.csproj", "{DC8F2E18-2475-46FB-9A70-670930E591AF}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Khronos.Net", "Khronos.Net\Khronos.Net.shproj", "{C403B635-6B87-4540-8679-7889ED5D3360}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Khronos.Net\Khronos.Net.projitems*{6ce61c1e-e93a-404a-89b7-1e8ea3baf663}*SharedItemsImports = 4
 		Khronos.Net\Khronos.Net.projitems*{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}*SharedItemsImports = 4
 		Khronos.Net\Khronos.Net.projitems*{abb8dfa8-473a-4fc1-85c0-e21680772a58}*SharedItemsImports = 4
+		Khronos.Net\Khronos.Net.projitems*{c403b635-6b87-4540-8679-7889ed5d3360}*SharedItemsImports = 13
 		Khronos.Net\Khronos.Net.projitems*{e8e7d5ba-d0a6-4a6c-a748-c1aaaf2c0473}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
