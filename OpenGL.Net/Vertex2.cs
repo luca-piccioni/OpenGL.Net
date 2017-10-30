@@ -29,7 +29,6 @@ namespace OpenGL
 	/// Vertex value type (byte coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UByte, 2)]
 	[DebuggerDisplay("Vertex2ub: X={x} Y={y}")]
 	public struct Vertex2ub
 	{
@@ -806,7 +805,6 @@ namespace OpenGL
 	/// Vertex value type (sbyte coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Byte, 2)]
 	[DebuggerDisplay("Vertex2b: X={x} Y={y}")]
 	public struct Vertex2b
 	{
@@ -1597,7 +1595,6 @@ namespace OpenGL
 	/// Vertex value type (ushort coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UShort, 2)]
 	[DebuggerDisplay("Vertex2us: X={x} Y={y}")]
 	public struct Vertex2us
 	{
@@ -2374,7 +2371,6 @@ namespace OpenGL
 	/// Vertex value type (short coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Short, 2)]
 	[DebuggerDisplay("Vertex2s: X={x} Y={y}")]
 	public struct Vertex2s
 	{
@@ -3165,7 +3161,6 @@ namespace OpenGL
 	/// Vertex value type (uint coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UInt, 2)]
 	[DebuggerDisplay("Vertex2ui: X={x} Y={y}")]
 	public struct Vertex2ui
 	{
@@ -3942,7 +3937,6 @@ namespace OpenGL
 	/// Vertex value type (int coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Int, 2)]
 	[DebuggerDisplay("Vertex2i: X={x} Y={y}")]
 	public struct Vertex2i
 	{
@@ -4733,7 +4727,6 @@ namespace OpenGL
 	/// Vertex value type (float coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Float, 2)]
 	[DebuggerDisplay("Vertex2f: X={x} Y={y}")]
 	public struct Vertex2f
 	{
@@ -5467,7 +5460,6 @@ namespace OpenGL
 	/// Vertex value type (double coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Double, 2)]
 	[DebuggerDisplay("Vertex2d: X={x} Y={y}")]
 	public struct Vertex2d
 	{
@@ -6202,7 +6194,6 @@ namespace OpenGL
 	/// Vertex value type (HalfFloat coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Half, 2)]
 	[DebuggerDisplay("Vertex2hf: X={x} Y={y}")]
 	public struct Vertex2hf
 	{

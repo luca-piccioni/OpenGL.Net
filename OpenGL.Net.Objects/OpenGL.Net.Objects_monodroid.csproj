@@ -59,6 +59,8 @@
     <Compile Include="ArrayBufferBase.cs" />
     <Compile Include="ArrayBufferInterleaved.cs" />
     <Compile Include="ArrayBufferItem.cs" />
+    <Compile Include="ArrayBufferItemAttribute.cs" />
+    <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="Buffer.cs" />
     <Compile Include="Collections\StringDictionary.cs" />
     <Compile Include="ElementBuffer.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="MediaCodecCriteria.cs" />
     <Compile Include="MediaFormatAttribute.cs" />
     <Compile Include="MediaInfo.cs" />
+    <Compile Include="PixelLayoutExtensions.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Query.cs" />
     <Compile Include="RenderBuffer.cs" />
@@ -180,6 +183,7 @@
     <Compile Include="VertexArrays.Elements.cs" />
     <Compile Include="VertexArraySemantic.cs" />
     <Compile Include="VertexArrayTexGen.cs" />
+    <Compile Include="VertexBaseType.cs" />
     <Compile Include="Vincenty.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +226,10 @@
     <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math_monodroid.csproj">
+      <Project>{71558d65-3d8d-446f-a981-befb67bb4560}</Project>
+      <Name>OpenGL.Net.Math_monodroid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_monodroid.csproj">
       <Project>{6981be72-a39a-4534-bd3f-132d813a461f}</Project>
       <Name>OpenGL.Net_monodroid</Name>

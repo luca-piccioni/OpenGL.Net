@@ -22,7 +22,7 @@
 using System;
 using System.Diagnostics;
 
-namespace OpenGL
+namespace OpenGL.Objects
 {
 	/// <summary>
 	/// The type of the data collected in OpenGL array buffers.
@@ -349,6 +349,7 @@ namespace OpenGL
 				case ArrayBufferItemType.Float4x3:
 				case ArrayBufferItemType.Float4x4:
 					return (VertexBaseType.Float);
+#if !MONODROID
 				case ArrayBufferItemType.Double:
 				case ArrayBufferItemType.Double2:
 				case ArrayBufferItemType.Double3:
@@ -363,6 +364,7 @@ namespace OpenGL
 				case ArrayBufferItemType.Double4x3:
 				case ArrayBufferItemType.Double4x4:
 					return (VertexBaseType.Double);
+#endif
 				case ArrayBufferItemType.Half:
 				case ArrayBufferItemType.Half2:
 				case ArrayBufferItemType.Half3:
@@ -662,8 +664,10 @@ namespace OpenGL
 					return (VertexPointerType.Int);
 				case VertexBaseType.Float:
 					return (VertexPointerType.Float);
+#if !MONODROID
 				case VertexBaseType.Double:
 					return (VertexPointerType.Double);
+#endif
 				default:
 					throw new NotSupportedException(String.Format("vertex pointer of type {0} not supported", vertexArrayType));
 			}
@@ -696,8 +700,10 @@ namespace OpenGL
 					return (ColorPointerType.UnsignedInt);
 				case VertexBaseType.Float:
 					return (ColorPointerType.Float);
+#if !MONODROID
 				case VertexBaseType.Double:
 					return (ColorPointerType.Double);
+#endif
 				default:
 					throw new NotSupportedException(String.Format("color pointer of type {0} not supported", vertexArrayType));
 			}
@@ -724,8 +730,10 @@ namespace OpenGL
 					return (NormalPointerType.Int);
 				case VertexBaseType.Float:
 					return (NormalPointerType.Float);
+#if !MONODROID
 				case VertexBaseType.Double:
 					return (NormalPointerType.Double);
+#endif
 				default:
 					throw new NotSupportedException(String.Format("normal pointer of type {0} not supported", vertexArrayType));
 			}
@@ -750,8 +758,10 @@ namespace OpenGL
 					return (TexCoordPointerType.Int);
 				case VertexBaseType.Float:
 					return (TexCoordPointerType.Float);
+#if !MONODROID
 				case VertexBaseType.Double:
 					return (TexCoordPointerType.Double);
+#endif
 				default:
 					throw new NotSupportedException(String.Format("vertex pointer of type {0} not supported", vertexArrayType));
 			}

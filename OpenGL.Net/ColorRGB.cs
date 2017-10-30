@@ -603,8 +603,7 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.Byte, 3)]
-
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB24 : IColorRGB<byte>
 	{
 		#region Constructors
@@ -849,8 +848,7 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.UShort, 3)]
-
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB48 : IColorRGB<ushort>
 	{
 		#region Constructors
@@ -1095,8 +1093,7 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.UInt, 3)]
-
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB96 : IColorRGB<uint>
 	{
 		#region Constructors
@@ -1328,8 +1325,7 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.Float, 3)]
-
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGBF : IColorRGB<float>
 	{
 		#region Constructors
@@ -1574,8 +1570,7 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.Double, 3)]
-
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGBD : IColorRGB<double>
 	{
 		#region Constructors
@@ -1807,8 +1802,7 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 1)]	[ArrayBufferItem(VertexBaseType.Half, 3)]
-
+	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGBHF : IColorRGB<HalfFloat>
 	{
 		#region Constructors

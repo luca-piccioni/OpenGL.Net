@@ -156,6 +156,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math_net461.csproj">
+      <Project>{05dfbc0c-afbc-4ed0-bf43-80d7bb4e8dfd}</Project>
+      <Name>OpenGL.Net.Math_net461</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net461.csproj">
       <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
       <Name>OpenGL.Net_net461</Name>

@@ -67,7 +67,6 @@ namespace OpenGL
 	/// Matrix composed by <#= c #> columns and <#= r #> rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, <#= c #>, <#= r #>)]
 	public struct <#= className #>
 	{
 		#region Structure

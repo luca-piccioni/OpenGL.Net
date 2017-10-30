@@ -76,7 +76,6 @@
     <Compile Include="ANDROID\Egl.ANDROID_native_fence_sync.cs" />
     <Compile Include="ANDROID\Egl.ANDROID_presentation_time.cs" />
     <Compile Include="ANDROID\Egl.ANDROID_recordable.cs" />
-    <Compile Include="Angle.cs" />
     <Compile Include="ANGLE\Egl.ANGLE_d3d_share_handle_client_buffer.cs" />
     <Compile Include="ANGLE\Egl.ANGLE_device_d3d.cs" />
     <Compile Include="ANGLE\Egl.ANGLE_query_surface_pointer.cs" />
@@ -135,8 +134,6 @@
     <Compile Include="ARM\Gl.ARM_mali_program_binary.cs" />
     <Compile Include="ARM\Gl.ARM_mali_shader_binary.cs" />
     <Compile Include="ARM\Gl.ARM_shader_framebuffer_fetch.cs" />
-    <Compile Include="ArrayBufferItemAttribute.cs" />
-    <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="ATI\Gl.ATI_element_array.cs" />
     <Compile Include="ATI\Gl.ATI_envmap_bumpmap.cs" />
     <Compile Include="ATI\Gl.ATI_fragment_shader.cs" />
@@ -152,12 +149,6 @@
     <Compile Include="ATI\Gl.ATI_vertex_attrib_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_streams.cs" />
     <Compile Include="Bcm.cs" />
-    <Compile Include="ColorBGR.cs" />
-    <Compile Include="ColorBGRA.cs" />
-    <Compile Include="ColorR.cs" />
-    <Compile Include="ColorRGB.cs" />
-    <Compile Include="ColorRGBA.cs" />
-    <Compile Include="ColorRGBARef.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="DeviceContextEGL.cs" />
     <Compile Include="DevicePixelFormat.cs" />
@@ -317,7 +308,6 @@
     <Compile Include="GlslVersion.cs" />
     <Compile Include="GREMEDY\Gl.GREMEDY_frame_terminator.cs" />
     <Compile Include="GREMEDY\Gl.GREMEDY_string_marker.cs" />
-    <Compile Include="HalfFloat.cs" />
     <Compile Include="HI\Egl.HI_clientpixmap.cs" />
     <Compile Include="HI\Egl.HI_colorformats.cs" />
     <Compile Include="HP\Gl.HP_convolution_border_modes.cs" />
@@ -329,12 +319,6 @@
     <Compile Include="IBM\Gl.IBM_rasterpos_clip.cs" />
     <Compile Include="IBM\Gl.IBM_static_data.cs" />
     <Compile Include="IBM\Gl.IBM_vertex_array_lists.cs" />
-    <Compile Include="IColor.cs" />
-    <Compile Include="ICopiable.cs" />
-    <Compile Include="IFragment.cs" />
-    <Compile Include="IMatrix.cs" />
-    <Compile Include="IMatrix3x3.cs" />
-    <Compile Include="IMatrix4x4.cs" />
     <Compile Include="IMG\Egl.IMG_context_priority.cs" />
     <Compile Include="IMG\Egl.IMG_image_plane_attribs.cs" />
     <Compile Include="IMG\Gl.IMG_framebuffer_downsample.cs" />
@@ -346,7 +330,6 @@
     <Compile Include="IMG\Gl.IMG_texture_env_enhanced_fixed_function.cs" />
     <Compile Include="IMG\Gl.IMG_texture_filter_cubic.cs" />
     <Compile Include="IMG\Gl.IMG_user_clip_plane.cs" />
-    <Compile Include="IModelMatrix.cs" />
     <Compile Include="INativePBuffer.cs" />
     <Compile Include="INativeWindow.cs" />
     <Compile Include="INGR\Gl.INGR_color_clamp.cs" />
@@ -356,7 +339,6 @@
     <Compile Include="INTEL\Gl.INTEL_map_texture.cs" />
     <Compile Include="INTEL\Gl.INTEL_parallel_arrays.cs" />
     <Compile Include="INTEL\Gl.INTEL_performance_query.cs" />
-    <Compile Include="IProjectionMatrix.cs" />
     <Compile Include="KhronosApi.cs" />
     <Compile Include="KHR\Egl.KHR_context_flush_control.cs" />
     <Compile Include="KHR\Egl.KHR_create_context.cs" />
@@ -382,13 +364,6 @@
     <Compile Include="KHR\Egl.KHR_wait_sync.cs" />
     <Compile Include="KHR\Gl.KHR_blend_equation_advanced_coherent.cs" />
     <Compile Include="LimitAttribute.cs" />
-    <Compile Include="Matrix.cs" />
-    <Compile Include="Matrix3x3.cs" />
-    <Compile Include="Matrix4x4.cs" />
-    <Compile Include="MatrixBase.cs" />
-    <Compile Include="MatrixDouble.cs" />
-    <Compile Include="MatrixDouble3x3.cs" />
-    <Compile Include="MatrixDouble4x4.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="MemoryLock.cs" />
     <Compile Include="MESAX\Gl.MESAX_texture_stack.cs" />
@@ -399,8 +374,6 @@
     <Compile Include="MESA\Gl.MESA_resize_buffers.cs" />
     <Compile Include="MESA\Gl.MESA_window_pos.cs" />
     <Compile Include="MESA\Gl.MESA_ycbcr_texture.cs" />
-    <Compile Include="ModelMatrix.cs" />
-    <Compile Include="ModelMatrixDouble.cs" />
     <Compile Include="NOK\Egl.NOK_swap_region.cs" />
     <Compile Include="NOK\Egl.NOK_swap_region2.cs" />
     <Compile Include="NOK\Egl.NOK_texture_from_pixmap.cs" />
@@ -545,12 +518,6 @@
     <Compile Include="OVR\Gl.OVR_multiview_multisampled_render_to_texture.cs" />
     <Compile Include="PGI\Gl.PGI_misc_hints.cs" />
     <Compile Include="PGI\Gl.PGI_vertex_hints.cs" />
-    <Compile Include="PixelLayout.cs" />
-    <Compile Include="PixelLayoutExtensions.cs" />
-    <Compile Include="PixelSpace.cs" />
-    <Compile Include="Plane.cs" />
-    <Compile Include="ProjectionMatrix.cs" />
-    <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QCOM\Gl.QCOM_alpha_test.cs" />
     <Compile Include="QCOM\Gl.QCOM_binning_control.cs" />
@@ -562,7 +529,6 @@
     <Compile Include="QCOM\Gl.QCOM_shader_framebuffer_fetch_noncoherent.cs" />
     <Compile Include="QCOM\Gl.QCOM_tiled_rendering.cs" />
     <Compile Include="QCOM\Gl.QCOM_writeonly_rendering.cs" />
-    <Compile Include="Quaternion.cs" />
     <Compile Include="REND\Gl.REND_screen_coordinates.cs" />
     <Compile Include="S3\Gl.S3_s3tc.cs" />
     <Compile Include="SGIS\Gl.SGIS_detail_texture.cs" />
@@ -621,11 +587,6 @@
     <Compile Include="SUN\Gl.SUN_vertex.cs" />
     <Compile Include="TIZEN\Egl.TIZEN_image_native_buffer.cs" />
     <Compile Include="TIZEN\Egl.TIZEN_image_native_surface.cs" />
-    <Compile Include="Vertex2.cs" />
-    <Compile Include="Vertex3.cs" />
-    <Compile Include="Vertex3Ref.cs" />
-    <Compile Include="Vertex4.cs" />
-    <Compile Include="VertexBaseType.cs" />
     <Compile Include="VIV\Gl.VIV_shader_binary.cs" />
     <Compile Include="WIN\Gl.WIN_phong_shading.cs" />
     <Compile Include="WIN\Gl.WIN_specular_fog.cs" />

@@ -62,7 +62,6 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 4)]
 	public struct <#= className #> : IColorRGBA<<#= interfaceType #>>
 	{
 		#region Constructors
@@ -99,7 +98,8 @@ namespace OpenGL
 		/// </param>
 		/// <param name="a">
 		/// A <see cref="<#= interfaceType #>"/> that specify the alpha component.
-		/// </param><#
+		/// </param>
+<#
 if (structMembersCount[i] == 1) { #>
 		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b, <#= interfaceType #> a)
 		{
@@ -118,6 +118,7 @@ if (structMembersCount[i] == 1) { #>
 			this.a = a;
 		}
 <# } #>
+
 		#endregion
 
 		#region Structure
@@ -307,9 +308,11 @@ if (structMembersCount[i] == 1) { #>
 			set { r = value; }
 		}
 <# } #>
+
 		/// <summary>
 		/// Get or set the green component.
-		/// </summary><#
+		/// </summary>
+<#
 if (structMembersCount[i] == 1) {
 	int gOffset = bits[2], gWidth = bits[3];
 	int gMask = 1;							for (int b = 1; b < gWidth; b++) gMask = (gMask << 1) | 1;
@@ -327,9 +330,11 @@ if (structMembersCount[i] == 1) {
 			set { g = value; }
 		}
 <# } #>
+
 		/// <summary>
 		/// Get or set the blue component.
-		/// </summary><#
+		/// </summary>
+<#
 if (structMembersCount[i] == 1) {
 	int bOffset = bits[4], bWidth = bits[5];
 	int bMask = 1;							
@@ -348,9 +353,11 @@ if (structMembersCount[i] == 1) {
 			set { b = value; }
 		}
 <# } #>
+
 		/// <summary>
 		/// Get or set the alpha component.
-		/// </summary><#
+		/// </summary>
+<#
 if (structMembersCount[i] == 1) {
 	int aOffset = bits[6], aWidth = bits[7];
 	int aMask = 1;							
@@ -369,6 +376,7 @@ if (structMembersCount[i] == 1) {
 			set { a = value; }
 		}
 <# } #>
+
 		#endregion
 
 		#region IColor Implementation

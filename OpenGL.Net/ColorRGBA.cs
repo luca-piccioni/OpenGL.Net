@@ -1,11 +1,4 @@
-﻿
-
-
-
-
-
-
-// Copyright (C) 2009-2017 Luca Piccioni
+﻿// Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,12 +26,10 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
-{
-	/// <summary>
+{	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UByte, 4)]
 	public struct ColorRGBA32 : IColorRGBA<byte>
 	{
 		#region Constructors
@@ -88,7 +79,6 @@ namespace OpenGL
 		#endregion
 
 		#region Structure
-
 		/// <summary>
 		/// Red color components.
 		/// </summary>
@@ -108,7 +98,6 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public byte a;
-
 		#endregion
 
 		#region Cast Operators
@@ -252,7 +241,6 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
-
 		public byte Red
 		{
 			get { return (r); }
@@ -308,8 +296,7 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{
-			get
+		{			get
 			{
 				switch (c) {
 					case 0: return ((float)Red   / byte.MaxValue);
@@ -333,17 +320,14 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
 	}
-
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UShort, 4)]
 	public struct ColorRGBA64 : IColorRGBA<ushort>
 	{
 		#region Constructors
@@ -393,7 +377,6 @@ namespace OpenGL
 		#endregion
 
 		#region Structure
-
 		/// <summary>
 		/// Red color components.
 		/// </summary>
@@ -413,7 +396,6 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public ushort a;
-
 		#endregion
 
 		#region Cast Operators
@@ -557,7 +539,6 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
-
 		public ushort Red
 		{
 			get { return (r); }
@@ -613,8 +594,7 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{
-			get
+		{			get
 			{
 				switch (c) {
 					case 0: return ((float)Red   / ushort.MaxValue);
@@ -638,17 +618,14 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
 	}
-
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Float, 4)]
 	public struct ColorRGBAF : IColorRGBA<float>
 	{
 		#region Constructors
@@ -698,7 +675,6 @@ namespace OpenGL
 		#endregion
 
 		#region Structure
-
 		/// <summary>
 		/// Red color components.
 		/// </summary>
@@ -718,7 +694,6 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public float a;
-
 		#endregion
 
 		#region Cast Operators
@@ -862,7 +837,6 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
-
 		public float Red
 		{
 			get { return (r); }
@@ -918,8 +892,7 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{
-			get
+		{			get
 			{
 				switch (c) {
 					case 0: return (Red);
@@ -943,17 +916,14 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
 	}
-
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Half, 4)]
 	public struct ColorRGBAHF : IColorRGBA<HalfFloat>
 	{
 		#region Constructors
@@ -1003,7 +973,6 @@ namespace OpenGL
 		#endregion
 
 		#region Structure
-
 		/// <summary>
 		/// Red color components.
 		/// </summary>
@@ -1023,7 +992,6 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public HalfFloat a;
-
 		#endregion
 
 		#region Cast Operators
@@ -1167,7 +1135,6 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
-
 		public HalfFloat Red
 		{
 			get { return (r); }
@@ -1223,8 +1190,7 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{
-			get
+		{			get
 			{
 				switch (c) {
 					case 0: return (Red);
@@ -1248,10 +1214,8 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
-
 		}
 
 		#endregion
 	}
-
 }

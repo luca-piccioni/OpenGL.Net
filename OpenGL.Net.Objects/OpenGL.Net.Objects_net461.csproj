@@ -86,6 +86,8 @@
     <Compile Include="ArrayBuffer.cs" />
     <Compile Include="ArrayBufferBase.cs" />
     <Compile Include="ArrayBufferInterleaved.cs" />
+    <Compile Include="ArrayBufferItemAttribute.cs" />
+    <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="Collections\StringDictionary.cs" />
     <Compile Include="Font.cs" />
     <Compile Include="FontFactory.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="IBindingIndexResource.cs" />
     <Compile Include="IFont.cs" />
     <Compile Include="IShaderUniformContainer.cs" />
+    <Compile Include="PixelLayoutExtensions.cs" />
     <Compile Include="Sampler.cs" />
     <Compile Include="SamplerParameters.cs" />
     <Compile Include="Scene\SceneGraphFlags.cs" />
@@ -217,6 +220,7 @@
     <Compile Include="VertexArrays.Elements.cs" />
     <Compile Include="VertexArraySemantic.cs" />
     <Compile Include="VertexArrayTexGen.cs" />
+    <Compile Include="VertexBaseType.cs" />
     <Compile Include="Vincenty.cs" />
     <EmbeddedResource Include="Shaders\Font\Fragment.FontPatch.glsl" />
     <EmbeddedResource Include="Shaders\Font\Vertex.FontPatch.glsl" />
@@ -276,6 +280,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math_net461.csproj">
+      <Project>{05dfbc0c-afbc-4ed0-bf43-80d7bb4e8dfd}</Project>
+      <Name>OpenGL.Net.Math_net461</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net461.csproj">
       <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
       <Name>OpenGL.Net_net461</Name>

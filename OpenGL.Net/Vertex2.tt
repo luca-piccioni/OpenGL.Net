@@ -54,7 +54,6 @@ namespace OpenGL
 	/// Vertex value type (<#= baseType #> coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 2)]
 	[DebuggerDisplay("<#= className #>: X={x} Y={y}")]
 	public struct <#= className #>
 	{

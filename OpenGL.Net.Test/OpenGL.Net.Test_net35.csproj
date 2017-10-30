@@ -125,6 +125,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math_net35.csproj">
+      <Project>{013e33ae-b501-4a6e-87a1-4c3f6e071a06}</Project>
+      <Name>OpenGL.Net.Math_net35</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net35.csproj">
       <Project>{ABB8DFA8-473A-4FC1-85C0-E21680772A58}</Project>
       <Name>OpenGL.Net_net35</Name>

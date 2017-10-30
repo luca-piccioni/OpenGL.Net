@@ -21,7 +21,7 @@
 
 using System;
 
-namespace OpenGL
+namespace OpenGL.Objects
 {
 	/// <summary>
 	/// Base type of vertex components.
@@ -63,10 +63,14 @@ namespace OpenGL
 		/// </summary>
 		Float = Gl.FLOAT,
 
+#if !MONODROID
+
 		/// <summary>
 		/// Double-precision floating-point components.
 		/// </summary>
 		Double = Gl.DOUBLE,
+
+#endif
 
 		/// <summary>
 		/// Half-precision floating-point components.
@@ -89,7 +93,9 @@ namespace OpenGL
 			switch (vertexBaseType) {
 					case VertexBaseType.Float:
 					case VertexBaseType.Half:
+#if !MONODROID
 					case VertexBaseType.Double:
+#endif
 						return (true);
 					default:
 						return (false);
@@ -335,6 +341,8 @@ namespace OpenGL
 
 				#endregion
 
+#if !MONODROID
+
 				#region VertexBaseType.Double
 
 				case VertexBaseType.Double:
@@ -391,6 +399,8 @@ namespace OpenGL
 
 				#endregion
 
+#endif
+
 				#region VertexBaseType.Half
 
 				case VertexBaseType.Half:
@@ -442,8 +452,10 @@ namespace OpenGL
 				case VertexBaseType.Int:
 				case VertexBaseType.UInt:
 					return (4);
+#if !MONODROID
 				case VertexBaseType.Double:
 					return (8);
+#endif
 				default:
 					throw new NotSupportedException("base type not supported");
 			}

@@ -33,7 +33,6 @@ namespace OpenGL
 	/// Vertex value type (byte coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UByte, 4)]
 	[DebuggerDisplay("Vertex4ub: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4ub
 	{
@@ -764,7 +763,6 @@ namespace OpenGL
 	/// Vertex value type (sbyte coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Byte, 4)]
 	[DebuggerDisplay("Vertex4b: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4b
 	{
@@ -1508,7 +1506,6 @@ namespace OpenGL
 	/// Vertex value type (ushort coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UShort, 4)]
 	[DebuggerDisplay("Vertex4us: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4us
 	{
@@ -2239,7 +2236,6 @@ namespace OpenGL
 	/// Vertex value type (short coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Short, 4)]
 	[DebuggerDisplay("Vertex4s: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4s
 	{
@@ -2983,7 +2979,6 @@ namespace OpenGL
 	/// Vertex value type (uint coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UInt, 4)]
 	[DebuggerDisplay("Vertex4ui: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4ui
 	{
@@ -3714,7 +3709,6 @@ namespace OpenGL
 	/// Vertex value type (int coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Int, 4)]
 	[DebuggerDisplay("Vertex4i: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4i
 	{
@@ -4458,7 +4452,6 @@ namespace OpenGL
 	/// Vertex value type (float coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Float, 4)]
 	[DebuggerDisplay("Vertex4f: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4f
 	{
@@ -5238,7 +5231,6 @@ namespace OpenGL
 	/// Vertex value type (double coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Double, 4)]
 	[DebuggerDisplay("Vertex4d: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4d
 	{
@@ -5949,7 +5941,6 @@ namespace OpenGL
 	/// Vertex value type (HalfFloat coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Half, 4)]
 	[DebuggerDisplay("Vertex4hf: X={x} Y={y} Z={z} W={w}")]
 	public struct Vertex4hf
 	{

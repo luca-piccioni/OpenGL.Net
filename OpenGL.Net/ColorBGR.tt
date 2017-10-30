@@ -57,9 +57,6 @@ namespace OpenGL
 	/// BGR color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-<# if (vertexBaseType[i] != null) { #>
-	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 3)]
-<# } #>
 	public struct <#= className #> : IColorRGB<<#= interfaceType #>>
 	{
 		#region Constructors

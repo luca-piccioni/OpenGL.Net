@@ -49,7 +49,6 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.<#= vertexBaseType[i] #>, 1)]
 	public struct <#= className #> : IColor
 	{
 		#region Constructors

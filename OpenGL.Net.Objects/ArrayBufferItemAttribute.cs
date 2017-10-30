@@ -22,7 +22,7 @@
 using System;
 using System.Diagnostics;
 
-namespace OpenGL
+namespace OpenGL.Objects
 {
 	/// <summary>
 	/// Attribute assigned to those types having a direct representation in buffer.

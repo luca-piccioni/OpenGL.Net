@@ -213,30 +213,93 @@ namespace OpenGL.Objects
 			if (type == null)
 				throw new ArgumentNullException("type");
 
-			if (type == typeof(SByte))
-				return (ArrayBufferItemType.Byte);
-			if (type == typeof(Int16))
-				return (ArrayBufferItemType.Short);
-			if (type == typeof(Int32))
-				return (ArrayBufferItemType.Int);
+			// Support .NET Framework types
+			// Support OpenGL.Net.Math types
+			// Support unknown types using ArrayBufferItemAttribute
 
-			if (type == typeof(Byte))
-				return (ArrayBufferItemType.UByte);
-			if (type == typeof(UInt16))
-				return (ArrayBufferItemType.UShort);
-			if (type == typeof(UInt32))
-				return (ArrayBufferItemType.UInt);
-
-			if (type == typeof(Single))
+			// Single-Precision Floating-Point Types
+			if      (type == typeof(Single))
 				return (ArrayBufferItemType.Float);
-			if (type == typeof(Double))
-				return (ArrayBufferItemType.Double);
-			if (type == typeof(HalfFloat))
-				return (ArrayBufferItemType.Half);
+			else if (type == typeof(Vertex2f))
+				return (ArrayBufferItemType.Float2);
+			else if (type == typeof(Vertex3f) || type == typeof(ColorRGBF) || type == typeof(ColorBGRF))
+				return (ArrayBufferItemType.Float3);
+			else if (type == typeof(Vertex4f) || type == typeof(ColorRGBAF) || type == typeof(ColorBGRAF))
+				return (ArrayBufferItemType.Float4);
 
-			ArrayBufferItemAttribute attribute = (ArrayBufferItemAttribute) Attribute.GetCustomAttribute(type, typeof(ArrayBufferItemAttribute));
-			if (attribute != null)
-				return (attribute.ArrayType);
+			// Signed Integer Types
+
+			else if (type == typeof(Int16))
+				return (ArrayBufferItemType.Short);
+			else if (type == typeof(Vertex2s))
+				return (ArrayBufferItemType.Short2);
+			else if (type == typeof(Vertex3s))
+				return (ArrayBufferItemType.Short3);
+			else if (type == typeof(Vertex4s))
+				return (ArrayBufferItemType.Short4);
+
+			else if (type == typeof(Int32))
+				return (ArrayBufferItemType.Int);
+			else if (type == typeof(Vertex2i))
+				return (ArrayBufferItemType.Int2);
+			else if (type == typeof(Vertex3i))
+				return (ArrayBufferItemType.Int3);
+			else if (type == typeof(Vertex4i))
+				return (ArrayBufferItemType.Int4);
+
+			// Unsigned Integer Types
+
+			else if (type == typeof(UInt16))
+				return (ArrayBufferItemType.UShort);
+			else if (type == typeof(Vertex2us))
+				return (ArrayBufferItemType.UShort2);
+			else if (type == typeof(Vertex3us))
+				return (ArrayBufferItemType.UShort3);
+			else if (type == typeof(Vertex4us))
+				return (ArrayBufferItemType.UShort4);
+
+			else if (type == typeof(UInt32))
+				return (ArrayBufferItemType.UInt);
+			else if (type == typeof(Vertex2ui))
+				return (ArrayBufferItemType.UInt2);
+			else if (type == typeof(Vertex3ui) || type == typeof(ColorRGB96))
+				return (ArrayBufferItemType.UInt3);
+			else if (type == typeof(Vertex4ui))
+				return (ArrayBufferItemType.UInt4);
+
+			// Half-Precision Floating-Point Types
+
+			else if (type == typeof(HalfFloat))
+				return (ArrayBufferItemType.Half);
+			else if (type == typeof(Vertex2hf))
+				return (ArrayBufferItemType.Half2);
+			else if (type == typeof(Vertex3hf))
+				return (ArrayBufferItemType.Half3);
+			else if (type == typeof(Vertex4hf))
+				return (ArrayBufferItemType.Half4);
+
+			// Single-Precision Floating-Point Matrix Types
+
+			else if (type == typeof(Matrix4x4f))
+				return (ArrayBufferItemType.Float4x4);
+
+			// Double-Precision Floating-Point Matrix Types
+
+			else if (type == typeof(Matrix4x4d))
+				return (ArrayBufferItemType.Double4x4);
+
+			else if (type == typeof(SByte))
+				return (ArrayBufferItemType.Byte);
+			else if (type == typeof(Byte))
+				return (ArrayBufferItemType.UByte);
+			else if (type == typeof(Double))
+				return (ArrayBufferItemType.Double);
+
+			else {
+				ArrayBufferItemAttribute attribute = (ArrayBufferItemAttribute) Attribute.GetCustomAttribute(type, typeof(ArrayBufferItemAttribute));
+				if (attribute != null)
+					return (attribute.ArrayType);
+			}
 
 			throw new ArgumentException("not corresponding information", "type");
 		}

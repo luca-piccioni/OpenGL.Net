@@ -147,6 +147,14 @@
       <Project>{1da7d767-b83a-416e-a235-2ebe0fbe1769}</Project>
       <Name>OpenGL.Net.WinForms_net461</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.Math_monodroid.csproj">
+      <Project>{71558d65-3d8d-446f-a981-befb67bb4560}</Project>
+      <Name>OpenGL.Net.Math_monodroid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.Math_net461.csproj">
+      <Project>{05dfbc0c-afbc-4ed0-bf43-80d7bb4e8dfd}</Project>
+      <Name>OpenGL.Net.Math_net461</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_net461.csproj">
       <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
       <Name>OpenGL.Net_net461</Name>

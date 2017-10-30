@@ -33,7 +33,6 @@ namespace OpenGL
 	/// Vertex value type (byte coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UByte, 3)]
 	[DebuggerDisplay("Vertex3ub: X={x} Y={y} Z={z}")]
 	public struct Vertex3ub : IEquatable<Vertex3ub>
 	{
@@ -796,7 +795,6 @@ namespace OpenGL
 	/// Vertex value type (sbyte coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Byte, 3)]
 	[DebuggerDisplay("Vertex3b: X={x} Y={y} Z={z}")]
 	public struct Vertex3b : IEquatable<Vertex3b>
 	{
@@ -1573,7 +1571,6 @@ namespace OpenGL
 	/// Vertex value type (ushort coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UShort, 3)]
 	[DebuggerDisplay("Vertex3us: X={x} Y={y} Z={z}")]
 	public struct Vertex3us : IEquatable<Vertex3us>
 	{
@@ -2336,7 +2333,6 @@ namespace OpenGL
 	/// Vertex value type (short coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Short, 3)]
 	[DebuggerDisplay("Vertex3s: X={x} Y={y} Z={z}")]
 	public struct Vertex3s : IEquatable<Vertex3s>
 	{
@@ -3113,7 +3109,6 @@ namespace OpenGL
 	/// Vertex value type (uint coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.UInt, 3)]
 	[DebuggerDisplay("Vertex3ui: X={x} Y={y} Z={z}")]
 	public struct Vertex3ui : IEquatable<Vertex3ui>
 	{
@@ -3876,7 +3871,6 @@ namespace OpenGL
 	/// Vertex value type (int coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Int, 3)]
 	[DebuggerDisplay("Vertex3i: X={x} Y={y} Z={z}")]
 	public struct Vertex3i : IEquatable<Vertex3i>
 	{
@@ -4653,7 +4647,6 @@ namespace OpenGL
 	/// Vertex value type (float coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Float, 3)]
 	[DebuggerDisplay("Vertex3f: X={x} Y={y} Z={z}")]
 	public struct Vertex3f : IEquatable<Vertex3f>
 	{
@@ -5418,7 +5411,6 @@ namespace OpenGL
 	/// Vertex value type (double coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Double, 3)]
 	[DebuggerDisplay("Vertex3d: X={x} Y={y} Z={z}")]
 	public struct Vertex3d : IEquatable<Vertex3d>
 	{
@@ -6183,7 +6175,6 @@ namespace OpenGL
 	/// Vertex value type (HalfFloat coordinates).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	[ArrayBufferItem(VertexBaseType.Half, 3)]
 	[DebuggerDisplay("Vertex3hf: X={x} Y={y} Z={z}")]
 	public struct Vertex3hf : IEquatable<Vertex3hf>
 	{

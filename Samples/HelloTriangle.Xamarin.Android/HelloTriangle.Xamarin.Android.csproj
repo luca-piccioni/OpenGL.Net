@@ -86,6 +86,10 @@
       <Project>{e5afe227-06d5-4448-87d2-391e6b688f78}</Project>
       <Name>OpenGL.Net.Xamarin.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.Math_monodroid.csproj">
+      <Project>{71558d65-3d8d-446f-a981-befb67bb4560}</Project>
+      <Name>OpenGL.Net.Math_monodroid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_monodroid.csproj">
       <Project>{6981be72-a39a-4534-bd3f-132d813a461f}</Project>
       <Name>OpenGL.Net_monodroid</Name>

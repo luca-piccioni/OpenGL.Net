@@ -22,7 +22,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenGL
+namespace OpenGL.Objects
 {
 	/// <summary>
 	/// Extension methods for <see cref="PixelLayout"/> enumeration.
@@ -351,9 +351,11 @@ namespace OpenGL
 				case PixelLayout.RGB8:
 				case PixelLayout.BGR8:	
 					return (InternalFormat.Rgb8);
+#if !MONODROID
 				case PixelLayout.RGB15:
 				case PixelLayout.BGR15:
 					return (InternalFormat.Rgb5);
+#endif
 				case PixelLayout.RGB16:
 				case PixelLayout.BGR16:
 					return (InternalFormat.Rgb8);
@@ -664,8 +666,10 @@ namespace OpenGL
 
 				case PixelLayout.SRGB24:
 					return (PixelFormat.Rgb);
+#if !MONODROID
 				case PixelLayout.SBGR24:
 					return (PixelFormat.Bgr);
+#endif
 
 				#endregion
 
@@ -685,11 +689,13 @@ namespace OpenGL
 				case PixelLayout.BGR8:				// Uses Gl.UNSIGNED_BYTE_2_3_3_REV as data type
 				case PixelLayout.BGR16:             // Uses Gl.UNSIGNED_SHORT_5_6_5_REV as data type
 					return (PixelFormat.Rgb);
+#if !MONODROID
 				case PixelLayout.BGR24:
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRF:
 				case PixelLayout.BGRHF:
 					return (PixelFormat.Bgr);
+#endif
 				case PixelLayout.BGR15:
 					return (PixelFormat.Rgba);		// Uses texture swizzle A = NONE and Gl.UNSIGNED_SHORT_5_5_5_1_REV as data type
 
@@ -1001,8 +1007,10 @@ namespace OpenGL
 
 				#region RGB Data Types
 
+#if !MONODROID
 				case PixelLayout.RGB8:
 					return (PixelType.UnsignedByte332);
+#endif
 				case PixelLayout.RGB15:
 					return (PixelType.UnsignedShort5551);
 				case PixelLayout.RGB16:
@@ -1013,8 +1021,10 @@ namespace OpenGL
 					return (PixelType.UnsignedShort);
 				case PixelLayout.RGBF:
 					return (PixelType.Float);
+#if !MONODROID
 				case PixelLayout.RGBD:
 					return (PixelType.Double);
+#endif
 				case PixelLayout.RGBHF:
 					return (PixelType.HalfFloat);
 
@@ -1033,7 +1043,7 @@ namespace OpenGL
 				//case PixelLayout.RGB30A2:
 				//	return (PixelType.UnsignedInt1010102);
 				case PixelLayout.RGBA32:
-					return (PixelType.UnsignedInt8888);
+					return (PixelType.UnsignedByte);
 				case PixelLayout.RGBA64:
 					return (PixelType.UnsignedShort);
 				case PixelLayout.RGBAF:
@@ -1045,12 +1055,16 @@ namespace OpenGL
 
 				#region BGR Data Types
 
+#if !MONODROID
 				case PixelLayout.BGR8:
 					return (PixelType.UnsignedByte233Rev);
+#endif
 				case PixelLayout.BGR15:
 					return (PixelType.UnsignedShort1555Rev);
+#if !MONODROID
 				case PixelLayout.BGR16:
 					return (PixelType.UnsignedShort565Rev);
+#endif
 				case PixelLayout.BGR24:
 					return (PixelType.UnsignedByte);
 				case PixelLayout.BGR48:

@@ -29,7 +29,6 @@ namespace OpenGL
 	/// Matrix composed by 2 columns and 2 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 2, 2)]
 	public struct Matrix2x2f
 	{
 		#region Structure
@@ -76,7 +75,6 @@ namespace OpenGL
 	/// Matrix composed by 2 columns and 3 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 2, 3)]
 	public struct Matrix2x3f
 	{
 		#region Structure
@@ -123,7 +121,6 @@ namespace OpenGL
 	/// Matrix composed by 2 columns and 4 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 2, 4)]
 	public struct Matrix2x4f
 	{
 		#region Structure
@@ -170,7 +167,6 @@ namespace OpenGL
 	/// Matrix composed by 3 columns and 2 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 3, 2)]
 	public struct Matrix3x2f
 	{
 		#region Structure
@@ -223,7 +219,6 @@ namespace OpenGL
 	/// Matrix composed by 3 columns and 3 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 3, 3)]
 	public struct Matrix3x3f
 	{
 		#region Structure
@@ -276,7 +271,6 @@ namespace OpenGL
 	/// Matrix composed by 3 columns and 4 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 3, 4)]
 	public struct Matrix3x4f
 	{
 		#region Structure
@@ -329,7 +323,6 @@ namespace OpenGL
 	/// Matrix composed by 4 columns and 2 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 4, 2)]
 	public struct Matrix4x2f
 	{
 		#region Structure
@@ -388,7 +381,6 @@ namespace OpenGL
 	/// Matrix composed by 4 columns and 3 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 4, 3)]
 	public struct Matrix4x3f
 	{
 		#region Structure
@@ -447,7 +439,6 @@ namespace OpenGL
 	/// Matrix composed by 4 columns and 4 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 4, 4)]
 	public struct Matrix4x4f
 	{
 		#region Structure
@@ -506,7 +497,6 @@ namespace OpenGL
 	/// Matrix composed by 2 columns and 2 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 2, 2)]
 	public struct Matrix2x2d
 	{
 		#region Structure
@@ -553,7 +543,6 @@ namespace OpenGL
 	/// Matrix composed by 2 columns and 3 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 2, 3)]
 	public struct Matrix2x3d
 	{
 		#region Structure
@@ -600,7 +589,6 @@ namespace OpenGL
 	/// Matrix composed by 2 columns and 4 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 2, 4)]
 	public struct Matrix2x4d
 	{
 		#region Structure
@@ -647,7 +635,6 @@ namespace OpenGL
 	/// Matrix composed by 3 columns and 2 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 3, 2)]
 	public struct Matrix3x2d
 	{
 		#region Structure
@@ -700,7 +687,6 @@ namespace OpenGL
 	/// Matrix composed by 3 columns and 3 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 3, 3)]
 	public struct Matrix3x3d
 	{
 		#region Structure
@@ -753,7 +739,6 @@ namespace OpenGL
 	/// Matrix composed by 3 columns and 4 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 3, 4)]
 	public struct Matrix3x4d
 	{
 		#region Structure
@@ -806,7 +791,6 @@ namespace OpenGL
 	/// Matrix composed by 4 columns and 2 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 4, 2)]
 	public struct Matrix4x2d
 	{
 		#region Structure
@@ -865,7 +849,6 @@ namespace OpenGL
 	/// Matrix composed by 4 columns and 3 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 4, 3)]
 	public struct Matrix4x3d
 	{
 		#region Structure
@@ -924,7 +907,6 @@ namespace OpenGL
 	/// Matrix composed by 4 columns and 4 rows.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	[ArrayBufferItem(VertexBaseType.Float, 4, 4)]
 	public struct Matrix4x4d
 	{
 		#region Structure
