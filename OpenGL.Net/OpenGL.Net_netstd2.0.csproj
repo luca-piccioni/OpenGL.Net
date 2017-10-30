@@ -48,4 +48,6 @@
     <EmbeddedResource Include="KhronosLogMapWgl.xml" />
   </ItemGroup>
 
+  <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
+
 </Project>
