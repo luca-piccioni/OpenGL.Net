@@ -14,13 +14,11 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>bin\netstd2.0\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\netstd2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>bin\netstd2.0\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\netstd2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
   

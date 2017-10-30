@@ -25,7 +25,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.IO;
 using System.Reflection;
+#if NETFRAMEWORK
 using System.Xml.Serialization;
+#endif
 
 namespace Khronos
 {
