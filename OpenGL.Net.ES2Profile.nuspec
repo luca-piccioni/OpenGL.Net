@@ -21,34 +21,20 @@ No graphical toolkit integration is included in this package. UI backends are su
 Note: this package has removed a specific a subset of the OpenGL specification. The binary includes only the symbols required by OpenGL ES 2.0/3.2.
         </description>
         <releaseNotes>
-* v0.6.1
-- Fixed bug preventing running on Windows with Mono (#66)
-- GL_ARB_parallel_shader_compile promoted to GL_KHR_parallel_shader_compile
-- Added GL_NV_query_resource and GL_NV_query_resource_tag
-- Added GL_NV_path_rendering enumerations (thanks to @frabert).
-- Added ProgramProperty enumeration
-- Renamed VertexAttribPName to VertexAttribEnum
-- Renamed HistogramTargetEXT to HistogramTarget
-- Renamed EvaluatorTarget to MapTarget
-- Renamed EvaluatorParameterName to MapQuery
-- Renamed FenceSyncCondition to SyncCondition
-- PackedVertexType type has been determined
-- DeleteStateNV and DeleteCommandListsNV have implicit 'n' parameter
-- Removed IVertex, ColorSRGB, ColorSBGR and Pixel classes. Vertex* refactor.
+* v0.7.0
+- Demerged math data structures to separate binary OpenGL.Net.Math.
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
         <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono Android Xamarin GPU Graphics 3D</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" />
-            <frameworkAssembly assemblyName="System.Drawing" targetFramework="net35" />
-            <frameworkAssembly assemblyName="System.Drawing" targetFramework="net461" />
+            <frameworkAssembly assemblyName="System.Core" targetFramework="monoandroid" />
             <frameworkAssembly assemblyName="System.Xml" />
         </frameworkAssemblies>
         <dependencies>
-            <group targetFramework="net461">
-                <dependency id="System.Numerics.Vectors" version="4.3.0" />
-                <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.3.0" />
-            </group>
+            <group targetFramework="net35"/>
+            <group targetFramework="net461" />
+            <group targetFramework="monoandroid"/>
         </dependencies>
     </metadata>
     <files>

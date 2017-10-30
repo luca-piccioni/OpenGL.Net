@@ -98,6 +98,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{0483B87E
 		OpenGL.Net.CoreProfile.nuspec = OpenGL.Net.CoreProfile.nuspec
 		OpenGL.Net.Debug.nuspec = OpenGL.Net.Debug.nuspec
 		OpenGL.Net.ES2Profile.nuspec = OpenGL.Net.ES2Profile.nuspec
+		OpenGL.Net.Math.nuspec = OpenGL.Net.Math.nuspec
 		OpenGL.Net.nuspec = OpenGL.Net.nuspec
 		OpenGL.Net.Objects.nuspec = OpenGL.Net.Objects.nuspec
 		OpenGL.Net.SC2Profile.nuspec = OpenGL.Net.SC2Profile.nuspec
