@@ -42,10 +42,6 @@ assembly_info:
 before_build:
   - nuget restore %SLN_PATH%
 
-#build:
-#  publish_nuget: %PUBLISH_NUGET%
-#  publish_nuget_symbols: false
-
 build_script:
   msbuild %SLN_PATH% /property:Configuration=Release /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
@@ -88,6 +84,7 @@ deploy:
     skip_symbols: true
     on:
       appveyor_repo_tag: true
+      PUBLISH_NUGET: true
 
 nuget:
   disable_publish_on_pr: true
