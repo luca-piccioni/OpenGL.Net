@@ -459,9 +459,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_occlusion_query")]
 		public static UInt32 GenQuery()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenQueries(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenQueries(1, &retValue);
+				LogCommand("glGenQueries", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -842,9 +846,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		public static UInt32 GenBuffer()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenBuffers(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenBuffers(1, &retValue);
+				LogCommand("glGenBuffers", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

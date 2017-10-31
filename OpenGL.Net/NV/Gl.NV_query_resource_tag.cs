@@ -63,9 +63,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_query_resource_tag")]
 		public static Int32 GenQueryResourceTagNV()
 		{
-			Int32[] retValue = new Int32[1];
-			GenQueryResourceTagNV(retValue);
-			return (retValue[0]);
+			Int32 retValue;
+			unsafe {
+				Delegates.pglGenQueryResourceTagNV(1, &retValue);
+				LogCommand("glGenQueryResourceTagNV", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

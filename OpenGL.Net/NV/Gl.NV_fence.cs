@@ -99,11 +99,15 @@ namespace OpenGL
 		/// [GL] glGenFencesNV: Binding for glGenFencesNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static UInt32 GenFencesNV()
+		public static UInt32 GenFenceNV()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenFencesNV(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenFencesNV(1, &retValue);
+				LogCommand("glGenFencesNV", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

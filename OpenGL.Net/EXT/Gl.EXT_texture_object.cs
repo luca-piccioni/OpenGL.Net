@@ -127,11 +127,15 @@ namespace OpenGL
 		/// [GL] glGenTexturesEXT: Binding for glGenTexturesEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static UInt32 GenTexturesEXT()
+		public static UInt32 GenTextureEXT()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenTexturesEXT(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenTexturesEXT(1, &retValue);
+				LogCommand("glGenTexturesEXT", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

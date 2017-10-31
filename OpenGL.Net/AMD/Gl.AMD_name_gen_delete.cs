@@ -87,9 +87,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
 		public static UInt32 GenNameAMD(Int32 identifier)
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenNameAMD(identifier, retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenNamesAMD(identifier, 1, &retValue);
+				LogCommand("glGenNamesAMD", null, identifier, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

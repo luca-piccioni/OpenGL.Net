@@ -4363,9 +4363,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static UInt32 GenRenderbuffer()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenRenderbuffers(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenRenderbuffers(1, &retValue);
+				LogCommand("glGenRenderbuffers", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -4544,9 +4548,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
 		public static UInt32 GenFramebuffer()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenFramebuffers(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenFramebuffers(1, &retValue);
+				LogCommand("glGenFramebuffers", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -5046,9 +5054,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
 		public static UInt32 GenVertexArray()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenVertexArrays(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenVertexArrays(1, &retValue);
+				LogCommand("glGenVertexArrays", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

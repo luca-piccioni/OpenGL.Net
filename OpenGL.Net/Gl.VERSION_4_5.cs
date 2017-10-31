@@ -274,9 +274,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateTransformFeedback()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateTransformFeedbacks(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateTransformFeedbacks(1, &retValue);
+				LogCommand("glCreateTransformFeedbacks", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -451,9 +455,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateBuffer()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateBuffers(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateBuffers(1, &retValue);
+				LogCommand("glCreateBuffers", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -1043,9 +1051,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateFramebuffer()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateFramebuffers(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateFramebuffers(1, &retValue);
+				LogCommand("glCreateFramebuffers", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -1565,9 +1577,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateRenderbuffer()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateRenderbuffers(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateRenderbuffers(1, &retValue);
+				LogCommand("glCreateRenderbuffers", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -1712,9 +1728,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateTexture(TextureTarget target)
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateTextures(target, retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateTextures((Int32)target, 1, &retValue);
+				LogCommand("glCreateTextures", null, target, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -3231,9 +3251,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateVertexArray()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateVertexArrays(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateVertexArrays(1, &retValue);
+				LogCommand("glCreateVertexArrays", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -3614,9 +3638,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateSampler()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateSamplers(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateSamplers(1, &retValue);
+				LogCommand("glCreateSamplers", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -3647,9 +3675,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateProgramPipeline()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateProgramPipelines(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateProgramPipelines(1, &retValue);
+				LogCommand("glCreateProgramPipelines", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -3713,9 +3745,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		public static UInt32 CreateQuery(QueryTarget target)
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateQueries(target, retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateQueries((Int32)target, 1, &retValue);
+				LogCommand("glCreateQueries", null, target, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

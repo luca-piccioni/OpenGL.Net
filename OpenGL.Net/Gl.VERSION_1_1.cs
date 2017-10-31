@@ -1733,9 +1733,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		public static UInt32 GenTexture()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenTextures(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenTextures(1, &retValue);
+				LogCommand("glGenTextures", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

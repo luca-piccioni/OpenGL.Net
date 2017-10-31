@@ -1017,9 +1017,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static UInt32 GenProgramPipeline()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenProgramPipelines(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenProgramPipelines(1, &retValue);
+				LogCommand("glGenProgramPipelines", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

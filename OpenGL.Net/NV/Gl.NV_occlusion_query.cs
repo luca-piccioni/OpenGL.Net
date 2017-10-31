@@ -85,11 +85,15 @@ namespace OpenGL
 		/// [GL] glGenOcclusionQueriesNV: Binding for glGenOcclusionQueriesNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_occlusion_query")]
-		public static UInt32 GenOcclusionQueriesNV()
+		public static UInt32 GenOcclusionQueryNV()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenOcclusionQueriesNV(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenOcclusionQueriesNV(1, &retValue);
+				LogCommand("glGenOcclusionQueriesNV", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

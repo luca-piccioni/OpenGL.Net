@@ -262,9 +262,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		public static UInt32 GenSampler()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenSamplers(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenSamplers(1, &retValue);
+				LogCommand("glGenSamplers", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

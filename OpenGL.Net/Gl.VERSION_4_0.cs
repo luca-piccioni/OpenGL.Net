@@ -2236,9 +2236,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_transform_feedback2")]
 		public static UInt32 GenTransformFeedback()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenTransformFeedbacks(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenTransformFeedbacks(1, &retValue);
+				LogCommand("glGenTransformFeedbacks", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

@@ -217,11 +217,15 @@ namespace OpenGL
 		/// [GL] glGenProgramPipelinesEXT: Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static UInt32 GenProgramPipelinesEXT()
+		public static UInt32 GenProgramPipelineEXT()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenProgramPipelinesEXT(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenProgramPipelinesEXT(1, &retValue);
+				LogCommand("glGenProgramPipelinesEXT", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

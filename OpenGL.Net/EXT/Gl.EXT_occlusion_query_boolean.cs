@@ -63,11 +63,15 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static UInt32 GenQueriesEXT()
+		public static UInt32 GenQueryEXT()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenQueriesEXT(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenQueriesEXT(1, &retValue);
+				LogCommand("glGenQueriesEXT", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

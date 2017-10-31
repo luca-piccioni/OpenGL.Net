@@ -177,9 +177,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 		public static UInt32 CreateStateNV()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateStateNV(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateStatesNV(1, &retValue);
+				LogCommand("glCreateStatesNV", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -440,11 +444,15 @@ namespace OpenGL
 		/// [GL] glCreateCommandListsNV: Binding for glCreateCommandListsNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-		public static UInt32 CreateCommandListsNV()
+		public static UInt32 CreateCommandListNV()
 		{
-			UInt32[] retValue = new UInt32[1];
-			CreateCommandListsNV(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglCreateCommandListsNV(1, &retValue);
+				LogCommand("glCreateCommandListsNV", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

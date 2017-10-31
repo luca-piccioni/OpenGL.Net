@@ -356,6 +356,35 @@ namespace BindingsGen.GLSpecs
 		}
 
 		/// <summary>
+		/// Get the name of the command implementation (with overloading).
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="RegistryContext"/> used for manipulating the command import name.
+		/// </param>
+		internal string GetImplementationName(RegistryContext ctx, out string extensionName)
+		{
+			string overridenName = CommandFlagsDatabase.GetCommandImplementationName(this);
+
+			if (overridenName == null) {
+				string implementationName = GetImplementationNameBase(ctx);
+
+				overridenName = ctx.WordsDictionary.GetOverridableName(ctx, implementationName);
+			}
+
+			// Determine extension name, if any
+			extensionName = String.Empty;
+
+			foreach (string extName in ctx.ExtensionsDictionary.Words) {
+				if (overridenName.EndsWith(extName)) {
+					extensionName = extName;
+					break;
+				}
+			}
+
+			return (overridenName);
+		}
+
+		/// <summary>
 		/// Get the local variable storing the returned value.
 		/// </summary>
 		private string ReturnVariableName { get { return ("retValue"); } }
@@ -910,13 +939,21 @@ namespace BindingsGen.GLSpecs
 		private void GenerateImplementation_GenOneObject(SourceStreamWriter sw, RegistryContext ctx)
 		{
 			List<CommandParameter> commandParams = new List<CommandParameter>();
-			string implementationName = GetImplementationName(ctx);
+
+			// Remove plularity suffix
+			string implementationExtension;
+			string implementationName = GetImplementationName(ctx, out implementationExtension);
+
+			implementationName = implementationName.Substring(0, implementationName.Length - implementationExtension.Length);
 
 			if      (implementationName.EndsWith("ies"))
 				implementationName = implementationName.Substring(0, implementationName.Length - 3) + "y";
 			else if (implementationName.EndsWith("s"))
 				implementationName = implementationName.Substring(0, implementationName.Length - 1);
 
+			implementationName = implementationName + implementationExtension;
+
+			// Force parameter type implementation
 			foreach (CommandParameter commandParameter in Parameters)
 				commandParams.Add(new CommandParameterArrayLength(commandParameter, ctx, this));
 
@@ -947,14 +984,21 @@ namespace BindingsGen.GLSpecs
 
 			#region Local Variables
 
-			sw.WriteLine("{0}[] {1} = new {0}[1];", returnParameterType, ReturnVariableName);
+			sw.WriteLine("{0} {1};", returnParameterType, ReturnVariableName);
 
 			#endregion
 
-			#region Implementation Call
+			#region Unsafe Block (Open)
+
+			sw.WriteLine("unsafe {");								// (1)
+			sw.Indent();
+
+			#endregion
+
+			#region Delegate Call
 
 			sw.WriteIdentation();
-			sw.Write("{0}(", GetImplementationName(ctx));
+			sw.Write("Delegates.{0}(", DelegateName);
 
 			#region Parameters
 
@@ -962,11 +1006,11 @@ namespace BindingsGen.GLSpecs
 				CommandParameter param = commandParams[i];
 
 				if      (CommandParameterArrayLength.IsArrayLengthParameter(param, ctx, this))
-					continue;
+					sw.Write("1");
 				else if (CommandParameterArrayLength.IsCompatible(ctx, this, param))
-					sw.Write(ReturnVariableName);
+					sw.Write("&" + ReturnVariableName);
 				else if (CommandParameterStrong.IsCompatible(ctx, this, param))
-					param.WriteImplementationParam(sw, ctx, this);
+					param.WriteDelegateParam(sw, ctx, this);
 				else
 					param.WriteDelegateParam(sw, ctx, this);
 
@@ -976,12 +1020,59 @@ namespace BindingsGen.GLSpecs
 
 			#endregion
 
-			sw.Write(");");
+			sw.Write(")");
+
+			sw.Write(";");
 			sw.WriteLine();
 
-			sw.WriteLine("return ({0}[0]);", ReturnVariableName);
+			#region Call Log
+
+			// Log command
+			sw.WriteIdentation(); sw.Write("LogCommand(\"{0}\"", ImportName);
+			sw.Write(", null");
+			// Arguments
+			if (commandParams.Count > 0) {
+				sw.Write(", ");
+				for (int i = 0; i < commandParams.Count; i++) {
+					CommandParameter param = commandParams[i];
+
+					if      (CommandParameterArrayLength.IsArrayLengthParameter(param, ctx, this))
+						sw.Write("1");
+					else if (CommandParameterArrayLength.IsCompatible(ctx, this, param))
+						sw.Write("\"{ \" + " + ReturnVariableName + " + \" }\"");
+					else
+						commandParams[i].WriteCallLogArgParam(sw, ctx, this);
+
+					if (i < commandParams.Count - 1)
+						sw.Write(", ");
+				}
+			}
+			// End LogCommand
+			sw.WriteLine(");");
 
 			#endregion
+
+			#endregion
+
+			#region Unsafe Block (Close)
+
+			sw.Unindent();
+			sw.WriteLine("}");										// (1) CLOSED
+
+			#endregion
+
+			// Check call errors
+			if ((Flags & CommandFlags.NoGetError) == 0) {
+				string returnValue = "null";
+
+				// Optionally pass the returned value to error checking method
+				if (HasReturnValue && !IsUnsafeImplementationSignature(ctx, commandParams))
+					returnValue = ReturnVariableName;
+
+				sw.WriteLine("DebugCheckErrors({0});", returnValue);
+			}
+
+			sw.WriteLine("return ({0});", ReturnVariableName);
 
 			sw.Unindent();
 			sw.WriteLine("}");

@@ -269,11 +269,15 @@ namespace OpenGL
 		/// [GL] glGenPerfMonitorsAMD: Binding for glGenPerfMonitorsAMD.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static UInt32 GenPerfMonitorsAMD()
+		public static UInt32 GenPerfMonitorAMD()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenPerfMonitorsAMD(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenPerfMonitorsAMD(1, &retValue);
+				LogCommand("glGenPerfMonitorsAMD", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

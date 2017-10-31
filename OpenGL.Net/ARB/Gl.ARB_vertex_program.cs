@@ -637,11 +637,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static UInt32 GenProgramsARB()
+		public static UInt32 GenProgramARB()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenProgramsARB(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenProgramsARB(1, &retValue);
+				LogCommand("glGenProgramsARB", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>

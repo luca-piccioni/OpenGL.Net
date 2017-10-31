@@ -118,11 +118,15 @@ namespace OpenGL
 		/// [GL] glGenRenderbuffersOES: Binding for glGenRenderbuffersOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static UInt32 GenRenderbuffersOES()
+		public static UInt32 GenRenderbufferOES()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenRenderbuffersOES(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenRenderbuffersOES(1, &retValue);
+				LogCommand("glGenRenderbuffersOES", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
@@ -256,11 +260,15 @@ namespace OpenGL
 		/// [GL] glGenFramebuffersOES: Binding for glGenFramebuffersOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static UInt32 GenFramebuffersOES()
+		public static UInt32 GenFramebufferOES()
 		{
-			UInt32[] retValue = new UInt32[1];
-			GenFramebuffersOES(retValue);
-			return (retValue[0]);
+			UInt32 retValue;
+			unsafe {
+				Delegates.pglGenFramebuffersOES(1, &retValue);
+				LogCommand("glGenFramebuffersOES", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
 		}
 
 		/// <summary>
