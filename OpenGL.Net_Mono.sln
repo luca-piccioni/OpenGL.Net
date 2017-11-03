@@ -99,6 +99,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.CoreUI_net461", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle.CoreUI", "Samples\HelloTriangle.CoreUI\HelloTriangle.CoreUI.csproj", "{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Khronos.Net", "Khronos.Net\Khronos.Net.shproj", "{C403B635-6B87-4540-8679-7889ED5D3360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Math_net461", "OpenGL.Net\OpenGL.Net.Math_net461.csproj", "{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Math_net35", "OpenGL.Net\OpenGL.Net.Math_net35.csproj", "{013E33AE-B501-4A6E-87A1-4C3F6E071A06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -291,6 +297,22 @@ Global
 		{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA}.Release|x86.ActiveCfg = Release|Any CPU
 		{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA}.Release|x86.Build.0 = Release|Any CPU
+		{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}.Debug|x86.ActiveCfg = Debug|x86
+		{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}.Debug|x86.Build.0 = Debug|x86
+		{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}.Release|x86.ActiveCfg = Release|x86
+		{05DFBC0C-AFBC-4ED0-BF43-80D7BB4E8DFD}.Release|x86.Build.0 = Release|x86
+		{013E33AE-B501-4A6E-87A1-4C3F6E071A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013E33AE-B501-4A6E-87A1-4C3F6E071A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013E33AE-B501-4A6E-87A1-4C3F6E071A06}.Debug|x86.ActiveCfg = Debug|x86
+		{013E33AE-B501-4A6E-87A1-4C3F6E071A06}.Debug|x86.Build.0 = Debug|x86
+		{013E33AE-B501-4A6E-87A1-4C3F6E071A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013E33AE-B501-4A6E-87A1-4C3F6E071A06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013E33AE-B501-4A6E-87A1-4C3F6E071A06}.Release|x86.ActiveCfg = Release|x86
+		{013E33AE-B501-4A6E-87A1-4C3F6E071A06}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
