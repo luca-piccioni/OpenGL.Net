@@ -42,10 +42,6 @@ assembly_info:
 before_build:
   - nuget restore %SLN_PATH%
 
-#build:
-#  publish_nuget: %PUBLISH_NUGET%
-#  publish_nuget_symbols: false
-
 build_script:
   msbuild %SLN_PATH% /property:Configuration=Release /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
@@ -64,8 +60,8 @@ test:
 
 after_test:
   - pip install codecov
-  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/nologo /timeout=1000 /noshadow OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net461.xml
-  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.Runners.2.6.4\tools\nunit-console.exe" -targetargs:"/nologo /timeout=1000 /noshadow OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net35.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"/nologo /timeout=1000 /noshadow OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net461.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"/nologo /timeout=1000 /noshadow OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net35.xml
   - codecov -f "OpenGL.Net_net461.xml" -F net461
   - codecov -f "OpenGL.Net_net35.xml" -F net35
   - nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
@@ -88,6 +84,7 @@ deploy:
     skip_symbols: true
     on:
       appveyor_repo_tag: true
+      PUBLISH_NUGET: true
 
 nuget:
   disable_publish_on_pr: true
