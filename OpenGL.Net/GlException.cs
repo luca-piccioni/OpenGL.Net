@@ -96,7 +96,7 @@ namespace OpenGL
 			switch (errorCode) {
 
 				default:
-					return (String.Format("unknown error code 0x{0}", errorCode.ToString("X8")));
+					return (String.Format("unknown error code {0}", errorCode));
 				case ErrorCode.NoError:
 					return ("no error");
 				case ErrorCode.InvalidEnum:
