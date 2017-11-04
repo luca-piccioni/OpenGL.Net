@@ -2,6 +2,7 @@
 using Android.App;
 using Android.OS;
 
+using Khronos;
 using OpenGL;
 using OpenGL.Objects;
 using OpenGL.Objects.Scene;
