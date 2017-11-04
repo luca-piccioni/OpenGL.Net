@@ -776,6 +776,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <PostBuildEvent>$(SolutionDir)BindingsGen\bin\$(ConfigurationName)\BindingsGen.exe --assembly "$(TargetPath)"</PostBuildEvent>

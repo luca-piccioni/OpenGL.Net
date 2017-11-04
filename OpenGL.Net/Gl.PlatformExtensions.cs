@@ -45,12 +45,12 @@ namespace OpenGL
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
-								return (Wgl.CurrentExtensions.CreateContext_ARB);
+								return (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContext_ARB);
 							case Platform.Id.Linux:
-								return (Glx.CurrentExtensions.CreateContext_ARB);
+								return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContext_ARB);
 							case Platform.Id.MacOS:
 								if (Glx.IsRequired)
-									return (Glx.CurrentExtensions.CreateContext_ARB);
+									return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContext_ARB);
 								else
 									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 							default:
@@ -73,12 +73,12 @@ namespace OpenGL
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
-								return (Wgl.CurrentExtensions.CreateContextProfile_ARB);
+								return (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContextProfile_ARB);
 							case Platform.Id.Linux:
-								return (Glx.CurrentExtensions.CreateContextProfile_ARB);
+								return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContextProfile_ARB);
 							case Platform.Id.MacOS:
 								if (Glx.IsRequired)
-									return (Glx.CurrentExtensions.CreateContextProfile_ARB);
+									return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContextProfile_ARB);
 								else
 									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 							default:
@@ -101,12 +101,12 @@ namespace OpenGL
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
-								return (Wgl.CurrentExtensions.CreateContextRobustness_ARB);
+								return (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContextRobustness_ARB);
 							case Platform.Id.Linux:
-								return (Glx.CurrentExtensions.CreateContextRobustness_ARB);
+								return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContextRobustness_ARB);
 							case Platform.Id.MacOS:
 								if (Glx.IsRequired)
-									return (Glx.CurrentExtensions.CreateContextRobustness_ARB);
+									return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContextRobustness_ARB);
 								else
 									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 							default:
@@ -129,12 +129,12 @@ namespace OpenGL
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
-								return (Wgl.CurrentExtensions.CreateContextEsProfile_EXT);
+								return (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContextEsProfile_EXT);
 							case Platform.Id.Linux:
-								return (Glx.CurrentExtensions.CreateContextEsProfile_EXT);
+								return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContextEsProfile_EXT);
 							case Platform.Id.MacOS:
 								if (Glx.IsRequired)
-									return (Glx.CurrentExtensions.CreateContextEsProfile_EXT);
+									return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContextEsProfile_EXT);
 								else
 									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 							default:
@@ -157,12 +157,12 @@ namespace OpenGL
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
-								return (Wgl.CurrentExtensions.Multisample_ARB);
+								return (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.Multisample_ARB);
 							case Platform.Id.Linux:
-								return (Glx.CurrentExtensions.Multisample_ARB);
+								return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.Multisample_ARB);
 							case Platform.Id.MacOS:
 								if (Glx.IsRequired)
-									return (Glx.CurrentExtensions.Multisample_ARB);
+									return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.Multisample_ARB);
 								else
 									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 							default:
@@ -185,12 +185,12 @@ namespace OpenGL
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
-								return (Wgl.CurrentExtensions.SwapControl_EXT);
+								return (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.SwapControl_EXT);
 							case Platform.Id.Linux:
-								return (Glx.CurrentExtensions.SwapControl_EXT);
+								return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.SwapControl_EXT);
 							case Platform.Id.MacOS:
 								if (Glx.IsRequired)
-									return (Glx.CurrentExtensions.SwapControl_EXT);
+									return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.SwapControl_EXT);
 								else
 									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 							default:
@@ -213,12 +213,12 @@ namespace OpenGL
 					if (Egl.IsRequired == false) {
 						switch (Platform.CurrentPlatformId) {
 							case Platform.Id.WindowsNT:
-								return (Wgl.CurrentExtensions.SwapControlTear_EXT);
+								return (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.SwapControlTear_EXT);
 							case Platform.Id.Linux:
-								return (Glx.CurrentExtensions.SwapControlTear_EXT);
+								return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.SwapControlTear_EXT);
 							case Platform.Id.MacOS:
 								if (Glx.IsRequired)
-									return (Glx.CurrentExtensions.SwapControlTear_EXT);
+									return (Glx.CurrentExtensions != null && Glx.CurrentExtensions.SwapControlTear_EXT);
 								else
 									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 							default:
