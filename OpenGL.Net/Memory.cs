@@ -21,7 +21,6 @@
 
 // Field is never assigned to, and will always have its default value null
 // Note: fields in Memory class will be assigned by means of reflections, indeed disable the warning on this module
-
 #pragma warning disable 649
 
 using System;
