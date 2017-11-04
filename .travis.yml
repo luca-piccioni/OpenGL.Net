@@ -7,9 +7,9 @@ addons:
         - xpra
         - mesa-utils
 install:
-  - nuget
   - sudo nuget update -self
   - sudo nuget restore OpenGL.Net_Mono.sln
+  - sudo nuget restore OpenGL.Net_VC14.sln
 #  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release OpenGL.Net_Mono.sln
