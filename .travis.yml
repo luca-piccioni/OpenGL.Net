@@ -1,5 +1,5 @@
 language: csharp
-solution: OpenGL.Net.sln
+solution: OpenGL.Net_Mono.sln
 addons:
   apt:
      packages:
@@ -7,6 +7,7 @@ addons:
         - xpra
         - mesa-utils
 install:
+  - sudo nuget update -self
   - nuget restore OpenGL.Net_Mono.sln
 #  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
