@@ -29,7 +29,6 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ReleaseVersion>0.2.3</ReleaseVersion>
     <TargetFrameworkProfile />
     <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
   </PropertyGroup>
@@ -53,7 +52,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\net461\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
-    <DefineConstants>HAVE_NUMERICS;NETFRAMEWORK;NET45</DefineConstants>
+    <DefineConstants>HAVE_NUMERICS;NETFRAMEWORK;NET45;GL_DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

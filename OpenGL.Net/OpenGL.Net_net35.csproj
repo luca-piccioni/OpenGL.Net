@@ -29,7 +29,6 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ReleaseVersion>0.2.3</ReleaseVersion>
     <TargetFrameworkProfile />
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
   </PropertyGroup>
@@ -88,7 +87,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.XML" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="3DFX\Gl.3DFX_multisample.cs" />
@@ -776,6 +775,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">

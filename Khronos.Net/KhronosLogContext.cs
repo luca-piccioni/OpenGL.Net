@@ -42,7 +42,7 @@ namespace Khronos
 			QueryLogContext(khronoApiType);
 #if NETFRAMEWORK
 			try {
-				_LogMap = KhronosLogMap.Load(String.Format("OpenGL.KhronosLogMap{0}.xml", khronoApiType.Name));
+				// _LogMap = KhronosLogMap.Load(String.Format("OpenGL.KhronosLogMap{0}.xml", khronoApiType.Name));
 			} catch { /* Fail-safe */ }
 #endif
 		}
@@ -104,27 +104,35 @@ namespace Khronos
 
 				LogAttribute logAttribute = (LogAttribute)Attribute.GetCustomAttribute(fieldInfo, typeof(LogAttribute));
 				IConvertible fieldInfoValue = (IConvertible)fieldInfo.GetValue(null);
-				Int64 enumValueKey = fieldInfoValue.ToInt64(System.Globalization.NumberFormatInfo.InvariantInfo);
+                try {
+					Int64 enumValueKey = fieldInfoValue.ToInt64(System.Globalization.NumberFormatInfo.InvariantInfo);
 
-				// Pure enum
-				if ((logAttribute == null) || (logAttribute.BitmaskName == null)) {
-					// Collect enumeration
-					if (enumNames.ContainsKey(enumValueKey) == false)
-						enumNames.Add(enumValueKey, fieldInfo.Name);
-				}
-
-				// Bitmask enum
-				if ((logAttribute != null) && (logAttribute.BitmaskName != null)) {
-					Dictionary<Int64, string> enumBitmaskNames;
-
-					if (enumBitmasks.TryGetValue(logAttribute.BitmaskName, out enumBitmaskNames) == false) {
-						enumBitmaskNames = new Dictionary<long, string>();
-						enumBitmasks.Add(logAttribute.BitmaskName, enumBitmaskNames);
+					// Pure enum
+					if ((logAttribute == null) || (logAttribute.BitmaskName == null))
+					{
+						// Collect enumeration
+						if (enumNames.ContainsKey(enumValueKey) == false)
+							enumNames.Add(enumValueKey, fieldInfo.Name);
 					}
 
-					if (enumBitmaskNames.ContainsKey(enumValueKey) == false)
-						enumBitmaskNames.Add(enumValueKey, fieldInfo.Name);
-				}
+					// Bitmask enum
+					if ((logAttribute != null) && (logAttribute.BitmaskName != null))
+					{
+						Dictionary<Int64, string> enumBitmaskNames;
+
+						if (enumBitmasks.TryGetValue(logAttribute.BitmaskName, out enumBitmaskNames) == false)
+						{
+							enumBitmaskNames = new Dictionary<long, string>();
+							enumBitmasks.Add(logAttribute.BitmaskName, enumBitmaskNames);
+						}
+
+						if (enumBitmaskNames.ContainsKey(enumValueKey) == false)
+							enumBitmaskNames.Add(enumValueKey, fieldInfo.Name);
+					}
+                } catch (Exception exception) {
+                    ;
+                }
+				
 			}
 
 #endif
