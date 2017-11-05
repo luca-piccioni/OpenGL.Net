@@ -129,11 +129,11 @@ namespace BindingsGen
 			if (genGL || genWGL || genGLX) {
 				gl4Documentation.Api = "GL4";
 				if (DocDisabled == false)
-					gl4Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl4"));
+					gl4Documentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/OpenGL/gl4"));
 
 				gl2Documentation.Api = "GL2.1";
 				if (DocDisabled == false)
-					gl2Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/gl2.1"));
+					gl2Documentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/OpenGL/gl2.1"));
 			}
 
 			// XML-based specifications
@@ -144,12 +144,12 @@ namespace BindingsGen
 				RegistryDocumentation<RegistryDocumentationHandler_GL4> gles3Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
 				gles3Documentation.Api = "GLES3.2";
 				if (DocDisabled == false)
-					gles3Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es3"));
+					gles3Documentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/OpenGL/es3"));
 
 				RegistryDocumentation<RegistryDocumentationHandler_GL2> gles1Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL2>();
 				gles1Documentation.Api = "GLES1.1";
 				if (DocDisabled == false)
-					gles1Documentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/OpenGL/es1.1"));
+					gles1Documentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/OpenGL/es1.1"));
 
 				Console.WriteLine("Loading GL specification...");
 				ctx = new RegistryContext("Gl", "Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
@@ -202,7 +202,7 @@ namespace BindingsGen
 			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0)) {
 				RegistryDocumentation<RegistryDocumentationHandler_EGL> eglDocumentation = new RegistryDocumentation<RegistryDocumentationHandler_EGL>();
 				eglDocumentation.Api = "EGL";
-				eglDocumentation.ScanDocumentation(Path.Combine(BasePath, "Refpages/EGL-Registry/sdk/docs/man"));
+				eglDocumentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/EGL-Registry/sdk/docs/man"));
 
 				ctx = new RegistryContext("Egl", "Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
 				ctx.RefPages.Add(eglDocumentation);
