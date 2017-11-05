@@ -50,10 +50,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetExtensionsStringARB != null, "pwglGetExtensionsStringARB not implemented");
 			retValue = Delegates.pwglGetExtensionsStringARB(hdc);
-			LogCommand("wglGetExtensionsStringARB", Marshal.PtrToStringAnsi(retValue), hdc			);
+			LogCommand("wglGetExtensionsStringARB", PtrToString(retValue), hdc			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		internal unsafe static partial class Delegates

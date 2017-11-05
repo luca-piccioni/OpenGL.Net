@@ -1,4 +1,4 @@
-
+﻿
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -223,10 +223,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglQueryOutputLayerStringEXT != null, "peglQueryOutputLayerStringEXT not implemented");
 			retValue = Delegates.peglQueryOutputLayerStringEXT(dpy, layer, name);
-			LogCommand("eglQueryOutputLayerStringEXT", Marshal.PtrToStringAnsi(retValue), dpy, layer, name			);
+			LogCommand("eglQueryOutputLayerStringEXT", PtrToString(retValue), dpy, layer, name			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		/// <summary>
@@ -309,10 +309,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglQueryOutputPortStringEXT != null, "peglQueryOutputPortStringEXT not implemented");
 			retValue = Delegates.peglQueryOutputPortStringEXT(dpy, port, name);
-			LogCommand("eglQueryOutputPortStringEXT", Marshal.PtrToStringAnsi(retValue), dpy, port, name			);
+			LogCommand("eglQueryOutputPortStringEXT", PtrToString(retValue), dpy, port, name			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		internal unsafe static partial class Delegates
