@@ -2239,7 +2239,7 @@ namespace OpenGL
 			IntPtr retValue;
 
 			retValue = UnsafeNativeMethods.XCreateColormap(display, w, visual, alloc);
-			LogCommand("XCreateColormap", retValue, display, w, visual, alloc, retValue);
+			LogCommand("XCreateColormap", retValue, display, w, visual, alloc);
 
 			return (retValue);
 		}
@@ -2384,13 +2384,16 @@ namespace OpenGL
 		public static XVisualInfo GetVisualFromFBConfig(IntPtr dpy, IntPtr config)
 		{
 			IntPtr retValue;
+            XVisualInfo visualInfo = new XVisualInfo();
 
 			Debug.Assert(Delegates.pglXGetVisualFromFBConfig != null, "pglXGetVisualFromFBConfig not implemented");
 			retValue = Delegates.pglXGetVisualFromFBConfig(dpy, config);
-			LogCommand("glXGetVisualFromFBConfig", (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)), dpy, config			);
+			if (retValue != IntPtr.Zero)
+				visualInfo = ((XVisualInfo)Marshal.PtrToStructure(retValue, typeof(XVisualInfo)));
+			LogCommand("glXGetVisualFromFBConfig", visualInfo, dpy, config			);
 			DebugCheckErrors(retValue);
 
-			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+            return (visualInfo);
 		}
 
 		#endregion
