@@ -2265,5 +2265,134 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region Manually Crafted Wrappers
+
+		/// <summary>
+		/// [GL2.1] glXChooseVisual: return a visual that matches specified attributes
+		/// </summary>
+		/// <param name="dpy">
+		/// Specifies the connection to the X server.
+		/// </param>
+		/// <param name="screen">
+		/// Specifies the screen number.
+		/// </param>
+		/// <param name="attribList">
+		/// Specifies a list of boolean attributes and integer attribute/value pairs. The last attribute must be Glx..
+		/// </param>
+		[RequiredByFeature("GLX_VERSION_1_0")]
+		public static Glx.XVisualInfo ChooseVisual(IntPtr dpy, int screen, int[] attribList)
+		{
+			IntPtr retValue = ChooseVisualCore(dpy, screen, attribList);
+
+			if (retValue != IntPtr.Zero)
+				return ((XVisualInfo)Marshal.PtrToStructure(retValue, typeof(XVisualInfo)));
+			else
+				return (new XVisualInfo());
+		}
+
+		/// <summary>
+		/// [GL2.1] glXCreateContext: create a new GLX rendering context
+		/// </summary>
+		/// <param name="dpy">
+		/// Specifies the connection to the X server.
+		/// </param>
+		/// <param name="vis">
+		/// Specifies the visual that defines the frame buffer resources available to the rendering context. It is a pointer to an 
+		/// Glx.ualInfo structure, not a visual ID or a pointer to a Glx.al.
+		/// </param>
+		/// <param name="shareList">
+		/// Specifies the context with which to share display lists. Glx. indicates that no sharing is to take place.
+		/// </param>
+		/// <param name="direct">
+		/// Specifies whether rendering is to be done with a direct connection to the graphics system if possible (Glx.) or through 
+		/// the X server (Glx.e).
+		/// </param>
+		[RequiredByFeature("GLX_VERSION_1_0")]
+		public static IntPtr CreateContext(IntPtr dpy, XVisualInfo vis, IntPtr shareList, bool direct)
+		{
+			IntPtr retValue;
+
+			using (MemoryLock visLock = new MemoryLock(vis)) {
+				retValue = CreateContext(dpy, visLock.Address, shareList, direct);
+			}
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// [GL2.1] glXCreateGLXPixmap: create an off-screen GLX rendering area
+		/// </summary>
+		/// <param name="dpy">
+		/// Specifies the connection to the X server.
+		/// </param>
+		/// <param name="visual">
+		/// A <see cref="T:Glx.XVisualInfo"/>.
+		/// </param>
+		/// <param name="pixmap">
+		/// Specifies the X pixmap that will be used as the front left color buffer of the off-screen rendering area.
+		/// </param>
+		[RequiredByFeature("GLX_VERSION_1_0")]
+		public static IntPtr CreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap)
+		{
+			IntPtr retValue;
+
+			using (MemoryLock visLock = new MemoryLock(visual)) {
+				retValue = CreateGLXPixmap(dpy, visLock.Address, pixmap);
+			}
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// [GL2.1] glXGetConfig: return information about GLX visuals
+		/// </summary>
+		/// <param name="dpy">
+		/// Specifies the connection to the X server.
+		/// </param>
+		/// <param name="visual">
+		/// A <see cref="T:Glx.XVisualInfo"/>.
+		/// </param>
+		/// <param name="attrib">
+		/// Specifies the visual attribute to be returned.
+		/// </param>
+		/// <param name="value">
+		/// Returns the requested value.
+		/// </param>
+		[RequiredByFeature("GLX_VERSION_1_0")]
+		public static int GetConfig(IntPtr dpy, XVisualInfo visual, int attrib, [Out] int[] value)
+		{
+			int retValue;
+
+			using (MemoryLock visLock = new MemoryLock(visual)) {
+				retValue = GetConfig(dpy, visLock.Address, attrib, value);
+			}
+
+			return (retValue);
+		}
+
+		/// <summary>
+		/// [GL2.1] glXGetVisualFromFBConfig: return visual that is associated with the frame buffer configuration
+		/// </summary>
+		/// <param name="dpy">
+		/// Specifies the connection to the X server.
+		/// </param>
+		/// <param name="config">
+		/// Specifies the GLX frame buffer configuration.
+		/// </param>
+		[RequiredByFeature("GLX_VERSION_1_3")]
+		public static XVisualInfo GetVisualFromFBConfig(IntPtr dpy, IntPtr config)
+		{
+			IntPtr retValue;
+
+			Debug.Assert(Delegates.pglXGetVisualFromFBConfig != null, "pglXGetVisualFromFBConfig not implemented");
+			retValue = Delegates.pglXGetVisualFromFBConfig(dpy, config);
+			LogCommand("glXGetVisualFromFBConfig", (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)), dpy, config			);
+			DebugCheckErrors(retValue);
+
+			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+		}
+
+		#endregion
 	}
 }

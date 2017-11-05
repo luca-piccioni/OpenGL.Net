@@ -754,16 +754,16 @@ namespace OpenGL
 		/// Specifies the GLX frame buffer configuration.
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static Glx.XVisualInfo GetVisualFromFBConfig(IntPtr dpy, IntPtr config)
+		private static IntPtr GetVisualFromFBConfigCore(IntPtr dpy, IntPtr config)
 		{
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglXGetVisualFromFBConfig != null, "pglXGetVisualFromFBConfig not implemented");
 			retValue = Delegates.pglXGetVisualFromFBConfig(dpy, config);
-			LogCommand("glXGetVisualFromFBConfig", (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)), dpy, config			);
+			LogCommand("glXGetVisualFromFBConfig", retValue, dpy, config			);
 			DebugCheckErrors(retValue);
 
-			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+			return (retValue);
 		}
 
 		/// <summary>

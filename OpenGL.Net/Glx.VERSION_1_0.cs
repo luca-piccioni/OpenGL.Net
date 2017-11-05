@@ -105,7 +105,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Ignored. Only visuals that can be rendered with GLX are considered.
+		/// [GL2.1] Glx.ChooseVisualCore: Ignored. Only visuals that can be rendered with GLX are considered.
 		/// </para>
 		/// <para>
 		/// [GL2.1] Glx.GetConfig: Glx. if OpenGL rendering is supported by this visual, Glx.e otherwise.
@@ -121,8 +121,8 @@ namespace OpenGL
 		/// Glx.COLOR_INDEX_BIT is not set in Glx.RENDER_TYPE. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative integer that indicates the desired color index buffer size. 
-		/// The smallest index buffer of at least the specified size is preferred. Ignored if Glx.RGBA is asserted.
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative integer that indicates the desired color index buffer 
+		/// size. The smallest index buffer of at least the specified size is preferred. Ignored if Glx.RGBA is asserted.
 		/// </para>
 		/// <para>
 		/// [GL2.1] Glx.GetConfig: Number of bits per color buffer. For RGBA visuals, Glx.BUFFER_SIZE is the sum of Glx.RED_SIZE, 
@@ -146,7 +146,7 @@ namespace OpenGL
 		/// buffers. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by an integer buffer-level specification. This specification is honored 
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by an integer buffer-level specification. This specification is honored 
 		/// exactly. Buffer level zero corresponds to the main frame buffer of the display. Buffer level one is the first overlay 
 		/// frame buffer, level two the second overlay frame buffer, and so on. Negative buffer levels correspond to underlay frame 
 		/// buffers.
@@ -167,8 +167,8 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: If present, only TrueColor and DirectColor visuals are considered. Otherwise, only PseudoColor 
-		/// and StaticColor visuals are considered.
+		/// [GL2.1] Glx.ChooseVisualCore: If present, only TrueColor and DirectColor visuals are considered. Otherwise, only 
+		/// PseudoColor and StaticColor visuals are considered.
 		/// </para>
 		/// <para>
 		/// [GL2.1] Glx.GetConfig: Glx. if color buffers store red, green, blue, and alpha values. Glx.e if they store color 
@@ -185,7 +185,7 @@ namespace OpenGL
 		/// considered. The default value is Glx.DONT_CARE.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: If present, only double-buffered visuals are considered. Otherwise, only single-buffered 
+		/// [GL2.1] Glx.ChooseVisualCore: If present, only double-buffered visuals are considered. Otherwise, only single-buffered 
 		/// visuals are considered.
 		/// </para>
 		/// <para>
@@ -205,7 +205,7 @@ namespace OpenGL
 		/// The default value is Glx.e.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: If present, only stereo visuals are considered. Otherwise, only monoscopic visuals are 
+		/// [GL2.1] Glx.ChooseVisualCore: If present, only stereo visuals are considered. Otherwise, only monoscopic visuals are 
 		/// considered.
 		/// </para>
 		/// <para>
@@ -225,7 +225,7 @@ namespace OpenGL
 		/// preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative integer that indicates the desired number of auxiliary 
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative integer that indicates the desired number of auxiliary 
 		/// buffers. Visuals with the smallest number of auxiliary buffers that meets or exceeds the specified number are preferred.
 		/// </para>
 		/// <para>
@@ -249,7 +249,7 @@ namespace OpenGL
 		/// component is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
 		/// smallest available red buffer is preferred. Otherwise, the largest available red buffer of at least the minimum size is 
 		/// preferred.
 		/// </para>
@@ -266,7 +266,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
 		/// smallest available green buffer is preferred. Otherwise, the largest available green buffer of at least the minimum size 
 		/// is preferred.
 		/// </para>
@@ -283,7 +283,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
 		/// smallest available blue buffer is preferred. Otherwise, the largest available blue buffer of at least the minimum size 
 		/// is preferred.
 		/// </para>
@@ -300,7 +300,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, the 
 		/// smallest available alpha buffer is preferred. Otherwise, the largest available alpha buffer of at least the minimum size 
 		/// is preferred.
 		/// </para>
@@ -322,9 +322,9 @@ namespace OpenGL
 		/// minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
-		/// with no depth buffer are preferred. Otherwise, the largest available depth buffer of at least the minimum size is 
-		/// preferred.
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, 
+		/// visuals with no depth buffer are preferred. Otherwise, the largest available depth buffer of at least the minimum size 
+		/// is preferred.
 		/// </para>
 		/// <para>
 		/// [GL2.1] Glx.GetConfig: Number of bits in the depth buffer.
@@ -343,7 +343,7 @@ namespace OpenGL
 		/// buffer configurations with no stencil buffer are preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative integer that indicates the desired number of stencil 
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative integer that indicates the desired number of stencil 
 		/// bitplanes. The smallest stencil buffer of at least the specified size is preferred. If the desired value is zero, 
 		/// visuals with no stencil buffer are preferred.
 		/// </para>
@@ -364,9 +364,9 @@ namespace OpenGL
 		/// buffer of at least the minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
-		/// with no red accumulation buffer are preferred. Otherwise, the largest possible red accumulation buffer of at least the 
-		/// minimum size is preferred.
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, 
+		/// visuals with no red accumulation buffer are preferred. Otherwise, the largest possible red accumulation buffer of at 
+		/// least the minimum size is preferred.
 		/// </para>
 		/// <para>
 		/// [GL2.1] Glx.GetConfig: Number of bits of red stored in the accumulation buffer.
@@ -385,9 +385,9 @@ namespace OpenGL
 		/// accumulation buffer of at least the minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
-		/// with no green accumulation buffer are preferred. Otherwise, the largest possible green accumulation buffer of at least 
-		/// the minimum size is preferred.
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, 
+		/// visuals with no green accumulation buffer are preferred. Otherwise, the largest possible green accumulation buffer of at 
+		/// least the minimum size is preferred.
 		/// </para>
 		/// <para>
 		/// [GL2.1] Glx.GetConfig: Number of bits of green stored in the accumulation buffer.
@@ -406,9 +406,9 @@ namespace OpenGL
 		/// buffer of at least the minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
-		/// with no blue accumulation buffer are preferred. Otherwise, the largest possible blue accumulation buffer of at least the 
-		/// minimum size is preferred.
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, 
+		/// visuals with no blue accumulation buffer are preferred. Otherwise, the largest possible blue accumulation buffer of at 
+		/// least the minimum size is preferred.
 		/// </para>
 		/// <para>
 		/// [GL2.1] Glx.GetConfig: Number of bits of blue stored in the accumulation buffer.
@@ -427,9 +427,9 @@ namespace OpenGL
 		/// accumulation buffer of at least the minimum size is preferred. The default value is 0.
 		/// </para>
 		/// <para>
-		/// [GL2.1] Glx.ChooseVisual: Must be followed by a nonnegative minimum size specification. If this value is zero, visuals 
-		/// with no alpha accumulation buffer are preferred. Otherwise, the largest possible alpha accumulation buffer of at least 
-		/// the minimum size is preferred.
+		/// [GL2.1] Glx.ChooseVisualCore: Must be followed by a nonnegative minimum size specification. If this value is zero, 
+		/// visuals with no alpha accumulation buffer are preferred. Otherwise, the largest possible alpha accumulation buffer of at 
+		/// least the minimum size is preferred.
 		/// </para>
 		/// <para>
 		/// [GL2.1] Glx.GetConfig: Number of bits of alpha stored in the accumulation buffer.
@@ -454,7 +454,7 @@ namespace OpenGL
 		/// Specifies a list of boolean attributes and integer attribute/value pairs. The last attribute must be Glx..
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_0")]
-		public static Glx.XVisualInfo ChooseVisual(IntPtr dpy, int screen, int[] attribList)
+		private static IntPtr ChooseVisualCore(IntPtr dpy, int screen, int[] attribList)
 		{
 			IntPtr retValue;
 
@@ -463,12 +463,12 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglXChooseVisual != null, "pglXChooseVisual not implemented");
 					retValue = Delegates.pglXChooseVisual(dpy, screen, p_attribList);
-					LogCommand("glXChooseVisual", (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)), dpy, screen, attribList					);
+					LogCommand("glXChooseVisual", retValue, dpy, screen, attribList					);
 				}
 			}
 			DebugCheckErrors(retValue);
 
-			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+			return (retValue);
 		}
 
 		/// <summary>
@@ -489,7 +489,7 @@ namespace OpenGL
 		/// the X server (Glx.e).
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_0")]
-		public static IntPtr CreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct)
+		private static IntPtr CreateContext(IntPtr dpy, IntPtr vis, IntPtr shareList, bool direct)
 		{
 			IntPtr retValue;
 
@@ -593,13 +593,13 @@ namespace OpenGL
 		/// Specifies the connection to the X server.
 		/// </param>
 		/// <param name="visual">
-		/// A <see cref="T:Glx.XVisualInfo"/>.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pixmap">
 		/// Specifies the X pixmap that will be used as the front left color buffer of the off-screen rendering area.
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_0")]
-		public static IntPtr CreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap)
+		private static IntPtr CreateGLXPixmap(IntPtr dpy, IntPtr visual, IntPtr pixmap)
 		{
 			IntPtr retValue;
 
@@ -720,7 +720,7 @@ namespace OpenGL
 		/// Specifies the connection to the X server.
 		/// </param>
 		/// <param name="visual">
-		/// A <see cref="T:Glx.XVisualInfo"/>.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="attrib">
 		/// Specifies the visual attribute to be returned.
@@ -729,7 +729,7 @@ namespace OpenGL
 		/// Returns the requested value.
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_0")]
-		public static int GetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, [Out] int[] value)
+		private static int GetConfig(IntPtr dpy, IntPtr visual, int attrib, [Out] int[] value)
 		{
 			int retValue;
 
@@ -837,7 +837,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXCreateContext(IntPtr dpy, Glx.XVisualInfo vis, IntPtr shareList, bool direct);
+			internal unsafe delegate IntPtr glXCreateContext(IntPtr dpy, IntPtr vis, IntPtr shareList, bool direct);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXCreateContext pglXCreateContext;
@@ -872,7 +872,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXCreateGLXPixmap(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap);
+			internal unsafe delegate IntPtr glXCreateGLXPixmap(IntPtr dpy, IntPtr visual, IntPtr pixmap);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXCreateGLXPixmap pglXCreateGLXPixmap;
@@ -907,7 +907,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetConfig(IntPtr dpy, Glx.XVisualInfo visual, int attrib, int* value);
+			internal unsafe delegate int glXGetConfig(IntPtr dpy, IntPtr visual, int attrib, int* value);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXGetConfig pglXGetConfig;

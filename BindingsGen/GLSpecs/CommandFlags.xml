@@ -355,11 +355,47 @@
 		<flags>OutParamLast</flags>
 	</command>
 
-  <!-- EGL -->
+	<command name="^glXChooseVisual$">
+		<rename>ChooseVisualCore</rename>
+		<visibility>private</visibility>
+	</command>
 
-  <command name="^eglGetDisplay$">
-    <flags>NoGetError</flags>
-  </command>
+	<command name="^glXCreateContext$">
+		<visibility>private</visibility>
+	</command>
+
+	<command name="^glXCreateGLXPixmap$">
+		<visibility>private</visibility>
+	</command>
+
+	<command name="^glXCreateGLXPixmapMESA$">
+		<visibility>private</visibility>
+	</command>
+
+	<command name="^glXGetConfig$">
+		<visibility>private</visibility>
+	</command>
+
+	<command name="^glXGetFBConfigFromVisualSGIX$">
+		<rename>GetFBConfigFromVisualSGIXCore</rename>
+		<visibility>private</visibility>
+	</command>
+
+	<command name="^glXGetVisualFromFBConfig$">
+		<rename>GetVisualFromFBConfigCore</rename>
+		<visibility>private</visibility>
+	</command>
+
+	<command name="^glXGetVisualFromFBConfigSGIX$">
+		<rename>GetVisualFromFBConfigSGIXCore</rename>
+		<visibility>private</visibility>
+	</command>
+
+	<!-- EGL -->
+
+	<command name="^eglGetDisplay$">
+		<flags>NoGetError</flags>
+	</command>
 
 	<command name="^eglGetConfig(s|Attrib)$">
 		<flags>OutParamLast</flags>

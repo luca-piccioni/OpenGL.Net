@@ -195,7 +195,7 @@
 	<type name="Colormap*" value="IntPtr*" />
 	<type name="Status" value="Int32" />
 
-	<type name="XVisualInfo*" value="Glx.XVisualInfo" />
+	<type name="XVisualInfo*" value="IntPtr" />
 
 	<type name="GLXWindow" value="IntPtr" />
 	<type name="GLXContext" value="IntPtr" />

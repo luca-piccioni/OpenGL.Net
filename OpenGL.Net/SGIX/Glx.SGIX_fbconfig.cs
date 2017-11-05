@@ -170,16 +170,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public static Glx.XVisualInfo GetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config)
+		private static IntPtr GetVisualFromFBConfigSGIXCore(IntPtr dpy, IntPtr config)
 		{
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglXGetVisualFromFBConfigSGIX != null, "pglXGetVisualFromFBConfigSGIX not implemented");
 			retValue = Delegates.pglXGetVisualFromFBConfigSGIX(dpy, config);
-			LogCommand("glXGetVisualFromFBConfigSGIX", (Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)), dpy, config			);
+			LogCommand("glXGetVisualFromFBConfigSGIX", retValue, dpy, config			);
 			DebugCheckErrors(retValue);
 
-			return ((Glx.XVisualInfo)Marshal.PtrToStructure(retValue, typeof(Glx.XVisualInfo)));
+			return (retValue);
 		}
 
 		/// <summary>
@@ -189,10 +189,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="vis">
-		/// A <see cref="T:Glx.XVisualInfo"/>.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_fbconfig")]
-		public static IntPtr GetFBConfigFromVisualSGIX(IntPtr dpy, Glx.XVisualInfo vis)
+		private static IntPtr GetFBConfigFromVisualSGIXCore(IntPtr dpy, IntPtr vis)
 		{
 			IntPtr retValue;
 
@@ -243,7 +243,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXGetFBConfigFromVisualSGIX(IntPtr dpy, Glx.XVisualInfo vis);
+			internal unsafe delegate IntPtr glXGetFBConfigFromVisualSGIX(IntPtr dpy, IntPtr vis);
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			internal static glXGetFBConfigFromVisualSGIX pglXGetFBConfigFromVisualSGIX;

@@ -44,7 +44,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="visual">
-		/// A <see cref="T:Glx.XVisualInfo"/>.
+		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pixmap">
 		/// A <see cref="T:IntPtr"/>.
@@ -53,7 +53,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GLX_MESA_pixmap_colormap")]
-		public static IntPtr CreateGLXPixmapMESA(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap, IntPtr cmap)
+		private static IntPtr CreateGLXPixmapMESA(IntPtr dpy, IntPtr visual, IntPtr pixmap, IntPtr cmap)
 		{
 			IntPtr retValue;
 
@@ -69,7 +69,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_MESA_pixmap_colormap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXCreateGLXPixmapMESA(IntPtr dpy, Glx.XVisualInfo visual, IntPtr pixmap, IntPtr cmap);
+			internal unsafe delegate IntPtr glXCreateGLXPixmapMESA(IntPtr dpy, IntPtr visual, IntPtr pixmap, IntPtr cmap);
 
 			[RequiredByFeature("GLX_MESA_pixmap_colormap")]
 			internal static glXCreateGLXPixmapMESA pglXCreateGLXPixmapMESA;
