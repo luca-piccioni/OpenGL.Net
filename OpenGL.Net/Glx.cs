@@ -851,6 +851,44 @@ namespace OpenGL
 			public bool override_redirect;
 			public IntPtr colormap;
 			public IntPtr cursor;
+
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <returns></returns>
+			public override string ToString()
+			{
+                StringBuilder sb = new StringBuilder();
+
+                sb.Append("XSetWindowAttributes {");
+                if (background_pixmap != IntPtr.Zero)
+                    sb.Append(" background_pixmap=0x" + background_pixmap.ToString("X"));
+				if (background_pixel != IntPtr.Zero)
+					sb.Append(" background_pixel=0x" + background_pixel.ToString("X"));
+				if (border_pixmap != IntPtr.Zero)
+					sb.Append(" border_pixmap=0x" + border_pixmap.ToString("X"));
+				if (backing_store != 0)
+					sb.Append(" backing_store=" + backing_store);
+				if (backing_planes != IntPtr.Zero)
+					sb.Append(" backing_planes=0x" + backing_planes.ToString("X"));
+				if (backing_pixel != IntPtr.Zero)
+					sb.Append(" backing_pixel=0x" + backing_pixel.ToString("X"));
+				if (save_under)
+					sb.Append(" save_under=true");
+				if (event_mask != IntPtr.Zero)
+					sb.Append(" event_mask=0x" + event_mask.ToString("X"));
+				if (do_not_propagate_mask != IntPtr.Zero)
+					sb.Append(" do_not_propagate_mask=0x" + do_not_propagate_mask.ToString("X"));
+				if (override_redirect)
+					sb.Append(" override_redirect=true");
+				if (colormap != IntPtr.Zero)
+					sb.Append(" colormap=0x" + colormap.ToString("X"));
+				if (cursor != IntPtr.Zero)
+					sb.Append(" cursor=0x" + cursor.ToString("X"));
+                sb.Append("}");
+
+                return (sb.ToString());
+			}
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
@@ -2383,15 +2421,15 @@ namespace OpenGL
 		[RequiredByFeature("GLX_VERSION_1_3")]
 		public static XVisualInfo GetVisualFromFBConfig(IntPtr dpy, IntPtr config)
 		{
-			IntPtr retValue;
+            IntPtr retValue = GetVisualFromFBConfigCore(dpy, config);
+
+            // Marshal returned value
             XVisualInfo visualInfo = new XVisualInfo();
 
-			Debug.Assert(Delegates.pglXGetVisualFromFBConfig != null, "pglXGetVisualFromFBConfig not implemented");
-			retValue = Delegates.pglXGetVisualFromFBConfig(dpy, config);
-			if (retValue != IntPtr.Zero)
-				visualInfo = ((XVisualInfo)Marshal.PtrToStructure(retValue, typeof(XVisualInfo)));
-			LogCommand("glXGetVisualFromFBConfig", visualInfo, dpy, config			);
-			DebugCheckErrors(retValue);
+            if (retValue != IntPtr.Zero) {
+                visualInfo = (XVisualInfo)Marshal.PtrToStructure(retValue, typeof(XVisualInfo));
+                XFree(retValue);
+            }
 
             return (visualInfo);
 		}

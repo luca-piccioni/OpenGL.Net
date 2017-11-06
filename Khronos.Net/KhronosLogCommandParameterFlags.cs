@@ -19,6 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 #if NETFRAMEWORK
 using System.Xml.Serialization;
 #endif
@@ -28,6 +29,7 @@ namespace Khronos
 	/// <summary>
 	/// Command parameter element.
 	/// </summary>
+    [Flags]
 	public enum KhronosLogCommandParameterFlags
 	{
 #if NETFRAMEWORK

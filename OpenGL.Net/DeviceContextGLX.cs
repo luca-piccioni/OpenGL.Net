@@ -187,12 +187,12 @@ namespace OpenGL
 						if (choosenConfigCount[0] == 0)
 							throw new InvalidOperationException("unable to find basic visual");
 						config = *choosenConfigs;
-						KhronosApi.LogComment("Choosen config is 0x{0}", config.ToString("X8"));
-
 						visual = Glx.GetVisualFromFBConfig(_Display, config);
-						KhronosApi.LogComment("Choosen visual is {0}", visual);
 
 						Glx.XFree((IntPtr)choosenConfigs);
+
+						// KhronosApi.LogComment("Choosen config is 0x{0}", config.ToString("X8"));
+						// KhronosApi.LogComment("Choosen visual is {0}", visual);
 
 						_InternalConfig = config;
 						_InternalVisual = visual;
@@ -751,6 +751,8 @@ namespace OpenGL
 					{
 						int screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
 						IntPtr* configs = Glx.GetFBConfigs(Display, screen, out configsCount);
+
+                        configsCount = 2;
 
 						for (int i = 0; i < configsCount; i++) {
 							IntPtr configId = configs[i];

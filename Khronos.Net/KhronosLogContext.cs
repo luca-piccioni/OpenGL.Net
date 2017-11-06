@@ -215,6 +215,8 @@ namespace Khronos
 				return (FormatArg((string[])arg, flags));
 			else if (argType.IsArray)
 				return (FormatArg((Array)arg, flags));
+            else if (argType == typeof(string))
+				return (FormatArg((string)arg, flags));
 			else if (argType == typeof(IntPtr))
 				return (FormatArg((IntPtr)arg, flags));
 			else if (argType == typeof(Int32))
@@ -260,6 +262,11 @@ namespace Khronos
 		private object FormatArg(IntPtr arg, KhronosLogCommandParameterFlags flags)
 		{
 			return ("0x" + arg.ToString("X8"));
+		}
+
+		private object FormatArg(string arg, KhronosLogCommandParameterFlags flags)
+		{
+			return ("\"" + arg + "\"");
 		}
 
 		private object FormatArg(Int32 arg, KhronosLogCommandParameterFlags flags)
