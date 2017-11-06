@@ -45,7 +45,7 @@ namespace HelloTriangle
 		{
 			GlControl glControl = (GlControl)sender;
 
-			if (Gl.CurrentVersion.Api == KhronosVersion.ApiGles2)
+			if (Gl.CurrentVersion != null && Gl.CurrentVersion.Api == KhronosVersion.ApiGles2)
 				RenderControl_ContextCreated_ES(sender, e);
 			else {
 				// Here you can allocate resources or initialize state
@@ -61,7 +61,7 @@ namespace HelloTriangle
 
 		private void RenderControl_Render(object sender, GlControlEventArgs e)
 		{
-			if (Gl.CurrentVersion.Api == KhronosVersion.ApiGles2)
+			if (Gl.CurrentVersion != null && Gl.CurrentVersion.Api == KhronosVersion.ApiGles2)
 				RenderControl_Render_ES(sender, e);
 			else
 				RenderControl_Render_GL(sender, e);
