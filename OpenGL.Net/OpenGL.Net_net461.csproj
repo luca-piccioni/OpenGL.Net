@@ -52,7 +52,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\net461\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
-    <DefineConstants>HAVE_NUMERICS;NETFRAMEWORK;NET45;GL_DEBUG</DefineConstants>
+    <DefineConstants>HAVE_NUMERICS;NETFRAMEWORK;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
