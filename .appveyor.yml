@@ -43,9 +43,9 @@ before_build:
   - nuget restore %SLN_PATH%
 
 build_script:
-  msbuild %SLN_PATH% /property:Configuration=Release /p:Platform="Any CPU" /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-  msbuild %SLN_PATH% /property:Configuration=Release /p:Platform="x86" /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-  msbuild %SLN_PATH% /property:Configuration=Release /p:Platform="x64" /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - cmd: msbuild %SLN_PATH% /property:Configuration=Release /p:Platform="Any CPU" /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - cmd: msbuild %SLN_PATH% /property:Configuration=Release /p:Platform="x86" /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - cmd: msbuild %SLN_PATH% /property:Configuration=Release /p:Platform="x64" /verbosity:normal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 # Happy to have a GL 1.1 software driver ^^
 test: 
