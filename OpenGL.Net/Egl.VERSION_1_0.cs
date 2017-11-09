@@ -1,4 +1,4 @@
-
+﻿
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -1154,10 +1154,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglQueryString != null, "peglQueryString not implemented");
 			retValue = Delegates.peglQueryString(dpy, name);
-			LogCommand("eglQueryString", Marshal.PtrToStringAnsi(retValue), dpy, name			);
+			LogCommand("eglQueryString", PtrToString(retValue), dpy, name			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		/// <summary>

@@ -1,4 +1,4 @@
-
+﻿
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -47,10 +47,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pwglGetExtensionsStringEXT != null, "pwglGetExtensionsStringEXT not implemented");
 			retValue = Delegates.pwglGetExtensionsStringEXT();
-			LogCommand("wglGetExtensionsStringEXT", Marshal.PtrToStringAnsi(retValue)			);
+			LogCommand("wglGetExtensionsStringEXT", PtrToString(retValue)			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		internal unsafe static partial class Delegates

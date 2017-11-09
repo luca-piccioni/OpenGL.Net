@@ -28,6 +28,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Text.RegularExpressions;
 
 using DelegateList = System.Collections.Generic.List<System.Reflection.FieldInfo>;
@@ -47,13 +48,60 @@ namespace Khronos
 	/// </remarks>
 	public class KhronosApi
 	{
-		#region Function Linkage
+		#region String Encoding
 
 		/// <summary>
-		/// Get the current location of the 
+		/// Copies all characters up to the first null character from an
+		/// unmanaged UTF8 string.
 		/// </summary>
-		/// <returns></returns>
-		protected static string GetAssemblyLocation()
+		/// <param name="ptr">
+		/// The address of the first character of the unmanaged string.
+		/// </param>
+		/// <returns>
+		/// The <see cref="String"/> represented by <paramref name="ptr"/>.
+		/// </returns>
+		protected static string PtrToString(IntPtr ptr)
+        {
+            return (PtrToStringUTF8(ptr));
+        }
+
+		/// <summary>
+		/// Copies all characters up to the first null character from an
+        /// unmanaged UTF8 string.
+		/// </summary>
+		/// <param name="ptr">
+        /// The address of the first character of the unmanaged string.
+        /// </param>
+		/// <returns>
+        /// The <see cref="String"/> represented by <paramref name="ptr"/>.
+        /// </returns>
+		protected static string PtrToStringUTF8(IntPtr ptr)
+        {
+			if (ptr == IntPtr.Zero)
+                return (null);
+
+            List<byte> buff = new List<byte>();
+            int offset = 0;
+
+            for (; ; offset++) {
+                byte currentByte = Marshal.ReadByte(ptr, offset);
+                if (currentByte == 0)
+                    break;
+                buff.Add(currentByte);
+            }
+
+            return (Encoding.UTF8.GetString(buff.ToArray()));
+        }
+
+        #endregion
+
+        #region Function Linkage
+
+        /// <summary>
+        /// Get the current location of the 
+        /// </summary>
+        /// <returns></returns>
+        protected static string GetAssemblyLocation()
 		{
 #if   NETSTANDARD1_1
 			string assemblyPath = null; // XXX

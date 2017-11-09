@@ -1106,8 +1106,9 @@ namespace BindingsGen.GLSpecs
 			// Returned value must be marshalled as structure
 			bool marshalReturnedStruct = HasReturnValue && (DelegateReturnType == "IntPtr") && (GetImplementationReturnType(ctx) != "IntPtr");
 
+            // Note: it seems that GL implementations should managed UTF8 strings
 			if (marshalReturnedString)
-				return (String.Format("Marshal.PtrToStringAnsi({0})", ReturnVariableName));
+				return (String.Format("PtrToString({0})", ReturnVariableName));
 			else if (marshalReturnedStruct)
 				return (String.Format("({1})Marshal.PtrToStructure({0}, typeof({1}))", ReturnVariableName, GetImplementationReturnType(ctx)));
 			else if (returnType != delegateReturnType)

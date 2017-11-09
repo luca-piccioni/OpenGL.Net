@@ -1,4 +1,4 @@
-
+﻿
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -149,10 +149,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXQueryCurrentRendererStringMESA != null, "pglXQueryCurrentRendererStringMESA not implemented");
 			retValue = Delegates.pglXQueryCurrentRendererStringMESA(attribute);
-			LogCommand("glXQueryCurrentRendererStringMESA", Marshal.PtrToStringAnsi(retValue), attribute			);
+			LogCommand("glXQueryCurrentRendererStringMESA", PtrToString(retValue), attribute			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		/// <summary>
@@ -213,10 +213,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXQueryRendererStringMESA != null, "pglXQueryRendererStringMESA not implemented");
 			retValue = Delegates.pglXQueryRendererStringMESA(dpy, screen, renderer, attribute);
-			LogCommand("glXQueryRendererStringMESA", Marshal.PtrToStringAnsi(retValue), dpy, screen, renderer, attribute			);
+			LogCommand("glXQueryRendererStringMESA", PtrToString(retValue), dpy, screen, renderer, attribute			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		internal unsafe static partial class Delegates

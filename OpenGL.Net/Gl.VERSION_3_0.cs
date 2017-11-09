@@ -1,4 +1,4 @@
-
+﻿
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -4247,10 +4247,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglGetStringi != null, "pglGetStringi not implemented");
 			retValue = Delegates.pglGetStringi((Int32)name, index);
-			LogCommand("glGetStringi", Marshal.PtrToStringAnsi(retValue), name, index			);
+			LogCommand("glGetStringi", PtrToString(retValue), name, index			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		/// <summary>

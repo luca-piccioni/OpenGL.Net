@@ -1,4 +1,4 @@
-
+﻿
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -106,10 +106,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.peglQueryDeviceStringEXT != null, "peglQueryDeviceStringEXT not implemented");
 			retValue = Delegates.peglQueryDeviceStringEXT(device, name);
-			LogCommand("eglQueryDeviceStringEXT", Marshal.PtrToStringAnsi(retValue), device, name			);
+			LogCommand("eglQueryDeviceStringEXT", PtrToString(retValue), device, name			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		/// <summary>

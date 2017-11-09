@@ -1,4 +1,4 @@
-
+﻿
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -71,10 +71,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXQueryExtensionsString != null, "pglXQueryExtensionsString not implemented");
 			retValue = Delegates.pglXQueryExtensionsString(dpy, screen);
-			LogCommand("glXQueryExtensionsString", Marshal.PtrToStringAnsi(retValue), dpy, screen			);
+			LogCommand("glXQueryExtensionsString", PtrToString(retValue), dpy, screen			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		/// <summary>
@@ -96,10 +96,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXQueryServerString != null, "pglXQueryServerString not implemented");
 			retValue = Delegates.pglXQueryServerString(dpy, screen, name);
-			LogCommand("glXQueryServerString", Marshal.PtrToStringAnsi(retValue), dpy, screen, name			);
+			LogCommand("glXQueryServerString", PtrToString(retValue), dpy, screen, name			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		/// <summary>
@@ -118,10 +118,10 @@ namespace OpenGL
 
 			Debug.Assert(Delegates.pglXGetClientString != null, "pglXGetClientString not implemented");
 			retValue = Delegates.pglXGetClientString(dpy, name);
-			LogCommand("glXGetClientString", Marshal.PtrToStringAnsi(retValue), dpy, name			);
+			LogCommand("glXGetClientString", PtrToString(retValue), dpy, name			);
 			DebugCheckErrors(retValue);
 
-			return (Marshal.PtrToStringAnsi(retValue));
+			return (PtrToString(retValue));
 		}
 
 		internal unsafe static partial class Delegates
