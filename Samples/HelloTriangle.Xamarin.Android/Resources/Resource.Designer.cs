@@ -26,8 +26,6 @@ namespace HelloTriangle.Xamarin
 		
 		public static void UpdateIdValues()
 		{
-			global::OpenGL.Resource.String.ApplicationName = global::HelloTriangle.Xamarin.Resource.String.ApplicationName;
-			global::OpenGL.Resource.String.Hello = global::HelloTriangle.Xamarin.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

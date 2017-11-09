@@ -10,6 +10,7 @@
     <Version>0.5.2</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Platforms>AnyCPU;x86;x64</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -19,7 +20,35 @@
     <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP1_1</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>

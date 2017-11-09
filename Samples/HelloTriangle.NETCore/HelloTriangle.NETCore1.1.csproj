@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <RootNamespace>HelloTriangle.NETCore</RootNamespace>
+    <Platforms>AnyCPU;x86;x64</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -11,7 +12,27 @@
     <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutputPath>bin\netcoreapp1.1\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <OutputPath>bin\netcoreapp1.1\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\netcoreapp1.1\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutputPath>bin\netcoreapp1.1\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <OutputPath>bin\netcoreapp1.1\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
   </PropertyGroup>

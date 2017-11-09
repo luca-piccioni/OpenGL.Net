@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <RootNamespace>HelloTriangle.NETCore</RootNamespace>
+    <Platforms>AnyCPU;x86;x64</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -11,7 +12,27 @@
     <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutputPath>bin\netcoreapp2.0\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <OutputPath>bin\netcoreapp2.0\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\netcoreapp2.0\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutputPath>bin\netcoreapp2.0\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <OutputPath>bin\netcoreapp2.0\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
@@ -24,7 +45,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\OpenGL.Net.CoreUI\OpenGL.Net.CoreUI_netcore2.0.csproj" />
-    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netstd2.0.csproj" />
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netcore2.0.csproj" />
   </ItemGroup>
 
 </Project>
