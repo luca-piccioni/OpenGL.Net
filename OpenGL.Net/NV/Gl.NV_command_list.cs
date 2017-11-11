@@ -603,6 +603,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsStateNV(UInt32 state);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
@@ -683,6 +684,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsCommandListNV(UInt32 list);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]

@@ -353,6 +353,16 @@ namespace BindingsGen.GLSpecs
 			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				attribute = "[Out]";
 
+			switch (SpecificationType) {
+				case "GLboolean":		// bool
+					attribute = (attribute ?? String.Empty) + "[MarshalAs(UnmanagedType.I1)]";
+					break;
+				// Note: MarshalAsAttribute not applicable to bool*!
+				//case "GLboolean*":		// bool[]
+				//	attribute = (attribute ?? String.Empty) + "[MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.I1)]";
+				//	break;
+			}
+
 			return (attribute);
 		}
 
@@ -376,7 +386,7 @@ namespace BindingsGen.GLSpecs
 			return (ImportType);
 		}
 
-		private string ImportType
+		private string SpecificationType
 		{
 			get
 			{
@@ -404,7 +414,24 @@ namespace BindingsGen.GLSpecs
 				else if (typeDecorator != null)
 					importType = typeDecorator;
 
-				return (TypeMap.CsTypeMap.MapType(importType));
+				return (importType);
+			}
+		}
+
+		private string ImportType
+		{
+			get
+			{
+				string specificationType = SpecificationType;
+
+				// Special type handling for GLboolean arrays as arguments: they are marshaled as bytes!
+				switch (specificationType) {
+					case "GLboolean*":
+						specificationType = "byte*";
+						break;
+				}
+
+				return (TypeMap.CsTypeMap.MapType(specificationType));
 			}
 		}
 

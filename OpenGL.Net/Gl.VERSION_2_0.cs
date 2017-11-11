@@ -4465,6 +4465,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsProgram(UInt32 program);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
@@ -4475,6 +4476,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsShader(UInt32 shader);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
@@ -4749,7 +4751,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects", EntryPoint = "glUniformMatrix2fvARB")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix2fv(Int32 location, Int32 count, bool transpose, float* value);
+			internal unsafe delegate void glUniformMatrix2fv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -4763,7 +4765,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects", EntryPoint = "glUniformMatrix3fvARB")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix3fv(Int32 location, Int32 count, bool transpose, float* value);
+			internal unsafe delegate void glUniformMatrix3fv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -4777,7 +4779,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects", EntryPoint = "glUniformMatrix4fvARB")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix4fv(Int32 location, Int32 count, bool transpose, float* value);
+			internal unsafe delegate void glUniformMatrix4fv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -5320,7 +5322,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttribPointerARB")]
 			[RequiredByFeature("GL_ARB_vertex_shader", EntryPoint = "glVertexAttribPointerARB")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribPointer(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glVertexAttribPointer(UInt32 index, Int32 size, Int32 type, [MarshalAs(UnmanagedType.I1)] bool normalized, Int32 stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]

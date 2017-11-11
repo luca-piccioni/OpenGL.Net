@@ -257,7 +257,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetHistogramEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
+			internal unsafe delegate void glGetHistogramEXT(Int32 target, [MarshalAs(UnmanagedType.I1)] bool reset, Int32 format, Int32 type, IntPtr values);
 
 			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]
@@ -281,7 +281,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMinmaxEXT(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
+			internal unsafe delegate void glGetMinmaxEXT(Int32 target, [MarshalAs(UnmanagedType.I1)] bool reset, Int32 format, Int32 type, IntPtr values);
 
 			[RequiredByFeature("GL_EXT_histogram")]
 			[ThreadStatic]

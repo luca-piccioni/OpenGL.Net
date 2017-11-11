@@ -237,7 +237,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDebugMessageEnableAMD(Int32 category, Int32 severity, Int32 count, UInt32* ids, bool enabled);
+			internal unsafe delegate void glDebugMessageEnableAMD(Int32 category, Int32 severity, Int32 count, UInt32* ids, [MarshalAs(UnmanagedType.I1)] bool enabled);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]

@@ -1466,13 +1466,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:bool[]"/>.
+		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantBooleanEXT(UInt32 id, Int32 value, [Out] bool[] data)
+		public static void GetVariantBooleanEXT(UInt32 id, Int32 value, [Out] byte[] data)
 		{
 			unsafe {
-				fixed (bool* p_data = data)
+				fixed (byte* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetVariantBooleanvEXT != null, "pglGetVariantBooleanvEXT not implemented");
 					Delegates.pglGetVariantBooleanvEXT(id, value, p_data);
@@ -1570,13 +1570,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:bool[]"/>.
+		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetInvariantBooleanEXT(UInt32 id, Int32 value, [Out] bool[] data)
+		public static void GetInvariantBooleanEXT(UInt32 id, Int32 value, [Out] byte[] data)
 		{
 			unsafe {
-				fixed (bool* p_data = data)
+				fixed (byte* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetInvariantBooleanvEXT != null, "pglGetInvariantBooleanvEXT not implemented");
 					Delegates.pglGetInvariantBooleanvEXT(id, value, p_data);
@@ -1648,13 +1648,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:bool[]"/>.
+		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetLocalConstantBooleanEXT(UInt32 id, Int32 value, [Out] bool[] data)
+		public static void GetLocalConstantBooleanEXT(UInt32 id, Int32 value, [Out] byte[] data)
 		{
 			unsafe {
-				fixed (bool* p_data = data)
+				fixed (byte* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetLocalConstantBooleanvEXT != null, "pglGetLocalConstantBooleanvEXT not implemented");
 					Delegates.pglGetLocalConstantBooleanvEXT(id, value, p_data);
@@ -1968,6 +1968,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsVariantEnabledEXT(UInt32 id, Int32 cap);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
@@ -1976,7 +1977,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+			internal unsafe delegate void glGetVariantBooleanvEXT(UInt32 id, Int32 value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2008,7 +2009,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+			internal unsafe delegate void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2032,7 +2033,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLocalConstantBooleanvEXT(UInt32 id, Int32 value, bool* data);
+			internal unsafe delegate void glGetLocalConstantBooleanvEXT(UInt32 id, Int32 value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]

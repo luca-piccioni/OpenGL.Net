@@ -266,6 +266,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsNamedStringARB(Int32 namelen, String name);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]

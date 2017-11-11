@@ -334,7 +334,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt64 glGetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
+			internal delegate UInt64 glGetImageHandleNV(UInt32 texture, Int32 level, [MarshalAs(UnmanagedType.I1)] bool layered, Int32 layer, Int32 format);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -390,6 +390,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsTextureHandleResidentNV(UInt64 handle);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
@@ -398,6 +399,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsImageHandleResidentNV(UInt64 handle);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]

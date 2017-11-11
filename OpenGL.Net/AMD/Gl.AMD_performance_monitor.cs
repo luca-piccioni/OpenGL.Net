@@ -449,7 +449,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, Int32 numCounters, UInt32* counterList);
+			internal unsafe delegate void glSelectPerfMonitorCountersAMD(UInt32 monitor, [MarshalAs(UnmanagedType.I1)] bool enable, UInt32 group, Int32 numCounters, UInt32* counterList);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

@@ -1,4 +1,4 @@
-﻿
+
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -2324,10 +2324,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
-		public static void Get(Int32 target, UInt32 index, [Out] bool[] data)
+		public static void Get(Int32 target, UInt32 index, [Out] byte[] data)
 		{
 			unsafe {
-				fixed (bool* p_data = data)
+				fixed (byte* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
 					Delegates.pglGetBooleani_v(target, index, p_data);
@@ -2356,10 +2356,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
-		public static void Get(BufferTarget target, UInt32 index, [Out] bool[] data)
+		public static void Get(BufferTarget target, UInt32 index, [Out] byte[] data)
 		{
 			unsafe {
-				fixed (bool* p_data = data)
+				fixed (byte* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
 					Delegates.pglGetBooleani_v((Int32)target, index, p_data);
@@ -2388,10 +2388,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
-		public static void Get(Int32 target, UInt32 index, out bool data)
+		public static void Get(Int32 target, UInt32 index, out byte data)
 		{
 			unsafe {
-				fixed (bool* p_data = &data)
+				fixed (byte* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
 					Delegates.pglGetBooleani_v(target, index, p_data);
@@ -2420,10 +2420,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
-		public static void Get(BufferTarget target, UInt32 index, out bool data)
+		public static void Get(BufferTarget target, UInt32 index, out byte data)
 		{
 			unsafe {
-				fixed (bool* p_data = &data)
+				fixed (byte* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
 					Delegates.pglGetBooleani_v((Int32)target, index, p_data);
@@ -5096,7 +5096,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glColorMaskiEXT")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glColorMaskiOES")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glColorMaski(UInt32 index, bool r, bool g, bool b, bool a);
+			internal delegate void glColorMaski(UInt32 index, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b, [MarshalAs(UnmanagedType.I1)] bool a);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -5111,7 +5111,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glGetBooleanIndexedvEXT")]
 			[RequiredByFeature("GL_EXT_draw_buffers2", EntryPoint = "glGetBooleanIndexedvEXT")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBooleani_v(Int32 target, UInt32 index, bool* data);
+			internal unsafe delegate void glGetBooleani_v(Int32 target, UInt32 index, byte* data);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -5191,6 +5191,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glIsEnablediOES")]
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2", EntryPoint = "glIsEnablediOES")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsEnabledi(Int32 target, UInt32 index);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -5819,6 +5820,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object", EntryPoint = "glIsRenderbufferEXT")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsRenderbuffer(UInt32 renderbuffer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -5909,6 +5911,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object", EntryPoint = "glIsFramebufferEXT")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsFramebuffer(UInt32 framebuffer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6200,6 +6203,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2", EntryPoint = "glIsVertexArrayOES")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsVertexArray(UInt32 array);
 
 			[RequiredByFeature("GL_VERSION_3_0")]

@@ -227,6 +227,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsFenceNV(UInt32 fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
@@ -235,6 +236,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glTestFenceNV(UInt32 fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]

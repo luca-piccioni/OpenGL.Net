@@ -88,6 +88,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glAcquireKeyedMutexWin32EXT(UInt32 memory, UInt64 key, UInt32 timeout);
 
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
@@ -96,6 +97,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glReleaseKeyedMutexWin32EXT(UInt32 memory, UInt64 key);
 
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]

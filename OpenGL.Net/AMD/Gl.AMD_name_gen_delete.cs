@@ -161,6 +161,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsNameAMD(Int32 identifier, UInt32 name);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]

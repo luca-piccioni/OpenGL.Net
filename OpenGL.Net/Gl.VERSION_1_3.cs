@@ -2767,7 +2767,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_multisample", EntryPoint = "glSampleCoverageARB")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSampleCoverage(float value, bool invert);
+			internal delegate void glSampleCoverage(float value, [MarshalAs(UnmanagedType.I1)] bool invert);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]

@@ -269,6 +269,23 @@ namespace BindingsGen.GLSpecs
 			// Not yet sure if it is really necessary
 			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
 
+			// return: MarshalAs
+			switch (Prototype.Type) {
+				case "GLboolean":			// <type>typedef unsigned char <name>GLboolean</name>;</type> (gl.xml)
+					sw.WriteLine("[return: MarshalAs(UnmanagedType.I1)]");
+					break;
+				case "BOOL":				// typedef int BOOL; (WinDef.h)
+				case "EGLBoolean":			// <type>typedef unsigned int <name>EGLBoolean</name>;</type> (egl.xml)
+				case "Bool":				// #define Bool int (XLib.h)
+				case "WFCboolean":			// typedef enum { } WFCboolean; (wfc.h) -.-
+					// Default marshaler
+					// sw.WriteLine("[return: MarshalAs(UnmanagedType.I4)]");
+					break;
+				default:
+					// None
+					break;
+			}
+
 			// Delegate type definition
 			sw.WriteIdentation(); sw.Write("internal ");
 			if (IsSafeImplementation == false) sw.Write("unsafe ");

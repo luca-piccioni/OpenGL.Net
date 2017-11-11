@@ -517,7 +517,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribFormatNV(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride);
+			internal delegate void glVertexAttribFormatNV(UInt32 index, Int32 size, Int32 type, [MarshalAs(UnmanagedType.I1)] bool normalized, Int32 stride);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 			[ThreadStatic]

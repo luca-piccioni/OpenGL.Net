@@ -62,16 +62,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		/// <param name="residences">
-		/// A <see cref="T:bool[]"/>.
+		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static bool AreTexturesResidentEXT(UInt32[] textures, [Out] bool[] residences)
+		public static bool AreTexturesResidentEXT(UInt32[] textures, [Out] byte[] residences)
 		{
 			bool retValue;
 
 			unsafe {
 				fixed (UInt32* p_textures = textures)
-				fixed (bool* p_residences = residences)
+				fixed (byte* p_residences = residences)
 				{
 					Debug.Assert(Delegates.pglAreTexturesResidentEXT != null, "pglAreTexturesResidentEXT not implemented");
 					retValue = Delegates.pglAreTexturesResidentEXT((Int32)textures.Length, p_textures, p_residences);
@@ -161,7 +161,8 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, bool* residences);
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal unsafe delegate bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, byte* residences);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]
@@ -185,6 +186,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsTextureEXT(UInt32 texture);
 
 			[RequiredByFeature("GL_EXT_texture_object")]

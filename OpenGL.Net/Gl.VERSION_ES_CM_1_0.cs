@@ -1365,7 +1365,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSampleCoveragex(Int32 value, bool invert);
+			internal delegate void glSampleCoveragex(Int32 value, [MarshalAs(UnmanagedType.I1)] bool invert);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]

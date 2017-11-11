@@ -126,7 +126,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribArrayObjectATI(UInt32 index, Int32 size, Int32 type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset);
+			internal delegate void glVertexAttribArrayObjectATI(UInt32 index, Int32 size, Int32 type, [MarshalAs(UnmanagedType.I1)] bool normalized, Int32 stride, UInt32 buffer, UInt32 offset);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[ThreadStatic]

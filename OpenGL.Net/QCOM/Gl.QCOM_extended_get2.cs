@@ -153,6 +153,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glExtIsProgramBinaryQCOM(UInt32 program);
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]

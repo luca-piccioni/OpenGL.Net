@@ -494,16 +494,16 @@ namespace OpenGL
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		/// <param name="residences">
-		/// A <see cref="T:bool[]"/>.
+		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static bool AreProgramsResidentNV(UInt32[] programs, [Out] bool[] residences)
+		public static bool AreProgramsResidentNV(UInt32[] programs, [Out] byte[] residences)
 		{
 			bool retValue;
 
 			unsafe {
 				fixed (UInt32* p_programs = programs)
-				fixed (bool* p_residences = residences)
+				fixed (byte* p_residences = residences)
 				{
 					Debug.Assert(Delegates.pglAreProgramsResidentNV != null, "pglAreProgramsResidentNV not implemented");
 					retValue = Delegates.pglAreProgramsResidentNV((Int32)programs.Length, p_programs, p_residences);
@@ -1309,7 +1309,8 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glAreProgramsResidentNV(Int32 n, UInt32* programs, bool* residences);
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal unsafe delegate bool glAreProgramsResidentNV(Int32 n, UInt32* programs, byte* residences);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]

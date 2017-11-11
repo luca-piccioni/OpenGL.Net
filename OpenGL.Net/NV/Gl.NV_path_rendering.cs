@@ -3461,6 +3461,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsPathNV(UInt32 path);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3749,6 +3750,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsPointInFillPathNV(UInt32 path, UInt32 mask, float x, float y);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3757,6 +3759,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsPointInStrokePathNV(UInt32 path, float x, float y);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -3773,6 +3776,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal unsafe delegate bool glPointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]

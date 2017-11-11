@@ -2221,13 +2221,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static bool AreTexturesResident(UInt32[] textures, [Out] bool[] residences)
+		public static bool AreTexturesResident(UInt32[] textures, [Out] byte[] residences)
 		{
 			bool retValue;
 
 			unsafe {
 				fixed (UInt32* p_textures = textures)
-				fixed (bool* p_residences = residences)
+				fixed (byte* p_residences = residences)
 				{
 					Debug.Assert(Delegates.pglAreTexturesResident != null, "pglAreTexturesResident not implemented");
 					retValue = Delegates.pglAreTexturesResident((Int32)textures.Length, p_textures, p_residences);
@@ -2519,6 +2519,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsTexture(UInt32 texture);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
@@ -2644,7 +2645,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glAreTexturesResident(Int32 n, UInt32* textures, bool* residences);
+			[return: MarshalAs(UnmanagedType.I1)]
+			internal unsafe delegate bool glAreTexturesResident(Int32 n, UInt32* textures, byte* residences);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]

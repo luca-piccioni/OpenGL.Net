@@ -421,7 +421,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt64 glGetImageHandleARB(UInt32 texture, Int32 level, bool layered, Int32 layer, Int32 format);
+			internal delegate UInt64 glGetImageHandleARB(UInt32 texture, Int32 level, [MarshalAs(UnmanagedType.I1)] bool layered, Int32 layer, Int32 format);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -485,6 +485,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsTextureHandleResidentARB(UInt64 handle);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -493,6 +494,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsImageHandleResidentARB(UInt64 handle);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]

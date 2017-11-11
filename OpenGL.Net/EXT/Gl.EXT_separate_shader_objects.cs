@@ -422,6 +422,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsProgramPipelineEXT(UInt32 pipeline);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]

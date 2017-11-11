@@ -139,13 +139,13 @@ namespace OpenGL
 		/// A <see cref="T:Int32"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:bool[]"/>.
+		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void EdgeFlagPointerEXT(Int32 stride, Int32 count, bool[] pointer)
+		public static void EdgeFlagPointerEXT(Int32 stride, Int32 count, byte[] pointer)
 		{
 			unsafe {
-				fixed (bool* p_pointer = pointer)
+				fixed (byte* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglEdgeFlagPointerEXT != null, "pglEdgeFlagPointerEXT not implemented");
 					Delegates.pglEdgeFlagPointerEXT(stride, count, p_pointer);
@@ -379,7 +379,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEdgeFlagPointerEXT(Int32 stride, Int32 count, bool* pointer);
+			internal unsafe delegate void glEdgeFlagPointerEXT(Int32 stride, Int32 count, byte* pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[ThreadStatic]

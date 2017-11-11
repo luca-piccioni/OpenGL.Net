@@ -2147,7 +2147,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetHistogram(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
+			internal unsafe delegate void glGetHistogram(Int32 target, [MarshalAs(UnmanagedType.I1)] bool reset, Int32 format, Int32 type, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2171,7 +2171,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMinmax(Int32 target, bool reset, Int32 format, Int32 type, IntPtr values);
+			internal unsafe delegate void glGetMinmax(Int32 target, [MarshalAs(UnmanagedType.I1)] bool reset, Int32 format, Int32 type, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2196,7 +2196,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glHistogramEXT")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glHistogram(Int32 target, Int32 width, Int32 internalformat, bool sink);
+			internal delegate void glHistogram(Int32 target, Int32 width, Int32 internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glHistogramEXT")]
@@ -2206,7 +2206,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glMinmaxEXT")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMinmax(Int32 target, Int32 internalformat, bool sink);
+			internal delegate void glMinmax(Int32 target, Int32 internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glMinmaxEXT")]

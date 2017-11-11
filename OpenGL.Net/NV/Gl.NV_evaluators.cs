@@ -513,7 +513,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, bool packed, IntPtr points);
+			internal unsafe delegate void glMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, Int32 uorder, Int32 vorder, [MarshalAs(UnmanagedType.I1)] bool packed, IntPtr points);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]
@@ -537,7 +537,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, bool packed, IntPtr points);
+			internal unsafe delegate void glGetMapControlPointsNV(Int32 target, UInt32 index, Int32 type, Int32 ustride, Int32 vstride, [MarshalAs(UnmanagedType.I1)] bool packed, IntPtr points);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]

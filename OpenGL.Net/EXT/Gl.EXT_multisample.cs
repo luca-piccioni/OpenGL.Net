@@ -159,7 +159,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_multisample")]
 			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSampleMaskSGIS")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSampleMaskEXT(float value, bool invert);
+			internal delegate void glSampleMaskEXT(float value, [MarshalAs(UnmanagedType.I1)] bool invert);
 
 			[RequiredByFeature("GL_EXT_multisample")]
 			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSampleMaskSGIS")]

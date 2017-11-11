@@ -305,7 +305,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+			internal unsafe delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, [MarshalAs(UnmanagedType.I1)] bool bBlock);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXSendPbufferToVideoNV pglXSendPbufferToVideoNV;

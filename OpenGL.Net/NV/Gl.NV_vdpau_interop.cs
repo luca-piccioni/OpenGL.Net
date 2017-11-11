@@ -383,6 +383,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal unsafe delegate bool glVDPAUIsSurfaceNV(IntPtr surface);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]

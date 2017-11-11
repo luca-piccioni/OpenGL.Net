@@ -741,7 +741,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_register_combiners")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCombinerOutputNV(Int32 stage, Int32 portion, Int32 abOutput, Int32 cdOutput, Int32 sumOutput, Int32 scale, Int32 bias, bool abDotProduct, bool cdDotProduct, bool muxSum);
+			internal delegate void glCombinerOutputNV(Int32 stage, Int32 portion, Int32 abOutput, Int32 cdOutput, Int32 sumOutput, Int32 scale, Int32 bias, [MarshalAs(UnmanagedType.I1)] bool abDotProduct, [MarshalAs(UnmanagedType.I1)] bool cdDotProduct, [MarshalAs(UnmanagedType.I1)] bool muxSum);
 
 			[RequiredByFeature("GL_NV_register_combiners")]
 			[ThreadStatic]

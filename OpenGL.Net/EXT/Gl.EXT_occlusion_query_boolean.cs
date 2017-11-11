@@ -283,6 +283,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsQueryEXT(UInt32 id);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]

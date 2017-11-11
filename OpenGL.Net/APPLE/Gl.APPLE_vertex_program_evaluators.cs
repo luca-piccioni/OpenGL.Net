@@ -351,6 +351,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsVertexAttribEnabledAPPLE(UInt32 index, Int32 pname);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]

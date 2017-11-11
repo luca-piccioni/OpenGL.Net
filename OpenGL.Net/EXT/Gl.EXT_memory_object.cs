@@ -601,6 +601,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsMemoryObjectEXT(UInt32 memoryObject);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
@@ -641,7 +642,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorageMem2DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
+			internal delegate void glTexStorageMem2DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, UInt32 memory, UInt64 offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -657,7 +658,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorageMem3DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
+			internal delegate void glTexStorageMem3DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, UInt32 memory, UInt64 offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -681,7 +682,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorageMem2DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
+			internal delegate void glTextureStorageMem2DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, UInt32 memory, UInt64 offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -697,7 +698,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorageMem3DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations, UInt32 memory, UInt64 offset);
+			internal delegate void glTextureStorageMem3DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, UInt32 memory, UInt64 offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]

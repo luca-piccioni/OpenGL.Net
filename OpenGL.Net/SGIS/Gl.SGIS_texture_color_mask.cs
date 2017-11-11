@@ -71,7 +71,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIS_texture_color_mask")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureColorMaskSGIS(bool red, bool green, bool blue, bool alpha);
+			internal delegate void glTextureColorMaskSGIS([MarshalAs(UnmanagedType.I1)] bool red, [MarshalAs(UnmanagedType.I1)] bool green, [MarshalAs(UnmanagedType.I1)] bool blue, [MarshalAs(UnmanagedType.I1)] bool alpha);
 
 			[RequiredByFeature("GL_SGIS_texture_color_mask")]
 			[ThreadStatic]

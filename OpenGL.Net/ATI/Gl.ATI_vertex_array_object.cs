@@ -448,6 +448,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsObjectBufferATI(UInt32 buffer);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]

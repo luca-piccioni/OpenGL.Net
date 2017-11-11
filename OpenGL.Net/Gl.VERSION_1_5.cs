@@ -1276,6 +1276,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query", EntryPoint = "glIsQueryARB")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsQuery(UInt32 id);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
@@ -1395,6 +1396,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object", EntryPoint = "glIsBufferARB")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsBuffer(UInt32 buffer);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
@@ -1463,6 +1465,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_buffer_object", EntryPoint = "glUnmapBufferARB")]
 			[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2", EntryPoint = "glUnmapBufferOES")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glUnmapBuffer(Int32 target);
 
 			[RequiredByFeature("GL_VERSION_1_5")]

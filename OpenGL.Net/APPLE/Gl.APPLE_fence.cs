@@ -240,6 +240,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsFenceAPPLE(UInt32 fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -248,6 +249,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glTestFenceAPPLE(UInt32 fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -264,6 +266,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glTestObjectAPPLE(Int32 @object, UInt32 name);
 
 			[RequiredByFeature("GL_APPLE_fence")]

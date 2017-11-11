@@ -1,4 +1,4 @@
-﻿
+
 // MIT License
 // 
 // Copyright (c) 2009-2017 Luca Piccioni
@@ -6457,10 +6457,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void Get(Int32 pname, [Out] bool[] data)
+		public static void Get(Int32 pname, [Out] byte[] data)
 		{
 			unsafe {
-				fixed (bool* p_data = data)
+				fixed (byte* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
 					Delegates.pglGetBooleanv(pname, p_data);
@@ -6486,10 +6486,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void Get(GetPName pname, [Out] bool[] data)
+		public static void Get(GetPName pname, [Out] byte[] data)
 		{
 			unsafe {
-				fixed (bool* p_data = data)
+				fixed (byte* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
 					Delegates.pglGetBooleanv((Int32)pname, p_data);
@@ -6515,10 +6515,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void Get(Int32 pname, out bool data)
+		public static void Get(Int32 pname, out byte data)
 		{
 			unsafe {
-				fixed (bool* p_data = &data)
+				fixed (byte* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
 					Delegates.pglGetBooleanv(pname, p_data);
@@ -6544,10 +6544,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void Get(GetPName pname, out bool data)
+		public static void Get(GetPName pname, out byte data)
 		{
 			unsafe {
-				fixed (bool* p_data = &data)
+				fixed (byte* p_data = &data)
 				{
 					Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
 					Delegates.pglGetBooleanv((Int32)pname, p_data);
@@ -8259,10 +8259,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void EdgeFlag(bool[] flag)
+		public static void EdgeFlag(byte[] flag)
 		{
 			unsafe {
-				fixed (bool* p_flag = flag)
+				fixed (byte* p_flag = flag)
 				{
 					Debug.Assert(Delegates.pglEdgeFlagv != null, "pglEdgeFlagv not implemented");
 					Delegates.pglEdgeFlagv(p_flag);
@@ -13640,7 +13640,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glColorMask(bool red, bool green, bool blue, bool alpha);
+			internal delegate void glColorMask([MarshalAs(UnmanagedType.I1)] bool red, [MarshalAs(UnmanagedType.I1)] bool green, [MarshalAs(UnmanagedType.I1)] bool blue, [MarshalAs(UnmanagedType.I1)] bool alpha);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -13654,7 +13654,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDepthMask(bool flag);
+			internal delegate void glDepthMask([MarshalAs(UnmanagedType.I1)] bool flag);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -13834,7 +13834,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBooleanv(Int32 pname, bool* data);
+			internal unsafe delegate void glGetBooleanv(Int32 pname, byte* data);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -13968,6 +13968,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsEnabled(Int32 cap);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
@@ -14416,7 +14417,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEdgeFlag(bool flag);
+			internal delegate void glEdgeFlag([MarshalAs(UnmanagedType.I1)] bool flag);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14426,7 +14427,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEdgeFlagv(bool* flag);
+			internal unsafe delegate void glEdgeFlagv(byte* flag);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16454,6 +16455,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsList(UInt32 list);
 
 			[RequiredByFeature("GL_VERSION_1_0")]

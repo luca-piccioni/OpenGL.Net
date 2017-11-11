@@ -121,6 +121,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool wglCreateDisplayColorTableEXT(UInt16 id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
@@ -128,6 +129,7 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal unsafe delegate bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
@@ -135,6 +137,7 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool wglBindDisplayColorTableEXT(UInt16 id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]

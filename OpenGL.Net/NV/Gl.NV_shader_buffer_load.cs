@@ -372,6 +372,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsBufferResidentNV(Int32 target);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -396,6 +397,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsNamedBufferResidentNV(UInt32 buffer);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]

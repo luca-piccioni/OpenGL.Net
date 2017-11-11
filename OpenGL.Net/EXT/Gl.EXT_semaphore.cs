@@ -389,6 +389,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsSemaphoreEXT(UInt32 semaphore);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]

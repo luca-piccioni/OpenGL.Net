@@ -206,6 +206,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsAsyncMarkerSGIX(UInt32 marker);
 
 			[RequiredByFeature("GL_SGIX_async")]

@@ -389,6 +389,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsRenderbufferOES(UInt32 renderbuffer);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
@@ -437,6 +438,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsFramebufferOES(UInt32 framebuffer);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]

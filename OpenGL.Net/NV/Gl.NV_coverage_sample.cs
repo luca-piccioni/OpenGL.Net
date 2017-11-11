@@ -126,7 +126,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCoverageMaskNV(bool mask);
+			internal delegate void glCoverageMaskNV([MarshalAs(UnmanagedType.I1)] bool mask);
 
 			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 			[ThreadStatic]

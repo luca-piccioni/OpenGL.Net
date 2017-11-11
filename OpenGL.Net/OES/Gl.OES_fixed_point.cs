@@ -2773,7 +2773,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSampleCoveragexOES(Int32 value, bool invert);
+			internal delegate void glSampleCoveragexOES(Int32 value, [MarshalAs(UnmanagedType.I1)] bool invert);
 
 			[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
 			[ThreadStatic]

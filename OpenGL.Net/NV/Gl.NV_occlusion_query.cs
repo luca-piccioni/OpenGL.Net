@@ -234,6 +234,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsOcclusionQueryNV(UInt32 id);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]

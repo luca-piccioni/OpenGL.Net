@@ -2624,7 +2624,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix2dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix2dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2634,7 +2634,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix3dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix3dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2644,7 +2644,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix4dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix4dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2654,7 +2654,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix2x3dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix2x3dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2664,7 +2664,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix2x4dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix2x4dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2674,7 +2674,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix3x2dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix3x2dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2684,7 +2684,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix3x4dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix3x4dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2694,7 +2694,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix4x2dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix4x2dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2704,7 +2704,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix4x3dv(Int32 location, Int32 count, bool transpose, double* value);
+			internal unsafe delegate void glUniformMatrix4x3dv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
@@ -2872,6 +2872,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glIsTransformFeedbackNV")]
 			[SuppressUnmanagedCodeSecurity()]
+			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsTransformFeedback(UInt32 id);
 
 			[RequiredByFeature("GL_VERSION_4_0")]

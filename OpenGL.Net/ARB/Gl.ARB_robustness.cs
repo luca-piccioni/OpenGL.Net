@@ -1055,7 +1055,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnHistogramARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
+			internal unsafe delegate void glGetnHistogramARB(Int32 target, [MarshalAs(UnmanagedType.I1)] bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1063,7 +1063,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnMinmaxARB(Int32 target, bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
+			internal unsafe delegate void glGetnMinmaxARB(Int32 target, [MarshalAs(UnmanagedType.I1)] bool reset, Int32 format, Int32 type, Int32 bufSize, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
