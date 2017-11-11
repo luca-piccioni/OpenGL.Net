@@ -21,6 +21,7 @@ No graphical toolkit integration is included in this package. UI backends are su
         <releaseNotes>
 * v0.7.0
 - Demerged math data structures to separate binary OpenGL.Net.Math.
+- Fixed stability issues.
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
         <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono Android Xamarin GPU Graphics 3D</tags>
