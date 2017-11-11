@@ -417,22 +417,14 @@ namespace OpenGL
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
 		/// </param>
 		/// <param name="extensions">
-		/// A <see cref="ExtensionsCollection"/> that specifies the extensions supported. It can be null.
+		/// A <see cref="KhronosApi.ExtensionsCollection"/> that specifies the extensions supported. It can be null.
 		/// </param>
 		/// <param name="functionName">
 		/// A <see cref="String"/> that specifies the name of the function to bind.
 		/// </param>
 		internal static void BindAPIFunction(KhronosVersion version, ExtensionsCollection extensions, string functionName)
 		{
-            GetAddressDelegate getAddrDelegate = GetProcAddressGLOS;
-
-            switch (Platform.CurrentPlatformId) {
-                case Platform.Id.Linux:
-                    getAddrDelegate = GetProcAddressOS;
-                    break;
-            }
-
-			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, getAddrDelegate, version, extensions);
+			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, GetProcAddressGLOS, version, extensions);
 		}
 
 		/// <summary>
