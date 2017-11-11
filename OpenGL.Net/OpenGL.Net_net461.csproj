@@ -65,7 +65,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\net461\x86\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;GL_DEBUG;HAVE_NUMERICS;NET45</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;HAVE_NUMERICS;NETFRAMEWORK;NET45</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>

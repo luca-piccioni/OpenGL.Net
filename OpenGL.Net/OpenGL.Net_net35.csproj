@@ -62,7 +62,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\net35\x86\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;GL_DEBUG</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;NETFRAMEWORK;NET35</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
