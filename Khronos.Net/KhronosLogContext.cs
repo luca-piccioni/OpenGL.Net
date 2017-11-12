@@ -42,7 +42,7 @@ namespace Khronos
 			QueryLogContext(khronoApiType);
 #if NETFRAMEWORK
 			try {
-				// _LogMap = KhronosLogMap.Load(String.Format("OpenGL.KhronosLogMap{0}.xml", khronoApiType.Name));
+				_LogMap = KhronosLogMap.Load(String.Format("OpenGL.KhronosLogMap{0}.xml", khronoApiType.Name));
 			} catch { /* Fail-safe */ }
 #endif
 		}
