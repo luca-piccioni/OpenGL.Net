@@ -752,8 +752,6 @@ namespace OpenGL
 						int screen = Glx.UnsafeNativeMethods.XDefaultScreen(_Display);
 						IntPtr* configs = Glx.GetFBConfigs(Display, screen, out configsCount);
 
-                        configsCount = 2;
-
 						for (int i = 0; i < configsCount; i++) {
 							IntPtr configId = configs[i];
 							int err, renderType, attribValue;
