@@ -19,6 +19,12 @@
     <param name="channel" />
     <param name="synctype" flags="enum" />
   </command>
+  <command name="glXChooseFBConfig">
+    <param name="dpy" />
+    <param name="screen" />
+    <param name="attrib_list" flags="enum" />
+    <param name="nelements" />
+  </command>
   <command name="glXCopyBufferSubDataNV">
     <param name="dpy" />
     <param name="readCtx" />
@@ -48,6 +54,19 @@
     <param name="width" />
     <param name="height" />
     <param name="depth" />
+  </command>
+  <command name="glXCreateContextAttribsARB">
+    <param name="dpy" />
+    <param name="config" />
+    <param name="share_context" />
+    <param name="direct" />
+    <param name="attrib_list" flags="enum" />
+  </command>
+  <command name="glXGetFBConfigAttrib">
+    <param name="dpy" />
+    <param name="config" />
+    <param name="attribute" flags="enum" />
+    <param name="value" />
   </command>
   <command name="glXGetGPUInfoAMD">
     <param name="id" />

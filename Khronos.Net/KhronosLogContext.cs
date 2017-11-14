@@ -249,7 +249,7 @@ namespace Khronos
 
 				sb.Append("{");
 				foreach (object arrayItem in arg)
-					sb.AppendFormat("{0},", arrayItem.ToString());
+					sb.AppendFormat("{0},", FormatArg(arrayItem, flags).ToString());
 				if (arg.Length > 0)
 					sb.Remove(sb.Length - 1, 1);
 				sb.Append("}");

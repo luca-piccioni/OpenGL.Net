@@ -198,6 +198,11 @@ namespace BindingsGen.GLSpecs
 				/// The procedure logging format argument will call KhronoApi.LogEnumName method.
 				/// </summary>
 				LogAsEnum =			0x0001,
+
+                /// <summary>
+                /// 
+                /// </summary>
+                LosAsAttribsList =  0x0002,
 			}
 
 			/// <summary>

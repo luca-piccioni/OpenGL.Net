@@ -32,6 +32,11 @@
     <param name="height" />
     <param name="depth" />
   </command>
+  <command name="wglCreateContextAttribsARB">
+    <param name="hDC" />
+    <param name="hShareContext" />
+    <param name="attribList" flags="enum" />
+  </command>
   <command name="wglDXObjectAccessNV">
     <param name="hObject" />
     <param name="access" flags="enum" />
@@ -49,5 +54,13 @@
     <param name="dataType" flags="enum" />
     <param name="size" />
     <param name="data" />
+  </command>
+  <command name="wglGetPixelFormatAttribivARB">
+    <param name="hdc" />
+    <param name="iPixelFormat" />
+    <param name="iLayerPlane" />
+    <param name="nAttributes" />
+    <param name="piAttributes" flags="enum" />
+    <param name="piValues" flags="enum" />
   </command>
 </KhronosLogMap>

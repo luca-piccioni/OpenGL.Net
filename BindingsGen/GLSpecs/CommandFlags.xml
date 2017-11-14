@@ -355,6 +355,18 @@
 		<flags>OutParamLast</flags>
 	</command>
 
+	<command name="^glXCreateContextAttribsARB$">
+		<param id="attrib_list"><flags>LogAsEnum</flags></param>
+    </command>
+
+	<command name="^glXChooseFBConfig$">
+        <param id="attrib_list"><flags>LogAsEnum</flags></param>
+    </command>
+
+	<command name="^glXGetFBConfigAttrib$">
+        <param id="attribute"><flags>LogAsEnum</flags></param>
+    </command>
+
 	<command name="^glXChooseVisual$">
 		<rename>ChooseVisualCore</rename>
 		<visibility>private</visibility>

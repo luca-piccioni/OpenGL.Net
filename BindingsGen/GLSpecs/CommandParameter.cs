@@ -467,6 +467,11 @@ namespace BindingsGen.GLSpecs
 		{
 			get
 			{
+                CommandFlagsDatabase.CommandItem.ParameterItemFlags paramFlags = CommandFlagsDatabase.GetCommandParameterFlags(ParentCommand, this);
+
+                if ((paramFlags & CommandFlagsDatabase.CommandItem.ParameterItemFlags.LogAsEnum) != 0)
+                    return (true);
+                
 				switch (Type) {
 					case "GLenum":
 					case "EGLenum":
