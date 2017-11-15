@@ -261,7 +261,7 @@ namespace BindingsGen.GLSpecs
 			string classDefaultApi = ctx.Class.ToLower();
 
 			foreach (IFeature feature in RequiredBy)
-				sw.WriteLine(feature.GenerateRequiredByAttribute(this, classDefaultApi));
+				sw.WriteLine(feature.GenerateRequiredByAttribute(/* EntryPoint not required */ null, classDefaultApi));
 
 			foreach (IFeature feature in RemovedBy)
 				sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
