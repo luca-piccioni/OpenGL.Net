@@ -43,23 +43,5 @@ namespace BindingsGen.GLSpecs
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
 		IEnumerable<FeatureCommand> Requirements { get; }
-
-		/// <summary>
-		/// Generate the RequiredByFeatureAttribute source code.
-		/// </summary>
-		/// <param name="command">
-		/// The <see cref="Command"/> which generates the underlying fields applicable for the attribute.
-		/// </param>
-		/// <param name="defaultAPI">
-		/// A <see cref="String"/> that specifies the feature API, if <see cref="IFeature.Api"/> is not specified.
-		/// </param>
-		/// <returns></returns>
-		string GenerateRequiredByAttribute(Command command, string defaultAPI);
-
-		/// <summary>
-		/// Generate the RemovedByFeatureAttribute source code.
-		/// </summary>
-		/// <returns></returns>
-		string GenerateRemovedByAttribute(string defaultAPI);
 	}
 }

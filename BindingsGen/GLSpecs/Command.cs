@@ -321,8 +321,8 @@ namespace BindingsGen.GLSpecs
 			foreach (IFeature feature in RemovedBy)
 				sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
 
-			// Required on Windows platform: different threads can bind different OpenGL context, which can have different
-			// entry points
+			// Multithreaded GL support
+			// Required on Windows platform: different threads can bind different OpenGL context, which can have different entry points
 			if (ctx.Class == "Gl")
 				sw.WriteLine("[ThreadStatic]");
 
