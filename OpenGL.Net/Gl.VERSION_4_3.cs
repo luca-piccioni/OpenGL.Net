@@ -4583,7 +4583,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageControlARB")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageControlKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageControl(Int32 source, Int32 type, Int32 severity, Int32 count, UInt32* ids, [MarshalAs(UnmanagedType.I1)] bool enabled);
 
@@ -4591,7 +4591,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageControlARB")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageControlKHR")]
 			[ThreadStatic]
 			internal static glDebugMessageControl pglDebugMessageControl;
 
@@ -4599,7 +4599,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageInsertARB")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageInsertKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDebugMessageInsert(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf);
 
@@ -4607,7 +4607,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageInsertARB")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageInsertKHR")]
 			[ThreadStatic]
 			internal static glDebugMessageInsert pglDebugMessageInsert;
 
@@ -4615,7 +4615,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageCallbackARB")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageCallbackKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageCallback(Gl.DebugProc callback, IntPtr userParam);
 
@@ -4623,7 +4623,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageCallbackARB")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageCallbackKHR")]
 			[ThreadStatic]
 			internal static glDebugMessageCallback pglDebugMessageCallback;
 
@@ -4631,7 +4631,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glGetDebugMessageLogARB")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetDebugMessageLogKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32 glGetDebugMessageLog(UInt32 count, Int32 bufSize, Int32* sources, Int32* types, UInt32* ids, Int32* severities, Int32* lengths, [Out] StringBuilder messageLog);
 
@@ -4639,91 +4639,91 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glGetDebugMessageLogARB")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetDebugMessageLogKHR")]
 			[ThreadStatic]
 			internal static glGetDebugMessageLog pglGetDebugMessageLog;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glPushDebugGroupKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushDebugGroup(Int32 source, UInt32 id, Int32 length, String message);
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glPushDebugGroupKHR")]
 			[ThreadStatic]
 			internal static glPushDebugGroup pglPushDebugGroup;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glPopDebugGroupKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopDebugGroup();
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glPopDebugGroupKHR")]
 			[ThreadStatic]
 			internal static glPopDebugGroup pglPopDebugGroup;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glObjectLabelKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glObjectLabel(Int32 identifier, UInt32 name, Int32 length, String label);
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glObjectLabelKHR")]
 			[ThreadStatic]
 			internal static glObjectLabel pglObjectLabel;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetObjectLabelKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetObjectLabel(Int32 identifier, UInt32 name, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetObjectLabelKHR")]
 			[ThreadStatic]
 			internal static glGetObjectLabel pglGetObjectLabel;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glObjectPtrLabelKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glObjectPtrLabel(IntPtr ptr, Int32 length, String label);
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glObjectPtrLabelKHR")]
 			[ThreadStatic]
 			internal static glObjectPtrLabel pglObjectPtrLabel;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetObjectPtrLabelKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetObjectPtrLabel(IntPtr ptr, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetObjectPtrLabelKHR")]
 			[ThreadStatic]
 			internal static glGetObjectPtrLabel pglGetObjectPtrLabel;
 

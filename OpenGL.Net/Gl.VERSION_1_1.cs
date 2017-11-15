@@ -2368,7 +2368,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_vertex_array", EntryPoint = "glGetPointervEXT")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetPointervKHR")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPointerv(Int32 pname, IntPtr* @params);
@@ -2380,7 +2380,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_vertex_array", EntryPoint = "glGetPointervEXT")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetPointervKHR")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[ThreadStatic]
 			internal static glGetPointerv pglGetPointerv;

@@ -5949,7 +5949,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetGraphicsResetStatusEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glGetGraphicsResetStatusKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetGraphicsResetStatus();
 
@@ -5958,7 +5958,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetGraphicsResetStatusEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glGetGraphicsResetStatusKHR")]
 			[ThreadStatic]
 			internal static glGetGraphicsResetStatus pglGetGraphicsResetStatus;
 
@@ -5991,7 +5991,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetnUniformfvEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glGetnUniformfvKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, float* @params);
 
@@ -6000,7 +6000,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetnUniformfvEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glGetnUniformfvKHR")]
 			[ThreadStatic]
 			internal static glGetnUniformfv pglGetnUniformfv;
 
@@ -6009,7 +6009,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetnUniformivEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glGetnUniformivKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, Int32* @params);
 
@@ -6018,21 +6018,21 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glGetnUniformivEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glGetnUniformivKHR")]
 			[ThreadStatic]
 			internal static glGetnUniformiv pglGetnUniformiv;
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glGetnUniformuivKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, UInt32* @params);
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glGetnUniformuivKHR")]
 			[ThreadStatic]
 			internal static glGetnUniformuiv pglGetnUniformuiv;
 
@@ -6042,7 +6042,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore", EntryPoint = "glReadnPixelsARB")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glReadnPixelsEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glReadnPixelsKHR")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, Int32 format, Int32 type, Int32 bufSize, IntPtr data);
 
@@ -6052,7 +6052,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore", EntryPoint = "glReadnPixelsARB")]
 			[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2", EntryPoint = "glReadnPixelsEXT")]
 			[RequiredByFeature("GL_KHR_robustness")]
-			[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
+			[RequiredByFeature("GL_KHR_robustness", Api = "gles2", EntryPoint = "glReadnPixelsKHR")]
 			[ThreadStatic]
 			internal static glReadnPixels pglReadnPixels;
 
