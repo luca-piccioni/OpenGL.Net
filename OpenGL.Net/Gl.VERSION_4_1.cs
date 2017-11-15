@@ -4575,7 +4575,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1", EntryPoint = "glDepthRangefOES")]
+			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDepthRangef(float n, float f);
 
@@ -4593,7 +4593,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1", EntryPoint = "glClearDepthfOES")]
+			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glClearDepthf(float d);
 
@@ -4609,7 +4609,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2", EntryPoint = "glGetProgramBinaryOES")]
+			[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetProgramBinary(UInt32 program, Int32 bufSize, Int32* length, Int32* binaryFormat, IntPtr binary);
 
@@ -4624,7 +4624,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2", EntryPoint = "glProgramBinaryOES")]
+			[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramBinary(UInt32 program, Int32 binaryFormat, IntPtr binary, Int32 length);
 
@@ -4639,11 +4639,11 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore", EntryPoint = "glProgramParameteriARB")]
+			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 			[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_geometry_shader4", EntryPoint = "glProgramParameteriEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramParameteriEXT")]
+			[RequiredByFeature("GL_EXT_geometry_shader4")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramParameteri(UInt32 program, Int32 pname, Int32 value);
 
@@ -4758,8 +4758,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform1iEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform1iEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1i(UInt32 program, Int32 location, Int32 v0);
 
@@ -4774,8 +4774,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform1ivEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform1ivEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1iv(UInt32 program, Int32 location, Int32 count, Int32* value);
 
@@ -4790,8 +4790,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform1fEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform1fEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1f(UInt32 program, Int32 location, float v0);
 
@@ -4806,8 +4806,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform1fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform1fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1fv(UInt32 program, Int32 location, Int32 count, float* value);
 
@@ -4842,8 +4842,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform1uiEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform1uiEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform1ui(UInt32 program, Int32 location, UInt32 v0);
 
@@ -4858,8 +4858,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform1uivEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform1uivEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform1uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
 
@@ -4874,8 +4874,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform2iEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform2iEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2i(UInt32 program, Int32 location, Int32 v0, Int32 v1);
 
@@ -4890,8 +4890,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform2ivEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform2ivEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2iv(UInt32 program, Int32 location, Int32 count, Int32* value);
 
@@ -4906,8 +4906,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform2fEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform2fEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2f(UInt32 program, Int32 location, float v0, float v1);
 
@@ -4922,8 +4922,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform2fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform2fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2fv(UInt32 program, Int32 location, Int32 count, float* value);
 
@@ -4958,8 +4958,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform2uiEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform2uiEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform2ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1);
 
@@ -4974,8 +4974,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform2uivEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform2uivEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform2uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
 
@@ -4990,8 +4990,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform3iEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform3iEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3i(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2);
 
@@ -5006,8 +5006,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform3ivEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform3ivEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3iv(UInt32 program, Int32 location, Int32 count, Int32* value);
 
@@ -5022,8 +5022,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform3fEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform3fEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3f(UInt32 program, Int32 location, float v0, float v1, float v2);
 
@@ -5038,8 +5038,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform3fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform3fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3fv(UInt32 program, Int32 location, Int32 count, float* value);
 
@@ -5074,8 +5074,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform3uiEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform3uiEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform3ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2);
 
@@ -5090,8 +5090,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform3uivEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform3uivEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform3uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
 
@@ -5106,8 +5106,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform4iEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform4iEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4i(UInt32 program, Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3);
 
@@ -5122,8 +5122,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform4ivEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform4ivEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4iv(UInt32 program, Int32 location, Int32 count, Int32* value);
 
@@ -5138,8 +5138,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform4fEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform4fEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4f(UInt32 program, Int32 location, float v0, float v1, float v2, float v3);
 
@@ -5154,8 +5154,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform4fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform4fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4fv(UInt32 program, Int32 location, Int32 count, float* value);
 
@@ -5190,8 +5190,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform4uiEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform4uiEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glProgramUniform4ui(UInt32 program, Int32 location, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3);
 
@@ -5206,8 +5206,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniform4uivEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniform4uivEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniform4uiv(UInt32 program, Int32 location, Int32 count, UInt32* value);
 
@@ -5222,8 +5222,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix2fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix2fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5238,8 +5238,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix3fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix3fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5254,9 +5254,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix4fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix4fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix4fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5302,8 +5302,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix2x3fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix2x3fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2x3fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5318,8 +5318,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix3x2fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix3x2fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3x2fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5334,8 +5334,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix2x4fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix2x4fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix2x4fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5350,8 +5350,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix4x2fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix4x2fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4x2fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5366,8 +5366,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix3x4fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix3x4fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix3x4fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5382,8 +5382,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix4x3fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix4x3fvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glProgramUniformMatrix4x3fv(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -5481,7 +5481,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribL1dEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribL1d(UInt32 index, double x);
 
@@ -5493,7 +5493,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribL2dEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribL2d(UInt32 index, double x, double y);
 
@@ -5505,7 +5505,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribL3dEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribL3d(UInt32 index, double x, double y, double z);
 
@@ -5517,7 +5517,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribL4dEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribL4d(UInt32 index, double x, double y, double z, double w);
 
@@ -5529,7 +5529,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribL1dvEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribL1dv(UInt32 index, double* v);
 
@@ -5541,7 +5541,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribL2dvEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribL2dv(UInt32 index, double* v);
 
@@ -5553,7 +5553,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribL3dvEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribL3dv(UInt32 index, double* v);
 
@@ -5565,7 +5565,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribL4dvEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribL4dv(UInt32 index, double* v);
 
@@ -5577,7 +5577,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glVertexAttribLPointerEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glVertexAttribLPointer(UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
 
@@ -5589,7 +5589,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_vertex_attrib_64bit", EntryPoint = "glGetVertexAttribLdvEXT")]
+			[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetVertexAttribLdv(UInt32 index, Int32 pname, double* @params);
 
@@ -5601,8 +5601,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2", EntryPoint = "glViewportArrayvNV")]
-			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2", EntryPoint = "glViewportArrayvOES")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glViewportArrayv(UInt32 first, Int32 count, float* v);
 
@@ -5615,8 +5615,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2", EntryPoint = "glViewportIndexedfNV")]
-			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2", EntryPoint = "glViewportIndexedfOES")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glViewportIndexedf(UInt32 index, float x, float y, float w, float h);
 
@@ -5629,8 +5629,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2", EntryPoint = "glViewportIndexedfvNV")]
-			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2", EntryPoint = "glViewportIndexedfvOES")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glViewportIndexedfv(UInt32 index, float* v);
 
@@ -5643,8 +5643,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2", EntryPoint = "glScissorArrayvNV")]
-			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2", EntryPoint = "glScissorArrayvOES")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glScissorArrayv(UInt32 first, Int32 count, Int32* v);
 
@@ -5657,8 +5657,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2", EntryPoint = "glScissorIndexedNV")]
-			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2", EntryPoint = "glScissorIndexedOES")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glScissorIndexed(UInt32 index, Int32 left, Int32 bottom, Int32 width, Int32 height);
 
@@ -5671,8 +5671,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2", EntryPoint = "glScissorIndexedvNV")]
-			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2", EntryPoint = "glScissorIndexedvOES")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glScissorIndexedv(UInt32 index, Int32* v);
 
@@ -5705,10 +5705,10 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glGetFloatIndexedvEXT")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glGetFloatIndexedvEXT")]
-			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2", EntryPoint = "glGetFloati_vNV")]
-			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2", EntryPoint = "glGetFloati_vOES")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetFloati_v(Int32 target, UInt32 index, float* data);
 
@@ -5723,8 +5723,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glGetDoubleIndexedvEXT")]
-			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glGetDoubleIndexedvEXT")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetDoublei_v(Int32 target, UInt32 index, double* data);
 

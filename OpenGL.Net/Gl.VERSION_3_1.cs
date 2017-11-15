@@ -1090,11 +1090,11 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glDrawArraysInstancedANGLE")]
-			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore", EntryPoint = "glDrawArraysInstancedARB")]
-			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2", EntryPoint = "glDrawArraysInstancedEXT")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glDrawArraysInstancedEXT")]
-			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2", EntryPoint = "glDrawArraysInstancedNV")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawArraysInstanced(Int32 mode, Int32 first, Int32 count, Int32 instancecount);
 
@@ -1110,11 +1110,11 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glDrawElementsInstancedANGLE")]
-			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore", EntryPoint = "glDrawElementsInstancedARB")]
-			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2", EntryPoint = "glDrawElementsInstancedEXT")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glDrawElementsInstancedEXT")]
-			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2", EntryPoint = "glDrawElementsInstancedNV")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_draw_instanced", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstanced(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount);
 
@@ -1130,10 +1130,10 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore", EntryPoint = "glTexBufferARB")]
-			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferEXT")]
-			[RequiredByFeature("GL_EXT_texture_buffer_object", EntryPoint = "glTexBufferEXT")]
-			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferOES")]
+			[RequiredByFeature("GL_ARB_texture_buffer_object", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_texture_buffer_object")]
+			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexBuffer(Int32 target, Int32 internalformat, UInt32 buffer);
 
@@ -1157,7 +1157,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_1")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2", EntryPoint = "glCopyBufferSubDataNV")]
+			[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glCopyBufferSubData(Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
 

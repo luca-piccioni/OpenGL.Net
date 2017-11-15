@@ -1723,7 +1723,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glBindFragDataLocationIndexedEXT")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindFragDataLocationIndexed(UInt32 program, UInt32 colorNumber, UInt32 index, String name);
 
@@ -1735,7 +1735,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glGetFragDataIndexEXT")]
+			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate Int32 glGetFragDataIndex(UInt32 program, String name);
 
@@ -1845,8 +1845,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIivEXT")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIivOES")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* param);
 
@@ -1861,8 +1861,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIuivEXT")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glSamplerParameterIuivOES")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* param);
 
@@ -1889,8 +1889,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIivEXT")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIivOES")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterIiv(UInt32 sampler, Int32 pname, Int32* @params);
 
@@ -1917,8 +1917,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIuivEXT")]
-			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2", EntryPoint = "glGetSamplerParameterIuivOES")]
+			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetSamplerParameterIuiv(UInt32 sampler, Int32 pname, UInt32* @params);
 
@@ -1932,7 +1932,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glQueryCounterEXT")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glQueryCounter(UInt32 id, Int32 target);
 
@@ -1944,8 +1944,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetQueryObjecti64vEXT")]
-			[RequiredByFeature("GL_EXT_timer_query", EntryPoint = "glGetQueryObjecti64vEXT")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_timer_query")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryObjecti64v(UInt32 id, Int32 pname, Int64* @params);
 
@@ -1958,8 +1958,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetQueryObjectui64vEXT")]
-			[RequiredByFeature("GL_EXT_timer_query", EntryPoint = "glGetQueryObjectui64vEXT")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_timer_query")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetQueryObjectui64v(UInt32 id, Int32 pname, UInt64* @params);
 
@@ -1972,10 +1972,10 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorANGLE")]
-			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore", EntryPoint = "glVertexAttribDivisorARB")]
-			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorEXT")]
-			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2", EntryPoint = "glVertexAttribDivisorNV")]
+			[RequiredByFeature("GL_ANGLE_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_ARB_instanced_arrays", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
+			[RequiredByFeature("GL_NV_instanced_arrays", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glVertexAttribDivisor(UInt32 index, UInt32 divisor);
 

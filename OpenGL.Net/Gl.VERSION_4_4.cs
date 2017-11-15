@@ -664,7 +664,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2", EntryPoint = "glBufferStorageEXT")]
+			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glBufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
 
@@ -676,7 +676,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2", EntryPoint = "glClearTexImageEXT")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data);
 
@@ -688,7 +688,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2", EntryPoint = "glClearTexSubImageEXT")]
+			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data);
 

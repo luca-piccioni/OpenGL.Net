@@ -157,7 +157,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_multisample")]
-			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSampleMaskSGIS")]
+			[RequiredByFeature("GL_SGIS_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSampleMaskEXT(float value, [MarshalAs(UnmanagedType.I1)] bool invert);
 
@@ -167,7 +167,7 @@ namespace OpenGL
 			internal static glSampleMaskEXT pglSampleMaskEXT;
 
 			[RequiredByFeature("GL_EXT_multisample")]
-			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSamplePatternSGIS")]
+			[RequiredByFeature("GL_SGIS_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glSamplePatternEXT(Int32 pattern);
 

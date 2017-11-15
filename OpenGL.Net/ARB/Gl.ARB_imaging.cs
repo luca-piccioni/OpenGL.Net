@@ -1932,8 +1932,8 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_paletted_texture", EntryPoint = "glColorTableEXT")]
-			[RequiredByFeature("GL_SGI_color_table", EntryPoint = "glColorTableSGI")]
+			[RequiredByFeature("GL_EXT_paletted_texture")]
+			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorTable(Int32 target, Int32 internalformat, Int32 width, Int32 format, Int32 type, IntPtr table);
 
@@ -1944,7 +1944,7 @@ namespace OpenGL
 			internal static glColorTable pglColorTable;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_SGI_color_table", EntryPoint = "glColorTableParameterfvSGI")]
+			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorTableParameterfv(Int32 target, Int32 pname, float* @params);
 
@@ -1954,7 +1954,7 @@ namespace OpenGL
 			internal static glColorTableParameterfv pglColorTableParameterfv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_SGI_color_table", EntryPoint = "glColorTableParameterivSGI")]
+			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorTableParameteriv(Int32 target, Int32 pname, Int32* @params);
 
@@ -1964,7 +1964,7 @@ namespace OpenGL
 			internal static glColorTableParameteriv pglColorTableParameteriv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_SGI_color_table", EntryPoint = "glCopyColorTableSGI")]
+			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyColorTable(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width);
 
@@ -1974,7 +1974,7 @@ namespace OpenGL
 			internal static glCopyColorTable pglCopyColorTable;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_paletted_texture", EntryPoint = "glGetColorTableEXT")]
+			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetColorTable(Int32 target, Int32 format, Int32 type, IntPtr table);
 
@@ -1984,7 +1984,7 @@ namespace OpenGL
 			internal static glGetColorTable pglGetColorTable;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_paletted_texture", EntryPoint = "glGetColorTableParameterfvEXT")]
+			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetColorTableParameterfv(Int32 target, Int32 pname, float* @params);
 
@@ -1994,7 +1994,7 @@ namespace OpenGL
 			internal static glGetColorTableParameterfv pglGetColorTableParameterfv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_paletted_texture", EntryPoint = "glGetColorTableParameterivEXT")]
+			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetColorTableParameteriv(Int32 target, Int32 pname, Int32* @params);
 
@@ -2004,7 +2004,7 @@ namespace OpenGL
 			internal static glGetColorTableParameteriv pglGetColorTableParameteriv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_color_subtable", EntryPoint = "glColorSubTableEXT")]
+			[RequiredByFeature("GL_EXT_color_subtable")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glColorSubTable(Int32 target, Int32 start, Int32 count, Int32 format, Int32 type, IntPtr data);
 
@@ -2014,7 +2014,7 @@ namespace OpenGL
 			internal static glColorSubTable pglColorSubTable;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_color_subtable", EntryPoint = "glCopyColorSubTableEXT")]
+			[RequiredByFeature("GL_EXT_color_subtable")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyColorSubTable(Int32 target, Int32 start, Int32 x, Int32 y, Int32 width);
 
@@ -2024,7 +2024,7 @@ namespace OpenGL
 			internal static glCopyColorSubTable pglCopyColorSubTable;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionFilter1DEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 width, Int32 format, Int32 type, IntPtr image);
 
@@ -2034,7 +2034,7 @@ namespace OpenGL
 			internal static glConvolutionFilter1D pglConvolutionFilter1D;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionFilter2DEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr image);
 
@@ -2044,7 +2044,7 @@ namespace OpenGL
 			internal static glConvolutionFilter2D pglConvolutionFilter2D;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionParameterfEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glConvolutionParameterf(Int32 target, Int32 pname, float @params);
 
@@ -2054,7 +2054,7 @@ namespace OpenGL
 			internal static glConvolutionParameterf pglConvolutionParameterf;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionParameterfvEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glConvolutionParameterfv(Int32 target, Int32 pname, float* @params);
 
@@ -2064,7 +2064,7 @@ namespace OpenGL
 			internal static glConvolutionParameterfv pglConvolutionParameterfv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionParameteriEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glConvolutionParameteri(Int32 target, Int32 pname, Int32 @params);
 
@@ -2074,7 +2074,7 @@ namespace OpenGL
 			internal static glConvolutionParameteri pglConvolutionParameteri;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionParameterivEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glConvolutionParameteriv(Int32 target, Int32 pname, Int32* @params);
 
@@ -2084,7 +2084,7 @@ namespace OpenGL
 			internal static glConvolutionParameteriv pglConvolutionParameteriv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glCopyConvolutionFilter1DEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width);
 
@@ -2094,7 +2094,7 @@ namespace OpenGL
 			internal static glCopyConvolutionFilter1D pglCopyConvolutionFilter1D;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glCopyConvolutionFilter2DEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height);
 
@@ -2136,7 +2136,7 @@ namespace OpenGL
 			internal static glGetSeparableFilter pglGetSeparableFilter;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glSeparableFilter2DEXT")]
+			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glSeparableFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr row, IntPtr column);
 
@@ -2194,7 +2194,7 @@ namespace OpenGL
 			internal static glGetMinmaxParameteriv pglGetMinmaxParameteriv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glHistogramEXT")]
+			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glHistogram(Int32 target, Int32 width, Int32 internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
 
@@ -2204,7 +2204,7 @@ namespace OpenGL
 			internal static glHistogram pglHistogram;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glMinmaxEXT")]
+			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMinmax(Int32 target, Int32 internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
 
@@ -2214,7 +2214,7 @@ namespace OpenGL
 			internal static glMinmax pglMinmax;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glResetHistogramEXT")]
+			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glResetHistogram(Int32 target);
 
@@ -2224,7 +2224,7 @@ namespace OpenGL
 			internal static glResetHistogram pglResetHistogram;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glResetMinmaxEXT")]
+			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glResetMinmax(Int32 target);
 

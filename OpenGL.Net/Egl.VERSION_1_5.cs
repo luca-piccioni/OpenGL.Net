@@ -585,7 +585,7 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("EGL_VERSION_1_5")]
-			[RequiredByFeature("EGL_KHR_cl_event2", EntryPoint = "eglCreateSync64KHR")]
+			[RequiredByFeature("EGL_KHR_cl_event2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate IntPtr eglCreateSync(IntPtr dpy, uint type, IntPtr* attrib_list);
 
@@ -594,8 +594,8 @@ namespace OpenGL
 			internal static eglCreateSync peglCreateSync;
 
 			[RequiredByFeature("EGL_VERSION_1_5")]
-			[RequiredByFeature("EGL_KHR_fence_sync", EntryPoint = "eglDestroySyncKHR")]
-			[RequiredByFeature("EGL_KHR_reusable_sync", EntryPoint = "eglDestroySyncKHR")]
+			[RequiredByFeature("EGL_KHR_fence_sync")]
+			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroySync(IntPtr dpy, IntPtr sync);
 
@@ -605,8 +605,8 @@ namespace OpenGL
 			internal static eglDestroySync peglDestroySync;
 
 			[RequiredByFeature("EGL_VERSION_1_5")]
-			[RequiredByFeature("EGL_KHR_fence_sync", EntryPoint = "eglClientWaitSyncKHR")]
-			[RequiredByFeature("EGL_KHR_reusable_sync", EntryPoint = "eglClientWaitSyncKHR")]
+			[RequiredByFeature("EGL_KHR_fence_sync")]
+			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
 
@@ -630,8 +630,8 @@ namespace OpenGL
 			internal static eglCreateImage peglCreateImage;
 
 			[RequiredByFeature("EGL_VERSION_1_5")]
-			[RequiredByFeature("EGL_KHR_image", EntryPoint = "eglDestroyImageKHR")]
-			[RequiredByFeature("EGL_KHR_image_base", EntryPoint = "eglDestroyImageKHR")]
+			[RequiredByFeature("EGL_KHR_image")]
+			[RequiredByFeature("EGL_KHR_image_base")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglDestroyImage(IntPtr dpy, IntPtr image);
 

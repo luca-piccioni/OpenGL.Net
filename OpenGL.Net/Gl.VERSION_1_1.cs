@@ -2337,7 +2337,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_vertex_array", EntryPoint = "glDrawArraysEXT")]
+			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawArrays(Int32 mode, Int32 first, Int32 count);
 
@@ -2366,9 +2366,9 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_vertex_array", EntryPoint = "glGetPointervEXT")]
+			[RequiredByFeature("GL_EXT_vertex_array")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetPointervKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetPointerv(Int32 pname, IntPtr* @params);
@@ -2400,7 +2400,7 @@ namespace OpenGL
 			internal static glPolygonOffset pglPolygonOffset;
 
 			[RequiredByFeature("GL_VERSION_1_1")]
-			[RequiredByFeature("GL_EXT_copy_texture", EntryPoint = "glCopyTexImage1DEXT")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
 
@@ -2412,7 +2412,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_copy_texture", EntryPoint = "glCopyTexImage2DEXT")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
 
@@ -2424,7 +2424,7 @@ namespace OpenGL
 			internal static glCopyTexImage2D pglCopyTexImage2D;
 
 			[RequiredByFeature("GL_VERSION_1_1")]
-			[RequiredByFeature("GL_EXT_copy_texture", EntryPoint = "glCopyTexSubImage1DEXT")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
 
@@ -2436,7 +2436,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_copy_texture", EntryPoint = "glCopyTexSubImage2DEXT")]
+			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
 
@@ -2448,7 +2448,7 @@ namespace OpenGL
 			internal static glCopyTexSubImage2D pglCopyTexSubImage2D;
 
 			[RequiredByFeature("GL_VERSION_1_1")]
-			[RequiredByFeature("GL_EXT_subtexture", EntryPoint = "glTexSubImage1DEXT")]
+			[RequiredByFeature("GL_EXT_subtexture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
 
@@ -2461,7 +2461,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_subtexture", EntryPoint = "glTexSubImage2DEXT")]
+			[RequiredByFeature("GL_EXT_subtexture")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
 
@@ -2477,7 +2477,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			[RequiredByFeature("GL_EXT_texture_object", EntryPoint = "glBindTextureEXT")]
+			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindTexture(Int32 target, UInt32 texture);
 
@@ -2529,7 +2529,7 @@ namespace OpenGL
 			internal static glIsTexture pglIsTexture;
 
 			[RequiredByFeature("GL_VERSION_1_1")]
-			[RequiredByFeature("GL_EXT_vertex_array", EntryPoint = "glArrayElementEXT")]
+			[RequiredByFeature("GL_EXT_vertex_array")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glArrayElement(Int32 i);
@@ -2654,7 +2654,7 @@ namespace OpenGL
 			internal static glAreTexturesResident pglAreTexturesResident;
 
 			[RequiredByFeature("GL_VERSION_1_1")]
-			[RequiredByFeature("GL_EXT_texture_object", EntryPoint = "glPrioritizeTexturesEXT")]
+			[RequiredByFeature("GL_EXT_texture_object")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glPrioritizeTextures(Int32 n, UInt32* textures, float* priorities);

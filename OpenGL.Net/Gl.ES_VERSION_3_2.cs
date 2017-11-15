@@ -490,8 +490,8 @@ namespace OpenGL
 		internal unsafe static partial class Delegates
 		{
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2", EntryPoint = "glBlendBarrierKHR")]
-			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2", EntryPoint = "glBlendBarrierNV")]
+			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendBarrier();
 
@@ -502,9 +502,9 @@ namespace OpenGL
 			internal static glBlendBarrier pglBlendBarrier;
 
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore", EntryPoint = "glPrimitiveBoundingBoxARB")]
-			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2", EntryPoint = "glPrimitiveBoundingBoxEXT")]
-			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2", EntryPoint = "glPrimitiveBoundingBoxOES")]
+			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
+			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 

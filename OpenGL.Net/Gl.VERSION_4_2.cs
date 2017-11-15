@@ -1482,7 +1482,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawArraysInstancedBaseInstanceEXT")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawArraysInstancedBaseInstance(Int32 mode, Int32 first, Int32 count, Int32 instancecount, UInt32 baseinstance);
 
@@ -1494,7 +1494,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseInstanceEXT")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedBaseInstance(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, UInt32 baseinstance);
 
@@ -1506,7 +1506,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2", EntryPoint = "glDrawElementsInstancedBaseVertexBaseInstanceEXT")]
+			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDrawElementsInstancedBaseVertexBaseInstance(Int32 mode, Int32 count, Int32 type, IntPtr indices, Int32 instancecount, Int32 basevertex, UInt32 baseinstance);
 
@@ -1553,7 +1553,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_shader_image_load_store", EntryPoint = "glMemoryBarrierEXT")]
+			[RequiredByFeature("GL_EXT_shader_image_load_store")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMemoryBarrier(UInt32 barriers);
 
@@ -1566,7 +1566,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage1DEXT")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage1D(Int32 target, Int32 levels, Int32 internalformat, Int32 width);
 
@@ -1580,7 +1580,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage2DEXT")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage2D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
 
@@ -1595,7 +1595,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage3DEXT")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage3D(Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
 
@@ -1608,7 +1608,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2", EntryPoint = "glDrawTransformFeedbackInstancedEXT")]
+			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTransformFeedbackInstanced(Int32 mode, UInt32 id, Int32 instancecount);
 

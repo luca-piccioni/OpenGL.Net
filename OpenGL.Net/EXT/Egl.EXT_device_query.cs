@@ -166,7 +166,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_query")]
-			[RequiredByFeature("EGL_NV_stream_metadata", EntryPoint = "eglQueryDisplayAttribNV")]
+			[RequiredByFeature("EGL_NV_stream_metadata")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate bool eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
 

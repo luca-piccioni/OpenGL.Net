@@ -4234,8 +4234,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_copy_image", Api = "gles2", EntryPoint = "glCopyImageSubDataEXT")]
-			[RequiredByFeature("GL_OES_copy_image", Api = "gles2", EntryPoint = "glCopyImageSubDataOES")]
+			[RequiredByFeature("GL_EXT_copy_image", Api = "gles2")]
+			[RequiredByFeature("GL_OES_copy_image", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glCopyImageSubData(UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
 
@@ -4346,9 +4346,9 @@ namespace OpenGL
 			internal static glInvalidateSubFramebuffer pglInvalidateSubFramebuffer;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_AMD_multi_draw_indirect", EntryPoint = "glMultiDrawArraysIndirectAMD")]
+			[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 			[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2", EntryPoint = "glMultiDrawArraysIndirectEXT")]
+			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawArraysIndirect(Int32 mode, IntPtr indirect, Int32 drawcount, Int32 stride);
 
@@ -4360,9 +4360,9 @@ namespace OpenGL
 			internal static glMultiDrawArraysIndirect pglMultiDrawArraysIndirect;
 
 			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_AMD_multi_draw_indirect", EntryPoint = "glMultiDrawElementsIndirectAMD")]
+			[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 			[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2", EntryPoint = "glMultiDrawElementsIndirectEXT")]
+			[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glMultiDrawElementsIndirect(Int32 mode, Int32 type, IntPtr indirect, Int32 drawcount, Int32 stride);
 
@@ -4456,8 +4456,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferRangeEXT")]
-			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2", EntryPoint = "glTexBufferRangeOES")]
+			[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glTexBufferRange(Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
 
@@ -4484,7 +4484,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
-			[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2", EntryPoint = "glTexStorage3DMultisampleOES")]
+			[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTexStorage3DMultisample(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedsamplelocations);
 
@@ -4497,8 +4497,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_view", Api = "gles2", EntryPoint = "glTextureViewEXT")]
-			[RequiredByFeature("GL_OES_texture_view", Api = "gles2", EntryPoint = "glTextureViewOES")]
+			[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
+			[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glTextureView(UInt32 texture, Int32 target, UInt32 origtexture, Int32 internalformat, UInt32 minlevel, UInt32 numlevels, UInt32 minlayer, UInt32 numlayers);
 
@@ -4581,9 +4581,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageControlARB")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageControlKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageControl(Int32 source, Int32 type, Int32 severity, Int32 count, UInt32* ids, [MarshalAs(UnmanagedType.I1)] bool enabled);
 
@@ -4597,9 +4597,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageInsertARB")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageInsertKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDebugMessageInsert(Int32 source, Int32 type, UInt32 id, Int32 severity, Int32 length, String buf);
 
@@ -4613,9 +4613,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glDebugMessageCallbackARB")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glDebugMessageCallbackKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDebugMessageCallback(Gl.DebugProc callback, IntPtr userParam);
 
@@ -4629,9 +4629,9 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore", EntryPoint = "glGetDebugMessageLogARB")]
+			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetDebugMessageLogKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate UInt32 glGetDebugMessageLog(UInt32 count, Int32 bufSize, Int32* sources, Int32* types, UInt32* ids, Int32* severities, Int32* lengths, [Out] StringBuilder messageLog);
 
@@ -4646,7 +4646,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glPushDebugGroupKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPushDebugGroup(Int32 source, UInt32 id, Int32 length, String message);
 
@@ -4660,7 +4660,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glPopDebugGroupKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPopDebugGroup();
 
@@ -4674,7 +4674,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glObjectLabelKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glObjectLabel(Int32 identifier, UInt32 name, Int32 length, String label);
 
@@ -4688,7 +4688,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetObjectLabelKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetObjectLabel(Int32 identifier, UInt32 name, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 
@@ -4702,7 +4702,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glObjectPtrLabelKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glObjectPtrLabel(IntPtr ptr, Int32 length, String label);
 
@@ -4716,7 +4716,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_debug")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gles2", EntryPoint = "glGetObjectPtrLabelKHR")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGetObjectPtrLabel(IntPtr ptr, Int32 bufSize, Int32* length, [Out] StringBuilder label);
 

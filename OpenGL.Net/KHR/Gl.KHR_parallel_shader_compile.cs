@@ -55,7 +55,7 @@ namespace OpenGL
 
 		internal unsafe static partial class Delegates
 		{
-			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore", EntryPoint = "glMaxShaderCompilerThreadsARB")]
+			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_parallel_shader_compile", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMaxShaderCompilerThreadsKHR(UInt32 count);

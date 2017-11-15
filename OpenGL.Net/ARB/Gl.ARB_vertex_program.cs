@@ -1096,7 +1096,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[RequiredByFeature("GL_NV_vertex_program", EntryPoint = "glBindProgramNV")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBindProgramARB(Int32 target, UInt32 program);
 
@@ -1108,7 +1108,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[RequiredByFeature("GL_NV_vertex_program", EntryPoint = "glDeleteProgramsNV")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteProgramsARB(Int32 n, UInt32* programs);
 
@@ -1120,7 +1120,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[RequiredByFeature("GL_NV_vertex_program", EntryPoint = "glGenProgramsNV")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenProgramsARB(Int32 n, UInt32* programs);
 
@@ -1272,7 +1272,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[RequiredByFeature("GL_NV_vertex_program", EntryPoint = "glIsProgramNV")]
+			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsProgramARB(UInt32 program);

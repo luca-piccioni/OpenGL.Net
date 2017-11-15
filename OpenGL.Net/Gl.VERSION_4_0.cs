@@ -2433,8 +2433,8 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore", EntryPoint = "glMinSampleShadingARB")]
-			[RequiredByFeature("GL_OES_sample_shading", Api = "gles2", EntryPoint = "glMinSampleShadingOES")]
+			[RequiredByFeature("GL_ARB_sample_shading", Api = "gl|glcore")]
+			[RequiredByFeature("GL_OES_sample_shading", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glMinSampleShading(float value);
 
@@ -2447,10 +2447,10 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendEquationIndexedAMD")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendEquationiARB")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationiEXT")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationiOES")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquationi(UInt32 buf, Int32 mode);
 
@@ -2465,10 +2465,10 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendEquationSeparateIndexedAMD")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendEquationSeparateiARB")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationSeparateiEXT")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendEquationSeparateiOES")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendEquationSeparatei(UInt32 buf, Int32 modeRGB, Int32 modeAlpha);
 
@@ -2483,10 +2483,10 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendFuncIndexedAMD")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendFunciARB")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFunciEXT")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFunciOES")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFunci(UInt32 buf, Int32 src, Int32 dst);
 
@@ -2501,10 +2501,10 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_AMD_draw_buffers_blend", EntryPoint = "glBlendFuncSeparateIndexedAMD")]
-			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore", EntryPoint = "glBlendFuncSeparateiARB")]
-			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFuncSeparateiEXT")]
-			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2", EntryPoint = "glBlendFuncSeparateiOES")]
+			[RequiredByFeature("GL_AMD_draw_buffers_blend")]
+			[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glBlendFuncSeparatei(UInt32 buf, Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
 
@@ -2804,8 +2804,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_tessellation_shader", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2", EntryPoint = "glPatchParameteriEXT")]
-			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2", EntryPoint = "glPatchParameteriOES")]
+			[RequiredByFeature("GL_EXT_tessellation_shader", Api = "gles2")]
+			[RequiredByFeature("GL_OES_tessellation_shader", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPatchParameteri(Int32 pname, Int32 value);
 
@@ -2842,7 +2842,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glDeleteTransformFeedbacksNV")]
+			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glDeleteTransformFeedbacks(Int32 n, UInt32* ids);
 
@@ -2856,7 +2856,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glGenTransformFeedbacksNV")]
+			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal unsafe delegate void glGenTransformFeedbacks(Int32 n, UInt32* ids);
 
@@ -2870,7 +2870,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glIsTransformFeedbackNV")]
+			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsTransformFeedback(UInt32 id);
@@ -2885,7 +2885,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glPauseTransformFeedbackNV")]
+			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glPauseTransformFeedback();
 
@@ -2899,7 +2899,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glResumeTransformFeedbackNV")]
+			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glResumeTransformFeedback();
 
@@ -2912,8 +2912,8 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2", EntryPoint = "glDrawTransformFeedbackEXT")]
-			[RequiredByFeature("GL_NV_transform_feedback2", EntryPoint = "glDrawTransformFeedbackNV")]
+			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
+			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void glDrawTransformFeedback(Int32 mode, UInt32 id);
 
