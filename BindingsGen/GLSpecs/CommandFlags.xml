@@ -178,7 +178,12 @@
 		<flags>OutParam</flags>
 	</command>
 
-	<command name="^glGet(ShaderPrecisionFormat|BufferParameteriv(ARB)?|NamedStringivARB)$">
+	<command name="^glGet(ShaderPrecisionFormat|NamedStringivARB)$">
+		<!-- Generate "out" overloads -->
+		<flags>OutParam</flags>
+	</command>
+
+	<command name="^glGet(Buffer|Object|Renderbuffer|FramebufferAttachment)Parameter(fv|iv)(ARB)?$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
@@ -230,6 +235,14 @@
 	<!-- Unsafe parameters -->
 	
 	<command name="^gl(Program)?Uniform(Matrix)?(1|2|3|4|2x3|2x4|3x2|3x4|4x2|4x3)(d|f|i|ui)v$">
+		<flags>UnsafeParams</flags>
+	</command>
+
+	<command name="^glVertexAttrib(1|2|3|4)(N|I)?(b|s|d|f|i|ub|ui|us)v$">
+		<flags>UnsafeParams</flags>
+	</command>
+
+	<command name="^glTexParameter(I)?(b|s|d|f|i|ub|ui|us)v$">
 		<flags>UnsafeParams</flags>
 	</command>
 

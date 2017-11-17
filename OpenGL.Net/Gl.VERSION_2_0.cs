@@ -3048,6 +3048,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttrib1dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib1(UInt32 index, double* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib1dv != null, "pglVertexAttrib1dv not implemented");
+			Delegates.pglVertexAttrib1dv(index, v);
+			LogCommand("glVertexAttrib1dv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glVertexAttrib1f: Specifies the value of a generic vertex attribute
 		/// </para>
@@ -3103,6 +3125,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glVertexAttrib1fv: Specifies the value of a generic vertex attribute
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib1(UInt32 index, float* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib1fv != null, "pglVertexAttrib1fv not implemented");
+			Delegates.pglVertexAttrib1fv(index, v);
+			LogCommand("glVertexAttrib1fv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib1s: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3146,6 +3194,28 @@ namespace OpenGL
 					LogCommand("glVertexAttrib1sv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib1sv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib1(UInt32 index, Int16* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib1sv != null, "pglVertexAttrib1sv not implemented");
+			Delegates.pglVertexAttrib1sv(index, v);
+			LogCommand("glVertexAttrib1sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3196,6 +3266,28 @@ namespace OpenGL
 					LogCommand("glVertexAttrib2dv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib2dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib2(UInt32 index, double* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib2dv != null, "pglVertexAttrib2dv not implemented");
+			Delegates.pglVertexAttrib2dv(index, v);
+			LogCommand("glVertexAttrib2dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3258,6 +3350,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glVertexAttrib2fv: Specifies the value of a generic vertex attribute
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib2(UInt32 index, float* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib2fv != null, "pglVertexAttrib2fv not implemented");
+			Delegates.pglVertexAttrib2fv(index, v);
+			LogCommand("glVertexAttrib2fv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib2s: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3304,6 +3422,28 @@ namespace OpenGL
 					LogCommand("glVertexAttrib2sv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib2sv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib2(UInt32 index, Int16* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib2sv != null, "pglVertexAttrib2sv not implemented");
+			Delegates.pglVertexAttrib2sv(index, v);
+			LogCommand("glVertexAttrib2sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3357,6 +3497,28 @@ namespace OpenGL
 					LogCommand("glVertexAttrib3dv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib3dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib3(UInt32 index, double* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib3dv != null, "pglVertexAttrib3dv not implemented");
+			Delegates.pglVertexAttrib3dv(index, v);
+			LogCommand("glVertexAttrib3dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3422,6 +3584,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glVertexAttrib3fv: Specifies the value of a generic vertex attribute
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib3(UInt32 index, float* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib3fv != null, "pglVertexAttrib3fv not implemented");
+			Delegates.pglVertexAttrib3fv(index, v);
+			LogCommand("glVertexAttrib3fv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib3s: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3475,6 +3663,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttrib3sv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib3(UInt32 index, Int16* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib3sv != null, "pglVertexAttrib3sv not implemented");
+			Delegates.pglVertexAttrib3sv(index, v);
+			LogCommand("glVertexAttrib3sv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib4Nbv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3497,6 +3707,27 @@ namespace OpenGL
 					LogCommand("glVertexAttrib4Nbv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib4Nbv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4N(UInt32 index, sbyte* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nbv != null, "pglVertexAttrib4Nbv not implemented");
+			Delegates.pglVertexAttrib4Nbv(index, v);
+			LogCommand("glVertexAttrib4Nbv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3527,6 +3758,27 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttrib4Niv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4N(UInt32 index, Int32* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4Niv != null, "pglVertexAttrib4Niv not implemented");
+			Delegates.pglVertexAttrib4Niv(index, v);
+			LogCommand("glVertexAttrib4Niv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib4Nsv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3549,6 +3801,27 @@ namespace OpenGL
 					LogCommand("glVertexAttrib4Nsv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib4Nsv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4N(UInt32 index, Int16* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nsv != null, "pglVertexAttrib4Nsv not implemented");
+			Delegates.pglVertexAttrib4Nsv(index, v);
+			LogCommand("glVertexAttrib4Nsv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3609,6 +3882,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttrib4Nubv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib4N(UInt32 index, byte* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nubv != null, "pglVertexAttrib4Nubv not implemented");
+			Delegates.pglVertexAttrib4Nubv(index, v);
+			LogCommand("glVertexAttrib4Nubv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib4Nuiv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3631,6 +3926,27 @@ namespace OpenGL
 					LogCommand("glVertexAttrib4Nuiv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib4Nuiv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4N(UInt32 index, UInt32* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nuiv != null, "pglVertexAttrib4Nuiv not implemented");
+			Delegates.pglVertexAttrib4Nuiv(index, v);
+			LogCommand("glVertexAttrib4Nuiv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3661,6 +3977,27 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttrib4Nusv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4N(UInt32 index, UInt16* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nusv != null, "pglVertexAttrib4Nusv not implemented");
+			Delegates.pglVertexAttrib4Nusv(index, v);
+			LogCommand("glVertexAttrib4Nusv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib4bv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3683,6 +4020,27 @@ namespace OpenGL
 					LogCommand("glVertexAttrib4bv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib4bv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4(UInt32 index, sbyte* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4bv != null, "pglVertexAttrib4bv not implemented");
+			Delegates.pglVertexAttrib4bv(index, v);
+			LogCommand("glVertexAttrib4bv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3739,6 +4097,28 @@ namespace OpenGL
 					LogCommand("glVertexAttrib4dv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib4dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib4(UInt32 index, double* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4dv != null, "pglVertexAttrib4dv not implemented");
+			Delegates.pglVertexAttrib4dv(index, v);
+			LogCommand("glVertexAttrib4dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3807,6 +4187,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glVertexAttrib4fv: Specifies the value of a generic vertex attribute
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib4(UInt32 index, float* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4fv != null, "pglVertexAttrib4fv not implemented");
+			Delegates.pglVertexAttrib4fv(index, v);
+			LogCommand("glVertexAttrib4fv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib4iv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3829,6 +4235,27 @@ namespace OpenGL
 					LogCommand("glVertexAttrib4iv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib4iv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4(UInt32 index, Int32* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4iv != null, "pglVertexAttrib4iv not implemented");
+			Delegates.pglVertexAttrib4iv(index, v);
+			LogCommand("glVertexAttrib4iv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3889,6 +4316,28 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttrib4sv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static unsafe void VertexAttrib4(UInt32 index, Int16* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4sv != null, "pglVertexAttrib4sv not implemented");
+			Delegates.pglVertexAttrib4sv(index, v);
+			LogCommand("glVertexAttrib4sv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib4ubv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3911,6 +4360,27 @@ namespace OpenGL
 					LogCommand("glVertexAttrib4ubv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib4ubv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4ub(UInt32 index, byte* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4ubv != null, "pglVertexAttrib4ubv not implemented");
+			Delegates.pglVertexAttrib4ubv(index, v);
+			LogCommand("glVertexAttrib4ubv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -3941,6 +4411,27 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttrib4uiv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4(UInt32 index, UInt32* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4uiv != null, "pglVertexAttrib4uiv not implemented");
+			Delegates.pglVertexAttrib4uiv(index, v);
+			LogCommand("glVertexAttrib4uiv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttrib4usv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -3963,6 +4454,27 @@ namespace OpenGL
 					LogCommand("glVertexAttrib4usv", null, index, v					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttrib4usv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static unsafe void VertexAttrib4(UInt32 index, UInt16* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttrib4usv != null, "pglVertexAttrib4usv not implemented");
+			Delegates.pglVertexAttrib4usv(index, v);
+			LogCommand("glVertexAttrib4usv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 

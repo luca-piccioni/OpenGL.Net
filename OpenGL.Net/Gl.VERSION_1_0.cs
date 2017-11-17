@@ -5647,6 +5647,35 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL2.1|GLES1.1] glTexParameterfv: set texture parameters
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target texture, which must be either Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a single-valued texture parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_BASE_LEVEL, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_PRIORITY, 
+		/// Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, Gl.DEPTH_TEXTURE_MODE, or Gl.GENERATE_MIPMAP.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static unsafe void TexParameter(Int32 target, Int32 pname, float* @params)
+		{
+			Debug.Assert(Delegates.pglTexParameterfv != null, "pglTexParameterfv not implemented");
+			Delegates.pglTexParameterfv(target, pname, @params);
+			LogCommand("glTexParameterfv", null, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL2.1|GLES1.1] glTexParameteri: set texture parameters
 		/// </para>
 		/// </summary>
@@ -5705,6 +5734,35 @@ namespace OpenGL
 					LogCommand("glTexParameteriv", null, target, pname, @params					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL2.1|GLES1.1] glTexParameteriv: set texture parameters
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target texture, which must be either Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a single-valued texture parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_BASE_LEVEL, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_PRIORITY, 
+		/// Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, Gl.DEPTH_TEXTURE_MODE, or Gl.GENERATE_MIPMAP.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static unsafe void TexParameter(Int32 target, Int32 pname, Int32* @params)
+		{
+			Debug.Assert(Delegates.pglTexParameteriv != null, "pglTexParameteriv not implemented");
+			Delegates.pglTexParameteriv(target, pname, @params);
+			LogCommand("glTexParameteriv", null, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 

@@ -3908,6 +3908,31 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glTexParameterIiv: Binding for glTexParameterIiv.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static unsafe void TexParameterI(Int32 target, Int32 pname, Int32* @params)
+		{
+			Debug.Assert(Delegates.pglTexParameterIiv != null, "pglTexParameterIiv not implemented");
+			Delegates.pglTexParameterIiv(target, pname, @params);
+			LogCommand("glTexParameterIiv", null, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glTexParameterIuiv: Binding for glTexParameterIuiv.
 		/// </summary>
 		/// <param name="target">
@@ -3934,6 +3959,31 @@ namespace OpenGL
 					LogCommand("glTexParameterIuiv", null, target, pname, @params					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTexParameterIuiv: Binding for glTexParameterIuiv.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:UInt32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static unsafe void TexParameterI(Int32 target, Int32 pname, UInt32* @params)
+		{
+			Debug.Assert(Delegates.pglTexParameterIuiv != null, "pglTexParameterIuiv not implemented");
+			Delegates.pglTexParameterIuiv(target, pname, @params);
+			LogCommand("glTexParameterIuiv", null, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -4440,6 +4490,42 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4] glGetRenderbufferParameteriv: query a named parameter of a renderbuffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glGetRenderbufferParameteriv: retrieve information about a bound renderbuffer object
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the renderbuffer object is bound for Gl.GetRenderbufferParameteriv. <paramref 
+		/// name="target"/> must be Gl.RENDERBUFFER.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of the renderbuffer object to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for the renderbuffer object.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static void GetRenderbufferParameter(RenderbufferTarget target, RenderbufferParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetRenderbufferParameteriv != null, "pglGetRenderbufferParameteriv not implemented");
+					Delegates.pglGetRenderbufferParameteriv((Int32)target, (Int32)pname, p_params);
+					LogCommand("glGetRenderbufferParameteriv", null, target, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glIsFramebuffer: determine if a name corresponds to a framebuffer object
 		/// </para>
 		/// </summary>
@@ -4746,6 +4832,44 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetFramebufferAttachmentParameteriv != null, "pglGetFramebufferAttachmentParameteriv not implemented");
+					Delegates.pglGetFramebufferAttachmentParameteriv((Int32)target, (Int32)attachment, (Int32)pname, p_params);
+					LogCommand("glGetFramebufferAttachmentParameteriv", null, target, attachment, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4] glGetFramebufferAttachmentParameteriv: retrieve information about attachments of a framebuffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glGetFramebufferAttachmentParameteriv: retrieve information about attachments of a bound framebuffer object
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the framebuffer object is bound for Gl.GetFramebufferAttachmentParameteriv.
+		/// </param>
+		/// <param name="attachment">
+		/// Specifies the attachment of the framebuffer object to query.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of <paramref name="attachment"/> to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for <paramref name="attachment"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static void GetFramebufferAttachmentParameter(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetFramebufferAttachmentParameteriv != null, "pglGetFramebufferAttachmentParameteriv not implemented");
 					Delegates.pglGetFramebufferAttachmentParameteriv((Int32)target, (Int32)attachment, (Int32)pname, p_params);
