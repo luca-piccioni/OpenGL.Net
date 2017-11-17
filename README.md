@@ -32,18 +32,19 @@ If you need more [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming
 _OpenGL.Net_ is running on a number of .NET frameworks:
 - .NET Framework 3.5
 - .NET Framework 4.6.1
+- Xamarin/Android
 - .NET Core 1.1
 - .NET Core 2.0
-- Xamarin/Android
+- .NET Standard 2.0/1.4/1.1 (under development)
 
 ### Toolkits
 _OpenGL.Net_ is not aware(*) about the underlying platform or graphical toolkit you're running on. To create a GL context, users are required to provide a window handle and a display handle. There are sub-projects that automate the GL viewport definition and creation.
 
 - _System.Windows.Forms_ toolkit, using an custom UserControl.
-- _GTK#_ toolkit, using a custom Widget.
-- _Android_, using a SurfaceView.
-- _Raspberry Pi 2 VC4_, using the platform SDK.
-- _OpenWF_ compatible video systems.
+- _GTK#_ toolkit, using a custom Widget (need support).
+- _Android_, using a SurfaceView (need support).
+- _Raspberry Pi 2 VC4_, using the platform SDK (need support).
+- _OpenWF_ compatible video systems (need support).
 
 ### NuGet
 Open the [Package Manager Console](https://docs.nuget.org/consume/package-manager-console) and run the following command:
@@ -54,6 +55,10 @@ You can choose to restrict the available GL profile:
 
     Install-Package OpenGL.Net.CoreProfile
     Install-Package OpenGL.Net.ES2Profile
+
+Math data structures:
+
+    Install-Package OpenGL.Net.Math
     
 To integrate window systems, run the most appropriate command for your platform:
 
@@ -83,10 +88,12 @@ Follow the command below to clone and build the repository.
     cd OpenGL.Net
     msbuild /p:Configuration=Release OpenGL.Net_VC14.sln
     msbuild /p:Configuration=Release OpenGL.Net_VC15.sln
+    msbuild /p:Configuration=Release OpenGL.Net_Mono.sln
 
 The following environments can be used:
 - Visual Studio 2015 for _OpenGL.Net_VC14.sln_
 - Visual Studio 2017 15.3 (Preview 2) for _OpenGL.Net_VC15.sln_
+- Mono 4.5 for _OpenGL.Net_Mono.sln_; as alternative, you can build using `xbuild`
 
 # Documentation
 
@@ -94,4 +101,4 @@ Go to the [wiki](https://github.com/luca-piccioni/OpenGL.Net/wiki) to look for i
 
 # Licensing
 
-The project is released under the [MIT](https://opensource.org/licenses/MIT) license. Previous revisions of the project were licensed under the _LGPL2_ licence; this kind of license seems limiting the deployment of the binary forms on some platform (ironic, isn't it?). Since the project is maintained to be useful on the widest range of platforms/user-cases, and considering the spirit of the technology used to build it ([.NET Fundation](https://dotnetfoundation.org/)), the MIT license was preferred. The [WTFPL](http://www.wtfpl.net/about/) license was considered also, but it hasn not met all requirements.
+The project is released under the [MIT](https://opensource.org/licenses/MIT) license. Previous revisions of the project were licensed under the _LGPL2_ licence; this kind of license seems limiting the deployment of the binary forms on some platform (ironic, isn't it?). Since the project is maintained to be useful on the widest range of platforms/user-cases, and considering the spirit of the technology used to build it ([.NET Fundation](https://dotnetfoundation.org/)), the MIT license was preferred. The [WTFPL](http://www.wtfpl.net/about/) license was considered also, but it has not met all requirements.
