@@ -1082,6 +1082,37 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetProgramPipelineiv: retrieve properties of a program pipeline object
+		/// </para>
+		/// </summary>
+		/// <param name="pipeline">
+		/// Specifies the name of a program pipeline object whose parameter retrieve.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the name of the parameter to retrieve.
+		/// </param>
+		/// <param name="params">
+		/// Specifies the address of a variable into which will be written the value or values of <paramref name="pname"/> for 
+		/// <paramref name="pipeline"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void GetProgramPipeline(UInt32 pipeline, PipelineParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetProgramPipelineiv != null, "pglGetProgramPipelineiv not implemented");
+					Delegates.pglGetProgramPipelineiv(pipeline, (Int32)pname, p_params);
+					LogCommand("glGetProgramPipelineiv", null, pipeline, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform1i: Specify the value of a uniform variable for a specified program object
 		/// </para>
 		/// </summary>

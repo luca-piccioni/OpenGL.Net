@@ -188,7 +188,7 @@
 		<flags>OutParam</flags>
 	</command>
 
-	<command name="^glGetObjectParameter(fv|iv)ARB$">
+	<command name="^glGetProgramPipeline(fv|iv)$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
