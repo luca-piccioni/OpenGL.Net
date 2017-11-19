@@ -1810,6 +1810,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord1(TextureUnit target, double[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -1859,6 +1860,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord1(TextureUnit target, float[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -1908,6 +1910,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord1(TextureUnit target, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -1957,6 +1960,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord1(TextureUnit target, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -2010,6 +2014,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord2(TextureUnit target, double[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -2063,6 +2068,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord2(TextureUnit target, float[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -2116,6 +2122,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord2(TextureUnit target, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -2169,6 +2176,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord2(TextureUnit target, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -2226,6 +2234,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord3(TextureUnit target, double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -2283,6 +2292,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord3(TextureUnit target, float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -2340,6 +2350,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord3(TextureUnit target, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -2397,6 +2408,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord3(TextureUnit target, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -2458,6 +2470,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord4(TextureUnit target, double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -2522,6 +2535,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord4(TextureUnit target, float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -2583,6 +2597,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord4(TextureUnit target, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -2644,6 +2659,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultiTexCoord4(TextureUnit target, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -2666,6 +2682,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadTransposeMatrix(float[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (float* p_m = m)
 				{
@@ -2688,6 +2705,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadTransposeMatrix(double[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (double* p_m = m)
 				{
@@ -2710,6 +2728,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultTransposeMatrix(float[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (float* p_m = m)
 				{
@@ -2732,6 +2751,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultTransposeMatrix(double[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (double* p_m = m)
 				{

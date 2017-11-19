@@ -118,6 +118,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public static void ProgramLocalParameterI4NV(Int32 target, UInt32 index, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -203,6 +204,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public static void ProgramLocalParameterI4uiNV(Int32 target, UInt32 index, UInt32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
@@ -288,6 +290,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public static void ProgramEnvParameterI4NV(Int32 target, UInt32 index, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -373,6 +376,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public static void ProgramEnvParameterI4uiNV(Int32 target, UInt32 index, UInt32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
@@ -428,6 +432,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public static void GetProgramLocalParameterINV(Int32 target, UInt32 index, [Out] Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -454,6 +459,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public static void GetProgramLocalParameterINV(Int32 target, UInt32 index, [Out] UInt32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
@@ -480,6 +486,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public static void GetProgramEnvParameterINV(Int32 target, UInt32 index, [Out] Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -506,6 +513,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_program4")]
 		public static void GetProgramEnvParameterINV(Int32 target, UInt32 index, [Out] UInt32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{

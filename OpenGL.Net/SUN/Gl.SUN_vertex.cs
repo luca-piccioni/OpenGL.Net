@@ -79,6 +79,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void Color4ubVertex2fvSUN(byte[] c, float[] v)
 		{
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (byte* p_c = c)
 				fixed (float* p_v = v)
@@ -136,6 +138,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void Color4ubVertex3fvSUN(byte[] c, float[] v)
 		{
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (byte* p_c = c)
 				fixed (float* p_v = v)
@@ -190,6 +194,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void Color3fVertex3fvSUN(float[] c, float[] v)
 		{
+			Debug.Assert(c.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_c = c)
 				fixed (float* p_v = v)
@@ -244,6 +250,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void Normal3fVertex3fvSUN(float[] n, float[] v)
 		{
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_n = n)
 				fixed (float* p_v = v)
@@ -313,6 +321,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void Color4fNormal3fVertex3fvSUN(float[] c, float[] n, float[] v)
 		{
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_c = c)
 				fixed (float* p_n = n)
@@ -365,6 +376,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void TexCoord2fVertex3fvSUN(float[] tc, float[] v)
 		{
+			Debug.Assert(tc.Length >= 2);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_tc = tc)
 				fixed (float* p_v = v)
@@ -425,6 +438,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void TexCoord4fVertex4fvSUN(float[] tc, float[] v)
 		{
+			Debug.Assert(tc.Length >= 4);
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_tc = tc)
 				fixed (float* p_v = v)
@@ -491,6 +506,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void TexCoord2fColor4ubVertex3fvSUN(float[] tc, byte[] c, float[] v)
 		{
+			Debug.Assert(tc.Length >= 2);
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_tc = tc)
 				fixed (byte* p_c = c)
@@ -555,6 +573,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void TexCoord2fColor3fVertex3fvSUN(float[] tc, float[] c, float[] v)
 		{
+			Debug.Assert(tc.Length >= 2);
+			Debug.Assert(c.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_tc = tc)
 				fixed (float* p_c = c)
@@ -619,6 +640,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void TexCoord2fNormal3fVertex3fvSUN(float[] tc, float[] n, float[] v)
 		{
+			Debug.Assert(tc.Length >= 2);
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_tc = tc)
 				fixed (float* p_n = n)
@@ -698,6 +722,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void TexCoord2fColor4fNormal3fVertex3fvSUN(float[] tc, float[] c, float[] n, float[] v)
 		{
+			Debug.Assert(tc.Length >= 2);
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_tc = tc)
 				fixed (float* p_c = c)
@@ -787,6 +815,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void TexCoord4fColor4fNormal3fVertex4fvSUN(float[] tc, float[] c, float[] n, float[] v)
 		{
+			Debug.Assert(tc.Length >= 4);
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_tc = tc)
 				fixed (float* p_c = c)
@@ -837,6 +869,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void ReplacementCodeuiVertex3SUN(UInt32[] rc, float[] v)
 		{
+			Debug.Assert(rc.Length >= 1);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_rc = rc)
 				fixed (float* p_v = v)
@@ -900,6 +934,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void ReplacementCodeuiColor4ubVertex3fvSUN(UInt32[] rc, byte[] c, float[] v)
 		{
+			Debug.Assert(rc.Length >= 1);
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_rc = rc)
 				fixed (byte* p_c = c)
@@ -961,6 +998,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void ReplacementCodeuiColor3fVertex3fvSUN(UInt32[] rc, float[] c, float[] v)
 		{
+			Debug.Assert(rc.Length >= 1);
+			Debug.Assert(c.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_rc = rc)
 				fixed (float* p_c = c)
@@ -1022,6 +1062,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void ReplacementCodeuiNormal3fVertex3fvSUN(UInt32[] rc, float[] n, float[] v)
 		{
+			Debug.Assert(rc.Length >= 1);
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_rc = rc)
 				fixed (float* p_n = n)
@@ -1098,6 +1141,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void ReplacementCodeuiColor4fNormal3fVertex3fvSUN(UInt32[] rc, float[] c, float[] n, float[] v)
 		{
+			Debug.Assert(rc.Length >= 1);
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_rc = rc)
 				fixed (float* p_c = c)
@@ -1157,6 +1204,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void ReplacementCodeuiTexCoord2fVertex3fvSUN(UInt32[] rc, float[] tc, float[] v)
 		{
+			Debug.Assert(rc.Length >= 1);
+			Debug.Assert(tc.Length >= 2);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_rc = rc)
 				fixed (float* p_tc = tc)
@@ -1227,6 +1277,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void ReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(UInt32[] rc, float[] tc, float[] n, float[] v)
 		{
+			Debug.Assert(rc.Length >= 1);
+			Debug.Assert(tc.Length >= 2);
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_rc = rc)
 				fixed (float* p_tc = tc)
@@ -1315,6 +1369,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_SUN_vertex")]
 		public static void ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(UInt32[] rc, float[] tc, float[] c, float[] n, float[] v)
 		{
+			Debug.Assert(rc.Length >= 1);
+			Debug.Assert(tc.Length >= 2);
+			Debug.Assert(c.Length >= 4);
+			Debug.Assert(n.Length >= 3);
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_rc = rc)
 				fixed (float* p_tc = tc)

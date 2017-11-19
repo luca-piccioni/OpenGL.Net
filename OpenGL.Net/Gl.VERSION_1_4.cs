@@ -889,6 +889,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void FogCoord(float[] coord)
 		{
+			Debug.Assert(coord.Length >= 1);
 			unsafe {
 				fixed (float* p_coord = coord)
 				{
@@ -927,6 +928,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void FogCoord(double[] coord)
 		{
+			Debug.Assert(coord.Length >= 1);
 			unsafe {
 				fixed (double* p_coord = coord)
 				{
@@ -1023,6 +1025,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SecondaryColor3(sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -1067,6 +1070,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SecondaryColor3(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -1111,6 +1115,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SecondaryColor3(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -1155,6 +1160,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SecondaryColor3(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -1199,6 +1205,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SecondaryColor3(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -1243,6 +1250,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SecondaryColor3(byte[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (byte* p_v = v)
 				{
@@ -1287,6 +1295,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SecondaryColor3(UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -1331,6 +1340,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void SecondaryColor3(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -1433,6 +1443,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void WindowPos2(double[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -1477,6 +1488,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void WindowPos2(float[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -1521,6 +1533,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void WindowPos2(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -1565,6 +1578,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void WindowPos2(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -1612,6 +1626,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void WindowPos3(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -1659,6 +1674,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void WindowPos3(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -1706,6 +1722,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void WindowPos3(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -1753,6 +1770,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void WindowPos3(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{

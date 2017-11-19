@@ -602,8 +602,10 @@ namespace BindingsGen.GLSpecs
 				GenerateImplementation_GenOneObject(sw, ctx);
 			}
 
-			if ((CommandFlagsDatabase.GetCommandFlags(this) & CommandFlags.GenericParams) != 0)
+			if ((CommandFlagsDatabase.GetCommandFlags(this) & CommandFlags.GenericParams) != 0) {
+				sw.WriteLine();
 				GenerateImplementation_Generics(sw, ctx);
+			}
 		}
 
 		/// <summary>
@@ -696,7 +698,7 @@ namespace BindingsGen.GLSpecs
 				if (paramModifier != null)
 					sw.Write("{0} ", paramModifier);
 
-				if ((paramCount == 1) && (param.IsManagedArray(this)) && ((Flags & CommandFlags.VariadicParams) != 0))
+				if ((paramCount == 1) && (param.IsManagedArray(ctx, this)) && ((Flags & CommandFlags.VariadicParams) != 0))
 					sw.Write("params ");
 
 				sw.Write("{0} {1}", param.GetImplementationType(ctx, this), param.ImplementationName);
@@ -1121,7 +1123,7 @@ namespace BindingsGen.GLSpecs
 			CommandParameter genericParam = genericParameters[genericParameters.Count - 1];
 			CommandParameter originalParam = Parameters[Parameters.Count - 1];
 
-			if (genericParam.IsManagedArray(this) == false)
+			if (genericParam.IsManagedArray(ctx, this) == false)
 				throw new NotSupportedException("generic parameter is not an array");
 
 			// Change the argument in order to have a generic ref

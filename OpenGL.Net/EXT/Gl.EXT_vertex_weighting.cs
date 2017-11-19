@@ -127,6 +127,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
 		public static void VertexWeightEXT(float[] weight)
 		{
+			Debug.Assert(weight.Length >= 1);
 			unsafe {
 				fixed (float* p_weight = weight)
 				{

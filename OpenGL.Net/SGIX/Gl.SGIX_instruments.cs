@@ -94,6 +94,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIX_instruments")]
 		public static Int32 PollInstrumentsSGIX(Int32[] marker_p)
 		{
+			Debug.Assert(marker_p.Length >= 1);
 			Int32 retValue;
 
 			unsafe {

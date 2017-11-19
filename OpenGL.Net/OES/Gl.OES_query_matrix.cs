@@ -49,6 +49,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_query_matrix", Api = "gl|gles1")]
 		public static UInt32 QueryMatrixxOES(IntPtr[] mantissa, Int32[] exponent)
 		{
+			Debug.Assert(mantissa.Length >= 16);
+			Debug.Assert(exponent.Length >= 16);
 			UInt32 retValue;
 
 			unsafe {

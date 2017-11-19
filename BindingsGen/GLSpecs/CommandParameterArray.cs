@@ -59,7 +59,7 @@ namespace BindingsGen.GLSpecs
 
 		internal static new bool IsCompatible(RegistryContext ctx, Command parentCommand, CommandParameter param)
 		{
-			if (!param.IsManagedArray(parentCommand) || param.Length == null)
+			if (!param.IsManagedArray(ctx, parentCommand) || param.Length == null)
 				return (false);
 
 			int sizeParamIndex = parentCommand.Parameters.FindIndex(delegate (CommandParameter item) { return (item.Name == param.Length); });
@@ -74,7 +74,7 @@ namespace BindingsGen.GLSpecs
 		{
 			CommandParameter arrayParameter = GetArrayLengthParameter(param, ctx, parentCommand);
 
-			return (arrayParameter != null && arrayParameter.IsManagedArray(parentCommand));
+			return (arrayParameter != null && arrayParameter.IsManagedArray(ctx, parentCommand));
 		}
 
 		internal static CommandParameter GetArrayLengthParameter(CommandParameter param, RegistryContext ctx, Command parentCommand)

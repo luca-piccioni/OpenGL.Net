@@ -67,6 +67,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void MatrixLoadEXT(MatrixMode mode, float[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (float* p_m = m)
 				{
@@ -90,6 +91,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void MatrixLoadEXT(MatrixMode mode, double[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (double* p_m = m)
 				{
@@ -113,6 +115,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void MatrixMultEXT(MatrixMode mode, float[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (float* p_m = m)
 				{
@@ -136,6 +139,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void MatrixMultEXT(MatrixMode mode, double[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (double* p_m = m)
 				{
@@ -4169,6 +4173,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void MatrixLoadTransposeEXT(MatrixMode mode, float[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (float* p_m = m)
 				{
@@ -4192,6 +4197,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void MatrixLoadTransposeEXT(MatrixMode mode, double[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (double* p_m = m)
 				{
@@ -4215,6 +4221,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void MatrixMultTransposeEXT(MatrixMode mode, float[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (float* p_m = m)
 				{
@@ -4238,6 +4245,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void MatrixMultTransposeEXT(MatrixMode mode, double[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (double* p_m = m)
 				{
@@ -4886,6 +4894,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void NamedProgramLocalParameterI4EXT(UInt32 program, Int32 target, UInt32 index, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -4980,6 +4989,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void NamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
@@ -5041,6 +5051,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, Int32 target, UInt32 index, [Out] Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -5070,6 +5081,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, Int32 target, UInt32 index, [Out] UInt32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
@@ -5273,6 +5285,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void NamedProgramLocalParameter4EXT(UInt32 program, Int32 target, UInt32 index, double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -5335,6 +5348,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void NamedProgramLocalParameter4EXT(UInt32 program, Int32 target, UInt32 index, float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -5364,6 +5378,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedProgramLocalParameterEXT(UInt32 program, Int32 target, UInt32 index, [Out] double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -5393,6 +5408,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		public static void GetNamedProgramLocalParameterEXT(UInt32 program, Int32 target, UInt32 index, [Out] float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{

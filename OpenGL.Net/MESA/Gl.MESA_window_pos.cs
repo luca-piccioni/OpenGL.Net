@@ -70,6 +70,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -114,6 +115,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -158,6 +160,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -202,6 +205,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_MESA_window_pos")]
 		public static void WindowPos4MESA(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{

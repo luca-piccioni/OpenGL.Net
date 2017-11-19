@@ -862,6 +862,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP1(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
+			Debug.Assert(value.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
@@ -921,6 +922,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP2(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
+			Debug.Assert(value.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
@@ -980,6 +982,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP3(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
+			Debug.Assert(value.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
@@ -1039,6 +1042,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
 		public static void VertexAttribP4(UInt32 index, VertexAttribType type, bool normalized, UInt32[] value)
 		{
+			Debug.Assert(value.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
@@ -1082,6 +1086,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void VertexP2(VertexPointerType type, UInt32[] value)
 		{
+			Debug.Assert(value.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
@@ -1125,6 +1130,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void VertexP3(VertexPointerType type, UInt32[] value)
 		{
+			Debug.Assert(value.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
@@ -1168,6 +1174,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void VertexP4(VertexPointerType type, UInt32[] value)
 		{
+			Debug.Assert(value.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
@@ -1211,6 +1218,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void TexCoordP1(TexCoordPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1254,6 +1262,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void TexCoordP2(TexCoordPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1297,6 +1306,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void TexCoordP3(TexCoordPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1340,6 +1350,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void TexCoordP4(TexCoordPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1389,6 +1400,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void MultiTexCoordP1(TextureUnit texture, TexCoordPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1438,6 +1450,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void MultiTexCoordP2(TextureUnit texture, TexCoordPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1487,6 +1500,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void MultiTexCoordP3(TextureUnit texture, TexCoordPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1536,6 +1550,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void MultiTexCoordP4(TextureUnit texture, TexCoordPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1579,6 +1594,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void NormalP3(NormalPointerType type, UInt32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_coords = coords)
 				{
@@ -1622,6 +1638,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void ColorP3(ColorPointerType type, UInt32[] color)
 		{
+			Debug.Assert(color.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_color = color)
 				{
@@ -1665,6 +1682,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void ColorP4(ColorPointerType type, UInt32[] color)
 		{
+			Debug.Assert(color.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_color = color)
 				{
@@ -1708,6 +1726,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Profile = "compatibility")]
 		public static void SecondaryColorP3(ColorPointerType type, UInt32[] color)
 		{
+			Debug.Assert(color.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_color = color)
 				{

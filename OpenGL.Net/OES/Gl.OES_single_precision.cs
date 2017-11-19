@@ -49,6 +49,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 		public static void ClipPlaneOES(ClipPlaneName plane, float[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (float* p_equation = equation)
 				{
@@ -102,6 +103,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 		public static void GetClipPlaneOES(ClipPlaneName plane, [Out] float[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (float* p_equation = equation)
 				{

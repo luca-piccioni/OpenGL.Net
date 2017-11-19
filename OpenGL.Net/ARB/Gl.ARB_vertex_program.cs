@@ -695,6 +695,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramEnvParameter4ARB(Int32 target, UInt32 index, double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -753,6 +754,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramEnvParameter4ARB(Int32 target, UInt32 index, float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -811,6 +813,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramLocalParameter4ARB(Int32 target, UInt32 index, double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -869,6 +872,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void ProgramLocalParameter4ARB(Int32 target, UInt32 index, float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -896,6 +900,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramEnvParameterARB(Int32 target, UInt32 index, [Out] double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -923,6 +928,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramEnvParameterARB(Int32 target, UInt32 index, [Out] float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -950,6 +956,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramLocalParameterARB(Int32 target, UInt32 index, [Out] double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -977,6 +984,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		public static void GetProgramLocalParameterARB(Int32 target, UInt32 index, [Out] float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{

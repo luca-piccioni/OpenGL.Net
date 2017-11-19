@@ -49,6 +49,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		public static void ClipPlaneIMG(ClipPlaneName p, float[] eqn)
 		{
+			Debug.Assert(eqn.Length >= 4);
 			unsafe {
 				fixed (float* p_eqn = eqn)
 				{
@@ -72,6 +73,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 		public static void ClipPlaneIMG(ClipPlaneName p, IntPtr[] eqn)
 		{
+			Debug.Assert(eqn.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_eqn = eqn)
 				{

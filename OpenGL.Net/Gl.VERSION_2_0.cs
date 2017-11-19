@@ -1775,6 +1775,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -1811,6 +1812,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -1847,6 +1849,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -2352,6 +2355,7 @@ namespace OpenGL
 			LogCommand("glUniform1fv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform1fv: Specify the value of a uniform variable for the current program object
@@ -2442,6 +2446,7 @@ namespace OpenGL
 			LogCommand("glUniform2fv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform2fv: Specify the value of a uniform variable for the current program object
@@ -2532,6 +2537,7 @@ namespace OpenGL
 			LogCommand("glUniform3fv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform3fv: Specify the value of a uniform variable for the current program object
@@ -2622,6 +2628,7 @@ namespace OpenGL
 			LogCommand("glUniform4fv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform4fv: Specify the value of a uniform variable for the current program object
@@ -2712,6 +2719,7 @@ namespace OpenGL
 			LogCommand("glUniform1iv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform1iv: Specify the value of a uniform variable for the current program object
@@ -2802,6 +2810,7 @@ namespace OpenGL
 			LogCommand("glUniform2iv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform2iv: Specify the value of a uniform variable for the current program object
@@ -2892,6 +2901,7 @@ namespace OpenGL
 			LogCommand("glUniform3iv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform3iv: Specify the value of a uniform variable for the current program object
@@ -2982,6 +2992,7 @@ namespace OpenGL
 			LogCommand("glUniform4iv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform4iv: Specify the value of a uniform variable for the current program object
@@ -3078,6 +3089,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix2fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix2fv: Specify the value of a uniform variable for the current program object
@@ -3177,6 +3189,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix3fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix3fv: Specify the value of a uniform variable for the current program object
@@ -3276,6 +3289,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix4fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix4fv: Specify the value of a uniform variable for the current program object
@@ -3364,6 +3378,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -3396,6 +3411,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib1dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib1dv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -3464,6 +3480,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -3500,6 +3517,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib1fv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glVertexAttrib1fv: Specifies the value of a generic vertex attribute
@@ -3564,6 +3582,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -3596,6 +3615,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib1sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib1sv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -3659,6 +3679,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -3691,6 +3712,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib2dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib2dv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -3762,6 +3784,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -3798,6 +3821,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib2fv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glVertexAttrib2fv: Specifies the value of a generic vertex attribute
@@ -3865,6 +3889,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -3897,6 +3922,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib2sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib2sv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -3963,6 +3989,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -3995,6 +4022,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib3dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib3dv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4069,6 +4097,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -4105,6 +4134,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib3fv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glVertexAttrib3fv: Specifies the value of a generic vertex attribute
@@ -4175,6 +4205,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -4207,6 +4238,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib3sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib3sv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4246,6 +4278,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -4277,6 +4310,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Nbv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4Nbv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4315,6 +4349,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -4346,6 +4381,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Niv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4Niv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4384,6 +4420,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -4415,6 +4452,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Nsv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4Nsv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4483,6 +4521,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4N(UInt32 index, byte[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (byte* p_v = v)
 				{
@@ -4515,6 +4554,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Nubv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4Nubv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4554,6 +4594,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -4585,6 +4626,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Nuiv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4Nuiv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4623,6 +4665,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4N(UInt32 index, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -4654,6 +4697,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Nusv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4Nusv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4692,6 +4736,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4(UInt32 index, sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -4723,6 +4768,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4bv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4bv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4791,6 +4837,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -4823,6 +4870,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4dv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -4900,6 +4948,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -4936,6 +4985,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4fv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glVertexAttrib4fv: Specifies the value of a generic vertex attribute
@@ -4979,6 +5029,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4(UInt32 index, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -5010,6 +5061,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4iv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4iv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -5078,6 +5130,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -5110,6 +5163,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4sv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -5149,6 +5203,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ub(UInt32 index, byte[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (byte* p_v = v)
 				{
@@ -5180,6 +5235,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4ubv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4ubv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -5218,6 +5274,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4(UInt32 index, UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -5249,6 +5306,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4uiv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4uiv: Specifies the value of a generic vertex attribute
 		/// </summary>
@@ -5287,6 +5345,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4(UInt32 index, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -5318,6 +5377,7 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4usv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL4] glVertexAttrib4usv: Specifies the value of a generic vertex attribute
 		/// </summary>

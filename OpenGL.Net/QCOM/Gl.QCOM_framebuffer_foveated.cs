@@ -72,6 +72,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
 		public static void FramebufferFoveationQCOM(UInt32 framebuffer, UInt32 numLayers, UInt32 focalPointsPerLayer, UInt32 requestedFeatures, UInt32[] providedFeatures)
 		{
+			Debug.Assert(providedFeatures.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_providedFeatures = providedFeatures)
 				{

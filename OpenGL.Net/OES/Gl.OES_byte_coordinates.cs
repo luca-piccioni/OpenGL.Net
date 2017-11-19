@@ -67,6 +67,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void MultiTexCoord1OES(TextureUnit texture, sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -111,6 +112,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void MultiTexCoord2OES(TextureUnit texture, sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -158,6 +160,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void MultiTexCoord3OES(TextureUnit texture, sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -208,6 +211,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void MultiTexCoord4OES(TextureUnit texture, sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -243,6 +247,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void TexCoord1OES(sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -281,6 +286,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void TexCoord2OES(sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -322,6 +328,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void TexCoord3OES(sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -366,6 +373,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void TexCoord4OES(sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -404,6 +412,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void Vertex2OES(sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -445,6 +454,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void Vertex3OES(sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -489,6 +499,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_byte_coordinates")]
 		public static void Vertex4OES(sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{

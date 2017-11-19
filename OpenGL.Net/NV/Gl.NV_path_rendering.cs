@@ -2178,6 +2178,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void GetPathParameterNV(UInt32 path, PathParameter pname, [Out] Int32[] value)
 		{
+			Debug.Assert(value.Length >= 4);
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
@@ -2204,6 +2205,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void GetPathParameterNV(UInt32 path, PathParameter pname, [Out] float[] value)
 		{
+			Debug.Assert(value.Length >= 4);
 			unsafe {
 				fixed (float* p_value = value)
 				{
@@ -2582,6 +2584,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static bool PointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float[] x, float[] y, float[] tangentX, float[] tangentY)
 		{
+			Debug.Assert(x.Length >= 1);
+			Debug.Assert(y.Length >= 1);
+			Debug.Assert(tangentX.Length >= 1);
+			Debug.Assert(tangentY.Length >= 1);
 			bool retValue;
 
 			unsafe {

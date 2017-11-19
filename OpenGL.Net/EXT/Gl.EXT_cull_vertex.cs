@@ -67,6 +67,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_cull_vertex")]
 		public static void CullParameterEXT(Int32 pname, double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -90,6 +91,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_cull_vertex")]
 		public static void CullParameterEXT(Int32 pname, float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{

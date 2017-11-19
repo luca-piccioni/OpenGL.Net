@@ -139,6 +139,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 		public static void VertexAttribL1NV(UInt32 index, Int64[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (Int64* p_v = v)
 				{
@@ -162,6 +163,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 		public static void VertexAttribL2NV(UInt32 index, Int64[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int64* p_v = v)
 				{
@@ -185,6 +187,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 		public static void VertexAttribL3NV(UInt32 index, Int64[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int64* p_v = v)
 				{
@@ -208,6 +211,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 		public static void VertexAttribL4NV(UInt32 index, Int64[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int64* p_v = v)
 				{
@@ -321,6 +325,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 		public static void VertexAttribL1NV(UInt32 index, UInt64[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (UInt64* p_v = v)
 				{
@@ -344,6 +349,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 		public static void VertexAttribL2NV(UInt32 index, UInt64[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (UInt64* p_v = v)
 				{
@@ -367,6 +373,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 		public static void VertexAttribL3NV(UInt32 index, UInt64[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt64* p_v = v)
 				{
@@ -390,6 +397,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 		public static void VertexAttribL4NV(UInt32 index, UInt64[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt64* p_v = v)
 				{

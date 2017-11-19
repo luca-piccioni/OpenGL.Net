@@ -151,6 +151,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -192,6 +193,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -233,6 +235,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -274,6 +277,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -315,6 +319,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Tangent3EXT(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -356,6 +361,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -397,6 +403,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -438,6 +445,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -479,6 +487,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -520,6 +529,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
 		public static void Binormal3EXT(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{

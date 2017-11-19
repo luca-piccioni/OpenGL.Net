@@ -115,6 +115,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_INTEL_map_texture")]
 		public static IntPtr MapTexture2DINTEL(UInt32 texture, Int32 level, UInt32 access, Int32[] stride, Int32[] layout)
 		{
+			Debug.Assert(stride.Length >= 1);
+			Debug.Assert(layout.Length >= 1);
 			IntPtr retValue;
 
 			unsafe {

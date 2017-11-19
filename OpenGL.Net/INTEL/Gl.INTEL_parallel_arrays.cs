@@ -82,6 +82,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void VertexPointerINTEL(Int32 size, VertexPointerType type, IntPtr[] pointer)
 		{
+			Debug.Assert(pointer.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
@@ -105,6 +106,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void NormalPointerINTEL(NormalPointerType type, IntPtr[] pointer)
 		{
+			Debug.Assert(pointer.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
@@ -131,6 +133,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void ColorPointerINTEL(Int32 size, VertexPointerType type, IntPtr[] pointer)
 		{
+			Debug.Assert(pointer.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
@@ -157,6 +160,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
 		public static void TexCoordPointerINTEL(Int32 size, TexCoordPointerType type, IntPtr[] pointer)
 		{
+			Debug.Assert(pointer.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{

@@ -2291,6 +2291,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(byte[] c)
 		{
+			Debug.Assert(c.Length >= 1);
 			unsafe {
 				fixed (byte* p_c = c)
 				{

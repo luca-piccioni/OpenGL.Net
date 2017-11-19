@@ -67,6 +67,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void ClipPlane(ClipPlaneName p, float[] eqn)
 		{
+			Debug.Assert(eqn.Length >= 4);
 			unsafe {
 				fixed (float* p_eqn = eqn)
 				{
@@ -123,6 +124,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] float[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (float* p_equation = equation)
 				{
@@ -239,6 +241,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void ClipPlane(ClipPlaneName plane, IntPtr[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
 				{
@@ -378,6 +381,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] IntPtr[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
 				{
@@ -641,6 +645,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LoadMatrixx(IntPtr[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (IntPtr* p_m = m)
 				{
@@ -708,6 +713,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void MultMatrixx(IntPtr[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (IntPtr* p_m = m)
 				{

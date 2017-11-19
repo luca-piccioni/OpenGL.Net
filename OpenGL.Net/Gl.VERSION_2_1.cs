@@ -304,6 +304,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix2x3fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix2x3fv: Specify the value of a uniform variable for the current program object
@@ -400,6 +401,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix3x2fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix3x2fv: Specify the value of a uniform variable for the current program object
@@ -496,6 +498,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix2x4fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix2x4fv: Specify the value of a uniform variable for the current program object
@@ -592,6 +595,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix4x2fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix4x2fv: Specify the value of a uniform variable for the current program object
@@ -688,6 +692,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix3x4fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix3x4fv: Specify the value of a uniform variable for the current program object
@@ -784,6 +789,7 @@ namespace OpenGL
 			LogCommand("glUniformMatrix4x3fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniformMatrix4x3fv: Specify the value of a uniform variable for the current program object

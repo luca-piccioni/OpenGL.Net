@@ -82,6 +82,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, float x, float y, float z, float w)
 		{
+			Debug.Assert(name.Length >= 1);
 			unsafe {
 				fixed (byte* p_name = name)
 				{
@@ -111,6 +112,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, float[] v)
 		{
+			Debug.Assert(name.Length >= 1);
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (byte* p_name = name)
 				fixed (float* p_v = v)
@@ -150,6 +153,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, double x, double y, double z, double w)
 		{
+			Debug.Assert(name.Length >= 1);
 			unsafe {
 				fixed (byte* p_name = name)
 				{
@@ -179,6 +183,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, double[] v)
 		{
+			Debug.Assert(name.Length >= 1);
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (byte* p_name = name)
 				fixed (double* p_v = v)
@@ -209,6 +215,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, [Out] float[] @params)
 		{
+			Debug.Assert(name.Length >= 1);
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (byte* p_name = name)
 				fixed (float* p_params = @params)
@@ -239,6 +247,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_fragment_program")]
 		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, [Out] double[] @params)
 		{
+			Debug.Assert(name.Length >= 1);
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (byte* p_name = name)
 				fixed (double* p_params = @params)

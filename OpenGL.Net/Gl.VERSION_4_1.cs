@@ -577,6 +577,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 		public static void GetShaderPrecisionFormat(ShaderType shadertype, PrecisionType precisiontype, [Out] Int32[] range, out Int32 precision)
 		{
+			Debug.Assert(range.Length >= 2);
 			unsafe {
 				fixed (Int32* p_range = range)
 				fixed (Int32* p_precision = &precision)
@@ -903,7 +904,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static UInt32 CreateShaderProgram(ShaderType type, Int32 count, params String[] strings)
 		{
-			Debug.Assert(strings.Length >= count);
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramv != null, "pglCreateShaderProgramv not implemented");
@@ -1202,6 +1202,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform1iv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform1iv: Specify the value of a uniform variable for a specified program object
@@ -1327,6 +1328,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform1fv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform1fv: Specify the value of a uniform variable for a specified program object
@@ -1434,6 +1436,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform1dv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniform1dv: Binding for glProgramUniform1dv.
 		/// </summary>
@@ -1552,6 +1555,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform1uiv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform1uiv: Specify the value of a uniform variable for a specified program object
@@ -1684,6 +1688,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform2iv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform2iv: Specify the value of a uniform variable for a specified program object
@@ -1816,6 +1821,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform2fv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform2fv: Specify the value of a uniform variable for a specified program object
@@ -1929,6 +1935,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform2dv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniform2dv: Binding for glProgramUniform2dv.
 		/// </summary>
@@ -2054,6 +2061,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform2uiv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform2uiv: Specify the value of a uniform variable for a specified program object
@@ -2189,6 +2197,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform3iv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform3iv: Specify the value of a uniform variable for a specified program object
@@ -2324,6 +2333,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform3fv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform3fv: Specify the value of a uniform variable for a specified program object
@@ -2440,6 +2450,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform3dv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniform3dv: Binding for glProgramUniform3dv.
 		/// </summary>
@@ -2568,6 +2579,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform3uiv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform3uiv: Specify the value of a uniform variable for a specified program object
@@ -2706,6 +2718,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform4iv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform4iv: Specify the value of a uniform variable for a specified program object
@@ -2844,6 +2857,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform4fv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform4fv: Specify the value of a uniform variable for a specified program object
@@ -2963,6 +2977,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform4dv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniform4dv: Binding for glProgramUniform4dv.
 		/// </summary>
@@ -3094,6 +3109,7 @@ namespace OpenGL
 			LogCommand("glProgramUniform4uiv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniform4uiv: Specify the value of a uniform variable for a specified program object
@@ -3202,6 +3218,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix2fv: Specify the value of a uniform variable for a specified program object
@@ -3313,6 +3330,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix3fv: Specify the value of a uniform variable for a specified program object
@@ -3426,6 +3444,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix4fv: Specify the value of a uniform variable for a specified program object
@@ -3524,6 +3543,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix2dv: Binding for glProgramUniformMatrix2dv.
 		/// </summary>
@@ -3614,6 +3634,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix3dv: Binding for glProgramUniformMatrix3dv.
 		/// </summary>
@@ -3704,6 +3725,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix4dv: Binding for glProgramUniformMatrix4dv.
 		/// </summary>
@@ -3808,6 +3830,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2x3fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix2x3fv: Specify the value of a uniform variable for a specified program object
@@ -3919,6 +3942,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3x2fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix3x2fv: Specify the value of a uniform variable for a specified program object
@@ -4030,6 +4054,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2x4fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix2x4fv: Specify the value of a uniform variable for a specified program object
@@ -4141,6 +4166,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4x2fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix4x2fv: Specify the value of a uniform variable for a specified program object
@@ -4252,6 +4278,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3x4fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix3x4fv: Specify the value of a uniform variable for a specified program object
@@ -4363,6 +4390,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4x3fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glProgramUniformMatrix4x3fv: Specify the value of a uniform variable for a specified program object
@@ -4460,6 +4488,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2x3dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix2x3dv: Binding for glProgramUniformMatrix2x3dv.
 		/// </summary>
@@ -4550,6 +4579,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3x2dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix3x2dv: Binding for glProgramUniformMatrix3x2dv.
 		/// </summary>
@@ -4640,6 +4670,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2x4dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix2x4dv: Binding for glProgramUniformMatrix2x4dv.
 		/// </summary>
@@ -4730,6 +4761,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4x2dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix4x2dv: Binding for glProgramUniformMatrix4x2dv.
 		/// </summary>
@@ -4820,6 +4852,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3x4dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix3x4dv: Binding for glProgramUniformMatrix3x4dv.
 		/// </summary>
@@ -4910,6 +4943,7 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4x3dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// [GL] glProgramUniformMatrix4x3dv: Binding for glProgramUniformMatrix4x3dv.
 		/// </summary>
@@ -5107,6 +5141,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL1(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -5133,6 +5168,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL2(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -5159,6 +5195,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL3(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -5185,6 +5222,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL4(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -5377,6 +5415,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 		public static void ViewportIndexed(UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -5463,6 +5502,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 		public static void ScissorIndexed(UInt32 index, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{

@@ -58,6 +58,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIX_reference_plane")]
 		public static void ReferencePlaneSGIX(double[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (double* p_equation = equation)
 				{

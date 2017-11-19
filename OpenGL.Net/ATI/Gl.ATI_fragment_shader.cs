@@ -1044,6 +1044,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_fragment_shader")]
 		public static void SetFragmentShaderConstantATI(UInt32 dst, float[] value)
 		{
+			Debug.Assert(value.Length >= 4);
 			unsafe {
 				fixed (float* p_value = value)
 				{

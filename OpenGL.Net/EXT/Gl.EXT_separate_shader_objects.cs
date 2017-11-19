@@ -140,7 +140,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static UInt32 CreateShaderProgramEXT(ShaderType type, Int32 count, String[] strings)
 		{
-			Debug.Assert(strings.Length >= count);
 			UInt32 retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");

@@ -148,6 +148,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public static void PixelTransformParameterEXT(Int32 target, Int32 pname, Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 1);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -174,6 +175,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_pixel_transform")]
 		public static void PixelTransformParameterEXT(Int32 target, Int32 pname, float[] @params)
 		{
+			Debug.Assert(@params.Length >= 1);
 			unsafe {
 				fixed (float* p_params = @params)
 				{

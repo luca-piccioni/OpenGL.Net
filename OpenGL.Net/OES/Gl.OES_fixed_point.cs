@@ -106,6 +106,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
 		public static void ClipPlaneOES(ClipPlaneName plane, IntPtr[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
 				{
@@ -242,6 +243,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
 		public static void GetClipPlaneOES(ClipPlaneName plane, [Out] IntPtr[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_equation = equation)
 				{
@@ -440,6 +442,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
 		public static void LoadMatrixxOES(IntPtr[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (IntPtr* p_m = m)
 				{
@@ -507,6 +510,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
 		public static void MultMatrixxOES(IntPtr[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (IntPtr* p_m = m)
 				{
@@ -1034,6 +1038,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void Color3OES(IntPtr[] components)
 		{
+			Debug.Assert(components.Length >= 3);
 			unsafe {
 				fixed (IntPtr* p_components = components)
 				{
@@ -1054,6 +1059,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void Color4OES(IntPtr[] components)
 		{
+			Debug.Assert(components.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_components = components)
 				{
@@ -1136,6 +1142,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void EvalCoord1OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -1174,6 +1181,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void EvalCoord2OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -1485,6 +1493,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void IndexOES(IntPtr[] component)
 		{
+			Debug.Assert(component.Length >= 1);
 			unsafe {
 				fixed (IntPtr* p_component = component)
 				{
@@ -1505,6 +1514,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void LoadTransposeMatrixxOES(IntPtr[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (IntPtr* p_m = m)
 				{
@@ -1645,6 +1655,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void MultTransposeMatrixxOES(IntPtr[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (IntPtr* p_m = m)
 				{
@@ -1686,6 +1697,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void MultiTexCoord1OES(TextureUnit texture, IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -1730,6 +1742,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void MultiTexCoord2OES(TextureUnit texture, IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -1777,6 +1790,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void MultiTexCoord3OES(TextureUnit texture, IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -1800,6 +1814,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void MultiTexCoord4OES(TextureUnit texture, IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -1820,6 +1835,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void Normal3OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2000,6 +2016,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void RasterPos2OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2041,6 +2058,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void RasterPos3OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2085,6 +2103,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void RasterPos4OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2132,6 +2151,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void RectOES(IntPtr[] v1, IntPtr[] v2)
 		{
+			Debug.Assert(v1.Length >= 2);
+			Debug.Assert(v2.Length >= 2);
 			unsafe {
 				fixed (IntPtr* p_v1 = v1)
 				fixed (IntPtr* p_v2 = v2)
@@ -2168,6 +2189,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void TexCoord1OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2206,6 +2228,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void TexCoord2OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2247,6 +2270,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void TexCoord3OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2291,6 +2315,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void TexCoord4OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2375,6 +2400,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void Vertex2OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2413,6 +2439,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void Vertex3OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -2454,6 +2481,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_fixed_point")]
 		public static void Vertex4OES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{

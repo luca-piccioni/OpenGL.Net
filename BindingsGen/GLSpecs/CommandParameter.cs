@@ -119,6 +119,70 @@ namespace BindingsGen.GLSpecs
 
 		#endregion
 
+		#region Length Management
+
+		/// <summary>
+		/// Get the length mode for this parameter.
+		/// </summary>
+		public CommandParameterLengthMode LengthMode
+		{
+			get
+			{
+				// No length information
+				if (String.IsNullOrEmpty(Length))
+					return (CommandParameterLengthMode.None);
+
+				// Constant length?
+				uint constLength;
+				if (UInt32.TryParse(Length, out constLength))
+					return (CommandParameterLengthMode.Constant);
+
+				// Argument?
+				if (ParentCommand.Parameters.Exists(delegate(CommandParameter item) { return (item.Name == Length); }))
+					return (CommandParameterLengthMode.ArgumentReference);
+
+				// Argument multiple?
+				Match argumentMultipleMatch = Regex.Match(Length, @"(?<Arg>\w[\w\d_]*)\*(\d+)");
+				if (argumentMultipleMatch.Success) {
+					string argumentMultipleName = argumentMultipleMatch.Groups["Arg"].Value;
+					if (ParentCommand.Parameters.Exists(delegate(CommandParameter item) { return (item.Name == argumentMultipleName); }))
+						return (CommandParameterLengthMode.ArgumentMultiple);
+				}
+
+				return (CommandParameterLengthMode.Complex);
+			}
+		}
+
+		public uint LengthConstant
+		{
+			get
+			{
+				uint constLength;
+
+				if (UInt32.TryParse(Length, out constLength))
+					return (constLength);
+
+				throw new InvalidOperationException("not a const-length constraint");
+			}
+		}
+
+		public uint LengthMultiple
+		{
+			get
+			{
+				Match argumentMultipleMatch = Regex.Match(Length, @"(?<Arg>\w[\w\d_]*)\*(?<Mul>\d+)");
+				if (argumentMultipleMatch.Success) {
+					string argumentMultipleValue = argumentMultipleMatch.Groups["Mul"].Value;
+					
+					return (UInt32.Parse(argumentMultipleValue));
+				}
+
+				throw new InvalidOperationException("not a multiple-length constraint");
+			}
+		}
+
+		#endregion
+
 		#region Code Generation - Implementation
 
 		/// <summary>
@@ -210,7 +274,7 @@ namespace BindingsGen.GLSpecs
 			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
 			// Support 'ref' argument
-			if (IsManagedArray(parentCommand) && (modifier == "ref" || modifier == "out"))
+			if ((modifier == "ref" || modifier == "out") && implementationType.EndsWith("[]"))
 				implementationType = modifier + " " + implementationType.Substring(0, implementationType.Length - 2);
 
 			return (implementationType);
@@ -339,7 +403,7 @@ namespace BindingsGen.GLSpecs
 			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
 			// Support 'ref' argument
-			if (IsManagedArray(parentCommand) && (modifier == "ref" || modifier == "out"))
+			if (IsManagedArray(ctx, parentCommand) && (modifier == "ref" || modifier == "out"))
 				implementationType = modifier + " " + implementationType.Substring(0, implementationType.Length - 1);
 
 			return (implementationType.Trim());
@@ -450,9 +514,9 @@ namespace BindingsGen.GLSpecs
 
 		#region Code Generation - Common
 
-		public bool IsManagedArray(Command parentCommand)
+		public bool IsManagedArray(RegistryContext ctx, Command parentCommand)
 		{
-			return (GetManagedImplementationType(parentCommand).EndsWith("[]"));
+			return (GetImplementationType(ctx, parentCommand).EndsWith("[]"));
 		}
 
 		public bool IsConstant
@@ -511,15 +575,14 @@ namespace BindingsGen.GLSpecs
 
 		public virtual void WriteDebugAssertion(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			if (Length == null)
-				return;
-
-			if (CommandParameterArrayLength.IsCompatible(ctx, parentCommand, this) && IsSafe)
-				sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, Length);
-#if false
-			if (Regex.IsMatch(Length, @"[0-9]+"))
-				sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, Length);
-#endif
+			switch (LengthMode) {
+				case CommandParameterLengthMode.Constant:
+					// Note:
+					// - The argument must be an Array instance
+					if (IsManagedArray(ctx, parentCommand))
+						sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, LengthConstant);
+					break;
+			}
 		}
 
 		public virtual void WriteFixedStatement(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)

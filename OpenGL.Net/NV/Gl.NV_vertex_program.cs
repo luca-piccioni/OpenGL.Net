@@ -530,6 +530,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void ExecuteProgramNV(Int32 target, UInt32 id, float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -559,6 +560,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetProgramParameterNV(Int32 target, UInt32 index, Int32 pname, [Out] double[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
@@ -588,6 +590,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetProgramParameterNV(Int32 target, UInt32 index, Int32 pname, [Out] float[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
@@ -614,6 +617,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void GetProgramNV(UInt32 id, Int32 pname, [Out] Int32[] @params)
 		{
+			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
@@ -751,6 +755,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void ProgramParameter4NV(Int32 target, UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -807,6 +812,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void ProgramParameter4NV(Int32 target, UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{

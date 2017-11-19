@@ -64,6 +64,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void Vertex2hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -105,6 +106,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void Vertex3hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -149,6 +151,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void Vertex4hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -190,6 +193,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void Normal3hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -231,6 +235,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void Color3hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -275,6 +280,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void Color4hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -310,6 +316,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void TexCoord1hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -348,6 +355,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void TexCoord2hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -389,6 +397,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void TexCoord3hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -433,6 +442,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void TexCoord4hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -474,6 +484,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void MultiTexCoord1hNV(TextureUnit target, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -518,6 +529,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void MultiTexCoord2hNV(TextureUnit target, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -565,6 +577,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void MultiTexCoord3hNV(TextureUnit target, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -615,6 +628,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void MultiTexCoord4hNV(TextureUnit target, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -650,6 +664,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void FogCoordhNV(UInt16[] fog)
 		{
+			Debug.Assert(fog.Length >= 1);
 			unsafe {
 				fixed (UInt16* p_fog = fog)
 				{
@@ -691,6 +706,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void SecondaryColor3hNV(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -726,6 +742,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void VertexWeighthNV(UInt16[] weight)
 		{
+			Debug.Assert(weight.Length >= 1);
 			unsafe {
 				fixed (UInt16* p_weight = weight)
 				{
@@ -767,6 +784,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void VertexAttrib1hvNV(UInt32 index, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -811,6 +829,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void VertexAttrib2hvNV(UInt32 index, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -858,6 +877,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void VertexAttrib3hvNV(UInt32 index, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -908,6 +928,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_half_float")]
 		public static void VertexAttrib4hvNV(UInt32 index, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{

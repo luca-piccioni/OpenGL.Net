@@ -59,6 +59,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_sample_positions")]
 		public static void SetMultisampleAMD(Int32 pname, UInt32 index, float[] val)
 		{
+			Debug.Assert(val.Length >= 2);
 			unsafe {
 				fixed (float* p_val = val)
 				{

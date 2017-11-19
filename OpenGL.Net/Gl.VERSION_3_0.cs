@@ -3164,6 +3164,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(UInt32 index, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -3189,6 +3190,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(UInt32 index, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -3214,6 +3216,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(UInt32 index, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -3242,6 +3245,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -3267,6 +3271,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(UInt32 index, UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -3292,6 +3297,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(UInt32 index, UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -3317,6 +3323,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(UInt32 index, UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -3345,6 +3352,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -3370,6 +3378,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -3395,6 +3404,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -3420,6 +3430,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, byte[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (byte* p_v = v)
 				{
@@ -3445,6 +3456,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(UInt32 index, UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -3699,6 +3711,7 @@ namespace OpenGL
 			LogCommand("glUniform1uiv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform1uiv: Specify the value of a uniform variable for the current program object
@@ -3786,6 +3799,7 @@ namespace OpenGL
 			LogCommand("glUniform2uiv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform2uiv: Specify the value of a uniform variable for the current program object
@@ -3873,6 +3887,7 @@ namespace OpenGL
 			LogCommand("glUniform3uiv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform3uiv: Specify the value of a uniform variable for the current program object
@@ -3960,6 +3975,7 @@ namespace OpenGL
 			LogCommand("glUniform4uiv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+
 		/// <summary>
 		/// <para>
 		/// [GL4|GLES3.2] glUniform4uiv: Specify the value of a uniform variable for the current program object

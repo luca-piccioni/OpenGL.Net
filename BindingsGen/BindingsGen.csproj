@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GLSpecs\CommandParameterLengthMode.cs" />
     <Compile Include="GLSpecs\IFeatureExtensions.cs" />
     <Compile Include="RegistryAssembly.cs" />
     <Compile Include="GLSpecs\Command.cs" />

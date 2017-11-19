@@ -160,6 +160,7 @@ namespace OpenGL
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(double[] c)
 			{
+				Debug.Assert(c.Length >= 1);
 				unsafe {
 					fixed (double* p_c = c)
 					{
@@ -196,6 +197,7 @@ namespace OpenGL
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(float[] c)
 			{
+				Debug.Assert(c.Length >= 1);
 				unsafe {
 					fixed (float* p_c = c)
 					{
@@ -232,6 +234,7 @@ namespace OpenGL
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int32[] c)
 			{
+				Debug.Assert(c.Length >= 1);
 				unsafe {
 					fixed (Int32* p_c = c)
 					{
@@ -268,6 +271,7 @@ namespace OpenGL
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(Int16[] c)
 			{
+				Debug.Assert(c.Length >= 1);
 				unsafe {
 					fixed (Int16* p_c = c)
 					{
@@ -421,6 +425,7 @@ namespace OpenGL
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			public static void Index(byte[] c)
 			{
+				Debug.Assert(c.Length >= 1);
 				unsafe {
 					fixed (byte* p_c = c)
 					{

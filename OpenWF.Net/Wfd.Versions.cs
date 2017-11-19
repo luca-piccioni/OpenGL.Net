@@ -31,11 +31,6 @@ namespace OpenWF
 	{
 		#region Known Versions Constants
 
-		/// <summary>
-		/// Version for WFD_VERSION_1_0 API.
-		/// </summary>
-		public static readonly KhronosVersion Version_100 = new KhronosVersion(1, 0, KhronosVersion.ApiWfd);
-
 		#endregion
 
 	}

@@ -7623,6 +7623,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -7665,6 +7666,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -7707,6 +7709,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -7749,6 +7752,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -7791,6 +7795,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -7833,6 +7838,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(byte[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (byte* p_v = v)
 				{
@@ -7875,6 +7881,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -7917,6 +7924,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color3(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -7962,6 +7970,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -8007,6 +8016,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -8055,6 +8065,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -8100,6 +8111,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -8145,6 +8157,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -8193,6 +8206,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(byte[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (byte* p_v = v)
 				{
@@ -8238,6 +8252,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt32* p_v = v)
 				{
@@ -8283,6 +8298,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Color4(UInt16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (UInt16* p_v = v)
 				{
@@ -8319,6 +8335,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EdgeFlag(byte[] flag)
 		{
+			Debug.Assert(flag.Length >= 1);
 			unsafe {
 				fixed (byte* p_flag = flag)
 				{
@@ -8368,6 +8385,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(double[] c)
 		{
+			Debug.Assert(c.Length >= 1);
 			unsafe {
 				fixed (double* p_c = c)
 				{
@@ -8404,6 +8422,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(float[] c)
 		{
+			Debug.Assert(c.Length >= 1);
 			unsafe {
 				fixed (float* p_c = c)
 				{
@@ -8440,6 +8459,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int32[] c)
 		{
+			Debug.Assert(c.Length >= 1);
 			unsafe {
 				fixed (Int32* p_c = c)
 				{
@@ -8476,6 +8496,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Index(Int16[] c)
 		{
+			Debug.Assert(c.Length >= 1);
 			unsafe {
 				fixed (Int16* p_c = c)
 				{
@@ -8521,6 +8542,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(sbyte[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_v = v)
 				{
@@ -8566,6 +8588,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -8614,6 +8637,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -8659,6 +8683,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -8704,6 +8729,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Normal3(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -8744,6 +8770,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(double[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -8784,6 +8811,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(float[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -8824,6 +8852,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -8864,6 +8893,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos2(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -8907,6 +8937,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -8950,6 +8981,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -8993,6 +9025,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -9036,6 +9069,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos3(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -9082,6 +9116,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -9128,6 +9163,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -9174,6 +9210,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -9220,6 +9257,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void RasterPos4(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -9269,6 +9307,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(double[] v1, double[] v2)
 		{
+			Debug.Assert(v1.Length >= 2);
+			Debug.Assert(v2.Length >= 2);
 			unsafe {
 				fixed (double* p_v1 = v1)
 				fixed (double* p_v2 = v2)
@@ -9319,6 +9359,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(float[] v1, float[] v2)
 		{
+			Debug.Assert(v1.Length >= 2);
+			Debug.Assert(v2.Length >= 2);
 			unsafe {
 				fixed (float* p_v1 = v1)
 				fixed (float* p_v2 = v2)
@@ -9369,6 +9411,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int32[] v1, Int32[] v2)
 		{
+			Debug.Assert(v1.Length >= 2);
+			Debug.Assert(v2.Length >= 2);
 			unsafe {
 				fixed (Int32* p_v1 = v1)
 				fixed (Int32* p_v2 = v2)
@@ -9419,6 +9463,8 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Rect(Int16[] v1, Int16[] v2)
 		{
+			Debug.Assert(v1.Length >= 2);
+			Debug.Assert(v2.Length >= 2);
 			unsafe {
 				fixed (Int16* p_v1 = v1)
 				fixed (Int16* p_v2 = v2)
@@ -9456,6 +9502,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(double[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -9492,6 +9539,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(float[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -9528,6 +9576,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -9564,6 +9613,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord1(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 1);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -9603,6 +9653,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(double[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -9642,6 +9693,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(float[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -9681,6 +9733,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -9720,6 +9773,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord2(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -9762,6 +9816,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -9804,6 +9859,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -9846,6 +9902,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -9888,6 +9945,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord3(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -9933,6 +9991,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -9978,6 +10037,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -10023,6 +10083,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -10068,6 +10129,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void TexCoord4(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -10107,6 +10169,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(double[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -10146,6 +10209,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(float[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -10185,6 +10249,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -10224,6 +10289,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex2(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 2);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -10266,6 +10332,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(double[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -10308,6 +10375,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(float[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -10350,6 +10418,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -10392,6 +10461,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex3(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 3);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -10437,6 +10507,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(double[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (double* p_v = v)
 				{
@@ -10482,6 +10553,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(float[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (float* p_v = v)
 				{
@@ -10527,6 +10599,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int32[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int32* p_v = v)
 				{
@@ -10572,6 +10645,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void Vertex4(Int16[] v)
 		{
+			Debug.Assert(v.Length >= 4);
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
@@ -10598,6 +10672,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void ClipPlane(ClipPlaneName plane, double[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (double* p_equation = equation)
 				{
@@ -12005,6 +12080,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(double[] u)
 		{
+			Debug.Assert(u.Length >= 1);
 			unsafe {
 				fixed (double* p_u = u)
 				{
@@ -12043,6 +12119,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord1(float[] u)
 		{
+			Debug.Assert(u.Length >= 1);
 			unsafe {
 				fixed (float* p_u = u)
 				{
@@ -12085,6 +12162,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(double[] u)
 		{
+			Debug.Assert(u.Length >= 2);
 			unsafe {
 				fixed (double* p_u = u)
 				{
@@ -12127,6 +12205,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void EvalCoord2(float[] u)
 		{
+			Debug.Assert(u.Length >= 2);
 			unsafe {
 				fixed (float* p_u = u)
 				{
@@ -12586,6 +12665,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void GetClipPlane(ClipPlaneName plane, [Out] double[] equation)
 		{
+			Debug.Assert(equation.Length >= 4);
 			unsafe {
 				fixed (double* p_equation = equation)
 				{
@@ -13145,6 +13225,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadMatrix(float[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (float* p_m = m)
 				{
@@ -13166,6 +13247,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadMatrix(double[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (double* p_m = m)
 				{
@@ -13211,6 +13293,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultMatrix(float[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (float* p_m = m)
 				{
@@ -13232,6 +13315,7 @@ namespace OpenGL
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultMatrix(double[] m)
 		{
+			Debug.Assert(m.Length >= 16);
 			unsafe {
 				fixed (double* p_m = m)
 				{

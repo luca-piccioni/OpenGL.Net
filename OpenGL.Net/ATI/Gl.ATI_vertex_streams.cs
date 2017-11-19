@@ -127,6 +127,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream1ATI(Int32 stream, Int16[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (Int16* p_coords = coords)
 				{
@@ -168,6 +169,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream1ATI(Int32 stream, Int32[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (Int32* p_coords = coords)
 				{
@@ -209,6 +211,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream1ATI(Int32 stream, float[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
@@ -250,6 +253,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream1ATI(Int32 stream, double[] coords)
 		{
+			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
@@ -294,6 +298,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream2ATI(Int32 stream, Int16[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (Int16* p_coords = coords)
 				{
@@ -338,6 +343,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream2ATI(Int32 stream, Int32[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (Int32* p_coords = coords)
 				{
@@ -382,6 +388,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream2ATI(Int32 stream, float[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
@@ -426,6 +433,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream2ATI(Int32 stream, double[] coords)
 		{
+			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
@@ -473,6 +481,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream3ATI(Int32 stream, Int16[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (Int16* p_coords = coords)
 				{
@@ -520,6 +529,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream3ATI(Int32 stream, Int32[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (Int32* p_coords = coords)
 				{
@@ -567,6 +577,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream3ATI(Int32 stream, float[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
@@ -614,6 +625,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream3ATI(Int32 stream, double[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
@@ -664,6 +676,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream4ATI(Int32 stream, Int16[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (Int16* p_coords = coords)
 				{
@@ -714,6 +727,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream4ATI(Int32 stream, Int32[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (Int32* p_coords = coords)
 				{
@@ -764,6 +778,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream4ATI(Int32 stream, float[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
@@ -814,6 +829,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void VertexStream4ATI(Int32 stream, double[] coords)
 		{
+			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
@@ -861,6 +877,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void NormalStream3ATI(Int32 stream, sbyte[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
@@ -908,6 +925,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void NormalStream3ATI(Int32 stream, Int16[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (Int16* p_coords = coords)
 				{
@@ -955,6 +973,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void NormalStream3ATI(Int32 stream, Int32[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (Int32* p_coords = coords)
 				{
@@ -1002,6 +1021,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void NormalStream3ATI(Int32 stream, float[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
@@ -1049,6 +1069,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ATI_vertex_streams")]
 		public static void NormalStream3ATI(Int32 stream, double[] coords)
 		{
+			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{

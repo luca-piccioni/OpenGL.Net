@@ -67,6 +67,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIX_async")]
 		public static Int32 FinishAsyncSGIX(UInt32[] markerp)
 		{
+			Debug.Assert(markerp.Length >= 1);
 			Int32 retValue;
 
 			unsafe {
@@ -91,6 +92,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIX_async")]
 		public static Int32 PollAsyncSGIX(UInt32[] markerp)
 		{
+			Debug.Assert(markerp.Length >= 1);
 			Int32 retValue;
 
 			unsafe {
