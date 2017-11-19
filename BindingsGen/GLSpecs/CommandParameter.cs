@@ -218,6 +218,10 @@ namespace BindingsGen.GLSpecs
 
 		public string GetImplementationTypeModifier(RegistryContext ctx, Command parentCommand)
 		{
+			// Support ref argument
+			if (ModifierOverride != null)
+				return (ModifierOverride);
+
 			string implementationType = GetManagedImplementationType(parentCommand);
 
 			// Type[] + Length=1 -> out Type
@@ -229,6 +233,8 @@ namespace BindingsGen.GLSpecs
 
 			return (null);
 		}
+
+		public string ModifierOverride;
 
 		public string GetImplementationTypeAttributes(RegistryContext ctx, Command parentCommand)
 		{

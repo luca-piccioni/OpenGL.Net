@@ -3699,6 +3699,34 @@ namespace OpenGL
 			LogCommand("glUniform1uiv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform1uiv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
+		public static void Uniform1ui<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform1(location, count, (UInt32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -3757,6 +3785,34 @@ namespace OpenGL
 			Delegates.pglUniform2uiv(location, count, value);
 			LogCommand("glUniform2uiv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform2uiv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
+		public static void Uniform2ui<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform2(location, count, (UInt32*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3817,6 +3873,34 @@ namespace OpenGL
 			LogCommand("glUniform3uiv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform3uiv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
+		public static void Uniform3ui<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform3(location, count, (UInt32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -3875,6 +3959,34 @@ namespace OpenGL
 			Delegates.pglUniform4uiv(location, count, value);
 			LogCommand("glUniform4uiv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform4uiv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
+		public static void Uniform4ui<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform4(location, count, (UInt32*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>

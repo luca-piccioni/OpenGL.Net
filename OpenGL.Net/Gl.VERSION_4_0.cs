@@ -1154,6 +1154,29 @@ namespace OpenGL
 			LogCommand("glUniform1dv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glUniform1dv: Binding for glUniform1dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void Uniform1d<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform1(location, count, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glUniform2dv: Binding for glUniform2dv.
@@ -1202,6 +1225,29 @@ namespace OpenGL
 			Delegates.pglUniform2dv(location, count, value);
 			LogCommand("glUniform2dv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glUniform2dv: Binding for glUniform2dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void Uniform2d<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform2(location, count, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1252,6 +1298,29 @@ namespace OpenGL
 			LogCommand("glUniform3dv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glUniform3dv: Binding for glUniform3dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void Uniform3d<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform3(location, count, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glUniform4dv: Binding for glUniform4dv.
@@ -1300,6 +1369,29 @@ namespace OpenGL
 			Delegates.pglUniform4dv(location, count, value);
 			LogCommand("glUniform4dv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glUniform4dv: Binding for glUniform4dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void Uniform4d<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform4(location, count, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1356,6 +1448,32 @@ namespace OpenGL
 			LogCommand("glUniformMatrix2dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glUniformMatrix2dv: Binding for glUniformMatrix2dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix2d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix2(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glUniformMatrix3dv: Binding for glUniformMatrix3dv.
@@ -1410,6 +1528,32 @@ namespace OpenGL
 			Delegates.pglUniformMatrix3dv(location, count, transpose, value);
 			LogCommand("glUniformMatrix3dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glUniformMatrix3dv: Binding for glUniformMatrix3dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix3d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix3(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1466,6 +1610,32 @@ namespace OpenGL
 			LogCommand("glUniformMatrix4dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glUniformMatrix4dv: Binding for glUniformMatrix4dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix4d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix4(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glUniformMatrix2x3dv: Binding for glUniformMatrix2x3dv.
@@ -1520,6 +1690,32 @@ namespace OpenGL
 			Delegates.pglUniformMatrix2x3dv(location, count, transpose, value);
 			LogCommand("glUniformMatrix2x3dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glUniformMatrix2x3dv: Binding for glUniformMatrix2x3dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix2x3d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix2x3(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1576,6 +1772,32 @@ namespace OpenGL
 			LogCommand("glUniformMatrix2x4dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glUniformMatrix2x4dv: Binding for glUniformMatrix2x4dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix2x4d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix2x4(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glUniformMatrix3x2dv: Binding for glUniformMatrix3x2dv.
@@ -1630,6 +1852,32 @@ namespace OpenGL
 			Delegates.pglUniformMatrix3x2dv(location, count, transpose, value);
 			LogCommand("glUniformMatrix3x2dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glUniformMatrix3x2dv: Binding for glUniformMatrix3x2dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix3x2d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix3x2(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1686,6 +1934,32 @@ namespace OpenGL
 			LogCommand("glUniformMatrix3x4dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glUniformMatrix3x4dv: Binding for glUniformMatrix3x4dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix3x4d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix3x4(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glUniformMatrix4x2dv: Binding for glUniformMatrix4x2dv.
@@ -1741,6 +2015,32 @@ namespace OpenGL
 			LogCommand("glUniformMatrix4x2dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glUniformMatrix4x2dv: Binding for glUniformMatrix4x2dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix4x2d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix4x2(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glUniformMatrix4x3dv: Binding for glUniformMatrix4x3dv.
@@ -1795,6 +2095,32 @@ namespace OpenGL
 			Delegates.pglUniformMatrix4x3dv(location, count, transpose, value);
 			LogCommand("glUniformMatrix4x3dv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glUniformMatrix4x3dv: Binding for glUniformMatrix4x3dv.
+		/// </summary>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void UniformMatrix4x3d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix4x3(location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>

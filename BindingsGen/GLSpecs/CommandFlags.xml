@@ -232,14 +232,14 @@
 		<flags>VariadicParams</flags>
 	</command>
 	
-	<!-- Unsafe parameters -->
+	<!-- Unsafe/Generic parameters -->
 	
 	<command name="^gl(Program)?Uniform(Matrix)?(1|2|3|4|2x3|2x4|3x2|3x4|4x2|4x3)(d|f|i|ui)v$">
-		<flags>UnsafeParams</flags>
+		<flags>UnsafeParams GenericParams</flags>
 	</command>
 
 	<command name="^glVertexAttrib(1|2|3|4)(N|I)?(b|s|d|f|i|ub|ui|us)v$">
-		<flags>UnsafeParams</flags>
+		<flags>UnsafeParams GenericParams</flags>
 	</command>
 
 	<command name="^glTexParameter(I)?(b|s|d|f|i|ub|ui|us)v$">

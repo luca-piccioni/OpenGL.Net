@@ -2352,6 +2352,35 @@ namespace OpenGL
 			LogCommand("glUniform1fv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform1fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void Uniform1f<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform1(location, count, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2412,6 +2441,35 @@ namespace OpenGL
 			Delegates.pglUniform2fv(location, count, value);
 			LogCommand("glUniform2fv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform2fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void Uniform2f<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform2(location, count, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2474,6 +2532,35 @@ namespace OpenGL
 			LogCommand("glUniform3fv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform3fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void Uniform3f<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform3(location, count, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2534,6 +2621,35 @@ namespace OpenGL
 			Delegates.pglUniform4fv(location, count, value);
 			LogCommand("glUniform4fv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform4fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void Uniform4f<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform4(location, count, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2596,6 +2712,35 @@ namespace OpenGL
 			LogCommand("glUniform1iv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform1iv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void Uniform1i<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform1(location, count, (Int32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2656,6 +2801,35 @@ namespace OpenGL
 			Delegates.pglUniform2iv(location, count, value);
 			LogCommand("glUniform2iv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform2iv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void Uniform2i<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform2(location, count, (Int32*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2718,6 +2892,35 @@ namespace OpenGL
 			LogCommand("glUniform3iv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform3iv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void Uniform3i<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform3(location, count, (Int32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2778,6 +2981,35 @@ namespace OpenGL
 			Delegates.pglUniform4iv(location, count, value);
 			LogCommand("glUniform4iv", null, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniform4iv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void Uniform4i<T>(Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Uniform4(location, count, (Int32*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2846,6 +3078,38 @@ namespace OpenGL
 			LogCommand("glUniformMatrix2fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix2fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void UniformMatrix2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix2(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2913,6 +3177,38 @@ namespace OpenGL
 			LogCommand("glUniformMatrix3fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix3fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void UniformMatrix3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix3(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2979,6 +3275,38 @@ namespace OpenGL
 			Delegates.pglUniformMatrix4fv(location, count, transpose, value);
 			LogCommand("glUniformMatrix4fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix4fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void UniformMatrix4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix4(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3068,6 +3396,29 @@ namespace OpenGL
 			LogCommand("glVertexAttrib1dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL4] glVertexAttrib1dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib1d<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib1(index, (double*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -3149,6 +3500,33 @@ namespace OpenGL
 			LogCommand("glVertexAttrib1fv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glVertexAttrib1fv: Specifies the value of a generic vertex attribute
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib1f<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib1(index, (float*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib1s: Specifies the value of a generic vertex attribute
@@ -3217,6 +3595,29 @@ namespace OpenGL
 			Delegates.pglVertexAttrib1sv(index, v);
 			LogCommand("glVertexAttrib1sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib1sv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib1s<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib1(index, (Int16*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3289,6 +3690,29 @@ namespace OpenGL
 			Delegates.pglVertexAttrib2dv(index, v);
 			LogCommand("glVertexAttrib2dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib2dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib2d<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib2(index, (double*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3374,6 +3798,33 @@ namespace OpenGL
 			LogCommand("glVertexAttrib2fv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glVertexAttrib2fv: Specifies the value of a generic vertex attribute
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib2f<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib2(index, (float*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib2s: Specifies the value of a generic vertex attribute
@@ -3445,6 +3896,29 @@ namespace OpenGL
 			Delegates.pglVertexAttrib2sv(index, v);
 			LogCommand("glVertexAttrib2sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib2sv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib2s<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib2(index, (Int16*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3520,6 +3994,29 @@ namespace OpenGL
 			Delegates.pglVertexAttrib3dv(index, v);
 			LogCommand("glVertexAttrib3dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib3dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib3d<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib3(index, (double*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3608,6 +4105,33 @@ namespace OpenGL
 			LogCommand("glVertexAttrib3fv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glVertexAttrib3fv: Specifies the value of a generic vertex attribute
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib3f<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib3(index, (float*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib3s: Specifies the value of a generic vertex attribute
@@ -3683,6 +4207,29 @@ namespace OpenGL
 			LogCommand("glVertexAttrib3sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL4] glVertexAttrib3sv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib3s<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib3(index, (Int16*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib4Nbv: Specifies the value of a generic vertex attribute
@@ -3729,6 +4276,28 @@ namespace OpenGL
 			Delegates.pglVertexAttrib4Nbv(index, v);
 			LogCommand("glVertexAttrib4Nbv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4Nbv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4Nb<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4N(index, (sbyte*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3777,6 +4346,28 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Niv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4Niv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4Ni<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4N(index, (Int32*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib4Nsv: Specifies the value of a generic vertex attribute
@@ -3823,6 +4414,28 @@ namespace OpenGL
 			Delegates.pglVertexAttrib4Nsv(index, v);
 			LogCommand("glVertexAttrib4Nsv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4Nsv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4Ns<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4N(index, (Int16*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3902,6 +4515,29 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Nubv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4Nubv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib4Nub<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4N(index, (byte*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib4Nuiv: Specifies the value of a generic vertex attribute
@@ -3948,6 +4584,28 @@ namespace OpenGL
 			Delegates.pglVertexAttrib4Nuiv(index, v);
 			LogCommand("glVertexAttrib4Nuiv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4Nuiv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4Nui<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4N(index, (UInt32*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3996,6 +4654,28 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4Nusv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4Nusv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4Nus<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4N(index, (UInt16*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib4bv: Specifies the value of a generic vertex attribute
@@ -4042,6 +4722,28 @@ namespace OpenGL
 			Delegates.pglVertexAttrib4bv(index, v);
 			LogCommand("glVertexAttrib4bv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4bv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4b<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4(index, (sbyte*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -4120,6 +4822,29 @@ namespace OpenGL
 			Delegates.pglVertexAttrib4dv(index, v);
 			LogCommand("glVertexAttrib4dv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib4d<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4(index, (double*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -4211,6 +4936,33 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4fv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glVertexAttrib4fv: Specifies the value of a generic vertex attribute
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib4f<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4(index, (float*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib4iv: Specifies the value of a generic vertex attribute
@@ -4257,6 +5009,28 @@ namespace OpenGL
 			Delegates.pglVertexAttrib4iv(index, v);
 			LogCommand("glVertexAttrib4iv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4iv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4i<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4(index, (Int32*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -4336,6 +5110,29 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4sv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4sv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void VertexAttrib4s<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4(index, (Int16*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib4ubv: Specifies the value of a generic vertex attribute
@@ -4382,6 +5179,28 @@ namespace OpenGL
 			Delegates.pglVertexAttrib4ubv(index, v);
 			LogCommand("glVertexAttrib4ubv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4ubv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4ub<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4ub(index, (byte*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -4430,6 +5249,28 @@ namespace OpenGL
 			LogCommand("glVertexAttrib4uiv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4uiv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4ui<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4(index, (UInt32*)refVPtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL4] glVertexAttrib4usv: Specifies the value of a generic vertex attribute
@@ -4476,6 +5317,28 @@ namespace OpenGL
 			Delegates.pglVertexAttrib4usv(index, v);
 			LogCommand("glVertexAttrib4usv", null, index, new IntPtr(v).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL4] glVertexAttrib4usv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		public static void VertexAttrib4us<T>(UInt32 index, ref T v) where T : struct
+		{
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttrib4(index, (UInt16*)refVPtr.ToPointer());
+			}
 		}
 
 		/// <summary>

@@ -1202,6 +1202,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform1iv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform1iv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform1i<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform1(program, location, count, (Int32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -1294,6 +1327,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform1fv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform1fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform1f<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform1(program, location, count, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniform1d: Binding for glProgramUniform1d.
@@ -1367,6 +1433,32 @@ namespace OpenGL
 			Delegates.pglProgramUniform1dv(program, location, count, value);
 			LogCommand("glProgramUniform1dv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniform1dv: Binding for glProgramUniform1dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniform1d<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform1(program, location, count, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1459,6 +1551,39 @@ namespace OpenGL
 			Delegates.pglProgramUniform1uiv(program, location, count, value);
 			LogCommand("glProgramUniform1uiv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform1uiv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform1ui<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform1(program, location, count, (UInt32*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1559,6 +1684,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform2iv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform2iv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform2i<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform2(program, location, count, (Int32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -1658,6 +1816,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform2fv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform2fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform2f<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform2(program, location, count, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniform2d: Binding for glProgramUniform2d.
@@ -1737,6 +1928,32 @@ namespace OpenGL
 			Delegates.pglProgramUniform2dv(program, location, count, value);
 			LogCommand("glProgramUniform2dv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniform2dv: Binding for glProgramUniform2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniform2d<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform2(program, location, count, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1836,6 +2053,39 @@ namespace OpenGL
 			Delegates.pglProgramUniform2uiv(program, location, count, value);
 			LogCommand("glProgramUniform2uiv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform2uiv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform2ui<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform2(program, location, count, (UInt32*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -1939,6 +2189,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform3iv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform3iv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform3i<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform3(program, location, count, (Int32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2041,6 +2324,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform3fv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform3fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform3f<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform3(program, location, count, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniform3d: Binding for glProgramUniform3d.
@@ -2123,6 +2439,32 @@ namespace OpenGL
 			Delegates.pglProgramUniform3dv(program, location, count, value);
 			LogCommand("glProgramUniform3dv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniform3dv: Binding for glProgramUniform3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniform3d<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform3(program, location, count, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2225,6 +2567,39 @@ namespace OpenGL
 			Delegates.pglProgramUniform3uiv(program, location, count, value);
 			LogCommand("glProgramUniform3uiv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform3uiv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform3ui<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform3(program, location, count, (UInt32*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2331,6 +2706,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform4iv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform4iv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform4i<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform4(program, location, count, (Int32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2436,6 +2844,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform4fv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform4fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform4f<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform4(program, location, count, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniform4d: Binding for glProgramUniform4d.
@@ -2521,6 +2962,32 @@ namespace OpenGL
 			Delegates.pglProgramUniform4dv(program, location, count, value);
 			LogCommand("glProgramUniform4dv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniform4dv: Binding for glProgramUniform4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniform4d<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform4(program, location, count, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2627,6 +3094,39 @@ namespace OpenGL
 			LogCommand("glProgramUniform4uiv", null, program, location, count, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniform4uiv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniform4ui<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniform4(program, location, count, (UInt32*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2702,6 +3202,42 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix2fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix2f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix2(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -2776,6 +3312,42 @@ namespace OpenGL
 			Delegates.pglProgramUniformMatrix3fv(program, location, count, transpose, value);
 			LogCommand("glProgramUniformMatrix3fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix3fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix3f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix3(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2854,6 +3426,43 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix4fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix4f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix4(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniformMatrix2dv: Binding for glProgramUniformMatrix2dv.
@@ -2914,6 +3523,35 @@ namespace OpenGL
 			Delegates.pglProgramUniformMatrix2dv(program, location, count, transpose, value);
 			LogCommand("glProgramUniformMatrix2dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix2dv: Binding for glProgramUniformMatrix2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix2d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix2(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -2976,6 +3614,35 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix3dv: Binding for glProgramUniformMatrix3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix3d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix3(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniformMatrix4dv: Binding for glProgramUniformMatrix4dv.
@@ -3036,6 +3703,35 @@ namespace OpenGL
 			Delegates.pglProgramUniformMatrix4dv(program, location, count, transpose, value);
 			LogCommand("glProgramUniformMatrix4dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix4dv: Binding for glProgramUniformMatrix4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix4d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix4(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3112,6 +3808,42 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2x3fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix2x3fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix2x3f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix2x3(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -3186,6 +3918,42 @@ namespace OpenGL
 			Delegates.pglProgramUniformMatrix3x2fv(program, location, count, transpose, value);
 			LogCommand("glProgramUniformMatrix3x2fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix3x2fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix3x2f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix3x2(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3262,6 +4030,42 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix2x4fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix2x4fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix2x4f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix2x4(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -3336,6 +4140,42 @@ namespace OpenGL
 			Delegates.pglProgramUniformMatrix4x2fv(program, location, count, transpose, value);
 			LogCommand("glProgramUniformMatrix4x2fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix4x2fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix4x2f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix4x2(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3412,6 +4252,42 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3x4fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix3x4fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix3x4f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix3x4(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -3487,6 +4363,42 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4x3fv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glProgramUniformMatrix4x3fv: Specify the value of a uniform variable for a specified program object
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the handle of the program containing the uniform variable to be modified.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector commands (Gl.ProgramUniform*v), specifies the number of elements that are to be modified. This should be 
+		/// 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void ProgramUniformMatrix4x3f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix4x3(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniformMatrix2x3dv: Binding for glProgramUniformMatrix2x3dv.
@@ -3547,6 +4459,35 @@ namespace OpenGL
 			Delegates.pglProgramUniformMatrix2x3dv(program, location, count, transpose, value);
 			LogCommand("glProgramUniformMatrix2x3dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix2x3dv: Binding for glProgramUniformMatrix2x3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix2x3d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix2x3(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3609,6 +4550,35 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3x2dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix3x2dv: Binding for glProgramUniformMatrix3x2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix3x2d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix3x2(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniformMatrix2x4dv: Binding for glProgramUniformMatrix2x4dv.
@@ -3669,6 +4639,35 @@ namespace OpenGL
 			Delegates.pglProgramUniformMatrix2x4dv(program, location, count, transpose, value);
 			LogCommand("glProgramUniformMatrix2x4dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix2x4dv: Binding for glProgramUniformMatrix2x4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix2x4d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix2x4(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -3731,6 +4730,35 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix4x2dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix4x2dv: Binding for glProgramUniformMatrix4x2dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix4x2d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix4x2(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniformMatrix3x4dv: Binding for glProgramUniformMatrix3x4dv.
@@ -3792,6 +4820,35 @@ namespace OpenGL
 			LogCommand("glProgramUniformMatrix3x4dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix3x4dv: Binding for glProgramUniformMatrix3x4dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix3x4d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix3x4(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// [GL] glProgramUniformMatrix4x3dv: Binding for glProgramUniformMatrix4x3dv.
@@ -3852,6 +4909,35 @@ namespace OpenGL
 			Delegates.pglProgramUniformMatrix4x3dv(program, location, count, transpose, value);
 			LogCommand("glProgramUniformMatrix4x3dv", null, program, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// [GL] glProgramUniformMatrix4x3dv: Binding for glProgramUniformMatrix4x3dv.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="location">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="transpose">
+		/// A <see cref="T:bool"/>.
+		/// </param>
+		/// <param name="value">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
+		public static void ProgramUniformMatrix4x3d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				ProgramUniformMatrix4x3(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>

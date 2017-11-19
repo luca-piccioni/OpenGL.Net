@@ -73,5 +73,10 @@ namespace BindingsGen.GLSpecs
 		/// Generate the method overload with unsafe parameters, if any.
 		/// </summary>
 		UnsafeParams =		0x80,
+
+		/// <summary>
+		/// Generate the method overload with generic parameters, if any.
+		/// </summary>
+		GenericParams =		0x100,
 	}
 }

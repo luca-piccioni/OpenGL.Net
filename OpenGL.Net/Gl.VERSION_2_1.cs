@@ -304,6 +304,37 @@ namespace OpenGL
 			LogCommand("glUniformMatrix2x3fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix2x3fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+		public static void UniformMatrix2x3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix2x3(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -368,6 +399,37 @@ namespace OpenGL
 			Delegates.pglUniformMatrix3x2fv(location, count, transpose, value);
 			LogCommand("glUniformMatrix3x2fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix3x2fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+		public static void UniformMatrix3x2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix3x2(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -434,6 +496,37 @@ namespace OpenGL
 			LogCommand("glUniformMatrix2x4fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix2x4fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+		public static void UniformMatrix2x4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix2x4(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -498,6 +591,37 @@ namespace OpenGL
 			Delegates.pglUniformMatrix4x2fv(location, count, transpose, value);
 			LogCommand("glUniformMatrix4x2fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix4x2fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+		public static void UniformMatrix4x2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix4x2(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		/// <summary>
@@ -564,6 +688,37 @@ namespace OpenGL
 			LogCommand("glUniformMatrix3x4fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix3x4fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+		public static void UniformMatrix3x4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix3x4(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
+		}
 
 		/// <summary>
 		/// <para>
@@ -628,6 +783,37 @@ namespace OpenGL
 			Delegates.pglUniformMatrix4x3fv(location, count, transpose, value);
 			LogCommand("glUniformMatrix4x3fv", null, location, count, transpose, new IntPtr(value).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glUniformMatrix4x3fv: Specify the value of a uniform variable for the current program object
+		/// </para>
+		/// </summary>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be modified.
+		/// </param>
+		/// <param name="count">
+		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
+		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
+		/// </param>
+		/// <param name="transpose">
+		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
+		/// </param>
+		/// <param name="value">
+		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
+		/// to update the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
+		public static void UniformMatrix4x3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		{
+			unsafe {
+				TypedReference refValue = __makeref(value);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				UniformMatrix4x3(location, count, transpose, (float*)refValuePtr.ToPointer());
+			}
 		}
 
 		internal unsafe static partial class Delegates
