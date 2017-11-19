@@ -58,21 +58,19 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] glFogFuncSGIS: Binding for glFogFuncSGIS.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_fog_function")]
-		public static void FogFuncSGIS(Int32 n, float[] points)
+		public static void FogFuncSGIS(float[] points)
 		{
+			Debug.Assert(points.Length > 0 && (points.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglFogFuncSGIS != null, "pglFogFuncSGIS not implemented");
-					Delegates.pglFogFuncSGIS(n, p_points);
-					LogCommand("glFogFuncSGIS", null, n, points					);
+					Delegates.pglFogFuncSGIS((Int32)points.Length / 2, p_points);
+					LogCommand("glFogFuncSGIS", null, points.Length / 2, points					);
 				}
 			}
 			DebugCheckErrors(null);

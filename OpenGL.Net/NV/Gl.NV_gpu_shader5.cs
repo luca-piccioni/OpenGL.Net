@@ -281,22 +281,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void Uniform1NV(Int32 location, Int32 count, Int64[] value)
+		public static void Uniform1NV(Int32 location, Int64[] value)
 		{
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1i64vNV != null, "pglUniform1i64vNV not implemented");
-					Delegates.pglUniform1i64vNV(location, count, p_value);
-					LogCommand("glUniform1i64vNV", null, location, count, value					);
+					Delegates.pglUniform1i64vNV(location, (Int32)value.Length, p_value);
+					LogCommand("glUniform1i64vNV", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -308,22 +305,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void Uniform2NV(Int32 location, Int32 count, Int64[] value)
+		public static void Uniform2NV(Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2i64vNV != null, "pglUniform2i64vNV not implemented");
-					Delegates.pglUniform2i64vNV(location, count, p_value);
-					LogCommand("glUniform2i64vNV", null, location, count, value					);
+					Delegates.pglUniform2i64vNV(location, (Int32)value.Length / 2, p_value);
+					LogCommand("glUniform2i64vNV", null, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -335,22 +330,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void Uniform3NV(Int32 location, Int32 count, Int64[] value)
+		public static void Uniform3NV(Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3i64vNV != null, "pglUniform3i64vNV not implemented");
-					Delegates.pglUniform3i64vNV(location, count, p_value);
-					LogCommand("glUniform3i64vNV", null, location, count, value					);
+					Delegates.pglUniform3i64vNV(location, (Int32)value.Length / 3, p_value);
+					LogCommand("glUniform3i64vNV", null, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -362,22 +355,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void Uniform4NV(Int32 location, Int32 count, Int64[] value)
+		public static void Uniform4NV(Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4i64vNV != null, "pglUniform4i64vNV not implemented");
-					Delegates.pglUniform4i64vNV(location, count, p_value);
-					LogCommand("glUniform4i64vNV", null, location, count, value					);
+					Delegates.pglUniform4i64vNV(location, (Int32)value.Length / 4, p_value);
+					LogCommand("glUniform4i64vNV", null, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -483,22 +474,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void Uniform1NV(Int32 location, Int32 count, UInt64[] value)
+		public static void Uniform1NV(Int32 location, UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1ui64vNV != null, "pglUniform1ui64vNV not implemented");
-					Delegates.pglUniform1ui64vNV(location, count, p_value);
-					LogCommand("glUniform1ui64vNV", null, location, count, value					);
+					Delegates.pglUniform1ui64vNV(location, (Int32)value.Length, p_value);
+					LogCommand("glUniform1ui64vNV", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -510,22 +498,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void Uniform2NV(Int32 location, Int32 count, UInt64[] value)
+		public static void Uniform2NV(Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2ui64vNV != null, "pglUniform2ui64vNV not implemented");
-					Delegates.pglUniform2ui64vNV(location, count, p_value);
-					LogCommand("glUniform2ui64vNV", null, location, count, value					);
+					Delegates.pglUniform2ui64vNV(location, (Int32)value.Length / 2, p_value);
+					LogCommand("glUniform2ui64vNV", null, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -537,22 +523,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void Uniform3NV(Int32 location, Int32 count, UInt64[] value)
+		public static void Uniform3NV(Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3ui64vNV != null, "pglUniform3ui64vNV not implemented");
-					Delegates.pglUniform3ui64vNV(location, count, p_value);
-					LogCommand("glUniform3ui64vNV", null, location, count, value					);
+					Delegates.pglUniform3ui64vNV(location, (Int32)value.Length / 3, p_value);
+					LogCommand("glUniform3ui64vNV", null, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -564,22 +548,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void Uniform4NV(Int32 location, Int32 count, UInt64[] value)
+		public static void Uniform4NV(Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4ui64vNV != null, "pglUniform4ui64vNV not implemented");
-					Delegates.pglUniform4ui64vNV(location, count, p_value);
-					LogCommand("glUniform4ui64vNV", null, location, count, value					);
+					Delegates.pglUniform4ui64vNV(location, (Int32)value.Length / 4, p_value);
+					LogCommand("glUniform4ui64vNV", null, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -754,22 +736,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void ProgramUniform2NV(UInt32 program, Int32 location, Int32 count, Int64[] value)
+		public static void ProgramUniform2NV(UInt32 program, Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform2i64vNV != null, "pglProgramUniform2i64vNV not implemented");
-					Delegates.pglProgramUniform2i64vNV(program, location, count, p_value);
-					LogCommand("glProgramUniform2i64vNV", null, program, location, count, value					);
+					Delegates.pglProgramUniform2i64vNV(program, location, (Int32)value.Length / 2, p_value);
+					LogCommand("glProgramUniform2i64vNV", null, program, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -784,22 +764,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void ProgramUniform3NV(UInt32 program, Int32 location, Int32 count, Int64[] value)
+		public static void ProgramUniform3NV(UInt32 program, Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform3i64vNV != null, "pglProgramUniform3i64vNV not implemented");
-					Delegates.pglProgramUniform3i64vNV(program, location, count, p_value);
-					LogCommand("glProgramUniform3i64vNV", null, program, location, count, value					);
+					Delegates.pglProgramUniform3i64vNV(program, location, (Int32)value.Length / 3, p_value);
+					LogCommand("glProgramUniform3i64vNV", null, program, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -814,22 +792,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void ProgramUniform4NV(UInt32 program, Int32 location, Int32 count, Int64[] value)
+		public static void ProgramUniform4NV(UInt32 program, Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform4i64vNV != null, "pglProgramUniform4i64vNV not implemented");
-					Delegates.pglProgramUniform4i64vNV(program, location, count, p_value);
-					LogCommand("glProgramUniform4i64vNV", null, program, location, count, value					);
+					Delegates.pglProgramUniform4i64vNV(program, location, (Int32)value.Length / 4, p_value);
+					LogCommand("glProgramUniform4i64vNV", null, program, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -977,22 +953,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void ProgramUniform2NV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
+		public static void ProgramUniform2NV(UInt32 program, Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform2ui64vNV != null, "pglProgramUniform2ui64vNV not implemented");
-					Delegates.pglProgramUniform2ui64vNV(program, location, count, p_value);
-					LogCommand("glProgramUniform2ui64vNV", null, program, location, count, value					);
+					Delegates.pglProgramUniform2ui64vNV(program, location, (Int32)value.Length / 2, p_value);
+					LogCommand("glProgramUniform2ui64vNV", null, program, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1007,22 +981,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void ProgramUniform3NV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
+		public static void ProgramUniform3NV(UInt32 program, Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform3ui64vNV != null, "pglProgramUniform3ui64vNV not implemented");
-					Delegates.pglProgramUniform3ui64vNV(program, location, count, p_value);
-					LogCommand("glProgramUniform3ui64vNV", null, program, location, count, value					);
+					Delegates.pglProgramUniform3ui64vNV(program, location, (Int32)value.Length / 3, p_value);
+					LogCommand("glProgramUniform3ui64vNV", null, program, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1037,22 +1009,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 		[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
-		public static void ProgramUniform4NV(UInt32 program, Int32 location, Int32 count, UInt64[] value)
+		public static void ProgramUniform4NV(UInt32 program, Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform4ui64vNV != null, "pglProgramUniform4ui64vNV not implemented");
-					Delegates.pglProgramUniform4ui64vNV(program, location, count, p_value);
-					LogCommand("glProgramUniform4ui64vNV", null, program, location, count, value					);
+					Delegates.pglProgramUniform4ui64vNV(program, location, (Int32)value.Length / 4, p_value);
+					LogCommand("glProgramUniform4ui64vNV", null, program, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);

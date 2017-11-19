@@ -46,21 +46,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
-		public static void ProgramEnvParameters4EXT(Int32 target, UInt32 index, Int32 count, float[] @params)
+		public static void ProgramEnvParameters4EXT(Int32 target, UInt32 index, float[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameters4fvEXT != null, "pglProgramEnvParameters4fvEXT not implemented");
-					Delegates.pglProgramEnvParameters4fvEXT(target, index, count, p_params);
-					LogCommand("glProgramEnvParameters4fvEXT", null, target, index, count, @params					);
+					Delegates.pglProgramEnvParameters4fvEXT(target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glProgramEnvParameters4fvEXT", null, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -75,21 +73,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
-		public static void ProgramLocalParameters4EXT(Int32 target, UInt32 index, Int32 count, float[] @params)
+		public static void ProgramLocalParameters4EXT(Int32 target, UInt32 index, float[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameters4fvEXT != null, "pglProgramLocalParameters4fvEXT not implemented");
-					Delegates.pglProgramLocalParameters4fvEXT(target, index, count, p_params);
-					LogCommand("glProgramLocalParameters4fvEXT", null, target, index, count, @params					);
+					Delegates.pglProgramLocalParameters4fvEXT(target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glProgramLocalParameters4fvEXT", null, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);

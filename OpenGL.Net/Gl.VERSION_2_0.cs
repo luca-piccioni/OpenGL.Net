@@ -2303,10 +2303,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -2315,14 +2311,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1(Int32 location, Int32 count, float[] value)
+		public static void Uniform1(Int32 location, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
-					Delegates.pglUniform1fv(location, count, p_value);
-					LogCommand("glUniform1fv", null, location, count, value					);
+					Delegates.pglUniform1fv(location, (Int32)value.Length, p_value);
+					LogCommand("glUniform1fv", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2394,10 +2390,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -2406,14 +2398,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2(Int32 location, Int32 count, float[] value)
+		public static void Uniform2(Int32 location, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
-					Delegates.pglUniform2fv(location, count, p_value);
-					LogCommand("glUniform2fv", null, location, count, value					);
+					Delegates.pglUniform2fv(location, (Int32)value.Length / 2, p_value);
+					LogCommand("glUniform2fv", null, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2485,10 +2478,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -2497,14 +2486,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3(Int32 location, Int32 count, float[] value)
+		public static void Uniform3(Int32 location, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
-					Delegates.pglUniform3fv(location, count, p_value);
-					LogCommand("glUniform3fv", null, location, count, value					);
+					Delegates.pglUniform3fv(location, (Int32)value.Length / 3, p_value);
+					LogCommand("glUniform3fv", null, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2576,10 +2566,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -2588,14 +2574,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4(Int32 location, Int32 count, float[] value)
+		public static void Uniform4(Int32 location, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
-					Delegates.pglUniform4fv(location, count, p_value);
-					LogCommand("glUniform4fv", null, location, count, value					);
+					Delegates.pglUniform4fv(location, (Int32)value.Length / 4, p_value);
+					LogCommand("glUniform4fv", null, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2667,10 +2654,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -2679,14 +2662,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1(Int32 location, Int32 count, Int32[] value)
+		public static void Uniform1(Int32 location, Int32[] value)
 		{
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
-					Delegates.pglUniform1iv(location, count, p_value);
-					LogCommand("glUniform1iv", null, location, count, value					);
+					Delegates.pglUniform1iv(location, (Int32)value.Length, p_value);
+					LogCommand("glUniform1iv", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2758,10 +2741,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -2770,14 +2749,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2(Int32 location, Int32 count, Int32[] value)
+		public static void Uniform2(Int32 location, Int32[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
-					Delegates.pglUniform2iv(location, count, p_value);
-					LogCommand("glUniform2iv", null, location, count, value					);
+					Delegates.pglUniform2iv(location, (Int32)value.Length / 2, p_value);
+					LogCommand("glUniform2iv", null, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2849,10 +2829,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -2861,14 +2837,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3(Int32 location, Int32 count, Int32[] value)
+		public static void Uniform3(Int32 location, Int32[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
-					Delegates.pglUniform3iv(location, count, p_value);
-					LogCommand("glUniform3iv", null, location, count, value					);
+					Delegates.pglUniform3iv(location, (Int32)value.Length / 3, p_value);
+					LogCommand("glUniform3iv", null, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2940,10 +2917,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -2952,14 +2925,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4(Int32 location, Int32 count, Int32[] value)
+		public static void Uniform4(Int32 location, Int32[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
-					Delegates.pglUniform4iv(location, count, p_value);
-					LogCommand("glUniform4iv", null, location, count, value					);
+					Delegates.pglUniform4iv(location, (Int32)value.Length / 4, p_value);
+					LogCommand("glUniform4iv", null, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3031,10 +3005,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -3046,14 +3016,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix2(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix2(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2fv != null, "pglUniformMatrix2fv not implemented");
-					Delegates.pglUniformMatrix2fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix2fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix2fv(location, (Int32)value.Length / 4, transpose, p_value);
+					LogCommand("glUniformMatrix2fv", null, location, value.Length / 4, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3131,10 +3102,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -3146,14 +3113,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix3(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix3(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 9) == 0, "empty or not multiple of 9");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3fv != null, "pglUniformMatrix3fv not implemented");
-					Delegates.pglUniformMatrix3fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix3fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix3fv(location, (Int32)value.Length / 9, transpose, p_value);
+					LogCommand("glUniformMatrix3fv", null, location, value.Length / 9, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3231,10 +3199,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -3246,14 +3210,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix4(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix4(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 16) == 0, "empty or not multiple of 16");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4fv != null, "pglUniformMatrix4fv not implemented");
-					Delegates.pglUniformMatrix4fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix4fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix4fv(location, (Int32)value.Length / 16, transpose, p_value);
+					LogCommand("glUniformMatrix4fv", null, location, value.Length / 16, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -4823,21 +4823,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameters4EXT(UInt32 program, Int32 target, UInt32 index, Int32 count, float[] @params)
+		public static void NamedProgramLocalParameters4EXT(UInt32 program, Int32 target, UInt32 index, float[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameters4fvEXT != null, "pglNamedProgramLocalParameters4fvEXT not implemented");
-					Delegates.pglNamedProgramLocalParameters4fvEXT(program, target, index, count, p_params);
-					LogCommand("glNamedProgramLocalParameters4fvEXT", null, program, target, index, count, @params					);
+					Delegates.pglNamedProgramLocalParameters4fvEXT(program, target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glNamedProgramLocalParameters4fvEXT", null, program, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -4918,21 +4916,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParametersI4EXT(UInt32 program, Int32 target, UInt32 index, Int32 count, Int32[] @params)
+		public static void NamedProgramLocalParametersI4EXT(UInt32 program, Int32 target, UInt32 index, Int32[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParametersI4ivEXT != null, "pglNamedProgramLocalParametersI4ivEXT not implemented");
-					Delegates.pglNamedProgramLocalParametersI4ivEXT(program, target, index, count, p_params);
-					LogCommand("glNamedProgramLocalParametersI4ivEXT", null, program, target, index, count, @params					);
+					Delegates.pglNamedProgramLocalParametersI4ivEXT(program, target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glNamedProgramLocalParametersI4ivEXT", null, program, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -5013,21 +5009,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParametersI4uiEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, UInt32[] @params)
+		public static void NamedProgramLocalParametersI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParametersI4uivEXT != null, "pglNamedProgramLocalParametersI4uivEXT not implemented");
-					Delegates.pglNamedProgramLocalParametersI4uivEXT(program, target, index, count, p_params);
-					LogCommand("glNamedProgramLocalParametersI4uivEXT", null, program, target, index, count, @params					);
+					Delegates.pglNamedProgramLocalParametersI4uivEXT(program, target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glNamedProgramLocalParametersI4uivEXT", null, program, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -6922,21 +6916,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform2EXT(UInt32 program, Int32 location, Int32 count, double[] value)
+		public static void ProgramUniform2EXT(UInt32 program, Int32 location, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform2dvEXT != null, "pglProgramUniform2dvEXT not implemented");
-					Delegates.pglProgramUniform2dvEXT(program, location, count, p_value);
-					LogCommand("glProgramUniform2dvEXT", null, program, location, count, value					);
+					Delegates.pglProgramUniform2dvEXT(program, location, (Int32)value.Length / 2, p_value);
+					LogCommand("glProgramUniform2dvEXT", null, program, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -6951,21 +6943,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform3EXT(UInt32 program, Int32 location, Int32 count, double[] value)
+		public static void ProgramUniform3EXT(UInt32 program, Int32 location, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform3dvEXT != null, "pglProgramUniform3dvEXT not implemented");
-					Delegates.pglProgramUniform3dvEXT(program, location, count, p_value);
-					LogCommand("glProgramUniform3dvEXT", null, program, location, count, value					);
+					Delegates.pglProgramUniform3dvEXT(program, location, (Int32)value.Length / 3, p_value);
+					LogCommand("glProgramUniform3dvEXT", null, program, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -6980,21 +6970,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform4EXT(UInt32 program, Int32 location, Int32 count, double[] value)
+		public static void ProgramUniform4EXT(UInt32 program, Int32 location, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform4dvEXT != null, "pglProgramUniform4dvEXT not implemented");
-					Delegates.pglProgramUniform4dvEXT(program, location, count, p_value);
-					LogCommand("glProgramUniform4dvEXT", null, program, location, count, value					);
+					Delegates.pglProgramUniform4dvEXT(program, location, (Int32)value.Length / 4, p_value);
+					LogCommand("glProgramUniform4dvEXT", null, program, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7009,9 +6997,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7019,14 +7004,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2dvEXT != null, "pglProgramUniformMatrix2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix2dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix2dvEXT(program, location, (Int32)value.Length / 4, transpose, p_value);
+					LogCommand("glProgramUniformMatrix2dvEXT", null, program, location, value.Length / 4, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7041,9 +7027,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7051,14 +7034,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 9) == 0, "empty or not multiple of 9");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3dvEXT != null, "pglProgramUniformMatrix3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix3dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix3dvEXT(program, location, (Int32)value.Length / 9, transpose, p_value);
+					LogCommand("glProgramUniformMatrix3dvEXT", null, program, location, value.Length / 9, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7073,9 +7057,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7083,14 +7064,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 16) == 0, "empty or not multiple of 16");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4dvEXT != null, "pglProgramUniformMatrix4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix4dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix4dvEXT(program, location, (Int32)value.Length / 16, transpose, p_value);
+					LogCommand("glProgramUniformMatrix4dvEXT", null, program, location, value.Length / 16, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7105,9 +7087,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7115,14 +7094,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 6) == 0, "empty or not multiple of 6");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2x3dvEXT != null, "pglProgramUniformMatrix2x3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2x3dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix2x3dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix2x3dvEXT(program, location, (Int32)value.Length / 6, transpose, p_value);
+					LogCommand("glProgramUniformMatrix2x3dvEXT", null, program, location, value.Length / 6, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7137,9 +7117,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7147,14 +7124,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 8) == 0, "empty or not multiple of 8");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2x4dvEXT != null, "pglProgramUniformMatrix2x4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2x4dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix2x4dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix2x4dvEXT(program, location, (Int32)value.Length / 8, transpose, p_value);
+					LogCommand("glProgramUniformMatrix2x4dvEXT", null, program, location, value.Length / 8, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7169,9 +7147,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7179,14 +7154,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 6) == 0, "empty or not multiple of 6");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3x2dvEXT != null, "pglProgramUniformMatrix3x2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3x2dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix3x2dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix3x2dvEXT(program, location, (Int32)value.Length / 6, transpose, p_value);
+					LogCommand("glProgramUniformMatrix3x2dvEXT", null, program, location, value.Length / 6, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7201,9 +7177,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7211,14 +7184,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 12) == 0, "empty or not multiple of 12");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3x4dvEXT != null, "pglProgramUniformMatrix3x4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3x4dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix3x4dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix3x4dvEXT(program, location, (Int32)value.Length / 12, transpose, p_value);
+					LogCommand("glProgramUniformMatrix3x4dvEXT", null, program, location, value.Length / 12, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7233,9 +7207,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7243,14 +7214,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 8) == 0, "empty or not multiple of 8");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4x2dvEXT != null, "pglProgramUniformMatrix4x2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4x2dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix4x2dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix4x2dvEXT(program, location, (Int32)value.Length / 8, transpose, p_value);
+					LogCommand("glProgramUniformMatrix4x2dvEXT", null, program, location, value.Length / 8, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -7265,9 +7237,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -7275,14 +7244,15 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, Int32 count, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 12) == 0, "empty or not multiple of 12");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4x3dvEXT != null, "pglProgramUniformMatrix4x3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4x3dvEXT(program, location, count, transpose, p_value);
-					LogCommand("glProgramUniformMatrix4x3dvEXT", null, program, location, count, transpose, value					);
+					Delegates.pglProgramUniformMatrix4x3dvEXT(program, location, (Int32)value.Length / 12, transpose, p_value);
+					LogCommand("glProgramUniformMatrix4x3dvEXT", null, program, location, value.Length / 12, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);

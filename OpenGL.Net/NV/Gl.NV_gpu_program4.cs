@@ -139,21 +139,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramLocalParametersI4NV(Int32 target, UInt32 index, Int32 count, Int32[] @params)
+		public static void ProgramLocalParametersI4NV(Int32 target, UInt32 index, Int32[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramLocalParametersI4ivNV != null, "pglProgramLocalParametersI4ivNV not implemented");
-					Delegates.pglProgramLocalParametersI4ivNV(target, index, count, p_params);
-					LogCommand("glProgramLocalParametersI4ivNV", null, target, index, count, @params					);
+					Delegates.pglProgramLocalParametersI4ivNV(target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glProgramLocalParametersI4ivNV", null, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -225,21 +223,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramLocalParametersI4uiNV(Int32 target, UInt32 index, Int32 count, UInt32[] @params)
+		public static void ProgramLocalParametersI4uiNV(Int32 target, UInt32 index, UInt32[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramLocalParametersI4uivNV != null, "pglProgramLocalParametersI4uivNV not implemented");
-					Delegates.pglProgramLocalParametersI4uivNV(target, index, count, p_params);
-					LogCommand("glProgramLocalParametersI4uivNV", null, target, index, count, @params					);
+					Delegates.pglProgramLocalParametersI4uivNV(target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glProgramLocalParametersI4uivNV", null, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -311,21 +307,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramEnvParametersI4NV(Int32 target, UInt32 index, Int32 count, Int32[] @params)
+		public static void ProgramEnvParametersI4NV(Int32 target, UInt32 index, Int32[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramEnvParametersI4ivNV != null, "pglProgramEnvParametersI4ivNV not implemented");
-					Delegates.pglProgramEnvParametersI4ivNV(target, index, count, p_params);
-					LogCommand("glProgramEnvParametersI4ivNV", null, target, index, count, @params					);
+					Delegates.pglProgramEnvParametersI4ivNV(target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glProgramEnvParametersI4ivNV", null, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -397,21 +391,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramEnvParametersI4uiNV(Int32 target, UInt32 index, Int32 count, UInt32[] @params)
+		public static void ProgramEnvParametersI4uiNV(Int32 target, UInt32 index, UInt32[] @params)
 		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (UInt32* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramEnvParametersI4uivNV != null, "pglProgramEnvParametersI4uivNV not implemented");
-					Delegates.pglProgramEnvParametersI4uivNV(target, index, count, p_params);
-					LogCommand("glProgramEnvParametersI4uivNV", null, target, index, count, @params					);
+					Delegates.pglProgramEnvParametersI4uivNV(target, index, (Int32)@params.Length / 4, p_params);
+					LogCommand("glProgramEnvParametersI4uivNV", null, target, index, @params.Length / 4, @params					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -248,10 +248,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -262,14 +258,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix2x3(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix2x3(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 6) == 0, "empty or not multiple of 6");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2x3fv != null, "pglUniformMatrix2x3fv not implemented");
-					Delegates.pglUniformMatrix2x3fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix2x3fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix2x3fv(location, (Int32)value.Length / 6, transpose, p_value);
+					LogCommand("glUniformMatrix2x3fv", null, location, value.Length / 6, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -345,10 +342,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -359,14 +352,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix3x2(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix3x2(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 6) == 0, "empty or not multiple of 6");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3x2fv != null, "pglUniformMatrix3x2fv not implemented");
-					Delegates.pglUniformMatrix3x2fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix3x2fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix3x2fv(location, (Int32)value.Length / 6, transpose, p_value);
+					LogCommand("glUniformMatrix3x2fv", null, location, value.Length / 6, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -442,10 +436,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -456,14 +446,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix2x4(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix2x4(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 8) == 0, "empty or not multiple of 8");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2x4fv != null, "pglUniformMatrix2x4fv not implemented");
-					Delegates.pglUniformMatrix2x4fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix2x4fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix2x4fv(location, (Int32)value.Length / 8, transpose, p_value);
+					LogCommand("glUniformMatrix2x4fv", null, location, value.Length / 8, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -539,10 +530,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -553,14 +540,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix4x2(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix4x2(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 8) == 0, "empty or not multiple of 8");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4x2fv != null, "pglUniformMatrix4x2fv not implemented");
-					Delegates.pglUniformMatrix4x2fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix4x2fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix4x2fv(location, (Int32)value.Length / 8, transpose, p_value);
+					LogCommand("glUniformMatrix4x2fv", null, location, value.Length / 8, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -636,10 +624,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -650,14 +634,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix3x4(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix3x4(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 12) == 0, "empty or not multiple of 12");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3x4fv != null, "pglUniformMatrix3x4fv not implemented");
-					Delegates.pglUniformMatrix3x4fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix3x4fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix3x4fv(location, (Int32)value.Length / 12, transpose, p_value);
+					LogCommand("glUniformMatrix3x4fv", null, location, value.Length / 12, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -733,10 +718,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="transpose">
 		/// For the matrix commands, specifies whether to transpose the matrix as the values are loaded into the uniform variable.
 		/// </param>
@@ -747,14 +728,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix4x3(Int32 location, Int32 count, bool transpose, float[] value)
+		public static void UniformMatrix4x3(Int32 location, bool transpose, float[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 12) == 0, "empty or not multiple of 12");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4x3fv != null, "pglUniformMatrix4x3fv not implemented");
-					Delegates.pglUniformMatrix4x3fv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix4x3fv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix4x3fv(location, (Int32)value.Length / 12, transpose, p_value);
+					LogCommand("glUniformMatrix4x3fv", null, location, value.Length / 12, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);

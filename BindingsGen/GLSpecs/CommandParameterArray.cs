@@ -59,12 +59,25 @@ namespace BindingsGen.GLSpecs
 
 		internal static new bool IsCompatible(RegistryContext ctx, Command parentCommand, CommandParameter param)
 		{
-			if (!param.IsManagedArray(ctx, parentCommand) || param.Length == null)
+			if (String.IsNullOrEmpty(param.Length) || !param.IsManagedArray(ctx, parentCommand))
 				return (false);
 
-			int sizeParamIndex = parentCommand.Parameters.FindIndex(delegate (CommandParameter item) { return (item.Name == param.Length); });
+			string sizeParamName;
 
-			if (sizeParamIndex < 0)
+			switch (param.LengthMode) {
+				case CommandParameterLengthMode.ArgumentReference:
+					sizeParamName = param.Length;
+					break;
+				case CommandParameterLengthMode.ArgumentMultiple:
+					sizeParamName = param.LengthArgument;
+					break;
+				default:
+					return (false);
+			}
+
+			if (sizeParamName == null)
+				return (false);
+			if (parentCommand.Parameters.FindIndex(delegate (CommandParameter item) { return (item.Name == sizeParamName); }) < 0)
 				return (false);
 
 			return (true);
@@ -72,19 +85,31 @@ namespace BindingsGen.GLSpecs
 
 		internal static bool IsArrayLengthParameter(CommandParameter param, RegistryContext ctx, Command parentCommand)
 		{
-			CommandParameter arrayParameter = GetArrayLengthParameter(param, ctx, parentCommand);
+			CommandParameter arrayParameter = GetArrayParameter(param, ctx, parentCommand);
 
 			return (arrayParameter != null && arrayParameter.IsManagedArray(ctx, parentCommand));
 		}
 
-		internal static CommandParameter GetArrayLengthParameter(CommandParameter param, RegistryContext ctx, Command parentCommand)
+		internal static CommandParameter GetArrayParameter(CommandParameter param, RegistryContext ctx, Command parentCommand)
 		{
-			List<CommandParameter> arrayLengthParams = parentCommand.Parameters.FindAll(delegate(CommandParameter item) {
-				return (parentCommand.Parameters.FindIndex(delegate(CommandParameter subitem) { return (item.Length == param.Name); }) >= 0);
+			List<CommandParameter> arrayParams = parentCommand.Parameters.FindAll(delegate(CommandParameter item) {
+				// - no len?
+				if (String.IsNullOrEmpty(item.Length))
+					return (false);
+
+				// - len="count"
+				if (item.Length == param.Name)
+					return (true);
+
+				// - len="count*3"
+				if (Regex.IsMatch(item.Length, param.Name + @"\*\d+"))
+					return (true);
+
+				return (false);
 			});
 
-			if (arrayLengthParams.Count > 0)
-				return (arrayLengthParams[0]);
+			if (arrayParams.Count > 0)
+				return (arrayParams[0]);
 			else
 				return (null);
 		}
@@ -101,22 +126,27 @@ namespace BindingsGen.GLSpecs
 			return (false);
 		}
 
-		public override void WriteDebugAssertion(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
-		{
-			
-		}
-
 		public override void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
 			if (IsArrayLengthParameter(this, ctx, parentCommand)) {
-				int arrayLengthParamIndex = parentCommand.Parameters.FindIndex(delegate(CommandParameter item) {
-					return (parentCommand.Parameters.FindIndex(delegate(CommandParameter subitem) { return (item.Length == Name); }) >= 0);
-				});
+				CommandParameter arrayParam = GetArrayParameter(this, ctx, parentCommand);
 
 				if (OverridenParameter.GetImportType(parentCommand) != "int")
 					sw.Write("({0})", OverridenParameter.GetImportType(parentCommand));
 
-				sw.Write("{0}.Length", parentCommand.Parameters[arrayLengthParamIndex].GetDelegateCallVarName(parentCommand));
+				switch (arrayParam.LengthMode) {
+					case CommandParameterLengthMode.ArgumentReference:
+						sw.Write("{0}.Length", arrayParam.GetDelegateCallVarName(parentCommand));
+						break;
+					case CommandParameterLengthMode.ArgumentMultiple:
+						uint multiple = arrayParam.LengthMultiple;
+
+						if (multiple > 1)
+							sw.Write("{0}.Length / {1}", arrayParam.GetDelegateCallVarName(parentCommand), multiple);
+						else
+							sw.Write("{0}.Length", arrayParam.GetDelegateCallVarName(parentCommand));
+						break;
+				}
 			} else
 				base.WriteDelegateParam(sw, ctx, parentCommand);
 		}
@@ -124,11 +154,21 @@ namespace BindingsGen.GLSpecs
 		public override void WriteCallLogArgParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
 			if (IsArrayLengthParameter(this, ctx, parentCommand)) {
-				int arrayLengthParamIndex = parentCommand.Parameters.FindIndex(delegate(CommandParameter item) {
-					return (parentCommand.Parameters.FindIndex(delegate(CommandParameter subitem) { return (item.Length == Name); }) >= 0);
-				});
+				CommandParameter arrayParam = GetArrayParameter(this, ctx, parentCommand);
 
-				sw.Write("{0}.Length", parentCommand.Parameters[arrayLengthParamIndex].GetDelegateCallVarName(parentCommand));
+				switch (arrayParam.LengthMode) {
+					case CommandParameterLengthMode.ArgumentReference:
+						sw.Write("{0}.Length", arrayParam.GetDelegateCallVarName(parentCommand));
+						break;
+					case CommandParameterLengthMode.ArgumentMultiple:
+						uint multiple = arrayParam.LengthMultiple;
+
+						if (multiple > 1)
+							sw.Write("{0}.Length / {1}", arrayParam.GetDelegateCallVarName(parentCommand), multiple);
+						else
+							sw.Write("{0}.Length", arrayParam.GetDelegateCallVarName(parentCommand));
+						break;
+				}
 			} else
 				base.WriteCallLogArgParam(sw, ctx, parentCommand);
 		}

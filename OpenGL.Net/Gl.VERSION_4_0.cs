@@ -1112,22 +1112,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void Uniform1(Int32 location, Int32 count, double[] value)
+		public static void Uniform1(Int32 location, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1dv != null, "pglUniform1dv not implemented");
-					Delegates.pglUniform1dv(location, count, p_value);
-					LogCommand("glUniform1dv", null, location, count, value					);
+					Delegates.pglUniform1dv(location, (Int32)value.Length, p_value);
+					LogCommand("glUniform1dv", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1185,22 +1182,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void Uniform2(Int32 location, Int32 count, double[] value)
+		public static void Uniform2(Int32 location, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2dv != null, "pglUniform2dv not implemented");
-					Delegates.pglUniform2dv(location, count, p_value);
-					LogCommand("glUniform2dv", null, location, count, value					);
+					Delegates.pglUniform2dv(location, (Int32)value.Length / 2, p_value);
+					LogCommand("glUniform2dv", null, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1258,22 +1253,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void Uniform3(Int32 location, Int32 count, double[] value)
+		public static void Uniform3(Int32 location, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3dv != null, "pglUniform3dv not implemented");
-					Delegates.pglUniform3dv(location, count, p_value);
-					LogCommand("glUniform3dv", null, location, count, value					);
+					Delegates.pglUniform3dv(location, (Int32)value.Length / 3, p_value);
+					LogCommand("glUniform3dv", null, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1331,22 +1324,20 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void Uniform4(Int32 location, Int32 count, double[] value)
+		public static void Uniform4(Int32 location, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4dv != null, "pglUniform4dv not implemented");
-					Delegates.pglUniform4dv(location, count, p_value);
-					LogCommand("glUniform4dv", null, location, count, value					);
+					Delegates.pglUniform4dv(location, (Int32)value.Length / 4, p_value);
+					LogCommand("glUniform4dv", null, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1404,9 +1395,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -1415,14 +1403,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix2(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix2(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2dv != null, "pglUniformMatrix2dv not implemented");
-					Delegates.pglUniformMatrix2dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix2dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix2dv(location, (Int32)value.Length / 4, transpose, p_value);
+					LogCommand("glUniformMatrix2dv", null, location, value.Length / 4, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1486,9 +1475,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -1497,14 +1483,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix3(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix3(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 9) == 0, "empty or not multiple of 9");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3dv != null, "pglUniformMatrix3dv not implemented");
-					Delegates.pglUniformMatrix3dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix3dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix3dv(location, (Int32)value.Length / 9, transpose, p_value);
+					LogCommand("glUniformMatrix3dv", null, location, value.Length / 9, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1568,9 +1555,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -1579,14 +1563,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix4(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix4(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 16) == 0, "empty or not multiple of 16");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4dv != null, "pglUniformMatrix4dv not implemented");
-					Delegates.pglUniformMatrix4dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix4dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix4dv(location, (Int32)value.Length / 16, transpose, p_value);
+					LogCommand("glUniformMatrix4dv", null, location, value.Length / 16, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1650,9 +1635,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -1661,14 +1643,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix2x3(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix2x3(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 6) == 0, "empty or not multiple of 6");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2x3dv != null, "pglUniformMatrix2x3dv not implemented");
-					Delegates.pglUniformMatrix2x3dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix2x3dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix2x3dv(location, (Int32)value.Length / 6, transpose, p_value);
+					LogCommand("glUniformMatrix2x3dv", null, location, value.Length / 6, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1732,9 +1715,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -1743,14 +1723,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix2x4(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix2x4(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 8) == 0, "empty or not multiple of 8");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2x4dv != null, "pglUniformMatrix2x4dv not implemented");
-					Delegates.pglUniformMatrix2x4dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix2x4dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix2x4dv(location, (Int32)value.Length / 8, transpose, p_value);
+					LogCommand("glUniformMatrix2x4dv", null, location, value.Length / 8, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1814,9 +1795,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -1825,14 +1803,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix3x2(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix3x2(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 6) == 0, "empty or not multiple of 6");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3x2dv != null, "pglUniformMatrix3x2dv not implemented");
-					Delegates.pglUniformMatrix3x2dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix3x2dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix3x2dv(location, (Int32)value.Length / 6, transpose, p_value);
+					LogCommand("glUniformMatrix3x2dv", null, location, value.Length / 6, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1896,9 +1875,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -1907,14 +1883,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix3x4(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix3x4(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 12) == 0, "empty or not multiple of 12");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3x4dv != null, "pglUniformMatrix3x4dv not implemented");
-					Delegates.pglUniformMatrix3x4dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix3x4dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix3x4dv(location, (Int32)value.Length / 12, transpose, p_value);
+					LogCommand("glUniformMatrix3x4dv", null, location, value.Length / 12, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1978,9 +1955,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -1989,14 +1963,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix4x2(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix4x2(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 8) == 0, "empty or not multiple of 8");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4x2dv != null, "pglUniformMatrix4x2dv not implemented");
-					Delegates.pglUniformMatrix4x2dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix4x2dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix4x2dv(location, (Int32)value.Length / 8, transpose, p_value);
+					LogCommand("glUniformMatrix4x2dv", null, location, value.Length / 8, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2060,9 +2035,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
 		/// </param>
@@ -2071,14 +2043,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix4x3(Int32 location, Int32 count, bool transpose, double[] value)
+		public static void UniformMatrix4x3(Int32 location, bool transpose, double[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 12) == 0, "empty or not multiple of 12");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4x3dv != null, "pglUniformMatrix4x3dv not implemented");
-					Delegates.pglUniformMatrix4x3dv(location, count, transpose, p_value);
-					LogCommand("glUniformMatrix4x3dv", null, location, count, transpose, value					);
+					Delegates.pglUniformMatrix4x3dv(location, (Int32)value.Length / 12, transpose, p_value);
+					LogCommand("glUniformMatrix4x3dv", null, location, value.Length / 12, transpose, value					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -3661,10 +3661,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -3672,14 +3668,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void Uniform1(Int32 location, Int32 count, UInt32[] value)
+		public static void Uniform1(Int32 location, UInt32[] value)
 		{
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1uiv != null, "pglUniform1uiv not implemented");
-					Delegates.pglUniform1uiv(location, count, p_value);
-					LogCommand("glUniform1uiv", null, location, count, value					);
+					Delegates.pglUniform1uiv(location, (Int32)value.Length, p_value);
+					LogCommand("glUniform1uiv", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3749,10 +3745,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -3760,14 +3752,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void Uniform2(Int32 location, Int32 count, UInt32[] value)
+		public static void Uniform2(Int32 location, UInt32[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2uiv != null, "pglUniform2uiv not implemented");
-					Delegates.pglUniform2uiv(location, count, p_value);
-					LogCommand("glUniform2uiv", null, location, count, value					);
+					Delegates.pglUniform2uiv(location, (Int32)value.Length / 2, p_value);
+					LogCommand("glUniform2uiv", null, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3837,10 +3830,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -3848,14 +3837,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void Uniform3(Int32 location, Int32 count, UInt32[] value)
+		public static void Uniform3(Int32 location, UInt32[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3uiv != null, "pglUniform3uiv not implemented");
-					Delegates.pglUniform3uiv(location, count, p_value);
-					LogCommand("glUniform3uiv", null, location, count, value					);
+					Delegates.pglUniform3uiv(location, (Int32)value.Length / 3, p_value);
+					LogCommand("glUniform3uiv", null, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3925,10 +3915,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be modified.
 		/// </param>
-		/// <param name="count">
-		/// For the vector (Gl.Uniform*v) commands, specifies the number of elements that are to be modified. This should be 1 if 
-		/// the targeted uniform variable is not an array, and 1 or more if it is an array.
-		/// </param>
 		/// <param name="value">
 		/// For the vector and matrix commands, specifies a pointer to an array of <paramref name="count"/> values that will be used 
 		/// to update the specified uniform variable.
@@ -3936,14 +3922,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void Uniform4(Int32 location, Int32 count, UInt32[] value)
+		public static void Uniform4(Int32 location, UInt32[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (UInt32* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4uiv != null, "pglUniform4uiv not implemented");
-					Delegates.pglUniform4uiv(location, count, p_value);
-					LogCommand("glUniform4uiv", null, location, count, value					);
+					Delegates.pglUniform4uiv(location, (Int32)value.Length / 4, p_value);
+					LogCommand("glUniform4uiv", null, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);

@@ -258,21 +258,18 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-		public static void UniformNV(Int32 location, Int32 count, UInt64[] value)
+		public static void UniformNV(Int32 location, UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformui64vNV != null, "pglUniformui64vNV not implemented");
-					Delegates.pglUniformui64vNV(location, count, p_value);
-					LogCommand("glUniformui64vNV", null, location, count, value					);
+					Delegates.pglUniformui64vNV(location, (Int32)value.Length, p_value);
+					LogCommand("glUniformui64vNV", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);

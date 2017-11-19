@@ -142,6 +142,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public static void ExtGetBuffersQCOM(UInt32[] buffers, Int32[] numBuffers)
 		{
+			Debug.Assert(numBuffers.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_buffers = buffers)
 				fixed (Int32* p_numBuffers = numBuffers)
@@ -166,6 +167,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public static void ExtGetRenderbuffersQCOM(UInt32[] renderbuffers, Int32[] numRenderbuffers)
 		{
+			Debug.Assert(numRenderbuffers.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_renderbuffers = renderbuffers)
 				fixed (Int32* p_numRenderbuffers = numRenderbuffers)
@@ -190,6 +192,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public static void ExtGetFramebuffersQCOM(UInt32[] framebuffers, Int32[] numFramebuffers)
 		{
+			Debug.Assert(numFramebuffers.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_framebuffers = framebuffers)
 				fixed (Int32* p_numFramebuffers = numFramebuffers)

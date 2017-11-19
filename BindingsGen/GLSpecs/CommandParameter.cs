@@ -166,6 +166,18 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
+		public string LengthArgument
+		{
+			get
+			{
+				Match argumentMultipleMatch = Regex.Match(Length, @"(?<Arg>\w[\w\d_]*)\*(?<Mul>\d+)");
+				if (argumentMultipleMatch.Success)
+					return (argumentMultipleMatch.Groups["Arg"].Value);
+
+				throw new InvalidOperationException("not a multiple-length constraint");
+			}
+		}
+
 		public uint LengthMultiple
 		{
 			get
@@ -581,6 +593,14 @@ namespace BindingsGen.GLSpecs
 					// - The argument must be an Array instance
 					if (IsManagedArray(ctx, parentCommand))
 						sw.WriteLine("Debug.Assert({0}.Length >= {1});", ImplementationName, LengthConstant);
+					break;
+				case CommandParameterLengthMode.ArgumentMultiple:
+					uint multiple = LengthMultiple;
+
+					// Note:
+					// - The array must provide 'n' elements for each unit in counter parameter
+					if (IsManagedArray(ctx, parentCommand) && multiple > 1)
+						sw.WriteLine("Debug.Assert({0}.Length > 0 && ({0}.Length % {1}) == 0, \"empty or not multiple of {1}\");", ImplementationName, multiple);
 					break;
 			}
 		}

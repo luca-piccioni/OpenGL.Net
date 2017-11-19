@@ -49,6 +49,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
 		public static void ExtGetShadersQCOM(UInt32[] shaders, Int32[] numShaders)
 		{
+			Debug.Assert(numShaders.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_shaders = shaders)
 				fixed (Int32* p_numShaders = numShaders)
@@ -73,6 +74,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
 		public static void ExtGetProgramsQCOM(UInt32[] programs, Int32[] numPrograms)
 		{
+			Debug.Assert(numPrograms.Length >= 1);
 			unsafe {
 				fixed (UInt32* p_programs = programs)
 				fixed (Int32* p_numPrograms = numPrograms)

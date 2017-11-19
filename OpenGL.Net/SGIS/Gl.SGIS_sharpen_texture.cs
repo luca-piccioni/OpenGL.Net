@@ -76,12 +76,37 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIS_sharpen_texture")]
 		public static void SharpenTexFuncSGIS(TextureTarget target, Int32 n, float[] points)
 		{
+			Debug.Assert(points.Length > 0 && (points.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglSharpenTexFuncSGIS != null, "pglSharpenTexFuncSGIS not implemented");
 					Delegates.pglSharpenTexFuncSGIS((Int32)target, n, p_points);
 					LogCommand("glSharpenTexFuncSGIS", null, target, n, points					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glSharpenTexFuncSGIS: Binding for glSharpenTexFuncSGIS.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="points">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_SGIS_sharpen_texture")]
+		public static void SharpenTexFuncSGIS(TextureTarget target, float[] points)
+		{
+			Debug.Assert(points.Length > 0 && (points.Length % 2) == 0, "empty or not multiple of 2");
+			unsafe {
+				fixed (float* p_points = points)
+				{
+					Debug.Assert(Delegates.pglSharpenTexFuncSGIS != null, "pglSharpenTexFuncSGIS not implemented");
+					Delegates.pglSharpenTexFuncSGIS((Int32)target, (Int32)points.Length / 2, p_points);
+					LogCommand("glSharpenTexFuncSGIS", null, target, points.Length / 2, points					);
 				}
 			}
 			DebugCheckErrors(null);

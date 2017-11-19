@@ -833,21 +833,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ProgramParameters4NV(Int32 target, UInt32 index, Int32 count, double[] v)
+		public static void ProgramParameters4NV(Int32 target, UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglProgramParameters4dvNV != null, "pglProgramParameters4dvNV not implemented");
-					Delegates.pglProgramParameters4dvNV(target, index, count, p_v);
-					LogCommand("glProgramParameters4dvNV", null, target, index, count, v					);
+					Delegates.pglProgramParameters4dvNV(target, index, (Int32)v.Length / 4, p_v);
+					LogCommand("glProgramParameters4dvNV", null, target, index, v.Length / 4, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -862,21 +860,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ProgramParameters4NV(Int32 target, UInt32 index, Int32 count, float[] v)
+		public static void ProgramParameters4NV(Int32 target, UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglProgramParameters4fvNV != null, "pglProgramParameters4fvNV not implemented");
-					Delegates.pglProgramParameters4fvNV(target, index, count, p_v);
-					LogCommand("glProgramParameters4fvNV", null, target, index, count, v					);
+					Delegates.pglProgramParameters4fvNV(target, index, (Int32)v.Length / 4, p_v);
+					LogCommand("glProgramParameters4fvNV", null, target, index, v.Length / 4, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1057,21 +1053,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs2NV(UInt32 index, Int32 count, double[] v)
+		public static void VertexAttribs2NV(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs2dvNV != null, "pglVertexAttribs2dvNV not implemented");
-					Delegates.pglVertexAttribs2dvNV(index, count, p_v);
-					LogCommand("glVertexAttribs2dvNV", null, index, count, v					);
+					Delegates.pglVertexAttribs2dvNV(index, (Int32)v.Length / 2, p_v);
+					LogCommand("glVertexAttribs2dvNV", null, index, v.Length / 2, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1083,21 +1077,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs2NV(UInt32 index, Int32 count, float[] v)
+		public static void VertexAttribs2NV(UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs2fvNV != null, "pglVertexAttribs2fvNV not implemented");
-					Delegates.pglVertexAttribs2fvNV(index, count, p_v);
-					LogCommand("glVertexAttribs2fvNV", null, index, count, v					);
+					Delegates.pglVertexAttribs2fvNV(index, (Int32)v.Length / 2, p_v);
+					LogCommand("glVertexAttribs2fvNV", null, index, v.Length / 2, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1109,21 +1101,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs2NV(UInt32 index, Int32 count, Int16[] v)
+		public static void VertexAttribs2NV(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs2svNV != null, "pglVertexAttribs2svNV not implemented");
-					Delegates.pglVertexAttribs2svNV(index, count, p_v);
-					LogCommand("glVertexAttribs2svNV", null, index, count, v					);
+					Delegates.pglVertexAttribs2svNV(index, (Int32)v.Length / 2, p_v);
+					LogCommand("glVertexAttribs2svNV", null, index, v.Length / 2, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1135,21 +1125,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs3NV(UInt32 index, Int32 count, double[] v)
+		public static void VertexAttribs3NV(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs3dvNV != null, "pglVertexAttribs3dvNV not implemented");
-					Delegates.pglVertexAttribs3dvNV(index, count, p_v);
-					LogCommand("glVertexAttribs3dvNV", null, index, count, v					);
+					Delegates.pglVertexAttribs3dvNV(index, (Int32)v.Length / 3, p_v);
+					LogCommand("glVertexAttribs3dvNV", null, index, v.Length / 3, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1161,21 +1149,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs3NV(UInt32 index, Int32 count, float[] v)
+		public static void VertexAttribs3NV(UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs3fvNV != null, "pglVertexAttribs3fvNV not implemented");
-					Delegates.pglVertexAttribs3fvNV(index, count, p_v);
-					LogCommand("glVertexAttribs3fvNV", null, index, count, v					);
+					Delegates.pglVertexAttribs3fvNV(index, (Int32)v.Length / 3, p_v);
+					LogCommand("glVertexAttribs3fvNV", null, index, v.Length / 3, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1187,21 +1173,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs3NV(UInt32 index, Int32 count, Int16[] v)
+		public static void VertexAttribs3NV(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs3svNV != null, "pglVertexAttribs3svNV not implemented");
-					Delegates.pglVertexAttribs3svNV(index, count, p_v);
-					LogCommand("glVertexAttribs3svNV", null, index, count, v					);
+					Delegates.pglVertexAttribs3svNV(index, (Int32)v.Length / 3, p_v);
+					LogCommand("glVertexAttribs3svNV", null, index, v.Length / 3, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1213,21 +1197,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs4NV(UInt32 index, Int32 count, double[] v)
+		public static void VertexAttribs4NV(UInt32 index, double[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4dvNV != null, "pglVertexAttribs4dvNV not implemented");
-					Delegates.pglVertexAttribs4dvNV(index, count, p_v);
-					LogCommand("glVertexAttribs4dvNV", null, index, count, v					);
+					Delegates.pglVertexAttribs4dvNV(index, (Int32)v.Length / 4, p_v);
+					LogCommand("glVertexAttribs4dvNV", null, index, v.Length / 4, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1239,21 +1221,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs4NV(UInt32 index, Int32 count, float[] v)
+		public static void VertexAttribs4NV(UInt32 index, float[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4fvNV != null, "pglVertexAttribs4fvNV not implemented");
-					Delegates.pglVertexAttribs4fvNV(index, count, p_v);
-					LogCommand("glVertexAttribs4fvNV", null, index, count, v					);
+					Delegates.pglVertexAttribs4fvNV(index, (Int32)v.Length / 4, p_v);
+					LogCommand("glVertexAttribs4fvNV", null, index, v.Length / 4, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1265,21 +1245,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:Int16[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs4NV(UInt32 index, Int32 count, Int16[] v)
+		public static void VertexAttribs4NV(UInt32 index, Int16[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int16* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4svNV != null, "pglVertexAttribs4svNV not implemented");
-					Delegates.pglVertexAttribs4svNV(index, count, p_v);
-					LogCommand("glVertexAttribs4svNV", null, index, count, v					);
+					Delegates.pglVertexAttribs4svNV(index, (Int32)v.Length / 4, p_v);
+					LogCommand("glVertexAttribs4svNV", null, index, v.Length / 4, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1291,21 +1269,19 @@ namespace OpenGL
 		/// <param name="index">
 		/// A <see cref="T:UInt32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs4NV(UInt32 index, Int32 count, byte[] v)
+		public static void VertexAttribs4NV(UInt32 index, byte[] v)
 		{
+			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (byte* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4ubvNV != null, "pglVertexAttribs4ubvNV not implemented");
-					Delegates.pglVertexAttribs4ubvNV(index, count, p_v);
-					LogCommand("glVertexAttribs4ubvNV", null, index, count, v					);
+					Delegates.pglVertexAttribs4ubvNV(index, (Int32)v.Length / 4, p_v);
+					LogCommand("glVertexAttribs4ubvNV", null, index, v.Length / 4, v					);
 				}
 			}
 			DebugCheckErrors(null);

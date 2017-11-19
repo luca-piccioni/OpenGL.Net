@@ -190,21 +190,18 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform1ARB(Int32 location, Int32 count, Int64[] value)
+		public static void Uniform1ARB(Int32 location, Int64[] value)
 		{
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1i64vARB != null, "pglUniform1i64vARB not implemented");
-					Delegates.pglUniform1i64vARB(location, count, p_value);
-					LogCommand("glUniform1i64vARB", null, location, count, value					);
+					Delegates.pglUniform1i64vARB(location, (Int32)value.Length, p_value);
+					LogCommand("glUniform1i64vARB", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -216,21 +213,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform2ARB(Int32 location, Int32 count, Int64[] value)
+		public static void Uniform2ARB(Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2i64vARB != null, "pglUniform2i64vARB not implemented");
-					Delegates.pglUniform2i64vARB(location, count, p_value);
-					LogCommand("glUniform2i64vARB", null, location, count, value					);
+					Delegates.pglUniform2i64vARB(location, (Int32)value.Length / 2, p_value);
+					LogCommand("glUniform2i64vARB", null, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -242,21 +237,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform3ARB(Int32 location, Int32 count, Int64[] value)
+		public static void Uniform3ARB(Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3i64vARB != null, "pglUniform3i64vARB not implemented");
-					Delegates.pglUniform3i64vARB(location, count, p_value);
-					LogCommand("glUniform3i64vARB", null, location, count, value					);
+					Delegates.pglUniform3i64vARB(location, (Int32)value.Length / 3, p_value);
+					LogCommand("glUniform3i64vARB", null, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -268,21 +261,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform4ARB(Int32 location, Int32 count, Int64[] value)
+		public static void Uniform4ARB(Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4i64vARB != null, "pglUniform4i64vARB not implemented");
-					Delegates.pglUniform4i64vARB(location, count, p_value);
-					LogCommand("glUniform4i64vARB", null, location, count, value					);
+					Delegates.pglUniform4i64vARB(location, (Int32)value.Length / 4, p_value);
+					LogCommand("glUniform4i64vARB", null, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -384,21 +375,18 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform1ARB(Int32 location, Int32 count, UInt64[] value)
+		public static void Uniform1ARB(Int32 location, UInt64[] value)
 		{
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1ui64vARB != null, "pglUniform1ui64vARB not implemented");
-					Delegates.pglUniform1ui64vARB(location, count, p_value);
-					LogCommand("glUniform1ui64vARB", null, location, count, value					);
+					Delegates.pglUniform1ui64vARB(location, (Int32)value.Length, p_value);
+					LogCommand("glUniform1ui64vARB", null, location, value.Length, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -410,21 +398,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform2ARB(Int32 location, Int32 count, UInt64[] value)
+		public static void Uniform2ARB(Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2ui64vARB != null, "pglUniform2ui64vARB not implemented");
-					Delegates.pglUniform2ui64vARB(location, count, p_value);
-					LogCommand("glUniform2ui64vARB", null, location, count, value					);
+					Delegates.pglUniform2ui64vARB(location, (Int32)value.Length / 2, p_value);
+					LogCommand("glUniform2ui64vARB", null, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -436,21 +422,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform3ARB(Int32 location, Int32 count, UInt64[] value)
+		public static void Uniform3ARB(Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3ui64vARB != null, "pglUniform3ui64vARB not implemented");
-					Delegates.pglUniform3ui64vARB(location, count, p_value);
-					LogCommand("glUniform3ui64vARB", null, location, count, value					);
+					Delegates.pglUniform3ui64vARB(location, (Int32)value.Length / 3, p_value);
+					LogCommand("glUniform3ui64vARB", null, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -462,21 +446,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform4ARB(Int32 location, Int32 count, UInt64[] value)
+		public static void Uniform4ARB(Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4ui64vARB != null, "pglUniform4ui64vARB not implemented");
-					Delegates.pglUniform4ui64vARB(location, count, p_value);
-					LogCommand("glUniform4ui64vARB", null, location, count, value					);
+					Delegates.pglUniform4ui64vARB(location, (Int32)value.Length / 4, p_value);
+					LogCommand("glUniform4ui64vARB", null, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -729,21 +711,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform2ARB(UInt32 program, Int32 location, Int32 count, Int64[] value)
+		public static void ProgramUniform2ARB(UInt32 program, Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform2i64vARB != null, "pglProgramUniform2i64vARB not implemented");
-					Delegates.pglProgramUniform2i64vARB(program, location, count, p_value);
-					LogCommand("glProgramUniform2i64vARB", null, program, location, count, value					);
+					Delegates.pglProgramUniform2i64vARB(program, location, (Int32)value.Length / 2, p_value);
+					LogCommand("glProgramUniform2i64vARB", null, program, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -758,21 +738,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform3ARB(UInt32 program, Int32 location, Int32 count, Int64[] value)
+		public static void ProgramUniform3ARB(UInt32 program, Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform3i64vARB != null, "pglProgramUniform3i64vARB not implemented");
-					Delegates.pglProgramUniform3i64vARB(program, location, count, p_value);
-					LogCommand("glProgramUniform3i64vARB", null, program, location, count, value					);
+					Delegates.pglProgramUniform3i64vARB(program, location, (Int32)value.Length / 3, p_value);
+					LogCommand("glProgramUniform3i64vARB", null, program, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -787,21 +765,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:Int64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform4ARB(UInt32 program, Int32 location, Int32 count, Int64[] value)
+		public static void ProgramUniform4ARB(UInt32 program, Int32 location, Int64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (Int64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform4i64vARB != null, "pglProgramUniform4i64vARB not implemented");
-					Delegates.pglProgramUniform4i64vARB(program, location, count, p_value);
-					LogCommand("glProgramUniform4i64vARB", null, program, location, count, value					);
+					Delegates.pglProgramUniform4i64vARB(program, location, (Int32)value.Length / 4, p_value);
+					LogCommand("glProgramUniform4i64vARB", null, program, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -944,21 +920,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform2ARB(UInt32 program, Int32 location, Int32 count, UInt64[] value)
+		public static void ProgramUniform2ARB(UInt32 program, Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform2ui64vARB != null, "pglProgramUniform2ui64vARB not implemented");
-					Delegates.pglProgramUniform2ui64vARB(program, location, count, p_value);
-					LogCommand("glProgramUniform2ui64vARB", null, program, location, count, value					);
+					Delegates.pglProgramUniform2ui64vARB(program, location, (Int32)value.Length / 2, p_value);
+					LogCommand("glProgramUniform2ui64vARB", null, program, location, value.Length / 2, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -973,21 +947,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform3ARB(UInt32 program, Int32 location, Int32 count, UInt64[] value)
+		public static void ProgramUniform3ARB(UInt32 program, Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform3ui64vARB != null, "pglProgramUniform3ui64vARB not implemented");
-					Delegates.pglProgramUniform3ui64vARB(program, location, count, p_value);
-					LogCommand("glProgramUniform3ui64vARB", null, program, location, count, value					);
+					Delegates.pglProgramUniform3ui64vARB(program, location, (Int32)value.Length / 3, p_value);
+					LogCommand("glProgramUniform3ui64vARB", null, program, location, value.Length / 3, value					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1002,21 +974,19 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:Int32"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
-		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:UInt64[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform4ARB(UInt32 program, Int32 location, Int32 count, UInt64[] value)
+		public static void ProgramUniform4ARB(UInt32 program, Int32 location, UInt64[] value)
 		{
+			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (UInt64* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform4ui64vARB != null, "pglProgramUniform4ui64vARB not implemented");
-					Delegates.pglProgramUniform4ui64vARB(program, location, count, p_value);
-					LogCommand("glProgramUniform4ui64vARB", null, program, location, count, value					);
+					Delegates.pglProgramUniform4ui64vARB(program, location, (Int32)value.Length / 4, p_value);
+					LogCommand("glProgramUniform4ui64vARB", null, program, location, value.Length / 4, value					);
 				}
 			}
 			DebugCheckErrors(null);

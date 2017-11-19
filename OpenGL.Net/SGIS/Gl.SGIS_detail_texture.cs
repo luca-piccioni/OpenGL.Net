@@ -100,12 +100,37 @@ namespace OpenGL
 		[RequiredByFeature("GL_SGIS_detail_texture")]
 		public static void DetailTexFuncSGIS(TextureTarget target, Int32 n, float[] points)
 		{
+			Debug.Assert(points.Length > 0 && (points.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglDetailTexFuncSGIS != null, "pglDetailTexFuncSGIS not implemented");
 					Delegates.pglDetailTexFuncSGIS((Int32)target, n, p_points);
 					LogCommand("glDetailTexFuncSGIS", null, target, n, points					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glDetailTexFuncSGIS: Binding for glDetailTexFuncSGIS.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="points">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_SGIS_detail_texture")]
+		public static void DetailTexFuncSGIS(TextureTarget target, float[] points)
+		{
+			Debug.Assert(points.Length > 0 && (points.Length % 2) == 0, "empty or not multiple of 2");
+			unsafe {
+				fixed (float* p_points = points)
+				{
+					Debug.Assert(Delegates.pglDetailTexFuncSGIS != null, "pglDetailTexFuncSGIS not implemented");
+					Delegates.pglDetailTexFuncSGIS((Int32)target, (Int32)points.Length / 2, p_points);
+					LogCommand("glDetailTexFuncSGIS", null, target, points.Length / 2, points					);
 				}
 			}
 			DebugCheckErrors(null);
