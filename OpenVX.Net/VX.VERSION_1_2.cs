@@ -3835,7 +3835,7 @@ namespace OpenVX
 			internal static vxCreateContext pvxCreateContext;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseContext(Context* context);
+			internal unsafe delegate Status vxReleaseContext(ref Context context);
 
 			internal static vxReleaseContext pvxReleaseContext;
 
@@ -3935,7 +3935,7 @@ namespace OpenVX
 			internal static vxSetImagePixelValues pvxSetImagePixelValues;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseImage(Image* image);
+			internal unsafe delegate Status vxReleaseImage(ref Image image);
 
 			internal static vxReleaseImage pvxReleaseImage;
 
@@ -3955,7 +3955,7 @@ namespace OpenVX
 			internal static vxGetValidRegionImage pvxGetValidRegionImage;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxCopyImagePatch(Image image, Rectangle* image_rect, uint image_plane_index, ImagePatchAddressing* user_addr, void* user_ptr, Accessor usage, MemoryType user_mem_type);
+			internal unsafe delegate Status vxCopyImagePatch(Image image, ref Rectangle image_rect, uint image_plane_index, ref ImagePatchAddressing user_addr, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyImagePatch pvxCopyImagePatch;
 
@@ -4005,7 +4005,7 @@ namespace OpenVX
 			internal static vxQueryKernel pvxQueryKernel;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseKernel(Kernel* kernel);
+			internal unsafe delegate Status vxReleaseKernel(ref Kernel kernel);
 
 			internal static vxReleaseKernel pvxReleaseKernel;
 
@@ -4045,7 +4045,7 @@ namespace OpenVX
 			internal static vxCreateGraph pvxCreateGraph;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseGraph(Graph* graph);
+			internal unsafe delegate Status vxReleaseGraph(ref Graph graph);
 
 			internal static vxReleaseGraph pvxReleaseGraph;
 
@@ -4115,7 +4115,7 @@ namespace OpenVX
 			internal static vxSetNodeAttribute pvxSetNodeAttribute;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseNode(Node* node);
+			internal unsafe delegate Status vxReleaseNode(ref Node node);
 
 			internal static vxReleaseNode pvxReleaseNode;
 
@@ -4150,7 +4150,7 @@ namespace OpenVX
 			internal static vxGetParameterByIndex pvxGetParameterByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseParameter(Parameter* param);
+			internal unsafe delegate Status vxReleaseParameter(ref Parameter param);
 
 			internal static vxReleaseParameter pvxReleaseParameter;
 
@@ -4185,7 +4185,7 @@ namespace OpenVX
 			internal static vxCreateVirtualScalar pvxCreateVirtualScalar;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseScalar(Scalar* scalar);
+			internal unsafe delegate Status vxReleaseScalar(ref Scalar scalar);
 
 			internal static vxReleaseScalar pvxReleaseScalar;
 
@@ -4205,7 +4205,7 @@ namespace OpenVX
 			internal static vxQueryReference pvxQueryReference;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseReference(Reference* ref_ptr);
+			internal unsafe delegate Status vxReleaseReference(ref Reference ref_ptr);
 
 			internal static vxReleaseReference pvxReleaseReference;
 
@@ -4225,7 +4225,7 @@ namespace OpenVX
 			internal static vxQueryDelay pvxQueryDelay;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseDelay(Delay* delay);
+			internal unsafe delegate Status vxReleaseDelay(ref Delay delay);
 
 			internal static vxReleaseDelay pvxReleaseDelay;
 
@@ -4270,7 +4270,7 @@ namespace OpenVX
 			internal static vxCreateVirtualLUT pvxCreateVirtualLUT;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseLUT(Lut* lut);
+			internal unsafe delegate Status vxReleaseLUT(ref Lut lut);
 
 			internal static vxReleaseLUT pvxReleaseLUT;
 
@@ -4305,7 +4305,7 @@ namespace OpenVX
 			internal static vxCreateVirtualDistribution pvxCreateVirtualDistribution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseDistribution(Distribution* distribution);
+			internal unsafe delegate Status vxReleaseDistribution(ref Distribution distribution);
 
 			internal static vxReleaseDistribution pvxReleaseDistribution;
 
@@ -4355,7 +4355,7 @@ namespace OpenVX
 			internal static vxCopyThresholdOutput pvxCopyThresholdOutput;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseThreshold(Threshold* thresh);
+			internal unsafe delegate Status vxReleaseThreshold(ref Threshold thresh);
 
 			internal static vxReleaseThreshold pvxReleaseThreshold;
 
@@ -4380,7 +4380,7 @@ namespace OpenVX
 			internal static vxCreateVirtualMatrix pvxCreateVirtualMatrix;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseMatrix(Matrix* mat);
+			internal unsafe delegate Status vxReleaseMatrix(ref Matrix mat);
 
 			internal static vxReleaseMatrix pvxReleaseMatrix;
 
@@ -4415,7 +4415,7 @@ namespace OpenVX
 			internal static vxCreateVirtualConvolution pvxCreateVirtualConvolution;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseConvolution(Convolution* conv);
+			internal unsafe delegate Status vxReleaseConvolution(ref Convolution conv);
 
 			internal static vxReleaseConvolution pvxReleaseConvolution;
 
@@ -4445,7 +4445,7 @@ namespace OpenVX
 			internal static vxCreateVirtualPyramid pvxCreateVirtualPyramid;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleasePyramid(Pyramid* pyr);
+			internal unsafe delegate Status vxReleasePyramid(ref Pyramid pyr);
 
 			internal static vxReleasePyramid pvxReleasePyramid;
 
@@ -4470,7 +4470,7 @@ namespace OpenVX
 			internal static vxCreateVirtualRemap pvxCreateVirtualRemap;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseRemap(Remap* table);
+			internal unsafe delegate Status vxReleaseRemap(ref Remap table);
 
 			internal static vxReleaseRemap pvxReleaseRemap;
 
@@ -4505,7 +4505,7 @@ namespace OpenVX
 			internal static vxCreateVirtualArray pvxCreateVirtualArray;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseArray(Array* arr);
+			internal unsafe delegate Status vxReleaseArray(ref Array arr);
 
 			internal static vxReleaseArray pvxReleaseArray;
 
@@ -4530,7 +4530,7 @@ namespace OpenVX
 			internal static vxCopyArrayRange pvxCopyArrayRange;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxMapArrayRange(Array array, UIntPtr range_start, UIntPtr range_end, MapId* map_id, UIntPtr* stride, IntPtr* ptr, Accessor usage, MemoryType mem_type, uint flags);
+			internal unsafe delegate Status vxMapArrayRange(Array array, UIntPtr range_start, UIntPtr range_end, ref MapId map_id, ref UIntPtr stride, out IntPtr ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapArrayRange pvxMapArrayRange;
 
@@ -4555,7 +4555,7 @@ namespace OpenVX
 			internal static vxGetObjectArrayItem pvxGetObjectArrayItem;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseObjectArray(ObjectArray* arr);
+			internal unsafe delegate Status vxReleaseObjectArray(ref ObjectArray arr);
 
 			internal static vxReleaseObjectArray pvxReleaseObjectArray;
 
@@ -4605,7 +4605,7 @@ namespace OpenVX
 			internal static vxQueryTensor pvxQueryTensor;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseTensor(Tensor* tensor);
+			internal unsafe delegate Status vxReleaseTensor(ref Tensor tensor);
 
 			internal static vxReleaseTensor pvxReleaseTensor;
 
@@ -4930,7 +4930,7 @@ namespace OpenVX
 			internal static vxImportObjectsFromMemory pvxImportObjectsFromMemory;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseImport(Import* import);
+			internal unsafe delegate Status vxReleaseImport(ref Import import);
 
 			internal static vxReleaseImport pvxReleaseImport;
 

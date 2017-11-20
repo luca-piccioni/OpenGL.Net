@@ -415,7 +415,7 @@ namespace BindingsGen.GLSpecs
 			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
 			// Support 'ref' argument
-			if (IsManagedArray(ctx, parentCommand) && (modifier == "ref" || modifier == "out"))
+			if ((modifier == "ref" || modifier == "out") &&  implementationType.EndsWith("*"))
 				implementationType = modifier + " " + implementationType.Substring(0, implementationType.Length - 1);
 
 			return (implementationType.Trim());
