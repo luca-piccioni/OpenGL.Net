@@ -171,7 +171,7 @@ namespace HelloTriangle
 				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, VertexAttribType.Float, false, 0, arrayColor.Address);
 				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aColor);
 
-				Gl.UniformMatrix4(_Es2_Program_Location_uMVP, 1, false, (projectionMatrix * modelMatrix).ToArray());
+				Gl.UniformMatrix4(_Es2_Program_Location_uMVP, false, (projectionMatrix * modelMatrix).ToArray());
 
 				Gl.DrawArrays(PrimitiveType.Triangles,  0, 3);
 			}

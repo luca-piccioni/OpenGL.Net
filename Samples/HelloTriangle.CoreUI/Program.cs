@@ -82,7 +82,7 @@ namespace HelloTriangle.CoreUI
 
 			Gl.BindVertexArray(_CubeVao);
 
-			Gl.UniformMatrix4(_CubeEdgeProgram_Location_uMVP, 1, false, (proj * view * model).ToArray());
+			Gl.UniformMatrix4(_CubeEdgeProgram_Location_uMVP, false, (proj * view * model).ToArray());
 
 			foreach (float scale4d in new float[] { 64.0f, 32.0f, 16.0f, 8.0f, 4.0f, 2.0f, 1.0f, 0.5f, 0.25f, 0.125f }) {
 				Gl.Uniform1(_CubeEdgeProgram_Location_uScale4D, scale4d * _Zooom);
