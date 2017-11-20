@@ -3499,6 +3499,58 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetUniformuiv: Returns the value of a uniform variable
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be queried.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
+		public static unsafe void GetUniform(UInt32 program, Int32 location, [Out] UInt32* @params)
+		{
+			Debug.Assert(Delegates.pglGetUniformuiv != null, "pglGetUniformuiv not implemented");
+			Delegates.pglGetUniformuiv(program, location, @params);
+			LogCommand("glGetUniformuiv", null, program, location, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetUniformuiv: Returns the value of a uniform variable
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be queried.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
+		public static void GetUniformui<T>(UInt32 program, Int32 location, ref T @params) where T : struct
+		{
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				GetUniform(program, location, (UInt32*)refParamsPtr.ToPointer());
+			}
+		}
+
+		/// <summary>
 		/// [GL4] glBindFragDataLocation: bind a user-defined varying out variable to a fragment shader color number
 		/// </summary>
 		/// <param name="program">

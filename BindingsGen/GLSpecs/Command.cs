@@ -1156,7 +1156,7 @@ namespace BindingsGen.GLSpecs
 			string typedReferenceVarName = "ref" + SpecificationStyle.GetCamelCase(genericParam.Name);
 			string typedReferencePtrVarName = "ref" + SpecificationStyle.GetCamelCase(genericParam.Name) + "Ptr";
 
-			sw.WriteLine("TypedReference {0} = __makeref({1});", typedReferenceVarName, genericParam.Name);
+			sw.WriteLine("TypedReference {0} = __makeref({1});", typedReferenceVarName, genericParam.ImplementationName);
 			sw.WriteLine("IntPtr {0} = *(IntPtr*)(&{1});", typedReferencePtrVarName, typedReferenceVarName);
 			sw.WriteLine();
 

@@ -238,6 +238,10 @@
 		<flags>UnsafeParams GenericParams</flags>
 	</command>
 
+	<command name="^glGetUniform(f|i|ui|d)v$">
+		<flags>UnsafeParams GenericParams</flags>
+	</command>
+
 	<command name="^glVertexAttrib(1|2|3|4)(N|I)?(b|s|d|f|i|ub|ui|us)v$">
 		<flags>UnsafeParams GenericParams</flags>
 	</command>

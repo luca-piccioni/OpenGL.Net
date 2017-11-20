@@ -2137,6 +2137,52 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glGetUniformdv: Returns the value of a uniform variable
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be queried.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static unsafe void GetUniform(UInt32 program, Int32 location, [Out] double* @params)
+		{
+			Debug.Assert(Delegates.pglGetUniformdv != null, "pglGetUniformdv not implemented");
+			Delegates.pglGetUniformdv(program, location, @params);
+			LogCommand("glGetUniformdv", null, program, location, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetUniformdv: Returns the value of a uniform variable
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be queried.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		public static void GetUniformd<T>(UInt32 program, Int32 location, ref T @params) where T : struct
+		{
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				GetUniform(program, location, (double*)refParamsPtr.ToPointer());
+			}
+		}
+
+		/// <summary>
 		/// [GL4] glGetSubroutineUniformLocation: retrieve the location of a subroutine uniform of a given shader stage within a 
 		/// program
 		/// </summary>

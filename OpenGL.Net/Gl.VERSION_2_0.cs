@@ -1726,6 +1726,58 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetUniformfv: Returns the value of a uniform variable
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be queried.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static unsafe void GetUniform(UInt32 program, Int32 location, [Out] float* @params)
+		{
+			Debug.Assert(Delegates.pglGetUniformfv != null, "pglGetUniformfv not implemented");
+			Delegates.pglGetUniformfv(program, location, @params);
+			LogCommand("glGetUniformfv", null, program, location, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetUniformfv: Returns the value of a uniform variable
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be queried.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void GetUniformf<T>(UInt32 program, Int32 location, ref T @params) where T : struct
+		{
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				GetUniform(program, location, (float*)refParamsPtr.ToPointer());
+			}
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetUniformiv: Returns the value of a uniform variable
 		/// </para>
 		/// </summary>
@@ -1752,6 +1804,58 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetUniformiv: Returns the value of a uniform variable
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be queried.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static unsafe void GetUniform(UInt32 program, Int32 location, [Out] Int32* @params)
+		{
+			Debug.Assert(Delegates.pglGetUniformiv != null, "pglGetUniformiv not implemented");
+			Delegates.pglGetUniformiv(program, location, @params);
+			LogCommand("glGetUniformiv", null, program, location, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetUniformiv: Returns the value of a uniform variable
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the program object to be queried.
+		/// </param>
+		/// <param name="location">
+		/// Specifies the location of the uniform variable to be queried.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of the specified uniform variable.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void GetUniformi<T>(UInt32 program, Int32 location, ref T @params) where T : struct
+		{
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				GetUniform(program, location, (Int32*)refParamsPtr.ToPointer());
+			}
 		}
 
 		/// <summary>
