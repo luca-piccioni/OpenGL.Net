@@ -1168,12 +1168,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void Uniform1d<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform1(location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform1(location, count, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1239,12 +1250,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void Uniform2d<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform2(location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform2(location, count, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1310,12 +1332,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void Uniform3d<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform3(location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform3(location, count, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1381,12 +1414,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void Uniform4d<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform4(location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform4(location, count, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1461,12 +1505,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix2d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix2(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix2(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1541,12 +1596,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix3d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix3(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix3(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1621,12 +1687,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix4d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix4(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix4(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1701,12 +1778,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix2x3d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix2x3(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix2x3(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1781,12 +1869,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix2x4d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix2x4(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix2x4(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1861,12 +1960,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix3x2d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix3x2(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix3x2(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1941,12 +2051,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix3x4d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix3x4(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix3x4(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2021,12 +2142,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix4x2d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix4x2(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix4x2(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2101,12 +2233,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void UniformMatrix4x3d<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix4x3(location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix4x3(location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2174,12 +2317,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
 		public static void GetUniformd<T>(UInt32 program, Int32 location, ref T @params) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					GetUniform(program, location, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
 				GetUniform(program, location, (double*)refParamsPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>

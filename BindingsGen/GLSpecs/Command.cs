@@ -1147,6 +1147,160 @@ namespace BindingsGen.GLSpecs
 			sw.WriteLine("{");
 			sw.Indent();
 
+			sw.WriteLine("#if NETCOREAPP1_1");
+
+			#region .NET Core 1.1
+
+			sw.WriteLine("GCHandle valueHandle = GCHandle.Alloc({0});", genericParam.ImplementationName);
+			sw.WriteLine("try {");
+			sw.Indent();
+
+			sw.WriteLine("unsafe {");
+			sw.Indent();
+
+			#region Unsafe Method Call
+
+			sw.WriteIdentation();
+			sw.Write("{0}(", GetImplementationName(ctx));
+
+			#region Parameters
+
+			for (int i = 0; i < genericParameters.Count; i++) {
+				CommandParameter param = genericParameters[i];
+
+				if (i < genericParameters.Count - 1) {
+					param.WriteDelegateParam(sw, ctx, this);
+				} else {
+					sw.Write("({0}){1}.ToPointer()", originalParam.GetImportType(this), "valueHandle.AddrOfPinnedObject()");
+				}
+
+				if (i != Parameters.Count - 1)
+					sw.Write(", ");
+			}
+
+			#endregion
+
+			sw.Write(")");
+			sw.Write(";");
+			sw.WriteLine();
+			sw.Unindent();
+
+			#endregion
+
+			sw.WriteLine("}");
+			sw.Unindent();
+
+			sw.WriteLine("} finally {");
+			sw.Indent();
+			sw.WriteLine("valueHandle.Free();");
+			sw.Unindent();
+			sw.WriteLine("}");
+
+			#endregion
+
+			sw.WriteLine("#else");
+
+			#region Default: __makeref
+
+			// Unsafe block
+			sw.WriteLine("unsafe {");
+			sw.Indent();
+
+			#region Local Variables
+
+			string typedReferenceVarName = "ref" + SpecificationStyle.GetCamelCase(genericParam.Name);
+			string typedReferencePtrVarName = "ref" + SpecificationStyle.GetCamelCase(genericParam.Name) + "Ptr";
+
+			sw.WriteLine("TypedReference {0} = __makeref({1});", typedReferenceVarName, genericParam.ImplementationName);
+			sw.WriteLine("IntPtr {0} = *(IntPtr*)(&{1});", typedReferencePtrVarName, typedReferenceVarName);
+			sw.WriteLine();
+
+			#endregion
+
+			#region Unsafe Method Call
+
+			sw.WriteIdentation();
+			sw.Write("{0}(", GetImplementationName(ctx));
+
+			#region Parameters
+
+			for (int i = 0; i < genericParameters.Count; i++) {
+				CommandParameter param = genericParameters[i];
+
+				if (i < genericParameters.Count - 1) {
+					param.WriteDelegateParam(sw, ctx, this);
+				} else {
+					sw.Write("({0}){1}.ToPointer()", originalParam.GetImportType(this), typedReferencePtrVarName);
+				}
+
+				if (i != Parameters.Count - 1)
+					sw.Write(", ");
+			}
+
+			#endregion
+
+			sw.Write(")");
+			sw.Write(";");
+			sw.WriteLine();
+
+			#endregion
+
+			// Unsafe block
+			sw.Unindent();
+			sw.WriteLine("}");
+
+			#endregion
+
+			sw.WriteLine("#endif");
+
+			// Implementation block
+			sw.Unindent();
+			sw.WriteLine("}");
+		}
+
+		/// <summary>
+		/// Generate the command implementation (generic variant).
+		/// </summary>
+		/// <param name="sw">
+		/// The <see cref="SourceStreamWriter"/> used to write the source code.
+		/// </param>
+		/// <param name="ctx">
+		/// The <see cref="RegistryContext"/> defining the OpenGL registry information.
+		/// </param>
+		private void GenerateImplementation_GenericsArray(SourceStreamWriter sw, RegistryContext ctx)
+		{
+			// Identify the generic argument:
+			// - It must a array/pointer type
+			// - It must be the last one
+			List<CommandParameter> genericParameters = GetDefaultParameters(ctx);
+
+			CommandParameter genericParam = genericParameters[genericParameters.Count - 1];
+			CommandParameter originalParam = Parameters[Parameters.Count - 1];
+
+			if (genericParam.IsManagedArray(ctx, this) == false)
+				throw new NotSupportedException("generic parameter is not an array");
+
+			// Change the argument in order to have a generic ref
+			genericParam.Type = "T*";
+			genericParam.TypeDecorators.Clear();
+			// genericParam.ModifierOverride = "ref";
+			
+			// Determine the method name
+			// - It must end with 'v'
+			// - It must include the argument type (i.e. glUniform2iv -> Uniform2i)
+			string implementationName = Prototype.Name.Substring(ctx.Class.Length);
+
+			if (implementationName.EndsWith("v") == false)
+				throw new NotSupportedException("not a vector command");
+			implementationName = implementationName.Substring(0, implementationName.Length - 1);
+
+			// Signature (generic with constraints
+			GenerateImplementation_Signature(sw, ctx, genericParameters, implementationName + "<T>", GetImplementationReturnType(ctx), "where T : struct");
+
+			// Implementation block
+			sw.WriteLine("{");
+			sw.Indent();
+
 			// Unsafe block
 			sw.WriteLine("unsafe {");
 			sw.Indent();

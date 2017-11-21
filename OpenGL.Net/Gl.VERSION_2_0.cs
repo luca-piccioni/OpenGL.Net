@@ -1768,12 +1768,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetUniformf<T>(UInt32 program, Int32 location, ref T @params) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					GetUniform(program, location, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
 				GetUniform(program, location, (float*)refParamsPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -1850,12 +1861,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetUniformi<T>(UInt32 program, Int32 location, ref T @params) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					GetUniform(program, location, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
 				GetUniform(program, location, (Int32*)refParamsPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2478,12 +2500,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1f<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform1(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform1(location, count, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2566,12 +2599,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2f<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform2(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform2(location, count, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2654,12 +2698,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3f<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform3(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform3(location, count, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2742,12 +2797,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4f<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform4(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform4(location, count, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2829,12 +2895,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1i<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform1(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform1(location, count, (Int32*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -2917,12 +2994,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2i<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform2(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform2(location, count, (Int32*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3005,12 +3093,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3i<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform3(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform3(location, count, (Int32*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3093,12 +3192,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4i<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform4(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform4(location, count, (Int32*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3190,12 +3300,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix2(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix2(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3287,12 +3408,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix3(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix3(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3384,12 +3516,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix4(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix4(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3497,12 +3640,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1d<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib1(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib1(index, (double*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3607,12 +3761,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1f<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib1(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib1(index, (float*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3701,12 +3866,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1s<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib1(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib1(index, (Int16*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3798,12 +3974,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2d<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib2(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib2(index, (double*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3911,12 +4098,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2f<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib2(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib2(index, (float*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4008,12 +4206,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2s<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib2(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib2(index, (Int16*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4108,12 +4317,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3d<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib3(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib3(index, (double*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4224,12 +4444,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3f<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib3(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib3(index, (float*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4324,12 +4555,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3s<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib3(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib3(index, (Int16*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4395,12 +4637,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Nb<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4N(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4N(index, (sbyte*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4466,12 +4719,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Ni<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4N(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4N(index, (Int32*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4537,12 +4801,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Ns<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4N(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4N(index, (Int16*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4640,12 +4915,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4Nub<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4N(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4N(index, (byte*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4711,12 +4997,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Nui<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4N(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4N(index, (UInt32*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4782,12 +5079,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Nus<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4N(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4N(index, (UInt16*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4853,12 +5161,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4b<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4(index, (sbyte*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4956,12 +5275,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4d<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4(index, (double*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -5075,12 +5405,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4f<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4(index, (float*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -5146,12 +5487,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4i<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4(index, (Int32*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -5249,12 +5601,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4s<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4(index, (Int16*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -5320,12 +5683,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ub<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4ub(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4ub(index, (byte*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -5391,12 +5765,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ui<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4(index, (UInt32*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -5462,12 +5847,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4us<T>(UInt32 index, ref T v) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttrib4(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
 				VertexAttrib4(index, (UInt16*)refVPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>

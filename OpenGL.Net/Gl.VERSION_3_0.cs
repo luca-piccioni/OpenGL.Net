@@ -3542,12 +3542,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void GetUniformui<T>(UInt32 program, Int32 location, ref T @params) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					GetUniform(program, location, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
 				GetUniform(program, location, (UInt32*)refParamsPtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3781,12 +3792,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform1ui<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform1(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform1(location, count, (UInt32*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3866,12 +3888,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform2ui<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform2(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform2(location, count, (UInt32*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -3951,12 +3984,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform3ui<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform3(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform3(location, count, (UInt32*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -4036,12 +4080,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform4ui<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					Uniform4(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				Uniform4(location, count, (UInt32*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>

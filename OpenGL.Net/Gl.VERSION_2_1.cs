@@ -326,12 +326,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix2x3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix2x3(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix2x3(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -420,12 +431,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix3x2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix3x2(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix3x2(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -514,12 +536,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix2x4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix2x4(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix2x4(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -608,12 +641,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix4x2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix4x2(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix4x2(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -702,12 +746,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix3x4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix3x4(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix3x4(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		/// <summary>
@@ -796,12 +851,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix4x3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(value);
+			try {
+				unsafe {
+					UniformMatrix4x3(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
 			unsafe {
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
 				UniformMatrix4x3(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
+			#endif
 		}
 
 		internal unsafe static partial class Delegates
