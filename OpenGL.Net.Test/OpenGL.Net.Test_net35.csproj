@@ -114,6 +114,11 @@
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
     <Compile Include="Gl.VERSION_2_0.cs" />
+    <Compile Include="Gl.VERSION_2_0.Uniform.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gl.VERSION_2_0.Uniform.tt</DependentUpon>
+    </Compile>
     <Compile Include="Gl.VERSION_3_0.cs" />
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="KhronosApi.cs" />
@@ -165,6 +170,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Gl.VERSION_2_0.Uniform.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Gl.VERSION_2_0.Uniform.cs</LastGenOutput>
+    </Content>
     <Content Include="Vertex2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Vertex2.cs</LastGenOutput>

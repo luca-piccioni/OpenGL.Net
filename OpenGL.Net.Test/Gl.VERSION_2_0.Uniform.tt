@@ -1,0 +1,288 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Runtime.InteropServices" #>
+
+// Copyright (C) 2017 Luca Piccioni
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+<#
+	int[] ordinals =			new[] {  1,     2,       3,        4 };
+	string[] postfixes =		new[] { "f",   "i",     "ui",     "d" };
+	string[] baseTypes =		new[] { "float", "int", "uint", "double" };
+	string[] zeroes =			new[] { "0.0f",   "0",   "0u",    "0.0" };
+	string[] ones =				new[] { "1.0f",   "1",   "1u",    "1.0" };
+	string[] mins =				new[] { "1.0f",   "1",   "1u",    "1.0" };
+	string[] maxs =				new[] { "9.0f",   "9",   "9u",    "9.0" };
+	string[] meds =				new[] { "5.0f",   "5",   "5u",    "5.0" };
+#>
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
+using NUnit.Framework;
+
+namespace OpenGL.Test
+{
+	partial class Gl_VERSION_2_0
+	{
+<#
+	for (int i = 0; i < ordinals.Length; i++) {
+		int ordinal = ordinals[i];
+		for (int j = 0; j < postfixes.Length; j++) {
+			string baseType = baseTypes[j];
+			string one = ones[j];
+			string zero = zeroes[j];
+			string min = mins[j];
+			string max = maxs[j];
+			string med = meds[j];
+			string postfix = postfixes[j];
+
+			string functCreateProgram = "CreateProgramUniform" + ordinal + postfix;
+			string functTestUniform = "TestUniform" + ordinal + postfix;
+			string functArray = "Array" + ordinal;
+
+			string glRequisites = null;
+
+			switch (postfix) {
+				case "f":
+				case "i":
+					glRequisites = "!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported(\"GL_ARB_shader_objects\")";
+					break;
+				case "ui":
+					glRequisites = "!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported(\"GL_EXT_gpu_shader4\")";
+					break;
+				case "d":
+					glRequisites = "!HasVersion(4, 0) && !IsGlExtensionSupported(\"GL_ARB_gpu_shader_fp64\")";
+					break;
+			}
+
+			string glUniform = "glUniform" + ordinal + postfix + "v";
+			string glUniformX = "Uniform" + ordinal;
+			string glUniformXRef = "Uniform" + ordinal + postfix;
+			string glGetUniformT = "GetUniform" + postfix;
+
+			string glslUniformType = GetUniformType(ordinal, postfix);
+			string glslUniformInit = GetUniformInit(ordinal, postfix);
+			string glslUniformToVec4 = GetUniformToVec4(ordinal, postfix);
+
+			string uniformStructType = "Vertex" + ordinal + postfix;
+			if (ordinal == 1)
+				uniformStructType = baseType;
+
+			string uniformStructZero = uniformStructType + ".Zero";
+			if (ordinal == 1)
+				uniformStructZero = zero;
+
+			string glUniformVarName = "uVec";
+#>
+		#region <#= glUniform #>
+
+		private uint <#= functCreateProgram #>()
+		{
+			string[] srcVertex = new string[] {
+				"#version 150\n",
+<# if (postfix == "d") { #>
+				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
+<# } #>
+				"uniform <#= glslUniformType #> uVec = <#= glslUniformInit #>;\n",
+				"void main() {\n",
+				"	gl_Position = <#= glslUniformToVec4 #>;\n",
+				"}\n"
+			};
+
+			return (CreateProgramUniform(srcVertex, _SrcFragment));
+		}
+
+		/// <summary>
+		/// Test Uniform3* methods.
+		/// </summary>
+		[Test]
+		public void <#= functTestUniform #>()
+		{
+<# if (glRequisites != null) { #>
+			if (<#= glRequisites #>)
+				Assert.Inconclusive("required features not implemented");
+
+<# } #>
+			uint program = <#= functCreateProgram #>();
+
+			try {
+				<#= uniformStructType #> uniformStruct;
+				<#= baseType #>[] uniformValue;
+
+				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+				if (uniformLoc < 0)
+					throw new InvalidOperationException("no uniform variable");
+
+				// glGetUniform<#= postfix #>v
+				uniformValue = <#= functArray #>(<#= one #>);
+				Gl.GetUniform(program, uniformLoc, uniformValue);
+				CollectionAssert.AreEqual(<#= functArray #>(<#= zero #>), uniformValue);
+
+				// glGetUniform<#= postfix #>v (ref)
+				uniformStruct = <#= GetUniformStructConstructor(ordinal, postfix, one) #>;
+				Gl.<#= glGetUniformT #>(program, uniformLoc, ref uniformStruct);
+				Assert.AreEqual(<#= uniformStructZero #>, uniformStruct);
+				
+				// glUniform<#= ordinal #><#= postfix #>
+				uniformValue = <#= functArray #>(<#= zero #>);
+				Gl.<#= glUniformX #>(uniformLoc, <#= functArray #>(<#= min #>));
+				Gl.GetUniform(program, uniformLoc, uniformValue);
+				CollectionAssert.AreEqual(<#= functArray #>(<#= min #>), uniformValue);
+
+				// glUniform<#= ordinal #><#= postfix #>v
+				uniformValue = <#= functArray #>(<#= zero #>);
+				Gl.<#= glUniformX #>(uniformLoc, <#= functArray #>(<#= max #>));
+				Gl.GetUniform(program, uniformLoc, uniformValue);
+				CollectionAssert.AreEqual(<#= functArray #>(<#= max #>), uniformValue);
+
+				// glUniform<#= ordinal #><#= postfix #>v (ref)
+				uniformValue = <#= functArray #>(<#= zero #>);
+				uniformStruct = <#= GetUniformStructConstructor(ordinal, postfix, med) #>;
+				Gl.<#= glUniformXRef #>(uniformLoc, 1, ref uniformStruct);
+				Gl.GetUniform(program, uniformLoc, uniformValue);
+				CollectionAssert.AreEqual(<#= functArray #>(<#= med #>), uniformValue);
+			} finally {
+				Gl.DeleteProgram(program);
+			}
+		}
+
+		#endregion
+
+<#
+		}
+	}
+#>
+		#region Common
+
+		private static T[] Array1<T>(T value) { return new T[] { value }; }
+
+		private static T[] Array2<T>(T value) { return new T[] { value, value }; }
+
+		private static T[] Array3<T>(T value) { return new T[] { value, value, value }; }
+
+		private static T[] Array4<T>(T value) { return new T[] { value, value, value, value }; }
+
+		private static string[] _SrcFragment = new string[] {
+			"#version 150\n",
+			"out vec4 oColor;\n",
+			"void main() {\n",
+			"	oColor = vec4(1.0);\n",
+			"}\n"
+		};
+
+		#endregion
+	}
+}
+<#+
+	public string GetUniformStructConstructor(int ordinal, string postfix, string value)
+	{
+		if (ordinal > 1) {
+			return String.Format("new Vertex{0}{1}({2})", ordinal, postfix, value);
+		} else
+			return (value);
+	}
+
+	public string GetUniformType(int ordinal, string postfix)
+	{
+		if (ordinal == 1) {
+			switch (postfix) {
+				case "f":
+				default:
+					return ("float");
+				case "i":
+					return ("int");
+				case "ui":
+					return ("uint");
+				case "d":
+					return ("double");
+			}
+		} else {
+			string glslUniformType = "vec" + ordinal;
+
+			switch (postfix) {
+				case "f":
+				default:
+					return (glslUniformType);
+				case "i":
+					return ("i" + glslUniformType);
+				case "ui":
+					return ("u" + glslUniformType);
+					break;
+				case "d":
+					return ("d" + glslUniformType);
+			}
+		}
+	}
+
+	public string GetUniformInit(int ordinal, string postfix)
+	{
+		string componentValue;
+
+		switch (postfix) {
+			case "f":
+			case "d":
+				componentValue = "0.0";
+				break;
+			case "ui":
+				componentValue = "0u";
+				break;
+			case "i":
+			default:
+				componentValue = "0";
+				break;
+		}
+
+		if (ordinal > 1) {
+			string glslUniformType = GetUniformType(ordinal, postfix);
+			
+			return (String.Format("{0}({1})", glslUniformType, componentValue));
+			return (componentValue);
+		} else
+			return (componentValue);
+	}
+
+	public string GetUniformToVec4(int ordinal, string postfix)
+	{
+		switch (ordinal) {
+			case 1:
+			default:
+				switch (postfix) {
+					case "f":
+					default:
+						return ("vec4(uVec)");
+					case "i":
+					case "ui":
+					case "d":
+						return ("vec4(float(uVec))");
+				}
+			case 2:
+				return ("vec4(uVec, 0, 1)");
+			case 3:
+				return ("vec4(uVec, 1)");
+			case 4:
+				return ("vec4(uVec)");
+		}
+	}
+#>

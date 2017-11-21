@@ -20,7 +20,7 @@
 // SOFTWARE.
 
 using System;
-
+using System.Text;
 using NUnit.Framework;
 
 namespace OpenGL.Test
@@ -30,7 +30,7 @@ namespace OpenGL.Test
 	/// </summary>
 	[TestFixture]
 	[Category("GL_VERSION_2_0")]
-	class Gl_VERSION_2_0 : TestBaseGL
+	partial class Gl_VERSION_2_0 : TestBaseGL
 	{
 		/// <summary>
 		/// Test Gl.GetString.
@@ -103,54 +103,8 @@ namespace OpenGL.Test
 			}
 		}
 
-		/// <summary>
-		/// Test Uniform3* methods.
-		/// </summary>
-		[Test]
-		public void TestUniform3f()
+		private uint CreateProgramUniform(string[] srcVertex, string[] srcFragment)
 		{
-			uint program = CreateProgramUniform3f();
-
-			int uniformLoc = Gl.GetUniformLocation(program, "uVec3");
-
-			Vertex3f uniformStruct;
-			float[] uniformValue = new float[3];
-
-			// glUniform3f
-			Gl.Uniform3(uniformLoc, 1.0f, 1.0f, 1.0f);
-			Gl.GetUniform(program, uniformLoc, uniformValue);
-			CollectionAssert.AreEqual(new float[] { 1.0f, 1.0f, 1.0f }, uniformValue);
-
-			// glUniform3fv
-			Gl.Uniform3(uniformLoc, new float[] { 2.0f, 2.0f, 2.0f });
-			Gl.GetUniform(program, uniformLoc, uniformValue);
-			CollectionAssert.AreEqual(new float[] { 2.0f, 2.0f, 2.0f }, uniformValue);
-
-			// glUniform3fv (ref)
-			uniformStruct = new Vertex3f(1.1f, 1.1f, 1.1f);
-			Gl.Uniform3f(uniformLoc, 1, ref uniformStruct);
-			Gl.GetUniform(program, uniformLoc, uniformValue);
-			CollectionAssert.AreEqual(new float[] { 1.1f, 1.1f, 1.1f }, uniformValue);
-		}
-
-		private uint CreateProgramUniform3f()
-		{
-			string[] srcVertex = new string[] {
-				"#version 150\n",
-				"uniform vec3 uVec3;\n",
-				"void main() {\n",
-				"	gl_Position = vec4(uVec3, 1.0);\n",
-				"}\n"
-			};
-
-			string[] srcFragment = new string[] {
-				"#version 150\n",
-				"out vec4 oColor;\n",
-				"void main() {\n",
-				"	oColor = vec4(1.0);\n",
-				"}\n"
-			};
-
 			uint shaderVertex = 0, shaderFragment = 0, program = 0;
 			
 			try {
@@ -161,14 +115,14 @@ namespace OpenGL.Test
 				Gl.CompileShader(shaderVertex);
 				Gl.GetShader(shaderVertex, ShaderParameterName.CompileStatus, out compileStatus);
 				if (compileStatus == 0)
-					throw new InvalidOperationException("unable to compiler vertex shader");
+					throw new InvalidOperationException("unable to compiler vertex shader: " + GetShaderInfoLog(shaderVertex));
 
 				shaderFragment = Gl.CreateShader(ShaderType.FragmentShader);
 				Gl.ShaderSource(shaderFragment, srcFragment);
 				Gl.CompileShader(shaderFragment);
 				Gl.GetShader(shaderFragment, ShaderParameterName.CompileStatus, out compileStatus);
 				if (compileStatus == 0)
-					throw new InvalidOperationException("unable to compiler fragment shader");
+					throw new InvalidOperationException("unable to compiler fragment shader: " + GetShaderInfoLog(shaderFragment));
 
 				program = Gl.CreateProgram();
 				Gl.AttachShader(program, shaderVertex);
@@ -192,6 +146,18 @@ namespace OpenGL.Test
 			
 
 			return (program);
+		}
+
+		private string GetShaderInfoLog(uint shader)
+		{
+			const int MaxLength = 1024;
+
+			StringBuilder infoLog = new StringBuilder(MaxLength);
+			int length;
+
+			Gl.GetShaderInfoLog(shader, MaxLength, out length, infoLog);
+
+			return (infoLog.ToString());
 		}
 	}
 }
