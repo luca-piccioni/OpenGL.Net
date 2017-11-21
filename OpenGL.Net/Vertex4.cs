@@ -700,7 +700,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4ub other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
@@ -1443,7 +1452,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4b other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
@@ -2173,7 +2191,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4us other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
@@ -2916,7 +2943,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4s other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
@@ -3646,7 +3682,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4ui other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
@@ -4389,7 +4434,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4i other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
@@ -5168,7 +5222,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4f other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= 0.0f;
+			bool otherUndefined = Math.Abs(other.w) <= 0.0f;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
@@ -5878,7 +5941,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4d other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= 0.0;
+			bool otherUndefined = Math.Abs(other.w) <= 0.0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
@@ -6621,7 +6693,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex4hf other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= (HalfFloat)0.0f;
+			bool otherUndefined = Math.Abs(other.w) <= (HalfFloat)0.0f;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>

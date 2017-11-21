@@ -896,7 +896,16 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(<#= className #> other)
 		{
-			return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			bool undefined = Math.Abs(w) <= <#= zero #>;
+			bool otherUndefined = Math.Abs(other.w) <= <#= zero #>;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false)
+				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+			else
+				return (x == other.x && y == other.y && z == other.z);
 		}
 
 		/// <summary>
