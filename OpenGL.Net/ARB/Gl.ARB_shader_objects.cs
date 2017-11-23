@@ -204,6 +204,64 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glGetObjectParameterfvARB: Binding for glGetObjectParameterfvARB.
+		/// </summary>
+		/// <param name="obj">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float*"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static unsafe void GetObjectParameterARB(UInt32 obj, Int32 pname, [Out] float* @params)
+		{
+			Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
+			Delegates.pglGetObjectParameterfvARB(obj, pname, @params);
+			LogCommand("glGetObjectParameterfvARB", null, obj, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glGetObjectParameterfvARB: Binding for glGetObjectParameterfvARB.
+		/// </summary>
+		/// <param name="obj">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void GetObjectParameterfARB<T>(UInt32 obj, Int32 pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglGetObjectParameterfvARB(obj, pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglGetObjectParameterfvARB(obj, pname, (float*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetObjectParameterfvARB", null, obj, pname, @params			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
@@ -252,6 +310,64 @@ namespace OpenGL
 					LogCommand("glGetObjectParameterivARB", null, obj, pname, @params					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
+		/// </summary>
+		/// <param name="obj">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static unsafe void GetObjectParameterARB(UInt32 obj, Int32 pname, [Out] Int32* @params)
+		{
+			Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
+			Delegates.pglGetObjectParameterivARB(obj, pname, @params);
+			LogCommand("glGetObjectParameterivARB", null, obj, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
+		/// </summary>
+		/// <param name="obj">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_ARB_shader_objects")]
+		public static void GetObjectParameteriARB<T>(UInt32 obj, Int32 pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglGetObjectParameterivARB(obj, pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglGetObjectParameterivARB(obj, pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetObjectParameterivARB", null, obj, pname, @params			);
 			DebugCheckErrors(null);
 		}
 

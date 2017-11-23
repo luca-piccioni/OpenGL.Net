@@ -2764,6 +2764,78 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL4] glGetFramebufferParameteriv: query a named parameter of a framebuffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glGetFramebufferParameteriv: retrieve a named parameter from a framebuffer
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the framebuffer object is bound for Gl.GetFramebufferParameteriv.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of the framebuffer object to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for the framebuffer object.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
+		public static unsafe void GetFramebufferParameter(FramebufferTarget target, FramebufferAttachmentParameterName pname, [Out] Int32* @params)
+		{
+			Debug.Assert(Delegates.pglGetFramebufferParameteriv != null, "pglGetFramebufferParameteriv not implemented");
+			Delegates.pglGetFramebufferParameteriv((Int32)target, (Int32)pname, @params);
+			LogCommand("glGetFramebufferParameteriv", null, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4] glGetFramebufferParameteriv: query a named parameter of a framebuffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glGetFramebufferParameteriv: retrieve a named parameter from a framebuffer
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the framebuffer object is bound for Gl.GetFramebufferParameteriv.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of the framebuffer object to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for the framebuffer object.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
+		public static void GetFramebufferParameteri<T>(FramebufferTarget target, FramebufferAttachmentParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetFramebufferParameteriv != null, "pglGetFramebufferParameteriv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglGetFramebufferParameteriv((Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglGetFramebufferParameteriv((Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetFramebufferParameteriv", null, target, pname, @params			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glGetInternalformati64v: retrieve information about implementation-dependent support for internal formats
 		/// </summary>
 		/// <param name="target">

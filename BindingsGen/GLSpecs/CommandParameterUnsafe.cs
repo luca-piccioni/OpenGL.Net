@@ -17,9 +17,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml.Serialization;
 
 namespace BindingsGen.GLSpecs
 {
@@ -27,7 +24,7 @@ namespace BindingsGen.GLSpecs
 	/// Registry command parameter.
 	/// </summary>
 	[DebuggerDisplay("CommandParameterStrong: Name={Name} Group={Group} Length={Length} Type={Type}")]
-	class CommandParameterUnsafe : CommandParameter
+	class CommandParameterUnsafe : CommandParameterStrong
 	{
 		#region Constructors
 
@@ -38,7 +35,7 @@ namespace BindingsGen.GLSpecs
 		/// <param name="ctx"></param>
 		/// <param name="parentCommand"></param>
 		public CommandParameterUnsafe(CommandParameter otherParam, RegistryContext ctx, Command parentCommand)
-			: base(otherParam)
+			: base(otherParam, ctx, parentCommand)
 		{
 			if (otherParam == null)
 				throw new ArgumentNullException("otherParam");

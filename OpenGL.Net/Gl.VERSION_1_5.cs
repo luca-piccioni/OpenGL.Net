@@ -1187,6 +1187,78 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetBufferParameteriv: return parameters of a buffer object
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
+		/// be one of the buffer binding targets in the following table:
+		/// </param>
+		/// <param name="value">
+		/// Specifies the name of the buffer object parameter to query.
+		/// </param>
+		/// <param name="data">
+		/// Returns the requested parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static unsafe void GetBufferParameter(BufferTarget target, Int32 value, [Out] Int32* data)
+		{
+			Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
+			Delegates.pglGetBufferParameteriv((Int32)target, value, data);
+			LogCommand("glGetBufferParameteriv", null, target, value, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetBufferParameteriv: return parameters of a buffer object
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the buffer object is bound for Gl.GetBufferParameteriv and Gl.GetBufferParameteri64v. Must 
+		/// be one of the buffer binding targets in the following table:
+		/// </param>
+		/// <param name="value">
+		/// Specifies the name of the buffer object parameter to query.
+		/// </param>
+		/// <param name="data">
+		/// Returns the requested parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_5")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
+		public static void GetBufferParameteri<T>(BufferTarget target, Int32 value, ref T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetBufferParameteriv((Int32)target, value, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(data);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglGetBufferParameteriv((Int32)target, value, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetBufferParameteriv", null, target, value, data			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetBufferPointerv: return the pointer to a mapped buffer object's data store
 		/// </para>
 		/// </summary>

@@ -1229,11 +1229,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1i<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform1iv != null, "pglProgramUniform1iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform1(program, location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform1iv(program, location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1243,9 +1244,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform1(program, location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform1iv(program, location, count, (Int32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform1iv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1366,11 +1369,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1f<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform1fv != null, "pglProgramUniform1fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform1(program, location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform1fv(program, location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1380,9 +1384,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform1(program, location, count, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform1fv(program, location, count, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform1fv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1478,11 +1484,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniform1d<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform1dv != null, "pglProgramUniform1dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform1(program, location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform1dv(program, location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1492,9 +1499,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform1(program, location, count, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform1dv(program, location, count, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform1dv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1615,11 +1624,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform1ui<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform1uiv != null, "pglProgramUniform1uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform1(program, location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform1uiv(program, location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1629,9 +1639,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform1(program, location, count, (UInt32*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform1uiv(program, location, count, (UInt32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform1uiv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1756,11 +1768,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2i<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform2iv != null, "pglProgramUniform2iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform2(program, location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform2iv(program, location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1770,9 +1783,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform2(program, location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform2iv(program, location, count, (Int32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform2iv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1897,11 +1912,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2f<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform2fv != null, "pglProgramUniform2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform2(program, location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform2fv(program, location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1911,9 +1927,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform2(program, location, count, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform2fv(program, location, count, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform2fv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2013,11 +2031,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniform2d<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform2dv != null, "pglProgramUniform2dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform2(program, location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform2dv(program, location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2027,9 +2046,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform2(program, location, count, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform2dv(program, location, count, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform2dv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2154,11 +2175,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform2ui<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform2uiv != null, "pglProgramUniform2uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform2(program, location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform2uiv(program, location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2168,9 +2190,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform2(program, location, count, (UInt32*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform2uiv(program, location, count, (UInt32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform2uiv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2298,11 +2322,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3i<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform3iv != null, "pglProgramUniform3iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform3(program, location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform3iv(program, location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2312,9 +2337,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform3(program, location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform3iv(program, location, count, (Int32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform3iv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2442,11 +2469,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3f<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform3fv != null, "pglProgramUniform3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform3(program, location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform3fv(program, location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2456,9 +2484,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform3(program, location, count, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform3fv(program, location, count, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform3fv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2561,11 +2591,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniform3d<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform3dv != null, "pglProgramUniform3dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform3(program, location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform3dv(program, location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2575,9 +2606,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform3(program, location, count, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform3dv(program, location, count, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform3dv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2705,11 +2738,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform3ui<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform3uiv != null, "pglProgramUniform3uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform3(program, location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform3uiv(program, location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2719,9 +2753,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform3(program, location, count, (UInt32*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform3uiv(program, location, count, (UInt32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform3uiv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2852,11 +2888,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4i<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform4iv != null, "pglProgramUniform4iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform4(program, location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform4iv(program, location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2866,9 +2903,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform4(program, location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform4iv(program, location, count, (Int32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform4iv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2999,11 +3038,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4f<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform4fv != null, "pglProgramUniform4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform4(program, location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform4fv(program, location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3013,9 +3053,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform4(program, location, count, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform4fv(program, location, count, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform4fv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3121,11 +3163,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniform4d<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform4dv != null, "pglProgramUniform4dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform4(program, location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform4dv(program, location, count, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3135,9 +3178,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform4(program, location, count, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform4dv(program, location, count, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform4dv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3268,11 +3313,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniform4ui<T>(UInt32 program, Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniform4uiv != null, "pglProgramUniform4uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniform4(program, location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniform4uiv(program, location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3282,9 +3328,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniform4(program, location, count, (UInt32*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniform4uiv(program, location, count, (UInt32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniform4uiv", null, program, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3388,11 +3436,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix2f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2fv != null, "pglProgramUniformMatrix2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix2(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix2fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3402,9 +3451,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix2(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix2fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix2fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3508,11 +3559,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix3f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3fv != null, "pglProgramUniformMatrix3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix3(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix3fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3522,9 +3574,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix3(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix3fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix3fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3631,11 +3685,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix4f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4fv != null, "pglProgramUniformMatrix4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix4(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix4fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3645,9 +3700,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix4(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix4fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix4fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3731,11 +3788,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix2d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2dv != null, "pglProgramUniformMatrix2dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix2(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix2dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3745,9 +3803,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix2(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix2dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix2dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3831,11 +3891,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix3d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3dv != null, "pglProgramUniformMatrix3dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix3(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix3dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3845,9 +3906,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix3(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix3dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix3dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3931,11 +3994,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix4d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4dv != null, "pglProgramUniformMatrix4dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix4(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix4dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3945,9 +4009,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix4(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix4dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix4dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4051,11 +4117,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix2x3f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2x3fv != null, "pglProgramUniformMatrix2x3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix2x3(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix2x3fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4065,9 +4132,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix2x3(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix2x3fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix2x3fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4171,11 +4240,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix3x2f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3x2fv != null, "pglProgramUniformMatrix3x2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix3x2(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix3x2fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4185,9 +4255,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix3x2(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix3x2fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix3x2fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4291,11 +4363,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix2x4f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2x4fv != null, "pglProgramUniformMatrix2x4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix2x4(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix2x4fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4305,9 +4378,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix2x4(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix2x4fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix2x4fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4411,11 +4486,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix4x2f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4x2fv != null, "pglProgramUniformMatrix4x2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix4x2(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix4x2fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4425,9 +4501,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix4x2(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix4x2fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix4x2fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4531,11 +4609,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix3x4f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3x4fv != null, "pglProgramUniformMatrix3x4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix3x4(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix3x4fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4545,9 +4624,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix3x4(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix3x4fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix3x4fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4651,11 +4732,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix4x3f<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4x3fv != null, "pglProgramUniformMatrix4x3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix4x3(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix4x3fv(program, location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4665,9 +4747,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix4x3(program, location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix4x3fv(program, location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix4x3fv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4751,11 +4835,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix2x3d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2x3dv != null, "pglProgramUniformMatrix2x3dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix2x3(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix2x3dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4765,9 +4850,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix2x3(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix2x3dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix2x3dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4851,11 +4938,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix3x2d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3x2dv != null, "pglProgramUniformMatrix3x2dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix3x2(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix3x2dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4865,9 +4953,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix3x2(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix3x2dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix3x2dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4951,11 +5041,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix2x4d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix2x4dv != null, "pglProgramUniformMatrix2x4dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix2x4(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix2x4dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4965,9 +5056,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix2x4(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix2x4dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix2x4dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5051,11 +5144,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix4x2d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4x2dv != null, "pglProgramUniformMatrix4x2dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix4x2(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix4x2dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5065,9 +5159,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix4x2(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix4x2dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix4x2dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5151,11 +5247,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix3x4d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix3x4dv != null, "pglProgramUniformMatrix3x4dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix3x4(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix3x4dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5165,9 +5262,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix3x4(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix3x4dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix3x4dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5251,11 +5350,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		public static void ProgramUniformMatrix4x3d<T>(UInt32 program, Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglProgramUniformMatrix4x3dv != null, "pglProgramUniformMatrix4x3dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					ProgramUniformMatrix4x3(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglProgramUniformMatrix4x3dv(program, location, count, transpose, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5265,9 +5365,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				ProgramUniformMatrix4x3(program, location, count, transpose, (double*)refValuePtr.ToPointer());
+				Delegates.pglProgramUniformMatrix4x3dv(program, location, count, transpose, (double*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glProgramUniformMatrix4x3dv", null, program, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5485,11 +5587,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL1d<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribL1dv != null, "pglVertexAttribL1dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribL1(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribL1dv(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5499,9 +5602,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribL1(index, (double*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribL1dv(index, (double*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribL1dv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5567,11 +5672,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL2d<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribL2dv != null, "pglVertexAttribL2dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribL2(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribL2dv(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5581,9 +5687,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribL2(index, (double*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribL2dv(index, (double*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribL2dv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5649,11 +5757,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL3d<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribL3dv != null, "pglVertexAttribL3dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribL3(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribL3dv(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5663,9 +5772,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribL3(index, (double*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribL3dv(index, (double*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribL3dv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5731,11 +5842,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
 		public static void VertexAttribL4d<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribL4dv != null, "pglVertexAttribL4dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribL4(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribL4dv(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5745,9 +5857,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribL4(index, (double*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribL4dv(index, (double*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribL4dv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>

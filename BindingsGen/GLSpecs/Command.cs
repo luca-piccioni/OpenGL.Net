@@ -1115,10 +1115,15 @@ namespace BindingsGen.GLSpecs
 		/// </param>
 		private void GenerateImplementation_Generics(SourceStreamWriter sw, RegistryContext ctx)
 		{
+			Command aliasCommand = this;
+
+			// The implementation returned type
+			string returnType = aliasCommand.GetImplementationReturnType(ctx);
+
 			// Identify the generic argument:
 			// - It must a array/pointer type
 			// - It must be the last one
-			List<CommandParameter> genericParameters = GetDefaultParameters(ctx);
+			List<CommandParameter> genericParameters = GetStrongParameters(ctx);
 
 			CommandParameter genericParam = genericParameters[genericParameters.Count - 1];
 			CommandParameter originalParam = Parameters[Parameters.Count - 1];
@@ -1135,10 +1140,18 @@ namespace BindingsGen.GLSpecs
 			// - It must end with 'v'
 			// - It must include the argument type (i.e. glUniform2iv -> Uniform2i)
 			string implementationName = Prototype.Name.Substring(ctx.Class.Length);
+			string extensionPostfix;
+			string apiImplementationName = GetImplementationName(ctx, out extensionPostfix);
+
+			if (implementationName.EndsWith(extensionPostfix))
+				implementationName = implementationName.Substring(0, implementationName.Length - extensionPostfix.Length);
 
 			if (implementationName.EndsWith("v") == false)
 				throw new NotSupportedException("not a vector command");
 			implementationName = implementationName.Substring(0, implementationName.Length - 1);
+
+			if (extensionPostfix != null)
+				implementationName = implementationName + extensionPostfix;
 
 			// Signature (generic with constraints
 			GenerateImplementation_Signature(sw, ctx, genericParameters, implementationName + "<T>", GetImplementationReturnType(ctx), "where T : struct");
@@ -1146,6 +1159,8 @@ namespace BindingsGen.GLSpecs
 			// Implementation block
 			sw.WriteLine("{");
 			sw.Indent();
+
+			sw.WriteLine("Debug.Assert(Delegates.{0} != null, \"{0} not implemented\");", DelegateName);
 
 			sw.WriteLine("#if NETCOREAPP1_1");
 
@@ -1158,10 +1173,15 @@ namespace BindingsGen.GLSpecs
 			sw.WriteLine("unsafe {");
 			sw.Indent();
 
-			#region Unsafe Method Call
+			#region Delegate Call
 
 			sw.WriteIdentation();
-			sw.Write("{0}(", GetImplementationName(ctx));
+
+			// Local return value
+			if (HasReturnValue) 
+				sw.Write("{0} = ", ReturnVariableName);
+
+			sw.Write("Delegates.{0}(", DelegateName);
 
 			#region Parameters
 
@@ -1181,6 +1201,7 @@ namespace BindingsGen.GLSpecs
 			#endregion
 
 			sw.Write(")");
+
 			sw.Write(";");
 			sw.WriteLine();
 			sw.Unindent();
@@ -1217,10 +1238,15 @@ namespace BindingsGen.GLSpecs
 
 			#endregion
 
-			#region Unsafe Method Call
+			#region Delegate Call
 
 			sw.WriteIdentation();
-			sw.Write("{0}(", GetImplementationName(ctx));
+
+			// Local return value
+			if (HasReturnValue) 
+				sw.Write("{0} = ", ReturnVariableName);
+
+			sw.Write("Delegates.{0}(", DelegateName);
 
 			#region Parameters
 
@@ -1240,6 +1266,7 @@ namespace BindingsGen.GLSpecs
 			#endregion
 
 			sw.Write(")");
+
 			sw.Write(";");
 			sw.WriteLine();
 
@@ -1252,6 +1279,48 @@ namespace BindingsGen.GLSpecs
 			#endregion
 
 			sw.WriteLine("#endif");
+
+			#region Call Log
+
+			// Log command
+			sw.WriteIdentation(); sw.Write("LogCommand(\"{0}\"", ImportName);
+			// Return value
+			if (HasReturnValue) {
+				sw.Write(", ");
+				CommandParameter.WriteCallLogArgParam(sw, GetReturnValueExpression(ctx), returnType);
+			} else {
+				sw.Write(", null");
+			}
+			// Arguments
+			if (genericParameters.Count > 0) {
+				sw.Write(", ");
+				for (int i = 0; i < genericParameters.Count; i++) {
+					genericParameters[i].WriteCallLogArgParam(sw, ctx, this);
+					if (i < genericParameters.Count - 1)
+						sw.Write(", ");
+				}
+			}
+			// End LogCommand
+			sw.WriteLine(");");
+
+			#endregion
+
+			// Check call errors
+			if ((Flags & CommandFlags.NoGetError) == 0) {
+				string returnValue = "null";
+
+				// Optionally pass the returned value to error checking method
+				if (HasReturnValue && !IsUnsafeImplementationSignature(ctx, genericParameters))
+					returnValue = ReturnVariableName;
+
+				sw.WriteLine("DebugCheckErrors({0});", returnValue);
+			}
+
+			// Returns value
+			if (HasReturnValue) {
+				sw.WriteLine();
+				sw.WriteLine("return ({0});", GetReturnValueExpression(ctx));
+			}
 
 			// Implementation block
 			sw.Unindent();
@@ -1272,7 +1341,7 @@ namespace BindingsGen.GLSpecs
 			// Identify the generic argument:
 			// - It must a array/pointer type
 			// - It must be the last one
-			List<CommandParameter> genericParameters = GetDefaultParameters(ctx);
+			List<CommandParameter> genericParameters = GetStrongParameters(ctx);
 
 			CommandParameter genericParam = genericParameters[genericParameters.Count - 1];
 			CommandParameter originalParam = Parameters[Parameters.Count - 1];

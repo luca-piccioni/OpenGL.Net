@@ -1768,11 +1768,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetUniformf<T>(UInt32 program, Int32 location, ref T @params) where T : struct
 		{
+			Debug.Assert(Delegates.pglGetUniformfv != null, "pglGetUniformfv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					GetUniform(program, location, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetUniformfv(program, location, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1782,9 +1783,11 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				GetUniform(program, location, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetUniformfv(program, location, (float*)refParamsPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glGetUniformfv", null, program, location, @params			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1861,11 +1864,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void GetUniformi<T>(UInt32 program, Int32 location, ref T @params) where T : struct
 		{
+			Debug.Assert(Delegates.pglGetUniformiv != null, "pglGetUniformiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					GetUniform(program, location, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetUniformiv(program, location, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1875,9 +1879,11 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				GetUniform(program, location, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetUniformiv(program, location, (Int32*)refParamsPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glGetUniformiv", null, program, location, @params			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2536,11 +2542,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1f<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform1(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform1fv(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2550,9 +2557,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform1(location, count, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniform1fv(location, count, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform1fv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2635,11 +2644,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2f<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform2(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform2fv(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2649,9 +2659,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform2(location, count, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniform2fv(location, count, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform2fv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2734,11 +2746,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3f<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform3(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform3fv(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2748,9 +2761,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform3(location, count, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniform3fv(location, count, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform3fv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2833,11 +2848,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4f<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform4(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform4fv(location, count, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2847,9 +2863,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform4(location, count, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniform4fv(location, count, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform4fv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -2931,11 +2949,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform1i<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform1(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform1iv(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2945,9 +2964,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform1(location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglUniform1iv(location, count, (Int32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform1iv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3030,11 +3051,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform2i<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform2(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform2iv(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3044,9 +3066,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform2(location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglUniform2iv(location, count, (Int32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform2iv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3129,11 +3153,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform3i<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform3(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform3iv(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3143,9 +3168,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform3(location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglUniform3iv(location, count, (Int32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform3iv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3228,11 +3255,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void Uniform4i<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform4(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform4iv(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3242,9 +3270,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform4(location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglUniform4iv(location, count, (Int32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform4iv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3336,11 +3366,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix2fv != null, "pglUniformMatrix2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix2(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix2fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3350,9 +3381,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix2(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix2fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix2fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3444,11 +3477,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix3fv != null, "pglUniformMatrix3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix3(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix3fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3458,9 +3492,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix3(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix3fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix3fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3552,11 +3588,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_shader_objects")]
 		public static void UniformMatrix4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix4fv != null, "pglUniformMatrix4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix4(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix4fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3566,9 +3603,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix4(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix4fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix4fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3676,11 +3715,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1d<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib1dv != null, "pglVertexAttrib1dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib1(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib1dv(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3690,9 +3730,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib1(index, (double*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib1dv(index, (double*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib1dv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3797,11 +3839,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1f<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib1fv != null, "pglVertexAttrib1fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib1(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib1fv(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3811,9 +3854,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib1(index, (float*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib1fv(index, (float*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib1fv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3902,11 +3947,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib1s<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib1sv != null, "pglVertexAttrib1sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib1(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib1sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3916,9 +3962,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib1(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib1sv(index, (Int16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib1sv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4010,11 +4058,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2d<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib2dv != null, "pglVertexAttrib2dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib2(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib2dv(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4024,9 +4073,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib2(index, (double*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib2dv(index, (double*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib2dv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4134,11 +4185,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2f<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib2fv != null, "pglVertexAttrib2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib2(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib2fv(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4148,9 +4200,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib2(index, (float*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib2fv(index, (float*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib2fv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4242,11 +4296,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib2s<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib2sv != null, "pglVertexAttrib2sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib2(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib2sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4256,9 +4311,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib2(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib2sv(index, (Int16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib2sv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4353,11 +4410,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3d<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib3dv != null, "pglVertexAttrib3dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib3(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib3dv(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4367,9 +4425,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib3(index, (double*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib3dv(index, (double*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib3dv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4480,11 +4540,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3f<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib3fv != null, "pglVertexAttrib3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib3(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib3fv(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4494,9 +4555,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib3(index, (float*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib3fv(index, (float*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib3fv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4591,11 +4654,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib3s<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib3sv != null, "pglVertexAttrib3sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib3(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib3sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4605,9 +4669,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib3(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib3sv(index, (Int16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib3sv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4673,11 +4739,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Nb<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nbv != null, "pglVertexAttrib4Nbv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4N(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Nbv(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4687,9 +4754,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4N(index, (sbyte*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Nbv(index, (sbyte*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4Nbv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4755,11 +4824,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Ni<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4Niv != null, "pglVertexAttrib4Niv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4N(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Niv(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4769,9 +4839,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4N(index, (Int32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Niv(index, (Int32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4Niv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4837,11 +4909,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Ns<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nsv != null, "pglVertexAttrib4Nsv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4N(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Nsv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4851,9 +4924,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4N(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Nsv(index, (Int16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4Nsv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4951,11 +5026,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4Nub<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nubv != null, "pglVertexAttrib4Nubv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4N(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Nubv(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4965,9 +5041,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4N(index, (byte*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Nubv(index, (byte*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4Nubv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5033,11 +5111,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Nui<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nuiv != null, "pglVertexAttrib4Nuiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4N(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Nuiv(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5047,9 +5126,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4N(index, (UInt32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Nuiv(index, (UInt32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4Nuiv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5115,11 +5196,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4Nus<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4Nusv != null, "pglVertexAttrib4Nusv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4N(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Nusv(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5129,9 +5211,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4N(index, (UInt16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Nusv(index, (UInt16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4Nusv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5197,11 +5281,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4b<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4bv != null, "pglVertexAttrib4bv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4bv(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5211,9 +5296,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4(index, (sbyte*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4bv(index, (sbyte*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4bv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5311,11 +5398,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4d<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4dv != null, "pglVertexAttrib4dv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4dv(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5325,9 +5413,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4(index, (double*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4dv(index, (double*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4dv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5441,11 +5531,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4f<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4fv != null, "pglVertexAttrib4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4fv(index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5455,9 +5546,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4(index, (float*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4fv(index, (float*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4fv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5523,11 +5616,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4i<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4iv != null, "pglVertexAttrib4iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4iv(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5537,9 +5631,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4(index, (Int32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4iv(index, (Int32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4iv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5637,11 +5733,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program")]
 		public static void VertexAttrib4s<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4sv != null, "pglVertexAttrib4sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5651,9 +5748,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4sv(index, (Int16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4sv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5719,11 +5818,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ub<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4ubv != null, "pglVertexAttrib4ubv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4ub(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4ubv(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5733,9 +5833,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4ub(index, (byte*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4ubv(index, (byte*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4ubv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5801,11 +5903,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4ui<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4uiv != null, "pglVertexAttrib4uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4uiv(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5815,9 +5918,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4(index, (UInt32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4uiv(index, (UInt32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4uiv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5883,11 +5988,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		public static void VertexAttrib4us<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttrib4usv != null, "pglVertexAttrib4usv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttrib4(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4usv(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5897,9 +6003,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttrib4(index, (UInt16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4usv(index, (UInt16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttrib4usv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>

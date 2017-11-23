@@ -177,7 +177,7 @@
 	<!-- Get "object parameter" -->
 	<command name="^glGet(Named)?(Buffer|Framebuffer(Attachment)?|Object|Renderbuffer|Sampler|Tex(ture)?(Level)?)Parameter(I)?(i|f|ui)v(ARB|EXT)?$">
 		<!-- Generate "out" overloads -->
-		<flags>OutParam</flags>
+		<flags>OutParam UnsafeParams GenericParams</flags>
 	</command>
 
 	<!-- glGetShaderPrecisionFormat specific -->

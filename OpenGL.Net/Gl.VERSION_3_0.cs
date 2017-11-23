@@ -3210,11 +3210,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1i<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI1iv != null, "pglVertexAttribI1iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI1(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI1iv(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3224,9 +3225,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI1(index, (Int32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI1iv(index, (Int32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI1iv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3289,11 +3292,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2i<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI2iv != null, "pglVertexAttribI2iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI2(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI2iv(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3303,9 +3307,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI2(index, (Int32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI2iv(index, (Int32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI2iv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3368,11 +3374,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3i<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI3iv != null, "pglVertexAttribI3iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI3(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI3iv(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3382,9 +3389,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI3(index, (Int32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI3iv(index, (Int32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI3iv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3456,11 +3465,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4i<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI4iv != null, "pglVertexAttribI4iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI4(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI4iv(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3470,9 +3480,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI4(index, (Int32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4iv(index, (Int32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI4iv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3535,11 +3547,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1ui<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI1uiv != null, "pglVertexAttribI1uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI1(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI1uiv(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3549,9 +3562,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI1(index, (UInt32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI1uiv(index, (UInt32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI1uiv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3614,11 +3629,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2ui<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI2uiv != null, "pglVertexAttribI2uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI2(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI2uiv(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3628,9 +3644,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI2(index, (UInt32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI2uiv(index, (UInt32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI2uiv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3693,11 +3711,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3ui<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI3uiv != null, "pglVertexAttribI3uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI3(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI3uiv(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3707,9 +3726,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI3(index, (UInt32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI3uiv(index, (UInt32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI3uiv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3781,11 +3802,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4ui<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI4uiv != null, "pglVertexAttribI4uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI4(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI4uiv(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3795,9 +3817,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI4(index, (UInt32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4uiv(index, (UInt32*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI4uiv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3860,11 +3884,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4b<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI4bv != null, "pglVertexAttribI4bv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI4(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI4bv(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3874,9 +3899,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI4(index, (sbyte*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4bv(index, (sbyte*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI4bv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -3939,11 +3966,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4s<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI4sv != null, "pglVertexAttribI4sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI4(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI4sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3953,9 +3981,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI4(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4sv(index, (Int16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI4sv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4018,11 +4048,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4ub<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI4ubv != null, "pglVertexAttribI4ubv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI4(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI4ubv(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4032,9 +4063,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI4(index, (byte*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4ubv(index, (byte*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI4ubv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4097,11 +4130,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4us<T>(UInt32 index, ref T v) where T : struct
 		{
+			Debug.Assert(Delegates.pglVertexAttribI4usv != null, "pglVertexAttribI4usv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					VertexAttribI4(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttribI4usv(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4111,9 +4145,11 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				VertexAttribI4(index, (UInt16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4usv(index, (UInt16*)refVPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glVertexAttribI4usv", null, index, v			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4190,11 +4226,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void GetUniformui<T>(UInt32 program, Int32 location, ref T @params) where T : struct
 		{
+			Debug.Assert(Delegates.pglGetUniformuiv != null, "pglGetUniformuiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					GetUniform(program, location, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetUniformuiv(program, location, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4204,9 +4241,11 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				GetUniform(program, location, (UInt32*)refParamsPtr.ToPointer());
+				Delegates.pglGetUniformuiv(program, location, (UInt32*)refParamsPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glGetUniformuiv", null, program, location, @params			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4440,11 +4479,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform1ui<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform1uiv != null, "pglUniform1uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform1(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform1uiv(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4454,9 +4494,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform1(location, count, (UInt32*)refValuePtr.ToPointer());
+				Delegates.pglUniform1uiv(location, count, (UInt32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform1uiv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4536,11 +4578,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform2ui<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform2uiv != null, "pglUniform2uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform2(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform2uiv(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4550,9 +4593,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform2(location, count, (UInt32*)refValuePtr.ToPointer());
+				Delegates.pglUniform2uiv(location, count, (UInt32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform2uiv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4632,11 +4677,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform3ui<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform3uiv != null, "pglUniform3uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform3(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform3uiv(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4646,9 +4692,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform3(location, count, (UInt32*)refValuePtr.ToPointer());
+				Delegates.pglUniform3uiv(location, count, (UInt32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform3uiv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4728,11 +4776,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		public static void Uniform4ui<T>(Int32 location, Int32 count, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniform4uiv != null, "pglUniform4uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Uniform4(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform4uiv(location, count, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4742,9 +4791,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Uniform4(location, count, (UInt32*)refValuePtr.ToPointer());
+				Delegates.pglUniform4uiv(location, count, (UInt32*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniform4uiv", null, location, count, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4781,10 +4832,10 @@ namespace OpenGL
 		/// [GL] glTexParameterIiv: Binding for glTexParameterIiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Int32*"/>.
@@ -4794,10 +4845,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static unsafe void TexParameterI(Int32 target, Int32 pname, Int32* @params)
+		public static unsafe void TexParameterI(TextureTarget target, TextureParameterName pname, Int32* @params)
 		{
 			Debug.Assert(Delegates.pglTexParameterIiv != null, "pglTexParameterIiv not implemented");
-			Delegates.pglTexParameterIiv(target, pname, @params);
+			Delegates.pglTexParameterIiv((Int32)target, (Int32)pname, @params);
 			LogCommand("glTexParameterIiv", null, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -4806,10 +4857,10 @@ namespace OpenGL
 		/// [GL] glTexParameterIiv: Binding for glTexParameterIiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:T"/>.
@@ -4819,13 +4870,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void TexParameterIi<T>(Int32 target, Int32 pname, ref T @params) where T : struct
+		public static void TexParameterIi<T>(TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
 		{
+			Debug.Assert(Delegates.pglTexParameterIiv != null, "pglTexParameterIiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					TexParameterI(target, pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglTexParameterIiv((Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4835,9 +4887,11 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				TexParameterI(target, pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglTexParameterIiv((Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glTexParameterIiv", null, target, pname, @params			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -4874,10 +4928,10 @@ namespace OpenGL
 		/// [GL] glTexParameterIuiv: Binding for glTexParameterIuiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:UInt32*"/>.
@@ -4887,10 +4941,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static unsafe void TexParameterI(Int32 target, Int32 pname, UInt32* @params)
+		public static unsafe void TexParameterI(TextureTarget target, TextureParameterName pname, UInt32* @params)
 		{
 			Debug.Assert(Delegates.pglTexParameterIuiv != null, "pglTexParameterIuiv not implemented");
-			Delegates.pglTexParameterIuiv(target, pname, @params);
+			Delegates.pglTexParameterIuiv((Int32)target, (Int32)pname, @params);
 			LogCommand("glTexParameterIuiv", null, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -4899,10 +4953,10 @@ namespace OpenGL
 		/// [GL] glTexParameterIuiv: Binding for glTexParameterIuiv.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:T"/>.
@@ -4912,13 +4966,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void TexParameterIui<T>(Int32 target, Int32 pname, ref T @params) where T : struct
+		public static void TexParameterIui<T>(TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
 		{
+			Debug.Assert(Delegates.pglTexParameterIuiv != null, "pglTexParameterIuiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					TexParameterI(target, pname, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglTexParameterIuiv((Int32)target, (Int32)pname, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4928,9 +4983,11 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				TexParameterI(target, pname, (UInt32*)refParamsPtr.ToPointer());
+				Delegates.pglTexParameterIuiv((Int32)target, (Int32)pname, (UInt32*)refParamsPtr.ToPointer());
 			}
 			#endif
+			LogCommand("glTexParameterIuiv", null, target, pname, @params			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -5017,6 +5074,94 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetTexParameterIiv: return texture parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
+		/// Gl.GetTexParameterIiv, and Gl.GetTexParameterIuiv functions. Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_2D_MULTISAMPLE, Gl.TEXTURE_2D_MULTISAMPLE_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, 
+		/// Gl.TEXTURE_RECTANGLE, and Gl.TEXTURE_CUBE_MAP_ARRAY are accepted.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a texture parameter. Gl.DEPTH_STENCIL_TEXTURE_MODE, Gl.IMAGE_FORMAT_COMPATIBILITY_TYPE, 
+		/// Gl.TEXTURE_BASE_LEVEL, Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, 
+		/// Gl.TEXTURE_IMMUTABLE_FORMAT, Gl.TEXTURE_IMMUTABLE_LEVELS, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_SWIZZLE_R, 
+		/// Gl.TEXTURE_SWIZZLE_G, Gl.TEXTURE_SWIZZLE_B, Gl.TEXTURE_SWIZZLE_A, Gl.TEXTURE_SWIZZLE_RGBA, Gl.TEXTURE_TARGET, 
+		/// Gl.TEXTURE_VIEW_MIN_LAYER, Gl.TEXTURE_VIEW_MIN_LEVEL, Gl.TEXTURE_VIEW_NUM_LAYERS, Gl.TEXTURE_VIEW_NUM_LEVELS, 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, and Gl.TEXTURE_WRAP_R are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the texture parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static unsafe void GetTexParameterI(TextureTarget target, GetTextureParameter pname, [Out] Int32* @params)
+		{
+			Debug.Assert(Delegates.pglGetTexParameterIiv != null, "pglGetTexParameterIiv not implemented");
+			Delegates.pglGetTexParameterIiv((Int32)target, (Int32)pname, @params);
+			LogCommand("glGetTexParameterIiv", null, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetTexParameterIiv: return texture parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
+		/// Gl.GetTexParameterIiv, and Gl.GetTexParameterIuiv functions. Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_2D_MULTISAMPLE, Gl.TEXTURE_2D_MULTISAMPLE_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, 
+		/// Gl.TEXTURE_RECTANGLE, and Gl.TEXTURE_CUBE_MAP_ARRAY are accepted.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a texture parameter. Gl.DEPTH_STENCIL_TEXTURE_MODE, Gl.IMAGE_FORMAT_COMPATIBILITY_TYPE, 
+		/// Gl.TEXTURE_BASE_LEVEL, Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, 
+		/// Gl.TEXTURE_IMMUTABLE_FORMAT, Gl.TEXTURE_IMMUTABLE_LEVELS, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_SWIZZLE_R, 
+		/// Gl.TEXTURE_SWIZZLE_G, Gl.TEXTURE_SWIZZLE_B, Gl.TEXTURE_SWIZZLE_A, Gl.TEXTURE_SWIZZLE_RGBA, Gl.TEXTURE_TARGET, 
+		/// Gl.TEXTURE_VIEW_MIN_LAYER, Gl.TEXTURE_VIEW_MIN_LEVEL, Gl.TEXTURE_VIEW_NUM_LAYERS, Gl.TEXTURE_VIEW_NUM_LEVELS, 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, and Gl.TEXTURE_WRAP_R are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the texture parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static void GetTexParameterIi<T>(TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetTexParameterIiv != null, "pglGetTexParameterIiv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglGetTexParameterIiv((Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglGetTexParameterIiv((Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetTexParameterIiv", null, target, pname, @params			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetTexParameterIuiv: return texture parameter values
 		/// </para>
 		/// </summary>
@@ -5094,6 +5239,94 @@ namespace OpenGL
 					LogCommand("glGetTexParameterIuiv", null, target, pname, @params					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetTexParameterIuiv: return texture parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
+		/// Gl.GetTexParameterIiv, and Gl.GetTexParameterIuiv functions. Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_2D_MULTISAMPLE, Gl.TEXTURE_2D_MULTISAMPLE_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, 
+		/// Gl.TEXTURE_RECTANGLE, and Gl.TEXTURE_CUBE_MAP_ARRAY are accepted.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a texture parameter. Gl.DEPTH_STENCIL_TEXTURE_MODE, Gl.IMAGE_FORMAT_COMPATIBILITY_TYPE, 
+		/// Gl.TEXTURE_BASE_LEVEL, Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, 
+		/// Gl.TEXTURE_IMMUTABLE_FORMAT, Gl.TEXTURE_IMMUTABLE_LEVELS, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_SWIZZLE_R, 
+		/// Gl.TEXTURE_SWIZZLE_G, Gl.TEXTURE_SWIZZLE_B, Gl.TEXTURE_SWIZZLE_A, Gl.TEXTURE_SWIZZLE_RGBA, Gl.TEXTURE_TARGET, 
+		/// Gl.TEXTURE_VIEW_MIN_LAYER, Gl.TEXTURE_VIEW_MIN_LEVEL, Gl.TEXTURE_VIEW_NUM_LAYERS, Gl.TEXTURE_VIEW_NUM_LEVELS, 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, and Gl.TEXTURE_WRAP_R are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the texture parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static unsafe void GetTexParameterI(TextureTarget target, GetTextureParameter pname, [Out] UInt32* @params)
+		{
+			Debug.Assert(Delegates.pglGetTexParameterIuiv != null, "pglGetTexParameterIuiv not implemented");
+			Delegates.pglGetTexParameterIuiv((Int32)target, (Int32)pname, @params);
+			LogCommand("glGetTexParameterIuiv", null, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetTexParameterIuiv: return texture parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
+		/// Gl.GetTexParameterIiv, and Gl.GetTexParameterIuiv functions. Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_2D_MULTISAMPLE, Gl.TEXTURE_2D_MULTISAMPLE_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, 
+		/// Gl.TEXTURE_RECTANGLE, and Gl.TEXTURE_CUBE_MAP_ARRAY are accepted.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a texture parameter. Gl.DEPTH_STENCIL_TEXTURE_MODE, Gl.IMAGE_FORMAT_COMPATIBILITY_TYPE, 
+		/// Gl.TEXTURE_BASE_LEVEL, Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, 
+		/// Gl.TEXTURE_IMMUTABLE_FORMAT, Gl.TEXTURE_IMMUTABLE_LEVELS, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_SWIZZLE_R, 
+		/// Gl.TEXTURE_SWIZZLE_G, Gl.TEXTURE_SWIZZLE_B, Gl.TEXTURE_SWIZZLE_A, Gl.TEXTURE_SWIZZLE_RGBA, Gl.TEXTURE_TARGET, 
+		/// Gl.TEXTURE_VIEW_MIN_LAYER, Gl.TEXTURE_VIEW_MIN_LEVEL, Gl.TEXTURE_VIEW_NUM_LAYERS, Gl.TEXTURE_VIEW_NUM_LEVELS, 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, and Gl.TEXTURE_WRAP_R are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the texture parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_integer")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static void GetTexParameterIui<T>(TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetTexParameterIuiv != null, "pglGetTexParameterIuiv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglGetTexParameterIuiv((Int32)target, (Int32)pname, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglGetTexParameterIuiv((Int32)target, (Int32)pname, (UInt32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetTexParameterIuiv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
 
@@ -5472,6 +5705,84 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4] glGetRenderbufferParameteriv: query a named parameter of a renderbuffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glGetRenderbufferParameteriv: retrieve information about a bound renderbuffer object
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the renderbuffer object is bound for Gl.GetRenderbufferParameteriv. <paramref 
+		/// name="target"/> must be Gl.RENDERBUFFER.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of the renderbuffer object to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for the renderbuffer object.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static unsafe void GetRenderbufferParameter(RenderbufferTarget target, RenderbufferParameterName pname, [Out] Int32* @params)
+		{
+			Debug.Assert(Delegates.pglGetRenderbufferParameteriv != null, "pglGetRenderbufferParameteriv not implemented");
+			Delegates.pglGetRenderbufferParameteriv((Int32)target, (Int32)pname, @params);
+			LogCommand("glGetRenderbufferParameteriv", null, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4] glGetRenderbufferParameteriv: query a named parameter of a renderbuffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glGetRenderbufferParameteriv: retrieve information about a bound renderbuffer object
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the renderbuffer object is bound for Gl.GetRenderbufferParameteriv. <paramref 
+		/// name="target"/> must be Gl.RENDERBUFFER.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of the renderbuffer object to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for the renderbuffer object.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static void GetRenderbufferParameteri<T>(RenderbufferTarget target, RenderbufferParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetRenderbufferParameteriv != null, "pglGetRenderbufferParameteriv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglGetRenderbufferParameteriv((Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglGetRenderbufferParameteriv((Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetRenderbufferParameteriv", null, target, pname, @params			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glIsFramebuffer: determine if a name corresponds to a framebuffer object
 		/// </para>
 		/// </summary>
@@ -5822,6 +6133,88 @@ namespace OpenGL
 					LogCommand("glGetFramebufferAttachmentParameteriv", null, target, attachment, pname, @params					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4] glGetFramebufferAttachmentParameteriv: retrieve information about attachments of a framebuffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glGetFramebufferAttachmentParameteriv: retrieve information about attachments of a bound framebuffer object
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the framebuffer object is bound for Gl.GetFramebufferAttachmentParameteriv.
+		/// </param>
+		/// <param name="attachment">
+		/// Specifies the attachment of the framebuffer object to query.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of <paramref name="attachment"/> to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for <paramref name="attachment"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static unsafe void GetFramebufferAttachmentParameter(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] Int32* @params)
+		{
+			Debug.Assert(Delegates.pglGetFramebufferAttachmentParameteriv != null, "pglGetFramebufferAttachmentParameteriv not implemented");
+			Delegates.pglGetFramebufferAttachmentParameteriv((Int32)target, (Int32)attachment, (Int32)pname, @params);
+			LogCommand("glGetFramebufferAttachmentParameteriv", null, target, attachment, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4] glGetFramebufferAttachmentParameteriv: retrieve information about attachments of a framebuffer object
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glGetFramebufferAttachmentParameteriv: retrieve information about attachments of a bound framebuffer object
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the framebuffer object is bound for Gl.GetFramebufferAttachmentParameteriv.
+		/// </param>
+		/// <param name="attachment">
+		/// Specifies the attachment of the framebuffer object to query.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of <paramref name="attachment"/> to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for <paramref name="attachment"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_framebuffer_object")]
+		public static void GetFramebufferAttachmentParameteri<T>(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetFramebufferAttachmentParameteriv != null, "pglGetFramebufferAttachmentParameteriv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglGetFramebufferAttachmentParameteriv((Int32)target, (Int32)attachment, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglGetFramebufferAttachmentParameteriv((Int32)target, (Int32)attachment, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetFramebufferAttachmentParameteriv", null, target, attachment, pname, @params			);
 			DebugCheckErrors(null);
 		}
 

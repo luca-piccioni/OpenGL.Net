@@ -326,11 +326,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix2x3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix2x3fv != null, "pglUniformMatrix2x3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix2x3(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix2x3fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -340,9 +341,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix2x3(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix2x3fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix2x3fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -431,11 +434,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix3x2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix3x2fv != null, "pglUniformMatrix3x2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix3x2(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix3x2fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -445,9 +449,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix3x2(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix3x2fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix3x2fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -536,11 +542,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix2x4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix2x4fv != null, "pglUniformMatrix2x4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix2x4(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix2x4fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -550,9 +557,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix2x4(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix2x4fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix2x4fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -641,11 +650,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix4x2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix4x2fv != null, "pglUniformMatrix4x2fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix4x2(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix4x2fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -655,9 +665,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix4x2(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix4x2fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix4x2fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -746,11 +758,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix3x4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix3x4fv != null, "pglUniformMatrix3x4fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix3x4(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix3x4fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -760,9 +773,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix3x4(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix3x4fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix3x4fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -851,11 +866,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
 		public static void UniformMatrix4x3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
 		{
+			Debug.Assert(Delegates.pglUniformMatrix4x3fv != null, "pglUniformMatrix4x3fv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					UniformMatrix4x3(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniformMatrix4x3fv(location, count, transpose, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -865,9 +881,11 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				UniformMatrix4x3(location, count, transpose, (float*)refValuePtr.ToPointer());
+				Delegates.pglUniformMatrix4x3fv(location, count, transpose, (float*)refValuePtr.ToPointer());
 			}
 			#endif
+			LogCommand("glUniformMatrix4x3fv", null, location, count, transpose, value			);
+			DebugCheckErrors(null);
 		}
 
 		internal unsafe static partial class Delegates
