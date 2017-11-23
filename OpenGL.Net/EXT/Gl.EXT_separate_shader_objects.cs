@@ -283,6 +283,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glGetProgramPipelineivEXT: Binding for glGetProgramPipelineivEXT.
+		/// </summary>
+		/// <param name="pipeline">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:PipelineParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
+		public static void GetProgramPipelineEXT(UInt32 pipeline, PipelineParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetProgramPipelineivEXT != null, "pglGetProgramPipelineivEXT not implemented");
+					Delegates.pglGetProgramPipelineivEXT(pipeline, (Int32)pname, p_params);
+					LogCommand("glGetProgramPipelineivEXT", null, pipeline, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glIsProgramPipelineEXT: Binding for glIsProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">

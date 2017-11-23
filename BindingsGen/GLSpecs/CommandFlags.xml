@@ -168,27 +168,20 @@
 
 	<!-- GL - Out Parameter -->
 
-	<command name="^glGet(Query(Object)?|Shader|Program|VertexAttrib|Tex(ture)?(Level)?Parameter(I)?|ProgramInterface)u?i(64)?v(EXT)?$">
+	<!-- Get "object" -->
+	<command name="^glGet(Named)?(Active(UniformBlock|SubroutineUniform)|Program(Interface|Pipeline|Stage)?|Query(Object)?|Shader|String|VertexAttrib)(i|f|ui)?(64)?v(ARB|EXT)?$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
 
-	<command name="^glGet(QueryObject)uiv$">
+	<!-- Get "object parameter" -->
+	<command name="^glGet(Named)?(Buffer|Framebuffer(Attachment)?|Object|Renderbuffer|Sampler|Tex(ture)?(Level)?)Parameter(I)?(i|f|ui)v(ARB|EXT)?$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
 
-	<command name="^glGet(ShaderPrecisionFormat|NamedStringivARB)$">
-		<!-- Generate "out" overloads -->
-		<flags>OutParam</flags>
-	</command>
-
-	<command name="^glGet(Buffer|Object|Renderbuffer|FramebufferAttachment)Parameter(fv|iv)(ARB)?$">
-		<!-- Generate "out" overloads -->
-		<flags>OutParam</flags>
-	</command>
-
-	<command name="^glGetProgramPipeline(fv|iv)$">
+	<!-- glGetShaderPrecisionFormat specific -->
+	<command name="^glGetShaderPrecisionFormat$">
 		<!-- Generate "out" overloads -->
 		<flags>OutParam</flags>
 	</command>
@@ -233,21 +226,21 @@
 	</command>
 	
 	<!-- Unsafe/Generic parameters -->
-	
-	<command name="^gl(Program)?Uniform(Matrix)?(1|2|3|4|2x3|2x4|3x2|3x4|4x2|4x3)(d|f|i|ui)v$">
+
+	<!-- gl*Uniform* -->
+	<command name="^gl(Get)?(Program)?Uniform(Matrix)?(1|2|3|4|2x3|2x4|3x2|3x4|4x2|4x3)?(d|f|i|ui)v$">
 		<flags>UnsafeParams GenericParams</flags>
 	</command>
 
-	<command name="^glGetUniform(f|i|ui|d)v$">
+	<!-- glVertexAttrib* -->
+	<command name="^glVertexAttrib(I|L)?(1|2|3|4)(N|I)?(b|s|d|f|i|ub|ui|us)v$">
 		<flags>UnsafeParams GenericParams</flags>
 	</command>
 
-	<command name="^glVertexAttrib(1|2|3|4)(N|I)?(b|s|d|f|i|ub|ui|us)v$">
-		<flags>UnsafeParams GenericParams</flags>
-	</command>
-
+	<!-- glTexParameter* -->
+	<!-- > GenericParams desiderable for GL_TEXTURE_BORDER_COLOR -->
 	<command name="^glTexParameter(I)?(b|s|d|f|i|ub|ui|us)v$">
-		<flags>UnsafeParams</flags>
+		<flags>UnsafeParams GenericParams</flags>
 	</command>
 
 	<!-- Argument renaming for better documentation -->

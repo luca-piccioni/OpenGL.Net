@@ -5450,6 +5450,61 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttribL1dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		public static unsafe void VertexAttribL1(UInt32 index, double* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttribL1dv != null, "pglVertexAttribL1dv not implemented");
+			Delegates.pglVertexAttribL1dv(index, v);
+			LogCommand("glVertexAttribL1dv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttribL1dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		public static void VertexAttribL1d<T>(UInt32 index, ref T v) where T : struct
+		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttribL1(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttribL1(index, (double*)refVPtr.ToPointer());
+			}
+			#endif
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttribL2dv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -5474,6 +5529,61 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttribL2dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		public static unsafe void VertexAttribL2(UInt32 index, double* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttribL2dv != null, "pglVertexAttribL2dv not implemented");
+			Delegates.pglVertexAttribL2dv(index, v);
+			LogCommand("glVertexAttribL2dv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttribL2dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		public static void VertexAttribL2d<T>(UInt32 index, ref T v) where T : struct
+		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttribL2(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttribL2(index, (double*)refVPtr.ToPointer());
+			}
+			#endif
 		}
 
 		/// <summary>
@@ -5504,6 +5614,61 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glVertexAttribL3dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		public static unsafe void VertexAttribL3(UInt32 index, double* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttribL3dv != null, "pglVertexAttribL3dv not implemented");
+			Delegates.pglVertexAttribL3dv(index, v);
+			LogCommand("glVertexAttribL3dv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttribL3dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		public static void VertexAttribL3d<T>(UInt32 index, ref T v) where T : struct
+		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttribL3(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttribL3(index, (double*)refVPtr.ToPointer());
+			}
+			#endif
+		}
+
+		/// <summary>
 		/// [GL4] glVertexAttribL4dv: Specifies the value of a generic vertex attribute
 		/// </summary>
 		/// <param name="index">
@@ -5528,6 +5693,61 @@ namespace OpenGL
 				}
 			}
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttribL4dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		public static unsafe void VertexAttribL4(UInt32 index, double* v)
+		{
+			Debug.Assert(Delegates.pglVertexAttribL4dv != null, "pglVertexAttribL4dv not implemented");
+			Delegates.pglVertexAttribL4dv(index, v);
+			LogCommand("glVertexAttribL4dv", null, index, new IntPtr(v).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glVertexAttribL4dv: Specifies the value of a generic vertex attribute
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the index of the generic vertex attribute to be modified.
+		/// </param>
+		/// <param name="v">
+		/// For the vector commands (Gl.VertexAttrib*v), specifies a pointer to an array of values to be used for the generic vertex 
+		/// attribute.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		public static void VertexAttribL4d<T>(UInt32 index, ref T v) where T : struct
+		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(v);
+			try {
+				unsafe {
+					VertexAttribL4(index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refV = __makeref(v);
+				IntPtr refVPtr = *(IntPtr*)(&refV);
+
+				VertexAttribL4(index, (double*)refVPtr.ToPointer());
+			}
+			#endif
 		}
 
 		/// <summary>

@@ -5676,6 +5676,48 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL2.1|GLES1.1] glTexParameterfv: set texture parameters
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target texture, which must be either Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a single-valued texture parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_BASE_LEVEL, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_PRIORITY, 
+		/// Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, Gl.DEPTH_TEXTURE_MODE, or Gl.GENERATE_MIPMAP.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static void TexParameterf<T>(Int32 target, Int32 pname, ref T @params) where T : struct
+		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					TexParameter(target, pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				TexParameter(target, pname, (float*)refParamsPtr.ToPointer());
+			}
+			#endif
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL2.1|GLES1.1] glTexParameteri: set texture parameters
 		/// </para>
 		/// </summary>
@@ -5764,6 +5806,48 @@ namespace OpenGL
 			Delegates.pglTexParameteriv(target, pname, @params);
 			LogCommand("glTexParameteriv", null, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL2.1|GLES1.1] glTexParameteriv: set texture parameters
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target texture, which must be either Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, or Gl.TEXTURE_CUBE_MAP.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a single-valued texture parameter. <paramref name="pname"/> can be one of the following: 
+		/// Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_BASE_LEVEL, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, Gl.TEXTURE_PRIORITY, 
+		/// Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, Gl.DEPTH_TEXTURE_MODE, or Gl.GENERATE_MIPMAP.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static void TexParameteri<T>(Int32 target, Int32 pname, ref T @params) where T : struct
+		{
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					TexParameter(target, pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				TexParameter(target, pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
 		}
 
 		/// <summary>
@@ -7102,6 +7186,46 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetTexParameterfv: return texture parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the texture is bound for Gl.GetTexParameterfv, Gl.GetTexParameteriv, 
+		/// Gl.GetTexParameterIiv, and Gl.GetTexParameterIuiv functions. Gl.TEXTURE_1D, Gl.TEXTURE_1D_ARRAY, Gl.TEXTURE_2D, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_2D_MULTISAMPLE, Gl.TEXTURE_2D_MULTISAMPLE_ARRAY, Gl.TEXTURE_3D, Gl.TEXTURE_CUBE_MAP, 
+		/// Gl.TEXTURE_RECTANGLE, and Gl.TEXTURE_CUBE_MAP_ARRAY are accepted.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a texture parameter. Gl.DEPTH_STENCIL_TEXTURE_MODE, Gl.IMAGE_FORMAT_COMPATIBILITY_TYPE, 
+		/// Gl.TEXTURE_BASE_LEVEL, Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, 
+		/// Gl.TEXTURE_IMMUTABLE_FORMAT, Gl.TEXTURE_IMMUTABLE_LEVELS, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_SWIZZLE_R, 
+		/// Gl.TEXTURE_SWIZZLE_G, Gl.TEXTURE_SWIZZLE_B, Gl.TEXTURE_SWIZZLE_A, Gl.TEXTURE_SWIZZLE_RGBA, Gl.TEXTURE_TARGET, 
+		/// Gl.TEXTURE_VIEW_MIN_LAYER, Gl.TEXTURE_VIEW_MIN_LEVEL, Gl.TEXTURE_VIEW_NUM_LAYERS, Gl.TEXTURE_VIEW_NUM_LEVELS, 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, and Gl.TEXTURE_WRAP_R are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the texture parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static void GetTexParameter(TextureTarget target, GetTextureParameter pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetTexParameterfv != null, "pglGetTexParameterfv not implemented");
+					Delegates.pglGetTexParameterfv((Int32)target, (Int32)pname, p_params);
+					LogCommand("glGetTexParameterfv", null, target, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetTexParameteriv: return texture parameter values
 		/// </para>
 		/// </summary>
@@ -7214,6 +7338,49 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (float* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetTexLevelParameterfv != null, "pglGetTexLevelParameterfv not implemented");
+					Delegates.pglGetTexLevelParameterfv((Int32)target, level, (Int32)pname, p_params);
+					LogCommand("glGetTexLevelParameterfv", null, target, level, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetTexLevelParameterfv: return texture parameter values for a specific level of detail
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the texture is bound for Gl.GetTexLevelParameterfv and Gl.GetTexLevelParameteriv 
+		/// functions. Must be one of the following values: Gl.TEXTURE_1D, Gl.TEXTURE_2D, Gl.TEXTURE_3D, Gl.TEXTURE_1D_ARRAY, 
+		/// Gl.TEXTURE_2D_ARRAY, Gl.TEXTURE_RECTANGLE, Gl.TEXTURE_2D_MULTISAMPLE, Gl.TEXTURE_2D_MULTISAMPLE_ARRAY, 
+		/// Gl.TEXTURE_CUBE_MAP_POSITIVE_X, Gl.TEXTURE_CUBE_MAP_NEGATIVE_X, Gl.TEXTURE_CUBE_MAP_POSITIVE_Y, 
+		/// Gl.TEXTURE_CUBE_MAP_NEGATIVE_Y, Gl.TEXTURE_CUBE_MAP_POSITIVE_Z, Gl.TEXTURE_CUBE_MAP_NEGATIVE_Z, Gl.PROXY_TEXTURE_1D, 
+		/// Gl.PROXY_TEXTURE_2D, Gl.PROXY_TEXTURE_3D, Gl.PROXY_TEXTURE_1D_ARRAY, Gl.PROXY_TEXTURE_2D_ARRAY, 
+		/// Gl.PROXY_TEXTURE_RECTANGLE, Gl.PROXY_TEXTURE_2D_MULTISAMPLE, Gl.PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY, 
+		/// Gl.PROXY_TEXTURE_CUBE_MAP, or Gl.TEXTURE_BUFFER.
+		/// </param>
+		/// <param name="level">
+		/// Specifies the level-of-detail number of the desired image. Level 0 is the base image level. Level n is the nth mipmap 
+		/// reduction image.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a texture parameter. Gl.TEXTURE_WIDTH, Gl.TEXTURE_HEIGHT, Gl.TEXTURE_DEPTH, 
+		/// Gl.TEXTURE_INTERNAL_FORMAT, Gl.TEXTURE_RED_SIZE, Gl.TEXTURE_GREEN_SIZE, Gl.TEXTURE_BLUE_SIZE, Gl.TEXTURE_ALPHA_SIZE, 
+		/// Gl.TEXTURE_DEPTH_SIZE, Gl.TEXTURE_COMPRESSED, Gl.TEXTURE_COMPRESSED_IMAGE_SIZE, and Gl.TEXTURE_BUFFER_OFFSET are 
+		/// accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the requested data.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		public static void GetTexLevelParameter(TextureTarget target, Int32 level, GetTextureParameter pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTexLevelParameterfv != null, "pglGetTexLevelParameterfv not implemented");
 					Delegates.pglGetTexLevelParameterfv((Int32)target, level, (Int32)pname, p_params);

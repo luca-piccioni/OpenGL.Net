@@ -1024,6 +1024,39 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetActiveUniformBlockiv: query information about an active uniform block
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the name of a program containing the uniform block.
+		/// </param>
+		/// <param name="uniformBlockIndex">
+		/// Specifies the index of the uniform block within <paramref name="program"/>.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the name of the parameter to query.
+		/// </param>
+		/// <param name="params">
+		/// Specifies the address of a variable to receive the result of the query.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		public static void GetActiveUniformBlock(UInt32 program, UInt32 uniformBlockIndex, UniformBlockPName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetActiveUniformBlockiv != null, "pglGetActiveUniformBlockiv not implemented");
+					Delegates.pglGetActiveUniformBlockiv(program, uniformBlockIndex, (Int32)pname, p_params);
+					LogCommand("glGetActiveUniformBlockiv", null, program, uniformBlockIndex, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetActiveUniformBlockName: retrieve the name of an active uniform block
 		/// </para>
 		/// </summary>

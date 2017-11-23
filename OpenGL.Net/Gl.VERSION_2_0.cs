@@ -1952,6 +1952,42 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetVertexAttribfv: Return a generic vertex attribute parameter
+		/// </para>
+		/// </summary>
+		/// <param name="index">
+		/// Specifies the generic vertex attribute parameter to be queried.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of the vertex attribute parameter to be queried. Accepted values are 
+		/// Gl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, Gl.VERTEX_ATTRIB_ARRAY_ENABLED, Gl.VERTEX_ATTRIB_ARRAY_SIZE, 
+		/// Gl.VERTEX_ATTRIB_ARRAY_STRIDE, Gl.VERTEX_ATTRIB_ARRAY_TYPE, Gl.VERTEX_ATTRIB_ARRAY_NORMALIZED, 
+		/// Gl.VERTEX_ATTRIB_ARRAY_INTEGER, Gl.VERTEX_ATTRIB_ARRAY_DIVISOR, or Gl.CURRENT_VERTEX_ATTRIB.
+		/// </param>
+		/// <param name="params">
+		/// Returns the requested data.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_2_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_program")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_NV_vertex_program")]
+		public static void GetVertexAttrib(UInt32 index, Int32 pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetVertexAttribfv != null, "pglGetVertexAttribfv not implemented");
+					Delegates.pglGetVertexAttribfv(index, pname, p_params);
+					LogCommand("glGetVertexAttribfv", null, index, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetVertexAttribiv: Return a generic vertex attribute parameter
 		/// </para>
 		/// </summary>

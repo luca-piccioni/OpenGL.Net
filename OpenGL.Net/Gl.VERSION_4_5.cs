@@ -918,6 +918,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glGetNamedBufferParameteriv: return parameters of a buffer object
+		/// </summary>
+		/// <param name="buffer">
+		/// Specifies the name of the buffer object for Gl.GetNamedBufferParameteriv and Gl.GetNamedBufferParameteri64v.
+		/// </param>
+		/// <param name="value">
+		/// Specifies the name of the buffer object parameter to query.
+		/// </param>
+		/// <param name="data">
+		/// Returns the requested parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void GetNamedBufferParameter(UInt32 buffer, VertexBufferObjectParameter value, out Int32 data)
+		{
+			unsafe {
+				fixed (Int32* p_params = &data)
+				{
+					Debug.Assert(Delegates.pglGetNamedBufferParameteriv != null, "pglGetNamedBufferParameteriv not implemented");
+					Delegates.pglGetNamedBufferParameteriv(buffer, (Int32)value, p_params);
+					LogCommand("glGetNamedBufferParameteriv", null, buffer, value, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glGetNamedBufferParameteri64v: return parameters of a buffer object
 		/// </summary>
 		/// <param name="buffer">
@@ -1520,6 +1547,33 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glGetNamedFramebufferParameteriv: query a named parameter of a framebuffer object
+		/// </summary>
+		/// <param name="framebuffer">
+		/// Specifies the name of the framebuffer object for Gl.GetNamedFramebufferParameteriv.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of the framebuffer object to query.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void GetNamedFramebufferParameter(UInt32 framebuffer, GetFramebufferParameter pname, out Int32 param)
+		{
+			unsafe {
+				fixed (Int32* p_param = &param)
+				{
+					Debug.Assert(Delegates.pglGetNamedFramebufferParameteriv != null, "pglGetNamedFramebufferParameteriv not implemented");
+					Delegates.pglGetNamedFramebufferParameteriv(framebuffer, (Int32)pname, p_param);
+					LogCommand("glGetNamedFramebufferParameteriv", null, framebuffer, pname, param					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glGetNamedFramebufferAttachmentParameteriv: retrieve information about attachments of a framebuffer object
 		/// </summary>
 		/// <param name="framebuffer">
@@ -1540,6 +1594,36 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameteriv != null, "pglGetNamedFramebufferAttachmentParameteriv not implemented");
+					Delegates.pglGetNamedFramebufferAttachmentParameteriv(framebuffer, (Int32)attachment, (Int32)pname, p_params);
+					LogCommand("glGetNamedFramebufferAttachmentParameteriv", null, framebuffer, attachment, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetNamedFramebufferAttachmentParameteriv: retrieve information about attachments of a framebuffer object
+		/// </summary>
+		/// <param name="framebuffer">
+		/// Specifies the name of the framebuffer object for Gl.GetNamedFramebufferAttachmentParameteriv.
+		/// </param>
+		/// <param name="attachment">
+		/// Specifies the attachment of the framebuffer object to query.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of <paramref name="attachment"/> to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for <paramref name="attachment"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void GetNamedFramebufferAttachmentParameter(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameteriv != null, "pglGetNamedFramebufferAttachmentParameteriv not implemented");
 					Delegates.pglGetNamedFramebufferAttachmentParameteriv(framebuffer, (Int32)attachment, (Int32)pname, p_params);
@@ -1658,6 +1742,33 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetNamedRenderbufferParameteriv != null, "pglGetNamedRenderbufferParameteriv not implemented");
+					Delegates.pglGetNamedRenderbufferParameteriv(renderbuffer, (Int32)pname, p_params);
+					LogCommand("glGetNamedRenderbufferParameteriv", null, renderbuffer, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetNamedRenderbufferParameteriv: query a named parameter of a renderbuffer object
+		/// </summary>
+		/// <param name="renderbuffer">
+		/// Specifies the name of the renderbuffer object for Gl.GetNamedRenderbufferParameteriv.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of the renderbuffer object to query.
+		/// </param>
+		/// <param name="params">
+		/// Returns the value of parameter <paramref name="pname"/> for the renderbuffer object.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void GetNamedRenderbufferParameter(UInt32 renderbuffer, RenderbufferParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedRenderbufferParameteriv != null, "pglGetNamedRenderbufferParameteriv not implemented");
 					Delegates.pglGetNamedRenderbufferParameteriv(renderbuffer, (Int32)pname, p_params);
@@ -2918,6 +3029,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glGetTextureLevelParameterfv: return texture parameter values for a specific level of detail
+		/// </summary>
+		/// <param name="texture">
+		/// Specifies the texture object name for Gl.GetTextureLevelParameterfv and Gl.GetTextureLevelParameteriv functions.
+		/// </param>
+		/// <param name="level">
+		/// Specifies the level-of-detail number of the desired image. Level 0 is the base image level. Level n is the nth mipmap 
+		/// reduction image.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a texture parameter. Gl.TEXTURE_WIDTH, Gl.TEXTURE_HEIGHT, Gl.TEXTURE_DEPTH, 
+		/// Gl.TEXTURE_INTERNAL_FORMAT, Gl.TEXTURE_RED_SIZE, Gl.TEXTURE_GREEN_SIZE, Gl.TEXTURE_BLUE_SIZE, Gl.TEXTURE_ALPHA_SIZE, 
+		/// Gl.TEXTURE_DEPTH_SIZE, Gl.TEXTURE_COMPRESSED, Gl.TEXTURE_COMPRESSED_IMAGE_SIZE, and Gl.TEXTURE_BUFFER_OFFSET are 
+		/// accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the requested data.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void GetTextureLevelParameter(UInt32 texture, Int32 level, GetTextureParameter pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetTextureLevelParameterfv != null, "pglGetTextureLevelParameterfv not implemented");
+					Delegates.pglGetTextureLevelParameterfv(texture, level, (Int32)pname, p_params);
+					LogCommand("glGetTextureLevelParameterfv", null, texture, level, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glGetTextureLevelParameteriv: return texture parameter values for a specific level of detail
 		/// </summary>
 		/// <param name="texture">
@@ -3010,6 +3155,40 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (float* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetTextureParameterfv != null, "pglGetTextureParameterfv not implemented");
+					Delegates.pglGetTextureParameterfv(texture, (Int32)pname, p_params);
+					LogCommand("glGetTextureParameterfv", null, texture, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetTextureParameterfv: return texture parameter values
+		/// </summary>
+		/// <param name="texture">
+		/// Specifies the texture object name for Gl.GetTextureParameterfv, Gl.GetTextureParameteriv, Gl.GetTextureParameterIiv, and 
+		/// Gl.GetTextureParameterIuiv functions.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a texture parameter. Gl.DEPTH_STENCIL_TEXTURE_MODE, Gl.IMAGE_FORMAT_COMPATIBILITY_TYPE, 
+		/// Gl.TEXTURE_BASE_LEVEL, Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, Gl.TEXTURE_COMPARE_FUNC, 
+		/// Gl.TEXTURE_IMMUTABLE_FORMAT, Gl.TEXTURE_IMMUTABLE_LEVELS, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_MAG_FILTER, 
+		/// Gl.TEXTURE_MAX_LEVEL, Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, Gl.TEXTURE_SWIZZLE_R, 
+		/// Gl.TEXTURE_SWIZZLE_G, Gl.TEXTURE_SWIZZLE_B, Gl.TEXTURE_SWIZZLE_A, Gl.TEXTURE_SWIZZLE_RGBA, Gl.TEXTURE_TARGET, 
+		/// Gl.TEXTURE_VIEW_MIN_LAYER, Gl.TEXTURE_VIEW_MIN_LEVEL, Gl.TEXTURE_VIEW_NUM_LAYERS, Gl.TEXTURE_VIEW_NUM_LEVELS, 
+		/// Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, and Gl.TEXTURE_WRAP_R are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the texture parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void GetTextureParameter(UInt32 texture, GetTextureParameter pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterfv != null, "pglGetTextureParameterfv not implemented");
 					Delegates.pglGetTextureParameterfv(texture, (Int32)pname, p_params);

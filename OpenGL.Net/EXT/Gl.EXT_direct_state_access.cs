@@ -1113,6 +1113,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glGetTextureParameterfvEXT: Binding for glGetTextureParameterfvEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:GetTextureParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
+					Delegates.pglGetTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, p_params);
+					LogCommand("glGetTextureParameterfvEXT", null, texture, target, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glGetTextureParameterivEXT: Binding for glGetTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
@@ -1193,6 +1222,38 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (float* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
+					Delegates.pglGetTextureLevelParameterfvEXT(texture, (Int32)target, level, (Int32)pname, p_params);
+					LogCommand("glGetTextureLevelParameterfvEXT", null, texture, target, level, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glGetTextureLevelParameterfvEXT: Binding for glGetTextureLevelParameterfvEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:GetTextureParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
 					Delegates.pglGetTextureLevelParameterfvEXT(texture, (Int32)target, level, (Int32)pname, p_params);
@@ -4375,6 +4436,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glGetNamedBufferParameterivEXT: Binding for glGetNamedBufferParameterivEXT.
+		/// </summary>
+		/// <param name="buffer">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:VertexBufferObjectParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetNamedBufferParameterEXT(UInt32 buffer, VertexBufferObjectParameter pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
+					Delegates.pglGetNamedBufferParameterivEXT(buffer, (Int32)pname, p_params);
+					LogCommand("glGetNamedBufferParameterivEXT", null, buffer, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glGetNamedBufferPointervEXT: Binding for glGetNamedBufferPointervEXT.
 		/// </summary>
 		/// <param name="buffer">
@@ -5544,6 +5631,32 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glGetNamedRenderbufferParameterivEXT: Binding for glGetNamedRenderbufferParameterivEXT.
+		/// </summary>
+		/// <param name="renderbuffer">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:RenderbufferParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetNamedRenderbufferParameterEXT(UInt32 renderbuffer, RenderbufferParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
+					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (Int32)pname, p_params);
+					LogCommand("glGetNamedRenderbufferParameterivEXT", null, renderbuffer, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glNamedRenderbufferStorageMultisampleEXT: Binding for glNamedRenderbufferStorageMultisampleEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
@@ -5760,6 +5873,35 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glGetNamedFramebufferAttachmentParameterivEXT: Binding for glGetNamedFramebufferAttachmentParameterivEXT.
+		/// </summary>
+		/// <param name="framebuffer">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="attachment">
+		/// A <see cref="T:FramebufferAttachment"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:FramebufferAttachmentParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetNamedFramebufferAttachmentParameterEXT(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
+					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (Int32)attachment, (Int32)pname, p_params);
+					LogCommand("glGetNamedFramebufferAttachmentParameterivEXT", null, framebuffer, attachment, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glGenerateTextureMipmapEXT: Binding for glGenerateTextureMipmapEXT.
 		/// </summary>
 		/// <param name="texture">
@@ -5871,6 +6013,32 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
+					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (Int32)pname, p_params);
+					LogCommand("glGetFramebufferParameterivEXT", null, framebuffer, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glGetFramebufferParameterivEXT: Binding for glGetFramebufferParameterivEXT.
+		/// </summary>
+		/// <param name="framebuffer">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:GetFramebufferParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetFramebufferParameterEXT(UInt32 framebuffer, GetFramebufferParameter pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
 					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (Int32)pname, p_params);
@@ -6770,6 +6938,32 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
+					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (Int32)pname, p_params);
+					LogCommand("glGetNamedFramebufferParameterivEXT", null, framebuffer, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glGetNamedFramebufferParameterivEXT: Binding for glGetNamedFramebufferParameterivEXT.
+		/// </summary>
+		/// <param name="framebuffer">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:GetFramebufferParameter"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetNamedFramebufferParameterEXT(UInt32 framebuffer, GetFramebufferParameter pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
 					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (Int32)pname, p_params);

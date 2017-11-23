@@ -536,6 +536,38 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetSamplerParameteriv: return sampler parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="sampler">
+		/// Specifies name of the sampler object from which to retrieve parameters.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a sampler parameter. Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, 
+		/// Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, and Gl.TEXTURE_COMPARE_FUNC are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the sampler parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		public static void GetSamplerParameter(UInt32 sampler, SamplerParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetSamplerParameteriv != null, "pglGetSamplerParameteriv not implemented");
+					Delegates.pglGetSamplerParameteriv(sampler, (Int32)pname, p_params);
+					LogCommand("glGetSamplerParameteriv", null, sampler, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetSamplerParameterIiv: return sampler parameter values
 		/// </para>
 		/// </summary>
@@ -559,6 +591,40 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (Int32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetSamplerParameterIiv != null, "pglGetSamplerParameterIiv not implemented");
+					Delegates.pglGetSamplerParameterIiv(sampler, (Int32)pname, p_params);
+					LogCommand("glGetSamplerParameterIiv", null, sampler, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetSamplerParameterIiv: return sampler parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="sampler">
+		/// Specifies name of the sampler object from which to retrieve parameters.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a sampler parameter. Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, 
+		/// Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, and Gl.TEXTURE_COMPARE_FUNC are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the sampler parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static void GetSamplerParameterI(UInt32 sampler, SamplerParameterName pname, out Int32 @params)
+		{
+			unsafe {
+				fixed (Int32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetSamplerParameterIiv != null, "pglGetSamplerParameterIiv not implemented");
 					Delegates.pglGetSamplerParameterIiv(sampler, (Int32)pname, p_params);
@@ -602,6 +668,38 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetSamplerParameterfv: return sampler parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="sampler">
+		/// Specifies name of the sampler object from which to retrieve parameters.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a sampler parameter. Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, 
+		/// Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, and Gl.TEXTURE_COMPARE_FUNC are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the sampler parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		public static void GetSamplerParameter(UInt32 sampler, SamplerParameterName pname, out float @params)
+		{
+			unsafe {
+				fixed (float* p_params = &@params)
+				{
+					Debug.Assert(Delegates.pglGetSamplerParameterfv != null, "pglGetSamplerParameterfv not implemented");
+					Delegates.pglGetSamplerParameterfv(sampler, (Int32)pname, p_params);
+					LogCommand("glGetSamplerParameterfv", null, sampler, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetSamplerParameterIuiv: return sampler parameter values
 		/// </para>
 		/// </summary>
@@ -625,6 +723,40 @@ namespace OpenGL
 		{
 			unsafe {
 				fixed (UInt32* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetSamplerParameterIuiv != null, "pglGetSamplerParameterIuiv not implemented");
+					Delegates.pglGetSamplerParameterIuiv(sampler, (Int32)pname, p_params);
+					LogCommand("glGetSamplerParameterIuiv", null, sampler, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetSamplerParameterIuiv: return sampler parameter values
+		/// </para>
+		/// </summary>
+		/// <param name="sampler">
+		/// Specifies name of the sampler object from which to retrieve parameters.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the symbolic name of a sampler parameter. Gl.TEXTURE_MAG_FILTER, Gl.TEXTURE_MIN_FILTER, Gl.TEXTURE_MIN_LOD, 
+		/// Gl.TEXTURE_MAX_LOD, Gl.TEXTURE_LOD_BIAS, Gl.TEXTURE_WRAP_S, Gl.TEXTURE_WRAP_T, Gl.TEXTURE_WRAP_R, 
+		/// Gl.TEXTURE_BORDER_COLOR, Gl.TEXTURE_COMPARE_MODE, and Gl.TEXTURE_COMPARE_FUNC are accepted.
+		/// </param>
+		/// <param name="params">
+		/// Returns the sampler parameters.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static void GetSamplerParameterI(UInt32 sampler, SamplerParameterName pname, out UInt32 @params)
+		{
+			unsafe {
+				fixed (UInt32* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetSamplerParameterIuiv != null, "pglGetSamplerParameterIuiv not implemented");
 					Delegates.pglGetSamplerParameterIuiv(sampler, (Int32)pname, p_params);

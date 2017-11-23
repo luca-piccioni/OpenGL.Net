@@ -2427,6 +2427,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glGetActiveSubroutineUniformiv: query a property of an active shader subroutine uniform
+		/// </summary>
+		/// <param name="program">
+		/// Specifies the name of the program containing the subroutine.
+		/// </param>
+		/// <param name="shadertype">
+		/// Specifies the shader stage from which to query for the subroutine parameter. <paramref name="shadertype"/> must be one 
+		/// of Gl.VERTEX_SHADER, Gl.TESS_CONTROL_SHADER, Gl.TESS_EVALUATION_SHADER, Gl.GEOMETRY_SHADER or Gl.FRAGMENT_SHADER.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the shader subroutine uniform.
+		/// </param>
+		/// <param name="pname">
+		/// Specifies the parameter of the shader subroutine uniform to query. <paramref name="pname"/> must be 
+		/// Gl.NUM_COMPATIBLE_SUBROUTINES, Gl.COMPATIBLE_SUBROUTINES, Gl.UNIFORM_SIZE or Gl.UNIFORM_NAME_LENGTH.
+		/// </param>
+		/// <param name="values">
+		/// Specifies the address of a into which the queried value or values will be placed.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_0")]
+		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
+		public static void GetActiveSubroutineUniform(UInt32 program, ShaderType shadertype, UInt32 index, SubroutineParameterName pname, out Int32 values)
+		{
+			unsafe {
+				fixed (Int32* p_values = &values)
+				{
+					Debug.Assert(Delegates.pglGetActiveSubroutineUniformiv != null, "pglGetActiveSubroutineUniformiv not implemented");
+					Delegates.pglGetActiveSubroutineUniformiv(program, (Int32)shadertype, index, (Int32)pname, p_values);
+					LogCommand("glGetActiveSubroutineUniformiv", null, program, shadertype, index, pname, values					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glGetActiveSubroutineUniformName: query the name of an active shader subroutine uniform
 		/// </summary>
 		/// <param name="program">
