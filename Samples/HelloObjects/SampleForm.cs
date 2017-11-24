@@ -695,6 +695,8 @@ namespace HelloObjects
 
 			KhronosApi.LogEnabled = false;
 
+			return;
+
 			// Overlay
 			ProjectionMatrix overlayProjection = new OrthoProjectionMatrix(0.0f, ClientSize.Width, 0.0f, ClientSize.Height);
 			ModelMatrix overlayModel = new ModelMatrix();
