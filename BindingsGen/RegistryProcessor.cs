@@ -589,7 +589,7 @@ namespace BindingsGen
 				foreach (Enumerant enumerant in limitEnums) {
 					// Filter enumerant
 					CommandFlagsDatabase.Limit limit = CommandFlagsDatabase.GetLimit(enumerant.Name);
-					string fieldName = SpecificationStyle.GetCamelCase(enumerant.ImplementationName);
+					string fieldName = SpecificationStyle.GetCamelCase(ctx, enumerant.ImplementationName);
 					string fieldType = "int";
 					int fieldLength = 1;
 

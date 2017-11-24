@@ -52,6 +52,34 @@ namespace BindingsGen
 			return (GetLegalCsField(sb.ToString()));
 		}
 
+		public static string GetCamelCase(RegistryContext ctx, string token)
+		{
+			if (token == null)
+				throw new ArgumentNullException("token");
+
+			StringBuilder sb = new StringBuilder(token.Length);
+			string[] tokens = Regex.Split(token, "_");
+			string extensionName = null;
+			int camelTokensCount = tokens.Length;
+
+			if (camelTokensCount > 1 && ctx.ExtensionsDictionary.HasWord(tokens[tokens.Length - 1])) {
+				camelTokensCount -= 1;
+				extensionName = tokens[tokens.Length - 1];
+			}
+
+			for (int i = 0; i < camelTokensCount; i++) {
+				string word = tokens[i];
+				if (word.Length == 0)
+					continue;
+				sb.Append(Char.ToUpper(word[0]) + word.Substring(1).ToLower());
+			}
+
+			if (extensionName != null)
+				sb.Append(extensionName);
+
+			return (GetLegalCsField(sb.ToString()));
+		}
+
 		/// <summary>
 		/// Get the OpenGL enumerant name.
 		/// </summary>

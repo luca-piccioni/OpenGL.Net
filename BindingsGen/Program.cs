@@ -140,6 +140,23 @@ namespace BindingsGen
 
 			// OpenGL
 			if (genGL) {
+				bool genGL_Features = true, genGL_Commands = false, genGL_Extensions = false, genGL_Limits = false;
+
+				foreach (string arg in Array.FindAll(args, delegate(string item) { return (item.StartsWith("--gl-")); })) {
+					switch (arg.Substring(5, arg.Length - 5)) {
+						case "commands":
+							genGL_Commands = true;
+							break;
+						case "extensions":
+							genGL_Extensions = true;
+							break;
+						case "limits":
+							genGL_Limits = true;
+							break;
+					}
+					genGL_Features = false;
+				}
+
 				// Additional ES documentation
 				RegistryDocumentation<RegistryDocumentationHandler_GL4> gles3Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
 				gles3Documentation.Api = "GLES3.2";
@@ -160,9 +177,12 @@ namespace BindingsGen
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
-				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
-				glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
-				glRegistryProcessor.GenerateLimitsSupportClass(ctx);
+				if (genGL_Features || genGL_Commands)
+					glRegistryProcessor.GenerateCommandsAndEnums(ctx);
+				if (genGL_Features || genGL_Extensions)
+					glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
+				if (genGL_Features || genGL_Limits)
+					glRegistryProcessor.GenerateLimitsSupportClass(ctx);
 				glRegistryProcessor.GenerateVersionsSupportClass(ctx);
 				glRegistryProcessor.GenerateVbCommands(ctx);
 				glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapGl.xml"));
